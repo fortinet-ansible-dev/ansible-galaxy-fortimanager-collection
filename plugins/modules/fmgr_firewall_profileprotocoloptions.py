@@ -125,14 +125,14 @@ options:
                     - 'flow'
             cifs:
                 type: dict
-                description: No description.
+                description: Cifs.
                 suboptions:
                     domain-controller:
                         type: str
                         description: Deprecated, please rename it to domain_controller. Domain for which to decrypt CIFS traffic.
                     file-filter:
                         type: dict
-                        description: Deprecated, please rename it to file_filter.
+                        description: Deprecated, please rename it to file_filter. File filter.
                         suboptions:
                             entries:
                                 type: list
@@ -207,7 +207,7 @@ options:
                     server-keytab:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to server_keytab. Server-Keytab.
+                        description: Deprecated, please rename it to server_keytab. Server keytab.
                         suboptions:
                             keytab:
                                 type: str
@@ -249,7 +249,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             dns:
                 type: dict
-                description: No description.
+                description: Dns.
                 suboptions:
                     ports:
                         type: raw
@@ -262,7 +262,7 @@ options:
                             - 'enable'
             ftp:
                 type: dict
-                description: No description.
+                description: Ftp.
                 suboptions:
                     comfort-amount:
                         type: int
@@ -345,7 +345,7 @@ options:
                             - 'enable'
             http:
                 type: dict
-                description: No description.
+                description: Http.
                 suboptions:
                     block-page-status-code:
                         type: int
@@ -536,7 +536,7 @@ options:
                             - 'bypass'
             imap:
                 type: dict
-                description: No description.
+                description: Imap.
                 suboptions:
                     inspect-all:
                         type: str
@@ -590,7 +590,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             mail-signature:
                 type: dict
-                description: Deprecated, please rename it to mail_signature.
+                description: Deprecated, please rename it to mail_signature. Mail signature.
                 suboptions:
                     signature:
                         type: str
@@ -603,7 +603,7 @@ options:
                             - 'enable'
             mapi:
                 type: dict
-                description: No description.
+                description: Mapi.
                 suboptions:
                     options:
                         type: list
@@ -639,7 +639,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             nntp:
                 type: dict
-                description: No description.
+                description: Nntp.
                 suboptions:
                     inspect-all:
                         type: str
@@ -687,7 +687,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             pop3:
                 type: dict
-                description: No description.
+                description: Pop3.
                 suboptions:
                     inspect-all:
                         type: str
@@ -741,7 +741,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             smtp:
                 type: dict
-                description: No description.
+                description: Smtp.
                 suboptions:
                     inspect-all:
                         type: str
@@ -802,7 +802,7 @@ options:
                         description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be ...
             ssh:
                 type: dict
-                description: No description.
+                description: Ssh.
                 suboptions:
                     comfort-amount:
                         type: int
@@ -971,10 +971,12 @@ def main():
                 'switching-protocols-log': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'cifs': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'domain-controller': {'v_range': [['6.4.5', '']], 'type': 'str'},
                         'file-filter': {
+                            'v_range': [['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'entries': {
@@ -1024,6 +1026,7 @@ def main():
                     }
                 },
                 'dns': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
@@ -1031,6 +1034,7 @@ def main():
                     }
                 },
                 'ftp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'comfort-amount': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1058,6 +1062,7 @@ def main():
                     }
                 },
                 'http': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'block-page-status-code': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1114,6 +1119,7 @@ def main():
                     }
                 },
                 'imap': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1134,6 +1140,7 @@ def main():
                     }
                 },
                 'mail-signature': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'signature': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
@@ -1141,6 +1148,7 @@ def main():
                     }
                 },
                 'mapi': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'options': {
@@ -1158,6 +1166,7 @@ def main():
                     }
                 },
                 'nntp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1177,6 +1186,7 @@ def main():
                     }
                 },
                 'pop3': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1197,6 +1207,7 @@ def main():
                     }
                 },
                 'smtp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1218,6 +1229,7 @@ def main():
                     }
                 },
                 'ssh': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'comfort-amount': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1255,9 +1267,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

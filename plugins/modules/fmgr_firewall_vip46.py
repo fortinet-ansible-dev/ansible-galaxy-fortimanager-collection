@@ -104,12 +104,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -119,28 +119,28 @@ options:
                                 description: Vdom.
                     arp-reply:
                         type: str
-                        description: Deprecated, please rename it to arp_reply. Enable ARP reply.
+                        description: Deprecated, please rename it to arp_reply. Arp reply.
                         choices:
                             - 'disable'
                             - 'enable'
                     color:
                         type: int
-                        description: Color of icon on the GUI.
+                        description: Color.
                     comment:
                         type: str
                         description: Comment.
                     extip:
                         type: str
-                        description: Start-external-IP [-end-external-IP].
+                        description: Extip.
                     extport:
                         type: str
-                        description: External service port.
+                        description: Extport.
                     id:
                         type: int
-                        description: Custom defined id.
+                        description: Id.
                     ldb-method:
                         type: str
-                        description: Deprecated, please rename it to ldb_method. Load balance method.
+                        description: Deprecated, please rename it to ldb_method. Ldb method.
                         choices:
                             - 'static'
                             - 'round-robin'
@@ -150,22 +150,22 @@ options:
                             - 'first-alive'
                     mappedip:
                         type: str
-                        description: Start-mapped-IP [-end mapped-IP].
+                        description: Mappedip.
                     mappedport:
                         type: str
-                        description: Mapped service port.
+                        description: Mappedport.
                     monitor:
                         type: raw
-                        description: (list or str) Health monitors.
+                        description: (list or str) Monitor.
                     portforward:
                         type: str
-                        description: Enable port forwarding.
+                        description: Portforward.
                         choices:
                             - 'disable'
                             - 'enable'
                     protocol:
                         type: str
-                        description: Mapped port protocol.
+                        description: Protocol.
                         choices:
                             - 'tcp'
                             - 'udp'
@@ -179,16 +179,16 @@ options:
                             - 'ip'
                     src-filter:
                         type: raw
-                        description: (list) Deprecated, please rename it to src_filter. Source IP filter
+                        description: (list) Deprecated, please rename it to src_filter. Src filter.
                     type:
                         type: str
-                        description: VIP type
+                        description: Type.
                         choices:
                             - 'static-nat'
                             - 'server-load-balance'
                     uuid:
                         type: str
-                        description: Universally Unique Identifier
+                        description: Uuid.
                     srcintf-filter:
                         type: raw
                         description: (list or str) Deprecated, please rename it to srcintf_filter. Interfaces to which the VIP46 applies.
@@ -484,9 +484,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

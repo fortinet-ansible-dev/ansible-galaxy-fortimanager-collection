@@ -91,25 +91,25 @@ options:
         suboptions:
             default-mapping:
                 type: str
-                description: Deprecated, please rename it to default_mapping. Default-Mapping.
+                description: Deprecated, please rename it to default_mapping. Default mapping.
                 choices:
                     - 'disable'
                     - 'enable'
             defmap-intf:
                 type: str
-                description: Deprecated, please rename it to defmap_intf. Defmap-Intf.
+                description: Deprecated, please rename it to defmap_intf. Defmap intf.
             description:
                 type: str
                 description: Description.
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -119,14 +119,14 @@ options:
                                 description: Vdom.
                     local-intf:
                         type: str
-                        description: Deprecated, please rename it to local_intf. Local-Intf.
+                        description: Deprecated, please rename it to local_intf. Local intf.
             name:
                 type: str
                 description: Name.
                 required: true
             zone-only:
                 type: str
-                description: Deprecated, please rename it to zone_only.
+                description: Deprecated, please rename it to zone_only. Zone only.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -259,9 +259,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

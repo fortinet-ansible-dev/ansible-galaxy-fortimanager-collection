@@ -97,7 +97,7 @@ options:
         suboptions:
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) SaaS application controlled by this Access Proxy.
             http-cookie-age:
                 type: int
                 description: Deprecated, please rename it to http_cookie_age. Time in minutes that client web browsers should keep a cookie.
@@ -150,7 +150,7 @@ options:
             realservers:
                 type: list
                 elements: dict
-                description: No description.
+                description: Realservers.
                 suboptions:
                     addr-type:
                         type: str
@@ -203,7 +203,7 @@ options:
                         description: Deprecated, please rename it to ssh_client_cert. Set access-proxy SSH client certificate profile.
                     ssh-host-key:
                         type: raw
-                        description: (list) Deprecated, please rename it to ssh_host_key.
+                        description: (list) Deprecated, please rename it to ssh_host_key. One or more server host key.
                     ssh-host-key-validation:
                         type: str
                         description: Deprecated, please rename it to ssh_host_key_validation. Enable/disable SSH real server host key validation.
@@ -273,7 +273,7 @@ options:
             ssl-cipher-suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_cipher_suites.
+                description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -356,7 +356,7 @@ options:
                     versions:
                         type: list
                         elements: str
-                        description: No description.
+                        description: SSL/TLS versions that the cipher suite can be used with.
                         choices:
                             - 'tls-1.0'
                             - 'tls-1.1'
@@ -424,7 +424,7 @@ options:
                     - 'enable'
             quic:
                 type: dict
-                description: No description.
+                description: Quic.
                 suboptions:
                     ack-delay-exponent:
                         type: int
@@ -712,6 +712,7 @@ def main():
                 'h2-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'quic': {
+                    'v_range': [['7.4.1', '']],
                     'type': 'dict',
                     'options': {
                         'ack-delay-exponent': {'v_range': [['7.4.1', '']], 'type': 'int'},
@@ -739,9 +740,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

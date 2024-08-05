@@ -114,7 +114,7 @@ options:
             bookmark-group:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to bookmark_group. Bookmark-Group.
+                description: Deprecated, please rename it to bookmark_group. Bookmark group.
                 suboptions:
                     bookmarks:
                         type: list
@@ -148,7 +148,7 @@ options:
                             form-data:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to form_data. Form-Data.
+                                description: Deprecated, please rename it to form_data. Form data.
                                 suboptions:
                                     name:
                                         type: str
@@ -538,7 +538,7 @@ options:
             mac-addr-check-rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mac_addr_check_rule. Mac-Addr-Check-Rule.
+                description: Deprecated, please rename it to mac_addr_check_rule. Mac addr check rule.
                 suboptions:
                     mac-addr-list:
                         type: raw
@@ -604,7 +604,7 @@ options:
             split-dns:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to split_dns. Split-Dns.
+                description: Deprecated, please rename it to split_dns. Split dns.
                 suboptions:
                     dns-server1:
                         type: str
@@ -773,7 +773,7 @@ options:
                     - 'enable'
             os-check-list:
                 type: dict
-                description: Deprecated, please rename it to os_check_list.
+                description: Deprecated, please rename it to os_check_list. Os check list.
                 suboptions:
                     action:
                         type: str
@@ -841,12 +841,12 @@ options:
                 description: Deprecated, please rename it to dhcp6_ra_linkaddr. Relay agent IPv6 link address to use in DHCP6 requests.
             landing-page:
                 type: dict
-                description: Deprecated, please rename it to landing_page.
+                description: Deprecated, please rename it to landing_page. Landing page.
                 suboptions:
                     form-data:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to form_data.
+                        description: Deprecated, please rename it to form_data. Form data.
                         suboptions:
                             name:
                                 type: str
@@ -872,7 +872,7 @@ options:
                             - 'alternative'
                     sso-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sso_password.
+                        description: (list) Deprecated, please rename it to sso_password. SSO password.
                     sso-username:
                         type: str
                         description: Deprecated, please rename it to sso_username. SSO user name.
@@ -1327,6 +1327,7 @@ def main():
                 'ipv6-split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'os-check-list': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
@@ -1346,6 +1347,7 @@ def main():
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'landing-page': {
+                    'v_range': [['7.4.0', '']],
                     'type': 'dict',
                     'options': {
                         'form-data': {
@@ -1380,9 +1382,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

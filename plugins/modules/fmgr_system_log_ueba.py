@@ -11,13 +11,13 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 DOCUMENTATION = '''
 ---
-module: fmgr_switchcontroller_managedswitch_stpsettings
-short_description: Configuration method to edit Spanning Tree Protocol
+module: fmgr_system_log_ueba
+short_description: UEBAsettings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.0.0"
+version_added: "2.6.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -71,20 +71,31 @@ options:
         description: The maximum time in seconds to wait for other user to release the workspace lock.
         type: int
         default: 300
-    device:
-        description: The parameter (device) in requested url.
-        type: str
-        required: true
-    vdom:
-        description: The parameter (vdom) in requested url.
-        type: str
-        required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
-        type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
+    system_log_ueba:
+        description: The top level parameters set.
+        required: false
+        type: dict
+        suboptions:
+            ip-only-ep:
+                type: str
+                description:
+                    - Deprecated, please rename it to ip_only_ep.
+                    - Disable/Enable IP-only endpoint identification.
+                    - disable - Disable IP-only endpoint identification.
+                    - enable - Enable IP-only endpoint identification.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ip-unique-scope:
+                type: str
+                description:
+                    - Deprecated, please rename it to ip_unique_scope.
+                    - set ip-unique-scope.
+                    - adom - set ip-unique-scope to adom.
+                    - vdom - set ip-unique-scope to vdom.
+                choices:
+                    - 'adom'
+                    - 'vdom'
 '''
 
 EXAMPLES = '''
@@ -96,16 +107,16 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Configuration method to edit Spanning Tree Protocol
-      fortinet.fortimanager.fmgr_switchcontroller_managedswitch_stpsettings:
+    - name: UEBAsettings.
+      fortinet.fortimanager.fmgr_system_log_ueba:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
         workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
-        device: <your own value>
-        vdom: <your own value>
-        managed_switch: <your own value>
+        system_log_ueba:
+          ip_only_ep: <value in [disable, enable]>
+          ip_unique_scope: <value in [adom, vdom]>
 '''
 
 RETURN = '''
@@ -157,35 +168,37 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/stp-settings'
+        '/cli/global/system/log/ueba'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/stp-settings/{stp-settings}'
+        '/cli/global/system/log/ueba/{ueba}'
     ]
 
-    url_params = ['device', 'vdom', 'managed-switch']
+    url_params = []
     module_primary_key = None
     module_arg_spec = {
-        'device': {'required': True, 'type': 'str'},
-        'vdom': {'required': True, 'type': 'str'},
-        'managed-switch': {'type': 'str', 'api_name': 'managed_switch'},
-        'managed_switch': {'type': 'str'}
+        'system_log_ueba': {
+            'type': 'dict',
+            'v_range': [['7.4.3', '']],
+            'options': {
+                'ip-only-ep': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip-unique-scope': {'v_range': [['7.4.3', '']], 'choices': ['adom', 'vdom'], 'type': 'str'}
+            }
+
+        }
     }
 
     module_option_spec = get_module_arg_spec('partial crud')
     module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
-    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_managedswitch_stpsettings'),
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_log_ueba'),
                            supports_check_mode=False)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

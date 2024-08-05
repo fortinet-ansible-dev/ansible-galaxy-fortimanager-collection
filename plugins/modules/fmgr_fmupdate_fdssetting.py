@@ -165,7 +165,7 @@ options:
                 description: Deprecated, please rename it to max_work. The maximum number of worker processing download requests
             push-override:
                 type: dict
-                description: Deprecated, please rename it to push_override.
+                description: Deprecated, please rename it to push_override. Push override.
                 suboptions:
                     ip:
                         type: str
@@ -184,12 +184,12 @@ options:
                             - 'enable'
             push-override-to-client:
                 type: dict
-                description: Deprecated, please rename it to push_override_to_client.
+                description: Deprecated, please rename it to push_override_to_client. Push override to client.
                 suboptions:
                     announce-ip:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to announce_ip. Announce-Ip.
+                        description: Deprecated, please rename it to announce_ip. Announce ip.
                         suboptions:
                             id:
                                 type: int
@@ -229,7 +229,7 @@ options:
                     - 'enable'
             server-override:
                 type: dict
-                description: Deprecated, please rename it to server_override.
+                description: Deprecated, please rename it to server_override. Server override.
                 suboptions:
                     servlist:
                         type: list
@@ -254,8 +254,8 @@ options:
                                     - (list or str)
                                     - Deprecated, please rename it to service_type.
                                     - Override service type.
-                                    - fct - Server override config for fct
                                     - fds - Server override config for fds
+                                    - fct - Server override config for fct
                                 choices:
                                     - 'fds'
                                     - 'fct'
@@ -280,8 +280,6 @@ options:
                     - '5.'
                     - '5.'
                     - '6.'
-                    - '6.'
-                    - '6.'
                 choices:
                     - '4.x'
                     - '5.0'
@@ -301,7 +299,6 @@ options:
                     - Supported FortiOS versions.
                     - '5.'
                     - '5.'
-                    - '6.'
                     - '6.'
                     - '6.'
                 choices:
@@ -355,12 +352,8 @@ options:
                 description:
                     - Deprecated, please rename it to system_support_fsw.
                     - Supported FortiSwitch versions.
-                    - '4.'
                     - '5.'
                     - '5.'
-                    - '5.'
-                    - '5.'
-                    - '6.'
                     - '6.'
                     - '6.'
                 choices:
@@ -410,7 +403,7 @@ options:
                     - 'add-service'
             update-schedule:
                 type: dict
-                description: Deprecated, please rename it to update_schedule.
+                description: Deprecated, please rename it to update_schedule. Update schedule.
                 suboptions:
                     day:
                         type: str
@@ -487,14 +480,23 @@ options:
             system-support-fdc:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to system_support_fdc.
+                description:
+                    - Deprecated, please rename it to system_support_fdc.
+                    - Supported FortiDeceptor versions.
+                    - '3.'
+                    - '4.'
                 choices:
                     - '3.x'
                     - '4.x'
             system-support-fts:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to system_support_fts.
+                description:
+                    - Deprecated, please rename it to system_support_fts.
+                    - Supported FortiTester versions.
+                    - '3.'
+                    - '4.'
+                    - '7.'
                 choices:
                     - '3.x'
                     - '4.x'
@@ -502,14 +504,22 @@ options:
             system-support-faz:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to system_support_faz.
+                description:
+                    - Deprecated, please rename it to system_support_faz.
+                    - Supported FortiAnalyzer versions.
+                    - '6.'
+                    - '7.'
                 choices:
                     - '6.x'
                     - '7.x'
             system-support-fis:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to system_support_fis.
+                description:
+                    - Deprecated, please rename it to system_support_fis.
+                    - Supported FortiIsolator versions.
+                    - '1.'
+                    - '2.'
                 choices:
                     - '1.x'
                     - '2.x'
@@ -791,9 +801,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

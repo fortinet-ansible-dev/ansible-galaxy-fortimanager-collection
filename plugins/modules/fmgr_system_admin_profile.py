@@ -200,7 +200,7 @@ options:
             datamask-custom-fields:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to datamask_custom_fields. Datamask-Custom-Fields.
+                description: Deprecated, please rename it to datamask_custom_fields. Datamask custom fields.
                 suboptions:
                     field-category:
                         type: list
@@ -928,7 +928,7 @@ options:
             write-passwd-profiles:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to write_passwd_profiles.
+                description: Deprecated, please rename it to write_passwd_profiles. Write passwd profiles.
                 suboptions:
                     profileid:
                         type: str
@@ -936,7 +936,7 @@ options:
             write-passwd-user-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to write_passwd_user_list.
+                description: Deprecated, please rename it to write_passwd_user_list. Write passwd user list.
                 suboptions:
                     userid:
                         type: str
@@ -1073,7 +1073,7 @@ def main():
                 'description': {'type': 'str'},
                 'device-ap': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'device-config': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
-                'device-forticlient': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-forticlient': {'v_range': [['6.0.0', '7.4.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'device-fortiswitch': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'device-manager': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'device-op': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1093,8 +1093,8 @@ def main():
                 'log-viewer': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'policy-objects': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'profileid': {'required': True, 'type': 'str'},
-                'read-passwd': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
-                'realtime-monitor': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'read-passwd': {'v_range': [['6.0.0', '7.4.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'realtime-monitor': {'v_range': [['6.0.0', '7.4.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'report-viewer': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'scope': {'choices': ['global', 'adom'], 'type': 'str'},
                 'set-install-targets': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1170,9 +1170,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

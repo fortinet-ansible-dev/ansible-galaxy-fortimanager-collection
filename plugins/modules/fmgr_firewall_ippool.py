@@ -110,12 +110,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -125,49 +125,49 @@ options:
                                 description: Vdom.
                     arp-intf:
                         type: str
-                        description: Deprecated, please rename it to arp_intf. Select an interface from available options that will reply to ARP requests.
+                        description: Deprecated, please rename it to arp_intf. Arp intf.
                     arp-reply:
                         type: str
-                        description: Deprecated, please rename it to arp_reply. Enable/disable replying to ARP requests when an IP Pool is added to a p...
+                        description: Deprecated, please rename it to arp_reply. Arp reply.
                         choices:
                             - 'disable'
                             - 'enable'
                     associated-interface:
                         type: str
-                        description: Deprecated, please rename it to associated_interface. Associated interface name.
+                        description: Deprecated, please rename it to associated_interface. Associated interface.
                     block-size:
                         type: int
-                        description: Deprecated, please rename it to block_size. Number of addresses in a block
+                        description: Deprecated, please rename it to block_size. Block size.
                     comments:
                         type: str
-                        description: Comment.
+                        description: Comments.
                     endip:
                         type: str
-                        description: Final IPv4 address
+                        description: Endip.
                     num-blocks-per-user:
                         type: int
-                        description: Deprecated, please rename it to num_blocks_per_user. Number of addresses blocks that can be used by a user
+                        description: Deprecated, please rename it to num_blocks_per_user. Num blocks per user.
                     pba-timeout:
                         type: int
-                        description: Deprecated, please rename it to pba_timeout. Port block allocation timeout
+                        description: Deprecated, please rename it to pba_timeout. Pba timeout.
                     permit-any-host:
                         type: str
-                        description: Deprecated, please rename it to permit_any_host. Enable/disable full cone NAT.
+                        description: Deprecated, please rename it to permit_any_host. Permit any host.
                         choices:
                             - 'disable'
                             - 'enable'
                     source-endip:
                         type: str
-                        description: Deprecated, please rename it to source_endip. Final IPv4 address
+                        description: Deprecated, please rename it to source_endip. Source endip.
                     source-startip:
                         type: str
-                        description: Deprecated, please rename it to source_startip. First IPv4 address
+                        description: Deprecated, please rename it to source_startip. Source startip.
                     startip:
                         type: str
-                        description: First IPv4 address
+                        description: Startip.
                     type:
                         type: str
-                        description: IP pool type
+                        description: Type.
                         choices:
                             - 'overload'
                             - 'one-to-one'
@@ -176,43 +176,43 @@ options:
                             - 'cgn-resource-allocation'
                     cgn-block-size:
                         type: int
-                        description: Deprecated, please rename it to cgn_block_size. Number of ports in a block
+                        description: Deprecated, please rename it to cgn_block_size. Cgn block size.
                     cgn-client-endip:
                         type: str
-                        description: Deprecated, please rename it to cgn_client_endip. Final client IPv4 address
+                        description: Deprecated, please rename it to cgn_client_endip. Cgn client endip.
                     cgn-client-startip:
                         type: str
-                        description: Deprecated, please rename it to cgn_client_startip. First client IPv4 address
+                        description: Deprecated, please rename it to cgn_client_startip. Cgn client startip.
                     cgn-fixedalloc:
                         type: str
-                        description: Deprecated, please rename it to cgn_fixedalloc. Enable/disable fixed-allocation mode.
+                        description: Deprecated, please rename it to cgn_fixedalloc. Cgn fixedalloc.
                         choices:
                             - 'disable'
                             - 'enable'
                     cgn-overload:
                         type: str
-                        description: Deprecated, please rename it to cgn_overload. Enable/disable overload mode.
+                        description: Deprecated, please rename it to cgn_overload. Cgn overload.
                         choices:
                             - 'disable'
                             - 'enable'
                     cgn-port-end:
                         type: int
-                        description: Deprecated, please rename it to cgn_port_end. Ending public port can be allocated.
+                        description: Deprecated, please rename it to cgn_port_end. Cgn port end.
                     cgn-port-start:
                         type: int
-                        description: Deprecated, please rename it to cgn_port_start. Starting public port can be allocated.
+                        description: Deprecated, please rename it to cgn_port_start. Cgn port start.
                     cgn-spa:
                         type: str
-                        description: Deprecated, please rename it to cgn_spa. Enable/disable single port allocation mode.
+                        description: Deprecated, please rename it to cgn_spa. Cgn spa.
                         choices:
                             - 'disable'
                             - 'enable'
                     utilization-alarm-clear:
                         type: int
-                        description: Deprecated, please rename it to utilization_alarm_clear. Pool utilization alarm clear threshold
+                        description: Deprecated, please rename it to utilization_alarm_clear. Utilization alarm clear.
                     utilization-alarm-raise:
                         type: int
-                        description: Deprecated, please rename it to utilization_alarm_raise. Pool utilization alarm raise threshold
+                        description: Deprecated, please rename it to utilization_alarm_raise. Utilization alarm raise.
                     endport:
                         type: int
                         description: Final port number
@@ -245,7 +245,10 @@ options:
                             - 'enable'
                     exclude-ip:
                         type: raw
-                        description: (list) Deprecated, please rename it to exclude_ip.
+                        description: (list) Deprecated, please rename it to exclude_ip. Exclude IPs x.
+                    pba-interim-log:
+                        type: int
+                        description: Deprecated, please rename it to pba_interim_log. Port block allocation interim logging interval
             endip:
                 type: str
                 description: Final IPv4 address
@@ -354,7 +357,10 @@ options:
                     - 'enable'
             exclude-ip:
                 type: raw
-                description: (list) Deprecated, please rename it to exclude_ip.
+                description: (list) Deprecated, please rename it to exclude_ip. Exclude IPs x.
+            pba-interim-log:
+                type: int
+                description: Deprecated, please rename it to pba_interim_log. Port block allocation interim logging interval
 '''
 
 EXAMPLES = '''
@@ -504,7 +510,8 @@ def main():
                         'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                         'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'}
+                        'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
+                        'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -534,7 +541,8 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                 'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'}
+                'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
+                'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -550,9 +558,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -101,6 +101,7 @@ options:
                     - 'firewall-user'
                     - 'ems-tag'
                     - 'vulnerability'
+                    - 'fortivoice-tag'
             description:
                 type: str
                 description: Description for the NAC policy matching pattern.
@@ -155,7 +156,52 @@ options:
                 description: Deprecated, please rename it to user_group. NAC policy matching user group.
             severity:
                 type: raw
-                description: (list) No description.
+                description: (list) NAC policy matching devices vulnerability severity lists.
+            firewall-address:
+                type: raw
+                description: (list) Deprecated, please rename it to firewall_address. Dynamic firewall address to associate MAC which match this policy.
+            fortivoice-tag:
+                type: raw
+                description: (list) Deprecated, please rename it to fortivoice_tag. NAC policy matching FortiVoice tag.
+            match-period:
+                type: int
+                description: Deprecated, please rename it to match_period. Number of days the matched devices will be retained
+            match-type:
+                type: str
+                description: Deprecated, please rename it to match_type. Match and retain the devices based on the type.
+                choices:
+                    - 'dynamic'
+                    - 'override'
+            switch-fortilink:
+                type: raw
+                description:
+                    - (list)
+                    - Deprecated, please rename it to switch_fortilink.
+                    - Support meta variable
+                    - FortiLink interface for which this NAC policy belongs to.
+            switch-group:
+                type: raw
+                description:
+                    - (list)
+                    - Deprecated, please rename it to switch_group.
+                    - Support meta variable
+                    - List of managed FortiSwitch groups on which NAC policy can be applied.
+            switch-mac-policy:
+                type: raw
+                description: (list) Deprecated, please rename it to switch_mac_policy. Switch MAC policy action to be applied on the matched NAC policy.
+            switch-scope:
+                type: raw
+                description: (list) Deprecated, please rename it to switch_scope. List of managed FortiSwitches on which NAC policy can be applied.
+            switch-port-policy:
+                type: raw
+                description: (list) Deprecated, please rename it to switch_port_policy. Switch-port-policy to be applied on the matched NAC policy.
+            switch-auto-auth:
+                type: str
+                description: Deprecated, please rename it to switch_auto_auth. NAC device auto authorization when discovered and nac-policy matched.
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'global'
 '''
 
 EXAMPLES = '''
@@ -196,6 +242,16 @@ EXAMPLES = '''
           user: <string>
           user_group: <string>
           severity: <list or integer>
+          firewall_address: <list or string>
+          fortivoice_tag: <list or string>
+          match_period: <integer>
+          match_type: <value in [dynamic, override]>
+          switch_fortilink: <list or string>
+          switch_group: <list or string>
+          switch_mac_policy: <list or string>
+          switch_scope: <list or string>
+          switch_port_policy: <list or string>
+          switch_auto_auth: <value in [disable, enable, global]>
 '''
 
 RETURN = '''
@@ -263,7 +319,11 @@ def main():
             'type': 'dict',
             'v_range': [['7.2.1', '']],
             'options': {
-                'category': {'v_range': [['7.2.1', '']], 'choices': ['device', 'firewall-user', 'ems-tag', 'vulnerability'], 'type': 'str'},
+                'category': {
+                    'v_range': [['7.2.1', '']],
+                    'choices': ['device', 'firewall-user', 'ems-tag', 'vulnerability', 'fortivoice-tag'],
+                    'type': 'str'
+                },
                 'description': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'ems-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'family': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -280,7 +340,17 @@ def main():
                 'type': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'user': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'user-group': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'severity': {'v_range': [['7.4.0', '']], 'type': 'raw'}
+                'severity': {'v_range': [['7.4.0', '']], 'type': 'raw'},
+                'firewall-address': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'fortivoice-tag': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
+                'switch-fortilink': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'switch-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'switch-mac-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'switch-scope': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'switch-port-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'switch-auto-auth': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
             }
 
         }
@@ -296,9 +366,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

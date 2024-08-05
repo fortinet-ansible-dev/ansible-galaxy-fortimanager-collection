@@ -98,7 +98,7 @@ options:
                     - 'signature'
             auto-zone-policy:
                 type: str
-                description: Deprecated, please rename it to auto_zone_policy. Auto-Zone-Policy.
+                description: Deprecated, please rename it to auto_zone_policy. Auto zone policy.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -118,29 +118,29 @@ options:
                     - 'on-demand'
             dpd-retrycount:
                 type: int
-                description: Deprecated, please rename it to dpd_retrycount. Dpd-Retrycount.
+                description: Deprecated, please rename it to dpd_retrycount. Dpd retrycount.
             dpd-retryinterval:
                 type: raw
-                description: (list) Deprecated, please rename it to dpd_retryinterval. Dpd-Retryinterval.
+                description: (list) Deprecated, please rename it to dpd_retryinterval. Dpd retryinterval.
             fcc-enforcement:
                 type: str
-                description: Deprecated, please rename it to fcc_enforcement. Fcc-Enforcement.
+                description: Deprecated, please rename it to fcc_enforcement. Fcc enforcement.
                 choices:
                     - 'disable'
                     - 'enable'
             hub2spoke-zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to hub2spoke_zone. Hub2Spoke-Zone.
+                description: (list or str) Deprecated, please rename it to hub2spoke_zone. Hub2spoke zone.
             ike-version:
                 type: str
-                description: Deprecated, please rename it to ike_version. Ike-Version.
+                description: Deprecated, please rename it to ike_version. Ike version.
                 choices:
                     - '1'
                     - '2'
             ike1dhgroup:
                 type: list
                 elements: str
-                description: Ike1Dhgroup.
+                description: Ike1dhgroup.
                 choices:
                     - '1'
                     - '2'
@@ -161,35 +161,35 @@ options:
                     - '32'
             ike1dpd:
                 type: str
-                description: Ike1Dpd.
+                description: Ike1dpd.
                 choices:
                     - 'disable'
                     - 'enable'
             ike1keylifesec:
                 type: int
-                description: Ike1Keylifesec.
+                description: Ike1keylifesec.
             ike1localid:
                 type: str
-                description: Ike1Localid.
+                description: Ike1localid.
             ike1mode:
                 type: str
-                description: Ike1Mode.
+                description: Ike1mode.
                 choices:
                     - 'main'
                     - 'aggressive'
             ike1natkeepalive:
                 type: int
-                description: Ike1Natkeepalive.
+                description: Ike1natkeepalive.
             ike1nattraversal:
                 type: str
-                description: Ike1Nattraversal.
+                description: Ike1nattraversal.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'forced'
             ike1proposal:
                 type: str
-                description: Ike1Proposal.
+                description: Ike1proposal.
                 choices:
                     - 'des-md5'
                     - 'des-sha1'
@@ -250,14 +250,14 @@ options:
                     - 'chacha20poly1305-prfsha512'
             ike2autonego:
                 type: str
-                description: Ike2Autonego.
+                description: Ike2autonego.
                 choices:
                     - 'disable'
                     - 'enable'
             ike2dhgroup:
                 type: list
                 elements: str
-                description: Ike2Dhgroup.
+                description: Ike2dhgroup.
                 choices:
                     - '1'
                     - '2'
@@ -278,26 +278,26 @@ options:
                     - '32'
             ike2keepalive:
                 type: str
-                description: Ike2Keepalive.
+                description: Ike2keepalive.
                 choices:
                     - 'disable'
                     - 'enable'
             ike2keylifekbs:
                 type: int
-                description: Ike2Keylifekbs.
+                description: Ike2keylifekbs.
             ike2keylifesec:
                 type: int
-                description: Ike2Keylifesec.
+                description: Ike2keylifesec.
             ike2keylifetype:
                 type: str
-                description: Ike2Keylifetype.
+                description: Ike2keylifetype.
                 choices:
                     - 'seconds'
                     - 'kbs'
                     - 'both'
             ike2proposal:
                 type: str
-                description: Ike2Proposal.
+                description: Ike2proposal.
                 choices:
                     - 'null-md5'
                     - 'null-sha1'
@@ -363,19 +363,19 @@ options:
                     - 'chacha20poly1305'
             inter-vdom:
                 type: str
-                description: Deprecated, please rename it to inter_vdom. Inter-Vdom.
+                description: Deprecated, please rename it to inter_vdom. Inter vdom.
                 choices:
                     - 'disable'
                     - 'enable'
             intf-mode:
                 type: str
-                description: Deprecated, please rename it to intf_mode. Intf-Mode.
+                description: Deprecated, please rename it to intf_mode. Intf mode.
                 choices:
                     - 'off'
                     - 'on'
             localid-type:
                 type: str
-                description: Deprecated, please rename it to localid_type. Localid-Type.
+                description: Deprecated, please rename it to localid_type. Localid type.
                 choices:
                     - 'auto'
                     - 'fqdn'
@@ -389,10 +389,10 @@ options:
                 required: true
             negotiate-timeout:
                 type: int
-                description: Deprecated, please rename it to negotiate_timeout. Negotiate-Timeout.
+                description: Deprecated, please rename it to negotiate_timeout. Negotiate timeout.
             npu-offload:
                 type: str
-                description: Deprecated, please rename it to npu_offload. Npu-Offload.
+                description: Deprecated, please rename it to npu_offload. Npu offload.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -404,7 +404,7 @@ options:
                     - 'enable'
             psk-auto-generate:
                 type: str
-                description: Deprecated, please rename it to psk_auto_generate. Psk-Auto-Generate.
+                description: Deprecated, please rename it to psk_auto_generate. Psk auto generate.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -419,10 +419,10 @@ options:
                     - 'enable'
             rsa-certificate:
                 type: str
-                description: Deprecated, please rename it to rsa_certificate. Rsa-Certificate.
+                description: Deprecated, please rename it to rsa_certificate. Rsa certificate.
             spoke2hub-zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to spoke2hub_zone. Spoke2Hub-Zone.
+                description: (list or str) Deprecated, please rename it to spoke2hub_zone. Spoke2hub zone.
             topology:
                 type: str
                 description: Topology.
@@ -432,13 +432,13 @@ options:
                     - 'dialup'
             vpn-zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to vpn_zone. Vpn-Zone.
+                description: (list or str) Deprecated, please rename it to vpn_zone. Vpn zone.
             network-id:
                 type: int
-                description: Deprecated, please rename it to network_id. Network-Id.
+                description: Deprecated, please rename it to network_id. Network id.
             network-overlay:
                 type: str
-                description: Deprecated, please rename it to network_overlay. Network-Overlay.
+                description: Deprecated, please rename it to network_overlay. Network overlay.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -695,9 +695,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

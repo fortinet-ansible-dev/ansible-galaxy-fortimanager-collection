@@ -95,7 +95,7 @@ options:
             disable-entry:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to disable_entry.
+                description: Deprecated, please rename it to disable_entry. Disable entry.
                 suboptions:
                     id:
                         type: int
@@ -103,7 +103,7 @@ options:
                     ip-range:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_range.
+                        description: Deprecated, please rename it to ip_range. Ip range.
                         suboptions:
                             end-ip:
                                 type: str
@@ -116,14 +116,14 @@ options:
                                 description: Deprecated, please rename it to start_ip. Start IP address.
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Port.
                     protocol:
                         type: int
                         description: Protocol number.
             entry:
                 type: list
                 elements: dict
-                description: No description.
+                description: Entry.
                 suboptions:
                     dst:
                         type: str
@@ -134,7 +134,7 @@ options:
                     port-range:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to port_range.
+                        description: Deprecated, please rename it to port_range. Port range.
                         suboptions:
                             end-port:
                                 type: int
@@ -325,9 +325,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

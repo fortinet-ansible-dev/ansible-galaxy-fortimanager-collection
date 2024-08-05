@@ -96,29 +96,29 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             egress-shaping-profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to egress_shaping_profile.
+                description: (list or str) Deprecated, please rename it to egress_shaping_profile. Egress shaping profile.
             intrazone-deny:
                 type: str
-                description: Deprecated, please rename it to intrazone_deny.
+                description: Deprecated, please rename it to intrazone_deny. Intrazone deny.
                 choices:
                     - 'disable'
                     - 'enable'
             local-intf:
                 type: raw
-                description: (list) Deprecated, please rename it to local_intf.
+                description: (list) Deprecated, please rename it to local_intf. Local intf.
             ingress-shaping-profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ingress_shaping_profile.
+                description: (list or str) Deprecated, please rename it to ingress_shaping_profile. Ingress shaping profile.
 '''
 
 EXAMPLES = '''
@@ -238,9 +238,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

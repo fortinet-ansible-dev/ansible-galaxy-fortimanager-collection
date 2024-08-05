@@ -209,6 +209,12 @@ options:
                     - 'block'
                     - 'allow'
                     - 'inspect'
+            encrypted-client-hello:
+                type: str
+                description: Deprecated, please rename it to encrypted_client_hello. Block/allow session based on existence of encrypted-client-hello.
+                choices:
+                    - 'block'
+                    - 'allow'
 '''
 
 EXAMPLES = '''
@@ -248,6 +254,7 @@ EXAMPLES = '''
           cert_probe_failure: <value in [block, allow]>
           min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
           unsupported_ssl_version: <value in [block, allow, inspect]>
+          encrypted_client_hello: <value in [block, allow]>
 '''
 
 RETURN = '''
@@ -335,7 +342,8 @@ def main():
                 'unsupported-ssl-negotiation': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                 'cert-probe-failure': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                 'min-allowed-ssl-version': {'v_range': [['7.0.3', '']], 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'type': 'str'},
-                'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'}
+                'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
+                'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
             }
 
         }
@@ -351,9 +359,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

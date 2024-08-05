@@ -95,45 +95,45 @@ options:
         suboptions:
             action:
                 type: str
-                description: No description.
+                description: Action.
                 choices:
                     - 'assign'
                     - 'block'
                     - 'reserved'
             circuit-id:
                 type: str
-                description: Deprecated, please rename it to circuit_id.
+                description: Deprecated, please rename it to circuit_id. Circuit id.
             circuit-id-type:
                 type: str
-                description: Deprecated, please rename it to circuit_id_type.
+                description: Deprecated, please rename it to circuit_id_type. Circuit id type.
                 choices:
                     - 'hex'
                     - 'string'
             description:
                 type: str
-                description: No description.
+                description: Description.
             id:
                 type: int
-                description: No description.
+                description: Id.
                 required: true
             ip:
                 type: str
-                description: No description.
+                description: Ip.
             mac:
                 type: str
-                description: No description.
+                description: Mac.
             remote-id:
                 type: str
-                description: Deprecated, please rename it to remote_id.
+                description: Deprecated, please rename it to remote_id. Remote id.
             remote-id-type:
                 type: str
-                description: Deprecated, please rename it to remote_id_type.
+                description: Deprecated, please rename it to remote_id_type. Remote id type.
                 choices:
                     - 'hex'
                     - 'string'
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'mac'
                     - 'option82'
@@ -263,9 +263,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

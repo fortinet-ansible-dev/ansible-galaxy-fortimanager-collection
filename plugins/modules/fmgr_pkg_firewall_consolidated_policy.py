@@ -108,7 +108,7 @@ options:
                 description: (list or str) Deprecated, please rename it to app_group. Application group names.
             application:
                 type: raw
-                description: (list) Application.
+                description: (list) Application ID list.
             application-list:
                 type: str
                 description: Deprecated, please rename it to application_list. Name of an existing Application list.
@@ -638,11 +638,11 @@ def main():
             'v_range': [['6.2.0', '']],
             'options': {
                 'action': {'v_range': [['6.2.0', '']], 'choices': ['deny', 'accept', 'ipsec'], 'type': 'str'},
-                'app-category': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'app-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'application': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'app-category': {'v_range': [['6.2.0', '7.4.2']], 'type': 'raw'},
+                'app-group': {'v_range': [['6.2.0', '7.4.2']], 'type': 'raw'},
+                'application': {'v_range': [['6.2.0', '7.4.2']], 'type': 'raw'},
                 'application-list': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.2.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'cifs-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'comments': {'v_range': [['6.2.0', '']], 'type': 'str'},
@@ -676,7 +676,7 @@ def main():
                 'ips-sensor': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'logtraffic': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.2.0', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'nat': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'outbound': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -685,7 +685,7 @@ def main():
                 'poolname4': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'poolname6': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'profile-group': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['6.2.0', '7.2.0']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'profile-type': {'v_range': [['6.2.0', '']], 'choices': ['single', 'group'], 'type': 'str'},
                 'schedule': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'service': {'v_range': [['6.2.0', '']], 'type': 'raw'},
@@ -693,28 +693,32 @@ def main():
                 'srcaddr4': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'srcaddr6': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'srcintf': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.0']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-ssh-profile': {'v_range': [['6.2.0', '7.2.0']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'status': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-mss-receiver': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'tcp-mss-sender': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'traffic-shaper': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'traffic-shaper-reverse': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'url-category': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'url-category': {'v_range': [['6.2.0', '7.4.2']], 'type': 'raw'},
                 'users': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'utm-status': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'voip-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'waf-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'wanopt': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'wanopt-detection': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['active', 'passive', 'off'], 'type': 'str'},
-                'wanopt-passive-opt': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['default', 'transparent', 'non-transparent'], 'type': 'str'},
-                'wanopt-peer': {'v_range': [['6.2.1', '7.2.0']], 'type': 'str'},
-                'wanopt-profile': {'v_range': [['6.2.1', '7.2.0']], 'type': 'str'},
-                'webcache': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt-detection': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['active', 'passive', 'off'], 'type': 'str'},
+                'wanopt-passive-opt': {
+                    'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']],
+                    'choices': ['default', 'transparent', 'non-transparent'],
+                    'type': 'str'
+                },
+                'wanopt-peer': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'wanopt-profile': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'webcache': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'webproxy-forward-server': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'webproxy-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
@@ -742,9 +746,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

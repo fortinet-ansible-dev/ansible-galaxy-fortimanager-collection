@@ -143,7 +143,7 @@ options:
                         description: Deprecated, please rename it to msg_type. Message type.
                     id:
                         type: int
-                        description: No description.
+                        description: Id.
             auth:
                 type: list
                 elements: dict
@@ -176,7 +176,7 @@ options:
             custom-message:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_message. Custom-Message.
+                description: Deprecated, please rename it to custom_message. Custom message.
                 suboptions:
                     buffer:
                         type: str
@@ -202,7 +202,7 @@ options:
             device-detection-portal:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to device_detection_portal. Device-Detection-Portal.
+                description: Deprecated, please rename it to device_detection_portal. Device detection portal.
                 suboptions:
                     buffer:
                         type: str
@@ -228,7 +228,7 @@ options:
             ec:
                 type: list
                 elements: dict
-                description: No description.
+                description: Ec.
                 suboptions:
                     buffer:
                         type: str
@@ -254,7 +254,7 @@ options:
             fortiguard-wf:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to fortiguard_wf. Fortiguard-Wf.
+                description: Deprecated, please rename it to fortiguard_wf. Fortiguard wf.
                 suboptions:
                     buffer:
                         type: str
@@ -792,7 +792,7 @@ options:
             nac-quar:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to nac_quar. Nac-Quar.
+                description: Deprecated, please rename it to nac_quar. Nac quar.
                 suboptions:
                     buffer:
                         type: str
@@ -817,7 +817,7 @@ options:
                         description: Deprecated, please rename it to msg_type. Message type.
                     id:
                         type: int
-                        description: No description.
+                        description: Id.
             name:
                 type: str
                 description: Group name.
@@ -903,7 +903,7 @@ options:
             traffic-quota:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to traffic_quota. Traffic-Quota.
+                description: Deprecated, please rename it to traffic_quota. Traffic quota.
                 suboptions:
                     buffer:
                         type: str
@@ -1434,9 +1434,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

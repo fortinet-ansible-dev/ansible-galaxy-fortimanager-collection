@@ -107,12 +107,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -122,7 +122,7 @@ options:
                                 description: Vdom.
                     authen-type:
                         type: str
-                        description: Deprecated, please rename it to authen_type. Allowed authentication protocols/methods.
+                        description: Deprecated, please rename it to authen_type. Authen type.
                         choices:
                             - 'auto'
                             - 'ascii'
@@ -131,44 +131,47 @@ options:
                             - 'mschap'
                     authorization:
                         type: str
-                        description: Enable/disable TACACS+ authorization.
+                        description: Authorization.
                         choices:
                             - 'disable'
                             - 'enable'
                     key:
                         type: raw
-                        description: (list) Key to access the primary server.
+                        description: (list) Key.
                     port:
                         type: int
-                        description: Port number of the TACACS+ server.
+                        description: Port.
                     secondary-key:
                         type: raw
-                        description: (list) Deprecated, please rename it to secondary_key. Key to access the secondary server.
+                        description: (list) Deprecated, please rename it to secondary_key. Secondary key.
                     secondary-server:
                         type: str
-                        description: Deprecated, please rename it to secondary_server. Secondary TACACS+ server CN domain name or IP address.
+                        description: Deprecated, please rename it to secondary_server. Secondary server.
                     server:
                         type: str
-                        description: Primary TACACS+ server CN domain name or IP address.
+                        description: Server.
                     source-ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source IP for communications to TACACS+ server.
+                        description: Deprecated, please rename it to source_ip. Source ip.
                     tertiary-key:
                         type: raw
-                        description: (list) Deprecated, please rename it to tertiary_key. Key to access the tertiary server.
+                        description: (list) Deprecated, please rename it to tertiary_key. Tertiary key.
                     tertiary-server:
                         type: str
-                        description: Deprecated, please rename it to tertiary_server. Tertiary TACACS+ server CN domain name or IP address.
+                        description: Deprecated, please rename it to tertiary_server. Tertiary server.
                     interface:
                         type: str
-                        description: Specify outgoing interface to reach server.
+                        description: Interface.
                     interface-select-method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                        description: Deprecated, please rename it to interface_select_method. Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
+                    status-ttl:
+                        type: int
+                        description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is ...
             key:
                 type: raw
                 description: (list) Key to access the primary server.
@@ -207,6 +210,9 @@ options:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
+            status-ttl:
+                type: int
+                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
 '''
 
 EXAMPLES = '''
@@ -248,6 +254,7 @@ EXAMPLES = '''
               tertiary_server: <string>
               interface: <string>
               interface_select_method: <value in [auto, sdwan, specify]>
+              status_ttl: <integer>
           key: <list or string>
           name: <string>
           port: <integer>
@@ -259,6 +266,7 @@ EXAMPLES = '''
           tertiary_server: <string>
           interface: <string>
           interface_select_method: <value in [auto, sdwan, specify]>
+          status_ttl: <integer>
 '''
 
 RETURN = '''
@@ -348,7 +356,8 @@ def main():
                             'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']],
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
-                        }
+                        },
+                        'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -362,7 +371,8 @@ def main():
                 'tertiary-key': {'no_log': True, 'type': 'raw'},
                 'tertiary-server': {'type': 'str'},
                 'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -378,9 +388,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -96,7 +96,7 @@ options:
             entry:
                 type: list
                 elements: dict
-                description: No description.
+                description: Entry.
                 suboptions:
                     id:
                         type: int
@@ -109,13 +109,13 @@ options:
                         description: Deprecated, please rename it to ip_range_number. Total number of IP ranges.
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Integer value for the TCP/IP port
                     protocol:
                         type: int
                         description: Integer value for the protocol type as defined by IANA
             icon-id:
                 type: int
-                description: Deprecated, please rename it to icon_id. Icon-Id.
+                description: Deprecated, please rename it to icon_id. Icon id.
             id:
                 type: int
                 description: Id.
@@ -124,34 +124,34 @@ options:
                 description: Name.
             offset:
                 type: int
-                description: No description.
+                description: Offset.
             reputation:
                 type: int
                 description: Reputation.
             sld-id:
                 type: int
-                description: Deprecated, please rename it to sld_id. Sld-Id.
+                description: Deprecated, please rename it to sld_id. Sld id.
             extra-ip-range-number:
                 type: int
-                description: Deprecated, please rename it to extra_ip_range_number. Extra-Ip-Range-Number.
+                description: Deprecated, please rename it to extra_ip_range_number. Extra ip range number.
             ip-number:
                 type: int
-                description: Deprecated, please rename it to ip_number. Ip-Number.
+                description: Deprecated, please rename it to ip_number. Ip number.
             ip-range-number:
                 type: int
-                description: Deprecated, please rename it to ip_range_number. Ip-Range-Number.
+                description: Deprecated, please rename it to ip_range_number. Ip range number.
             jitter-threshold:
                 type: int
-                description: Deprecated, please rename it to jitter_threshold. Jitter-Threshold.
+                description: Deprecated, please rename it to jitter_threshold. Jitter threshold.
             latency-threshold:
                 type: int
-                description: Deprecated, please rename it to latency_threshold. Latency-Threshold.
+                description: Deprecated, please rename it to latency_threshold. Latency threshold.
             obsolete:
                 type: int
                 description: Obsolete.
             packetloss-threshold:
                 type: int
-                description: Deprecated, please rename it to packetloss_threshold. Packetloss-Threshold.
+                description: Deprecated, please rename it to packetloss_threshold. Packetloss threshold.
             singularity:
                 type: int
                 description: Singularity.
@@ -166,19 +166,19 @@ options:
                 description: (list) Region sequence number list.
             city6:
                 type: raw
-                description: (list) No description.
+                description: (list) IPv6 City sequence number list.
             country6:
                 type: raw
-                description: (list) No description.
+                description: (list) IPv6 Country sequence number list.
             extra-ip6-range-number:
                 type: int
-                description: Deprecated, please rename it to extra_ip6_range_number.
+                description: Deprecated, please rename it to extra_ip6_range_number. Extra ip6 range number.
             ip6-range-number:
                 type: int
-                description: Deprecated, please rename it to ip6_range_number.
+                description: Deprecated, please rename it to ip6_range_number. Ip6 range number.
             region6:
                 type: raw
-                description: (list) No description.
+                description: (list) IPv6 Region sequence number list.
 '''
 
 EXAMPLES = '''
@@ -326,14 +326,14 @@ def main():
                 'obsolete': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'packetloss-threshold': {'v_range': [['6.2.0', '7.2.0']], 'type': 'int'},
                 'singularity': {'v_range': [['6.2.0', '']], 'type': 'int'},
-                'city': {'v_range': [['6.4.0', '']], 'type': 'raw'},
-                'country': {'v_range': [['6.4.0', '']], 'type': 'raw'},
-                'region': {'v_range': [['6.4.0', '']], 'type': 'raw'},
-                'city6': {'v_range': [['7.2.1', '']], 'type': 'raw'},
-                'country6': {'v_range': [['7.2.1', '']], 'type': 'raw'},
+                'city': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
+                'country': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
+                'region': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
+                'city6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'},
+                'country6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'},
                 'extra-ip6-range-number': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'ip6-range-number': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                'region6': {'v_range': [['7.2.1', '']], 'type': 'raw'}
+                'region6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'}
             }
 
         }
@@ -349,9 +349,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

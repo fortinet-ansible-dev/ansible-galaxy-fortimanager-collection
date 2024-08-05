@@ -104,7 +104,7 @@ options:
             authentication-rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to authentication_rule.
+                description: Deprecated, please rename it to authentication_rule. Authentication rule.
                 suboptions:
                     auth:
                         type: str
@@ -177,7 +177,7 @@ options:
             banned-cipher:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to banned_cipher.
+                description: Deprecated, please rename it to banned_cipher. Select one or more cipher technologies that cannot be used in SSL VPN negot...
                 choices:
                     - 'RSA'
                     - 'DH'
@@ -414,7 +414,7 @@ options:
                     - 'enable'
             tlsv1-3:
                 type: str
-                description: Deprecated, please rename it to tlsv1_3.
+                description: Deprecated, please rename it to tlsv1_3. Tlsv1 3.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -468,7 +468,7 @@ options:
                     - 'enable'
             sslv3:
                 type: str
-                description: No description.
+                description: Sslv3.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -487,7 +487,7 @@ options:
             ciphersuite:
                 type: list
                 elements: str
-                description: No description.
+                description: Select one or more TLS 1.
                 choices:
                     - 'TLS-AES-128-GCM-SHA256'
                     - 'TLS-AES-256-GCM-SHA384'
@@ -750,7 +750,11 @@ def main():
             'type': 'dict',
             'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
             'options': {
-                'algorithm': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1']], 'choices': ['default', 'high', 'low', 'medium'], 'type': 'str'},
+                'algorithm': {
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1'], ['7.4.3', '']],
+                    'choices': ['default', 'high', 'low', 'medium'],
+                    'type': 'str'
+                },
                 'auth-session-check-source-ip': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
                 'authentication-rule': {
@@ -863,7 +867,7 @@ def main():
                 'browser-language-detection': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'saml-redirect-port': {'v_range': [['7.0.1', '']], 'type': 'int'},
                 'status': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'web-mode-snat': {'v_range': [['7.0.4', '7.2.3'], ['7.4.0', '7.4.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'web-mode-snat': {'v_range': [['7.0.4', '7.2.3'], ['7.4.0', '7.4.1'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-trusted-client': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dtls-heartbeat-fail-count': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'dtls-heartbeat-idle-timeout': {'v_range': [['7.4.0', '']], 'type': 'int'},
@@ -884,9 +888,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

@@ -102,10 +102,10 @@ options:
                     - 'reset'
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) ID of allowed applications.
             behavior:
                 type: raw
-                description: (list) No description.
+                description: (list) Application behavior filter.
             category:
                 type: raw
                 description: (list or str) Category ID list.
@@ -128,7 +128,7 @@ options:
             parameters:
                 type: list
                 elements: dict
-                description: No description.
+                description: Parameters.
                 suboptions:
                     id:
                         type: int
@@ -139,7 +139,7 @@ options:
                     members:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Members.
                         suboptions:
                             id:
                                 type: int
@@ -156,7 +156,7 @@ options:
             popularity:
                 type: list
                 elements: str
-                description: No description.
+                description: Application popularity filter
                 choices:
                     - '1'
                     - '2'
@@ -165,7 +165,7 @@ options:
                     - '5'
             protocols:
                 type: raw
-                description: (list) No description.
+                description: (list) Application protocol filter.
             quarantine:
                 type: str
                 description: Quarantine method.
@@ -204,7 +204,7 @@ options:
                     - 'dns-domain'
             risk:
                 type: raw
-                description: (list) No description.
+                description: (list) Risk, or impact, of allowing traffic from this application to occur
             session-ttl:
                 type: int
                 description: Deprecated, please rename it to session_ttl. Session TTL
@@ -216,19 +216,19 @@ options:
                 description: Deprecated, please rename it to shaper_reverse. Reverse traffic shaper.
             sub-category:
                 type: raw
-                description: (list) Deprecated, please rename it to sub_category.
+                description: (list) Deprecated, please rename it to sub_category. Application Sub-category ID list.
             technology:
                 type: raw
-                description: (list) No description.
+                description: (list) Application technology filter.
             vendor:
                 type: raw
-                description: (list) No description.
+                description: (list) Application vendor filter.
             tags:
                 type: str
                 description: Tag filter.
             exclusion:
                 type: raw
-                description: (list) No description.
+                description: (list) ID of excluded applications.
 '''
 
 EXAMPLES = '''
@@ -399,9 +399,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

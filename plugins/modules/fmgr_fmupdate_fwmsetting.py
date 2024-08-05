@@ -150,7 +150,7 @@ options:
                     - 'fwm_dm_json'
             upgrade-timeout:
                 type: dict
-                description: Deprecated, please rename it to upgrade_timeout.
+                description: Deprecated, please rename it to upgrade_timeout. Upgrade timeout.
                 suboptions:
                     check-status-timeout:
                         type: int
@@ -360,6 +360,7 @@ def main():
                 'immx-source': {'v_range': [['6.4.2', '']], 'choices': ['fmg', 'fgt', 'cloud'], 'type': 'str'},
                 'log': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['fwm', 'fwm_dm', 'fwm_dm_json'], 'type': 'str'},
                 'upgrade-timeout': {
+                    'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']],
                     'type': 'dict',
                     'options': {
                         'check-status-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
@@ -400,9 +401,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

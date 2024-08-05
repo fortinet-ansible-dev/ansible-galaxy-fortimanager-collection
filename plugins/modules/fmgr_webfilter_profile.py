@@ -277,7 +277,7 @@ options:
             youtube-channel-filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to youtube_channel_filter. Youtube-Channel-Filter.
+                description: Deprecated, please rename it to youtube_channel_filter. Youtube channel filter.
                 suboptions:
                     channel-id:
                         type: str
@@ -309,7 +309,7 @@ options:
                     - 'enable'
             antiphish:
                 type: dict
-                description: No description.
+                description: Antiphish.
                 suboptions:
                     check-basic-auth:
                         type: str
@@ -332,7 +332,7 @@ options:
                     custom-patterns:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to custom_patterns. Custom-Patterns.
+                        description: Deprecated, please rename it to custom_patterns. Custom patterns.
                         suboptions:
                             category:
                                 type: str
@@ -362,7 +362,7 @@ options:
                     inspection-entries:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to inspection_entries. Inspection-Entries.
+                        description: Deprecated, please rename it to inspection_entries. Inspection entries.
                         suboptions:
                             action:
                                 type: str
@@ -397,7 +397,7 @@ options:
                         description: LDAP server for which to verify received credentials against.
             ftgd-wf:
                 type: dict
-                description: Deprecated, please rename it to ftgd_wf.
+                description: Deprecated, please rename it to ftgd_wf. Ftgd wf.
                 suboptions:
                     exempt-quota:
                         type: raw
@@ -531,7 +531,7 @@ options:
                         description: Deprecated, please rename it to category_override. Local categories take precedence over FortiGuard categories.
             override:
                 type: dict
-                description: No description.
+                description: Override.
                 suboptions:
                     ovrd-cookie:
                         type: str
@@ -628,7 +628,7 @@ options:
                             - 'radius'
             url-extraction:
                 type: dict
-                description: Deprecated, please rename it to url_extraction.
+                description: Deprecated, please rename it to url_extraction. Url extraction.
                 suboptions:
                     redirect-header:
                         type: str
@@ -653,7 +653,7 @@ options:
                             - 'enable'
             web:
                 type: dict
-                description: No description.
+                description: Web.
                 suboptions:
                     blacklist:
                         type: str
@@ -732,12 +732,12 @@ options:
                         description: Deprecated, please rename it to vimeo_restrict. Set Vimeo-restrict
             file-filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter.
+                description: Deprecated, please rename it to file_filter. File filter.
                 suboptions:
                     entries:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Entries.
                         suboptions:
                             action:
                                 type: str
@@ -757,13 +757,13 @@ options:
                                     - 'outgoing'
                             encryption:
                                 type: str
-                                description: No description.
+                                description: Encryption.
                                 choices:
                                     - 'any'
                                     - 'yes'
                             file-type:
                                 type: raw
-                                description: (list) Deprecated, please rename it to file_type.
+                                description: (list) Deprecated, please rename it to file_type. Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
@@ -776,7 +776,7 @@ options:
                             protocol:
                                 type: list
                                 elements: str
-                                description: No description.
+                                description: Protocols to apply with.
                                 choices:
                                     - 'http'
                                     - 'ftp'
@@ -1122,6 +1122,7 @@ def main():
                 'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'web-antiphishing-log': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'antiphish': {
+                    'v_range': [['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'check-basic-auth': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1156,6 +1157,7 @@ def main():
                     }
                 },
                 'ftgd-wf': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'exempt-quota': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
@@ -1220,6 +1222,7 @@ def main():
                     }
                 },
                 'override': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'ovrd-cookie': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['deny', 'allow'], 'type': 'str'},
@@ -1251,6 +1254,7 @@ def main():
                     }
                 },
                 'url-extraction': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'redirect-header': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
@@ -1261,6 +1265,7 @@ def main():
                     }
                 },
                 'web': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'blacklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1298,6 +1303,7 @@ def main():
                     }
                 },
                 'file-filter': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'entries': {
@@ -1341,9 +1347,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

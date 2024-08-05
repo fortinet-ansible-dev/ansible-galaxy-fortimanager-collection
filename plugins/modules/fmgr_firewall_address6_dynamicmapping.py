@@ -96,61 +96,61 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             cache-ttl:
                 type: int
-                description: Deprecated, please rename it to cache_ttl.
+                description: Deprecated, please rename it to cache_ttl. Cache ttl.
             color:
                 type: int
-                description: No description.
+                description: Color.
             comment:
                 type: str
-                description: No description.
+                description: Comment.
             end-ip:
                 type: str
-                description: Deprecated, please rename it to end_ip.
+                description: Deprecated, please rename it to end_ip. End ip.
             fqdn:
                 type: str
-                description: No description.
+                description: Fqdn.
             host:
                 type: str
-                description: No description.
+                description: Host.
             host-type:
                 type: str
-                description: Deprecated, please rename it to host_type.
+                description: Deprecated, please rename it to host_type. Host type.
                 choices:
                     - 'any'
                     - 'specific'
             ip6:
                 type: str
-                description: No description.
+                description: Ip6.
             obj-id:
                 type: str
-                description: Deprecated, please rename it to obj_id.
+                description: Deprecated, please rename it to obj_id. Obj id.
             sdn:
                 type: str
-                description: No description.
+                description: Sdn.
                 choices:
                     - 'nsx'
             start-ip:
                 type: str
-                description: Deprecated, please rename it to start_ip.
+                description: Deprecated, please rename it to start_ip. Start ip.
             tags:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Tags.
             template:
                 type: str
-                description: No description.
+                description: Template.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'ipprefix'
                     - 'iprange'
@@ -163,45 +163,45 @@ options:
                     - 'route-tag'
             uuid:
                 type: str
-                description: No description.
+                description: Uuid.
             visibility:
                 type: str
-                description: No description.
+                description: Visibility.
                 choices:
                     - 'disable'
                     - 'enable'
             subnet-segment:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to subnet_segment.
+                description: Deprecated, please rename it to subnet_segment. Subnet segment.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     type:
                         type: str
-                        description: No description.
+                        description: Type.
                         choices:
                             - 'any'
                             - 'specific'
                     value:
                         type: str
-                        description: No description.
+                        description: Value.
             _image-base64:
                 type: str
-                description: Deprecated, please rename it to _image_base64.
+                description: Deprecated, please rename it to _image_base64. Image base64.
             end-mac:
                 type: str
-                description: Deprecated, please rename it to end_mac.
+                description: Deprecated, please rename it to end_mac. End mac.
             start-mac:
                 type: str
-                description: Deprecated, please rename it to start_mac.
+                description: Deprecated, please rename it to start_mac. Start mac.
             country:
                 type: str
-                description: No description.
+                description: Country.
             global-object:
                 type: int
-                description: Deprecated, please rename it to global_object.
+                description: Deprecated, please rename it to global_object. Global object.
             fabric-object:
                 type: str
                 description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
@@ -210,7 +210,7 @@ options:
                     - 'enable'
             macaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Multiple MAC address ranges.
             epg-name:
                 type: str
                 description: Deprecated, please rename it to epg_name. Endpoint group name.
@@ -394,9 +394,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

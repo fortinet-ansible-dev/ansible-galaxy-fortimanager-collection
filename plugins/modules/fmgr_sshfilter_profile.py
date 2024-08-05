@@ -128,7 +128,7 @@ options:
             shell-commands:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to shell_commands. Shell-Commands.
+                description: Deprecated, please rename it to shell_commands. Shell commands.
                 suboptions:
                     action:
                         type: str
@@ -170,12 +170,12 @@ options:
                             - 'simple'
             file-filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter.
+                description: Deprecated, please rename it to file_filter. File filter.
                 suboptions:
                     entries:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Entries.
                         suboptions:
                             action:
                                 type: str
@@ -195,7 +195,7 @@ options:
                                     - 'outgoing'
                             file-type:
                                 type: raw
-                                description: (list) Deprecated, please rename it to file_type.
+                                description: (list) Deprecated, please rename it to file_type. Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
@@ -208,7 +208,7 @@ options:
                             protocol:
                                 type: list
                                 elements: str
-                                description: No description.
+                                description: Protocols to apply with.
                                 choices:
                                     - 'ssh'
                     log:
@@ -379,6 +379,7 @@ def main():
                     'elements': 'dict'
                 },
                 'file-filter': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'entries': {
@@ -415,9 +416,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

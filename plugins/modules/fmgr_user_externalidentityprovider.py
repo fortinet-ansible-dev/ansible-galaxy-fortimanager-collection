@@ -11,13 +11,13 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 DOCUMENTATION = '''
 ---
-module: fmgr_switchcontroller_managedswitch_switchstpsettings
-short_description: Configure spanning tree protocol
+module: fmgr_user_externalidentityprovider
+short_description: Configure external identity provider.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.0.0"
+version_added: "2.6.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -32,6 +32,8 @@ notes:
       You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
     - Running in workspace locking mode is supported in this FortiManager module, the top
       level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
     - Normally, running one module can fail when a non-zero rc is returned. you can also override
       the conditions to fail or succeed with parameters rc_failed and rc_succeeded
 options:
@@ -64,6 +66,13 @@ options:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
         elements: int
+    state:
+        description: The directive to create, update or delete an object.
+        type: str
+        required: true
+        choices:
+          - present
+          - absent
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -71,20 +80,65 @@ options:
         description: The maximum time in seconds to wait for other user to release the workspace lock.
         type: int
         default: 300
-    device:
-        description: The parameter (device) in requested url.
+    adom:
+        description: The parameter (adom) in requested url.
         type: str
         required: true
-    vdom:
-        description: The parameter (vdom) in requested url.
-        type: str
-        required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
-        type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
+    user_externalidentityprovider:
+        description: The top level parameters set.
+        required: false
+        type: dict
+        suboptions:
+            group-attr-name:
+                type: str
+                description: Deprecated, please rename it to group_attr_name. Group attribute name in authentication query.
+            interface:
+                type: list
+                elements: str
+                description: Specify outgoing interface to reach server.
+            interface-select-method:
+                type: str
+                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
+            name:
+                type: str
+                description: External identity provider name.
+                required: true
+            port:
+                type: int
+                description: External identity provider service port number
+            server-identity-check:
+                type: str
+                description: Deprecated, please rename it to server_identity_check. Enable/disable servers identity check against its certificate and s...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            source-ip:
+                type: str
+                description: Deprecated, please rename it to source_ip. Use this IPv4/v6 address to connect to the external identity provider.
+            timeout:
+                type: int
+                description: Connection timeout value in seconds
+            type:
+                type: str
+                description: External identity provider type.
+                choices:
+                    - 'ms-graph'
+            url:
+                type: str
+                description: Url.
+            user-attr-name:
+                type: str
+                description: Deprecated, please rename it to user_attr_name. User attribute name in authentication query.
+            version:
+                type: str
+                description: External identity API version.
+                choices:
+                    - 'beta'
+                    - 'v1.0'
 '''
 
 EXAMPLES = '''
@@ -96,16 +150,28 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Configure spanning tree protocol
-      fortinet.fortimanager.fmgr_switchcontroller_managedswitch_switchstpsettings:
+    - name: Configure external identity provider.
+      fortinet.fortimanager.fmgr_user_externalidentityprovider:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
         workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
-        device: <your own value>
-        vdom: <your own value>
-        managed_switch: <your own value>
+        adom: <your own value>
+        state: present # <value in [present, absent]>
+        user_externalidentityprovider:
+          group_attr_name: <string>
+          interface: <list or string>
+          interface_select_method: <value in [auto, sdwan, specify]>
+          name: <string>
+          port: <integer>
+          server_identity_check: <value in [disable, enable]>
+          source_ip: <string>
+          timeout: <integer>
+          type: <value in [ms-graph]>
+          url: <string>
+          user_attr_name: <string>
+          version: <value in [beta, v1.0]>
 '''
 
 RETURN = '''
@@ -157,38 +223,53 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/switch-stp-settings'
+        '/pm/config/adom/{adom}/obj/user/external-identity-provider',
+        '/pm/config/global/obj/user/external-identity-provider'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/switch-stp-settings/{switch-stp-settings}'
+        '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
+        '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
     ]
 
-    url_params = ['device', 'vdom', 'managed-switch']
-    module_primary_key = None
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'device': {'required': True, 'type': 'str'},
-        'vdom': {'required': True, 'type': 'str'},
-        'managed-switch': {'type': 'str', 'api_name': 'managed_switch'},
-        'managed_switch': {'type': 'str'}
+        'adom': {'required': True, 'type': 'str'},
+        'user_externalidentityprovider': {
+            'type': 'dict',
+            'v_range': [['7.4.3', '']],
+            'options': {
+                'group-attr-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'interface': {'v_range': [['7.4.3', '']], 'type': 'list', 'elements': 'str'},
+                'interface-select-method': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'name': {'v_range': [['7.4.3', '']], 'required': True, 'type': 'str'},
+                'port': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'server-identity-check': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'timeout': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'type': {'v_range': [['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
+                'url': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'user-attr-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'version': {'v_range': [['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'}
+            }
+
+        }
     }
 
-    module_option_spec = get_module_arg_spec('partial crud')
+    module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
-    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_managedswitch_switchstpsettings'),
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_externalidentityprovider'),
                            supports_check_mode=False)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_curd(argument_specs=module_arg_spec)
 
     module.exit_json(meta=module.params)
 

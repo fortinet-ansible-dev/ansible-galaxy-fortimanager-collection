@@ -234,10 +234,6 @@ options:
                     - Deprecated, please rename it to disable_module.
                     - Disable module list.
                     - fortiview-noc - FortiView/NOC-SOC module.
-                    - fortirecorder - FortiRecorder module.
-                    - siem - SIEM module.
-                    - soc - SOC module.
-                    - ai - AI module.
                 choices:
                     - 'fortiview-noc'
                     - 'none'
@@ -495,7 +491,6 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                    - tlsv1.
                     - sslv3 - Enable SSLv3.
                 choices:
                     - 'tlsv1.2'
@@ -743,7 +738,6 @@ options:
                     - tlsv1.
                     - tlsv1.
                     - tlsv1.
-                    - tlsv1.
                     - sslv3 - Web Service connection using SSLv3 protocol.
                     - sslv2 - Web Service connection using SSLv2 protocol.
                 choices:
@@ -785,7 +779,7 @@ options:
             mc-policy-disabled-adoms:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mc_policy_disabled_adoms. Mc-Policy-Disabled-Adoms.
+                description: Deprecated, please rename it to mc_policy_disabled_adoms. Mc policy disabled adoms.
                 suboptions:
                     adom-name:
                         type: str
@@ -869,7 +863,7 @@ options:
             ssl-cipher-suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_cipher_suites.
+                description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -925,7 +919,25 @@ options:
             ssh-enc-algo:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssh_enc_algo.
+                description:
+                    - Deprecated, please rename it to ssh_enc_algo.
+                    - Select one or more SSH ciphers.
+                    - chacha20-poly1305@openssh.
+                    - aes128-ctr
+                    - aes192-ctr
+                    - aes256-ctr
+                    - arcfour256
+                    - arcfour128
+                    - aes128-cbc
+                    - 3des-cbc
+                    - blowfish-cbc
+                    - cast128-cbc
+                    - aes192-cbc
+                    - aes256-cbc
+                    - arcfour
+                    - rijndael-cbc@lysator.
+                    - aes128-gcm@openssh.
+                    - aes256-gcm@openssh.
                 choices:
                     - 'chacha20-poly1305@openssh.com'
                     - 'aes128-ctr'
@@ -946,7 +958,14 @@ options:
             ssh-hostkey-algo:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssh_hostkey_algo.
+                description:
+                    - Deprecated, please rename it to ssh_hostkey_algo.
+                    - Select one or more SSH hostkey algorithms.
+                    - ssh-rsa
+                    - ecdsa-sha2-nistp521
+                    - rsa-sha2-256
+                    - rsa-sha2-512
+                    - ssh-ed25519
                 choices:
                     - 'ssh-rsa'
                     - 'ecdsa-sha2-nistp521'
@@ -956,7 +975,20 @@ options:
             ssh-kex-algo:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssh_kex_algo.
+                description:
+                    - Deprecated, please rename it to ssh_kex_algo.
+                    - Select one or more SSH kex algorithms.
+                    - diffie-hellman-group1-sha1
+                    - diffie-hellman-group14-sha1
+                    - diffie-hellman-group14-sha256
+                    - diffie-hellman-group16-sha512
+                    - diffie-hellman-group18-sha512
+                    - diffie-hellman-group-exchange-sha1
+                    - diffie-hellman-group-exchange-sha256
+                    - curve25519-sha256@libssh.
+                    - ecdh-sha2-nistp256
+                    - ecdh-sha2-nistp384
+                    - ecdh-sha2-nistp521
                 choices:
                     - 'diffie-hellman-group1-sha1'
                     - 'diffie-hellman-group14-sha1'
@@ -972,7 +1004,26 @@ options:
             ssh-mac-algo:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssh_mac_algo.
+                description:
+                    - Deprecated, please rename it to ssh_mac_algo.
+                    - Select one or more SSH MAC algorithms.
+                    - hmac-md5
+                    - hmac-md5-etm@openssh.
+                    - hmac-md5-96
+                    - hmac-md5-96-etm@openssh.
+                    - hmac-sha1
+                    - hmac-sha1-etm@openssh.
+                    - hmac-sha2-256
+                    - hmac-sha2-256-etm@openssh.
+                    - hmac-sha2-512
+                    - hmac-sha2-512-etm@openssh.
+                    - hmac-ripemd160
+                    - hmac-ripemd160@openssh.
+                    - hmac-ripemd160-etm@openssh.
+                    - umac-64@openssh.
+                    - umac-128@openssh.
+                    - umac-64-etm@openssh.
+                    - umac-128-etm@openssh.
                 choices:
                     - 'hmac-md5'
                     - 'hmac-md5-etm@openssh.com'
@@ -1364,8 +1415,16 @@ def main():
                     'type': 'str'
                 },
                 'fgfm-cert-exclusive': {'v_range': [['7.0.12', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fgfm-deny-unknown': {'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fgfm-peercert-withoutsn': {'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fgfm-deny-unknown': {
+                    'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'fgfm-peercert-withoutsn': {
+                    'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'admin-lockout-method': {'v_range': [['7.2.2', '']], 'choices': ['ip', 'user'], 'type': 'str'},
                 'workspace-unlock-after-install': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-checksum-upload': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1391,9 +1450,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

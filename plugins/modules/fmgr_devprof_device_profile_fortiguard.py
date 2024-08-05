@@ -86,24 +86,24 @@ options:
         suboptions:
             target:
                 type: str
-                description: No description.
+                description: Target.
                 choices:
                     - 'none'
                     - 'direct'
                     - 'this-fmg'
             target-ip:
                 type: str
-                description: Deprecated, please rename it to target_ip.
+                description: Deprecated, please rename it to target_ip. Target ip.
             auto-firmware-upgrade:
                 type: str
-                description: Deprecated, please rename it to auto_firmware_upgrade.
+                description: Deprecated, please rename it to auto_firmware_upgrade. Auto firmware upgrade.
                 choices:
                     - 'disable'
                     - 'enable'
             auto-firmware-upgrade-day:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to auto_firmware_upgrade_day.
+                description: Deprecated, please rename it to auto_firmware_upgrade_day. Auto firmware upgrade day.
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -114,13 +114,13 @@ options:
                     - 'saturday'
             auto-firmware-upgrade-delay:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_delay.
+                description: Deprecated, please rename it to auto_firmware_upgrade_delay. Auto firmware upgrade delay.
             auto-firmware-upgrade-end-hour:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_end_hour.
+                description: Deprecated, please rename it to auto_firmware_upgrade_end_hour. Auto firmware upgrade end hour.
             auto-firmware-upgrade-start-hour:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_start_hour.
+                description: Deprecated, please rename it to auto_firmware_upgrade_start_hour. Auto firmware upgrade start hour.
 '''
 
 EXAMPLES = '''
@@ -250,9 +250,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

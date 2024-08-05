@@ -11,13 +11,13 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 DOCUMENTATION = '''
 ---
-module: fmgr_switchcontroller_managedswitch_mirror
-short_description: Configuration method to edit FortiSwitch packet mirror.
+module: fmgr_firewall_sslsshprofile_echoutersni
+short_description: ClientHelloOuter SNIs to be blocked.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.0.0"
+version_added: "2.6.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -80,20 +80,28 @@ options:
         description: The maximum time in seconds to wait for other user to release the workspace lock.
         type: int
         default: 300
-    device:
-        description: The parameter (device) in requested url.
+    adom:
+        description: The parameter (adom) in requested url.
         type: str
         required: true
-    vdom:
-        description: The parameter (vdom) in requested url.
+    ssl-ssh-profile:
+        description: Deprecated, please use "ssl_ssh_profile"
         type: str
-        required: true
-    managed-switch:
-        description: Deprecated, please use "managed_switch"
+    ssl_ssh_profile:
+        description: The parameter (ssl-ssh-profile) in requested url.
         type: str
-    managed_switch:
-        description: The parameter (managed-switch) in requested url.
-        type: str
+    firewall_sslsshprofile_echoutersni:
+        description: The top level parameters set.
+        required: false
+        type: dict
+        suboptions:
+            name:
+                type: str
+                description: ClientHelloOuter SNI name.
+                required: true
+            sni:
+                type: str
+                description: ClientHelloOuter SNI to be blocked.
 '''
 
 EXAMPLES = '''
@@ -105,17 +113,19 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Configuration method to edit FortiSwitch packet mirror.
-      fortinet.fortimanager.fmgr_switchcontroller_managedswitch_mirror:
+    - name: ClientHelloOuter SNIs to be blocked.
+      fortinet.fortimanager.fmgr_firewall_sslsshprofile_echoutersni:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
         workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
-        device: <your own value>
-        vdom: <your own value>
-        managed_switch: <your own value>
+        adom: <your own value>
+        ssl_ssh_profile: <your own value>
         state: present # <value in [present, absent]>
+        firewall_sslsshprofile_echoutersni:
+          name: <string>
+          sni: <string>
 '''
 
 RETURN = '''
@@ -167,35 +177,39 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/mirror'
+        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni',
+        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/mirror/{mirror}'
+        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}',
+        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}'
     ]
 
-    url_params = ['device', 'vdom', 'managed-switch']
-    module_primary_key = None
+    url_params = ['adom', 'ssl-ssh-profile']
+    module_primary_key = 'name'
     module_arg_spec = {
-        'device': {'required': True, 'type': 'str'},
-        'vdom': {'required': True, 'type': 'str'},
-        'managed-switch': {'type': 'str', 'api_name': 'managed_switch'},
-        'managed_switch': {'type': 'str'}
+        'adom': {'required': True, 'type': 'str'},
+        'ssl-ssh-profile': {'type': 'str', 'api_name': 'ssl_ssh_profile'},
+        'ssl_ssh_profile': {'type': 'str'},
+        'firewall_sslsshprofile_echoutersni': {
+            'type': 'dict',
+            'v_range': [['7.4.3', '']],
+            'options': {'name': {'v_range': [['7.4.3', '']], 'required': True, 'type': 'str'}, 'sni': {'v_range': [['7.4.3', '']], 'type': 'str'}}
+
+        }
     }
 
     module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
-    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_managedswitch_mirror'),
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_sslsshprofile_echoutersni'),
                            supports_check_mode=False)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

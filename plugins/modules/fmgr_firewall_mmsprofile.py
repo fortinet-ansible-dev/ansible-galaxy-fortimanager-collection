@@ -355,7 +355,7 @@ options:
             notif-msisdn:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to notif_msisdn. Notif-Msisdn.
+                description: Deprecated, please rename it to notif_msisdn. Notif msisdn.
                 suboptions:
                     msisdn:
                         type: str
@@ -382,12 +382,12 @@ options:
                 description: Deprecated, please rename it to replacemsg_group. Replacement message group.
             dupe:
                 type: dict
-                description: No description.
+                description: Dupe.
                 suboptions:
                     action1:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -398,7 +398,7 @@ options:
                     action2:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -409,7 +409,7 @@ options:
                     action3:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -467,12 +467,12 @@ options:
                         description: Window to count messages over
             flood:
                 type: dict
-                description: No description.
+                description: Flood.
                 suboptions:
                     action1:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -483,7 +483,7 @@ options:
                     action2:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -494,7 +494,7 @@ options:
                     action3:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Action to take when threshold reached.
                         choices:
                             - 'log'
                             - 'archive'
@@ -552,7 +552,7 @@ options:
                         description: Window to count messages over
             notification:
                 type: dict
-                description: No description.
+                description: Notification.
                 suboptions:
                     alert-int:
                         type: int
@@ -605,7 +605,7 @@ options:
                     days-allowed:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to days_allowed.
+                        description: Deprecated, please rename it to days_allowed. Weekdays on which notification messages may be sent.
                         choices:
                             - 'sunday'
                             - 'monday'
@@ -691,7 +691,7 @@ options:
                         description: Deprecated, please rename it to mmsc_hostname. Host name or IP address of the MMSC.
                     mmsc-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to mmsc_password.
+                        description: (list) Deprecated, please rename it to mmsc_password. Password required for authentication with the MMSC.
                     mmsc-port:
                         type: int
                         description: Deprecated, please rename it to mmsc_port. Port used on the MMSC for sending MMS messages
@@ -756,7 +756,7 @@ options:
                             - 'enable'
             outbreak-prevention:
                 type: dict
-                description: Deprecated, please rename it to outbreak_prevention.
+                description: Deprecated, please rename it to outbreak_prevention. Outbreak prevention.
                 suboptions:
                     external-blocklist:
                         type: str
@@ -1031,6 +1031,7 @@ def main():
                 'remove-blocked-const-length': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'replacemsg-group': {'type': 'str'},
                 'dupe': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'action1': {
@@ -1067,6 +1068,7 @@ def main():
                     }
                 },
                 'flood': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'action1': {
@@ -1103,6 +1105,7 @@ def main():
                     }
                 },
                 'notification': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'alert-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1156,6 +1159,7 @@ def main():
                     }
                 },
                 'outbreak-prevention': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'external-blocklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1177,9 +1181,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

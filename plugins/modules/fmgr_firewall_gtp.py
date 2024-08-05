@@ -225,7 +225,7 @@ options:
             ie-remove-policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ie_remove_policy. Ie-Remove-Policy.
+                description: Deprecated, please rename it to ie_remove_policy. Ie remove policy.
                 suboptions:
                     id:
                         type: int
@@ -316,7 +316,7 @@ options:
             ip-policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip_policy. Ip-Policy.
+                description: Deprecated, please rename it to ip_policy. Ip policy.
                 suboptions:
                     action:
                         type: str
@@ -389,7 +389,7 @@ options:
             noip-policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to noip_policy. Noip-Policy.
+                description: Deprecated, please rename it to noip_policy. Noip policy.
                 suboptions:
                     action:
                         type: str
@@ -427,7 +427,7 @@ options:
             per-apn-shaper:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to per_apn_shaper. Per-Apn-Shaper.
+                description: Deprecated, please rename it to per_apn_shaper. Per apn shaper.
                 suboptions:
                     apn:
                         type: str
@@ -622,7 +622,7 @@ options:
             policy-v2:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to policy_v2. Policy-V2.
+                description: Deprecated, please rename it to policy_v2. Policy v2.
                 suboptions:
                     action:
                         type: str
@@ -717,7 +717,7 @@ options:
                 description: Deprecated, please rename it to invalid_sgsns6_to_log. Invalid SGSN IPv6 group to be logged.
             ie-validation:
                 type: dict
-                description: Deprecated, please rename it to ie_validation.
+                description: Deprecated, please rename it to ie_validation. Ie validation.
                 suboptions:
                     apn-restriction:
                         type: str
@@ -835,7 +835,7 @@ options:
                             - 'enable'
             message-rate-limit:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit.
+                description: Deprecated, please rename it to message_rate_limit. Message rate limit.
                 suboptions:
                     create-aa-pdp-request:
                         type: int
@@ -1011,9 +1011,12 @@ options:
                     version-not-support:
                         type: int
                         description: Deprecated, please rename it to version_not_support. Rate limit for version not supported
+                    echo-response:
+                        type: int
+                        description: Deprecated, please rename it to echo_response. Rate limit for echo response
             message-rate-limit-v0:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v0.
+                description: Deprecated, please rename it to message_rate_limit_v0. Message rate limit v0.
                 suboptions:
                     create-pdp-request:
                         type: int
@@ -1026,7 +1029,7 @@ options:
                         description: Deprecated, please rename it to echo_request. Rate limit
             message-rate-limit-v1:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v1.
+                description: Deprecated, please rename it to message_rate_limit_v1. Message rate limit v1.
                 suboptions:
                     create-pdp-request:
                         type: int
@@ -1039,7 +1042,7 @@ options:
                         description: Deprecated, please rename it to echo_request. Rate limit
             message-rate-limit-v2:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v2.
+                description: Deprecated, please rename it to message_rate_limit_v2. Message rate limit v2.
                 suboptions:
                     create-session-request:
                         type: int
@@ -1061,7 +1064,7 @@ options:
                 description: Deprecated, please rename it to rat_timeout_profile. RAT timeout profile.
             message-filter:
                 type: dict
-                description: Deprecated, please rename it to message_filter.
+                description: Deprecated, please rename it to message_filter. Message filter.
                 suboptions:
                     create-aa-pdp:
                         type: str
@@ -1524,6 +1527,7 @@ def main():
                 'handover-group6': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'invalid-sgsns6-to-log': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'ie-validation': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'apn-restriction': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1548,6 +1552,7 @@ def main():
                     }
                 },
                 'message-rate-limit': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'create-aa-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1607,10 +1612,12 @@ def main():
                         'update-mbms-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                         'update-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                         'update-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'version-not-support': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'version-not-support': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-response': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     }
                 },
                 'message-rate-limit-v0': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'create-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1619,6 +1626,7 @@ def main():
                     }
                 },
                 'message-rate-limit-v1': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'create-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1627,6 +1635,7 @@ def main():
                     }
                 },
                 'message-rate-limit-v2': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'create-session-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1638,6 +1647,7 @@ def main():
                 'ie-allow-list-v2': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'rat-timeout-profile': {'v_range': [['7.0.1', '']], 'type': 'str'},
                 'message-filter': {
+                    'v_range': [['6.2.8', '6.2.12']],
                     'type': 'dict',
                     'options': {
                         'create-aa-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
@@ -1685,9 +1695,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

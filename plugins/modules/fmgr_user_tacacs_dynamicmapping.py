@@ -98,17 +98,17 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             authen-type:
                 type: str
-                description: Deprecated, please rename it to authen_type.
+                description: Deprecated, please rename it to authen_type. Authen type.
                 choices:
                     - 'auto'
                     - 'ascii'
@@ -117,44 +117,47 @@ options:
                     - 'mschap'
             authorization:
                 type: str
-                description: No description.
+                description: Authorization.
                 choices:
                     - 'disable'
                     - 'enable'
             key:
                 type: raw
-                description: (list) No description.
+                description: (list) Key.
             port:
                 type: int
-                description: No description.
+                description: Port.
             secondary-key:
                 type: raw
-                description: (list) Deprecated, please rename it to secondary_key.
+                description: (list) Deprecated, please rename it to secondary_key. Secondary key.
             secondary-server:
                 type: str
-                description: Deprecated, please rename it to secondary_server.
+                description: Deprecated, please rename it to secondary_server. Secondary server.
             server:
                 type: str
-                description: No description.
+                description: Server.
             source-ip:
                 type: str
-                description: Deprecated, please rename it to source_ip.
+                description: Deprecated, please rename it to source_ip. Source ip.
             tertiary-key:
                 type: raw
-                description: (list) Deprecated, please rename it to tertiary_key.
+                description: (list) Deprecated, please rename it to tertiary_key. Tertiary key.
             tertiary-server:
                 type: str
-                description: Deprecated, please rename it to tertiary_server.
+                description: Deprecated, please rename it to tertiary_server. Tertiary server.
             interface:
                 type: str
-                description: No description.
+                description: Interface.
             interface-select-method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method.
+                description: Deprecated, please rename it to interface_select_method. Interface select method.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
+            status-ttl:
+                type: int
+                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
 '''
 
 EXAMPLES = '''
@@ -193,6 +196,7 @@ EXAMPLES = '''
           tertiary_server: <string>
           interface: <string>
           interface_select_method: <value in [auto, sdwan, specify]>
+          status_ttl: <integer>
 '''
 
 RETURN = '''
@@ -275,7 +279,8 @@ def main():
                 'tertiary-key': {'no_log': True, 'type': 'raw'},
                 'tertiary-server': {'type': 'str'},
                 'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -291,9 +296,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

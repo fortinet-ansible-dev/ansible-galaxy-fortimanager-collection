@@ -168,6 +168,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            cert-auth-cookie:
+                type: str
+                description: Deprecated, please rename it to cert_auth_cookie. Enable/disable to use device certificate as authentication cookie
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -207,6 +213,7 @@ EXAMPLES = '''
           srcintf: <list or string>
           cors_depth: <integer>
           cors_stateful: <value in [disable, enable]>
+          cert_auth_cookie: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -290,7 +297,8 @@ def main():
                 'dstaddr6': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'srcintf': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'cors-depth': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'cors-stateful': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'cors-stateful': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -306,9 +314,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

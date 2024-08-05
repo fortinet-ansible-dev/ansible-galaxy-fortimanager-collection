@@ -119,7 +119,7 @@ options:
                     - 'enable'
             match-flags:
                 type: int
-                description: Deprecated, please rename it to match_flags.
+                description: Deprecated, please rename it to match_flags. Match flags.
             match-interface:
                 type: str
                 description: Deprecated, please rename it to match_interface. Match interface configuration.
@@ -169,7 +169,7 @@ options:
                 description: Deprecated, please rename it to set_aggregator_ip. BGP aggregator IP.
             set-aspath:
                 type: raw
-                description: (list) Deprecated, please rename it to set_aspath.
+                description: (list) Deprecated, please rename it to set_aspath. Prepend BGP AS path attribute.
             set-aspath-action:
                 type: str
                 description: Deprecated, please rename it to set_aspath_action. Specify preferred action of set-aspath.
@@ -184,7 +184,7 @@ options:
                     - 'enable'
             set-community:
                 type: raw
-                description: (list) Deprecated, please rename it to set_community.
+                description: (list) Deprecated, please rename it to set_community. BGP community attribute.
             set-community-additive:
                 type: str
                 description: Deprecated, please rename it to set_community_additive. Enable/disable adding set-community to existing community.
@@ -211,13 +211,13 @@ options:
                 description: Deprecated, please rename it to set_dampening_unreachability_half_life. Unreachability Half-life time for the penalty
             set-extcommunity-rt:
                 type: raw
-                description: (list) Deprecated, please rename it to set_extcommunity_rt.
+                description: (list) Deprecated, please rename it to set_extcommunity_rt. Route Target extended community.
             set-extcommunity-soo:
                 type: raw
-                description: (list) Deprecated, please rename it to set_extcommunity_soo.
+                description: (list) Deprecated, please rename it to set_extcommunity_soo. Site-of-Origin extended community.
             set-flags:
                 type: int
-                description: Deprecated, please rename it to set_flags.
+                description: Deprecated, please rename it to set_flags. Set flags.
             set-ip-nexthop:
                 type: str
                 description: Deprecated, please rename it to set_ip_nexthop. IP address of next hop.
@@ -493,9 +493,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

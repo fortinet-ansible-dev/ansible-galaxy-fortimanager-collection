@@ -98,7 +98,7 @@ options:
                 required: true
             sccp:
                 type: dict
-                description: No description.
+                description: Sccp.
                 suboptions:
                     block-mcast:
                         type: str
@@ -135,7 +135,7 @@ options:
                             - 'enable'
             sip:
                 type: dict
-                description: No description.
+                description: Sip.
                 suboptions:
                     ack-rate:
                         type: int
@@ -811,7 +811,7 @@ options:
                     - 'voipd'
             msrp:
                 type: dict
-                description: No description.
+                description: Msrp.
                 suboptions:
                     log-violations:
                         type: str
@@ -1059,6 +1059,7 @@ def main():
                 'comment': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'sccp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'block-mcast': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1070,6 +1071,7 @@ def main():
                     }
                 },
                 'sip': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'ack-rate': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1315,6 +1317,7 @@ def main():
                 },
                 'feature-set': {'v_range': [['7.0.0', '']], 'choices': ['flow', 'proxy', 'ips', 'voipd'], 'type': 'str'},
                 'msrp': {
+                    'v_range': [['7.0.2', '']],
                     'type': 'dict',
                     'options': {
                         'log-violations': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1338,9 +1341,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

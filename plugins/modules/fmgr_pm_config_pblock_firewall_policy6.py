@@ -112,13 +112,13 @@ options:
                     - 'enable'
             app-category:
                 type: raw
-                description: (list) Deprecated, please rename it to app_category.
+                description: (list) Deprecated, please rename it to app_category. Application category ID list.
             app-group:
                 type: raw
-                description: (list) Deprecated, please rename it to app_group.
+                description: (list) Deprecated, please rename it to app_group. Application group names.
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) Application ID list.
             application-list:
                 type: str
                 description: Deprecated, please rename it to application_list. Name of an existing Application list.
@@ -133,7 +133,7 @@ options:
                 description: Deprecated, please rename it to av_profile. Name of an existing Antivirus profile.
             cgn-log-server-grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp.
+                description: Deprecated, please rename it to cgn_log_server_grp. Cgn log server grp.
             cifs-profile:
                 type: str
                 description: Deprecated, please rename it to cifs_profile. Name of an existing CIFS profile.
@@ -142,7 +142,7 @@ options:
                 description: Comment.
             custom-log-fields:
                 type: raw
-                description: (list) Deprecated, please rename it to custom_log_fields.
+                description: (list) Deprecated, please rename it to custom_log_fields. Log field index numbers to append custom log fields to log messa...
             diffserv-forward:
                 type: str
                 description: Deprecated, please rename it to diffserv_forward. Enable to change packets DiffServ values to the specified diffservcode-f...
@@ -175,7 +175,7 @@ options:
                     - 'enable'
             dstaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Destination address and address group names.
             dstaddr-negate:
                 type: str
                 description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr specifies what the destination address must NOT be.
@@ -184,7 +184,7 @@ options:
                     - 'enable'
             dstintf:
                 type: raw
-                description: (list) No description.
+                description: (list) Outgoing
             emailfilter-profile:
                 type: str
                 description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
@@ -202,13 +202,13 @@ options:
                     - 'enable'
             fsso-groups:
                 type: raw
-                description: (list) Deprecated, please rename it to fsso_groups.
+                description: (list) Deprecated, please rename it to fsso_groups. Names of FSSO groups.
             global-label:
                 type: str
                 description: Deprecated, please rename it to global_label. Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
-                description: (list) No description.
+                description: (list) Names of user groups that can authenticate with this policy.
             http-policy-redirect:
                 type: str
                 description: Deprecated, please rename it to http_policy_redirect. Redirect HTTP
@@ -297,7 +297,7 @@ options:
                 description: Deprecated, please rename it to per_ip_shaper. Per-IP traffic shaper.
             policy-offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload.
+                description: Deprecated, please rename it to policy_offload. Policy offload.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -307,7 +307,7 @@ options:
                 required: true
             poolname:
                 type: raw
-                description: (list) No description.
+                description: (list) IP Pool names.
             profile-group:
                 type: str
                 description: Deprecated, please rename it to profile_group. Name of profile group.
@@ -340,7 +340,7 @@ options:
                     - 'enable'
             service:
                 type: raw
-                description: (list) No description.
+                description: (list) Service and service group names.
             service-negate:
                 type: str
                 description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
@@ -352,7 +352,7 @@ options:
                 description: Deprecated, please rename it to session_ttl. Session TTL in seconds for sessions accepted by this policy.
             srcaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Source address and address group names.
             srcaddr-negate:
                 type: str
                 description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr specifies what the source address must NOT be.
@@ -361,7 +361,7 @@ options:
                     - 'enable'
             srcintf:
                 type: raw
-                description: (list) No description.
+                description: (list) Incoming
             ssh-filter-profile:
                 type: str
                 description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
@@ -379,7 +379,7 @@ options:
                     - 'enable'
             ssl-mirror-intf:
                 type: raw
-                description: (list) Deprecated, please rename it to ssl_mirror_intf.
+                description: (list) Deprecated, please rename it to ssl_mirror_intf. SSL mirror interface name.
             ssl-ssh-profile:
                 type: str
                 description: Deprecated, please rename it to ssl_ssh_profile. Name of an existing SSL SSH profile.
@@ -428,10 +428,10 @@ options:
                 description: Deprecated, please rename it to traffic_shaper_reverse. Reverse traffic shaper.
             url-category:
                 type: raw
-                description: (list) Deprecated, please rename it to url_category.
+                description: (list) Deprecated, please rename it to url_category. URL category ID list.
             users:
                 type: raw
-                description: (list) No description.
+                description: (list) Names of individual users that can authenticate with this policy.
             utm-status:
                 type: str
                 description: Deprecated, please rename it to utm_status. Enable AV/web/ips protection profile.
@@ -488,7 +488,7 @@ options:
                     - 'enable'
             devices:
                 type: raw
-                description: (list) No description.
+                description: (list) Names of devices or device groups that can be matched by the policy.
             dscp-value:
                 type: str
                 description: Deprecated, please rename it to dscp_value. DSCP value.
@@ -694,7 +694,7 @@ def main():
                 'app-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'application-list': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cgn-log-server-grp': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cifs-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
@@ -725,19 +725,19 @@ def main():
                 'label': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'logtraffic': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'nat': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natoutbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-acceleration': {'v_range': [['7.0.3', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-acceleration': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'outbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'per-ip-shaper': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'policy-offload': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policyid': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
                 'poolname': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'profile-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'profile-type': {'v_range': [['7.0.3', '']], 'choices': ['single', 'group'], 'type': 'str'},
                 'replacemsg-override-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'rsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -749,11 +749,11 @@ def main():
                 'srcaddr': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'srcaddr-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror-intf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-mss-receiver': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'tcp-mss-sender': {'v_range': [['7.0.3', '']], 'type': 'int'},
@@ -774,8 +774,8 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'waf-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'webcache': {'v_range': [['7.0.3', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['7.0.3', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webproxy-forward-server': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webproxy-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
@@ -799,9 +799,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

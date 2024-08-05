@@ -30,6 +30,7 @@ from __future__ import absolute_import, division, print_function
 __metaclass__ = type
 from ansible.module_utils.basic import _load_params
 import datetime
+import re
 
 from ansible.module_utils.six import raise_from
 
@@ -180,6 +181,7 @@ class NAPIManager(object):
         self.module_name = self.module._name
         self.module_level2_name = self.module_name.split(".")[-1][5:]
         self.top_level_schema_name = top_level_schema_name
+        self._set_connection_options()
         self.system_status = self.get_system_status()
         self.version_check_warnings = list()
         self._nr_exported_playbooks = 0
@@ -191,6 +193,11 @@ class NAPIManager(object):
                 Exception("YAML must be installed to use this plugin"),
                 YAML_IMPORT_ERROR,
             )
+
+    def _set_connection_options(self):
+        for key in ['access_token', 'enable_log', 'forticloud_access_token']:
+            if key in self.module.params:
+                self.conn.set_customer_option(key, self.module.params[key])
 
     def process_workspace_lock(self):
         self.conn.process_workspace_locking(self.module.params)
@@ -208,6 +215,12 @@ class NAPIManager(object):
         ):
             return self.module.params["proposed_method"]
         return default_method
+
+    def get_params_in_url(self, s):
+        '''Find contents in {}'''
+        pattern = r'\{(.*?)\}'
+        result = re.findall(pattern, s)
+        return result
 
     def _version_matched(self, v_ranges):
         if not v_ranges or not self.system_status:
@@ -460,8 +473,8 @@ class NAPIManager(object):
         params = self.module.params
         selector = params[task_type]["selector"]
         param_url_id = "params" if task_type == "facts" else "self"
-        param_url = params[task_type][param_url_id]
-        param_url = param_url if param_url else {}
+        specified_url_param = params[task_type][param_url_id]
+        specified_url_param = specified_url_param if specified_url_param else {}
         param_target = params[task_type].get("target", {})
         param_target = param_target if param_target else {}
         mkey = metadata[selector].get("mkey", None)
@@ -478,20 +491,38 @@ class NAPIManager(object):
             self.version_check_warnings.append("selector:%s %s" % (selector, checking_message))
         # Get target URL
         param_map = {}
+        specified_params = set()
         for param_name in metadata[selector]["params"]:
             modified_name = _get_modified_name(param_name)
-            if modified_name in param_url:
+            if modified_name in specified_url_param:
                 param_map[param_name] = modified_name
-            elif param_name in param_url:
+                specified_params.add(param_name)
+            elif param_name in specified_url_param:
                 param_map[param_name] = param_name
-            else:
-                self.module.fail_json(msg="Missing param:%s" % (modified_name))
-        adom_value = param_url.get("adom", None)
-        target_url = self._get_target_url(adom_value, metadata[selector]["urls"])
+                specified_params.add(param_name)
+        url_with_specified_param = []
+        unique_url_params = []
+        for possible_url in metadata[selector]["urls"]:
+            url_params = set(self.get_params_in_url(possible_url))
+            if "adom" in metadata[selector]["params"]:
+                url_params.add("adom")
+            if specified_params == url_params:
+                url_with_specified_param.append(possible_url)
+            if url_params not in unique_url_params:
+                unique_url_params.append(url_params)
+        if len(url_with_specified_param) == 0:
+            error_message = 'Expect required params: '
+            for i, url_params in enumerate(unique_url_params):
+                if i:
+                    error_message += ', or '
+                error_message += '%s' % ([_get_modified_name(key) for key in url_params])
+            self.module.fail_json(msg=error_message)
+        adom_value = specified_url_param.get("adom", None)
+        target_url = self._get_target_url(adom_value, url_with_specified_param)
         for param in param_map:
             token_hint = "{%s}" % (param)
             user_param_name = param_map[param]
-            token = "%s" % (param_url[user_param_name]) if param_url[user_param_name] else ""
+            token = "%s" % (specified_url_param[user_param_name]) if specified_url_param[user_param_name] else ""
             target_url = target_url.replace(token_hint, token)
         # Send data
         request_type = {"clone": "clone", "rename": "update",
@@ -807,7 +838,7 @@ class NAPIManager(object):
         else:
             target_url = url_list[0]
         if not target_url:
-            self.module.fail_json(msg="can not find url in following sets:%s! please check params: adom" % (target_url))
+            self.module.fail_json(msg="Please check the value of params: adom")
         return target_url
 
     def process_object_member(self, argument_specs=None):

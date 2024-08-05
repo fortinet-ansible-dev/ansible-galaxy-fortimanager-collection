@@ -96,59 +96,59 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             arp-intf:
                 type: str
-                description: Deprecated, please rename it to arp_intf.
+                description: Deprecated, please rename it to arp_intf. Arp intf.
             arp-reply:
                 type: str
-                description: Deprecated, please rename it to arp_reply.
+                description: Deprecated, please rename it to arp_reply. Arp reply.
                 choices:
                     - 'disable'
                     - 'enable'
             associated-interface:
                 type: str
-                description: Deprecated, please rename it to associated_interface.
+                description: Deprecated, please rename it to associated_interface. Associated interface.
             block-size:
                 type: int
-                description: Deprecated, please rename it to block_size.
+                description: Deprecated, please rename it to block_size. Block size.
             comments:
                 type: str
-                description: No description.
+                description: Comments.
             endip:
                 type: str
-                description: No description.
+                description: Endip.
             num-blocks-per-user:
                 type: int
-                description: Deprecated, please rename it to num_blocks_per_user.
+                description: Deprecated, please rename it to num_blocks_per_user. Num blocks per user.
             pba-timeout:
                 type: int
-                description: Deprecated, please rename it to pba_timeout.
+                description: Deprecated, please rename it to pba_timeout. Pba timeout.
             permit-any-host:
                 type: str
-                description: Deprecated, please rename it to permit_any_host.
+                description: Deprecated, please rename it to permit_any_host. Permit any host.
                 choices:
                     - 'disable'
                     - 'enable'
             source-endip:
                 type: str
-                description: Deprecated, please rename it to source_endip.
+                description: Deprecated, please rename it to source_endip. Source endip.
             source-startip:
                 type: str
-                description: Deprecated, please rename it to source_startip.
+                description: Deprecated, please rename it to source_startip. Source startip.
             startip:
                 type: str
-                description: No description.
+                description: Startip.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'overload'
                     - 'one-to-one'
@@ -157,43 +157,43 @@ options:
                     - 'cgn-resource-allocation'
             cgn-block-size:
                 type: int
-                description: Deprecated, please rename it to cgn_block_size.
+                description: Deprecated, please rename it to cgn_block_size. Cgn block size.
             cgn-client-endip:
                 type: str
-                description: Deprecated, please rename it to cgn_client_endip.
+                description: Deprecated, please rename it to cgn_client_endip. Cgn client endip.
             cgn-client-startip:
                 type: str
-                description: Deprecated, please rename it to cgn_client_startip.
+                description: Deprecated, please rename it to cgn_client_startip. Cgn client startip.
             cgn-fixedalloc:
                 type: str
-                description: Deprecated, please rename it to cgn_fixedalloc.
+                description: Deprecated, please rename it to cgn_fixedalloc. Cgn fixedalloc.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn-overload:
                 type: str
-                description: Deprecated, please rename it to cgn_overload.
+                description: Deprecated, please rename it to cgn_overload. Cgn overload.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn-port-end:
                 type: int
-                description: Deprecated, please rename it to cgn_port_end.
+                description: Deprecated, please rename it to cgn_port_end. Cgn port end.
             cgn-port-start:
                 type: int
-                description: Deprecated, please rename it to cgn_port_start.
+                description: Deprecated, please rename it to cgn_port_start. Cgn port start.
             cgn-spa:
                 type: str
-                description: Deprecated, please rename it to cgn_spa.
+                description: Deprecated, please rename it to cgn_spa. Cgn spa.
                 choices:
                     - 'disable'
                     - 'enable'
             utilization-alarm-clear:
                 type: int
-                description: Deprecated, please rename it to utilization_alarm_clear.
+                description: Deprecated, please rename it to utilization_alarm_clear. Utilization alarm clear.
             utilization-alarm-raise:
                 type: int
-                description: Deprecated, please rename it to utilization_alarm_raise.
+                description: Deprecated, please rename it to utilization_alarm_raise. Utilization alarm raise.
             endport:
                 type: int
                 description: Final port number
@@ -226,7 +226,10 @@ options:
                     - 'enable'
             exclude-ip:
                 type: raw
-                description: (list) Deprecated, please rename it to exclude_ip.
+                description: (list) Deprecated, please rename it to exclude_ip. Exclude IPs x.
+            pba-interim-log:
+                type: int
+                description: Deprecated, please rename it to pba_interim_log. Port block allocation interim logging interval
 '''
 
 EXAMPLES = '''
@@ -370,7 +373,8 @@ def main():
                 'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'}
+                'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
+                'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -386,9 +390,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

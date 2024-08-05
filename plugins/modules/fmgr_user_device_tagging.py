@@ -102,7 +102,7 @@ options:
                 required: true
             tags:
                 type: raw
-                description: (list) No description.
+                description: (list) Tags.
 '''
 
 EXAMPLES = '''
@@ -209,8 +209,12 @@ def main():
         'device': {'required': True, 'type': 'str'},
         'user_device_tagging': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
-            'options': {'category': {'type': 'str'}, 'name': {'required': True, 'type': 'str'}, 'tags': {'type': 'raw'}}
+            'v_range': [['6.0.0', '7.4.2']],
+            'options': {
+                'category': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'name': {'v_range': [['6.0.0', '7.4.2']], 'required': True, 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '7.4.2']], 'type': 'raw'}
+            }
 
         }
     }
@@ -225,9 +229,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

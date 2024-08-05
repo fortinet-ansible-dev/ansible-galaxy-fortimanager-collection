@@ -183,7 +183,7 @@ options:
                 suboptions:
                     _gui_meta:
                         type: str
-                        description: _Gui_Meta.
+                        description: Gui meta.
                     group-name:
                         type: str
                         description: Deprecated, please rename it to group_name. Name of matching group on remote authentication server.
@@ -258,19 +258,19 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: No description.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
-                                description: No description.
+                                description: Name.
                             vdom:
                                 type: str
-                                description: No description.
+                                description: Vdom.
                     auth-concurrent-override:
                         type: str
                         description: Deprecated, please rename it to auth_concurrent_override. Enable/disable overriding the global number of concurren...
@@ -317,7 +317,7 @@ options:
                     guest:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Guest.
                         suboptions:
                             comment:
                                 type: str
@@ -333,7 +333,7 @@ options:
                                 description: Expire time.
                             group:
                                 type: str
-                                description: No description.
+                                description: Group.
                             id:
                                 type: int
                                 description: Guest ID.
@@ -345,7 +345,7 @@ options:
                                 description: Guest name.
                             password:
                                 type: raw
-                                description: (list) No description.
+                                description: (list) Guest password.
                             sponsor:
                                 type: str
                                 description: Set the action for the sponsor guest user field.
@@ -360,21 +360,21 @@ options:
                         description: Group ID.
                     ldap-memberof:
                         type: str
-                        description: Deprecated, please rename it to ldap_memberof.
+                        description: Deprecated, please rename it to ldap_memberof. Ldap memberof.
                     logic-type:
                         type: str
-                        description: Deprecated, please rename it to logic_type.
+                        description: Deprecated, please rename it to logic_type. Logic type.
                         choices:
                             - 'or'
                             - 'and'
                     match:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Match.
                         suboptions:
                             _gui_meta:
                                 type: str
-                                description: No description.
+                                description: Gui meta.
                             group-name:
                                 type: str
                                 description: Deprecated, please rename it to group_name. Name of matching user or group on remote authentication server.
@@ -389,7 +389,7 @@ options:
                         description: Deprecated, please rename it to max_accounts. Maximum number of guest accounts that can be created for this group
                     member:
                         type: raw
-                        description: (list or str) No description.
+                        description: (list or str) Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
                     mobile-phone:
                         type: str
                         description: Deprecated, please rename it to mobile_phone. Enable/disable the guest user mobile phone number field.
@@ -411,7 +411,7 @@ options:
                             - 'disable'
                     redir-url:
                         type: str
-                        description: Deprecated, please rename it to redir_url.
+                        description: Deprecated, please rename it to redir_url. Redir url.
                     sms-custom-server:
                         type: str
                         description: Deprecated, please rename it to sms_custom_server. SMS server.
@@ -430,17 +430,17 @@ options:
                             - 'disabled'
                     sslvpn-bookmarks-group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to sslvpn_bookmarks_group.
+                        description: (list or str) Deprecated, please rename it to sslvpn_bookmarks_group. Sslvpn bookmarks group.
                     sslvpn-cache-cleaner:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_cache_cleaner.
+                        description: Deprecated, please rename it to sslvpn_cache_cleaner. Sslvpn cache cleaner.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-client-check:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to sslvpn_client_check.
+                        description: Deprecated, please rename it to sslvpn_client_check. Sslvpn client check.
                         choices:
                             - 'forticlient'
                             - 'forticlient-av'
@@ -449,111 +449,111 @@ options:
                             - '3rdFW'
                     sslvpn-ftp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_ftp.
+                        description: Deprecated, please rename it to sslvpn_ftp. Sslvpn ftp.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-http:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_http.
+                        description: Deprecated, please rename it to sslvpn_http. Sslvpn http.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-os-check:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_os_check.
+                        description: Deprecated, please rename it to sslvpn_os_check. Sslvpn os check.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-os-check-list:
                         type: dict
-                        description: Deprecated, please rename it to sslvpn_os_check_list.
+                        description: Deprecated, please rename it to sslvpn_os_check_list. Sslvpn os check list.
                         suboptions:
                             action:
                                 type: str
-                                description: No description.
+                                description: Action.
                                 choices:
                                     - 'allow'
                                     - 'check-up-to-date'
                                     - 'deny'
                             latest-patch-level:
                                 type: str
-                                description: Deprecated, please rename it to latest_patch_level.
+                                description: Deprecated, please rename it to latest_patch_level. Latest patch level.
                             name:
                                 type: str
-                                description: No description.
+                                description: Name.
                             tolerance:
                                 type: int
-                                description: No description.
+                                description: Tolerance.
                     sslvpn-portal:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to sslvpn_portal.
+                        description: (list or str) Deprecated, please rename it to sslvpn_portal. Sslvpn portal.
                     sslvpn-portal-heading:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_portal_heading.
+                        description: Deprecated, please rename it to sslvpn_portal_heading. Sslvpn portal heading.
                     sslvpn-rdp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_rdp.
+                        description: Deprecated, please rename it to sslvpn_rdp. Sslvpn rdp.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-samba:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_samba.
+                        description: Deprecated, please rename it to sslvpn_samba. Sslvpn samba.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-split-tunneling:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_split_tunneling.
+                        description: Deprecated, please rename it to sslvpn_split_tunneling. Sslvpn split tunneling.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-ssh:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_ssh.
+                        description: Deprecated, please rename it to sslvpn_ssh. Sslvpn ssh.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-telnet:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_telnet.
+                        description: Deprecated, please rename it to sslvpn_telnet. Sslvpn telnet.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-tunnel:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel.
+                        description: Deprecated, please rename it to sslvpn_tunnel. Sslvpn tunnel.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-tunnel-endip:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_endip.
+                        description: Deprecated, please rename it to sslvpn_tunnel_endip. Sslvpn tunnel endip.
                     sslvpn-tunnel-ip-mode:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_ip_mode.
+                        description: Deprecated, please rename it to sslvpn_tunnel_ip_mode. Sslvpn tunnel ip mode.
                         choices:
                             - 'range'
                             - 'usrgrp'
                     sslvpn-tunnel-startip:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_startip.
+                        description: Deprecated, please rename it to sslvpn_tunnel_startip. Sslvpn tunnel startip.
                     sslvpn-virtual-desktop:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_virtual_desktop.
+                        description: Deprecated, please rename it to sslvpn_virtual_desktop. Sslvpn virtual desktop.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-vnc:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_vnc.
+                        description: Deprecated, please rename it to sslvpn_vnc. Sslvpn vnc.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn-webapp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_webapp.
+                        description: Deprecated, please rename it to sslvpn_webapp. Sslvpn webapp.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -799,6 +799,7 @@ def main():
                         'sslvpn-http': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sslvpn-os-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sslvpn-os-check-list': {
+                            'v_range': [['7.0.2', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['7.0.2', '']], 'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
@@ -842,9 +843,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -116,10 +116,13 @@ options:
                 description: Ingress traffic VLAN assignment for the MAC address matching this MAC policy.
             drop:
                 type: str
-                description: No description.
+                description: Drop.
                 choices:
                     - 'disable'
                     - 'enable'
+            fortilink:
+                type: raw
+                description: (list) FortiLink interface for which this MAC policy belongs to.
 '''
 
 EXAMPLES = '''
@@ -148,6 +151,7 @@ EXAMPLES = '''
           traffic_policy: <string>
           vlan: <string>
           drop: <value in [disable, enable]>
+          fortilink: <list or string>
 '''
 
 RETURN = '''
@@ -222,7 +226,8 @@ def main():
                 'name': {'v_range': [['7.2.1', '']], 'required': True, 'type': 'str'},
                 'traffic-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'drop': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'drop': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortilink': {'v_range': [['7.4.3', '']], 'type': 'raw'}
             }
 
         }
@@ -238,9 +243,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

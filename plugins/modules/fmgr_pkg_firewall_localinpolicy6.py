@@ -154,6 +154,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet-service6-src:
+                type: str
+                description: Deprecated, please rename it to internet_service6_src. Enable/disable use of IPv6 Internet Services in source for this loc...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            internet-service6-src-custom:
+                type: raw
+                description: (list) Deprecated, please rename it to internet_service6_src_custom. Custom IPv6 Internet Service source name.
+            internet-service6-src-custom-group:
+                type: raw
+                description: (list) Deprecated, please rename it to internet_service6_src_custom_group. Custom Internet Service6 source group name.
+            internet-service6-src-group:
+                type: raw
+                description: (list) Deprecated, please rename it to internet_service6_src_group. Internet Service6 source group name.
+            internet-service6-src-name:
+                type: raw
+                description: (list) Deprecated, please rename it to internet_service6_src_name. IPv6 Internet Service source name.
+            internet-service6-src-negate:
+                type: str
+                description: Deprecated, please rename it to internet_service6_src_negate. When enabled internet-service6-src specifies what the servic...
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -278,7 +302,13 @@ def main():
                 'dstaddr-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcaddr-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-patch': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'virtual-patch': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-src': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-src-custom': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'internet-service6-src-custom-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'internet-service6-src-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'internet-service6-src-name': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'internet-service6-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -294,9 +324,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

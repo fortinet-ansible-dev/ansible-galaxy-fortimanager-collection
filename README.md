@@ -1,24 +1,76 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# Ansible Collection - fortinet.fortimanager:2.5.0
+# fortinet.fortimanager:2.6.0 - configuring FortiManager
+
+## Description
 
 FortiManager Ansible Collection includes the modules that are able to configure FortiManager.
 
 [Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
 
 ## Requirements
-- Ansible 2.15.0+
-- Python 3
+
+- Ansible 2.15.0 or above
+- Python 3.9 or above
 
 ## Installation
-This collection is distributed via [ansible-galaxy](https://galaxy.ansible.com/fortinet/fortimanager), the installation steps are as follows:
 
-1. Install or upgrade to Ansible 2.15.0+
-2. Download this collection from galaxy: `ansible-galaxy collection install fortinet.fortimanager`
+This collection is distributed via [ansible-galaxy](https://galaxy.ansible.com/fortinet/fortimanager).
 
-## Example Usage
+Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
+
+```
+ansible-galaxy collection install fortinet.fortimanager
+```
+
+You can also include it in a requirements.yml file and install it with ansible-galaxy collection install -r requirements.yml, using the format:
+
+
+```yaml
+collections:
+  - name: fortinet.fortimanager
+```
+
+Note that if you install any collections from Ansible Galaxy, they will not be upgraded automatically when you upgrade the Ansible package.
+To upgrade the collection to the latest available version, run the following command:
+
+```
+ansible-galaxy collection install fortinet.fortimanager --upgrade
+```
+
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 1.0.0:
+
+```
+ansible-galaxy collection install fortinet.fortimanager:==2.6.0
+```
+
+See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html) for more details.
+
+
+## Use Cases
 
 See [example here](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest/playbook.html) to run your first playbook.
+
+
+## Testing
+
+Testing is done by the Fortinet team. Before each new FMG Ansible release, it is tested with the latest patches from all FMG minor releases.
+
+
+## Support
+
+For any questions regarding FortiManager Ansible, please create a [github issue](https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/issues).
+
+
+## Release Notes and Roadmap
+
+Please check [release note here](CHANGELOG.rst).
+
+FortiManager Ansible is expected to be updated every two months.
+
+## Related Information
+
+[Documentation](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest) for the collection.
 
 ## Modules
 The collection provides the following modules:
@@ -279,6 +331,9 @@ The collection provides the following modules:
 * `fmgr_extensioncontroller_extenderprofile_cellular_smsnotification_receiver`  SMS notification receiver list.
 * `fmgr_extensioncontroller_extenderprofile_lanextension`  FortiExtender lan extension configuration.
 * `fmgr_extensioncontroller_extenderprofile_lanextension_backhaul`  LAN extension backhaul tunnel configuration.
+* `fmgr_extensioncontroller_extenderprofile_wifi`  FortiExtender wifi configuration.
+* `fmgr_extensioncontroller_extenderprofile_wifi_radio1`  Radio-1 config for Wi-Fi 2.
+* `fmgr_extensioncontroller_extenderprofile_wifi_radio2`  Radio-2 config for Wi-Fi 5GHz.
 * `fmgr_filefilter_profile`  Configure file-filter profiles.
 * `fmgr_filefilter_profile_rules`  File filter rules.
 * `fmgr_firewall_accessproxy`  Configure Access Proxy.
@@ -418,6 +473,7 @@ The collection provides the following modules:
 * `fmgr_firewall_ssh_localca`  SSH proxy local CA.
 * `fmgr_firewall_sslsshprofile`  Configure SSL/SSH protocol options.
 * `fmgr_firewall_sslsshprofile_dot`  Configure DNS over TLS options.
+* `fmgr_firewall_sslsshprofile_echoutersni`  ClientHelloOuter SNIs to be blocked.
 * `fmgr_firewall_sslsshprofile_ftps`  Configure FTPS options.
 * `fmgr_firewall_sslsshprofile_https`  Configure HTTPS options.
 * `fmgr_firewall_sslsshprofile_imaps`  Configure IMAPS options.
@@ -489,7 +545,7 @@ The collection provides the following modules:
 * `fmgr_fmupdate_webspam_fgdsetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_webspam_fgdsetting_serveroverride_servlist`  Override server.
 * `fmgr_fmupdate_webspam_webproxy`  Configure the web proxy for use with FortiGuard antivirus and IPS updates.
-* `fmgr_fsp_vlan`  Fsp vlan.
+* `fmgr_fsp_vlan`  FortiSwitch VLAN template.
 * `fmgr_fsp_vlan_dhcpserver`  Configure DHCP servers.
 * `fmgr_fsp_vlan_dhcpserver_excluderange`  Exclude one or more ranges of IP addresses from being assigned to clients.
 * `fmgr_fsp_vlan_dhcpserver_iprange`  DHCP IP range configuration.
@@ -736,13 +792,10 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_lldpprofile_mednetworkpolicy`  Configuration method to edit Media Endpoint Discovery.
 * `fmgr_switchcontroller_macpolicy`  Configure MAC policy to be applied on the managed FortiSwitch devices through NAC device.
 * `fmgr_switchcontroller_managedswitch`  Configure FortiSwitch devices that are managed by this FortiGate.
-* `fmgr_switchcontroller_managedswitch_8021xsettings`  Configuration method to edit FortiSwitch 802.
 * `fmgr_switchcontroller_managedswitch_customcommand`  Configuration method to edit FortiSwitch commands to be pushed to this FortiSwitch device upon rebooting the FortiGate switch contro...
 * `fmgr_switchcontroller_managedswitch_dhcpsnoopingstaticclient`  Configure FortiSwitch DHCP snooping static clients.
-* `fmgr_switchcontroller_managedswitch_igmpsnooping`  Configure FortiSwitch IGMP snooping global settings.
 * `fmgr_switchcontroller_managedswitch_ipsourceguard`  IP source guard.
 * `fmgr_switchcontroller_managedswitch_ipsourceguard_bindingentry`  IP and MAC address configuration.
-* `fmgr_switchcontroller_managedswitch_mirror`  Configuration method to edit FortiSwitch packet mirror.
 * `fmgr_switchcontroller_managedswitch_ports`  Managed-switch port list.
 * `fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override`  Configure DHCP snooping option 82 override.
 * `fmgr_switchcontroller_managedswitch_remotelog`  Configure logging by FortiSwitch device to a remote syslog server.
@@ -752,12 +805,6 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_snmpsysinfo`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmptrapthreshold`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmpuser`  Configuration method to edit Simple Network Management Protocol.
-* `fmgr_switchcontroller_managedswitch_staticmac`  Configuration method to edit FortiSwitch Static and Sticky MAC.
-* `fmgr_switchcontroller_managedswitch_stormcontrol`  Configuration method to edit FortiSwitch storm control for measuring traffic activity using data rates to prevent traffic disruption.
-* `fmgr_switchcontroller_managedswitch_stpinstance`  Configuration method to edit Spanning Tree Protocol.
-* `fmgr_switchcontroller_managedswitch_stpsettings`  Configuration method to edit Spanning Tree Protocol.
-* `fmgr_switchcontroller_managedswitch_switchlog`  Configuration method to edit FortiSwitch logging settings.
-* `fmgr_switchcontroller_managedswitch_switchstpsettings`  Configure spanning tree protocol.
 * `fmgr_switchcontroller_managedswitch_vlan`  Configure VLAN assignment priority.
 * `fmgr_switchcontroller_ptp_profile`  Global PTP profile.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
@@ -884,6 +931,7 @@ The collection provides the following modules:
 * `fmgr_system_log_settings_rollinglocal`  Log rolling policy for local logs.
 * `fmgr_system_log_settings_rollingregular`  Log rolling policy for device logs.
 * `fmgr_system_log_topology`  Logging topology settings.
+* `fmgr_system_log_ueba`  UEBAsettings.
 * `fmgr_system_logfetch_clientprofile`  Log-fetch client profile settings.
 * `fmgr_system_logfetch_clientprofile_devicefilter`  List of device filter.
 * `fmgr_system_logfetch_clientprofile_logfilter`  Log content filters.
@@ -900,6 +948,7 @@ The collection provides the following modules:
 * `fmgr_system_npu_dswqueuedtsprofile`  Configure NPU DSW Queue DTS profile.
 * `fmgr_system_npu_fpanomaly`  NP6Lite anomaly protection.
 * `fmgr_system_npu_hpe`  Host protection engine configuration.
+* `fmgr_system_npu_icmpratectrl`  Configure the rate of ICMP messages generated by this FortiGate.
 * `fmgr_system_npu_ipreassembly`  IP reassebmly engine configuration.
 * `fmgr_system_npu_isfnpqueues`  Configure queues of switch port connected to NP6 XAUI on ingress path.
 * `fmgr_system_npu_npqueues`  Configure queue assignment on NP7.
@@ -1017,6 +1066,7 @@ The collection provides the following modules:
 * `fmgr_user_domaincontroller`  Configure domain controller entries.
 * `fmgr_user_domaincontroller_extraserver`  extra servers.
 * `fmgr_user_exchange`  Configure MS Exchange server entries.
+* `fmgr_user_externalidentityprovider`  Configure external identity provider.
 * `fmgr_user_flexvm`  User flexvm.
 * `fmgr_user_fortitoken`  Configure FortiToken.
 * `fmgr_user_fsso`  Configure Fortinet Single Sign On.
@@ -1207,6 +1257,6 @@ The collection provides the following modules:
 
 
 
-## License
+## License Information
 
 FortiManager Ansible Collection follows [GNU General Public License v3.0](LICENSE).

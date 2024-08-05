@@ -110,12 +110,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -125,25 +125,25 @@ options:
                                 description: Vdom.
                     account-key-filter:
                         type: str
-                        description: Deprecated, please rename it to account_key_filter. Account key filter, using the UPN as the search filter.
+                        description: Deprecated, please rename it to account_key_filter. Account key filter.
                     account-key-name:
                         type: str
-                        description: Deprecated, please rename it to account_key_name. Account-Key-Name.
+                        description: Deprecated, please rename it to account_key_name. Account key name.
                     account-key-processing:
                         type: str
-                        description: Deprecated, please rename it to account_key_processing. Account key processing operation, either keep or strip dom...
+                        description: Deprecated, please rename it to account_key_processing. Account key processing.
                         choices:
                             - 'same'
                             - 'strip'
                     ca-cert:
                         type: str
-                        description: Deprecated, please rename it to ca_cert. CA certificate name.
+                        description: Deprecated, please rename it to ca_cert. Ca cert.
                     cnid:
                         type: str
-                        description: Common name identifier for the LDAP server.
+                        description: Cnid.
                     dn:
                         type: str
-                        description: Distinguished name used to look up entries on the LDAP server.
+                        description: Dn.
                     filter:
                         type: str
                         description: Filter.
@@ -152,53 +152,53 @@ options:
                         description: Group.
                     group-filter:
                         type: str
-                        description: Deprecated, please rename it to group_filter. Filter used for group matching.
+                        description: Deprecated, please rename it to group_filter. Group filter.
                     group-member-check:
                         type: str
-                        description: Deprecated, please rename it to group_member_check. Group member checking methods.
+                        description: Deprecated, please rename it to group_member_check. Group member check.
                         choices:
                             - 'user-attr'
                             - 'group-object'
                             - 'posix-group-object'
                     group-object-filter:
                         type: str
-                        description: Deprecated, please rename it to group_object_filter. Filter used for group searching.
+                        description: Deprecated, please rename it to group_object_filter. Group object filter.
                     group-object-search-base:
                         type: str
-                        description: Deprecated, please rename it to group_object_search_base. Group-Object-Search-Base.
+                        description: Deprecated, please rename it to group_object_search_base. Group object search base.
                     group-search-base:
                         type: str
-                        description: Deprecated, please rename it to group_search_base. Search base used for group searching.
+                        description: Deprecated, please rename it to group_search_base. Group search base.
                     member-attr:
                         type: str
-                        description: Deprecated, please rename it to member_attr. Name of attribute from which to get group membership.
+                        description: Deprecated, please rename it to member_attr. Member attr.
                     obtain-user-info:
                         type: str
-                        description: Deprecated, please rename it to obtain_user_info. Enable/disable obtaining of user information.
+                        description: Deprecated, please rename it to obtain_user_info. Obtain user info.
                         choices:
                             - 'disable'
                             - 'enable'
                     password:
                         type: raw
-                        description: (list) Password for initial binding.
+                        description: (list) Password.
                     password-expiry-warning:
                         type: str
-                        description: Deprecated, please rename it to password_expiry_warning. Enable/disable password expiry warnings.
+                        description: Deprecated, please rename it to password_expiry_warning. Password expiry warning.
                         choices:
                             - 'disable'
                             - 'enable'
                     password-renewal:
                         type: str
-                        description: Deprecated, please rename it to password_renewal. Enable/disable online password renewal.
+                        description: Deprecated, please rename it to password_renewal. Password renewal.
                         choices:
                             - 'disable'
                             - 'enable'
                     port:
                         type: int
-                        description: Port to be used for communication with the LDAP server
+                        description: Port.
                     retrieve-protection-profile:
                         type: str
-                        description: Deprecated, please rename it to retrieve_protection_profile. Retrieve-Protection-Profile.
+                        description: Deprecated, please rename it to retrieve_protection_profile. Retrieve protection profile.
                     search-type:
                         type: list
                         elements: str
@@ -208,29 +208,29 @@ options:
                             - 'recursive'
                     secondary-server:
                         type: str
-                        description: Deprecated, please rename it to secondary_server. Secondary LDAP server CN domain name or IP.
+                        description: Deprecated, please rename it to secondary_server. Secondary server.
                     secure:
                         type: str
-                        description: Port to be used for authentication.
+                        description: Secure.
                         choices:
                             - 'disable'
                             - 'starttls'
                             - 'ldaps'
                     server:
                         type: str
-                        description: LDAP server CN domain name or IP.
+                        description: Server.
                     server-identity-check:
                         type: str
-                        description: Deprecated, please rename it to server_identity_check. Enable/disable LDAP server identity check
+                        description: Deprecated, please rename it to server_identity_check. Server identity check.
                         choices:
                             - 'disable'
                             - 'enable'
                     source-ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source IP for communications to LDAP server.
+                        description: Deprecated, please rename it to source_ip. Source ip.
                     ssl-min-proto-version:
                         type: str
-                        description: Deprecated, please rename it to ssl_min_proto_version. Minimum supported protocol version for SSL/TLS connections
+                        description: Deprecated, please rename it to ssl_min_proto_version. Ssl min proto version.
                         choices:
                             - 'default'
                             - 'TLSv1'
@@ -240,46 +240,46 @@ options:
                             - 'TLSv1-3'
                     tertiary-server:
                         type: str
-                        description: Deprecated, please rename it to tertiary_server. Tertiary LDAP server CN domain name or IP.
+                        description: Deprecated, please rename it to tertiary_server. Tertiary server.
                     type:
                         type: str
-                        description: Authentication type for LDAP searches.
+                        description: Type.
                         choices:
                             - 'simple'
                             - 'anonymous'
                             - 'regular'
                     user-info-exchange-server:
                         type: str
-                        description: Deprecated, please rename it to user_info_exchange_server. MS Exchange server from which to fetch user information.
+                        description: Deprecated, please rename it to user_info_exchange_server. User info exchange server.
                     username:
                         type: str
-                        description: Username
+                        description: Username.
                     two-factor:
                         type: str
-                        description: Deprecated, please rename it to two_factor. Enable/disable two-factor authentication.
+                        description: Deprecated, please rename it to two_factor. Two factor.
                         choices:
                             - 'disable'
                             - 'fortitoken-cloud'
                     interface:
                         type: str
-                        description: Specify outgoing interface to reach server.
+                        description: Interface.
                     interface-select-method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                        description: Deprecated, please rename it to interface_select_method. Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
                     two-factor-authentication:
                         type: str
-                        description: Deprecated, please rename it to two_factor_authentication. Authentication method by FortiToken Cloud.
+                        description: Deprecated, please rename it to two_factor_authentication. Two factor authentication.
                         choices:
                             - 'fortitoken'
                             - 'email'
                             - 'sms'
                     two-factor-notification:
                         type: str
-                        description: Deprecated, please rename it to two_factor_notification. Notification method for user activation by FortiToken Cloud.
+                        description: Deprecated, please rename it to two_factor_notification. Two factor notification.
                         choices:
                             - 'email'
                             - 'sms'
@@ -306,7 +306,7 @@ options:
                             - 'enable'
                     max-connections:
                         type: int
-                        description: Deprecated, please rename it to max_connections.
+                        description: Deprecated, please rename it to max_connections. Max connections.
                     two-factor-filter:
                         type: str
                         description: Deprecated, please rename it to two_factor_filter. Filter used to synchronize users to FortiToken Cloud.
@@ -324,6 +324,10 @@ options:
                             - 'othername'
                             - 'rfc822name'
                             - 'dnsname'
+                            - 'cn'
+                    status-ttl:
+                        type: int
+                        description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is ...
             group-filter:
                 type: str
                 description: Deprecated, please rename it to group_filter. Filter used for group matching.
@@ -499,6 +503,10 @@ options:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
+                    - 'cn'
+            status-ttl:
+                type: int
+                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
 '''
 
 EXAMPLES = '''
@@ -663,7 +671,8 @@ def main():
                         'max-connections': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
                         'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'}
+                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
+                        'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -703,7 +712,8 @@ def main():
                 'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'}
+                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -719,9 +729,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

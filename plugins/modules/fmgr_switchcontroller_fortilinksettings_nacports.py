@@ -94,19 +94,19 @@ options:
                     - 'enabled'
             member-change:
                 type: int
-                description: Deprecated, please rename it to member_change.
+                description: Deprecated, please rename it to member_change. Member change.
             nac-lan-interface:
                 type: str
                 description: Deprecated, please rename it to nac_lan_interface. Configure NAC LAN interface.
             nac-segment-vlans:
                 type: raw
-                description: (list) Deprecated, please rename it to nac_segment_vlans.
+                description: (list) Deprecated, please rename it to nac_segment_vlans. Configure NAC segment VLANs.
             onboarding-vlan:
                 type: str
                 description: Deprecated, please rename it to onboarding_vlan. Default NAC Onboarding VLAN when NAC devices are discovered.
             parent-key:
                 type: str
-                description: Deprecated, please rename it to parent_key.
+                description: Deprecated, please rename it to parent_key. Parent key.
             bounce-nac-port:
                 type: str
                 description: Deprecated, please rename it to bounce_nac_port. Enable/disable bouncing
@@ -233,9 +233,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

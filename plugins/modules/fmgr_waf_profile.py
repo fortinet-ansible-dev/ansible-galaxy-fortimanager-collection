@@ -111,12 +111,12 @@ options:
             url-access:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to url_access. Url-Access.
+                description: Deprecated, please rename it to url_access. Url access.
                 suboptions:
                     access-pattern:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to access_pattern. Access-Pattern.
+                        description: Deprecated, please rename it to access_pattern. Access pattern.
                         suboptions:
                             id:
                                 type: int
@@ -167,7 +167,7 @@ options:
                             - 'high'
             address-list:
                 type: dict
-                description: Deprecated, please rename it to address_list.
+                description: Deprecated, please rename it to address_list. Address list.
                 suboptions:
                     blocked-address:
                         type: raw
@@ -196,11 +196,11 @@ options:
                         description: (list or str) Deprecated, please rename it to trusted_address. Trusted address.
             constraint:
                 type: dict
-                description: No description.
+                description: Constraint.
                 suboptions:
                     content-length:
                         type: dict
-                        description: Deprecated, please rename it to content_length.
+                        description: Deprecated, please rename it to content_length. Content length.
                         suboptions:
                             action:
                                 type: str
@@ -330,7 +330,7 @@ options:
                                     - 'enable'
                     header-length:
                         type: dict
-                        description: Deprecated, please rename it to header_length.
+                        description: Deprecated, please rename it to header_length. Header length.
                         suboptions:
                             action:
                                 type: str
@@ -362,7 +362,7 @@ options:
                                     - 'enable'
                     hostname:
                         type: dict
-                        description: No description.
+                        description: Hostname.
                         suboptions:
                             action:
                                 type: str
@@ -391,7 +391,7 @@ options:
                                     - 'enable'
                     line-length:
                         type: dict
-                        description: Deprecated, please rename it to line_length.
+                        description: Deprecated, please rename it to line_length. Line length.
                         suboptions:
                             action:
                                 type: str
@@ -423,7 +423,7 @@ options:
                                     - 'enable'
                     malformed:
                         type: dict
-                        description: No description.
+                        description: Malformed.
                         suboptions:
                             action:
                                 type: str
@@ -452,7 +452,7 @@ options:
                                     - 'enable'
                     max-cookie:
                         type: dict
-                        description: Deprecated, please rename it to max_cookie.
+                        description: Deprecated, please rename it to max_cookie. Max cookie.
                         suboptions:
                             action:
                                 type: str
@@ -484,7 +484,7 @@ options:
                                     - 'enable'
                     max-header-line:
                         type: dict
-                        description: Deprecated, please rename it to max_header_line.
+                        description: Deprecated, please rename it to max_header_line. Max header line.
                         suboptions:
                             action:
                                 type: str
@@ -516,7 +516,7 @@ options:
                                     - 'enable'
                     max-range-segment:
                         type: dict
-                        description: Deprecated, please rename it to max_range_segment.
+                        description: Deprecated, please rename it to max_range_segment. Max range segment.
                         suboptions:
                             action:
                                 type: str
@@ -548,7 +548,7 @@ options:
                                     - 'enable'
                     max-url-param:
                         type: dict
-                        description: Deprecated, please rename it to max_url_param.
+                        description: Deprecated, please rename it to max_url_param. Max url param.
                         suboptions:
                             action:
                                 type: str
@@ -580,7 +580,7 @@ options:
                                     - 'enable'
                     method:
                         type: dict
-                        description: No description.
+                        description: Method.
                         suboptions:
                             action:
                                 type: str
@@ -609,7 +609,7 @@ options:
                                     - 'enable'
                     param-length:
                         type: dict
-                        description: Deprecated, please rename it to param_length.
+                        description: Deprecated, please rename it to param_length. Param length.
                         suboptions:
                             action:
                                 type: str
@@ -641,7 +641,7 @@ options:
                                     - 'enable'
                     url-param-length:
                         type: dict
-                        description: Deprecated, please rename it to url_param_length.
+                        description: Deprecated, please rename it to url_param_length. Url param length.
                         suboptions:
                             action:
                                 type: str
@@ -673,7 +673,7 @@ options:
                                     - 'enable'
                     version:
                         type: dict
-                        description: No description.
+                        description: Version.
                         suboptions:
                             action:
                                 type: str
@@ -702,7 +702,7 @@ options:
                                     - 'enable'
             method:
                 type: dict
-                description: No description.
+                description: Method.
                 suboptions:
                     default-allowed-methods:
                         type: list
@@ -727,7 +727,7 @@ options:
                     method-policy:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to method_policy. Method-Policy.
+                        description: Deprecated, please rename it to method_policy. Method policy.
                         suboptions:
                             address:
                                 type: str
@@ -773,7 +773,7 @@ options:
                             - 'enable'
             signature:
                 type: dict
-                description: No description.
+                description: Signature.
                 suboptions:
                     credit-card-detection-threshold:
                         type: int
@@ -781,7 +781,7 @@ options:
                     custom-signature:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to custom_signature. Custom-Signature.
+                        description: Deprecated, please rename it to custom_signature. Custom signature.
                         suboptions:
                             action:
                                 type: str
@@ -853,7 +853,7 @@ options:
                         description: (list or str) Deprecated, please rename it to disabled_sub_class. Disabled signature subclasses.
                     main-class:
                         type: dict
-                        description: Deprecated, please rename it to main_class.
+                        description: Deprecated, please rename it to main_class. Main class.
                         suboptions:
                             action:
                                 type: str
@@ -1182,6 +1182,7 @@ def main():
                     'elements': 'dict'
                 },
                 'address-list': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'blocked-address': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
@@ -1192,9 +1193,11 @@ def main():
                     }
                 },
                 'constraint': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'content-length': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1229,6 +1232,7 @@ def main():
                             'elements': 'dict'
                         },
                         'header-length': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1239,6 +1243,7 @@ def main():
                             }
                         },
                         'hostname': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1248,6 +1253,7 @@ def main():
                             }
                         },
                         'line-length': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1258,6 +1264,7 @@ def main():
                             }
                         },
                         'malformed': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1267,6 +1274,7 @@ def main():
                             }
                         },
                         'max-cookie': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1277,6 +1285,7 @@ def main():
                             }
                         },
                         'max-header-line': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1287,6 +1296,7 @@ def main():
                             }
                         },
                         'max-range-segment': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1297,6 +1307,7 @@ def main():
                             }
                         },
                         'max-url-param': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1307,6 +1318,7 @@ def main():
                             }
                         },
                         'method': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1316,6 +1328,7 @@ def main():
                             }
                         },
                         'param-length': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1326,6 +1339,7 @@ def main():
                             }
                         },
                         'url-param-length': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1336,6 +1350,7 @@ def main():
                             }
                         },
                         'version': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
@@ -1347,6 +1362,7 @@ def main():
                     }
                 },
                 'method': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'default-allowed-methods': {
@@ -1378,6 +1394,7 @@ def main():
                     }
                 },
                 'signature': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'credit-card-detection-threshold': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
@@ -1408,6 +1425,7 @@ def main():
                         'disabled-signature': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'disabled-sub-class': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'main-class': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'erase'], 'type': 'str'},
@@ -1434,9 +1452,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

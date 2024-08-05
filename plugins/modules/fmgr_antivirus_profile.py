@@ -167,7 +167,7 @@ options:
                     - 'flow'
             cifs:
                 type: dict
-                description: No description.
+                description: Cifs.
                 suboptions:
                     archive-block:
                         type: list
@@ -264,7 +264,7 @@ options:
                             - 'block'
             content-disarm:
                 type: dict
-                description: Deprecated, please rename it to content_disarm.
+                description: Deprecated, please rename it to content_disarm. Content disarm.
                 suboptions:
                     cover-page:
                         type: str
@@ -384,7 +384,7 @@ options:
                             - 'enable'
             ftp:
                 type: dict
-                description: No description.
+                description: Ftp.
                 suboptions:
                     archive-block:
                         type: list
@@ -483,7 +483,7 @@ options:
                             - 'block'
             http:
                 type: dict
-                description: No description.
+                description: Http.
                 suboptions:
                     archive-block:
                         type: list
@@ -548,7 +548,7 @@ options:
                             - 'monitor'
                     av-optimize:
                         type: str
-                        description: Deprecated, please rename it to av_optimize.
+                        description: Deprecated, please rename it to av_optimize. Av optimize.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -602,7 +602,7 @@ options:
                             - 'bypass'
             imap:
                 type: dict
-                description: No description.
+                description: Imap.
                 suboptions:
                     archive-block:
                         type: list
@@ -713,7 +713,7 @@ options:
                             - 'block'
             mapi:
                 type: dict
-                description: No description.
+                description: Mapi.
                 suboptions:
                     archive-block:
                         type: list
@@ -817,7 +817,7 @@ options:
                             - 'block'
             nac-quar:
                 type: dict
-                description: Deprecated, please rename it to nac_quar.
+                description: Deprecated, please rename it to nac_quar. Nac quar.
                 suboptions:
                     expiry:
                         type: str
@@ -837,7 +837,7 @@ options:
                             - 'enable'
             nntp:
                 type: dict
-                description: No description.
+                description: Nntp.
                 suboptions:
                     archive-block:
                         type: list
@@ -936,7 +936,7 @@ options:
                             - 'block'
             outbreak-prevention:
                 type: dict
-                description: Deprecated, please rename it to outbreak_prevention.
+                description: Deprecated, please rename it to outbreak_prevention. Outbreak prevention.
                 suboptions:
                     external-blocklist:
                         type: str
@@ -952,7 +952,7 @@ options:
                             - 'enable'
             pop3:
                 type: dict
-                description: No description.
+                description: Pop3.
                 suboptions:
                     archive-block:
                         type: list
@@ -1063,7 +1063,7 @@ options:
                             - 'block'
             smtp:
                 type: dict
-                description: No description.
+                description: Smtp.
                 suboptions:
                     archive-block:
                         type: list
@@ -1174,7 +1174,7 @@ options:
                             - 'block'
             ssh:
                 type: dict
-                description: No description.
+                description: Ssh.
                 suboptions:
                     archive-block:
                         type: list
@@ -1271,12 +1271,12 @@ options:
                             - 'block'
             smb:
                 type: dict
-                description: No description.
+                description: Smb.
                 suboptions:
                     archive-block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block.
+                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1290,7 +1290,7 @@ options:
                     archive-log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log.
+                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1310,7 +1310,7 @@ options:
                     options:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Enable/disable SMB AntiVirus scanning, monitoring, and quarantine.
                         choices:
                             - 'scan'
                             - 'quarantine'
@@ -1536,6 +1536,7 @@ def main():
                 'scan-mode': {'choices': ['quick', 'full', 'legacy', 'default'], 'type': 'str'},
                 'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'cifs': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1575,6 +1576,7 @@ def main():
                     }
                 },
                 'content-disarm': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cover-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1603,6 +1605,7 @@ def main():
                     }
                 },
                 'ftp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1642,6 +1645,7 @@ def main():
                     }
                 },
                 'http': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1688,6 +1692,7 @@ def main():
                     }
                 },
                 'imap': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1729,6 +1734,7 @@ def main():
                     }
                 },
                 'mapi': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1769,6 +1775,7 @@ def main():
                     }
                 },
                 'nac-quar': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'expiry': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
@@ -1777,6 +1784,7 @@ def main():
                     }
                 },
                 'nntp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1816,6 +1824,7 @@ def main():
                     }
                 },
                 'outbreak-prevention': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'external-blocklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1823,6 +1832,7 @@ def main():
                     }
                 },
                 'pop3': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1864,6 +1874,7 @@ def main():
                     }
                 },
                 'smtp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1905,6 +1916,7 @@ def main():
                     }
                 },
                 'ssh': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -1944,6 +1956,7 @@ def main():
                     }
                 },
                 'smb': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
@@ -2006,9 +2019,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

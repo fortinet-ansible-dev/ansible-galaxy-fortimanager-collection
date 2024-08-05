@@ -99,43 +99,43 @@ options:
         suboptions:
             accept-mode:
                 type: str
-                description: Deprecated, please rename it to accept_mode.
+                description: Deprecated, please rename it to accept_mode. Accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
             adv-interval:
                 type: int
-                description: Deprecated, please rename it to adv_interval.
+                description: Deprecated, please rename it to adv_interval. Adv interval.
             preempt:
                 type: str
-                description: No description.
+                description: Preempt.
                 choices:
                     - 'disable'
                     - 'enable'
             priority:
                 type: int
-                description: No description.
+                description: Priority.
             start-time:
                 type: int
-                description: Deprecated, please rename it to start_time.
+                description: Deprecated, please rename it to start_time. Start time.
             status:
                 type: str
-                description: No description.
+                description: Status.
                 choices:
                     - 'disable'
                     - 'enable'
             vrdst6:
                 type: str
-                description: No description.
+                description: Vrdst6.
             vrgrp:
                 type: int
-                description: No description.
+                description: Vrgrp.
             vrid:
                 type: int
-                description: No description.
+                description: Vrid.
             vrip6:
                 type: str
-                description: No description.
+                description: Vrip6.
 '''
 
 EXAMPLES = '''
@@ -264,9 +264,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -78,7 +78,7 @@ options:
         suboptions:
             dlp-files-auto-deletion:
                 type: dict
-                description: Deprecated, please rename it to dlp_files_auto_deletion.
+                description: Deprecated, please rename it to dlp_files_auto_deletion. Dlp files auto deletion.
                 suboptions:
                     retention:
                         type: str
@@ -108,7 +108,7 @@ options:
                         description: Automatic deletion in x days, weeks, or months.
             log-auto-deletion:
                 type: dict
-                description: Deprecated, please rename it to log_auto_deletion.
+                description: Deprecated, please rename it to log_auto_deletion. Log auto deletion.
                 suboptions:
                     retention:
                         type: str
@@ -138,7 +138,7 @@ options:
                         description: Automatic deletion in x days, weeks, or months.
             quarantine-files-auto-deletion:
                 type: dict
-                description: Deprecated, please rename it to quarantine_files_auto_deletion.
+                description: Deprecated, please rename it to quarantine_files_auto_deletion. Quarantine files auto deletion.
                 suboptions:
                     retention:
                         type: str
@@ -168,7 +168,7 @@ options:
                         description: Automatic deletion in x days, weeks, or months.
             report-auto-deletion:
                 type: dict
-                description: Deprecated, please rename it to report_auto_deletion.
+                description: Deprecated, please rename it to report_auto_deletion. Report auto deletion.
                 suboptions:
                     retention:
                         type: str
@@ -356,9 +356,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

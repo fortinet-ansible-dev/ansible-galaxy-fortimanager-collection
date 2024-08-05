@@ -95,7 +95,7 @@ options:
             capabilities:
                 type: list
                 elements: str
-                description: No description.
+                description: List of EMS capabilities.
                 choices:
                     - 'fabric-auth'
                     - 'silent-approval'
@@ -106,6 +106,8 @@ options:
                     - 'tenant-id'
                     - 'single-vdom-connector'
                     - 'client-avatars'
+                    - 'fgt-sysinfo-api'
+                    - 'ztna-server-info'
             certificate-fingerprint:
                 type: str
                 description: Deprecated, please rename it to certificate_fingerprint. EMS certificate fingerprint.
@@ -194,7 +196,7 @@ options:
                 description: Deprecated, please rename it to serial_number. FortiClient EMS Serial Number.
             admin-password:
                 type: raw
-                description: (list) Deprecated, please rename it to admin_password.
+                description: (list) Deprecated, please rename it to admin_password. FortiClient EMS admin password.
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
@@ -222,10 +224,10 @@ options:
                     - 'enable'
             ca-cn-info:
                 type: str
-                description: Deprecated, please rename it to ca_cn_info.
+                description: Deprecated, please rename it to ca_cn_info. Ca cn info.
             trust-ca-cn:
                 type: str
-                description: Deprecated, please rename it to trust_ca_cn.
+                description: Deprecated, please rename it to trust_ca_cn. Trust ca cn.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -244,6 +246,9 @@ options:
             verifying-ca:
                 type: str
                 description: Deprecated, please rename it to verifying_ca. Lowest CA cert on Fortigate in verified EMS cert chain.
+            cloud-authentication-access-key:
+                type: str
+                description: Deprecated, please rename it to cloud_authentication_access_key. FortiClient EMS Cloud multitenancy access key
 '''
 
 EXAMPLES = '''
@@ -276,6 +281,8 @@ EXAMPLES = '''
             - tenant-id
             - single-vdom-connector
             - client-avatars
+            - fgt-sysinfo-api
+            - ztna-server-info
           certificate_fingerprint: <string>
           cloud_server_type: <value in [production, alpha, beta]>
           fortinetone_cloud_authentication: <value in [disable, enable]>
@@ -307,6 +314,7 @@ EXAMPLES = '''
           send_tags_to_all_vdoms: <value in [disable, enable]>
           verified_cn: <string>
           verifying_ca: <string>
+          cloud_authentication_access_key: <string>
 '''
 
 RETURN = '''
@@ -381,7 +389,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'fabric-auth', 'silent-approval', 'websocket', 'websocket-malware', 'push-ca-certs', 'common-tags-api', 'tenant-id',
-                        'single-vdom-connector', 'client-avatars'
+                        'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info'
                     ],
                     'elements': 'str'
                 },
@@ -415,7 +423,8 @@ def main():
                 'tenant-id': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'send-tags-to-all-vdoms': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'verified-cn': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'verifying-ca': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'verifying-ca': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'cloud-authentication-access-key': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'str'}
             }
 
         }
@@ -431,9 +440,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

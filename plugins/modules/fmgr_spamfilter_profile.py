@@ -111,7 +111,7 @@ options:
             options:
                 type: list
                 elements: str
-                description: No description.
+                description: Options.
                 choices:
                     - 'bannedword'
                     - 'spamemailbwl'
@@ -167,7 +167,7 @@ options:
                 description: Deprecated, please rename it to spam_rbl_table. Anti-spam DNSBL table ID.
             gmail:
                 type: dict
-                description: No description.
+                description: Gmail.
                 suboptions:
                     log:
                         type: str
@@ -177,7 +177,7 @@ options:
                             - 'enable'
             imap:
                 type: dict
-                description: No description.
+                description: Imap.
                 suboptions:
                     action:
                         type: str
@@ -197,14 +197,14 @@ options:
                     tag-type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type.
+                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
                             - 'spaminfo'
             mapi:
                 type: dict
-                description: No description.
+                description: Mapi.
                 suboptions:
                     action:
                         type: str
@@ -220,7 +220,7 @@ options:
                             - 'enable'
             msn-hotmail:
                 type: dict
-                description: Deprecated, please rename it to msn_hotmail.
+                description: Deprecated, please rename it to msn_hotmail. Msn hotmail.
                 suboptions:
                     log:
                         type: str
@@ -230,7 +230,7 @@ options:
                             - 'enable'
             pop3:
                 type: dict
-                description: No description.
+                description: Pop3.
                 suboptions:
                     action:
                         type: str
@@ -250,14 +250,14 @@ options:
                     tag-type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type.
+                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
                             - 'spaminfo'
             smtp:
                 type: dict
-                description: No description.
+                description: Smtp.
                 suboptions:
                     action:
                         type: str
@@ -290,14 +290,14 @@ options:
                     tag-type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type.
+                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
                             - 'spaminfo'
             yahoo-mail:
                 type: dict
-                description: Deprecated, please rename it to yahoo_mail.
+                description: Deprecated, please rename it to yahoo_mail. Yahoo mail.
                 suboptions:
                     log:
                         type: str
@@ -481,10 +481,12 @@ def main():
                 'spam-mheader-table': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'spam-rbl-table': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'gmail': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
                 },
                 'imap': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
@@ -499,6 +501,7 @@ def main():
                     }
                 },
                 'mapi': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'discard'], 'type': 'str'},
@@ -506,10 +509,12 @@ def main():
                     }
                 },
                 'msn-hotmail': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
                 },
                 'pop3': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
@@ -524,6 +529,7 @@ def main():
                     }
                 },
                 'smtp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
@@ -539,7 +545,11 @@ def main():
                         }
                     }
                 },
-                'yahoo-mail': {'type': 'dict', 'options': {'log': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'}}}
+                'yahoo-mail': {
+                    'v_range': [['6.2.8', '6.2.12']],
+                    'type': 'dict',
+                    'options': {'log': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+                }
             }
 
         }
@@ -555,9 +565,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -104,12 +104,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -119,73 +119,73 @@ options:
                                 description: Vdom.
                     arp-reply:
                         type: str
-                        description: Deprecated, please rename it to arp_reply. Enable to respond to ARP requests for this virtual IP address.
+                        description: Deprecated, please rename it to arp_reply. Arp reply.
                         choices:
                             - 'disable'
                             - 'enable'
                     color:
                         type: int
-                        description: Color of icon on the GUI.
+                        description: Color.
                     comment:
                         type: str
                         description: Comment.
                     extip:
                         type: str
-                        description: IP address or address range on the external interface that you want to map to an address or address range on the d...
+                        description: Extip.
                     extport:
                         type: str
-                        description: Incoming port number range that you want to map to a port number range on the destination network.
+                        description: Extport.
                     http-cookie-age:
                         type: int
-                        description: Deprecated, please rename it to http_cookie_age. Time in minutes that client web browsers should keep a cookie.
+                        description: Deprecated, please rename it to http_cookie_age. Http cookie age.
                     http-cookie-domain:
                         type: str
-                        description: Deprecated, please rename it to http_cookie_domain. Domain that HTTP cookie persistence should apply to.
+                        description: Deprecated, please rename it to http_cookie_domain. Http cookie domain.
                     http-cookie-domain-from-host:
                         type: str
-                        description: Deprecated, please rename it to http_cookie_domain_from_host. Enable/disable use of HTTP cookie domain from host f...
+                        description: Deprecated, please rename it to http_cookie_domain_from_host. Http cookie domain from host.
                         choices:
                             - 'disable'
                             - 'enable'
                     http-cookie-generation:
                         type: int
-                        description: Deprecated, please rename it to http_cookie_generation. Generation of HTTP cookie to be accepted.
+                        description: Deprecated, please rename it to http_cookie_generation. Http cookie generation.
                     http-cookie-path:
                         type: str
-                        description: Deprecated, please rename it to http_cookie_path. Limit HTTP cookie persistence to the specified path.
+                        description: Deprecated, please rename it to http_cookie_path. Http cookie path.
                     http-cookie-share:
                         type: str
-                        description: Deprecated, please rename it to http_cookie_share. Control sharing of cookies across virtual servers.
+                        description: Deprecated, please rename it to http_cookie_share. Http cookie share.
                         choices:
                             - 'disable'
                             - 'same-ip'
                     http-ip-header:
                         type: str
-                        description: Deprecated, please rename it to http_ip_header. For HTTP multiplexing, enable to add the original client IP addres...
+                        description: Deprecated, please rename it to http_ip_header. Http ip header.
                         choices:
                             - 'disable'
                             - 'enable'
                     http-ip-header-name:
                         type: str
-                        description: Deprecated, please rename it to http_ip_header_name. For HTTP multiplexing, enter a custom HTTPS header name.
+                        description: Deprecated, please rename it to http_ip_header_name. Http ip header name.
                     http-multiplex:
                         type: str
-                        description: Deprecated, please rename it to http_multiplex. Enable/disable HTTP multiplexing.
+                        description: Deprecated, please rename it to http_multiplex. Http multiplex.
                         choices:
                             - 'disable'
                             - 'enable'
                     https-cookie-secure:
                         type: str
-                        description: Deprecated, please rename it to https_cookie_secure. Enable/disable verification that inserted HTTPS cookies are s...
+                        description: Deprecated, please rename it to https_cookie_secure. Https cookie secure.
                         choices:
                             - 'disable'
                             - 'enable'
                     id:
                         type: int
-                        description: Custom defined ID.
+                        description: Id.
                     ldb-method:
                         type: str
-                        description: Deprecated, please rename it to ldb_method. Method used to distribute sessions to real servers.
+                        description: Deprecated, please rename it to ldb_method. Ldb method.
                         choices:
                             - 'static'
                             - 'round-robin'
@@ -196,45 +196,45 @@ options:
                             - 'http-host'
                     mappedip:
                         type: str
-                        description: Mapped IP address range in the format startIP-endIP.
+                        description: Mappedip.
                     mappedport:
                         type: str
-                        description: Port number range on the destination network to which the external port number range is mapped.
+                        description: Mappedport.
                     max-embryonic-connections:
                         type: int
-                        description: Deprecated, please rename it to max_embryonic_connections. Maximum number of incomplete connections.
+                        description: Deprecated, please rename it to max_embryonic_connections. Max embryonic connections.
                     monitor:
                         type: raw
-                        description: (list or str) Name of the health check monitor to use when polling to determine a virtual servers connectivity status.
+                        description: (list or str) Monitor.
                     outlook-web-access:
                         type: str
-                        description: Deprecated, please rename it to outlook_web_access. Enable to add the Front-End-Https header for Microsoft Outlook...
+                        description: Deprecated, please rename it to outlook_web_access. Outlook web access.
                         choices:
                             - 'disable'
                             - 'enable'
                     persistence:
                         type: str
-                        description: Configure how to make sure that clients connect to the same server every time they make a request that is part of ...
+                        description: Persistence.
                         choices:
                             - 'none'
                             - 'http-cookie'
                             - 'ssl-session-id'
                     portforward:
                         type: str
-                        description: Enable port forwarding.
+                        description: Portforward.
                         choices:
                             - 'disable'
                             - 'enable'
                     protocol:
                         type: str
-                        description: Protocol to use when forwarding packets.
+                        description: Protocol.
                         choices:
                             - 'tcp'
                             - 'udp'
                             - 'sctp'
                     server-type:
                         type: str
-                        description: Deprecated, please rename it to server_type. Protocol to be load balanced by the virtual server
+                        description: Deprecated, please rename it to server_type. Server type.
                         choices:
                             - 'http'
                             - 'https'
@@ -247,10 +247,10 @@ options:
                             - 'smtps'
                     src-filter:
                         type: raw
-                        description: (list) Deprecated, please rename it to src_filter. Source IP6 filter
+                        description: (list) Deprecated, please rename it to src_filter. Src filter.
                     ssl-algorithm:
                         type: str
-                        description: Deprecated, please rename it to ssl_algorithm. Permitted encryption algorithms for SSL sessions according to encry...
+                        description: Deprecated, please rename it to ssl_algorithm. Ssl algorithm.
                         choices:
                             - 'high'
                             - 'low'
@@ -258,29 +258,29 @@ options:
                             - 'custom'
                     ssl-certificate:
                         type: str
-                        description: Deprecated, please rename it to ssl_certificate. The name of the SSL certificate to use for SSL acceleration.
+                        description: Deprecated, please rename it to ssl_certificate. Ssl certificate.
                     ssl-client-fallback:
                         type: str
-                        description: Deprecated, please rename it to ssl_client_fallback. Enable/disable support for preventing Downgrade Attacks on cl...
+                        description: Deprecated, please rename it to ssl_client_fallback. Ssl client fallback.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-client-renegotiation:
                         type: str
-                        description: Deprecated, please rename it to ssl_client_renegotiation. Allow, deny, or require secure renegotiation of client s...
+                        description: Deprecated, please rename it to ssl_client_renegotiation. Ssl client renegotiation.
                         choices:
                             - 'deny'
                             - 'allow'
                             - 'secure'
                     ssl-client-session-state-max:
                         type: int
-                        description: Deprecated, please rename it to ssl_client_session_state_max. Maximum number of client to FortiGate SSL session st...
+                        description: Deprecated, please rename it to ssl_client_session_state_max. Ssl client session state max.
                     ssl-client-session-state-timeout:
                         type: int
-                        description: Deprecated, please rename it to ssl_client_session_state_timeout. Number of minutes to keep client to FortiGate SS...
+                        description: Deprecated, please rename it to ssl_client_session_state_timeout. Ssl client session state timeout.
                     ssl-client-session-state-type:
                         type: str
-                        description: Deprecated, please rename it to ssl_client_session_state_type. How to expire SSL sessions for the segment of the S...
+                        description: Deprecated, please rename it to ssl_client_session_state_type. Ssl client session state type.
                         choices:
                             - 'disable'
                             - 'time'
@@ -288,7 +288,7 @@ options:
                             - 'both'
                     ssl-dh-bits:
                         type: str
-                        description: Deprecated, please rename it to ssl_dh_bits. Number of bits to use in the Diffie-Hellman exchange for RSA encrypti...
+                        description: Deprecated, please rename it to ssl_dh_bits. Ssl dh bits.
                         choices:
                             - '768'
                             - '1024'
@@ -298,59 +298,59 @@ options:
                             - '4096'
                     ssl-hpkp:
                         type: str
-                        description: Deprecated, please rename it to ssl_hpkp. Enable/disable including HPKP header in response.
+                        description: Deprecated, please rename it to ssl_hpkp. Ssl hpkp.
                         choices:
                             - 'disable'
                             - 'enable'
                             - 'report-only'
                     ssl-hpkp-age:
                         type: int
-                        description: Deprecated, please rename it to ssl_hpkp_age. Number of minutes the web browser should keep HPKP.
+                        description: Deprecated, please rename it to ssl_hpkp_age. Ssl hpkp age.
                     ssl-hpkp-backup:
                         type: str
-                        description: Deprecated, please rename it to ssl_hpkp_backup. Certificate to generate backup HPKP pin from.
+                        description: Deprecated, please rename it to ssl_hpkp_backup. Ssl hpkp backup.
                     ssl-hpkp-include-subdomains:
                         type: str
-                        description: Deprecated, please rename it to ssl_hpkp_include_subdomains. Indicate that HPKP header applies to all subdomains.
+                        description: Deprecated, please rename it to ssl_hpkp_include_subdomains. Ssl hpkp include subdomains.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-hpkp-primary:
                         type: str
-                        description: Deprecated, please rename it to ssl_hpkp_primary. Certificate to generate primary HPKP pin from.
+                        description: Deprecated, please rename it to ssl_hpkp_primary. Ssl hpkp primary.
                     ssl-hpkp-report-uri:
                         type: str
-                        description: Deprecated, please rename it to ssl_hpkp_report_uri. URL to report HPKP violations to.
+                        description: Deprecated, please rename it to ssl_hpkp_report_uri. Ssl hpkp report uri.
                     ssl-hsts:
                         type: str
-                        description: Deprecated, please rename it to ssl_hsts. Enable/disable including HSTS header in response.
+                        description: Deprecated, please rename it to ssl_hsts. Ssl hsts.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-hsts-age:
                         type: int
-                        description: Deprecated, please rename it to ssl_hsts_age. Number of seconds the client should honour the HSTS setting.
+                        description: Deprecated, please rename it to ssl_hsts_age. Ssl hsts age.
                     ssl-hsts-include-subdomains:
                         type: str
-                        description: Deprecated, please rename it to ssl_hsts_include_subdomains. Indicate that HSTS header applies to all subdomains.
+                        description: Deprecated, please rename it to ssl_hsts_include_subdomains. Ssl hsts include subdomains.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-http-location-conversion:
                         type: str
-                        description: Deprecated, please rename it to ssl_http_location_conversion. Enable to replace HTTP with HTTPS in the replys Loca...
+                        description: Deprecated, please rename it to ssl_http_location_conversion. Ssl http location conversion.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-http-match-host:
                         type: str
-                        description: Deprecated, please rename it to ssl_http_match_host. Enable/disable HTTP host matching for location conversion.
+                        description: Deprecated, please rename it to ssl_http_match_host. Ssl http match host.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-max-version:
                         type: str
-                        description: Deprecated, please rename it to ssl_max_version. Highest SSL/TLS version acceptable from a client.
+                        description: Deprecated, please rename it to ssl_max_version. Ssl max version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -359,7 +359,7 @@ options:
                             - 'tls-1.3'
                     ssl-min-version:
                         type: str
-                        description: Deprecated, please rename it to ssl_min_version. Lowest SSL/TLS version acceptable from a client.
+                        description: Deprecated, please rename it to ssl_min_version. Ssl min version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -368,26 +368,26 @@ options:
                             - 'tls-1.3'
                     ssl-mode:
                         type: str
-                        description: Deprecated, please rename it to ssl_mode. Apply SSL offloading between the client and the FortiGate
+                        description: Deprecated, please rename it to ssl_mode. Ssl mode.
                         choices:
                             - 'half'
                             - 'full'
                     ssl-pfs:
                         type: str
-                        description: Deprecated, please rename it to ssl_pfs. Select the cipher suites that can be used for SSL perfect forward secrecy
+                        description: Deprecated, please rename it to ssl_pfs. Ssl pfs.
                         choices:
                             - 'require'
                             - 'deny'
                             - 'allow'
                     ssl-send-empty-frags:
                         type: str
-                        description: Deprecated, please rename it to ssl_send_empty_frags. Enable/disable sending empty fragments to avoid CBC IV attacks
+                        description: Deprecated, please rename it to ssl_send_empty_frags. Ssl send empty frags.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-server-algorithm:
                         type: str
-                        description: Deprecated, please rename it to ssl_server_algorithm. Permitted encryption algorithms for the server side of SSL f...
+                        description: Deprecated, please rename it to ssl_server_algorithm. Ssl server algorithm.
                         choices:
                             - 'high'
                             - 'low'
@@ -396,7 +396,7 @@ options:
                             - 'client'
                     ssl-server-max-version:
                         type: str
-                        description: Deprecated, please rename it to ssl_server_max_version. Highest SSL/TLS version acceptable from a server.
+                        description: Deprecated, please rename it to ssl_server_max_version. Ssl server max version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -406,7 +406,7 @@ options:
                             - 'tls-1.3'
                     ssl-server-min-version:
                         type: str
-                        description: Deprecated, please rename it to ssl_server_min_version. Lowest SSL/TLS version acceptable from a server.
+                        description: Deprecated, please rename it to ssl_server_min_version. Ssl server min version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -416,13 +416,13 @@ options:
                             - 'tls-1.3'
                     ssl-server-session-state-max:
                         type: int
-                        description: Deprecated, please rename it to ssl_server_session_state_max. Maximum number of FortiGate to Server SSL session st...
+                        description: Deprecated, please rename it to ssl_server_session_state_max. Ssl server session state max.
                     ssl-server-session-state-timeout:
                         type: int
-                        description: Deprecated, please rename it to ssl_server_session_state_timeout. Number of minutes to keep FortiGate to Server SS...
+                        description: Deprecated, please rename it to ssl_server_session_state_timeout. Ssl server session state timeout.
                     ssl-server-session-state-type:
                         type: str
-                        description: Deprecated, please rename it to ssl_server_session_state_type. How to expire SSL sessions for the segment of the S...
+                        description: Deprecated, please rename it to ssl_server_session_state_type. Ssl server session state type.
                         choices:
                             - 'disable'
                             - 'time'
@@ -430,38 +430,38 @@ options:
                             - 'both'
                     type:
                         type: str
-                        description: Configure a static NAT or server load balance VIP.
+                        description: Type.
                         choices:
                             - 'static-nat'
                             - 'server-load-balance'
                             - 'access-proxy'
                     uuid:
                         type: str
-                        description: Universally Unique Identifier
+                        description: Uuid.
                     weblogic-server:
                         type: str
-                        description: Deprecated, please rename it to weblogic_server. Enable to add an HTTP header to indicate SSL offloading for a Web...
+                        description: Deprecated, please rename it to weblogic_server. Weblogic server.
                         choices:
                             - 'disable'
                             - 'enable'
                     websphere-server:
                         type: str
-                        description: Deprecated, please rename it to websphere_server. Enable to add an HTTP header to indicate SSL offloading for a We...
+                        description: Deprecated, please rename it to websphere_server. Websphere server.
                         choices:
                             - 'disable'
                             - 'enable'
                     http-redirect:
                         type: str
-                        description: Deprecated, please rename it to http_redirect. Enable/disable redirection of HTTP to HTTPS
+                        description: Deprecated, please rename it to http_redirect. Http redirect.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-client-rekey-count:
                         type: int
-                        description: Deprecated, please rename it to ssl_client_rekey_count. Maximum length of data in MB before triggering a client rekey
+                        description: Deprecated, please rename it to ssl_client_rekey_count. Ssl client rekey count.
                     nat-source-vip:
                         type: str
-                        description: Deprecated, please rename it to nat_source_vip. Nat-Source-Vip.
+                        description: Deprecated, please rename it to nat_source_vip. Nat source vip.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -498,7 +498,7 @@ options:
                     realservers:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Realservers.
                         suboptions:
                             client-ip:
                                 type: str
@@ -527,7 +527,7 @@ options:
                                 description: Deprecated, please rename it to max_connections. Max number of active connections that can directed to the...
                             monitor:
                                 type: raw
-                                description: (list or str) No description.
+                                description: (list or str) Name of the health check monitor to use when polling to determine a virtual servers connecti...
                             port:
                                 type: int
                                 description: Port for communicating with the real server.
@@ -556,7 +556,7 @@ options:
                     ssl-cipher-suites:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ssl_cipher_suites.
+                        description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                         suboptions:
                             cipher:
                                 type: str
@@ -639,7 +639,7 @@ options:
                             versions:
                                 type: list
                                 elements: str
-                                description: No description.
+                                description: SSL/TLS versions that the cipher suite can be used with.
                                 choices:
                                     - 'ssl-3.0'
                                     - 'tls-1.0'
@@ -667,6 +667,12 @@ options:
                     h3-support:
                         type: str
                         description: Deprecated, please rename it to h3_support. Enable/disable HTTP3/QUIC support
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    src-vip-filter:
+                        type: str
+                        description: Deprecated, please rename it to src_vip_filter. Enable/disable use of src-filter to match destinations for the rev...
                         choices:
                             - 'disable'
                             - 'enable'
@@ -859,7 +865,7 @@ options:
             ssl-cipher-suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_cipher_suites. Ssl-Cipher-Suites.
+                description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -1087,7 +1093,7 @@ options:
             ssl-server-cipher-suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_server_cipher_suites. Ssl-Server-Cipher-Suites.
+                description: Deprecated, please rename it to ssl_server_cipher_suites. Ssl server cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -1310,7 +1316,7 @@ options:
                     - 'enable'
             quic:
                 type: dict
-                description: No description.
+                description: Quic.
                 suboptions:
                     ack-delay-exponent:
                         type: int
@@ -1360,6 +1366,12 @@ options:
                             - Deprecated, please rename it to max_udp_payload_size.
                             - Support meta variable
                             - Maximum UDP payload size in bytes
+            src-vip-filter:
+                type: str
+                description: Deprecated, please rename it to src_vip_filter. Enable/disable use of src-filter to match destinations for the reverse SNA...
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1619,7 +1631,8 @@ def main():
                         'ndp-reply': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1793,6 +1806,7 @@ def main():
                 'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'quic': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'ack-delay-exponent': {'v_range': [['7.4.2', '']], 'type': 'int'},
@@ -1804,7 +1818,8 @@ def main():
                         'max-idle-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'},
                         'max-udp-payload-size': {'v_range': [['7.4.2', '']], 'type': 'int'}
                     }
-                }
+                },
+                'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -1820,9 +1835,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

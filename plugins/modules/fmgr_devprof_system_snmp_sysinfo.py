@@ -90,6 +90,46 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            append-index:
+                type: str
+                description: Deprecated, please rename it to append_index. Enable/disable allowance of appending vdom or interface index in some RFC ta...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            trap-high-cpu-threshold:
+                type: int
+                description: Deprecated, please rename it to trap_high_cpu_threshold. CPU usage when trap is sent.
+            trap-log-full-threshold:
+                type: int
+                description: Deprecated, please rename it to trap_log_full_threshold. Log disk usage when trap is sent.
+            engine-id:
+                type: str
+                description: Deprecated, please rename it to engine_id. Local SNMP engineID string
+            trap-freeable-memory-threshold:
+                type: int
+                description: Deprecated, please rename it to trap_freeable_memory_threshold. Freeable memory usage when trap is sent.
+            contact-info:
+                type: str
+                description: Deprecated, please rename it to contact_info. Contact information.
+            engine-id-type:
+                type: str
+                description: Deprecated, please rename it to engine_id_type. Local SNMP engineID type
+                choices:
+                    - 'text'
+                    - 'hex'
+                    - 'mac'
+            description:
+                type: str
+                description: System description.
+            trap-free-memory-threshold:
+                type: int
+                description: Deprecated, please rename it to trap_free_memory_threshold. Free memory usage when trap is sent.
+            trap-low-memory-threshold:
+                type: int
+                description: Deprecated, please rename it to trap_low_memory_threshold. Memory usage when trap is sent.
+            location:
+                type: str
+                description: System location.
 '''
 
 EXAMPLES = '''
@@ -112,6 +152,17 @@ EXAMPLES = '''
         devprof: <your own value>
         devprof_system_snmp_sysinfo:
           status: <value in [disable, enable]>
+          append_index: <value in [disable, enable]>
+          trap_high_cpu_threshold: <integer>
+          trap_log_full_threshold: <integer>
+          engine_id: <string>
+          trap_freeable_memory_threshold: <integer>
+          contact_info: <string>
+          engine_id_type: <value in [text, hex, mac]>
+          description: <string>
+          trap_free_memory_threshold: <integer>
+          trap_low_memory_threshold: <integer>
+          location: <string>
 '''
 
 RETURN = '''
@@ -178,7 +229,20 @@ def main():
         'devprof_system_snmp_sysinfo': {
             'type': 'dict',
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
-            'options': {'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+            'options': {
+                'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'append-index': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'trap-high-cpu-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'trap-log-full-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'engine-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'trap-freeable-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'contact-info': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'engine-id-type': {'v_range': [['7.4.3', '']], 'choices': ['text', 'hex', 'mac'], 'type': 'str'},
+                'description': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'trap-free-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'trap-low-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'location': {'v_range': [['7.4.3', '']], 'type': 'str'}
+            }
 
         }
     }
@@ -193,9 +257,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

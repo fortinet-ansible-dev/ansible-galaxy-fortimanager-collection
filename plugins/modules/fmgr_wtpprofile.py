@@ -327,7 +327,7 @@ options:
             deny-mac-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to deny_mac_list. Deny-Mac-List.
+                description: Deprecated, please rename it to deny_mac_list. Deny mac list.
                 suboptions:
                     id:
                         type: int
@@ -377,7 +377,7 @@ options:
             ip-fragment-preventing:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ip_fragment_preventing. Method
+                description: Deprecated, please rename it to ip_fragment_preventing. Select how to prevent IP fragmentation for CAPWAP tunneled control...
                 choices:
                     - 'tcp-mss-adjust'
                     - 'icmp-unreachable'
@@ -427,7 +427,7 @@ options:
             split-tunneling-acl:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to split_tunneling_acl. Split-Tunneling-Acl.
+                description: Deprecated, please rename it to split_tunneling_acl. Split tunneling acl.
                 suboptions:
                     dest-ip:
                         type: str
@@ -482,7 +482,7 @@ options:
                     - 'enable'
             lan:
                 type: dict
-                description: No description.
+                description: Lan.
                 suboptions:
                     port-esl-mode:
                         type: str
@@ -596,7 +596,7 @@ options:
                         description: Deprecated, please rename it to port8_ssid. Bridge LAN port 8 to SSID.
             lbs:
                 type: dict
-                description: No description.
+                description: Lbs.
                 suboptions:
                     aeroscout:
                         type: str
@@ -752,7 +752,7 @@ options:
                         description: Deprecated, please rename it to polestar_server_token. Access Token of PoleStar Nao Track Server.
             platform:
                 type: dict
-                description: No description.
+                description: Platform.
                 suboptions:
                     ddscan:
                         type: str
@@ -863,10 +863,10 @@ options:
                             - '243K'
                     _local_platform_str:
                         type: str
-                        description: _Local_Platform_Str.
+                        description: Local platform str.
             radio-1:
                 type: dict
-                description: Deprecated, please rename it to radio_1.
+                description: Deprecated, please rename it to radio_1. Radio 1.
                 suboptions:
                     airtime-fairness:
                         type: str
@@ -960,6 +960,12 @@ options:
                             - '802.11ax,n-only'
                             - '802.11ax,n,g-only'
                             - '802.11ax-6G'
+                            - '802.11n-2G'
+                            - '802.11ac-5G'
+                            - '802.11ax-2G'
+                            - '802.11be-2G'
+                            - '802.11be-5G'
+                            - '802.11be-6G'
                     band-5g-type:
                         type: str
                         description: Deprecated, please rename it to band_5g_type. WiFi 5G band type.
@@ -1004,6 +1010,8 @@ options:
                             - '40MHz'
                             - '20MHz'
                             - '160MHz'
+                            - '320MHz'
+                            - '240MHz'
                     channel-utilization:
                         type: str
                         description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
@@ -1078,7 +1086,7 @@ options:
                             - 'disable'
                     radio-id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio-Id.
+                        description: Deprecated, please rename it to radio_id. Radio id.
                     rts-threshold:
                         type: int
                         description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum s...
@@ -1236,7 +1244,7 @@ options:
                         description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
                     sam-cwp-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_cwp_password.
+                        description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
                     sam-cwp-success-string:
                         type: str
                         description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
@@ -1308,10 +1316,16 @@ options:
                         description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
                     sam-private-key-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_private_key_password.
+                        description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTER...
+                    channel-bonding-ext:
+                        type: str
+                        description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                        choices:
+                            - '320MHz-1'
+                            - '320MHz-2'
             radio-2:
                 type: dict
-                description: Deprecated, please rename it to radio_2.
+                description: Deprecated, please rename it to radio_2. Radio 2.
                 suboptions:
                     airtime-fairness:
                         type: str
@@ -1405,6 +1419,12 @@ options:
                             - '802.11ax,n-only'
                             - '802.11ax,n,g-only'
                             - '802.11ax-6G'
+                            - '802.11n-2G'
+                            - '802.11ac-5G'
+                            - '802.11ax-2G'
+                            - '802.11be-2G'
+                            - '802.11be-5G'
+                            - '802.11be-6G'
                     band-5g-type:
                         type: str
                         description: Deprecated, please rename it to band_5g_type. WiFi 5G band type.
@@ -1449,6 +1469,8 @@ options:
                             - '40MHz'
                             - '20MHz'
                             - '160MHz'
+                            - '320MHz'
+                            - '240MHz'
                     channel-utilization:
                         type: str
                         description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
@@ -1523,7 +1545,7 @@ options:
                             - 'disable'
                     radio-id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio-Id.
+                        description: Deprecated, please rename it to radio_id. Radio id.
                     rts-threshold:
                         type: int
                         description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum s...
@@ -1681,7 +1703,7 @@ options:
                         description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
                     sam-cwp-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_cwp_password.
+                        description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
                     sam-cwp-success-string:
                         type: str
                         description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
@@ -1753,10 +1775,16 @@ options:
                         description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
                     sam-private-key-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_private_key_password.
+                        description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTER...
+                    channel-bonding-ext:
+                        type: str
+                        description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                        choices:
+                            - '320MHz-1'
+                            - '320MHz-2'
             radio-3:
                 type: dict
-                description: Deprecated, please rename it to radio_3.
+                description: Deprecated, please rename it to radio_3. Radio 3.
                 suboptions:
                     airtime-fairness:
                         type: str
@@ -1850,6 +1878,12 @@ options:
                             - '802.11ax,n-only'
                             - '802.11ax,n,g-only'
                             - '802.11ax-6G'
+                            - '802.11n-2G'
+                            - '802.11ac-5G'
+                            - '802.11ax-2G'
+                            - '802.11be-2G'
+                            - '802.11be-5G'
+                            - '802.11be-6G'
                     band-5g-type:
                         type: str
                         description: Deprecated, please rename it to band_5g_type. WiFi 5G band type.
@@ -1892,6 +1926,8 @@ options:
                             - '40MHz'
                             - '20MHz'
                             - '160MHz'
+                            - '320MHz'
+                            - '240MHz'
                     channel-utilization:
                         type: str
                         description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
@@ -1966,7 +2002,7 @@ options:
                             - 'disable'
                     radio-id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio-Id.
+                        description: Deprecated, please rename it to radio_id. Radio id.
                     rts-threshold:
                         type: int
                         description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum s...
@@ -2124,7 +2160,7 @@ options:
                         description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
                     sam-cwp-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_cwp_password.
+                        description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
                     sam-cwp-success-string:
                         type: str
                         description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
@@ -2196,10 +2232,16 @@ options:
                         description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
                     sam-private-key-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_private_key_password.
+                        description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTER...
+                    channel-bonding-ext:
+                        type: str
+                        description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                        choices:
+                            - '320MHz-1'
+                            - '320MHz-2'
             radio-4:
                 type: dict
-                description: Deprecated, please rename it to radio_4.
+                description: Deprecated, please rename it to radio_4. Radio 4.
                 suboptions:
                     airtime-fairness:
                         type: str
@@ -2293,6 +2335,12 @@ options:
                             - '802.11ax,n-only'
                             - '802.11ax,n,g-only'
                             - '802.11ax-6G'
+                            - '802.11n-2G'
+                            - '802.11ac-5G'
+                            - '802.11ax-2G'
+                            - '802.11be-2G'
+                            - '802.11be-5G'
+                            - '802.11be-6G'
                     band-5g-type:
                         type: str
                         description: Deprecated, please rename it to band_5g_type. WiFi 5G band type.
@@ -2335,6 +2383,8 @@ options:
                             - '40MHz'
                             - '20MHz'
                             - '160MHz'
+                            - '320MHz'
+                            - '240MHz'
                     channel-utilization:
                         type: str
                         description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
@@ -2409,7 +2459,7 @@ options:
                             - 'disable'
                     radio-id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio-Id.
+                        description: Deprecated, please rename it to radio_id. Radio id.
                     rts-threshold:
                         type: int
                         description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum s...
@@ -2567,7 +2617,7 @@ options:
                         description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
                     sam-cwp-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_cwp_password.
+                        description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
                     sam-cwp-success-string:
                         type: str
                         description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
@@ -2639,7 +2689,13 @@ options:
                         description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
                     sam-private-key-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sam_private_key_password.
+                        description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTER...
+                    channel-bonding-ext:
+                        type: str
+                        description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                        choices:
+                            - '320MHz-1'
+                            - '320MHz-2'
             console-login:
                 type: str
                 description: Deprecated, please rename it to console_login. Enable/disable FortiAP console login access
@@ -2648,7 +2704,7 @@ options:
                     - 'enable'
             esl-ses-dongle:
                 type: dict
-                description: Deprecated, please rename it to esl_ses_dongle.
+                description: Deprecated, please rename it to esl_ses_dongle. Esl ses dongle.
                 suboptions:
                     apc-addr-type:
                         type: str
@@ -2748,13 +2804,13 @@ options:
                     - 'EAP-PEAP'
             wan-port-auth-password:
                 type: raw
-                description: (list) Deprecated, please rename it to wan_port_auth_password.
+                description: (list) Deprecated, please rename it to wan_port_auth_password. Set WAN port 802.
             wan-port-auth-usrname:
                 type: str
                 description: Deprecated, please rename it to wan_port_auth_usrname. Set WAN port 802.
             _is_factory_setting:
                 type: str
-                description: No description.
+                description: Is factory setting.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -2771,6 +2827,12 @@ options:
             wan-port-auth-macsec:
                 type: str
                 description: Deprecated, please rename it to wan_port_auth_macsec. Enable/disable WAN port 802.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            usb-port:
+                type: str
+                description: Deprecated, please rename it to usb_port. Enable/disable USB port of the WTP
                 choices:
                     - 'disable'
                     - 'enable'
@@ -3017,6 +3079,7 @@ EXAMPLES = '''
             sam_eap_method: <value in [tls, peap, both]>
             sam_private_key: <string>
             sam_private_key_password: <list or string>
+            channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           radio_2:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3117,6 +3180,7 @@ EXAMPLES = '''
             sam_eap_method: <value in [tls, peap, both]>
             sam_private_key: <string>
             sam_private_key_password: <list or string>
+            channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           radio_3:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3217,6 +3281,7 @@ EXAMPLES = '''
             sam_eap_method: <value in [tls, peap, both]>
             sam_private_key: <string>
             sam_private_key_password: <list or string>
+            channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           radio_4:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3317,6 +3382,7 @@ EXAMPLES = '''
             sam_eap_method: <value in [tls, peap, both]>
             sam_private_key: <string>
             sam_private_key_password: <list or string>
+            channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           console_login: <value in [disable, enable]>
           esl_ses_dongle:
             apc_addr_type: <value in [fqdn, ip]>
@@ -3340,6 +3406,7 @@ EXAMPLES = '''
           unii_4_5ghz_band: <value in [disable, enable]>
           bonjour_profile: <string>
           wan_port_auth_macsec: <value in [disable, enable]>
+          usb_port: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -3461,6 +3528,7 @@ def main():
                 'apcfg-profile': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'frequency-handoff': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'lan': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'port-esl-mode': {
@@ -3526,6 +3594,7 @@ def main():
                     }
                 },
                 'lbs': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'aeroscout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3572,6 +3641,7 @@ def main():
                     }
                 },
                 'platform': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'ddscan': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3593,6 +3663,7 @@ def main():
                     }
                 },
                 'radio-1': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'airtime-fairness': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3615,7 +3686,7 @@ def main():
                                 '802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
                                 '802.11g-only', '802.11n-only', '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
                                 '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                '802.11ax-6G'
+                                '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G', '802.11be-6G'
                             ],
                             'type': 'str'
                         },
@@ -3629,7 +3700,7 @@ def main():
                         'channel': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'channel-bonding': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz'],
+                            'choices': ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz'],
                             'type': 'str'
                         },
                         'channel-utilization': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3729,10 +3800,12 @@ def main():
                         'sam-client-certificate': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
-                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
                     }
                 },
                 'radio-2': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'airtime-fairness': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3755,7 +3828,7 @@ def main():
                                 '802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
                                 '802.11g-only', '802.11n-only', '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
                                 '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                '802.11ax-6G'
+                                '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G', '802.11be-6G'
                             ],
                             'type': 'str'
                         },
@@ -3769,7 +3842,7 @@ def main():
                         'channel': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'channel-bonding': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz'],
+                            'choices': ['disable', 'enable', '80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz'],
                             'type': 'str'
                         },
                         'channel-utilization': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3869,10 +3942,12 @@ def main():
                         'sam-client-certificate': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
-                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
                     }
                 },
                 'radio-3': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'airtime-fairness': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -3895,7 +3970,7 @@ def main():
                                 '802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
                                 '802.11g-only', '802.11n-only', '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
                                 '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                '802.11ax-6G'
+                                '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G', '802.11be-6G'
                             ],
                             'type': 'str'
                         },
@@ -3909,7 +3984,7 @@ def main():
                         'channel': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'channel-bonding': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['80MHz', '40MHz', '20MHz', '160MHz'],
+                            'choices': ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz'],
                             'type': 'str'
                         },
                         'channel-utilization': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4009,10 +4084,12 @@ def main():
                         'sam-client-certificate': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
-                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
                     }
                 },
                 'radio-4': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'airtime-fairness': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4035,7 +4112,7 @@ def main():
                                 '802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11ac-2G',
                                 '802.11g-only', '802.11n-only', '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only',
                                 '802.11ax-5G-only', '802.11ax,ac-only', '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only',
-                                '802.11ax-6G'
+                                '802.11ax-6G', '802.11n-2G', '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G', '802.11be-6G'
                             ],
                             'type': 'str'
                         },
@@ -4049,7 +4126,7 @@ def main():
                         'channel': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'channel-bonding': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['80MHz', '40MHz', '20MHz', '160MHz'],
+                            'choices': ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz'],
                             'type': 'str'
                         },
                         'channel-utilization': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4149,11 +4226,13 @@ def main():
                         'sam-client-certificate': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
-                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                        'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
                     }
                 },
                 'console-login': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'esl-ses-dongle': {
+                    'v_range': [['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'apc-addr-type': {'v_range': [['7.0.1', '']], 'choices': ['fqdn', 'ip'], 'type': 'str'},
@@ -4182,7 +4261,8 @@ def main():
                 '_is_factory_setting': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable', 'ext'], 'type': 'str'},
                 'unii-4-5ghz-band': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'bonjour-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'wan-port-auth-macsec': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'wan-port-auth-macsec': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'usb-port': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -4198,9 +4278,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -99,7 +99,7 @@ options:
             policy:
                 type: list
                 elements: dict
-                description: No description.
+                description: Policy.
                 suboptions:
                     802-1x:
                         type: str
@@ -130,7 +130,7 @@ options:
                         description: Deprecated, please rename it to hw_vendor. Match policy based on hardware vendor.
                     interface-tags:
                         type: raw
-                        description: (list) Deprecated, please rename it to interface_tags.
+                        description: (list) Deprecated, please rename it to interface_tags. Match policy based on the FortiSwitch interface object tags.
                     lldp-profile:
                         type: str
                         description: Deprecated, please rename it to lldp_profile. LLDP profile to be applied when using this policy.
@@ -155,6 +155,18 @@ options:
                     vlan-policy:
                         type: str
                         description: Deprecated, please rename it to vlan_policy. VLAN policy to be applied when using this policy.
+                    match-period:
+                        type: int
+                        description: Deprecated, please rename it to match_period. Number of days the matched devices will be retained
+                    match-type:
+                        type: str
+                        description: Deprecated, please rename it to match_type. Match and retain the devices based on the type.
+                        choices:
+                            - 'dynamic'
+                            - 'override'
+            fortilink:
+                type: raw
+                description: (list) FortiLink interface for which this Dynamic port policy belongs to.
 '''
 
 EXAMPLES = '''
@@ -195,6 +207,9 @@ EXAMPLES = '''
               status: <value in [disable, enable]>
               type: <string>
               vlan_policy: <string>
+              match_period: <integer>
+              match_type: <value in [dynamic, override]>
+          fortilink: <list or string>
 '''
 
 RETURN = '''
@@ -283,10 +298,13 @@ def main():
                         'qos-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'type': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'vlan-policy': {'v_range': [['7.2.1', '']], 'type': 'str'}
+                        'vlan-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
+                        'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'fortilink': {'v_range': [['7.4.3', '']], 'type': 'raw'}
             }
 
         }
@@ -302,9 +320,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

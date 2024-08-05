@@ -94,7 +94,7 @@ options:
                 description: Deprecated, please rename it to antispam_cache_ttl. Time-to-live for antispam cache entries in seconds
             antispam-expiration:
                 type: int
-                description: Deprecated, please rename it to antispam_expiration. Antispam-Expiration.
+                description: Deprecated, please rename it to antispam_expiration. Antispam expiration.
             antispam-force-off:
                 type: str
                 description: Deprecated, please rename it to antispam_force_off. Enable/disable turning off the FortiGuard antispam service.
@@ -103,7 +103,7 @@ options:
                     - 'enable'
             antispam-license:
                 type: int
-                description: Deprecated, please rename it to antispam_license. Antispam-License.
+                description: Deprecated, please rename it to antispam_license. Antispam license.
             antispam-timeout:
                 type: int
                 description: Deprecated, please rename it to antispam_timeout. Antispam query time out
@@ -136,7 +136,7 @@ options:
                 description: Deprecated, please rename it to outbreak_prevention_cache_ttl. Time-to-live for FortiGuard Virus Outbreak Prevention cache...
             outbreak-prevention-expiration:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_expiration. Outbreak-Prevention-Expiration.
+                description: Deprecated, please rename it to outbreak_prevention_expiration. Outbreak prevention expiration.
             outbreak-prevention-force-off:
                 type: str
                 description: Deprecated, please rename it to outbreak_prevention_force_off. Turn off FortiGuard Virus Outbreak Prevention service.
@@ -145,7 +145,7 @@ options:
                     - 'enable'
             outbreak-prevention-license:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_license. Outbreak-Prevention-License.
+                description: Deprecated, please rename it to outbreak_prevention_license. Outbreak prevention license.
             outbreak-prevention-timeout:
                 type: int
                 description: Deprecated, please rename it to outbreak_prevention_timeout. FortiGuard Virus Outbreak Prevention time out
@@ -191,7 +191,7 @@ options:
                 description: Deprecated, please rename it to webfilter_cache_ttl. Time-to-live for web filter cache entries in seconds
             webfilter-expiration:
                 type: int
-                description: Deprecated, please rename it to webfilter_expiration. Webfilter-Expiration.
+                description: Deprecated, please rename it to webfilter_expiration. Webfilter expiration.
             webfilter-force-off:
                 type: str
                 description: Deprecated, please rename it to webfilter_force_off. Enable/disable turning off the FortiGuard web filtering service.
@@ -200,7 +200,7 @@ options:
                     - 'enable'
             webfilter-license:
                 type: int
-                description: Deprecated, please rename it to webfilter_license. Webfilter-License.
+                description: Deprecated, please rename it to webfilter_license. Webfilter license.
             webfilter-timeout:
                 type: int
                 description: Deprecated, please rename it to webfilter_timeout. Web filter query time out
@@ -317,10 +317,10 @@ options:
                     - 'enable'
             videofilter-expiration:
                 type: int
-                description: Deprecated, please rename it to videofilter_expiration. Videofilter-Expiration.
+                description: Deprecated, please rename it to videofilter_expiration. Videofilter expiration.
             videofilter-license:
                 type: int
-                description: Deprecated, please rename it to videofilter_license. Videofilter-License.
+                description: Deprecated, please rename it to videofilter_license. Videofilter license.
             ddns-server-ip6:
                 type: str
                 description: Deprecated, please rename it to ddns_server_ip6. IPv6 address of the FortiDDNS server.
@@ -336,7 +336,7 @@ options:
             auto-firmware-upgrade-day:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to auto_firmware_upgrade_day.
+                description: Deprecated, please rename it to auto_firmware_upgrade_day. Allowed day
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -637,9 +637,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

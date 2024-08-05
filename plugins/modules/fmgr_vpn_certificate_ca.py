@@ -91,7 +91,7 @@ options:
         suboptions:
             _private_key:
                 type: str
-                description: _Private_Key.
+                description: Private key.
             auto-update-days:
                 type: int
                 description: Deprecated, please rename it to auto_update_days. Number of days to wait before requesting an updated CA certificate
@@ -152,6 +152,15 @@ options:
             est-url:
                 type: str
                 description: Deprecated, please rename it to est_url. URL of the EST server.
+            fabric-ca:
+                type: str
+                description: Deprecated, please rename it to fabric_ca. Enable/disable synchronization of CA across Security Fabric.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            non-fabric-name:
+                type: str
+                description: Deprecated, please rename it to non_fabric_name. Name used prior to becoming a Security Fabric synchronized CA.
 '''
 
 EXAMPLES = '''
@@ -188,6 +197,8 @@ EXAMPLES = '''
           ca_identifier: <string>
           obsolete: <value in [disable, enable]>
           est_url: <string>
+          fabric_ca: <value in [disable, enable]>
+          non_fabric_name: <string>
 '''
 
 RETURN = '''
@@ -270,7 +281,9 @@ def main():
                 'ssl-inspection-trusted': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ca-identifier': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'obsolete': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'est-url': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                'est-url': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'fabric-ca': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'non-fabric-name': {'v_range': [['7.4.3', '']], 'type': 'str'}
             }
 
         }
@@ -286,9 +299,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

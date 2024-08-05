@@ -96,7 +96,7 @@ options:
             allowaccess:
                 type: list
                 elements: str
-                description: No description.
+                description: Allowaccess.
                 choices:
                     - 'https'
                     - 'ping'
@@ -113,39 +113,40 @@ options:
                     - 'ftm'
                     - 'fabric'
                     - 'speed-test'
+                    - 'icond'
             detectprotocol:
                 type: list
                 elements: str
-                description: No description.
+                description: Detectprotocol.
                 choices:
                     - 'ping'
                     - 'tcp-echo'
                     - 'udp-echo'
             detectserver:
                 type: str
-                description: No description.
+                description: Detectserver.
             gwdetect:
                 type: str
-                description: No description.
+                description: Gwdetect.
                 choices:
                     - 'disable'
                     - 'enable'
             ha-priority:
                 type: int
-                description: Deprecated, please rename it to ha_priority.
+                description: Deprecated, please rename it to ha_priority. Ha priority.
             id:
                 type: int
-                description: No description.
+                description: Id.
                 required: true
             ip:
                 type: str
-                description: No description.
+                description: Ip.
             ping-serv-status:
                 type: int
-                description: Deprecated, please rename it to ping_serv_status.
+                description: Deprecated, please rename it to ping_serv_status. Ping serv status.
             seq:
                 type: int
-                description: No description.
+                description: Seq.
             secip-relay-ip:
                 type: str
                 description: Deprecated, please rename it to secip_relay_ip. DHCP relay IP address.
@@ -187,6 +188,7 @@ EXAMPLES = '''
             - ftm
             - fabric
             - speed-test
+            - icond
           detectprotocol:
             - ping
             - tcp-echo
@@ -272,7 +274,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm',
-                        'fabric', 'speed-test'
+                        'fabric', 'speed-test', 'icond'
                     ],
                     'elements': 'str'
                 },
@@ -300,9 +302,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

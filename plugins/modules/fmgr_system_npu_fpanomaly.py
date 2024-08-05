@@ -443,61 +443,61 @@ options:
                     - 'trap-to-host'
             gtpu-plen-err:
                 type: str
-                description: Deprecated, please rename it to gtpu_plen_err.
+                description: Deprecated, please rename it to gtpu_plen_err. Gtpu plen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             vxlan-minlen-err:
                 type: str
-                description: Deprecated, please rename it to vxlan_minlen_err.
+                description: Deprecated, please rename it to vxlan_minlen_err. Vxlan minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             capwap-minlen-err:
                 type: str
-                description: Deprecated, please rename it to capwap_minlen_err.
+                description: Deprecated, please rename it to capwap_minlen_err. Capwap minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             gre-csum-err:
                 type: str
-                description: Deprecated, please rename it to gre_csum_err.
+                description: Deprecated, please rename it to gre_csum_err. Gre csum err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             nvgre-minlen-err:
                 type: str
-                description: Deprecated, please rename it to nvgre_minlen_err.
+                description: Deprecated, please rename it to nvgre_minlen_err. Nvgre minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             sctp-l4len-err:
                 type: str
-                description: Deprecated, please rename it to sctp_l4len_err.
+                description: Deprecated, please rename it to sctp_l4len_err. Sctp l4len err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             tcp-hlenvsl4len-err:
                 type: str
-                description: Deprecated, please rename it to tcp_hlenvsl4len_err.
+                description: Deprecated, please rename it to tcp_hlenvsl4len_err. Tcp hlenvsl4len err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             sctp-crc-err:
                 type: str
-                description: Deprecated, please rename it to sctp_crc_err.
+                description: Deprecated, please rename it to sctp_crc_err. Sctp crc err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             sctp-clen-err:
                 type: str
-                description: Deprecated, please rename it to sctp_clen_err.
+                description: Deprecated, please rename it to sctp_clen_err. Sctp clen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
             uesp-minlen-err:
                 type: str
-                description: Deprecated, please rename it to uesp_minlen_err.
+                description: Deprecated, please rename it to uesp_minlen_err. Uesp minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
@@ -727,7 +727,7 @@ def main():
                 'sctp-crc-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'sctp-clen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
             }
 
         }
@@ -743,9 +743,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

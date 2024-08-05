@@ -86,61 +86,61 @@ options:
         suboptions:
             adm_pass:
                 type: raw
-                description: (list) No description.
+                description: (list) Adm pass.
             adm_usr:
                 type: str
-                description: No description.
+                description: Adm usr.
             app_ver:
                 type: str
-                description: No description.
+                description: App ver.
             av_ver:
                 type: str
-                description: No description.
+                description: Av ver.
             beta:
                 type: int
-                description: No description.
+                description: Beta.
             branch_pt:
                 type: int
-                description: No description.
+                description: Branch pt.
             build:
                 type: int
-                description: No description.
+                description: Build.
             checksum:
                 type: str
-                description: No description.
+                description: Checksum.
             conf_status:
                 type: str
-                description: No description.
+                description: Conf status.
                 choices:
                     - 'unknown'
                     - 'insync'
                     - 'outofsync'
             conn_mode:
                 type: str
-                description: No description.
+                description: Conn mode.
                 choices:
                     - 'active'
                     - 'passive'
             conn_status:
                 type: str
-                description: No description.
+                description: Conn status.
                 choices:
                     - 'UNKNOWN'
                     - 'up'
                     - 'down'
             db_status:
                 type: str
-                description: No description.
+                description: Db status.
                 choices:
                     - 'unknown'
                     - 'nomod'
                     - 'mod'
             desc:
                 type: str
-                description: No description.
+                description: Desc.
             dev_status:
                 type: str
-                description: No description.
+                description: Dev status.
                 choices:
                     - 'none'
                     - 'unknown'
@@ -160,26 +160,26 @@ options:
                     - 'auto_updated'
             fap_cnt:
                 type: int
-                description: No description.
+                description: Fap cnt.
             faz.full_act:
                 type: int
-                description: Deprecated, please rename it to faz_full_act.
+                description: Deprecated, please rename it to faz_full_act. Faz.
             faz.perm:
                 type: int
-                description: Deprecated, please rename it to faz_perm.
+                description: Deprecated, please rename it to faz_perm. Faz.
             faz.quota:
                 type: int
-                description: Deprecated, please rename it to faz_quota.
+                description: Deprecated, please rename it to faz_quota. Faz.
             faz.used:
                 type: int
-                description: Deprecated, please rename it to faz_used.
+                description: Deprecated, please rename it to faz_used. Faz.
             fex_cnt:
                 type: int
-                description: No description.
+                description: Fex cnt.
             flags:
                 type: list
                 elements: str
-                description: No description.
+                description: Flags.
                 choices:
                     - 'has_hdd'
                     - 'vdom_enabled'
@@ -228,7 +228,15 @@ options:
             foslic_utm:
                 type: list
                 elements: str
-                description: No description.
+                description:
+                    - VM Meter services
+                    - fw - Firewall
+                    - av - Anti-virus
+                    - ips - IPS
+                    - app - App control
+                    - url - Web filter
+                    - utm - Full UTM
+                    - fwb - FortiWeb
                 choices:
                     - 'fw'
                     - 'av'
@@ -239,13 +247,13 @@ options:
                     - 'fwb'
             fsw_cnt:
                 type: int
-                description: No description.
+                description: Fsw cnt.
             ha_group_id:
                 type: int
-                description: No description.
+                description: Ha group id.
             ha_group_name:
                 type: str
-                description: No description.
+                description: Ha group name.
             ha_mode:
                 type: str
                 description: Enabled - Value reserved for non-FOS HA devices.
@@ -262,92 +270,92 @@ options:
             ha_slave:
                 type: list
                 elements: dict
-                description: No description.
+                description: Ha slave.
                 suboptions:
                     idx:
                         type: int
-                        description: No description.
+                        description: Idx.
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     prio:
                         type: int
-                        description: No description.
+                        description: Prio.
                     role:
                         type: str
-                        description: No description.
+                        description: Role.
                         choices:
                             - 'slave'
                             - 'master'
                     sn:
                         type: str
-                        description: No description.
+                        description: Sn.
                     status:
                         type: int
-                        description: No description.
+                        description: Status.
                     conf_status:
                         type: int
-                        description: No description.
+                        description: Conf status.
             hdisk_size:
                 type: int
-                description: No description.
+                description: Hdisk size.
             hostname:
                 type: str
-                description: No description.
+                description: Hostname.
             hw_rev_major:
                 type: int
-                description: No description.
+                description: Hw rev major.
             hw_rev_minor:
                 type: int
-                description: No description.
+                description: Hw rev minor.
             ip:
                 type: str
-                description: No description.
+                description: Ip.
             ips_ext:
                 type: int
-                description: No description.
+                description: Ips ext.
             ips_ver:
                 type: str
-                description: No description.
+                description: Ips ver.
             last_checked:
                 type: int
-                description: No description.
+                description: Last checked.
             last_resync:
                 type: int
-                description: No description.
+                description: Last resync.
             latitude:
                 type: str
-                description: No description.
+                description: Latitude.
             lic_flags:
                 type: int
-                description: No description.
+                description: Lic flags.
             lic_region:
                 type: str
-                description: No description.
+                description: Lic region.
             location_from:
                 type: str
-                description: No description.
+                description: Location from.
             logdisk_size:
                 type: int
-                description: No description.
+                description: Logdisk size.
             longitude:
                 type: str
-                description: No description.
+                description: Longitude.
             maxvdom:
                 type: int
-                description: No description.
+                description: Maxvdom.
             meta fields:
                 type: dict
-                description: Deprecated, please rename it to meta_fields.
+                description: Deprecated, please rename it to meta_fields. Default metafields
             mgmt_id:
                 type: int
-                description: No description.
+                description: Mgmt id.
             mgmt_if:
                 type: str
-                description: No description.
+                description: Mgmt if.
             mgmt_mode:
                 type: str
-                description: No description.
+                description: Mgmt mode.
                 choices:
                     - 'unreg'
                     - 'fmg'
@@ -355,16 +363,16 @@ options:
                     - 'fmgfaz'
             mgt_vdom:
                 type: str
-                description: No description.
+                description: Mgt vdom.
             mr:
                 type: int
-                description: No description.
+                description: Mr.
             name:
                 type: str
                 description: Unique name for the device.
             os_type:
                 type: str
-                description: No description.
+                description: Os type.
                 choices:
                     - 'unknown'
                     - 'fos'
@@ -398,7 +406,7 @@ options:
                     - 'ftc'
             os_ver:
                 type: str
-                description: No description.
+                description: Os ver.
                 choices:
                     - 'unknown'
                     - '0.0'
@@ -413,115 +421,118 @@ options:
                     - '9.0'
             patch:
                 type: int
-                description: No description.
+                description: Patch.
             platform_str:
                 type: str
-                description: No description.
+                description: Platform str.
             psk:
                 type: str
-                description: No description.
+                description: Psk.
             sn:
                 type: str
                 description: Unique value for each device.
             vdom:
                 type: list
                 elements: dict
-                description: No description.
+                description: Vdom.
                 suboptions:
                     comments:
                         type: str
-                        description: No description.
+                        description: Comments.
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     opmode:
                         type: str
-                        description: No description.
+                        description: Opmode.
                         choices:
                             - 'nat'
                             - 'transparent'
                     rtm_prof_id:
                         type: int
-                        description: No description.
+                        description: Rtm prof id.
                     status:
                         type: str
-                        description: No description.
+                        description: Status.
                     vpn_id:
                         type: int
-                        description: No description.
+                        description: Vpn id.
                     meta fields:
                         type: dict
-                        description: Deprecated, please rename it to meta_fields.
+                        description: Deprecated, please rename it to meta_fields. Meta fields.
                     vdom_type:
                         type: str
-                        description: No description.
+                        description: Vdom type.
                         choices:
                             - 'traffic'
                             - 'admin'
             version:
                 type: int
-                description: No description.
+                description: Version.
             vm_cpu:
                 type: int
-                description: No description.
+                description: Vm cpu.
             vm_cpu_limit:
                 type: int
-                description: No description.
+                description: Vm cpu limit.
             vm_lic_expire:
                 type: int
-                description: No description.
+                description: Vm lic expire.
             vm_mem:
                 type: int
-                description: No description.
+                description: Vm mem.
             vm_mem_limit:
                 type: int
-                description: No description.
+                description: Vm mem limit.
             vm_status:
                 type: raw
-                description: (int or str) No description.
+                description: (int or str) Vm status.
             module_sn:
                 type: str
-                description: No description.
+                description: Module sn.
             prefer_img_ver:
                 type: str
-                description: No description.
+                description: Prefer img ver.
             prio:
                 type: int
-                description: No description.
+                description: Prio.
             role:
                 type: str
-                description: No description.
+                description: Role.
                 choices:
                     - 'master'
                     - 'ha-slave'
                     - 'autoscale-slave'
             hyperscale:
                 type: int
-                description: No description.
+                description: Hyperscale.
             nsxt_service_name:
                 type: str
-                description: No description.
+                description: Nsxt service name.
             private_key:
                 type: str
-                description: No description.
+                description: Private key.
             private_key_status:
                 type: int
-                description: No description.
+                description: Private key status.
             vm_lic_overdue_since:
                 type: int
-                description: No description.
+                description: Vm lic overdue since.
             first_tunnel_up:
                 type: int
-                description: No description.
+                description: First tunnel up.
             eip:
                 type: str
-                description: No description.
+                description: Eip.
             mgmt_uuid:
                 type: str
-                description: No description.
+                description: Mgmt uuid.
             hw_generation:
                 type: int
-                description: No description.
+                description: Hw generation.
+            relver_info:
+                type: str
+                description: Relver info.
 '''
 
 EXAMPLES = '''
@@ -767,7 +778,8 @@ def main():
                 'first_tunnel_up': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
                 'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
+                'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'}
             }
 
         }
@@ -783,9 +795,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

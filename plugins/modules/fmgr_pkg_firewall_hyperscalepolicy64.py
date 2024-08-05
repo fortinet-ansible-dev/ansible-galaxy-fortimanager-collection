@@ -125,7 +125,7 @@ options:
                 description: Comment.
             dstaddr:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Destination address name.
             dstintf:
                 type: str
                 description: Destination interface name.
@@ -150,13 +150,13 @@ options:
                 required: true
             poolname:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Policy IP pool names.
             service:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Service name.
             srcaddr:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Source address name.
             srcintf:
                 type: str
                 description: Source interface name.
@@ -291,31 +291,31 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_hyperscalepolicy64': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']],
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']],
             'options': {
-                'action': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['deny', 'accept'], 'type': 'str'},
-                'cgn-eif': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-eim': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'cgn-resource-quota': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'int'},
-                'cgn-session-quota': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'int'},
-                'comments': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'ippool': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'name': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '7.2.0']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'policyid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'required': True, 'type': 'int'},
-                'poolname': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'service': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'srcaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'raw'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'status': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']], 'type': 'str'}
+                'action': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['deny', 'accept'], 'type': 'str'},
+                'cgn-eif': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-eim': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'cgn-resource-quota': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'int'},
+                'cgn-session-quota': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'int'},
+                'comments': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'dstintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'ippool': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'name': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'policy-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'policyid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'poolname': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'service': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'srcintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'status': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'}
             }
 
         }
@@ -331,9 +331,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

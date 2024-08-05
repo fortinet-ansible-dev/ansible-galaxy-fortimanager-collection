@@ -181,6 +181,12 @@ options:
                     - '802.11ax,n,g-only'
                     - '802.11ac-2G'
                     - '802.11ax-6G'
+                    - '802.11n-2G'
+                    - '802.11ac-5G'
+                    - '802.11ax-2G'
+                    - '802.11be-2G'
+                    - '802.11be-5G'
+                    - '802.11be-6G'
             bandwidth-admission-control:
                 type: str
                 description: Deprecated, please rename it to bandwidth_admission_control. Enable/disable WiFi multimedia
@@ -204,7 +210,7 @@ options:
                 description: Deprecated, please rename it to call_capacity. Maximum number of Voice over WLAN
             channel:
                 type: raw
-                description: (list) No description.
+                description: (list) Selected list of wireless radio channels.
             channel-bonding:
                 type: str
                 description: Deprecated, please rename it to channel_bonding. Channel bandwidth
@@ -213,6 +219,8 @@ options:
                     - '40MHz'
                     - '20MHz'
                     - '160MHz'
+                    - '320MHz'
+                    - '240MHz'
             channel-utilization:
                 type: str
                 description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
@@ -264,7 +272,7 @@ options:
             powersave-optimize:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to powersave_optimize.
+                description: Deprecated, please rename it to powersave_optimize. Enable client power-saving features such as TIM, AC VO, and OBSS etc.
                 choices:
                     - 'tim'
                     - 'ac-vo'
@@ -280,7 +288,7 @@ options:
                     - 'disable'
             radio-id:
                 type: int
-                description: Deprecated, please rename it to radio_id.
+                description: Deprecated, please rename it to radio_id. Radio id.
             rts-threshold:
                 type: int
                 description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum size of a...
@@ -300,7 +308,7 @@ options:
             transmit-optimize:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to transmit_optimize.
+                description: Deprecated, please rename it to transmit_optimize. Packet transmission optimization options including power saving, aggreg...
                 choices:
                     - 'disable'
                     - 'power-save'
@@ -407,7 +415,7 @@ options:
                     - 'enable'
             sam-password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_password.
+                description: (list) Deprecated, please rename it to sam_password. Passphrase for WiFi network connection.
             sam-report-intv:
                 type: int
                 description: Deprecated, please rename it to sam_report_intv. SAM report interval
@@ -452,7 +460,7 @@ options:
                 description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
             sam-cwp-password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_cwp_password.
+                description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
             sam-cwp-success-string:
                 type: str
                 description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
@@ -524,7 +532,13 @@ options:
                 description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
             sam-private-key-password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_private_key_password.
+                description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTERPRISE.
+            channel-bonding-ext:
+                type: str
+                description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                choices:
+                    - '320MHz-1'
+                    - '320MHz-2'
 '''
 
 EXAMPLES = '''
@@ -645,6 +659,7 @@ EXAMPLES = '''
           sam_eap_method: <value in [tls, peap, both]>
           sam_private_key: <string>
           sam_private_key_password: <list or string>
+          channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
 '''
 
 RETURN = '''
@@ -734,7 +749,8 @@ def main():
                     'choices': [
                         '802.11b', '802.11a', '802.11g', '802.11n', '802.11ac', '802.11n-5G', '802.11ax-5G', '802.11ax', '802.11g-only', '802.11n-only',
                         '802.11n,g-only', '802.11ac-only', '802.11ac,n-only', '802.11n-5G-only', '802.11ax-5G-only', '802.11ax,ac-only',
-                        '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ac-2G', '802.11ax-6G'
+                        '802.11ax,ac,n-only', '802.11ax-only', '802.11ax,n-only', '802.11ax,n,g-only', '802.11ac-2G', '802.11ax-6G', '802.11n-2G',
+                        '802.11ac-5G', '802.11ax-2G', '802.11be-2G', '802.11be-5G', '802.11be-6G'
                     ],
                     'type': 'str'
                 },
@@ -744,7 +760,7 @@ def main():
                 'call-admission-control': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'call-capacity': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'channel': {'v_range': [['6.2.2', '']], 'type': 'raw'},
-                'channel-bonding': {'v_range': [['6.2.2', '']], 'choices': ['80MHz', '40MHz', '20MHz', '160MHz'], 'type': 'str'},
+                'channel-bonding': {'v_range': [['6.2.2', '']], 'choices': ['80MHz', '40MHz', '20MHz', '160MHz', '320MHz', '240MHz'], 'type': 'str'},
                 'channel-utilization': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'coexistence': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'darrp': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -828,7 +844,8 @@ def main():
                 'sam-client-certificate': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                 'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
-                'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
+                'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
             }
 
         }
@@ -844,9 +861,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

@@ -155,7 +155,7 @@ options:
             icap-headers:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to icap_headers. Icap-Headers.
+                description: Deprecated, please rename it to icap_headers. Icap headers.
                 suboptions:
                     base64-encoding:
                         type: str
@@ -196,7 +196,7 @@ options:
             respmod-forward-rules:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to respmod_forward_rules. Respmod-Forward-Rules.
+                description: Deprecated, please rename it to respmod_forward_rules. Respmod forward rules.
                 suboptions:
                     action:
                         type: str
@@ -207,7 +207,7 @@ options:
                     header-group:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to header_group. Header-Group.
+                        description: Deprecated, please rename it to header_group. Header group.
                         suboptions:
                             case-sensitivity:
                                 type: str
@@ -251,13 +251,13 @@ options:
             extension-feature:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to extension_feature.
+                description: Deprecated, please rename it to extension_feature. Enable/disable ICAP extension features.
                 choices:
                     - 'scan-progress'
             file-transfer:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to file_transfer.
+                description: Deprecated, please rename it to file_transfer. Configure the file transfer protocols to pass transferred files to an ICAP ...
                 choices:
                     - 'ssh'
                     - 'ftp'
@@ -515,9 +515,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -82,53 +82,53 @@ options:
         suboptions:
             name:
                 type: str
-                description: No description.
+                description: Name.
             oid:
                 type: int
-                description: No description.
+                description: Oid.
             package settings:
                 type: dict
-                description: Deprecated, please rename it to package_settings.
+                description: Deprecated, please rename it to package_settings. Package settings.
                 suboptions:
                     central-nat:
                         type: str
-                        description: Deprecated, please rename it to central_nat.
+                        description: Deprecated, please rename it to central_nat. Central nat.
                         choices:
                             - 'disable'
                             - 'enable'
                     consolidated-firewall-mode:
                         type: str
-                        description: Deprecated, please rename it to consolidated_firewall_mode.
+                        description: Deprecated, please rename it to consolidated_firewall_mode. Consolidated firewall mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy-implicit-log:
                         type: str
-                        description: Deprecated, please rename it to fwpolicy_implicit_log.
+                        description: Deprecated, please rename it to fwpolicy_implicit_log. Fwpolicy implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy6-implicit-log:
                         type: str
-                        description: Deprecated, please rename it to fwpolicy6_implicit_log.
+                        description: Deprecated, please rename it to fwpolicy6_implicit_log. Fwpolicy6 implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     inspection-mode:
                         type: str
-                        description: Deprecated, please rename it to inspection_mode.
+                        description: Deprecated, please rename it to inspection_mode. Inspection mode.
                         choices:
                             - 'proxy'
                             - 'flow'
                     ngfw-mode:
                         type: str
-                        description: Deprecated, please rename it to ngfw_mode.
+                        description: Deprecated, please rename it to ngfw_mode. Ngfw mode.
                         choices:
                             - 'profile-based'
                             - 'policy-based'
                     policy-offload-level:
                         type: str
-                        description: Deprecated, please rename it to policy_offload_level.
+                        description: Deprecated, please rename it to policy_offload_level. Policy offload level.
                         choices:
                             - 'disable'
                             - 'default'
@@ -136,10 +136,10 @@ options:
                             - 'full-offload'
                     ssl-ssh-profile:
                         type: str
-                        description: Deprecated, please rename it to ssl_ssh_profile.
+                        description: Deprecated, please rename it to ssl_ssh_profile. Ssl ssh profile.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'pblock'
 '''
@@ -243,6 +243,7 @@ def main():
                 'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'oid': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'package settings': {
+                    'v_range': [['7.0.3', '']],
                     'type': 'dict',
                     'options': {
                         'central-nat': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -275,9 +276,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

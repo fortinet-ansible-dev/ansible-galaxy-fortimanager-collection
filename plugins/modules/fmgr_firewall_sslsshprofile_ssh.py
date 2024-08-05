@@ -94,7 +94,7 @@ options:
                     - 'deep-inspection'
             ports:
                 type: raw
-                description: (list) No description.
+                description: (list) Ports to use for scanning
             ssh-algorithm:
                 type: str
                 description: Deprecated, please rename it to ssh_algorithm. Relative strength of encryption algorithms accepted during negotiation.
@@ -128,7 +128,7 @@ options:
             block:
                 type: list
                 elements: str
-                description: No description.
+                description: SSH blocking options.
                 choices:
                     - 'x11-filter'
                     - 'ssh-shell'
@@ -137,7 +137,7 @@ options:
             log:
                 type: list
                 elements: str
-                description: No description.
+                description: SSH logging options.
                 choices:
                     - 'x11-filter'
                     - 'ssh-shell'
@@ -293,9 +293,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

@@ -91,7 +91,7 @@ options:
         suboptions:
             _local_cert:
                 type: str
-                description: _Local_Cert.
+                description: Local cert.
             access-key:
                 type: str
                 description: Deprecated, please rename it to access_key. AWS access key ID.
@@ -116,7 +116,7 @@ options:
             external-ip:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to external_ip. External-Ip.
+                description: Deprecated, please rename it to external_ip. External ip.
                 suboptions:
                     name:
                         type: str
@@ -164,7 +164,7 @@ options:
                 description: Deprecated, please rename it to oci_cert. OCI certificate.
             oci-fingerprint:
                 type: str
-                description: Deprecated, please rename it to oci_fingerprint. Oci-Fingerprint.
+                description: Deprecated, please rename it to oci_fingerprint. Oci fingerprint.
             oci-region:
                 type: str
                 description: Deprecated, please rename it to oci_region. OCI server region.
@@ -203,7 +203,7 @@ options:
                 description: Deprecated, please rename it to rest_sport. REST service access port
             rest-ssl:
                 type: str
-                description: Deprecated, please rename it to rest_ssl. Rest-Ssl.
+                description: Deprecated, please rename it to rest_ssl. Rest ssl.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -218,7 +218,7 @@ options:
             route-table:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to route_table. Route-Table.
+                description: Deprecated, please rename it to route_table. Route table.
                 suboptions:
                     name:
                         type: str
@@ -242,7 +242,7 @@ options:
                         description: Deprecated, please rename it to subscription_id. Subscription ID of Azure route table.
             secret-key:
                 type: raw
-                description: (list) Deprecated, please rename it to secret_key. AWS / ACS secret access key.
+                description: (list) Deprecated, please rename it to secret_key. AWS secret access key.
             server:
                 type: str
                 description: Server address of the remote SDN connector.
@@ -320,7 +320,7 @@ options:
                     - 'enable'
             last-update:
                 type: int
-                description: Deprecated, please rename it to last_update. Last-Update.
+                description: Deprecated, please rename it to last_update. Last update.
             oci-region-type:
                 type: str
                 description: Deprecated, please rename it to oci_region_type. OCI region type.
@@ -375,7 +375,7 @@ options:
                     - 'sao-paulo-private'
             ibm-region-gen1:
                 type: str
-                description: Deprecated, please rename it to ibm_region_gen1. Ibm-Region-Gen1.
+                description: Deprecated, please rename it to ibm_region_gen1. Ibm region gen1.
                 choices:
                     - 'us-south'
                     - 'us-east'
@@ -385,7 +385,7 @@ options:
                     - 'australia'
             ibm-region-gen2:
                 type: str
-                description: Deprecated, please rename it to ibm_region_gen2. Ibm-Region-Gen2.
+                description: Deprecated, please rename it to ibm_region_gen2. Ibm region gen2.
                 choices:
                     - 'us-south'
                     - 'us-east'
@@ -405,11 +405,11 @@ options:
             external-account-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to external_account_list.
+                description: Deprecated, please rename it to external_account_list. External account list.
                 suboptions:
                     region-list:
                         type: raw
-                        description: (list) Deprecated, please rename it to region_list.
+                        description: (list) Deprecated, please rename it to region_list. AWS region name list.
                     role-arn:
                         type: str
                         description: Deprecated, please rename it to role_arn. AWS role ARN to assume.
@@ -419,7 +419,7 @@ options:
             forwarding-rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to forwarding_rule.
+                description: Deprecated, please rename it to forwarding_rule. Forwarding rule.
                 suboptions:
                     rule-name:
                         type: str
@@ -430,11 +430,11 @@ options:
             gcp-project-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to gcp_project_list.
+                description: Deprecated, please rename it to gcp_project_list. Gcp project list.
                 suboptions:
                     gcp-zone-list:
                         type: raw
-                        description: (list) Deprecated, please rename it to gcp_zone_list.
+                        description: (list) Deprecated, please rename it to gcp_zone_list. Configure GCP zone list.
                     id:
                         type: str
                         description: GCP project ID.
@@ -459,7 +459,7 @@ options:
             compartment-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to compartment_list.
+                description: Deprecated, please rename it to compartment_list. Compartment list.
                 suboptions:
                     compartment-id:
                         type: str
@@ -467,7 +467,7 @@ options:
             oci-region-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to oci_region_list.
+                description: Deprecated, please rename it to oci_region_list. Oci region list.
                 suboptions:
                     region:
                         type: str
@@ -742,9 +742,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

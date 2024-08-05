@@ -98,7 +98,7 @@ options:
             ap-bgscan-disable-day:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ap_bgscan_disable_day. Ap-Bgscan-Disable-Day.
+                description: Deprecated, please rename it to ap_bgscan_disable_day. Optionally turn off scanning for one or more days of the week.
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -321,10 +321,10 @@ options:
                 description: Deprecated, please rename it to ap_scan_threshold. Minimum signal level/threshold in dBm required for the AP to report det...
             ap-scan-channel-list-2G-5G:
                 type: raw
-                description: (list) Deprecated, please rename it to ap_scan_channel_list_2G_5G.
+                description: (list) Deprecated, please rename it to ap_scan_channel_list_2G_5G. Selected ap scan channel list for 2.
             ap-scan-channel-list-6G:
                 type: raw
-                description: (list) Deprecated, please rename it to ap_scan_channel_list_6G.
+                description: (list) Deprecated, please rename it to ap_scan_channel_list_6G. Selected ap scan channel list for 6G band.
 '''
 
 EXAMPLES = '''
@@ -549,9 +549,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

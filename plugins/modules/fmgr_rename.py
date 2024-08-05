@@ -299,6 +299,7 @@ options:
                     - 'firewall_shapingprofile_shapingentries'
                     - 'firewall_ssh_localca'
                     - 'firewall_sslsshprofile'
+                    - 'firewall_sslsshprofile_echoutersni'
                     - 'firewall_sslsshprofile_sslexempt'
                     - 'firewall_sslsshprofile_sslserver'
                     - 'firewall_vip'
@@ -650,6 +651,7 @@ options:
                     - 'user_domaincontroller'
                     - 'user_domaincontroller_extraserver'
                     - 'user_exchange'
+                    - 'user_externalidentityprovider'
                     - 'user_flexvm'
                     - 'user_fortitoken'
                     - 'user_fsso'
@@ -2667,6 +2669,14 @@ def main():
             ],
             'mkey': 'name'
         },
+        'firewall_sslsshprofile_echoutersni': {
+            'params': ['adom', 'ssl-ssh-profile', 'ech-outer-sni'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}'
+            ],
+            'mkey': 'name', 'v_range': [['7.4.3', '']]
+        },
         'firewall_sslsshprofile_sslexempt': {
             'params': ['adom', 'ssl-ssh-profile', 'ssl-exempt'],
             'urls': [
@@ -3461,32 +3471,32 @@ def main():
         'ips_sensor': {
             'params': ['adom', 'sensor'],
             'urls': [
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}',
-                '/pm/config/global/obj/ips/sensor/{sensor}'
+                '/pm/config/global/obj/ips/sensor/{sensor}',
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}'
             ],
-            'mkey': 'name', 'v_range': [['7.0.3', '']]
+            'mkey': 'name'
         },
         'ips_sensor_entries': {
             'params': ['adom', 'sensor', 'entries'],
             'urls': [
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.3', '']]
+            'mkey': 'id'
         },
         'ips_sensor_entries_exemptip': {
             'params': ['adom', 'sensor', 'entries', 'exempt-ip'],
             'urls': [
-                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.3', '']]
+            'mkey': 'id'
         },
         'log_customfield': {
             'params': ['adom', 'custom-field'],
@@ -3562,14 +3572,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['adom', 'pkg', 'acl6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'pkg', 'central-snat-map'],
@@ -3632,42 +3642,42 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'pkg', 'hyperscale-policy46'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'pkg', 'hyperscale-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'pkg', 'hyperscale-policy64'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'pkg', 'interface-policy'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'pkg', 'interface-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'pkg', 'local-in-policy'],
@@ -5287,7 +5297,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}',
                 '/pm/config/global/obj/user/device/{device}'
             ],
-            'mkey': 'alias'
+            'mkey': 'alias', 'v_range': [['6.0.0', '7.4.2']]
         },
         'user_device_dynamicmapping': {
             'params': ['adom', 'device', 'dynamic_mapping'],
@@ -5295,7 +5305,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
+            'mkey': 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]', 'v_range': [['6.0.0', '7.4.2']]
         },
         'user_device_tagging': {
             'params': ['adom', 'device', 'tagging'],
@@ -5303,7 +5313,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}/tagging/{tagging}',
                 '/pm/config/global/obj/user/device/{device}/tagging/{tagging}'
             ],
-            'mkey': 'name'
+            'mkey': 'name', 'v_range': [['6.0.0', '7.4.2']]
         },
         'user_deviceaccesslist': {
             'params': ['adom', 'device-access-list'],
@@ -5376,6 +5386,14 @@ def main():
                 '/pm/config/global/obj/user/exchange/{exchange}'
             ],
             'mkey': 'name', 'v_range': [['6.2.0', '']]
+        },
+        'user_externalidentityprovider': {
+            'params': ['adom', 'external-identity-provider'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
+                '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
+            ],
+            'mkey': 'name', 'v_range': [['7.4.3', '']]
         },
         'user_flexvm': {
             'params': ['adom', 'flexvm'],
@@ -6424,9 +6442,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(None, None, None, None, module, connection)
     fmgr.process_task(rename_metadata, task_type="rename")
     module.exit_json(meta=module.params)

@@ -126,10 +126,28 @@ options:
                 required: true
             passphrase:
                 type: raw
-                description: (list) No description.
+                description: (list) WPA Pre-shared key.
             pmk:
                 type: raw
-                description: (list) No description.
+                description: (list) WPA PMK.
+            key-type:
+                type: str
+                description: Deprecated, please rename it to key_type. Select the type of the key.
+                choices:
+                    - 'wpa2-personal'
+                    - 'wpa3-sae'
+            sae-password:
+                type: raw
+                description: (list) Deprecated, please rename it to sae_password. WPA3 SAE password.
+            sae-pk:
+                type: str
+                description: Deprecated, please rename it to sae_pk. Enable/disable WPA3 SAE-PK
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sae-private-key:
+                type: str
+                description: Deprecated, please rename it to sae_private_key. Private key used for WPA3 SAE-PK authentication.
 '''
 
 EXAMPLES = '''
@@ -161,6 +179,10 @@ EXAMPLES = '''
           name: <string>
           passphrase: <list or string>
           pmk: <list or string>
+          key_type: <value in [wpa2-personal, wpa3-sae]>
+          sae_password: <list or string>
+          sae_pk: <value in [disable, enable]>
+          sae_private_key: <string>
 '''
 
 RETURN = '''
@@ -241,7 +263,11 @@ def main():
                 'mpsk-schedules': {'v_range': [['6.4.2', '']], 'type': 'raw'},
                 'name': {'v_range': [['6.4.2', '']], 'required': True, 'type': 'str'},
                 'passphrase': {'v_range': [['6.4.2', '']], 'no_log': True, 'type': 'raw'},
-                'pmk': {'v_range': [['6.4.2', '']], 'type': 'raw'}
+                'pmk': {'v_range': [['6.4.2', '']], 'type': 'raw'},
+                'key-type': {'v_range': [['7.4.3', '']], 'choices': ['wpa2-personal', 'wpa3-sae'], 'type': 'str'},
+                'sae-password': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'raw'},
+                'sae-pk': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sae-private-key': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'str'}
             }
 
         }
@@ -257,9 +283,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

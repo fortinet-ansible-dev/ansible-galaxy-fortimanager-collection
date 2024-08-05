@@ -96,65 +96,65 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             allow-routing:
                 type: str
-                description: Deprecated, please rename it to allow_routing.
+                description: Deprecated, please rename it to allow_routing. Allow routing.
                 choices:
                     - 'disable'
                     - 'enable'
             associated-interface:
                 type: str
-                description: Deprecated, please rename it to associated_interface.
+                description: Deprecated, please rename it to associated_interface. Associated interface.
             cache-ttl:
                 type: int
-                description: Deprecated, please rename it to cache_ttl.
+                description: Deprecated, please rename it to cache_ttl. Cache ttl.
             color:
                 type: int
-                description: No description.
+                description: Color.
             comment:
                 type: raw
-                description: (dict or str) No description.
+                description: (dict or str) Comment.
             country:
                 type: str
-                description: No description.
+                description: Country.
             end-ip:
                 type: str
-                description: Deprecated, please rename it to end_ip.
+                description: Deprecated, please rename it to end_ip. End ip.
             end-mac:
                 type: str
-                description: Deprecated, please rename it to end_mac.
+                description: Deprecated, please rename it to end_mac. End mac.
             epg-name:
                 type: str
-                description: Deprecated, please rename it to epg_name.
+                description: Deprecated, please rename it to epg_name. Epg name.
             filter:
                 type: str
-                description: No description.
+                description: Filter.
             fqdn:
                 type: str
-                description: No description.
+                description: Fqdn.
             interface:
                 type: str
-                description: No description.
+                description: Interface.
             obj-id:
                 type: str
-                description: Deprecated, please rename it to obj_id.
+                description: Deprecated, please rename it to obj_id. Obj id.
             organization:
                 type: str
-                description: No description.
+                description: Organization.
             policy-group:
                 type: str
-                description: Deprecated, please rename it to policy_group.
+                description: Deprecated, please rename it to policy_group. Policy group.
             sdn:
                 type: str
-                description: No description.
+                description: Sdn.
                 choices:
                     - 'aci'
                     - 'aws'
@@ -166,35 +166,35 @@ options:
                     - 'openstack'
             sdn-addr-type:
                 type: str
-                description: Deprecated, please rename it to sdn_addr_type.
+                description: Deprecated, please rename it to sdn_addr_type. Sdn addr type.
                 choices:
                     - 'private'
                     - 'public'
                     - 'all'
             sdn-tag:
                 type: str
-                description: Deprecated, please rename it to sdn_tag.
+                description: Deprecated, please rename it to sdn_tag. Sdn tag.
             start-ip:
                 type: str
-                description: Deprecated, please rename it to start_ip.
+                description: Deprecated, please rename it to start_ip. Start ip.
             start-mac:
                 type: str
-                description: Deprecated, please rename it to start_mac.
+                description: Deprecated, please rename it to start_mac. Start mac.
             subnet:
                 type: str
-                description: No description.
+                description: Subnet.
             subnet-name:
                 type: str
-                description: Deprecated, please rename it to subnet_name.
+                description: Deprecated, please rename it to subnet_name. Subnet name.
             tags:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Tags.
             tenant:
                 type: str
-                description: No description.
+                description: Tenant.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'ipmask'
                     - 'iprange'
@@ -212,28 +212,28 @@ options:
                     - 'route-tag'
             url:
                 type: str
-                description: No description.
+                description: Url.
             uuid:
                 type: str
-                description: No description.
+                description: Uuid.
             visibility:
                 type: str
-                description: No description.
+                description: Visibility.
                 choices:
                     - 'disable'
                     - 'enable'
             wildcard:
                 type: str
-                description: No description.
+                description: Wildcard.
             wildcard-fqdn:
                 type: str
-                description: Deprecated, please rename it to wildcard_fqdn.
+                description: Deprecated, please rename it to wildcard_fqdn. Wildcard fqdn.
             _image-base64:
                 type: str
-                description: Deprecated, please rename it to _image_base64.
+                description: Deprecated, please rename it to _image_base64. Image base64.
             clearpass-spt:
                 type: str
-                description: Deprecated, please rename it to clearpass_spt.
+                description: Deprecated, please rename it to clearpass_spt. Clearpass spt.
                 choices:
                     - 'unknown'
                     - 'healthy'
@@ -244,10 +244,10 @@ options:
                     - 'transient'
             fsso-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to fsso_group.
+                description: (list or str) Deprecated, please rename it to fsso_group. Fsso group.
             sub-type:
                 type: str
-                description: Deprecated, please rename it to sub_type.
+                description: Deprecated, please rename it to sub_type. Sub type.
                 choices:
                     - 'sdn'
                     - 'clearpass-spt'
@@ -260,13 +260,13 @@ options:
                     - 'device-identification'
             global-object:
                 type: int
-                description: Deprecated, please rename it to global_object.
+                description: Deprecated, please rename it to global_object. Global object.
             obj-tag:
                 type: str
-                description: Deprecated, please rename it to obj_tag.
+                description: Deprecated, please rename it to obj_tag. Obj tag.
             obj-type:
                 type: str
-                description: Deprecated, please rename it to obj_type.
+                description: Deprecated, please rename it to obj_type. Obj type.
                 choices:
                     - 'ip'
                     - 'mac'
@@ -278,7 +278,7 @@ options:
                     - 'enable'
             macaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Multiple MAC address ranges.
             node-ip-only:
                 type: str
                 description: Deprecated, please rename it to node_ip_only. Enable/disable collection of node addresses only in Kubernetes.
@@ -293,10 +293,10 @@ options:
                     - 'clean'
             pattern-end:
                 type: int
-                description: Deprecated, please rename it to pattern_end.
+                description: Deprecated, please rename it to pattern_end. Pattern end.
             pattern-start:
                 type: int
-                description: Deprecated, please rename it to pattern_start.
+                description: Deprecated, please rename it to pattern_start. Pattern start.
             tag-detection-level:
                 type: str
                 description: Deprecated, please rename it to tag_detection_level. Tag detection level of dynamic address object.
@@ -517,9 +517,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

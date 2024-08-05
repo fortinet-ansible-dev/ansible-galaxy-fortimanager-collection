@@ -91,7 +91,7 @@ options:
         suboptions:
             action:
                 type: dict
-                description: No description.
+                description: Action.
                 suboptions:
                     count:
                         type: str
@@ -107,7 +107,7 @@ options:
                             - 'enable'
             classifier:
                 type: dict
-                description: No description.
+                description: Classifier.
                 suboptions:
                     dst-ip-prefix:
                         type: str
@@ -232,6 +232,7 @@ def main():
             'v_range': [['7.4.0', '']],
             'options': {
                 'action': {
+                    'v_range': [['7.4.0', '']],
                     'type': 'dict',
                     'options': {
                         'count': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -239,6 +240,7 @@ def main():
                     }
                 },
                 'classifier': {
+                    'v_range': [['7.4.0', '']],
                     'type': 'dict',
                     'options': {
                         'dst-ip-prefix': {'v_range': [['7.4.0', '']], 'type': 'str'},
@@ -265,9 +267,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

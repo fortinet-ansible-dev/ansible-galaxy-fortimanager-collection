@@ -98,7 +98,7 @@ options:
                 description: Comment.
             dstaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Destination address name.
             interface:
                 type: str
                 description: Interface name.
@@ -111,10 +111,10 @@ options:
                 required: true
             service:
                 type: raw
-                description: (list) No description.
+                description: (list) Service name.
             srcaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Source address name.
             status:
                 type: str
                 description: Enable/disable access control list status.
@@ -124,6 +124,12 @@ options:
             uuid:
                 type: str
                 description: Universally Unique Identifier
+            fragment:
+                type: str
+                description: Pass/drop fragments that match L3 information.
+                choices:
+                    - 'pass'
+                    - 'drop'
 '''
 
 EXAMPLES = '''
@@ -155,6 +161,7 @@ EXAMPLES = '''
           srcaddr: <list or string>
           status: <value in [disable, enable]>
           uuid: <string>
+          fragment: <value in [pass, drop]>
 '''
 
 RETURN = '''
@@ -220,17 +227,18 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_acl': {
             'type': 'dict',
-            'v_range': [['7.2.0', '7.2.0']],
+            'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']],
             'options': {
-                'comments': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'},
-                'dstaddr': {'v_range': [['7.2.0', '7.2.0']], 'type': 'raw'},
-                'interface': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'},
-                'name': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'},
-                'policyid': {'v_range': [['7.2.0', '7.2.0']], 'required': True, 'type': 'int'},
-                'service': {'v_range': [['7.2.0', '7.2.0']], 'type': 'raw'},
-                'srcaddr': {'v_range': [['7.2.0', '7.2.0']], 'type': 'raw'},
-                'status': {'v_range': [['7.2.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'}
+                'comments': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'interface': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'name': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'policyid': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'service': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
+                'status': {'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['7.2.0', '7.2.0']], 'type': 'str'},
+                'fragment': {'v_range': [['7.4.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'}
             }
 
         }
@@ -246,9 +254,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

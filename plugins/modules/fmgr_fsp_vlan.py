@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_fsp_vlan
-short_description: Fsp vlan
+short_description: FortiSwitch VLAN template.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -91,13 +91,13 @@ options:
         suboptions:
             _dhcp-status:
                 type: str
-                description: Deprecated, please rename it to _dhcp_status. _Dhcp-Status.
+                description: Deprecated, please rename it to _dhcp_status. Dhcp status.
                 choices:
                     - 'disable'
                     - 'enable'
             auth:
                 type: str
-                description: No description.
+                description: Auth.
                 choices:
                     - 'radius'
                     - 'usergroup'
@@ -106,22 +106,22 @@ options:
                 description: Color.
             comments:
                 type: str
-                description: No description.
+                description: Comments.
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _dhcp-status:
                         type: str
-                        description: Deprecated, please rename it to _dhcp_status. _Dhcp-Status.
+                        description: Deprecated, please rename it to _dhcp_status. Dhcp status.
                         choices:
                             - 'disable'
                             - 'enable'
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -131,7 +131,7 @@ options:
                                 description: Vdom.
                     dhcp-server:
                         type: dict
-                        description: Deprecated, please rename it to dhcp_server.
+                        description: Deprecated, please rename it to dhcp_server. Dhcp server.
                         suboptions:
                             auto-configuration:
                                 type: str
@@ -221,7 +221,7 @@ options:
                             exclude-range:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to exclude_range. Exclude-Range.
+                                description: Deprecated, please rename it to exclude_range. Exclude range.
                                 suboptions:
                                     end-ip:
                                         type: str
@@ -240,7 +240,7 @@ options:
                                             - 'enable'
                                     vci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to vci_string.
+                                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by ...
                                     lease-time:
                                         type: int
                                         description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
@@ -252,7 +252,7 @@ options:
                                             - 'enable'
                                     uci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to uci_string.
+                                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by ...
                             filename:
                                 type: str
                                 description: Name of the boot file on the TFTP server.
@@ -274,7 +274,7 @@ options:
                             ip-range:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to ip_range. Ip-Range.
+                                description: Deprecated, please rename it to ip_range. Ip range.
                                 suboptions:
                                     end-ip:
                                         type: str
@@ -293,7 +293,7 @@ options:
                                             - 'enable'
                                     vci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to vci_string.
+                                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by ...
                                     lease-time:
                                         type: int
                                         description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
@@ -305,7 +305,7 @@ options:
                                             - 'enable'
                                     uci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to uci_string.
+                                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by ...
                             ipsec-lease-hold:
                                 type: int
                                 description: Deprecated, please rename it to ipsec_lease_hold. DHCP over IPsec leases expire this many seconds after tu...
@@ -391,7 +391,7 @@ options:
                                             - 'enable'
                                     vci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to vci_string.
+                                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by ...
                                     uci-match:
                                         type: str
                                         description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
@@ -400,11 +400,11 @@ options:
                                             - 'enable'
                                     uci-string:
                                         type: raw
-                                        description: (list) Deprecated, please rename it to uci_string.
+                                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by ...
                             reserved-address:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to reserved_address. Reserved-Address.
+                                description: Deprecated, please rename it to reserved_address. Reserved address.
                                 suboptions:
                                     action:
                                         type: str
@@ -604,26 +604,26 @@ options:
                                     - 'enable'
                     interface:
                         type: dict
-                        description: No description.
+                        description: Interface.
                         suboptions:
                             dhcp-relay-agent-option:
                                 type: str
-                                description: Deprecated, please rename it to dhcp_relay_agent_option. Dhcp-Relay-Agent-Option.
+                                description: Deprecated, please rename it to dhcp_relay_agent_option. Dhcp relay agent option.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp-relay-ip:
                                 type: raw
-                                description: (list) Deprecated, please rename it to dhcp_relay_ip. Dhcp-Relay-Ip.
+                                description: (list) Deprecated, please rename it to dhcp_relay_ip. Dhcp relay ip.
                             dhcp-relay-service:
                                 type: str
-                                description: Deprecated, please rename it to dhcp_relay_service. Dhcp-Relay-Service.
+                                description: Deprecated, please rename it to dhcp_relay_service. Dhcp relay service.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp-relay-type:
                                 type: str
-                                description: Deprecated, please rename it to dhcp_relay_type. Dhcp-Relay-Type.
+                                description: Deprecated, please rename it to dhcp_relay_type. Dhcp relay type.
                                 choices:
                                     - 'regular'
                                     - 'ipsec'
@@ -632,7 +632,7 @@ options:
                                 description: Ip.
                             ipv6:
                                 type: dict
-                                description: No description.
+                                description: Ipv6.
                                 suboptions:
                                     autoconf:
                                         type: str
@@ -643,7 +643,7 @@ options:
                                     dhcp6-client-options:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to dhcp6_client_options. Dhcp6-Client-Options.
+                                        description: Deprecated, please rename it to dhcp6_client_options. Dhcp6 client options.
                                         choices:
                                             - 'rapid'
                                             - 'iapd'
@@ -717,7 +717,7 @@ options:
                                     ip6-delegated-prefix-list:
                                         type: list
                                         elements: dict
-                                        description: Deprecated, please rename it to ip6_delegated_prefix_list. Ip6-Delegated-Prefix-List.
+                                        description: Deprecated, please rename it to ip6_delegated_prefix_list. Ip6 delegated prefix list.
                                         suboptions:
                                             autonomous-flag:
                                                 type: str
@@ -762,7 +762,7 @@ options:
                                     ip6-extra-addr:
                                         type: list
                                         elements: dict
-                                        description: Deprecated, please rename it to ip6_extra_addr. Ip6-Extra-Addr.
+                                        description: Deprecated, please rename it to ip6_extra_addr. Ip6 extra addr.
                                         suboptions:
                                             prefix:
                                                 type: str
@@ -802,7 +802,7 @@ options:
                                     ip6-prefix-list:
                                         type: list
                                         elements: dict
-                                        description: Deprecated, please rename it to ip6_prefix_list. Ip6-Prefix-List.
+                                        description: Deprecated, please rename it to ip6_prefix_list. Ip6 prefix list.
                                         suboptions:
                                             autonomous-flag:
                                                 type: str
@@ -937,7 +937,7 @@ options:
                                                     - 'enable'
                                     cli-conn6-status:
                                         type: int
-                                        description: Deprecated, please rename it to cli_conn6_status. Cli-Conn6-Status.
+                                        description: Deprecated, please rename it to cli_conn6_status. Cli conn6 status.
                                     ip6-prefix-mode:
                                         type: str
                                         description: Deprecated, please rename it to ip6_prefix_mode. Assigning a prefix from DHCP or RA.
@@ -967,7 +967,7 @@ options:
                                         description: Deprecated, please rename it to dhcp6_relay_source_ip. IPv6 address used by the DHCP6 relay as its...
                             secondary-IP:
                                 type: str
-                                description: Deprecated, please rename it to secondary_IP. Secondary-Ip.
+                                description: Deprecated, please rename it to secondary_IP. Secondary IP.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -996,6 +996,7 @@ options:
                                             - 'ftm'
                                             - 'fabric'
                                             - 'speed-test'
+                                            - 'icond'
                                     detectprotocol:
                                         type: list
                                         elements: str
@@ -1024,7 +1025,7 @@ options:
                                         description: Secondary IP address of the interface.
                                     ping-serv-status:
                                         type: int
-                                        description: Deprecated, please rename it to ping_serv_status. Ping-Serv-Status.
+                                        description: Deprecated, please rename it to ping_serv_status. Ping serv status.
                                     seq:
                                         type: int
                                         description: Seq.
@@ -1036,7 +1037,7 @@ options:
                                 description: Vlanid.
                             dhcp-relay-interface-select-method:
                                 type: str
-                                description: Deprecated, please rename it to dhcp_relay_interface_select_method.
+                                description: Deprecated, please rename it to dhcp_relay_interface_select_method. Dhcp relay interface select method.
                                 choices:
                                     - 'auto'
                                     - 'sdwan'
@@ -1044,7 +1045,7 @@ options:
                             vrrp:
                                 type: list
                                 elements: dict
-                                description: No description.
+                                description: Vrrp.
                                 suboptions:
                                     accept-mode:
                                         type: str
@@ -1073,7 +1074,7 @@ options:
                                     proxy-arp:
                                         type: list
                                         elements: dict
-                                        description: Deprecated, please rename it to proxy_arp.
+                                        description: Deprecated, please rename it to proxy_arp. Proxy arp.
                                         suboptions:
                                             id:
                                                 type: int
@@ -1098,7 +1099,7 @@ options:
                                             - '3'
                                     vrdst:
                                         type: raw
-                                        description: (list) No description.
+                                        description: (list) Monitor the route to this destination.
                                     vrdst-priority:
                                         type: int
                                         description: Deprecated, please rename it to vrdst_priority. Priority of the virtual router when the virtual ro...
@@ -1117,23 +1118,23 @@ options:
                 required: true
             portal-message-override-group:
                 type: str
-                description: Deprecated, please rename it to portal_message_override_group.
+                description: Deprecated, please rename it to portal_message_override_group. Portal message override group.
             radius-server:
                 type: str
-                description: Deprecated, please rename it to radius_server.
+                description: Deprecated, please rename it to radius_server. Radius server.
             security:
                 type: str
-                description: No description.
+                description: Security.
                 choices:
                     - 'open'
                     - 'captive-portal'
                     - '8021x'
             selected-usergroups:
                 type: str
-                description: Deprecated, please rename it to selected_usergroups.
+                description: Deprecated, please rename it to selected_usergroups. Selected usergroups.
             usergroup:
                 type: str
-                description: No description.
+                description: Usergroup.
             vdom:
                 type: str
                 description: Vdom.
@@ -1142,7 +1143,7 @@ options:
                 description: Vlanid.
             dhcp-server:
                 type: dict
-                description: Deprecated, please rename it to dhcp_server.
+                description: Deprecated, please rename it to dhcp_server. Dhcp server.
                 suboptions:
                     auto-configuration:
                         type: str
@@ -1232,7 +1233,7 @@ options:
                     exclude-range:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to exclude_range. Exclude-Range.
+                        description: Deprecated, please rename it to exclude_range. Exclude range.
                         suboptions:
                             end-ip:
                                 type: str
@@ -1251,7 +1252,7 @@ options:
                                     - 'enable'
                             vci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to vci_string.
+                                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
                             lease-time:
                                 type: int
                                 description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
@@ -1263,7 +1264,7 @@ options:
                                     - 'enable'
                             uci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to uci_string.
+                                description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
                     filename:
                         type: str
                         description: Name of the boot file on the TFTP server.
@@ -1285,7 +1286,7 @@ options:
                     ip-range:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_range. Ip-Range.
+                        description: Deprecated, please rename it to ip_range. Ip range.
                         suboptions:
                             end-ip:
                                 type: str
@@ -1304,7 +1305,7 @@ options:
                                     - 'enable'
                             vci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to vci_string.
+                                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
                             lease-time:
                                 type: int
                                 description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
@@ -1316,7 +1317,7 @@ options:
                                     - 'enable'
                             uci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to uci_string.
+                                description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
                     ipsec-lease-hold:
                         type: int
                         description: Deprecated, please rename it to ipsec_lease_hold. DHCP over IPsec leases expire this many seconds after tunnel down
@@ -1402,7 +1403,7 @@ options:
                                     - 'enable'
                             vci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to vci_string.
+                                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
                             uci-match:
                                 type: str
                                 description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
@@ -1411,11 +1412,11 @@ options:
                                     - 'enable'
                             uci-string:
                                 type: raw
-                                description: (list) Deprecated, please rename it to uci_string.
+                                description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
                     reserved-address:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to reserved_address. Reserved-Address.
+                        description: Deprecated, please rename it to reserved_address. Reserved address.
                         suboptions:
                             action:
                                 type: str
@@ -1615,7 +1616,7 @@ options:
                             - 'enable'
             interface:
                 type: dict
-                description: No description.
+                description: Interface.
                 suboptions:
                     ac-name:
                         type: str
@@ -1724,7 +1725,7 @@ options:
                         description: Deprecated, please rename it to captive_portal. Enable/disable captive portal.
                     cli-conn-status:
                         type: int
-                        description: Deprecated, please rename it to cli_conn_status. Cli-Conn-Status.
+                        description: Deprecated, please rename it to cli_conn_status. Cli conn status.
                     color:
                         type: int
                         description: Color of icon on the GUI.
@@ -1736,25 +1737,25 @@ options:
                             - 'enable'
                     ddns-auth:
                         type: str
-                        description: Deprecated, please rename it to ddns_auth. Ddns-Auth.
+                        description: Deprecated, please rename it to ddns_auth. Ddns auth.
                         choices:
                             - 'disable'
                             - 'tsig'
                     ddns-domain:
                         type: str
-                        description: Deprecated, please rename it to ddns_domain. Ddns-Domain.
+                        description: Deprecated, please rename it to ddns_domain. Ddns domain.
                     ddns-key:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to ddns_key. Ddns-Key.
+                        description: (list or str) Deprecated, please rename it to ddns_key. Ddns key.
                     ddns-keyname:
                         type: str
-                        description: Deprecated, please rename it to ddns_keyname. Ddns-Keyname.
+                        description: Deprecated, please rename it to ddns_keyname. Ddns keyname.
                     ddns-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to ddns_password. Ddns-Password.
+                        description: (list) Deprecated, please rename it to ddns_password. Ddns password.
                     ddns-server:
                         type: str
-                        description: Deprecated, please rename it to ddns_server. Ddns-Server.
+                        description: Deprecated, please rename it to ddns_server. Ddns server.
                         choices:
                             - 'dhs.org'
                             - 'dyndns.org'
@@ -1768,19 +1769,19 @@ options:
                             - 'genericDDNS'
                     ddns-server-ip:
                         type: str
-                        description: Deprecated, please rename it to ddns_server_ip. Ddns-Server-Ip.
+                        description: Deprecated, please rename it to ddns_server_ip. Ddns server ip.
                     ddns-sn:
                         type: str
-                        description: Deprecated, please rename it to ddns_sn. Ddns-Sn.
+                        description: Deprecated, please rename it to ddns_sn. Ddns sn.
                     ddns-ttl:
                         type: int
-                        description: Deprecated, please rename it to ddns_ttl. Ddns-Ttl.
+                        description: Deprecated, please rename it to ddns_ttl. Ddns ttl.
                     ddns-username:
                         type: str
-                        description: Deprecated, please rename it to ddns_username. Ddns-Username.
+                        description: Deprecated, please rename it to ddns_username. Ddns username.
                     ddns-zone:
                         type: str
-                        description: Deprecated, please rename it to ddns_zone. Ddns-Zone.
+                        description: Deprecated, please rename it to ddns_zone. Ddns zone.
                     dedicated-to:
                         type: str
                         description: Deprecated, please rename it to dedicated_to. Configure interface for single purpose.
@@ -1798,7 +1799,7 @@ options:
                         description: Description.
                     detected-peer-mtu:
                         type: int
-                        description: Deprecated, please rename it to detected_peer_mtu. Detected-Peer-Mtu.
+                        description: Deprecated, please rename it to detected_peer_mtu. Detected peer mtu.
                     detectprotocol:
                         type: list
                         elements: str
@@ -1888,7 +1889,7 @@ options:
                         description: Distance for routes learned through PPPoE or DHCP, lower distance indicates preferred route.
                     dns-query:
                         type: str
-                        description: Deprecated, please rename it to dns_query. Dns-Query.
+                        description: Deprecated, please rename it to dns_query. Dns query.
                         choices:
                             - 'disable'
                             - 'recursive'
@@ -2009,7 +2010,7 @@ options:
                             - 'enable'
                     fortilink-backup-link:
                         type: int
-                        description: Deprecated, please rename it to fortilink_backup_link. Fortilink-Backup-Link.
+                        description: Deprecated, please rename it to fortilink_backup_link. Fortilink backup link.
                     fortilink-neighbor-detect:
                         type: str
                         description: Deprecated, please rename it to fortilink_neighbor_detect. Protocol for FortiGate neighbor discovery.
@@ -2049,7 +2050,7 @@ options:
                     fp-anomaly:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to fp_anomaly. Fp-Anomaly.
+                        description: Deprecated, please rename it to fp_anomaly. Pass or drop different types of anomalies using Fastpath
                         choices:
                             - 'drop_tcp_fin_noack'
                             - 'pass_winnuke'
@@ -2086,7 +2087,7 @@ options:
                     fp-disable:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to fp_disable. Fp-Disable.
+                        description: Deprecated, please rename it to fp_disable. Fp disable.
                         choices:
                             - 'all'
                             - 'ipsec'
@@ -2155,7 +2156,7 @@ options:
                             - 'fiber'
                     in-force-vlan-cos:
                         type: int
-                        description: Deprecated, please rename it to in_force_vlan_cos. In-Force-Vlan-Cos.
+                        description: Deprecated, please rename it to in_force_vlan_cos. In force vlan cos.
                     inbandwidth:
                         type: int
                         description: Bandwidth limit for incoming traffic
@@ -2208,7 +2209,7 @@ options:
                         description: Unnumbered IP used for PPPoE interfaces for which no unique local address is provided.
                     ipv6:
                         type: dict
-                        description: No description.
+                        description: Ipv6.
                         suboptions:
                             autoconf:
                                 type: str
@@ -2219,7 +2220,7 @@ options:
                             dhcp6-client-options:
                                 type: list
                                 elements: str
-                                description: Deprecated, please rename it to dhcp6_client_options. Dhcp6-Client-Options.
+                                description: Deprecated, please rename it to dhcp6_client_options. Dhcp6 client options.
                                 choices:
                                     - 'rapid'
                                     - 'iapd'
@@ -2293,7 +2294,7 @@ options:
                             ip6-delegated-prefix-list:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to ip6_delegated_prefix_list. Ip6-Delegated-Prefix-List.
+                                description: Deprecated, please rename it to ip6_delegated_prefix_list. Ip6 delegated prefix list.
                                 suboptions:
                                     autonomous-flag:
                                         type: str
@@ -2338,7 +2339,7 @@ options:
                             ip6-extra-addr:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to ip6_extra_addr. Ip6-Extra-Addr.
+                                description: Deprecated, please rename it to ip6_extra_addr. Ip6 extra addr.
                                 suboptions:
                                     prefix:
                                         type: str
@@ -2378,7 +2379,7 @@ options:
                             ip6-prefix-list:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to ip6_prefix_list. Ip6-Prefix-List.
+                                description: Deprecated, please rename it to ip6_prefix_list. Ip6 prefix list.
                                 suboptions:
                                     autonomous-flag:
                                         type: str
@@ -2513,7 +2514,7 @@ options:
                                             - 'enable'
                             cli-conn6-status:
                                 type: int
-                                description: Deprecated, please rename it to cli_conn6_status. Cli-Conn6-Status.
+                                description: Deprecated, please rename it to cli_conn6_status. Cli conn6 status.
                             ip6-prefix-mode:
                                 type: str
                                 description: Deprecated, please rename it to ip6_prefix_mode. Assigning a prefix from DHCP or RA.
@@ -2583,7 +2584,7 @@ options:
                         description: Deprecated, please rename it to link_up_delay. Number of milliseconds to wait before considering a link is up.
                     listen-forticlient-connection:
                         type: str
-                        description: Deprecated, please rename it to listen_forticlient_connection. Listen-Forticlient-Connection.
+                        description: Deprecated, please rename it to listen_forticlient_connection. Listen forticlient connection.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -2742,7 +2743,7 @@ options:
                         description: Deprecated, please rename it to np_qos_profile. NP QoS profile ID.
                     npu-fastpath:
                         type: str
-                        description: Deprecated, please rename it to npu_fastpath. Npu-Fastpath.
+                        description: Deprecated, please rename it to npu_fastpath. Npu fastpath.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -2754,7 +2755,7 @@ options:
                             - 'enable'
                     out-force-vlan-cos:
                         type: int
-                        description: Deprecated, please rename it to out_force_vlan_cos. Out-Force-Vlan-Cos.
+                        description: Deprecated, please rename it to out_force_vlan_cos. Out force vlan cos.
                     outbandwidth:
                         type: int
                         description: Bandwidth limit for outgoing traffic
@@ -2766,7 +2767,7 @@ options:
                         description: (list) PPPoE accounts password.
                     peer-interface:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to peer_interface. Peer-Interface.
+                        description: (list or str) Deprecated, please rename it to peer_interface. Peer interface.
                     phy-mode:
                         type: str
                         description: Deprecated, please rename it to phy_mode. DSL physical mode.
@@ -2781,9 +2782,12 @@ options:
                             - 'g.dmt'
                             - 't1.413'
                             - 'g.lite'
+                            - 'g-dmt'
+                            - 't1-413'
+                            - 'g-lite'
                     ping-serv-status:
                         type: int
-                        description: Deprecated, please rename it to ping_serv_status. Ping-Serv-Status.
+                        description: Deprecated, please rename it to ping_serv_status. Ping serv status.
                     poe:
                         type: str
                         description: Enable/disable PoE status.
@@ -2849,7 +2853,7 @@ options:
                             - 'enable'
                     redundant-interface:
                         type: str
-                        description: Deprecated, please rename it to redundant_interface. Redundant-Interface.
+                        description: Deprecated, please rename it to redundant_interface. Redundant interface.
                     remote-ip:
                         type: str
                         description: Deprecated, please rename it to remote_ip. Remote IP address of tunnel.
@@ -2924,6 +2928,7 @@ options:
                                     - 'ftm'
                                     - 'fabric'
                                     - 'speed-test'
+                                    - 'icond'
                             detectprotocol:
                                 type: list
                                 elements: str
@@ -2952,7 +2957,7 @@ options:
                                 description: Secondary IP address of the interface.
                             ping-serv-status:
                                 type: int
-                                description: Deprecated, please rename it to ping_serv_status. Ping-Serv-Status.
+                                description: Deprecated, please rename it to ping_serv_status. Ping serv status.
                             seq:
                                 type: int
                                 description: Seq.
@@ -3083,7 +3088,7 @@ options:
                             - 'rpl-nothing'
                     strip-priority-vlan-tag:
                         type: str
-                        description: Deprecated, please rename it to strip_priority_vlan_tag. Strip-Priority-Vlan-Tag.
+                        description: Deprecated, please rename it to strip_priority_vlan_tag. Strip priority vlan tag.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -3101,7 +3106,7 @@ options:
                         description: Deprecated, please rename it to swc_first_create. Initial create for switch-controller VLANs.
                     swc-vlan:
                         type: int
-                        description: Deprecated, please rename it to swc_vlan. Swc-Vlan.
+                        description: Deprecated, please rename it to swc_vlan. Swc vlan.
                     switch:
                         type: str
                         description: Switch.
@@ -3117,6 +3122,7 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                            - 'monitor'
                     switch-controller-auth:
                         type: str
                         description: Deprecated, please rename it to switch_controller_auth. Switch controller authentication.
@@ -3364,7 +3370,7 @@ options:
                             proxy-arp:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to proxy_arp.
+                                description: Deprecated, please rename it to proxy_arp. Proxy arp.
                                 suboptions:
                                     id:
                                         type: int
@@ -3523,7 +3529,7 @@ options:
                     dns-server-protocol:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to dns_server_protocol.
+                        description: Deprecated, please rename it to dns_server_protocol. DNS transport protocols.
                         choices:
                             - 'cleartext'
                             - 'dot'
@@ -3542,7 +3548,7 @@ options:
                             - 'peap'
                     eap-password:
                         type: raw
-                        description: (list) Deprecated, please rename it to eap_password.
+                        description: (list) Deprecated, please rename it to eap_password. EAP password.
                     eap-supplicant:
                         type: str
                         description: Deprecated, please rename it to eap_supplicant. Enable/disable EAP-Supplicant.
@@ -3557,7 +3563,7 @@ options:
                         description: Deprecated, please rename it to ike_saml_server. Configure IKE authentication SAML server.
                     lacp-ha-secondary:
                         type: str
-                        description: Deprecated, please rename it to lacp_ha_secondary.
+                        description: Deprecated, please rename it to lacp_ha_secondary. Lacp ha secondary.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -3641,6 +3647,7 @@ options:
                             - 'l2'
                             - 'l3'
                             - 'eh'
+                            - 'default'
                     system-id:
                         type: str
                         description: Deprecated, please rename it to system_id. Define a system ID for the aggregate interface.
@@ -3662,7 +3669,7 @@ options:
                             - 'passthrough'
                     generic-receive-offload:
                         type: str
-                        description: Deprecated, please rename it to generic_receive_offload.
+                        description: Deprecated, please rename it to generic_receive_offload. Generic receive offload.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -3675,7 +3682,7 @@ options:
                             - 'profile2'
                     large-receive-offload:
                         type: str
-                        description: Deprecated, please rename it to large_receive_offload.
+                        description: Deprecated, please rename it to large_receive_offload. Large receive offload.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -3740,19 +3747,19 @@ options:
                             - 'enable'
                     switch-controller-offloading:
                         type: str
-                        description: Deprecated, please rename it to switch_controller_offloading.
+                        description: Deprecated, please rename it to switch_controller_offloading. Switch controller offloading.
                         choices:
                             - 'disable'
                             - 'enable'
                     switch-controller-offloading-gw:
                         type: str
-                        description: Deprecated, please rename it to switch_controller_offloading_gw.
+                        description: Deprecated, please rename it to switch_controller_offloading_gw. Switch controller offloading gw.
                         choices:
                             - 'disable'
                             - 'enable'
                     switch-controller-offloading-ip:
                         type: str
-                        description: Deprecated, please rename it to switch_controller_offloading_ip.
+                        description: Deprecated, please rename it to switch_controller_offloading_ip. Switch controller offloading ip.
                     dhcp-relay-circuit-id:
                         type: str
                         description: Deprecated, please rename it to dhcp_relay_circuit_id. DHCP relay circuit ID.
@@ -3802,6 +3809,12 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    dhcp-relay-allow-no-end-option:
+                        type: str
+                        description: Deprecated, please rename it to dhcp_relay_allow_no_end_option. Enable/disable relaying DHCP messages with no end ...
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
@@ -3813,7 +3826,7 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Fsp vlan
+    - name: FortiSwitch VLAN template.
       fortinet.fortimanager.fmgr_fsp_vlan:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -4051,6 +4064,7 @@ EXAMPLES = '''
                       - ftm
                       - fabric
                       - speed-test
+                      - icond
                     detectprotocol:
                       - ping
                       - tcp-echo
@@ -4532,6 +4546,7 @@ EXAMPLES = '''
                   - ftm
                   - fabric
                   - speed-test
+                  - icond
                 detectprotocol:
                   - ping
                   - tcp-echo
@@ -4571,7 +4586,7 @@ EXAMPLES = '''
             swc_vlan: <integer>
             switch: <string>
             switch_controller_access_vlan: <value in [disable, enable]>
-            switch_controller_arp_inspection: <value in [disable, enable]>
+            switch_controller_arp_inspection: <value in [disable, enable, monitor]>
             switch_controller_auth: <value in [radius, usergroup]>
             switch_controller_dhcp_snooping: <value in [disable, enable]>
             switch_controller_dhcp_snooping_option82: <value in [disable, enable]>
@@ -4683,7 +4698,7 @@ EXAMPLES = '''
             sfp_dsl_adsl_fallback: <value in [disable, enable]>
             sfp_dsl_autodetect: <value in [disable, enable]>
             sfp_dsl_mac: <string>
-            sw_algorithm: <value in [l2, l3, eh]>
+            sw_algorithm: <value in [l2, l3, eh, ...]>
             system_id: <string>
             system_id_type: <value in [auto, user]>
             vlan_id: <integer>
@@ -4713,6 +4728,7 @@ EXAMPLES = '''
             port_mirroring: <value in [disable, enable]>
             security_8021x_member_mode: <value in [disable, switch]>
             stp_edge: <value in [disable, enable]>
+            dhcp_relay_allow_no_end_option: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -4791,6 +4807,7 @@ def main():
                         '_dhcp-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                         '_scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
                         'dhcp-server': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'auto-configuration': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4947,6 +4964,7 @@ def main():
                             }
                         },
                         'interface': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'dhcp-relay-agent-option': {
@@ -4959,6 +4977,7 @@ def main():
                                 'dhcp-relay-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['regular', 'ipsec'], 'type': 'str'},
                                 'ip': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
                                 'ipv6': {
+                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                                     'type': 'dict',
                                     'options': {
                                         'autoconf': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5148,7 +5167,7 @@ def main():
                                             'type': 'list',
                                             'choices': [
                                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response',
-                                                'capwap', 'dnp', 'ftm', 'fabric', 'speed-test'
+                                                'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond'
                                             ],
                                             'elements': 'str'
                                         },
@@ -5222,6 +5241,7 @@ def main():
                 'vdom': {'type': 'str'},
                 'vlanid': {'type': 'int'},
                 'dhcp-server': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'auto-configuration': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5354,6 +5374,7 @@ def main():
                     }
                 },
                 'interface': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'ac-name': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
@@ -5549,6 +5570,7 @@ def main():
                         'ips-sniffer-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'ipunnumbered': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
                         'ipv6': {
+                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
                                 'autoconf': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5750,7 +5772,10 @@ def main():
                         'peer-interface': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
                         'phy-mode': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['auto', 'adsl', 'vdsl', 'adsl-auto', 'vdsl2', 'adsl2+', 'adsl2', 'g.dmt', 't1.413', 'g.lite'],
+                            'choices': [
+                                'auto', 'adsl', 'vdsl', 'adsl-auto', 'vdsl2', 'adsl2+', 'adsl2', 'g.dmt', 't1.413', 'g.lite', 'g-dmt', 't1-413',
+                                'g-lite'
+                            ],
                             'type': 'str'
                         },
                         'ping-serv-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.0']], 'type': 'int'},
@@ -5795,7 +5820,7 @@ def main():
                                     'type': 'list',
                                     'choices': [
                                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response',
-                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test'
+                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond'
                                     ],
                                     'elements': 'str'
                                 },
@@ -5873,7 +5898,7 @@ def main():
                         },
                         'switch-controller-arp-inspection': {
                             'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
-                            'choices': ['disable', 'enable'],
+                            'choices': ['disable', 'enable', 'monitor'],
                             'type': 'str'
                         },
                         'switch-controller-auth': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['radius', 'usergroup'], 'type': 'str'},
@@ -6051,7 +6076,7 @@ def main():
                         'sfp-dsl-adsl-fallback': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sfp-dsl-autodetect': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sfp-dsl-mac': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
-                        'sw-algorithm': {'v_range': [['7.0.1', '']], 'choices': ['l2', 'l3', 'eh'], 'type': 'str'},
+                        'sw-algorithm': {'v_range': [['7.0.1', '']], 'choices': ['l2', 'l3', 'eh', 'default'], 'type': 'str'},
                         'system-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
                         'system-id-type': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['auto', 'user'], 'type': 'str'},
                         'vlan-id': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
@@ -6096,7 +6121,8 @@ def main():
                         'mirroring-port': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'port-mirroring': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'security-8021x-member-mode': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'switch'], 'type': 'str'},
-                        'stp-edge': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'stp-edge': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dhcp-relay-allow-no-end-option': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }
@@ -6114,9 +6140,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

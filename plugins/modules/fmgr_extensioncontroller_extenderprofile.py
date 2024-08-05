@@ -92,7 +92,7 @@ options:
             allowaccess:
                 type: list
                 elements: str
-                description: No description.
+                description: Control management access to the managed extender.
                 choices:
                     - 'https'
                     - 'ping'
@@ -105,11 +105,11 @@ options:
                 description: Deprecated, please rename it to bandwidth_limit. FortiExtender LAN extension bandwidth limit
             cellular:
                 type: dict
-                description: No description.
+                description: Cellular.
                 suboptions:
                     controller-report:
                         type: dict
-                        description: Deprecated, please rename it to controller_report.
+                        description: Deprecated, please rename it to controller_report. Controller report.
                         suboptions:
                             interval:
                                 type: int
@@ -125,14 +125,14 @@ options:
                                     - 'enable'
                     dataplan:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Dataplan names.
                     modem1:
                         type: dict
-                        description: No description.
+                        description: Modem1.
                         suboptions:
                             auto-switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch.
+                                description: Deprecated, please rename it to auto_switch. Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -161,7 +161,7 @@ options:
                                     switch-back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back.
+                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -173,7 +173,7 @@ options:
                                         description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
                             conn-status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status.
+                                description: Deprecated, please rename it to conn_status. Conn status.
                             default-sim:
                                 type: str
                                 description: Deprecated, please rename it to default_sim. Default SIM selection.
@@ -211,7 +211,7 @@ options:
                                     - 'enable'
                             sim1-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code.
+                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
                             sim2-pin:
                                 type: str
                                 description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
@@ -220,14 +220,14 @@ options:
                                     - 'enable'
                             sim2-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code.
+                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
                     modem2:
                         type: dict
-                        description: No description.
+                        description: Modem2.
                         suboptions:
                             auto-switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch.
+                                description: Deprecated, please rename it to auto_switch. Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -256,7 +256,7 @@ options:
                                     switch-back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back.
+                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -268,7 +268,7 @@ options:
                                         description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
                             conn-status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status.
+                                description: Deprecated, please rename it to conn_status. Conn status.
                             default-sim:
                                 type: str
                                 description: Deprecated, please rename it to default_sim. Default SIM selection.
@@ -306,7 +306,7 @@ options:
                                     - 'enable'
                             sim1-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code.
+                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
                             sim2-pin:
                                 type: str
                                 description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
@@ -315,14 +315,14 @@ options:
                                     - 'enable'
                             sim2-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code.
+                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
                     sms-notification:
                         type: dict
-                        description: Deprecated, please rename it to sms_notification.
+                        description: Deprecated, please rename it to sms_notification. Sms notification.
                         suboptions:
                             alert:
                                 type: dict
-                                description: No description.
+                                description: Alert.
                                 suboptions:
                                     data-exhausted:
                                         type: str
@@ -348,12 +348,12 @@ options:
                             receiver:
                                 type: list
                                 elements: dict
-                                description: No description.
+                                description: Receiver.
                                 suboptions:
                                     alert:
                                         type: list
                                         elements: str
-                                        description: No description.
+                                        description: Alert multi-options.
                                         choices:
                                             - 'system-reboot'
                                             - 'data-exhausted'
@@ -398,12 +398,12 @@ options:
                 required: true
             lan-extension:
                 type: dict
-                description: Deprecated, please rename it to lan_extension.
+                description: Deprecated, please rename it to lan_extension. Lan extension.
                 suboptions:
                     backhaul:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Backhaul.
                         suboptions:
                             name:
                                 type: str
@@ -447,7 +447,7 @@ options:
                             - 'loadbalance'
             login-password:
                 type: raw
-                description: (list) Deprecated, please rename it to login_password.
+                description: (list) Deprecated, please rename it to login_password. Set the managed extenders administrator password.
             login-password-change:
                 type: str
                 description: Deprecated, please rename it to login_password_change. Change or reset the administrator password of a managed extender
@@ -479,16 +479,475 @@ options:
                     - 'FX04DA'
                     - 'FX04DN'
                     - 'FX04DI'
+                    - 'FXR51G'
+                    - 'FG'
+                    - 'BS10FW'
+                    - 'BS20GW'
+                    - 'BS20GN'
             name:
                 type: str
                 description: FortiExtender profile name.
             _is_factory_setting:
                 type: str
-                description: No description.
+                description: Is factory setting.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'ext'
+            wifi:
+                type: dict
+                description: Wifi.
+                suboptions:
+                    DFS:
+                        type: str
+                        description: Wi-Fi 5G Radio DFS channel enable/disable.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    country:
+                        type: str
+                        description: Country in which this FEX will operate
+                        choices:
+                            - 'AL'
+                            - 'DZ'
+                            - 'AR'
+                            - 'AM'
+                            - 'AU'
+                            - 'AT'
+                            - 'AZ'
+                            - 'BH'
+                            - 'BD'
+                            - 'BY'
+                            - 'BE'
+                            - 'BZ'
+                            - 'BO'
+                            - 'BA'
+                            - 'BR'
+                            - 'BN'
+                            - 'BG'
+                            - 'CA'
+                            - 'CL'
+                            - 'CN'
+                            - 'CO'
+                            - 'CR'
+                            - 'HR'
+                            - 'CY'
+                            - 'CZ'
+                            - 'DK'
+                            - 'DO'
+                            - 'EC'
+                            - 'EG'
+                            - 'SV'
+                            - 'EE'
+                            - 'FI'
+                            - 'FR'
+                            - 'GE'
+                            - 'DE'
+                            - 'GR'
+                            - 'GT'
+                            - 'HN'
+                            - 'HK'
+                            - 'HU'
+                            - 'IS'
+                            - 'IN'
+                            - 'ID'
+                            - 'IE'
+                            - 'IL'
+                            - 'IT'
+                            - 'JM'
+                            - 'JP'
+                            - 'JO'
+                            - 'KZ'
+                            - 'KE'
+                            - 'KR'
+                            - 'KW'
+                            - 'LV'
+                            - 'LB'
+                            - 'LI'
+                            - 'LT'
+                            - 'LU'
+                            - 'MO'
+                            - 'MK'
+                            - 'MY'
+                            - 'MT'
+                            - 'MX'
+                            - 'MC'
+                            - 'MA'
+                            - 'NP'
+                            - 'NL'
+                            - 'AN'
+                            - 'NZ'
+                            - 'NO'
+                            - 'OM'
+                            - 'PK'
+                            - 'PA'
+                            - 'PG'
+                            - 'PE'
+                            - 'PH'
+                            - 'PL'
+                            - 'PT'
+                            - 'PR'
+                            - 'QA'
+                            - 'RO'
+                            - 'RU'
+                            - 'SA'
+                            - 'SG'
+                            - 'SK'
+                            - 'SI'
+                            - 'ZA'
+                            - 'ES'
+                            - 'LK'
+                            - 'SE'
+                            - 'CH'
+                            - 'TW'
+                            - 'TH'
+                            - 'TT'
+                            - 'TN'
+                            - 'TR'
+                            - 'AE'
+                            - 'UA'
+                            - 'GB'
+                            - 'US'
+                            - 'PS'
+                            - 'UY'
+                            - 'UZ'
+                            - 'VE'
+                            - 'VN'
+                            - 'YE'
+                            - 'ZW'
+                            - 'NA'
+                            - 'BS'
+                            - 'VC'
+                            - 'KH'
+                            - 'MV'
+                            - 'AF'
+                            - 'NG'
+                            - 'TZ'
+                            - 'ZM'
+                            - 'SN'
+                            - 'CI'
+                            - 'GH'
+                            - 'CM'
+                            - 'MW'
+                            - 'AO'
+                            - 'GA'
+                            - 'ML'
+                            - 'BJ'
+                            - 'MG'
+                            - 'TD'
+                            - 'BW'
+                            - 'LY'
+                            - 'RW'
+                            - 'MZ'
+                            - 'GM'
+                            - 'LS'
+                            - 'MU'
+                            - 'CG'
+                            - 'UG'
+                            - 'BF'
+                            - 'SL'
+                            - 'SO'
+                            - 'CD'
+                            - 'NE'
+                            - 'CF'
+                            - 'SZ'
+                            - 'TG'
+                            - 'LR'
+                            - 'MR'
+                            - 'DJ'
+                            - 'RE'
+                            - 'RS'
+                            - 'ME'
+                            - 'IQ'
+                            - 'MD'
+                            - 'KY'
+                            - 'BB'
+                            - 'BM'
+                            - 'TC'
+                            - 'VI'
+                            - 'PM'
+                            - 'MF'
+                            - 'GD'
+                            - 'IM'
+                            - 'FO'
+                            - 'GI'
+                            - 'GL'
+                            - 'TM'
+                            - 'MN'
+                            - 'VU'
+                            - 'FJ'
+                            - 'LA'
+                            - 'GU'
+                            - 'WF'
+                            - 'MH'
+                            - 'BT'
+                            - 'FM'
+                            - 'PF'
+                            - 'NI'
+                            - 'PY'
+                            - 'HT'
+                            - 'GY'
+                            - 'AW'
+                            - 'KN'
+                            - 'GF'
+                            - 'AS'
+                            - 'MP'
+                            - 'PW'
+                            - 'MM'
+                            - 'LC'
+                            - 'GP'
+                            - 'ET'
+                            - 'SR'
+                            - 'CX'
+                            - 'DM'
+                            - 'MQ'
+                            - 'YT'
+                            - 'BL'
+                            - '--'
+                    radio-1:
+                        type: dict
+                        description: Deprecated, please rename it to radio_1. Radio 1.
+                        suboptions:
+                            80211d:
+                                type: str
+                                description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            band:
+                                type: str
+                                description: Wi-Fi band selection 2.
+                                choices:
+                                    - '2.4GHz'
+                            bandwidth:
+                                type: str
+                                description: Wi-Fi channel bandwidth.
+                                choices:
+                                    - 'auto'
+                                    - '20MHz'
+                                    - '40MHz'
+                                    - '80MHz'
+                            beacon-interval:
+                                type: int
+                                description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
+                            bss-color:
+                                type: int
+                                description: Deprecated, please rename it to bss_color. Wi-Fi 802.
+                            bss-color-mode:
+                                type: str
+                                description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                                choices:
+                                    - 'auto'
+                                    - 'static'
+                            channel:
+                                type: list
+                                elements: str
+                                description: Wi-Fi channels.
+                                choices:
+                                    - 'CH1'
+                                    - 'CH2'
+                                    - 'CH3'
+                                    - 'CH4'
+                                    - 'CH5'
+                                    - 'CH6'
+                                    - 'CH7'
+                                    - 'CH8'
+                                    - 'CH9'
+                                    - 'CH10'
+                                    - 'CH11'
+                            extension-channel:
+                                type: str
+                                description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                                choices:
+                                    - 'auto'
+                                    - 'higher'
+                                    - 'lower'
+                            guard-interval:
+                                type: str
+                                description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                                choices:
+                                    - 'auto'
+                                    - '400ns'
+                                    - '800ns'
+                            lan-ext-vap:
+                                type: raw
+                                description: (list) Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
+                            local-vaps:
+                                type: raw
+                                description: (list) Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
+                            max-clients:
+                                type: int
+                                description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                            mode:
+                                type: str
+                                description: Wi-Fi radio mode AP
+                                choices:
+                                    - 'AP'
+                                    - 'Client'
+                            operating-standard:
+                                type: str
+                                description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                                choices:
+                                    - 'auto'
+                                    - '11A-N-AC-AX'
+                                    - '11A-N-AC'
+                                    - '11A-N'
+                                    - '11A'
+                                    - '11N-AC-AX'
+                                    - '11AC-AX'
+                                    - '11AC'
+                                    - '11N-AC'
+                                    - '11B-G-N-AX'
+                                    - '11B-G-N'
+                                    - '11B-G'
+                                    - '11B'
+                                    - '11G-N-AX'
+                                    - '11N-AX'
+                                    - '11AX'
+                                    - '11G-N'
+                                    - '11N'
+                                    - '11G'
+                            power-level:
+                                type: int
+                                description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
+                            radio-id:
+                                type: int
+                                description: Deprecated, please rename it to radio_id. Radio ID.
+                            status:
+                                type: str
+                                description: Enable/disable Wi-Fi radio.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                    radio-2:
+                        type: dict
+                        description: Deprecated, please rename it to radio_2. Radio 2.
+                        suboptions:
+                            80211d:
+                                type: str
+                                description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            band:
+                                type: str
+                                description: Wi-Fi band selection 2.
+                                choices:
+                                    - '5GHz'
+                            bandwidth:
+                                type: str
+                                description: Wi-Fi channel bandwidth.
+                                choices:
+                                    - 'auto'
+                                    - '20MHz'
+                                    - '40MHz'
+                                    - '80MHz'
+                            beacon-interval:
+                                type: int
+                                description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
+                            bss-color:
+                                type: int
+                                description: Deprecated, please rename it to bss_color. Wi-Fi 802.
+                            bss-color-mode:
+                                type: str
+                                description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                                choices:
+                                    - 'auto'
+                                    - 'static'
+                            channel:
+                                type: list
+                                elements: str
+                                description: Wi-Fi channels.
+                                choices:
+                                    - 'CH36'
+                                    - 'CH40'
+                                    - 'CH44'
+                                    - 'CH48'
+                                    - 'CH52'
+                                    - 'CH56'
+                                    - 'CH60'
+                                    - 'CH64'
+                                    - 'CH100'
+                                    - 'CH104'
+                                    - 'CH108'
+                                    - 'CH112'
+                                    - 'CH116'
+                                    - 'CH120'
+                                    - 'CH124'
+                                    - 'CH128'
+                                    - 'CH132'
+                                    - 'CH136'
+                                    - 'CH140'
+                                    - 'CH144'
+                                    - 'CH149'
+                                    - 'CH153'
+                                    - 'CH157'
+                                    - 'CH161'
+                                    - 'CH165'
+                            extension-channel:
+                                type: str
+                                description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                                choices:
+                                    - 'auto'
+                                    - 'higher'
+                                    - 'lower'
+                            guard-interval:
+                                type: str
+                                description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                                choices:
+                                    - 'auto'
+                                    - '400ns'
+                                    - '800ns'
+                            lan-ext-vap:
+                                type: raw
+                                description: (list) Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
+                            local-vaps:
+                                type: raw
+                                description: (list) Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
+                            max-clients:
+                                type: int
+                                description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                            mode:
+                                type: str
+                                description: Wi-Fi radio mode AP
+                                choices:
+                                    - 'AP'
+                                    - 'Client'
+                            operating-standard:
+                                type: str
+                                description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                                choices:
+                                    - 'auto'
+                                    - '11A-N-AC-AX'
+                                    - '11A-N-AC'
+                                    - '11A-N'
+                                    - '11A'
+                                    - '11N-AC-AX'
+                                    - '11AC-AX'
+                                    - '11AC'
+                                    - '11N-AC'
+                                    - '11B-G-N-AX'
+                                    - '11B-G-N'
+                                    - '11B-G'
+                                    - '11B'
+                                    - '11G-N-AX'
+                                    - '11N-AX'
+                                    - '11AX'
+                                    - '11G-N'
+                                    - '11N'
+                                    - '11G'
+                            power-level:
+                                type: int
+                                description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
+                            radio-id:
+                                type: int
+                                description: Deprecated, please rename it to radio_id. Radio ID.
+                            status:
+                                type: str
+                                description: Enable/disable Wi-Fi radio.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -612,6 +1071,81 @@ EXAMPLES = '''
           model: <value in [FX201E, FX211E, FX200F, ...]>
           name: <string>
           _is_factory_setting: <value in [disable, enable, ext]>
+          wifi:
+            DFS: <value in [disable, enable]>
+            country: <value in [AL, DZ, AR, ...]>
+            radio_1:
+              d80211d: <value in [disable, enable]>
+              band: <value in [2.4GHz]>
+              bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+              beacon_interval: <integer>
+              bss_color: <integer>
+              bss_color_mode: <value in [auto, static]>
+              channel:
+                - CH1
+                - CH2
+                - CH3
+                - CH4
+                - CH5
+                - CH6
+                - CH7
+                - CH8
+                - CH9
+                - CH10
+                - CH11
+              extension_channel: <value in [auto, higher, lower]>
+              guard_interval: <value in [auto, 400ns, 800ns]>
+              lan_ext_vap: <list or string>
+              local_vaps: <list or string>
+              max_clients: <integer>
+              mode: <value in [AP, Client]>
+              operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+              power_level: <integer>
+              radio_id: <integer>
+              status: <value in [disable, enable]>
+            radio_2:
+              d80211d: <value in [disable, enable]>
+              band: <value in [5GHz]>
+              bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+              beacon_interval: <integer>
+              bss_color: <integer>
+              bss_color_mode: <value in [auto, static]>
+              channel:
+                - CH36
+                - CH40
+                - CH44
+                - CH48
+                - CH52
+                - CH56
+                - CH60
+                - CH64
+                - CH100
+                - CH104
+                - CH108
+                - CH112
+                - CH116
+                - CH120
+                - CH124
+                - CH128
+                - CH132
+                - CH136
+                - CH140
+                - CH144
+                - CH149
+                - CH153
+                - CH157
+                - CH161
+                - CH165
+              extension_channel: <value in [auto, higher, lower]>
+              guard_interval: <value in [auto, 400ns, 800ns]>
+              lan_ext_vap: <list or string>
+              local_vaps: <list or string>
+              max_clients: <integer>
+              mode: <value in [AP, Client]>
+              operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+              power_level: <integer>
+              radio_id: <integer>
+              status: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -688,9 +1222,11 @@ def main():
                 },
                 'bandwidth-limit': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'cellular': {
+                    'v_range': [['7.2.1', '']],
                     'type': 'dict',
                     'options': {
                         'controller-report': {
+                            'v_range': [['7.2.1', '']],
                             'type': 'dict',
                             'options': {
                                 'interval': {'v_range': [['7.2.1', '']], 'type': 'int'},
@@ -700,9 +1236,11 @@ def main():
                         },
                         'dataplan': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                         'modem1': {
+                            'v_range': [['7.2.1', '']],
                             'type': 'dict',
                             'options': {
                                 'auto-switch': {
+                                    'v_range': [['7.2.1', '']],
                                     'type': 'dict',
                                     'options': {
                                         'dataplan': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -729,9 +1267,11 @@ def main():
                             }
                         },
                         'modem2': {
+                            'v_range': [['7.2.1', '']],
                             'type': 'dict',
                             'options': {
                                 'auto-switch': {
+                                    'v_range': [['7.2.1', '']],
                                     'type': 'dict',
                                     'options': {
                                         'dataplan': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -758,9 +1298,11 @@ def main():
                             }
                         },
                         'sms-notification': {
+                            'v_range': [['7.2.1', '']],
                             'type': 'dict',
                             'options': {
                                 'alert': {
+                                    'v_range': [['7.2.1', '']],
                                     'type': 'dict',
                                     'options': {
                                         'data-exhausted': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -800,6 +1342,7 @@ def main():
                 'extension': {'v_range': [['7.2.1', '']], 'choices': ['wan-extension', 'lan-extension'], 'type': 'str'},
                 'id': {'v_range': [['7.2.1', '']], 'required': True, 'type': 'int'},
                 'lan-extension': {
+                    'v_range': [['7.2.1', '']],
                     'type': 'dict',
                     'options': {
                         'backhaul': {
@@ -829,12 +1372,108 @@ def main():
                     'v_range': [['7.2.1', '']],
                     'choices': [
                         'FX201E', 'FX211E', 'FX200F', 'FXA11F', 'FXE11F', 'FXA21F', 'FXE21F', 'FXA22F', 'FXE22F', 'FX212F', 'FX311F', 'FX312F', 'FX511F',
-                        'FVG21F', 'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI'
+                        'FVG21F', 'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI', 'FXR51G', 'FG', 'BS10FW', 'BS20GW', 'BS20GN'
                     ],
                     'type': 'str'
                 },
                 'name': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                '_is_factory_setting': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable', 'ext'], 'type': 'str'}
+                '_is_factory_setting': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable', 'ext'], 'type': 'str'},
+                'wifi': {
+                    'v_range': [['7.4.3', '']],
+                    'type': 'dict',
+                    'options': {
+                        'DFS': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'country': {
+                            'v_range': [['7.4.3', '']],
+                            'choices': [
+                                'AL', 'DZ', 'AR', 'AM', 'AU', 'AT', 'AZ', 'BH', 'BD', 'BY', 'BE', 'BZ', 'BO', 'BA', 'BR', 'BN', 'BG', 'CA', 'CL', 'CN',
+                                'CO', 'CR', 'HR', 'CY', 'CZ', 'DK', 'DO', 'EC', 'EG', 'SV', 'EE', 'FI', 'FR', 'GE', 'DE', 'GR', 'GT', 'HN', 'HK', 'HU',
+                                'IS', 'IN', 'ID', 'IE', 'IL', 'IT', 'JM', 'JP', 'JO', 'KZ', 'KE', 'KR', 'KW', 'LV', 'LB', 'LI', 'LT', 'LU', 'MO', 'MK',
+                                'MY', 'MT', 'MX', 'MC', 'MA', 'NP', 'NL', 'AN', 'NZ', 'NO', 'OM', 'PK', 'PA', 'PG', 'PE', 'PH', 'PL', 'PT', 'PR', 'QA',
+                                'RO', 'RU', 'SA', 'SG', 'SK', 'SI', 'ZA', 'ES', 'LK', 'SE', 'CH', 'TW', 'TH', 'TT', 'TN', 'TR', 'AE', 'UA', 'GB', 'US',
+                                'PS', 'UY', 'UZ', 'VE', 'VN', 'YE', 'ZW', 'NA', 'BS', 'VC', 'KH', 'MV', 'AF', 'NG', 'TZ', 'ZM', 'SN', 'CI', 'GH', 'CM',
+                                'MW', 'AO', 'GA', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'RW', 'MZ', 'GM', 'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD',
+                                'NE', 'CF', 'SZ', 'TG', 'LR', 'MR', 'DJ', 'RE', 'RS', 'ME', 'IQ', 'MD', 'KY', 'BB', 'BM', 'TC', 'VI', 'PM', 'MF', 'GD',
+                                'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ', 'LA', 'GU', 'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW',
+                                'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR', 'CX', 'DM', 'MQ', 'YT', 'BL', '--'
+                            ],
+                            'type': 'str'
+                        },
+                        'radio-1': {
+                            'v_range': [['7.4.3', '']],
+                            'type': 'dict',
+                            'options': {
+                                '80211d': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'band': {'v_range': [['7.4.3', '']], 'choices': ['2.4GHz'], 'type': 'str'},
+                                'bandwidth': {'v_range': [['7.4.3', '']], 'choices': ['auto', '20MHz', '40MHz', '80MHz'], 'type': 'str'},
+                                'beacon-interval': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'bss-color': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'bss-color-mode': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'static'], 'type': 'str'},
+                                'channel': {
+                                    'v_range': [['7.4.3', '']],
+                                    'type': 'list',
+                                    'choices': ['CH1', 'CH2', 'CH3', 'CH4', 'CH5', 'CH6', 'CH7', 'CH8', 'CH9', 'CH10', 'CH11'],
+                                    'elements': 'str'
+                                },
+                                'extension-channel': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'higher', 'lower'], 'type': 'str'},
+                                'guard-interval': {'v_range': [['7.4.3', '']], 'choices': ['auto', '400ns', '800ns'], 'type': 'str'},
+                                'lan-ext-vap': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                                'local-vaps': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                                'max-clients': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'mode': {'v_range': [['7.4.3', '']], 'choices': ['AP', 'Client'], 'type': 'str'},
+                                'operating-standard': {
+                                    'v_range': [['7.4.3', '']],
+                                    'choices': [
+                                        'auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX', '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX',
+                                        '11B-G-N', '11B-G', '11B', '11G-N-AX', '11N-AX', '11AX', '11G-N', '11N', '11G'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                            }
+                        },
+                        'radio-2': {
+                            'v_range': [['7.4.3', '']],
+                            'type': 'dict',
+                            'options': {
+                                '80211d': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'band': {'v_range': [['7.4.3', '']], 'choices': ['5GHz'], 'type': 'str'},
+                                'bandwidth': {'v_range': [['7.4.3', '']], 'choices': ['auto', '20MHz', '40MHz', '80MHz'], 'type': 'str'},
+                                'beacon-interval': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'bss-color': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'bss-color-mode': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'static'], 'type': 'str'},
+                                'channel': {
+                                    'v_range': [['7.4.3', '']],
+                                    'type': 'list',
+                                    'choices': [
+                                        'CH36', 'CH40', 'CH44', 'CH48', 'CH52', 'CH56', 'CH60', 'CH64', 'CH100', 'CH104', 'CH108', 'CH112', 'CH116',
+                                        'CH120', 'CH124', 'CH128', 'CH132', 'CH136', 'CH140', 'CH144', 'CH149', 'CH153', 'CH157', 'CH161', 'CH165'
+                                    ],
+                                    'elements': 'str'
+                                },
+                                'extension-channel': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'higher', 'lower'], 'type': 'str'},
+                                'guard-interval': {'v_range': [['7.4.3', '']], 'choices': ['auto', '400ns', '800ns'], 'type': 'str'},
+                                'lan-ext-vap': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                                'local-vaps': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                                'max-clients': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'mode': {'v_range': [['7.4.3', '']], 'choices': ['AP', 'Client'], 'type': 'str'},
+                                'operating-standard': {
+                                    'v_range': [['7.4.3', '']],
+                                    'choices': [
+                                        'auto', '11A-N-AC-AX', '11A-N-AC', '11A-N', '11A', '11N-AC-AX', '11AC-AX', '11AC', '11N-AC', '11B-G-N-AX',
+                                        '11B-G-N', '11B-G', '11B', '11G-N-AX', '11N-AX', '11AX', '11G-N', '11N', '11G'
+                                    ],
+                                    'type': 'str'
+                                },
+                                'power-level': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'radio-id': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                            }
+                        }
+                    }
+                }
             }
 
         }
@@ -850,9 +1489,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

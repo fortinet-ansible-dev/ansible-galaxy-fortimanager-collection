@@ -92,7 +92,7 @@ options:
             api-gateway:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to api_gateway. Api-Gateway.
+                description: Deprecated, please rename it to api_gateway. Api gateway.
                 suboptions:
                     http-cookie-age:
                         type: int
@@ -210,7 +210,7 @@ options:
                                 description: Deprecated, please rename it to ssh_client_cert. Set access-proxy SSH client certificate profile.
                             ssh-host-key:
                                 type: raw
-                                description: (list or str) Deprecated, please rename it to ssh_host_key.
+                                description: (list or str) Deprecated, please rename it to ssh_host_key. One or more server host key.
                             ssh-host-key-validation:
                                 type: str
                                 description: Deprecated, please rename it to ssh_host_key_validation. Enable/disable SSH real server host key validation.
@@ -265,7 +265,7 @@ options:
                     ssl-cipher-suites:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ssl_cipher_suites. Ssl-Cipher-Suites.
+                        description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                         suboptions:
                             cipher:
                                 type: str
@@ -404,7 +404,7 @@ options:
                         description: Deprecated, please rename it to ssl_vpn_web_portal. SSL-VPN web portal.
                     application:
                         type: raw
-                        description: (list) No description.
+                        description: (list) SaaS application controlled by this Access Proxy.
                     ssl-renegotiation:
                         type: str
                         description: Deprecated, please rename it to ssl_renegotiation. Enable/disable secure renegotiation to comply with RFC 5746.
@@ -425,7 +425,7 @@ options:
                             - 'enable'
                     quic:
                         type: dict
-                        description: No description.
+                        description: Quic.
                         suboptions:
                             ack-delay-exponent:
                                 type: int
@@ -516,7 +516,7 @@ options:
                     - 'enable'
             server-pubkey-auth-settings:
                 type: dict
-                description: Deprecated, please rename it to server_pubkey_auth_settings.
+                description: Deprecated, please rename it to server_pubkey_auth_settings. Server pubkey auth settings.
                 suboptions:
                     auth-ca:
                         type: str
@@ -524,7 +524,7 @@ options:
                     cert-extension:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to cert_extension. Cert-Extension.
+                        description: Deprecated, please rename it to cert_extension. Cert extension.
                         suboptions:
                             critical:
                                 type: str
@@ -586,7 +586,7 @@ options:
             api-gateway6:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to api_gateway6.
+                description: Deprecated, please rename it to api_gateway6. Api gateway6.
                 suboptions:
                     http-cookie-age:
                         type: int
@@ -639,7 +639,7 @@ options:
                     realservers:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Realservers.
                         suboptions:
                             addr-type:
                                 type: str
@@ -692,7 +692,7 @@ options:
                                 description: Deprecated, please rename it to ssh_client_cert. Set access-proxy SSH client certificate profile.
                             ssh-host-key:
                                 type: raw
-                                description: (list or str) Deprecated, please rename it to ssh_host_key.
+                                description: (list or str) Deprecated, please rename it to ssh_host_key. One or more server host key.
                             ssh-host-key-validation:
                                 type: str
                                 description: Deprecated, please rename it to ssh_host_key_validation. Enable/disable SSH real server host key validation.
@@ -762,7 +762,7 @@ options:
                     ssl-cipher-suites:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ssl_cipher_suites.
+                        description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
                         suboptions:
                             cipher:
                                 type: str
@@ -845,7 +845,7 @@ options:
                             versions:
                                 type: list
                                 elements: str
-                                description: No description.
+                                description: SSL/TLS versions that the cipher suite can be used with.
                                 choices:
                                     - 'tls-1.0'
                                     - 'tls-1.1'
@@ -895,7 +895,7 @@ options:
                         description: Deprecated, please rename it to virtual_host. Virtual host.
                     application:
                         type: raw
-                        description: (list) No description.
+                        description: (list) SaaS application controlled by this Access Proxy.
                     ssl-renegotiation:
                         type: str
                         description: Deprecated, please rename it to ssl_renegotiation. Enable/disable secure renegotiation to comply with RFC 5746.
@@ -916,7 +916,7 @@ options:
                             - 'enable'
                     quic:
                         type: dict
-                        description: No description.
+                        description: Quic.
                         suboptions:
                             ack-delay-exponent:
                                 type: int
@@ -1374,6 +1374,7 @@ def main():
                         'h2-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h3-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'quic': {
+                            'v_range': [['7.4.1', '']],
                             'type': 'dict',
                             'options': {
                                 'ack-delay-exponent': {'v_range': [['7.4.1', '']], 'type': 'int'},
@@ -1411,6 +1412,7 @@ def main():
                 },
                 'server-pubkey-auth': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'server-pubkey-auth-settings': {
+                    'v_range': [['7.0.0', '']],
                     'type': 'dict',
                     'options': {
                         'auth-ca': {'v_range': [['7.0.0', '']], 'type': 'str'},
@@ -1548,6 +1550,7 @@ def main():
                         'h2-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h3-support': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'quic': {
+                            'v_range': [['7.4.1', '']],
                             'type': 'dict',
                             'options': {
                                 'ack-delay-exponent': {'v_range': [['7.4.1', '']], 'type': 'int'},
@@ -1589,9 +1592,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

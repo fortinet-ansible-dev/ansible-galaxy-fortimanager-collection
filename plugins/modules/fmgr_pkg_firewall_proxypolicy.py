@@ -373,7 +373,7 @@ options:
                 description: (list or str) Deprecated, please rename it to ztna_ems_tag. ZTNA EMS Tag names.
             access-proxy6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to access_proxy6.
+                description: (list or str) Deprecated, please rename it to access_proxy6. IPv6 access proxy.
             block-notification:
                 type: str
                 description: Deprecated, please rename it to block_notification. Enable/disable block notification.
@@ -412,16 +412,16 @@ options:
                     - 'enable'
             internet-service6-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom.
+                description: (list) Deprecated, please rename it to internet_service6_custom. Custom Internet Service IPv6 name.
             internet-service6-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom_group.
+                description: (list) Deprecated, please rename it to internet_service6_custom_group. Custom Internet Service IPv6 group name.
             internet-service6-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_group.
+                description: (list) Deprecated, please rename it to internet_service6_group. Internet Service IPv6 group name.
             internet-service6-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_name.
+                description: (list) Deprecated, please rename it to internet_service6_name. Internet Service IPv6 name.
             internet-service6-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service6_negate. When enabled, Internet Services match against any internet servi...
@@ -433,7 +433,7 @@ options:
                 description: Deprecated, please rename it to ips_voip_filter. Name of an existing VoIP
             virtual-patch-profile:
                 type: str
-                description: Deprecated, please rename it to virtual_patch_profile.
+                description: Deprecated, please rename it to virtual_patch_profile. Virtual patch profile.
 '''
 
 EXAMPLES = '''
@@ -569,7 +569,7 @@ def main():
                 'label': {'type': 'str'},
                 'logtraffic': {'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'policyid': {'required': True, 'type': 'int'},
                 'poolname': {'type': 'raw'},
                 'profile-group': {'type': 'str'},
@@ -595,8 +595,8 @@ def main():
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'type': 'str'},
                 'waf-profile': {'type': 'str'},
-                'webcache': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'type': 'str'},
                 'webproxy-forward-server': {'type': 'str'},
                 'webproxy-profile': {'type': 'str'},
@@ -614,7 +614,7 @@ def main():
                 'access-proxy': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
                 'device-ownership': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'videofilter-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
-                'voip-profile': {'v_range': [['7.0.0', '7.2.2']], 'type': 'str'},
+                'voip-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
                 'ztna-ems-tag': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
                 'access-proxy6': {'v_range': [['7.0.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'raw'},
                 'block-notification': {
@@ -651,9 +651,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

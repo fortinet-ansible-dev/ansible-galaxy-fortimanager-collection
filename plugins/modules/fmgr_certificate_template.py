@@ -97,7 +97,7 @@ options:
                 description: Country.
             digest-type:
                 type: str
-                description: Deprecated, please rename it to digest_type. Digest-Type.
+                description: Deprecated, please rename it to digest_type. Digest type.
                 choices:
                     - 'sha1'
                     - 'sha256'
@@ -106,14 +106,14 @@ options:
                 description: Email.
             id-type:
                 type: str
-                description: Deprecated, please rename it to id_type. Id-Type.
+                description: Deprecated, please rename it to id_type. Id type.
                 choices:
                     - 'host-ip'
                     - 'domain-name'
                     - 'email'
             key-size:
                 type: str
-                description: Deprecated, please rename it to key_size. Key-Size.
+                description: Deprecated, please rename it to key_size. Key size.
                 choices:
                     - '512'
                     - '1024'
@@ -122,7 +122,7 @@ options:
                     - '4096'
             key-type:
                 type: str
-                description: Deprecated, please rename it to key_type. Key-Type.
+                description: Deprecated, please rename it to key_type. Key type.
                 choices:
                     - 'rsa'
                     - 'ec'
@@ -135,19 +135,19 @@ options:
                 description: Organization.
             organization-unit:
                 type: raw
-                description: (list) Deprecated, please rename it to organization_unit. Organization-Unit.
+                description: (list) Deprecated, please rename it to organization_unit. Organization unit.
             scep-password:
                 type: raw
-                description: (list) Deprecated, please rename it to scep_password. Scep-Password.
+                description: (list) Deprecated, please rename it to scep_password. Scep password.
             scep-server:
                 type: str
-                description: Deprecated, please rename it to scep_server. Scep-Server.
+                description: Deprecated, please rename it to scep_server. Scep server.
             state:
                 type: str
                 description: State.
             subject-name:
                 type: str
-                description: Deprecated, please rename it to subject_name. Subject-Name.
+                description: Deprecated, please rename it to subject_name. Subject name.
             type:
                 type: str
                 description: Type.
@@ -156,14 +156,14 @@ options:
                     - 'local'
             curve-name:
                 type: str
-                description: Deprecated, please rename it to curve_name. Curve-Name.
+                description: Deprecated, please rename it to curve_name. Curve name.
                 choices:
                     - 'secp256r1'
                     - 'secp384r1'
                     - 'secp521r1'
             scep-ca-identifier:
                 type: str
-                description: Deprecated, please rename it to scep_ca_identifier.
+                description: Deprecated, please rename it to scep_ca_identifier. Scep ca identifier.
 '''
 
 EXAMPLES = '''
@@ -304,9 +304,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -99,14 +99,14 @@ options:
         suboptions:
             dst-ip:
                 type: str
-                description: Deprecated, please rename it to dst_ip. Destination IP address and netmask
+                description: Deprecated, please rename it to dst_ip. Destination IP address and netmask.
             id:
                 type: int
                 description: Exempt IP ID.
                 required: true
             src-ip:
                 type: str
-                description: Deprecated, please rename it to src_ip. Source IP address and netmask
+                description: Deprecated, please rename it to src_ip. Source IP address and netmask.
 '''
 
 EXAMPLES = '''
@@ -184,17 +184,17 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
         '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
-        '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
-        '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip'
+        '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
+        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
+        '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
         '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-        '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
-        '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
+        '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+        '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
     ]
 
     url_params = ['adom', 'sensor', 'entries']
@@ -205,12 +205,8 @@ def main():
         'entries': {'required': True, 'type': 'str'},
         'ips_sensor_entries_exemptip': {
             'type': 'dict',
-            'v_range': [['7.0.3', '']],
-            'options': {
-                'dst-ip': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'id': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
-                'src-ip': {'v_range': [['7.0.3', '']], 'type': 'str'}
-            }
+            'v_range': [['6.0.0', '']],
+            'options': {'dst-ip': {'type': 'str'}, 'id': {'required': True, 'type': 'int'}, 'src-ip': {'type': 'str'}}
 
         }
     }
@@ -225,9 +221,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

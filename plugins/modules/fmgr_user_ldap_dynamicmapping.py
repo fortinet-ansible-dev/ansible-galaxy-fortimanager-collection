@@ -96,122 +96,122 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             account-key-filter:
                 type: str
-                description: Deprecated, please rename it to account_key_filter.
+                description: Deprecated, please rename it to account_key_filter. Account key filter.
             account-key-name:
                 type: str
-                description: Deprecated, please rename it to account_key_name.
+                description: Deprecated, please rename it to account_key_name. Account key name.
             account-key-processing:
                 type: str
-                description: Deprecated, please rename it to account_key_processing.
+                description: Deprecated, please rename it to account_key_processing. Account key processing.
                 choices:
                     - 'same'
                     - 'strip'
             ca-cert:
                 type: str
-                description: Deprecated, please rename it to ca_cert.
+                description: Deprecated, please rename it to ca_cert. Ca cert.
             cnid:
                 type: str
-                description: No description.
+                description: Cnid.
             dn:
                 type: str
-                description: No description.
+                description: Dn.
             filter:
                 type: str
-                description: No description.
+                description: Filter.
             group:
                 type: str
-                description: No description.
+                description: Group.
             group-filter:
                 type: str
-                description: Deprecated, please rename it to group_filter.
+                description: Deprecated, please rename it to group_filter. Group filter.
             group-member-check:
                 type: str
-                description: Deprecated, please rename it to group_member_check.
+                description: Deprecated, please rename it to group_member_check. Group member check.
                 choices:
                     - 'user-attr'
                     - 'group-object'
                     - 'posix-group-object'
             group-object-filter:
                 type: str
-                description: Deprecated, please rename it to group_object_filter.
+                description: Deprecated, please rename it to group_object_filter. Group object filter.
             group-object-search-base:
                 type: str
-                description: Deprecated, please rename it to group_object_search_base.
+                description: Deprecated, please rename it to group_object_search_base. Group object search base.
             group-search-base:
                 type: str
-                description: Deprecated, please rename it to group_search_base.
+                description: Deprecated, please rename it to group_search_base. Group search base.
             member-attr:
                 type: str
-                description: Deprecated, please rename it to member_attr.
+                description: Deprecated, please rename it to member_attr. Member attr.
             obtain-user-info:
                 type: str
-                description: Deprecated, please rename it to obtain_user_info.
+                description: Deprecated, please rename it to obtain_user_info. Obtain user info.
                 choices:
                     - 'disable'
                     - 'enable'
             password:
                 type: raw
-                description: (list) No description.
+                description: (list) Password.
             password-expiry-warning:
                 type: str
-                description: Deprecated, please rename it to password_expiry_warning.
+                description: Deprecated, please rename it to password_expiry_warning. Password expiry warning.
                 choices:
                     - 'disable'
                     - 'enable'
             password-renewal:
                 type: str
-                description: Deprecated, please rename it to password_renewal.
+                description: Deprecated, please rename it to password_renewal. Password renewal.
                 choices:
                     - 'disable'
                     - 'enable'
             port:
                 type: int
-                description: No description.
+                description: Port.
             retrieve-protection-profile:
                 type: str
-                description: Deprecated, please rename it to retrieve_protection_profile.
+                description: Deprecated, please rename it to retrieve_protection_profile. Retrieve protection profile.
             search-type:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to search_type.
+                description: Deprecated, please rename it to search_type. Search type.
                 choices:
                     - 'nested'
                     - 'recursive'
             secondary-server:
                 type: str
-                description: Deprecated, please rename it to secondary_server.
+                description: Deprecated, please rename it to secondary_server. Secondary server.
             secure:
                 type: str
-                description: No description.
+                description: Secure.
                 choices:
                     - 'disable'
                     - 'starttls'
                     - 'ldaps'
             server:
                 type: str
-                description: No description.
+                description: Server.
             server-identity-check:
                 type: str
-                description: Deprecated, please rename it to server_identity_check.
+                description: Deprecated, please rename it to server_identity_check. Server identity check.
                 choices:
                     - 'disable'
                     - 'enable'
             source-ip:
                 type: str
-                description: Deprecated, please rename it to source_ip.
+                description: Deprecated, please rename it to source_ip. Source ip.
             ssl-min-proto-version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_version.
+                description: Deprecated, please rename it to ssl_min_proto_version. Ssl min proto version.
                 choices:
                     - 'default'
                     - 'TLSv1'
@@ -221,46 +221,46 @@ options:
                     - 'TLSv1-3'
             tertiary-server:
                 type: str
-                description: Deprecated, please rename it to tertiary_server.
+                description: Deprecated, please rename it to tertiary_server. Tertiary server.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'simple'
                     - 'anonymous'
                     - 'regular'
             user-info-exchange-server:
                 type: str
-                description: Deprecated, please rename it to user_info_exchange_server.
+                description: Deprecated, please rename it to user_info_exchange_server. User info exchange server.
             username:
                 type: str
-                description: No description.
+                description: Username.
             two-factor:
                 type: str
-                description: Deprecated, please rename it to two_factor.
+                description: Deprecated, please rename it to two_factor. Two factor.
                 choices:
                     - 'disable'
                     - 'fortitoken-cloud'
             interface:
                 type: str
-                description: No description.
+                description: Interface.
             interface-select-method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method.
+                description: Deprecated, please rename it to interface_select_method. Interface select method.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
             two-factor-authentication:
                 type: str
-                description: Deprecated, please rename it to two_factor_authentication.
+                description: Deprecated, please rename it to two_factor_authentication. Two factor authentication.
                 choices:
                     - 'fortitoken'
                     - 'email'
                     - 'sms'
             two-factor-notification:
                 type: str
-                description: Deprecated, please rename it to two_factor_notification.
+                description: Deprecated, please rename it to two_factor_notification. Two factor notification.
                 choices:
                     - 'email'
                     - 'sms'
@@ -287,7 +287,7 @@ options:
                     - 'enable'
             max-connections:
                 type: int
-                description: Deprecated, please rename it to max_connections.
+                description: Deprecated, please rename it to max_connections. Max connections.
             two-factor-filter:
                 type: str
                 description: Deprecated, please rename it to two_factor_filter. Filter used to synchronize users to FortiToken Cloud.
@@ -305,6 +305,10 @@ options:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
+                    - 'cn'
+            status-ttl:
+                type: int
+                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
 '''
 
 EXAMPLES = '''
@@ -463,7 +467,8 @@ def main():
                 'max-connections': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
-                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'}
+                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -479,9 +484,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

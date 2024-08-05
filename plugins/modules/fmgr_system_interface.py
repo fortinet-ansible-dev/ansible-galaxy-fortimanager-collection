@@ -118,7 +118,7 @@ options:
                 description: IP address of interface.
             ipv6:
                 type: dict
-                description: No description.
+                description: Ipv6.
                 suboptions:
                     ip6-address:
                         type: str
@@ -205,6 +205,8 @@ options:
                     - '56g/full'
                     - '100g/full'
                     - '1g/half'
+                    - '200g/full'
+                    - '400g/full'
             status:
                 type: str
                 description:
@@ -252,7 +254,7 @@ options:
             member:
                 type: list
                 elements: dict
-                description: No description.
+                description: Member.
                 suboptions:
                     interface-name:
                         type: str
@@ -476,7 +478,7 @@ def main():
                 'speed': {
                     'choices': [
                         'auto', '10full', '10half', '100full', '100half', '1000full', '10000full', '1g/full', '2.5g/full', '5g/full', '10g/full',
-                        '14g/full', '20g/full', '25g/full', '40g/full', '50g/full', '56g/full', '100g/full', '1g/half'
+                        '14g/full', '20g/full', '25g/full', '40g/full', '50g/full', '56g/full', '100g/full', '1g/half', '200g/full', '400g/full'
                     ],
                     'type': 'str'
                 },
@@ -520,9 +522,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

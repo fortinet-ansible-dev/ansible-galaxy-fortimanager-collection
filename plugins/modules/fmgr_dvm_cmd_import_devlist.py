@@ -75,7 +75,9 @@ options:
             flags:
                 type: list
                 elements: str
-                description: No description.
+                description:
+                    - create_task - Create a new task in task manager database.
+                    - nonblocking - The API will return immediately in for non-blocking call.
                 choices:
                     - 'none'
                     - 'create_task'
@@ -84,29 +86,29 @@ options:
             import-adom-members:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to import_adom_members.
+                description: Deprecated, please rename it to import_adom_members. Associations between devices and ADOMs.
                 suboptions:
                     adom:
                         type: str
                         description: Target ADOM to associate device VDOM with.
                     dev:
                         type: str
-                        description: No description.
+                        description: Dev.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             import-adoms:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to import_adoms.
+                description: Deprecated, please rename it to import_adoms. A list of ADOM and device group objects to be imported.
                 suboptions:
                     desc:
                         type: str
-                        description: No description.
+                        description: Desc.
                     flags:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Flags.
                         choices:
                             - 'migration'
                             - 'db_export'
@@ -123,28 +125,28 @@ options:
                             - 'install_deselect_all'
                     log_db_retention_hours:
                         type: int
-                        description: No description.
+                        description: Log db retention hours.
                     log_disk_quota:
                         type: int
-                        description: No description.
+                        description: Log disk quota.
                     log_disk_quota_alert_thres:
                         type: int
-                        description: No description.
+                        description: Log disk quota alert thres.
                     log_disk_quota_split_ratio:
                         type: int
-                        description: No description.
+                        description: Log disk quota split ratio.
                     log_file_retention_hours:
                         type: int
-                        description: No description.
+                        description: Log file retention hours.
                     meta fields:
                         type: dict
-                        description: Deprecated, please rename it to meta_fields.
+                        description: Deprecated, please rename it to meta_fields. Default metafields
                     mig_mr:
                         type: int
-                        description: No description.
+                        description: Mig mr.
                     mig_os_ver:
                         type: str
-                        description: No description.
+                        description: Mig os ver.
                         choices:
                             - 'unknown'
                             - '0.0'
@@ -168,13 +170,13 @@ options:
                             - 'provider'
                     mr:
                         type: int
-                        description: No description.
+                        description: Mr.
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     os_ver:
                         type: str
-                        description: No description.
+                        description: Os ver.
                         choices:
                             - 'unknown'
                             - '0.0'
@@ -189,7 +191,7 @@ options:
                             - '9.0'
                     restricted_prds:
                         type: raw
-                        description: (list or str) No description.
+                        description: (list or str) Restricted prds.
                         choices:
                             - 'fos'
                             - 'foc'
@@ -223,84 +225,114 @@ options:
                             - 'ftc'
                     state:
                         type: int
-                        description: No description.
+                        description: State.
                     uuid:
                         type: str
-                        description: No description.
+                        description: Uuid.
                     create_time:
                         type: int
-                        description: No description.
+                        description: Create time.
                     workspace_mode:
                         type: int
-                        description: No description.
+                        description: Workspace mode.
                     tz:
                         type: int
-                        description: No description.
+                        description: Tz.
                     lock_override:
                         type: int
-                        description: No description.
+                        description: Lock override.
+                    primary_dns_ip4:
+                        type: str
+                        description: Primary dns ip4.
+                    primary_dns_ip6_1:
+                        type: int
+                        description: Primary dns ip6 1.
+                    primary_dns_ip6_2:
+                        type: int
+                        description: Primary dns ip6 2.
+                    primary_dns_ip6_3:
+                        type: int
+                        description: Primary dns ip6 3.
+                    primary_dns_ip6_4:
+                        type: int
+                        description: Primary dns ip6 4.
+                    secondary_dns_ip4:
+                        type: str
+                        description: Secondary dns ip4.
+                    secondary_dns_ip6_1:
+                        type: int
+                        description: Secondary dns ip6 1.
+                    secondary_dns_ip6_2:
+                        type: int
+                        description: Secondary dns ip6 2.
+                    secondary_dns_ip6_3:
+                        type: int
+                        description: Secondary dns ip6 3.
+                    secondary_dns_ip6_4:
+                        type: int
+                        description: Secondary dns ip6 4.
             import-devices:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to import_devices.
+                description: Deprecated, please rename it to import_devices. A list of device objects to be imported.
                 suboptions:
                     adm_pass:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Adm pass.
                     adm_usr:
                         type: str
-                        description: No description.
+                        description: Adm usr.
                     app_ver:
                         type: str
-                        description: No description.
+                        description: App ver.
                     av_ver:
                         type: str
-                        description: No description.
+                        description: Av ver.
                     beta:
                         type: int
-                        description: No description.
+                        description: Beta.
                     branch_pt:
                         type: int
-                        description: No description.
+                        description: Branch pt.
                     build:
                         type: int
-                        description: No description.
+                        description: Build.
                     checksum:
                         type: str
-                        description: No description.
+                        description: Checksum.
                     conf_status:
                         type: str
-                        description: No description.
+                        description: Conf status.
                         choices:
                             - 'unknown'
                             - 'insync'
                             - 'outofsync'
                     conn_mode:
                         type: str
-                        description: No description.
+                        description: Conn mode.
                         choices:
                             - 'active'
                             - 'passive'
                     conn_status:
                         type: str
-                        description: No description.
+                        description: Conn status.
                         choices:
                             - 'UNKNOWN'
                             - 'up'
                             - 'down'
                     db_status:
                         type: str
-                        description: No description.
+                        description: Db status.
                         choices:
                             - 'unknown'
                             - 'nomod'
                             - 'mod'
                     desc:
                         type: str
-                        description: No description.
+                        description: Desc.
                     dev_status:
                         type: str
-                        description: No description.
+                        description: Dev status.
                         choices:
                             - 'none'
                             - 'unknown'
@@ -320,26 +352,26 @@ options:
                             - 'auto_updated'
                     fap_cnt:
                         type: int
-                        description: No description.
+                        description: Fap cnt.
                     faz.full_act:
                         type: int
-                        description: Deprecated, please rename it to faz_full_act.
+                        description: Deprecated, please rename it to faz_full_act. Faz.
                     faz.perm:
                         type: int
-                        description: Deprecated, please rename it to faz_perm.
+                        description: Deprecated, please rename it to faz_perm. Faz.
                     faz.quota:
                         type: int
-                        description: Deprecated, please rename it to faz_quota.
+                        description: Deprecated, please rename it to faz_quota. Faz.
                     faz.used:
                         type: int
-                        description: Deprecated, please rename it to faz_used.
+                        description: Deprecated, please rename it to faz_used. Faz.
                     fex_cnt:
                         type: int
-                        description: No description.
+                        description: Fex cnt.
                     flags:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Flags.
                         choices:
                             - 'has_hdd'
                             - 'vdom_enabled'
@@ -388,7 +420,15 @@ options:
                     foslic_utm:
                         type: list
                         elements: str
-                        description: No description.
+                        description:
+                            - VM Meter services
+                            - fw - Firewall
+                            - av - Anti-virus
+                            - ips - IPS
+                            - app - App control
+                            - url - Web filter
+                            - utm - Full UTM
+                            - fwb - FortiWeb
                         choices:
                             - 'fw'
                             - 'av'
@@ -399,13 +439,13 @@ options:
                             - 'fwb'
                     fsw_cnt:
                         type: int
-                        description: No description.
+                        description: Fsw cnt.
                     ha_group_id:
                         type: int
-                        description: No description.
+                        description: Ha group id.
                     ha_group_name:
                         type: str
-                        description: No description.
+                        description: Ha group name.
                     ha_mode:
                         type: str
                         description: Enabled - Value reserved for non-FOS HA devices.
@@ -422,92 +462,92 @@ options:
                     ha_slave:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Ha slave.
                         suboptions:
                             idx:
                                 type: int
-                                description: No description.
+                                description: Idx.
                             name:
                                 type: str
-                                description: No description.
+                                description: Name.
                             prio:
                                 type: int
-                                description: No description.
+                                description: Prio.
                             role:
                                 type: str
-                                description: No description.
+                                description: Role.
                                 choices:
                                     - 'slave'
                                     - 'master'
                             sn:
                                 type: str
-                                description: No description.
+                                description: Sn.
                             status:
                                 type: int
-                                description: No description.
+                                description: Status.
                             conf_status:
                                 type: int
-                                description: No description.
+                                description: Conf status.
                     hdisk_size:
                         type: int
-                        description: No description.
+                        description: Hdisk size.
                     hostname:
                         type: str
-                        description: No description.
+                        description: Hostname.
                     hw_rev_major:
                         type: int
-                        description: No description.
+                        description: Hw rev major.
                     hw_rev_minor:
                         type: int
-                        description: No description.
+                        description: Hw rev minor.
                     ip:
                         type: str
-                        description: No description.
+                        description: Ip.
                     ips_ext:
                         type: int
-                        description: No description.
+                        description: Ips ext.
                     ips_ver:
                         type: str
-                        description: No description.
+                        description: Ips ver.
                     last_checked:
                         type: int
-                        description: No description.
+                        description: Last checked.
                     last_resync:
                         type: int
-                        description: No description.
+                        description: Last resync.
                     latitude:
                         type: str
-                        description: No description.
+                        description: Latitude.
                     lic_flags:
                         type: int
-                        description: No description.
+                        description: Lic flags.
                     lic_region:
                         type: str
-                        description: No description.
+                        description: Lic region.
                     location_from:
                         type: str
-                        description: No description.
+                        description: Location from.
                     logdisk_size:
                         type: int
-                        description: No description.
+                        description: Logdisk size.
                     longitude:
                         type: str
-                        description: No description.
+                        description: Longitude.
                     maxvdom:
                         type: int
-                        description: No description.
+                        description: Maxvdom.
                     meta fields:
                         type: dict
-                        description: Deprecated, please rename it to meta_fields.
+                        description: Deprecated, please rename it to meta_fields. Default metafields
                     mgmt_id:
                         type: int
-                        description: No description.
+                        description: Mgmt id.
                     mgmt_if:
                         type: str
-                        description: No description.
+                        description: Mgmt if.
                     mgmt_mode:
                         type: str
-                        description: No description.
+                        description: Mgmt mode.
                         choices:
                             - 'unreg'
                             - 'fmg'
@@ -515,16 +555,16 @@ options:
                             - 'fmgfaz'
                     mgt_vdom:
                         type: str
-                        description: No description.
+                        description: Mgt vdom.
                     mr:
                         type: int
-                        description: No description.
+                        description: Mr.
                     name:
                         type: str
                         description: Unique name for the device.
                     os_type:
                         type: str
-                        description: No description.
+                        description: Os type.
                         choices:
                             - 'unknown'
                             - 'fos'
@@ -558,7 +598,7 @@ options:
                             - 'ftc'
                     os_ver:
                         type: str
-                        description: No description.
+                        description: Os ver.
                         choices:
                             - 'unknown'
                             - '0.0'
@@ -573,132 +613,135 @@ options:
                             - '9.0'
                     patch:
                         type: int
-                        description: No description.
+                        description: Patch.
                     platform_str:
                         type: str
-                        description: No description.
+                        description: Platform str.
                     psk:
                         type: str
-                        description: No description.
+                        description: Psk.
                     sn:
                         type: str
                         description: Unique value for each device.
                     vdom:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Vdom.
                         suboptions:
                             comments:
                                 type: str
-                                description: No description.
+                                description: Comments.
                             name:
                                 type: str
-                                description: No description.
+                                description: Name.
                             opmode:
                                 type: str
-                                description: No description.
+                                description: Opmode.
                                 choices:
                                     - 'nat'
                                     - 'transparent'
                             rtm_prof_id:
                                 type: int
-                                description: No description.
+                                description: Rtm prof id.
                             status:
                                 type: str
-                                description: No description.
+                                description: Status.
                             vpn_id:
                                 type: int
-                                description: No description.
+                                description: Vpn id.
                             meta fields:
                                 type: dict
-                                description: Deprecated, please rename it to meta_fields.
+                                description: Deprecated, please rename it to meta_fields. Meta fields.
                             vdom_type:
                                 type: str
-                                description: No description.
+                                description: Vdom type.
                                 choices:
                                     - 'traffic'
                                     - 'admin'
                     version:
                         type: int
-                        description: No description.
+                        description: Version.
                     vm_cpu:
                         type: int
-                        description: No description.
+                        description: Vm cpu.
                     vm_cpu_limit:
                         type: int
-                        description: No description.
+                        description: Vm cpu limit.
                     vm_lic_expire:
                         type: int
-                        description: No description.
+                        description: Vm lic expire.
                     vm_mem:
                         type: int
-                        description: No description.
+                        description: Vm mem.
                     vm_mem_limit:
                         type: int
-                        description: No description.
+                        description: Vm mem limit.
                     vm_status:
                         type: raw
-                        description: (int or str) No description.
+                        description: (int or str) Vm status.
                     module_sn:
                         type: str
-                        description: No description.
+                        description: Module sn.
                     prefer_img_ver:
                         type: str
-                        description: No description.
+                        description: Prefer img ver.
                     prio:
                         type: int
-                        description: No description.
+                        description: Prio.
                     role:
                         type: str
-                        description: No description.
+                        description: Role.
                         choices:
                             - 'master'
                             - 'ha-slave'
                             - 'autoscale-slave'
                     hyperscale:
                         type: int
-                        description: No description.
+                        description: Hyperscale.
                     nsxt_service_name:
                         type: str
-                        description: No description.
+                        description: Nsxt service name.
                     private_key:
                         type: str
-                        description: No description.
+                        description: Private key.
                     private_key_status:
                         type: int
-                        description: No description.
+                        description: Private key status.
                     vm_lic_overdue_since:
                         type: int
-                        description: No description.
+                        description: Vm lic overdue since.
                     first_tunnel_up:
                         type: int
-                        description: No description.
+                        description: First tunnel up.
                     eip:
                         type: str
-                        description: No description.
+                        description: Eip.
                     mgmt_uuid:
                         type: str
-                        description: No description.
+                        description: Mgmt uuid.
                     hw_generation:
                         type: int
-                        description: No description.
+                        description: Hw generation.
+                    relver_info:
+                        type: str
+                        description: Relver info.
             import-group-members:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to import_group_members.
+                description: Deprecated, please rename it to import_group_members. Associations between devices and device groups.
                 suboptions:
                     adom:
                         type: str
                         description: ADOM where the device group is located.
                     dev:
                         type: str
-                        description: No description.
+                        description: Dev.
                     grp:
                         type: str
                         description: Target device group to associate device VDOM with.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -795,6 +838,16 @@ EXAMPLES = '''
               workspace_mode: <integer>
               tz: <integer>
               lock_override: <integer>
+              primary_dns_ip4: <string>
+              primary_dns_ip6_1: <integer>
+              primary_dns_ip6_2: <integer>
+              primary_dns_ip6_3: <integer>
+              primary_dns_ip6_4: <integer>
+              secondary_dns_ip4: <string>
+              secondary_dns_ip6_1: <integer>
+              secondary_dns_ip6_2: <integer>
+              secondary_dns_ip6_3: <integer>
+              secondary_dns_ip6_4: <integer>
           import_devices:
             -
               adm_pass: <list or string>
@@ -922,6 +975,7 @@ EXAMPLES = '''
               eip: <string>
               mgmt_uuid: <string>
               hw_generation: <integer>
+              relver_info: <string>
           import_group_members:
             -
               adom: <string>
@@ -1036,7 +1090,17 @@ def main():
                         'create_time': {'v_range': [['6.4.1', '']], 'type': 'int'},
                         'workspace_mode': {'v_range': [['6.4.3', '']], 'type': 'int'},
                         'tz': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                        'lock_override': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                        'lock_override': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                        'primary_dns_ip4': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                        'primary_dns_ip6_1': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'primary_dns_ip6_2': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'primary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'primary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'secondary_dns_ip4': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                        'secondary_dns_ip6_1': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'secondary_dns_ip6_2': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'secondary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'secondary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1173,7 +1237,8 @@ def main():
                         'first_tunnel_up': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
                         'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
+                        'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                        'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1197,9 +1262,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_exec(argument_specs=module_arg_spec)

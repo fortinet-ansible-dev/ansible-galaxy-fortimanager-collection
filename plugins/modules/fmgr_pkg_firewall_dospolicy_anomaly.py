@@ -144,7 +144,7 @@ options:
                 description: Number of detected instances per minute which triggers action
             threshold(default):
                 type: int
-                description: Deprecated, please rename it to threshold_default).
+                description: Deprecated, please rename it to threshold_default). Threshold
             synproxy_tos:
                 type: str
                 description: Determine TCP differentiated services code point value
@@ -444,28 +444,40 @@ def main():
                     'type': 'str'
                 },
                 'synproxy-tos': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']],
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
                     'choices': ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36', '38', '40', '46', '255'],
                     'type': 'str'
                 },
                 'synproxy-tcp-window': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']],
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
                     'choices': ['4096', '8192', '16384', '32768'],
                     'type': 'str'
                 },
                 'synproxy-tcp-windowscale': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']],
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
                     'choices': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
                     'type': 'str'
                 },
-                'synproxy-tcp-timestamp': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'synproxy-ttl': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']], 'choices': ['32', '64', '128', '255'], 'type': 'str'},
+                'synproxy-tcp-timestamp': {
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'synproxy-ttl': {
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                    'choices': ['32', '64', '128', '255'],
+                    'type': 'str'
+                },
                 'synproxy-tcp-mss': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']],
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
                     'choices': ['0', '256', '512', '1024', '1300', '1360', '1460', '1500'],
                     'type': 'str'
                 },
-                'synproxy-tcp-sack': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'synproxy-tcp-sack': {
+                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                }
             }
 
         }
@@ -481,9 +493,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

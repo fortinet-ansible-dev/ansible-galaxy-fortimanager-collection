@@ -104,13 +104,13 @@ options:
                     - 'accept'
             app-category:
                 type: raw
-                description: (list) Deprecated, please rename it to app_category.
+                description: (list) Deprecated, please rename it to app_category. Application category ID list.
             app-group:
                 type: raw
-                description: (list) Deprecated, please rename it to app_group.
+                description: (list) Deprecated, please rename it to app_group. Application group names.
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) Application ID list.
             application-list:
                 type: str
                 description: Deprecated, please rename it to application_list. Name of an existing Application list.
@@ -131,7 +131,7 @@ options:
                 description: Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
             dstaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Destination IPv4 address name and address group names.
             dstaddr-negate:
                 type: str
                 description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr/dstaddr6 specifies what the destination address must ...
@@ -140,10 +140,10 @@ options:
                     - 'enable'
             dstaddr6:
                 type: raw
-                description: (list) No description.
+                description: (list) Destination IPv6 address name and address group names.
             dstintf:
                 type: raw
-                description: (list) No description.
+                description: (list) Outgoing
             emailfilter-profile:
                 type: str
                 description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
@@ -158,13 +158,13 @@ options:
                 description: Deprecated, please rename it to file_filter_profile. Name of an existing file-filter profile.
             fsso-groups:
                 type: raw
-                description: (list) Deprecated, please rename it to fsso_groups.
+                description: (list) Deprecated, please rename it to fsso_groups. Names of FSSO groups.
             global-label:
                 type: str
                 description: Deprecated, please rename it to global_label. Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
-                description: (list) No description.
+                description: (list) Names of user groups that can authenticate with this policy.
             icap-profile:
                 type: str
                 description: Deprecated, please rename it to icap_profile. Name of an existing ICAP profile.
@@ -176,16 +176,16 @@ options:
                     - 'enable'
             internet-service-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_custom.
+                description: (list) Deprecated, please rename it to internet_service_custom. Custom Internet Service name.
             internet-service-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_custom_group.
+                description: (list) Deprecated, please rename it to internet_service_custom_group. Custom Internet Service group name.
             internet-service-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_group.
+                description: (list) Deprecated, please rename it to internet_service_group. Internet Service group name.
             internet-service-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_name.
+                description: (list) Deprecated, please rename it to internet_service_name. Internet Service name.
             internet-service-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service_negate. When enabled internet-service specifies what the service must NOT be.
@@ -200,16 +200,16 @@ options:
                     - 'enable'
             internet-service-src-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_custom.
+                description: (list) Deprecated, please rename it to internet_service_src_custom. Custom Internet Service source name.
             internet-service-src-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_custom_group.
+                description: (list) Deprecated, please rename it to internet_service_src_custom_group. Custom Internet Service source group name.
             internet-service-src-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_group.
+                description: (list) Deprecated, please rename it to internet_service_src_group. Internet Service source group name.
             internet-service-src-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_name.
+                description: (list) Deprecated, please rename it to internet_service_src_name. Internet Service source name.
             internet-service-src-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service_src_negate. When enabled internet-service-src specifies what the service ...
@@ -277,7 +277,7 @@ options:
                     - 'enable'
             service:
                 type: raw
-                description: (list) No description.
+                description: (list) Service and service group names.
             service-negate:
                 type: str
                 description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
@@ -286,7 +286,7 @@ options:
                     - 'enable'
             srcaddr:
                 type: raw
-                description: (list) No description.
+                description: (list) Source IPv4 address name and address group names.
             srcaddr-negate:
                 type: str
                 description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
@@ -295,10 +295,10 @@ options:
                     - 'enable'
             srcaddr6:
                 type: raw
-                description: (list) No description.
+                description: (list) Source IPv6 address name and address group names.
             srcintf:
                 type: raw
-                description: (list) No description.
+                description: (list) Incoming
             ssh-filter-profile:
                 type: str
                 description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
@@ -313,10 +313,10 @@ options:
                     - 'enable'
             url-category:
                 type: raw
-                description: (list) Deprecated, please rename it to url_category.
+                description: (list) Deprecated, please rename it to url_category. URL categories or groups.
             users:
                 type: raw
-                description: (list) No description.
+                description: (list) Names of individual users that can authenticate with this policy.
             utm-status:
                 type: str
                 description: Deprecated, please rename it to utm_status. Enable security profiles.
@@ -343,7 +343,7 @@ options:
                 description: Deprecated, please rename it to mms_profile. Name of an existing MMS profile.
             internet-service-id:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_id.
+                description: (list) Deprecated, please rename it to internet_service_id. Internet Service ID.
             logtraffic-start:
                 type: str
                 description: Deprecated, please rename it to logtraffic_start. Record logs when a session starts.
@@ -352,13 +352,13 @@ options:
                     - 'enable'
             srcaddr4:
                 type: raw
-                description: (list) No description.
+                description: (list) Source IPv4 address name and address group names.
             dstaddr4:
                 type: raw
-                description: (list) No description.
+                description: (list) Destination IPv4 address name and address group names.
             internet-service-src-id:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_id.
+                description: (list) Deprecated, please rename it to internet_service_src_id. Internet Service source ID.
             internet-service6:
                 type: str
                 description: Deprecated, please rename it to internet_service6. Enable/disable use of IPv6 Internet Services for this policy.
@@ -367,16 +367,16 @@ options:
                     - 'enable'
             internet-service6-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom.
+                description: (list) Deprecated, please rename it to internet_service6_custom. Custom IPv6 Internet Service name.
             internet-service6-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom_group.
+                description: (list) Deprecated, please rename it to internet_service6_custom_group. Custom IPv6 Internet Service group name.
             internet-service6-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_group.
+                description: (list) Deprecated, please rename it to internet_service6_group. Internet Service group name.
             internet-service6-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_name.
+                description: (list) Deprecated, please rename it to internet_service6_name. IPv6 Internet Service name.
             internet-service6-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service6_negate. When enabled internet-service6 specifies what the service must N...
@@ -391,16 +391,16 @@ options:
                     - 'enable'
             internet-service6-src-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_custom.
+                description: (list) Deprecated, please rename it to internet_service6_src_custom. Custom IPv6 Internet Service source name.
             internet-service6-src-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_custom_group.
+                description: (list) Deprecated, please rename it to internet_service6_src_custom_group. Custom Internet Service6 source group name.
             internet-service6-src-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_group.
+                description: (list) Deprecated, please rename it to internet_service6_src_group. Internet Service6 source group name.
             internet-service6-src-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_name.
+                description: (list) Deprecated, please rename it to internet_service6_src_name. IPv6 Internet Service source name.
             internet-service6-src-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service6_src_negate. When enabled internet-service6-src specifies what the servic...
@@ -672,7 +672,7 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'dlp-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'internet-service-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'logtraffic-start': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcaddr4': {'v_range': [['7.0.3', '']], 'type': 'raw'},
@@ -723,9 +723,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

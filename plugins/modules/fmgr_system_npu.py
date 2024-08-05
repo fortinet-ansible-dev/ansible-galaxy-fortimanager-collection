@@ -103,7 +103,7 @@ options:
                     - 'enable'
             fp-anomaly:
                 type: dict
-                description: Deprecated, please rename it to fp_anomaly.
+                description: Deprecated, please rename it to fp_anomaly. Fp anomaly.
                 suboptions:
                     esp-minlen-err:
                         type: str
@@ -468,61 +468,61 @@ options:
                             - 'trap-to-host'
                     gtpu-plen-err:
                         type: str
-                        description: Deprecated, please rename it to gtpu_plen_err.
+                        description: Deprecated, please rename it to gtpu_plen_err. Gtpu plen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     vxlan-minlen-err:
                         type: str
-                        description: Deprecated, please rename it to vxlan_minlen_err.
+                        description: Deprecated, please rename it to vxlan_minlen_err. Vxlan minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     capwap-minlen-err:
                         type: str
-                        description: Deprecated, please rename it to capwap_minlen_err.
+                        description: Deprecated, please rename it to capwap_minlen_err. Capwap minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     gre-csum-err:
                         type: str
-                        description: Deprecated, please rename it to gre_csum_err.
+                        description: Deprecated, please rename it to gre_csum_err. Gre csum err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     nvgre-minlen-err:
                         type: str
-                        description: Deprecated, please rename it to nvgre_minlen_err.
+                        description: Deprecated, please rename it to nvgre_minlen_err. Nvgre minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp-l4len-err:
                         type: str
-                        description: Deprecated, please rename it to sctp_l4len_err.
+                        description: Deprecated, please rename it to sctp_l4len_err. Sctp l4len err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp-hlenvsl4len-err:
                         type: str
-                        description: Deprecated, please rename it to tcp_hlenvsl4len_err.
+                        description: Deprecated, please rename it to tcp_hlenvsl4len_err. Tcp hlenvsl4len err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp-crc-err:
                         type: str
-                        description: Deprecated, please rename it to sctp_crc_err.
+                        description: Deprecated, please rename it to sctp_crc_err. Sctp crc err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp-clen-err:
                         type: str
-                        description: Deprecated, please rename it to sctp_clen_err.
+                        description: Deprecated, please rename it to sctp_clen_err. Sctp clen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     uesp-minlen-err:
                         type: str
-                        description: Deprecated, please rename it to uesp_minlen_err.
+                        description: Deprecated, please rename it to uesp_minlen_err. Uesp minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
@@ -608,7 +608,7 @@ options:
                     - 'enable'
             isf-np-queues:
                 type: dict
-                description: Deprecated, please rename it to isf_np_queues.
+                description: Deprecated, please rename it to isf_np_queues. Isf np queues.
                 suboptions:
                     cos0:
                         type: str
@@ -665,7 +665,7 @@ options:
             port-cpu-map:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to port_cpu_map.
+                description: Deprecated, please rename it to port_cpu_map. Port cpu map.
                 suboptions:
                     cpu-core:
                         type: str
@@ -676,7 +676,7 @@ options:
             port-npu-map:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to port_npu_map.
+                description: Deprecated, please rename it to port_npu_map. Port npu map.
                 suboptions:
                     interface:
                         type: str
@@ -686,7 +686,7 @@ options:
                         description: Deprecated, please rename it to npu_group_index. Mapping NPU group index.
             priority-protocol:
                 type: dict
-                description: Deprecated, please rename it to priority_protocol.
+                description: Deprecated, please rename it to priority_protocol. Priority protocol.
                 suboptions:
                     bfd:
                         type: str
@@ -751,7 +751,7 @@ options:
                     - 'enable'
             sw-eh-hash:
                 type: dict
-                description: Deprecated, please rename it to sw_eh_hash.
+                description: Deprecated, please rename it to sw_eh_hash. Sw eh hash.
                 suboptions:
                     computation:
                         type: str
@@ -833,12 +833,12 @@ options:
                     - 'enable'
             np-queues:
                 type: dict
-                description: Deprecated, please rename it to np_queues.
+                description: Deprecated, please rename it to np_queues. Np queues.
                 suboptions:
                     ethernet-type:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ethernet_type.
+                        description: Deprecated, please rename it to ethernet_type. Ethernet type.
                         suboptions:
                             name:
                                 type: str
@@ -855,7 +855,7 @@ options:
                     ip-protocol:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_protocol.
+                        description: Deprecated, please rename it to ip_protocol. Ip protocol.
                         suboptions:
                             name:
                                 type: str
@@ -872,7 +872,7 @@ options:
                     ip-service:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_service.
+                        description: Deprecated, please rename it to ip_service. Ip service.
                         suboptions:
                             dport:
                                 type: int
@@ -895,7 +895,7 @@ options:
                     profile:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Profile.
                         suboptions:
                             cos0:
                                 type: str
@@ -1776,7 +1776,7 @@ options:
                     scheduler:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Scheduler.
                         suboptions:
                             mode:
                                 type: str
@@ -1791,7 +1791,7 @@ options:
             udp-timeout-profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to udp_timeout_profile.
+                description: Deprecated, please rename it to udp_timeout_profile. Udp timeout profile.
                 suboptions:
                     id:
                         type: int
@@ -1817,7 +1817,7 @@ options:
                 description: Deprecated, please rename it to tcp_rst_timeout. TCP RST timeout in seconds
             ipsec-local-uesp-port:
                 type: int
-                description: Deprecated, please rename it to ipsec_local_uesp_port.
+                description: Deprecated, please rename it to ipsec_local_uesp_port. Ipsec local uesp port.
             htab-dedi-queue-nr:
                 type: int
                 description: Deprecated, please rename it to htab_dedi_queue_nr. Set the number of dedicate queue for hash table messages.
@@ -1851,11 +1851,11 @@ options:
                 description: Deprecated, please rename it to max_session_timeout. Maximum time interval for refreshing NPU-offloaded sessions
             port-path-option:
                 type: dict
-                description: Deprecated, please rename it to port_path_option.
+                description: Deprecated, please rename it to port_path_option. Port path option.
                 suboptions:
                     ports-using-npu:
                         type: raw
-                        description: (list) Deprecated, please rename it to ports_using_npu.
+                        description: (list) Deprecated, please rename it to ports_using_npu. Set ha/aux ports to handle traffic with NPU
             vlan-lookup-cache:
                 type: str
                 description: Deprecated, please rename it to vlan_lookup_cache. Enable/disable vlan lookup cache
@@ -1864,7 +1864,7 @@ options:
                     - 'enable'
             dos-options:
                 type: dict
-                description: Deprecated, please rename it to dos_options.
+                description: Deprecated, please rename it to dos_options. Dos options.
                 suboptions:
                     npu-dos-meter-mode:
                         type: str
@@ -1893,7 +1893,7 @@ options:
             tcp-timeout-profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to tcp_timeout_profile.
+                description: Deprecated, please rename it to tcp_timeout_profile. Tcp timeout profile.
                 suboptions:
                     close-wait:
                         type: int
@@ -1918,7 +1918,7 @@ options:
                         description: Deprecated, please rename it to time_wait. Set time-wait timeout
             ip-reassembly:
                 type: dict
-                description: Deprecated, please rename it to ip_reassembly.
+                description: Deprecated, please rename it to ip_reassembly. Ip reassembly.
                 suboptions:
                     max-timeout:
                         type: int
@@ -1946,7 +1946,7 @@ options:
                     - 'drop'
             hpe:
                 type: dict
-                description: No description.
+                description: Hpe.
                 suboptions:
                     all-protocol:
                         type: int
@@ -2020,7 +2020,7 @@ options:
             dsw-dts-profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dsw_dts_profile.
+                description: Deprecated, please rename it to dsw_dts_profile. Dsw dts profile.
                 suboptions:
                     action:
                         type: str
@@ -2062,7 +2062,7 @@ options:
                 description: Deprecated, please rename it to napi_break_interval. NAPI break interval
             background-sse-scan:
                 type: dict
-                description: Deprecated, please rename it to background_sse_scan.
+                description: Deprecated, please rename it to background_sse_scan. Background sse scan.
                 suboptions:
                     scan:
                         type: str
@@ -2096,7 +2096,7 @@ options:
                         description: Deprecated, please rename it to udp_qual_duration. UDP keepalive duration qualification in seconds
             inbound-dscp-copy-port:
                 type: raw
-                description: (list) Deprecated, please rename it to inbound_dscp_copy_port.
+                description: (list) Deprecated, please rename it to inbound_dscp_copy_port. Physical interfaces that support inbound-dscp-copy.
             session-acct-interval:
                 type: int
                 description: Deprecated, please rename it to session_acct_interval. Session accounting update interval
@@ -2110,7 +2110,7 @@ options:
             dsw-queue-dts-profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dsw_queue_dts_profile.
+                description: Deprecated, please rename it to dsw_queue_dts_profile. Dsw queue dts profile.
                 suboptions:
                     iport:
                         type: str
@@ -2270,7 +2270,7 @@ options:
                     - 'enable'
             prp-port-out:
                 type: raw
-                description: (list or str) Deprecated, please rename it to prp_port_out.
+                description: (list or str) Deprecated, please rename it to prp_port_out. Egress port configured to allow the PRP trailer not be strippe...
             isf-np-rx-tr-distr:
                 type: str
                 description: Deprecated, please rename it to isf_np_rx_tr_distr. Select ISF NP Rx trunk distribution
@@ -2288,7 +2288,7 @@ options:
                     - 'tpe-based'
             prp-port-in:
                 type: raw
-                description: (list or str) Deprecated, please rename it to prp_port_in.
+                description: (list or str) Deprecated, please rename it to prp_port_in. Ingress port configured to allow the PRP trailer not be strippe...
             rps-mode:
                 type: str
                 description: Deprecated, please rename it to rps_mode. Enable/disable receive packet steering
@@ -2303,7 +2303,7 @@ options:
                     - 'enable'
             mcast-session-counting:
                 type: str
-                description: Deprecated, please rename it to mcast_session_counting.
+                description: Deprecated, please rename it to mcast_session_counting. Mcast session counting.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -2341,7 +2341,7 @@ options:
                     - '25G'
             sse-ha-scan:
                 type: dict
-                description: Deprecated, please rename it to sse_ha_scan.
+                description: Deprecated, please rename it to sse_ha_scan. Sse ha scan.
                 suboptions:
                     gap:
                         type: int
@@ -2476,7 +2476,7 @@ options:
                     - 'enable'
             sw-tr-hash:
                 type: dict
-                description: Deprecated, please rename it to sw_tr_hash.
+                description: Deprecated, please rename it to sw_tr_hash. Sw tr hash.
                 suboptions:
                     draco15:
                         type: str
@@ -2520,11 +2520,11 @@ options:
             npu-tcam:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to npu_tcam.
+                description: Deprecated, please rename it to npu_tcam. Npu tcam.
                 suboptions:
                     data:
                         type: dict
-                        description: No description.
+                        description: Data.
                         suboptions:
                             df:
                                 type: str
@@ -2753,7 +2753,7 @@ options:
                         description: Deprecated, please rename it to dbg_dump. Debug driver dump data/mask pdq.
                     mask:
                         type: dict
-                        description: No description.
+                        description: Mask.
                         suboptions:
                             df:
                                 type: str
@@ -2979,7 +2979,7 @@ options:
                                 description: Tcam mask vdom id.
                     mir-act:
                         type: dict
-                        description: Deprecated, please rename it to mir_act.
+                        description: Deprecated, please rename it to mir_act. Mir act.
                         suboptions:
                             vlif:
                                 type: int
@@ -2992,7 +2992,7 @@ options:
                         description: NPU TCAM OID.
                     pri-act:
                         type: dict
-                        description: Deprecated, please rename it to pri_act.
+                        description: Deprecated, please rename it to pri_act. Pri act.
                         suboptions:
                             priority:
                                 type: int
@@ -3002,7 +3002,7 @@ options:
                                 description: Tcam priority action weight.
                     sact:
                         type: dict
-                        description: No description.
+                        description: Sact.
                         suboptions:
                             act:
                                 type: int
@@ -3258,7 +3258,7 @@ options:
                                     - 'enable'
                     tact:
                         type: dict
-                        description: No description.
+                        description: Tact.
                         suboptions:
                             act:
                                 type: int
@@ -3447,6 +3447,28 @@ options:
                     vid:
                         type: int
                         description: NPU TCAM VID.
+            icmp-rate-ctrl:
+                type: dict
+                description: Deprecated, please rename it to icmp_rate_ctrl. Icmp rate ctrl.
+                suboptions:
+                    icmp-v4-bucket-size:
+                        type: int
+                        description: Deprecated, please rename it to icmp_v4_bucket_size. Bucket size used in the token bucket algorithm for controllin...
+                    icmp-v4-rate:
+                        type: int
+                        description: Deprecated, please rename it to icmp_v4_rate. Average rate of ICMPv4 packets that allowed to be generated per second
+                    icmp-v6-bucket-size:
+                        type: int
+                        description: Deprecated, please rename it to icmp_v6_bucket_size. Bucket size used in the token bucket algorithm for controllin...
+                    icmp-v6-rate:
+                        type: int
+                        description: Deprecated, please rename it to icmp_v6_rate. Average rate of ICMPv6 packets that allowed to be generated per second
+            vxlan-offload:
+                type: str
+                description: Deprecated, please rename it to vxlan_offload. Enable/disable offloading vxlan.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -4041,6 +4063,12 @@ EXAMPLES = '''
                 xlt_vid_v: <value in [disable, enable]>
               type: <value in [L2_src_tc, L2_tgt_tc, L2_src_mir, ...]>
               vid: <integer>
+          icmp_rate_ctrl:
+            icmp_v4_bucket_size: <integer>
+            icmp_v4_rate: <integer>
+            icmp_v6_bucket_size: <integer>
+            icmp_v6_rate: <integer>
+          vxlan_offload: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -4114,6 +4142,7 @@ def main():
                 'dedicated-management-cpu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fastpath': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fp-anomaly': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'esp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
@@ -4185,7 +4214,7 @@ def main():
                         'sctp-crc-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'sctp-clen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
                     }
                 },
                 'gtp-enhanced-cpu-range': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['0', '1', '2'], 'type': 'str'},
@@ -4207,6 +4236,7 @@ def main():
                 'ipsec-mtu-override': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipsec-over-vlink': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'isf-np-queues': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'cos0': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
@@ -4250,6 +4280,7 @@ def main():
                     'elements': 'dict'
                 },
                 'priority-protocol': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'bfd': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4265,6 +4296,7 @@ def main():
                 'strip-clear-text-padding': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'strip-esp-padding': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sw-eh-hash': {
+                    'v_range': [['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'computation': {'v_range': [['7.0.1', '']], 'choices': ['xor16', 'xor8', 'xor4', 'crc16'], 'type': 'str'},
@@ -4286,6 +4318,7 @@ def main():
                 'switch-np-hash': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['src-ip', 'dst-ip', 'src-dst-ip'], 'type': 'str'},
                 'uesp-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'np-queues': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'ethernet-type': {
@@ -4732,9 +4765,14 @@ def main():
                     'type': 'str'
                 },
                 'max-session-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'port-path-option': {'type': 'dict', 'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'}}},
+                'port-path-option': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'type': 'dict',
+                    'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'}}
+                },
                 'vlan-lookup-cache': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dos-options': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'npu-dos-meter-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['local', 'global'], 'type': 'str'},
@@ -4762,6 +4800,7 @@ def main():
                     'elements': 'dict'
                 },
                 'ip-reassembly': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'max-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
@@ -4772,6 +4811,7 @@ def main():
                 'gtp-support': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'htx-icmp-csum-chk': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'},
                 'hpe': {
+                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'all-protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
@@ -4820,6 +4860,7 @@ def main():
                 'ipsec-ob-np-sel': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['RR', 'rr', 'Packet', 'Hash'], 'type': 'str'},
                 'napi-break-interval': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
                 'background-sse-scan': {
+                    'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
                     'type': 'dict',
                     'options': {
                         'scan': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4896,6 +4937,7 @@ def main():
                 'dedicated-tx-npu': {'v_range': [['6.4.7', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ull-port-mode': {'v_range': [['6.4.9', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['10G', '25G'], 'type': 'str'},
                 'sse-ha-scan': {
+                    'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']],
                     'type': 'dict',
                     'options': {
                         'gap': {'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
@@ -4939,6 +4981,7 @@ def main():
                 'prp-session-clear-mode': {'v_range': [['7.2.2', '']], 'choices': ['blocking', 'non-blocking', 'do-not-clear'], 'type': 'str'},
                 'shaping-stats': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sw-tr-hash': {
+                    'v_range': [['7.2.4', '']],
                     'type': 'dict',
                     'options': {
                         'draco15': {'v_range': [['7.2.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4948,13 +4991,14 @@ def main():
                 'pba-port-select-mode': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
                 'spa-port-select-mode': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
                 'split-ipsec-engines': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.5']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-receive-unit': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'npu-tcam': {
                     'v_range': [['7.4.2', '']],
                     'type': 'list',
                     'options': {
                         'data': {
+                            'v_range': [['7.4.2', '']],
                             'type': 'dict',
                             'options': {
                                 'df': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5015,6 +5059,7 @@ def main():
                         },
                         'dbg-dump': {'v_range': [['7.4.2', '']], 'type': 'int'},
                         'mask': {
+                            'v_range': [['7.4.2', '']],
                             'type': 'dict',
                             'options': {
                                 'df': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5073,14 +5118,16 @@ def main():
                                 'vdid': {'v_range': [['7.4.2', '']], 'type': 'int'}
                             }
                         },
-                        'mir-act': {'type': 'dict', 'options': {'vlif': {'v_range': [['7.4.2', '']], 'type': 'int'}}},
+                        'mir-act': {'v_range': [['7.4.2', '']], 'type': 'dict', 'options': {'vlif': {'v_range': [['7.4.2', '']], 'type': 'int'}}},
                         'name': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'oid': {'v_range': [['7.4.2', '']], 'type': 'int'},
                         'pri-act': {
+                            'v_range': [['7.4.2', '']],
                             'type': 'dict',
                             'options': {'priority': {'v_range': [['7.4.2', '']], 'type': 'int'}, 'weight': {'v_range': [['7.4.2', '']], 'type': 'int'}}
                         },
                         'sact': {
+                            'v_range': [['7.4.2', '']],
                             'type': 'dict',
                             'options': {
                                 'act': {'v_range': [['7.4.2', '']], 'type': 'int'},
@@ -5142,6 +5189,7 @@ def main():
                             }
                         },
                         'tact': {
+                            'v_range': [['7.4.2', '']],
                             'type': 'dict',
                             'options': {
                                 'act': {'v_range': [['7.4.2', '']], 'type': 'int'},
@@ -5194,7 +5242,18 @@ def main():
                         'vid': {'v_range': [['7.4.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'icmp-rate-ctrl': {
+                    'v_range': [['7.4.3', '']],
+                    'type': 'dict',
+                    'options': {
+                        'icmp-v4-bucket-size': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'icmp-v4-rate': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'icmp-v6-bucket-size': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'icmp-v6-rate': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                    }
+                },
+                'vxlan-offload': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -5210,9 +5269,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

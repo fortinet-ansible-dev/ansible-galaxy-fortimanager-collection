@@ -105,7 +105,7 @@ options:
                 required: true
             key:
                 type: raw
-                description: (list) No description.
+                description: (list) Key for MD5 authentication.
             key-id:
                 type: int
                 description: Deprecated, please rename it to key_id. Key ID for authentication.
@@ -135,6 +135,13 @@ options:
                     - 'IPv6'
                     - 'IPv4'
                     - 'Both'
+            key-type:
+                type: str
+                description: Deprecated, please rename it to key_type. Select NTP authentication type.
+                choices:
+                    - 'SHA1'
+                    - 'SHA256'
+                    - 'MD5'
 '''
 
 EXAMPLES = '''
@@ -166,6 +173,7 @@ EXAMPLES = '''
           interface: <string>
           interface_select_method: <value in [auto, sdwan, specify]>
           ip_type: <value in [IPv6, IPv4, Both]>
+          key_type: <value in [SHA1, SHA256, MD5]>
 '''
 
 RETURN = '''
@@ -239,9 +247,14 @@ def main():
                 'key-id': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'no_log': True, 'type': 'int'},
                 'ntpv3': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'server': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'},
-                'interface': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '7.0.2']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '7.0.2']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'ip-type': {'v_range': [['7.4.2', '']], 'choices': ['IPv6', 'IPv4', 'Both'], 'type': 'str'}
+                'interface': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '7.0.2'], ['7.4.3', '']], 'type': 'str'},
+                'interface-select-method': {
+                    'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '7.0.2'], ['7.4.3', '']],
+                    'choices': ['auto', 'sdwan', 'specify'],
+                    'type': 'str'
+                },
+                'ip-type': {'v_range': [['7.4.2', '']], 'choices': ['IPv6', 'IPv4', 'Both'], 'type': 'str'},
+                'key-type': {'v_range': [['7.4.3', '']], 'choices': ['SHA1', 'SHA256', 'MD5'], 'type': 'str'}
             }
 
         }
@@ -257,9 +270,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

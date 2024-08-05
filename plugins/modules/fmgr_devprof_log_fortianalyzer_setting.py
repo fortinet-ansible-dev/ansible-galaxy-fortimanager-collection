@@ -191,7 +191,7 @@ options:
                 description: Deprecated, please rename it to preshared_key. Preshared-key used for auto-authorization on FortiAnalyzer.
             alt-server:
                 type: str
-                description: Deprecated, please rename it to alt_server.
+                description: Deprecated, please rename it to alt_server. Alt server.
             fallback-to-primary:
                 type: str
                 description: Deprecated, please rename it to fallback_to_primary. Enable/disable this FortiGate unit to fallback to the primary FortiAn...
@@ -201,6 +201,24 @@ options:
             server-cert-ca:
                 type: str
                 description: Deprecated, please rename it to server_cert_ca. Mandatory CA on FortiGate in certificate chain of server.
+            serial:
+                type: raw
+                description: (list) Serial numbers of the FortiAnalyzer.
+            source-ip:
+                type: str
+                description: Deprecated, please rename it to source_ip. Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
+            status:
+                type: str
+                description: Enable/disable logging to FortiAnalyzer.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            __change_ip:
+                type: int
+                description: Hidden attribute.
+            server:
+                type: str
+                description: The remote FortiAnalyzer.
 '''
 
 EXAMPLES = '''
@@ -245,6 +263,11 @@ EXAMPLES = '''
           alt_server: <string>
           fallback_to_primary: <value in [disable, enable]>
           server_cert_ca: <string>
+          serial: <list or string>
+          source_ip: <string>
+          status: <value in [disable, enable]>
+          __change_ip: <integer>
+          server: <string>
 '''
 
 RETURN = '''
@@ -354,7 +377,12 @@ def main():
                 'preshared-key': {'v_range': [['7.0.0', '']], 'no_log': True, 'type': 'str'},
                 'alt-server': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'fallback-to-primary': {'v_range': [['7.2.5', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'server-cert-ca': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'str'}
+                'server-cert-ca': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'str'},
+                'serial': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '__change_ip': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'server': {'v_range': [['7.4.3', '']], 'type': 'str'}
             }
 
         }
@@ -370,9 +398,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

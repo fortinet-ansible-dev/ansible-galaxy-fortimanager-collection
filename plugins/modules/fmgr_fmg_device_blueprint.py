@@ -91,72 +91,72 @@ options:
         suboptions:
             cliprofs:
                 type: raw
-                description: (list) No description.
+                description: (list) Cliprofs.
             description:
                 type: str
-                description: No description.
+                description: Description.
             dev-group:
                 type: raw
-                description: (list) Deprecated, please rename it to dev_group.
+                description: (list) Deprecated, please rename it to dev_group. Dev group.
             folder:
                 type: str
-                description: No description.
+                description: Folder.
             name:
                 type: str
-                description: No description.
+                description: Name.
                 required: true
             pkg:
                 type: str
-                description: No description.
+                description: Pkg.
             platform:
                 type: str
-                description: No description.
+                description: Platform.
             prefer-img-ver:
                 type: str
-                description: Deprecated, please rename it to prefer_img_ver.
+                description: Deprecated, please rename it to prefer_img_ver. Prefer img ver.
             prerun-cliprof:
                 type: raw
-                description: (list) Deprecated, please rename it to prerun_cliprof.
+                description: (list) Deprecated, please rename it to prerun_cliprof. Prerun cliprof.
             prov-type:
                 type: str
-                description: Deprecated, please rename it to prov_type.
+                description: Deprecated, please rename it to prov_type. Prov type.
                 choices:
                     - 'none'
                     - 'templates'
                     - 'template-group'
             template-group:
                 type: str
-                description: Deprecated, please rename it to template_group.
+                description: Deprecated, please rename it to template_group. Template group.
             templates:
                 type: raw
-                description: (list) No description.
+                description: (list) Templates.
             enforce-device-config:
                 type: str
-                description: Deprecated, please rename it to enforce_device_config.
+                description: Deprecated, please rename it to enforce_device_config. Enforce device config.
                 choices:
                     - 'disable'
                     - 'enable'
             auth-template:
                 type: raw
-                description: (list) Deprecated, please rename it to auth_template.
+                description: (list) Deprecated, please rename it to auth_template. Auth template.
             ha-config:
                 type: str
-                description: Deprecated, please rename it to ha_config.
+                description: Deprecated, please rename it to ha_config. Ha config.
                 choices:
                     - 'disable'
                     - 'enable'
             ha-hbdev:
                 type: str
-                description: Deprecated, please rename it to ha_hbdev.
+                description: Deprecated, please rename it to ha_hbdev. Ha hbdev.
             ha-monitor:
                 type: raw
-                description: (list) Deprecated, please rename it to ha_monitor.
+                description: (list) Deprecated, please rename it to ha_monitor. Ha monitor.
             ha-password:
                 type: raw
-                description: (list) Deprecated, please rename it to ha_password.
+                description: (list) Deprecated, please rename it to ha_password. Ha password.
             linked-to-model:
                 type: str
-                description: Deprecated, please rename it to linked_to_model.
+                description: Deprecated, please rename it to linked_to_model. Linked to model.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -302,9 +302,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

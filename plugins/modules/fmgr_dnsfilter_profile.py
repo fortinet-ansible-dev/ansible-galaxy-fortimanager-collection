@@ -145,10 +145,11 @@ options:
                 choices:
                     - 'strict'
                     - 'moderate'
+                    - 'none'
             dns-translation:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dns_translation. Dns-Translation.
+                description: Deprecated, please rename it to dns_translation. Dns translation.
                 suboptions:
                     dst:
                         type: str
@@ -200,14 +201,14 @@ options:
                     - 'enable'
             domain-filter:
                 type: dict
-                description: Deprecated, please rename it to domain_filter.
+                description: Deprecated, please rename it to domain_filter. Domain filter.
                 suboptions:
                     domain-filter-table:
                         type: int
                         description: Deprecated, please rename it to domain_filter_table. DNS domain filter table ID.
             ftgd-dns:
                 type: dict
-                description: Deprecated, please rename it to ftgd_dns.
+                description: Deprecated, please rename it to ftgd_dns. Ftgd dns.
                 suboptions:
                     filters:
                         type: list
@@ -241,14 +242,20 @@ options:
                             - 'ftgd-disable'
             urlfilter:
                 type: dict
-                description: No description.
+                description: Urlfilter.
                 suboptions:
                     urlfilter-table:
                         type: int
                         description: Deprecated, please rename it to urlfilter_table. DNS URL filter table ID.
             transparent-dns-database:
                 type: raw
-                description: (list) Deprecated, please rename it to transparent_dns_database.
+                description: (list) Deprecated, please rename it to transparent_dns_database. Transparent DNS database zones.
+            strip-ech:
+                type: str
+                description: Deprecated, please rename it to strip_ech. Enable/disable removal of the encrypted client hello service parameter from sup...
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -366,7 +373,7 @@ def main():
                 'safe-search': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'sdns-domain-log': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'sdns-ftgd-err-log': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'youtube-restrict': {'choices': ['strict', 'moderate'], 'type': 'str'},
+                'youtube-restrict': {'choices': ['strict', 'moderate', 'none'], 'type': 'str'},
                 'dns-translation': {
                     'v_range': [['6.2.0', '']],
                     'type': 'list',
@@ -386,8 +393,13 @@ def main():
                 'redirect-portal6': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'log-all-url': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sdns-url-log': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'domain-filter': {'type': 'dict', 'options': {'domain-filter-table': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}}},
+                'domain-filter': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'type': 'dict',
+                    'options': {'domain-filter-table': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}}
+                },
                 'ftgd-dns': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'filters': {
@@ -409,8 +421,13 @@ def main():
                         }
                     }
                 },
-                'urlfilter': {'type': 'dict', 'options': {'urlfilter-table': {'v_range': [['6.2.8', '6.2.12']], 'type': 'int'}}},
-                'transparent-dns-database': {'v_range': [['7.4.1', '']], 'type': 'raw'}
+                'urlfilter': {
+                    'v_range': [['6.2.8', '6.2.12']],
+                    'type': 'dict',
+                    'options': {'urlfilter-table': {'v_range': [['6.2.8', '6.2.12']], 'type': 'int'}}
+                },
+                'transparent-dns-database': {'v_range': [['7.4.1', '']], 'type': 'raw'},
+                'strip-ech': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -426,9 +443,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

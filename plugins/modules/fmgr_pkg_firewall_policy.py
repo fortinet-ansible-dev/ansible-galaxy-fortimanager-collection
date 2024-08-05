@@ -153,7 +153,7 @@ options:
                     - 'enable'
             comments:
                 type: raw
-                description: (dict or str) No description.
+                description: (dict or str) Comments.
             custom-log-fields:
                 type: raw
                 description: (list or str) Deprecated, please rename it to custom_log_fields. Custom fields to append to log messages for this policy.
@@ -561,7 +561,7 @@ options:
             vpn_dst_node:
                 type: list
                 elements: dict
-                description: Vpn_Dst_Node.
+                description: Vpn dst node.
                 suboptions:
                     host:
                         type: str
@@ -575,7 +575,7 @@ options:
             vpn_src_node:
                 type: list
                 elements: dict
-                description: Vpn_Src_Node.
+                description: Vpn src node.
                 suboptions:
                     host:
                         type: str
@@ -916,7 +916,7 @@ options:
                 description: Deprecated, please rename it to sctp_filter_profile. Name of an existing SCTP filter profile.
             sgt:
                 type: raw
-                description: (list) No description.
+                description: (list) Security group tags.
             sgt-check:
                 type: str
                 description: Deprecated, please rename it to sgt_check. Enable/disable security group tags
@@ -949,16 +949,16 @@ options:
                     - 'enable'
             internet-service6-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom.
+                description: (list) Deprecated, please rename it to internet_service6_custom. Custom IPv6 Internet Service name.
             internet-service6-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_custom_group.
+                description: (list) Deprecated, please rename it to internet_service6_custom_group. Custom Internet Service6 group name.
             internet-service6-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_group.
+                description: (list) Deprecated, please rename it to internet_service6_group. Internet Service group name.
             internet-service6-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_name.
+                description: (list) Deprecated, please rename it to internet_service6_name. IPv6 Internet Service name.
             internet-service6-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service6_negate. When enabled internet-service6 specifies what the service must N...
@@ -973,16 +973,16 @@ options:
                     - 'enable'
             internet-service6-src-custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_custom.
+                description: (list) Deprecated, please rename it to internet_service6_src_custom. Custom IPv6 Internet Service source name.
             internet-service6-src-custom-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_custom_group.
+                description: (list) Deprecated, please rename it to internet_service6_src_custom_group. Custom Internet Service6 source group name.
             internet-service6-src-group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_group.
+                description: (list) Deprecated, please rename it to internet_service6_src_group. Internet Service6 source group name.
             internet-service6-src-name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service6_src_name.
+                description: (list) Deprecated, please rename it to internet_service6_src_name. IPv6 Internet Service source name.
             internet-service6-src-negate:
                 type: str
                 description: Deprecated, please rename it to internet_service6_src_negate. When enabled internet-service6-src specifies what the servic...
@@ -991,10 +991,10 @@ options:
                     - 'enable'
             network-service-dynamic:
                 type: raw
-                description: (list) Deprecated, please rename it to network_service_dynamic.
+                description: (list) Deprecated, please rename it to network_service_dynamic. Dynamic Network Service name.
             network-service-src-dynamic:
                 type: raw
-                description: (list) Deprecated, please rename it to network_service_src_dynamic.
+                description: (list) Deprecated, please rename it to network_service_src_dynamic. Dynamic Network Service source name.
             reputation-direction6:
                 type: str
                 description: Deprecated, please rename it to reputation_direction6. Direction of the initial traffic for IPv6 reputation to take effect.
@@ -1030,7 +1030,7 @@ options:
                     - 'enable'
             pcp-poolname:
                 type: raw
-                description: (list) Deprecated, please rename it to pcp_poolname.
+                description: (list) Deprecated, please rename it to pcp_poolname. PCP pool names.
             policy-behaviour-type:
                 type: str
                 description: Deprecated, please rename it to policy_behaviour_type. Behaviour of the policy.
@@ -1045,7 +1045,7 @@ options:
                     - 'enable'
             ztna-ems-tag-secondary:
                 type: raw
-                description: (list) Deprecated, please rename it to ztna_ems_tag_secondary.
+                description: (list) Deprecated, please rename it to ztna_ems_tag_secondary. Source ztna-ems-tag-secondary names.
             ztna-policy-redirect:
                 type: str
                 description: Deprecated, please rename it to ztna_policy_redirect. Redirect ZTNA traffic to matching Access-Proxy proxy-policy.
@@ -1067,10 +1067,16 @@ options:
             diameter-filter-profile:
                 type: str
                 description: Deprecated, please rename it to diameter_filter_profile. Name of an existing Diameter filter profile.
+            port-preserve:
+                type: str
+                description: Deprecated, please rename it to port_preserve. Enable/disable preservation of the original source port from source NAT if ...
+                choices:
+                    - 'disable'
+                    - 'enable'
             object position:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to object_position.
+                description: Deprecated, please rename it to object_position. Object position.
 '''
 
 EXAMPLES = '''
@@ -1193,11 +1199,11 @@ def main():
                 'auth-cert': {'type': 'str'},
                 'auth-path': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-redirect-addr': {'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'type': 'str'},
                 'block-notification': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'captive-portal-exempt': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'capture-packet': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'capture-packet': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'comments': {'type': 'raw'},
                 'custom-log-fields': {'type': 'raw'},
                 'delay-tcp-npu-session': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1222,7 +1228,7 @@ def main():
                 'fsso-agent-for-ntlm': {'type': 'str'},
                 'global-label': {'type': 'str'},
                 'groups': {'type': 'raw'},
-                'gtp-profile': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
+                'gtp-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'icap-profile': {'type': 'str'},
                 'identity-based-route': {'type': 'str'},
                 'inbound': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1237,7 +1243,7 @@ def main():
                 'logtraffic': {'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'match-vip': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'name': {'type': 'str'},
                 'nat': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1312,14 +1318,18 @@ def main():
                 },
                 'vpntunnel': {'type': 'str'},
                 'waf-profile': {'type': 'str'},
-                'wanopt': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'wanopt-detection': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['active', 'passive', 'off'], 'type': 'str'},
-                'wanopt-passive-opt': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['default', 'transparent', 'non-transparent'], 'type': 'str'},
-                'wanopt-peer': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
-                'wanopt-profile': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
+                'wanopt': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt-detection': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['active', 'passive', 'off'], 'type': 'str'},
+                'wanopt-passive-opt': {
+                    'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']],
+                    'choices': ['default', 'transparent', 'non-transparent'],
+                    'type': 'str'
+                },
+                'wanopt-peer': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'wanopt-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'wccp': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'ssl-server', 'any', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'ssl-server', 'any', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'type': 'str'},
                 'wsso': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'anti-replay': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1340,7 +1350,7 @@ def main():
                 'internet-service-src-id': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-src-negate': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'match-vip-only': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-acceleration': {'v_range': [['6.2.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-acceleration': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'reputation-direction': {'v_range': [['6.2.0', '']], 'choices': ['source', 'destination'], 'type': 'str'},
                 'reputation-minimum': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.4'], ['7.4.0', '']], 'type': 'str'},
@@ -1381,14 +1391,14 @@ def main():
                 'fec': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pfcp-profile': {'v_range': [['7.0.1', '7.2.0']], 'type': 'str'},
+                'pfcp-profile': {'v_range': [['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'policy-expiry': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-expiry-date': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'sctp-filter-profile': {'v_range': [['7.0.1', '7.2.4'], ['7.4.0', '']], 'type': 'str'},
                 'sgt': {'v_range': [['7.0.1', '']], 'type': 'raw'},
                 'sgt-check': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tcp-timeout-pid': {'v_range': [['7.0.3', '7.2.0']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['7.0.3', '7.2.0']], 'type': 'str'},
+                'tcp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1422,6 +1432,7 @@ def main():
                 'casb-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'object position': {'type': 'list', 'elements': 'str'}
             }
 
@@ -1438,9 +1449,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

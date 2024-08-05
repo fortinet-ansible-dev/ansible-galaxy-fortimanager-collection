@@ -91,7 +91,7 @@ options:
         suboptions:
             data:
                 type: dict
-                description: No description.
+                description: Data.
                 suboptions:
                     df:
                         type: str
@@ -320,7 +320,7 @@ options:
                 description: Deprecated, please rename it to dbg_dump. Debug driver dump data/mask pdq.
             mask:
                 type: dict
-                description: No description.
+                description: Mask.
                 suboptions:
                     df:
                         type: str
@@ -546,7 +546,7 @@ options:
                         description: Tcam mask vdom id.
             mir-act:
                 type: dict
-                description: Deprecated, please rename it to mir_act.
+                description: Deprecated, please rename it to mir_act. Mir act.
                 suboptions:
                     vlif:
                         type: int
@@ -560,7 +560,7 @@ options:
                 description: NPU TCAM OID.
             pri-act:
                 type: dict
-                description: Deprecated, please rename it to pri_act.
+                description: Deprecated, please rename it to pri_act. Pri act.
                 suboptions:
                     priority:
                         type: int
@@ -570,7 +570,7 @@ options:
                         description: Tcam priority action weight.
             sact:
                 type: dict
-                description: No description.
+                description: Sact.
                 suboptions:
                     act:
                         type: int
@@ -826,7 +826,7 @@ options:
                             - 'enable'
             tact:
                 type: dict
-                description: No description.
+                description: Tact.
                 suboptions:
                     act:
                         type: int
@@ -1319,6 +1319,7 @@ def main():
             'v_range': [['7.4.2', '']],
             'options': {
                 'data': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'df': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1379,6 +1380,7 @@ def main():
                 },
                 'dbg-dump': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'mask': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'df': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1437,14 +1439,16 @@ def main():
                         'vdid': {'v_range': [['7.4.2', '']], 'type': 'int'}
                     }
                 },
-                'mir-act': {'type': 'dict', 'options': {'vlif': {'v_range': [['7.4.2', '']], 'type': 'int'}}},
+                'mir-act': {'v_range': [['7.4.2', '']], 'type': 'dict', 'options': {'vlif': {'v_range': [['7.4.2', '']], 'type': 'int'}}},
                 'name': {'v_range': [['7.4.2', '']], 'required': True, 'type': 'str'},
                 'oid': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'pri-act': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {'priority': {'v_range': [['7.4.2', '']], 'type': 'int'}, 'weight': {'v_range': [['7.4.2', '']], 'type': 'int'}}
                 },
                 'sact': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'act': {'v_range': [['7.4.2', '']], 'type': 'int'},
@@ -1506,6 +1510,7 @@ def main():
                     }
                 },
                 'tact': {
+                    'v_range': [['7.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'act': {'v_range': [['7.4.2', '']], 'type': 'int'},
@@ -1571,9 +1576,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

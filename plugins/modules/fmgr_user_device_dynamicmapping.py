@@ -96,20 +96,20 @@ options:
             _scope:
                 type: list
                 elements: dict
-                description: No description.
+                description: Scope.
                 suboptions:
                     name:
                         type: str
-                        description: No description.
+                        description: Name.
                     vdom:
                         type: str
-                        description: No description.
+                        description: Vdom.
             avatar:
                 type: str
-                description: No description.
+                description: Avatar.
             category:
                 type: str
-                description: No description.
+                description: Category.
                 choices:
                     - 'none'
                     - 'android-device'
@@ -120,19 +120,19 @@ options:
                     - 'amazon-device'
             comment:
                 type: str
-                description: No description.
+                description: Comment.
             mac:
                 type: str
-                description: No description.
+                description: Mac.
             master-device:
                 type: str
-                description: Deprecated, please rename it to master_device.
+                description: Deprecated, please rename it to master_device. Master device.
             tags:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Tags.
             type:
                 type: str
-                description: No description.
+                description: Type.
                 choices:
                     - 'ipad'
                     - 'iphone'
@@ -157,22 +157,22 @@ options:
                     - 'unknown'
             user:
                 type: str
-                description: No description.
+                description: User.
             family:
                 type: str
-                description: No description.
+                description: Family.
             hardware-vendor:
                 type: str
-                description: Deprecated, please rename it to hardware_vendor.
+                description: Deprecated, please rename it to hardware_vendor. Hardware vendor.
             hardware-version:
                 type: str
-                description: Deprecated, please rename it to hardware_version.
+                description: Deprecated, please rename it to hardware_version. Hardware version.
             os:
                 type: str
-                description: No description.
+                description: Os.
             software-version:
                 type: str
-                description: Deprecated, please rename it to software_version.
+                description: Deprecated, please rename it to software_version. Software version.
 '''
 
 EXAMPLES = '''
@@ -283,19 +283,26 @@ def main():
         'device': {'required': True, 'type': 'str'},
         'user_device_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.4.2']],
             'options': {
-                '_scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'avatar': {'type': 'str'},
+                '_scope': {
+                    'v_range': [['6.0.0', '7.4.2']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'}},
+                    'elements': 'dict'
+                },
+                'avatar': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
                 'category': {
+                    'v_range': [['6.0.0', '7.4.2']],
                     'choices': ['none', 'android-device', 'blackberry-device', 'fortinet-device', 'ios-device', 'windows-device', 'amazon-device'],
                     'type': 'str'
                 },
-                'comment': {'type': 'str'},
-                'mac': {'type': 'str'},
-                'master-device': {'type': 'str'},
-                'tags': {'type': 'raw'},
+                'comment': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'mac': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'master-device': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '7.4.2']], 'type': 'raw'},
                 'type': {
+                    'v_range': [['6.0.0', '7.4.2']],
                     'choices': [
                         'ipad', 'iphone', 'gaming-console', 'blackberry-phone', 'blackberry-playbook', 'linux-pc', 'mac', 'windows-pc', 'android-phone',
                         'android-tablet', 'media-streaming', 'windows-phone', 'fortinet-device', 'ip-phone', 'router-nat-device', 'other-network-device',
@@ -303,12 +310,12 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'user': {'type': 'str'},
-                'family': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'hardware-vendor': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'hardware-version': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'os': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'software-version': {'v_range': [['6.2.1', '']], 'type': 'str'}
+                'user': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'family': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
+                'hardware-vendor': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
+                'hardware-version': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
+                'os': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
+                'software-version': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'}
             }
 
         }
@@ -324,9 +331,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

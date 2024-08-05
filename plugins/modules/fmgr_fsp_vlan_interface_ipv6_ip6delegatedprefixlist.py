@@ -95,35 +95,35 @@ options:
         suboptions:
             autonomous-flag:
                 type: str
-                description: Deprecated, please rename it to autonomous_flag.
+                description: Deprecated, please rename it to autonomous_flag. Autonomous flag.
                 choices:
                     - 'disable'
                     - 'enable'
             onlink-flag:
                 type: str
-                description: Deprecated, please rename it to onlink_flag.
+                description: Deprecated, please rename it to onlink_flag. Onlink flag.
                 choices:
                     - 'disable'
                     - 'enable'
             prefix-id:
                 type: int
-                description: Deprecated, please rename it to prefix_id.
+                description: Deprecated, please rename it to prefix_id. Prefix id.
             rdnss:
                 type: raw
-                description: (list) No description.
+                description: (list) Rdnss.
             rdnss-service:
                 type: str
-                description: Deprecated, please rename it to rdnss_service.
+                description: Deprecated, please rename it to rdnss_service. Rdnss service.
                 choices:
                     - 'delegated'
                     - 'default'
                     - 'specify'
             subnet:
                 type: str
-                description: No description.
+                description: Subnet.
             upstream-interface:
                 type: str
-                description: Deprecated, please rename it to upstream_interface.
+                description: Deprecated, please rename it to upstream_interface. Upstream interface.
             delegated-prefix-iaid:
                 type: int
                 description: Deprecated, please rename it to delegated_prefix_iaid. IAID of obtained delegated-prefix from the upstream interface.
@@ -249,9 +249,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

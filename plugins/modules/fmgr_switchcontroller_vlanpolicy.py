@@ -91,7 +91,7 @@ options:
         suboptions:
             allowed-vlans:
                 type: raw
-                description: (list) Deprecated, please rename it to allowed_vlans.
+                description: (list) Deprecated, please rename it to allowed_vlans. Allowed VLANs to be applied when using this VLAN policy.
             allowed-vlans-all:
                 type: str
                 description: Deprecated, please rename it to allowed_vlans_all. Enable/disable all defined VLANs when using this VLAN policy.
@@ -114,10 +114,13 @@ options:
                 required: true
             untagged-vlans:
                 type: raw
-                description: (list) Deprecated, please rename it to untagged_vlans.
+                description: (list) Deprecated, please rename it to untagged_vlans. Untagged VLANs to be applied when using this VLAN policy.
             vlan:
                 type: str
                 description: Native VLAN to be applied when using this VLAN policy.
+            fortilink:
+                type: raw
+                description: (list) FortiLink interface for which this VLAN policy belongs to.
 '''
 
 EXAMPLES = '''
@@ -146,6 +149,7 @@ EXAMPLES = '''
           name: <string>
           untagged_vlans: <list or string>
           vlan: <string>
+          fortilink: <list or string>
 '''
 
 RETURN = '''
@@ -220,7 +224,8 @@ def main():
                 'discard-mode': {'v_range': [['7.2.1', '']], 'choices': ['none', 'all-untagged', 'all-tagged'], 'type': 'str'},
                 'name': {'v_range': [['7.2.1', '']], 'required': True, 'type': 'str'},
                 'untagged-vlans': {'v_range': [['7.2.1', '']], 'type': 'raw'},
-                'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'}
+                'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'},
+                'fortilink': {'v_range': [['7.4.3', '']], 'type': 'raw'}
             }
 
         }
@@ -236,9 +241,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

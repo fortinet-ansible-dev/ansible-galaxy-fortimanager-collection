@@ -108,28 +108,28 @@ options:
                     - 'install_deselect_all'
             log_db_retention_hours:
                 type: int
-                description: Log_Db_Retention_Hours.
+                description: Log db retention hours.
             log_disk_quota:
                 type: int
-                description: Log_Disk_Quota.
+                description: Log disk quota.
             log_disk_quota_alert_thres:
                 type: int
-                description: Log_Disk_Quota_Alert_Thres.
+                description: Log disk quota alert thres.
             log_disk_quota_split_ratio:
                 type: int
-                description: Log_Disk_Quota_Split_Ratio.
+                description: Log disk quota split ratio.
             log_file_retention_hours:
                 type: int
-                description: Log_File_Retention_Hours.
+                description: Log file retention hours.
             meta fields:
                 type: dict
                 description: Deprecated, please rename it to meta_fields. Default metafields
             mig_mr:
                 type: int
-                description: Mig_Mr.
+                description: Mig mr.
             mig_os_ver:
                 type: str
-                description: Mig_Os_Ver.
+                description: Mig os ver.
                 choices:
                     - 'unknown'
                     - '0.0'
@@ -160,7 +160,7 @@ options:
                 required: true
             os_ver:
                 type: str
-                description: Os_Ver.
+                description: Os ver.
                 choices:
                     - 'unknown'
                     - '0.0'
@@ -175,7 +175,7 @@ options:
                     - '9.0'
             restricted_prds:
                 type: raw
-                description: (list or str) Restricted_Prds.
+                description: (list or str) Restricted prds.
                 choices:
                     - 'fos'
                     - 'foc'
@@ -215,16 +215,46 @@ options:
                 description: Uuid.
             create_time:
                 type: int
-                description: Create_Time.
+                description: Create time.
             workspace_mode:
                 type: int
-                description: Workspace_Mode.
+                description: Workspace mode.
             tz:
                 type: int
-                description: No description.
+                description: Tz.
             lock_override:
                 type: int
-                description: No description.
+                description: Lock override.
+            primary_dns_ip4:
+                type: str
+                description: Primary dns ip4.
+            primary_dns_ip6_1:
+                type: int
+                description: Primary dns ip6 1.
+            primary_dns_ip6_2:
+                type: int
+                description: Primary dns ip6 2.
+            primary_dns_ip6_3:
+                type: int
+                description: Primary dns ip6 3.
+            primary_dns_ip6_4:
+                type: int
+                description: Primary dns ip6 4.
+            secondary_dns_ip4:
+                type: str
+                description: Secondary dns ip4.
+            secondary_dns_ip6_1:
+                type: int
+                description: Secondary dns ip6 1.
+            secondary_dns_ip6_2:
+                type: int
+                description: Secondary dns ip6 2.
+            secondary_dns_ip6_3:
+                type: int
+                description: Secondary dns ip6 3.
+            secondary_dns_ip6_4:
+                type: int
+                description: Secondary dns ip6 4.
 '''
 
 EXAMPLES = '''
@@ -309,6 +339,16 @@ EXAMPLES = '''
           workspace_mode: <integer>
           tz: <integer>
           lock_override: <integer>
+          primary_dns_ip4: <string>
+          primary_dns_ip6_1: <integer>
+          primary_dns_ip6_2: <integer>
+          primary_dns_ip6_3: <integer>
+          primary_dns_ip6_4: <integer>
+          secondary_dns_ip4: <string>
+          secondary_dns_ip6_1: <integer>
+          secondary_dns_ip6_2: <integer>
+          secondary_dns_ip6_3: <integer>
+          secondary_dns_ip6_4: <integer>
 '''
 
 RETURN = '''
@@ -407,7 +447,17 @@ def main():
                 'create_time': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'workspace_mode': {'v_range': [['6.4.3', '']], 'type': 'int'},
                 'tz': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'lock_override': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'lock_override': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'primary_dns_ip4': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'primary_dns_ip6_1': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'primary_dns_ip6_2': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'primary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'primary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'secondary_dns_ip4': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'secondary_dns_ip6_1': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'secondary_dns_ip6_2': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'secondary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'secondary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
 
         }
@@ -423,9 +473,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

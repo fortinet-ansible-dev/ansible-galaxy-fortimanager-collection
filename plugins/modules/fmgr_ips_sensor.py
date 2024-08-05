@@ -114,44 +114,23 @@ options:
                     application:
                         type: raw
                         description: (list) Applications to be protected.
-                    cve:
-                        type: raw
-                        description: (list) List of CVE IDs of the signatures to add to the sensor
-                    default-action:
-                        type: str
-                        description: Deprecated, please rename it to default_action. Signature default action filter.
-                        choices:
-                            - 'block'
-                            - 'pass'
-                            - 'all'
-                            - 'drop'
-                    default-status:
-                        type: str
-                        description: Deprecated, please rename it to default_status. Signature default status filter.
-                        choices:
-                            - 'disable'
-                            - 'enable'
-                            - 'all'
                     exempt-ip:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to exempt_ip. Exempt-Ip.
+                        description: Deprecated, please rename it to exempt_ip. Exempt ip.
                         suboptions:
                             dst-ip:
                                 type: str
-                                description: Deprecated, please rename it to dst_ip. Destination IP address and netmask
+                                description: Deprecated, please rename it to dst_ip. Destination IP address and netmask.
                             id:
                                 type: int
                                 description: Exempt IP ID.
                             src-ip:
                                 type: str
-                                description: Deprecated, please rename it to src_ip. Source IP address and netmask
+                                description: Deprecated, please rename it to src_ip. Source IP address and netmask.
                     id:
                         type: int
                         description: Rule ID in IPS database
-                    last-modified:
-                        type: raw
-                        description: (list or str) Deprecated, please rename it to last_modified. Filter by signature last modified date.
                     location:
                         type: raw
                         description: (list) Protect client or server traffic.
@@ -176,12 +155,6 @@ options:
                     os:
                         type: raw
                         description: (list) Operating systems to be protected.
-                    position:
-                        type: str
-                        description: No description.
-                        choices:
-                            - 'header'
-                            - 'footer'
                     protocol:
                         type: raw
                         description: (list) Protocols to be examined.
@@ -225,7 +198,7 @@ options:
                             - 'dns-domain'
                     rule:
                         type: raw
-                        description: (list) Identifies the predefined or custom IPS signatures to add to the sensor.
+                        description: (list or str) Identifies the predefined or custom IPS signatures to add to the sensor.
                     severity:
                         type: raw
                         description: (list) Relative severity of the signature, from info to critical.
@@ -237,11 +210,32 @@ options:
                             - 'enable'
                             - 'default'
                     tags:
+                        type: str
+                        description: Assign a custom tag filter to the IPS sensor.
+                    cve:
                         type: raw
-                        description: (list) No description.
+                        description: (list) List of CVE IDs of the signatures to add to the sensor
+                    default-action:
+                        type: str
+                        description: Deprecated, please rename it to default_action. Signature default action filter.
+                        choices:
+                            - 'block'
+                            - 'pass'
+                            - 'all'
+                            - 'drop'
+                    default-status:
+                        type: str
+                        description: Deprecated, please rename it to default_status. Signature default status filter.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                            - 'all'
+                    last-modified:
+                        type: raw
+                        description: (list or str) Deprecated, please rename it to last_modified. Filter by signature last modified date.
                     vuln-type:
                         type: raw
-                        description: (list) Deprecated, please rename it to vuln_type.
+                        description: (list) Deprecated, please rename it to vuln_type. List of signature vulnerability types to filter by.
             extended-log:
                 type: str
                 description: Deprecated, please rename it to extended_log. Enable/disable extended logging.
@@ -251,7 +245,7 @@ options:
             filter:
                 type: list
                 elements: dict
-                description: No description.
+                description: Filter.
                 suboptions:
                     action:
                         type: str
@@ -263,16 +257,10 @@ options:
                             - 'reset'
                     application:
                         type: raw
-                        description: (list) No description.
-                    application(real):
-                        type: str
-                        description: Deprecated, please rename it to application_real).
+                        description: (list) Vulnerable application filter.
                     location:
                         type: raw
-                        description: (list) No description.
-                    location(real):
-                        type: str
-                        description: Deprecated, please rename it to location_real).
+                        description: (list) Vulnerability location filter.
                     log:
                         type: str
                         description: Enable/disable logging of selected rules.
@@ -292,16 +280,10 @@ options:
                         description: Filter name.
                     os:
                         type: raw
-                        description: (list) No description.
-                    os(real):
-                        type: str
-                        description: Deprecated, please rename it to os_real).
+                        description: (list) Vulnerable OS filter.
                     protocol:
                         type: raw
-                        description: (list) No description.
-                    protocol(real):
-                        type: str
-                        description: Deprecated, please rename it to protocol_real).
+                        description: (list) Vulnerable protocol filter.
                     quarantine:
                         type: str
                         description: Quarantine IP or interface.
@@ -321,10 +303,7 @@ options:
                             - 'enable'
                     severity:
                         type: raw
-                        description: (list) No description.
-                    severity(real):
-                        type: str
-                        description: Deprecated, please rename it to severity_real).
+                        description: (list) Vulnerability severity filter.
                     status:
                         type: str
                         description: Selected rules status.
@@ -332,12 +311,6 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'default'
-            log:
-                type: str
-                description: No description.
-                choices:
-                    - 'disable'
-                    - 'enable'
             name:
                 type: str
                 description: Sensor name.
@@ -345,7 +318,7 @@ options:
             override:
                 type: list
                 elements: dict
-                description: No description.
+                description: Override.
                 suboptions:
                     action:
                         type: str
@@ -357,7 +330,7 @@ options:
                     exempt-ip:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to exempt_ip.
+                        description: Deprecated, please rename it to exempt_ip. Exempt ip.
                         suboptions:
                             dst-ip:
                                 type: str
@@ -416,6 +389,9 @@ options:
                     - 'disable'
                     - 'block'
                     - 'monitor'
+            _baseline:
+                type: str
+                description: Baseline.
 '''
 
 EXAMPLES = '''
@@ -504,17 +480,17 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/global/ips/sensor',
         '/pm/config/adom/{adom}/obj/ips/sensor',
-        '/pm/config/global/obj/global/ips/sensor',
-        '/pm/config/global/obj/ips/sensor'
+        '/pm/config/global/obj/ips/sensor',
+        '/pm/config/adom/{adom}/obj/global/ips/sensor',
+        '/pm/config/global/obj/global/ips/sensor'
     ]
 
     perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
         '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
-        '/pm/config/global/obj/global/ips/sensor/{sensor}',
-        '/pm/config/global/obj/ips/sensor/{sensor}'
+        '/pm/config/global/obj/ips/sensor/{sensor}',
+        '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
+        '/pm/config/global/obj/global/ips/sensor/{sensor}'
     ]
 
     url_params = ['adom']
@@ -523,112 +499,96 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'ips_sensor': {
             'type': 'dict',
-            'v_range': [['7.0.3', '']],
+            'v_range': [['6.0.0', '']],
             'options': {
-                'block-malicious-url': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'comment': {'v_range': [['7.0.3', '']], 'type': 'str'},
+                'block-malicious-url': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'comment': {'type': 'str'},
                 'entries': {
-                    'v_range': [['7.0.3', '']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.0.3', '']], 'choices': ['pass', 'block', 'reset', 'default'], 'type': 'str'},
-                        'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'cve': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'default-action': {'v_range': [['7.2.0', '']], 'choices': ['block', 'pass', 'all', 'drop'], 'type': 'str'},
-                        'default-status': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable', 'all'], 'type': 'str'},
+                        'action': {'choices': ['pass', 'block', 'reset', 'default'], 'type': 'str'},
+                        'application': {'type': 'raw'},
                         'exempt-ip': {
-                            'v_range': [['7.0.3', '']],
                             'type': 'list',
-                            'options': {
-                                'dst-ip': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                                'id': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                                'src-ip': {'v_range': [['7.0.3', '']], 'type': 'str'}
-                            },
+                            'options': {'dst-ip': {'type': 'str'}, 'id': {'type': 'int'}, 'src-ip': {'type': 'str'}},
                             'elements': 'dict'
                         },
-                        'id': {'v_range': [['7.0.3', '']], 'type': 'int'},
+                        'id': {'type': 'int'},
+                        'location': {'type': 'raw'},
+                        'log': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log-attack-context': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log-packet': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'os': {'type': 'raw'},
+                        'protocol': {'type': 'raw'},
+                        'quarantine': {'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
+                        'quarantine-expiry': {'type': 'str'},
+                        'quarantine-log': {'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate-count': {'type': 'int'},
+                        'rate-duration': {'type': 'int'},
+                        'rate-mode': {'choices': ['periodical', 'continuous'], 'type': 'str'},
+                        'rate-track': {'choices': ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain'], 'type': 'str'},
+                        'rule': {'type': 'raw'},
+                        'severity': {'type': 'raw'},
+                        'status': {'choices': ['disable', 'enable', 'default'], 'type': 'str'},
+                        'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
+                        'cve': {'v_range': [['6.4.2', '']], 'type': 'raw'},
+                        'default-action': {'v_range': [['7.2.0', '']], 'choices': ['block', 'pass', 'all', 'drop'], 'type': 'str'},
+                        'default-status': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable', 'all'], 'type': 'str'},
                         'last-modified': {'v_range': [['7.2.0', '']], 'type': 'raw'},
-                        'location': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log-attack-context': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log-packet': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'os': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'position': {'v_range': [['7.0.3', '']], 'choices': ['header', 'footer'], 'type': 'str'},
-                        'protocol': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'quarantine': {'v_range': [['7.0.3', '']], 'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
-                        'quarantine-expiry': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'quarantine-log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate-count': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                        'rate-duration': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                        'rate-mode': {'v_range': [['7.0.3', '']], 'choices': ['periodical', 'continuous'], 'type': 'str'},
-                        'rate-track': {
-                            'v_range': [['7.0.3', '']],
-                            'choices': ['none', 'src-ip', 'dest-ip', 'dhcp-client-mac', 'dns-domain'],
-                            'type': 'str'
-                        },
-                        'rule': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'severity': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
-                        'tags': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'vuln-type': {'v_range': [['7.2.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
-                'extended-log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'filter': {
-                    'v_range': [['7.0.3', '']],
+                    'v_range': [['6.0.0', '6.2.0']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.0.3', '']], 'choices': ['pass', 'block', 'default', 'reset'], 'type': 'str'},
-                        'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'application(real)': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'location': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'location(real)': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
-                        'log-packet': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
-                        'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'os': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'os(real)': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'protocol': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'protocol(real)': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'quarantine': {'v_range': [['7.0.3', '']], 'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
-                        'quarantine-expiry': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                        'quarantine-log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'severity': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                        'severity(real)': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'}
+                        'action': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['pass', 'block', 'default', 'reset'], 'type': 'str'},
+                        'application': {'v_range': [['6.0.0', '6.2.0']], 'type': 'raw'},
+                        'location': {'v_range': [['6.0.0', '6.2.0']], 'type': 'raw'},
+                        'log': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
+                        'log-packet': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
+                        'name': {'v_range': [['6.0.0', '6.2.0']], 'type': 'str'},
+                        'os': {'v_range': [['6.0.0', '6.2.0']], 'type': 'raw'},
+                        'protocol': {'v_range': [['6.0.0', '6.2.0']], 'type': 'raw'},
+                        'quarantine': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
+                        'quarantine-expiry': {'v_range': [['6.0.0', '6.2.0']], 'type': 'int'},
+                        'quarantine-log': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'severity': {'v_range': [['6.0.0', '6.2.0']], 'type': 'raw'},
+                        'status': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'name': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'str'},
+                'name': {'required': True, 'type': 'str'},
                 'override': {
-                    'v_range': [['7.0.3', '']],
+                    'v_range': [['6.0.0', '6.2.0']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.0.3', '']], 'choices': ['pass', 'block', 'reset'], 'type': 'str'},
+                        'action': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['pass', 'block', 'reset'], 'type': 'str'},
                         'exempt-ip': {
-                            'v_range': [['7.0.3', '']],
+                            'v_range': [['6.0.0', '6.2.0']],
                             'type': 'list',
                             'options': {
-                                'dst-ip': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                                'id': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                                'src-ip': {'v_range': [['7.0.3', '']], 'type': 'str'}
+                                'dst-ip': {'v_range': [['6.0.0', '6.2.0']], 'type': 'str'},
+                                'id': {'v_range': [['6.0.0', '6.2.0']], 'type': 'int'},
+                                'src-ip': {'v_range': [['6.0.0', '6.2.0']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log-packet': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'quarantine': {'v_range': [['7.0.3', '']], 'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
-                        'quarantine-expiry': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                        'quarantine-log': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rule-id': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                        'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log-packet': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'quarantine': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['none', 'attacker', 'both', 'interface'], 'type': 'str'},
+                        'quarantine-expiry': {'v_range': [['6.0.0', '6.2.0']], 'type': 'int'},
+                        'quarantine-log': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rule-id': {'v_range': [['6.0.0', '6.2.0']], 'type': 'int'},
+                        'status': {'v_range': [['6.0.0', '6.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'replacemsg-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'scan-botnet-connections': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'}
+                'replacemsg-group': {'type': 'str'},
+                'scan-botnet-connections': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
+                '_baseline': {'v_range': [['7.0.1', '7.0.2']], 'type': 'str'}
             }
 
         }
@@ -644,9 +604,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -95,7 +95,7 @@ options:
         suboptions:
             address-type:
                 type: str
-                description: Deprecated, please rename it to address_type. Address-Type.
+                description: Deprecated, please rename it to address_type. Address type.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
@@ -231,6 +231,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            casb-profile:
+                type: raw
+                description: (list) Deprecated, please rename it to casb_profile. CASB profile.
+            casb-profile-status:
+                type: str
+                description: Deprecated, please rename it to casb_profile_status. Enable/disable CASB.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -337,39 +346,41 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_interfacepolicy': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.2']],
+            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']],
             'options': {
-                'address-type': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'application-list': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'application-list-status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'av-profile': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'av-profile-status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'comments': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'dlp-sensor-status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dsri': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.0.0', '7.2.2']], 'type': 'raw'},
-                'interface': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'ips-sensor': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'ips-sensor-status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'label': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'logtraffic': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                'policyid': {'v_range': [['6.0.0', '7.2.2']], 'required': True, 'type': 'int'},
+                'address-type': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'application-list': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'application-list-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'av-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'av-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'comments': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dsri': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
+                'interface': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'label': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'logtraffic': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                'policyid': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'required': True, 'type': 'int'},
                 'scan-botnet-connections': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                'service': {'v_range': [['6.0.0', '7.2.2']], 'type': 'raw'},
+                'service': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
                 'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'spamfilter-profile-status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr': {'v_range': [['6.0.0', '7.2.2']], 'type': 'raw'},
-                'status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2']], 'type': 'str'},
-                'webfilter-profile-status': {'v_range': [['6.0.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2']], 'type': 'str'},
-                'emailfilter-profile-status': {'v_range': [['6.2.0', '7.2.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['6.2.1', '7.2.0']], 'type': 'str'},
+                'srcaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
+                'status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'webfilter-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
+                'emailfilter-profile-status': {'v_range': [['6.2.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
                 'casi-profile-status': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dlp-profile': {'v_range': [['7.2.0', '7.2.1']], 'type': 'str'},
-                'dlp-profile-status': {'v_range': [['7.2.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-profile-status': {'v_range': [['7.2.0', '7.2.1'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'casb-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'casb-profile-status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -385,9 +396,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

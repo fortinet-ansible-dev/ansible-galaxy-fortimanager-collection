@@ -90,7 +90,7 @@ options:
             custom-signature:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_signature.
+                description: Deprecated, please rename it to custom_signature. Custom signature.
                 suboptions:
                     action:
                         type: str
@@ -139,7 +139,7 @@ options:
                     target:
                         type: list
                         elements: str
-                        description: No description.
+                        description: Match HTTP target.
                         choices:
                             - 'arg'
                             - 'arg-name'
@@ -162,7 +162,7 @@ options:
                 description: (list or str) Deprecated, please rename it to disabled_sub_class. Disabled signature subclasses.
             main-class:
                 type: dict
-                description: Deprecated, please rename it to main_class.
+                description: Deprecated, please rename it to main_class. Main class.
                 suboptions:
                     action:
                         type: str
@@ -366,9 +366,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

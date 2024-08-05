@@ -86,7 +86,7 @@ options:
         suboptions:
             content-length:
                 type: dict
-                description: Deprecated, please rename it to content_length.
+                description: Deprecated, please rename it to content_length. Content length.
                 suboptions:
                     action:
                         type: str
@@ -119,7 +119,7 @@ options:
             exception:
                 type: list
                 elements: dict
-                description: No description.
+                description: Exception.
                 suboptions:
                     address:
                         type: str
@@ -216,7 +216,7 @@ options:
                             - 'enable'
             header-length:
                 type: dict
-                description: Deprecated, please rename it to header_length.
+                description: Deprecated, please rename it to header_length. Header length.
                 suboptions:
                     action:
                         type: str
@@ -248,7 +248,7 @@ options:
                             - 'enable'
             hostname:
                 type: dict
-                description: No description.
+                description: Hostname.
                 suboptions:
                     action:
                         type: str
@@ -277,7 +277,7 @@ options:
                             - 'enable'
             line-length:
                 type: dict
-                description: Deprecated, please rename it to line_length.
+                description: Deprecated, please rename it to line_length. Line length.
                 suboptions:
                     action:
                         type: str
@@ -309,7 +309,7 @@ options:
                             - 'enable'
             malformed:
                 type: dict
-                description: No description.
+                description: Malformed.
                 suboptions:
                     action:
                         type: str
@@ -338,7 +338,7 @@ options:
                             - 'enable'
             max-cookie:
                 type: dict
-                description: Deprecated, please rename it to max_cookie.
+                description: Deprecated, please rename it to max_cookie. Max cookie.
                 suboptions:
                     action:
                         type: str
@@ -370,7 +370,7 @@ options:
                             - 'enable'
             max-header-line:
                 type: dict
-                description: Deprecated, please rename it to max_header_line.
+                description: Deprecated, please rename it to max_header_line. Max header line.
                 suboptions:
                     action:
                         type: str
@@ -402,7 +402,7 @@ options:
                             - 'enable'
             max-range-segment:
                 type: dict
-                description: Deprecated, please rename it to max_range_segment.
+                description: Deprecated, please rename it to max_range_segment. Max range segment.
                 suboptions:
                     action:
                         type: str
@@ -434,7 +434,7 @@ options:
                             - 'enable'
             max-url-param:
                 type: dict
-                description: Deprecated, please rename it to max_url_param.
+                description: Deprecated, please rename it to max_url_param. Max url param.
                 suboptions:
                     action:
                         type: str
@@ -466,7 +466,7 @@ options:
                             - 'enable'
             method:
                 type: dict
-                description: No description.
+                description: Method.
                 suboptions:
                     action:
                         type: str
@@ -495,7 +495,7 @@ options:
                             - 'enable'
             param-length:
                 type: dict
-                description: Deprecated, please rename it to param_length.
+                description: Deprecated, please rename it to param_length. Param length.
                 suboptions:
                     action:
                         type: str
@@ -527,7 +527,7 @@ options:
                             - 'enable'
             url-param-length:
                 type: dict
-                description: Deprecated, please rename it to url_param_length.
+                description: Deprecated, please rename it to url_param_length. Url param length.
                 suboptions:
                     action:
                         type: str
@@ -559,7 +559,7 @@ options:
                             - 'enable'
             version:
                 type: dict
-                description: No description.
+                description: Version.
                 suboptions:
                     action:
                         type: str
@@ -933,9 +933,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

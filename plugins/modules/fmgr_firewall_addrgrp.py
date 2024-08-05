@@ -100,16 +100,16 @@ options:
                 description: Color of icon on the GUI.
             comment:
                 type: raw
-                description: (dict or str) No description.
+                description: (dict or str) Comment.
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -119,47 +119,47 @@ options:
                                 description: Vdom.
                     allow-routing:
                         type: str
-                        description: Deprecated, please rename it to allow_routing. Enable/disable use of this group in the static route configuration.
+                        description: Deprecated, please rename it to allow_routing. Allow routing.
                         choices:
                             - 'disable'
                             - 'enable'
                     color:
                         type: int
-                        description: Color of icon on the GUI.
+                        description: Color.
                     comment:
                         type: raw
-                        description: (dict or str) No description.
+                        description: (dict or str) Comment.
                     exclude:
                         type: str
-                        description: Enable/disable address exclusion.
+                        description: Exclude.
                         choices:
                             - 'disable'
                             - 'enable'
                     exclude-member:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to exclude_member. Address exclusion member.
+                        description: (list or str) Deprecated, please rename it to exclude_member. Exclude member.
                     member:
                         type: list
                         elements: str
-                        description: Address objects contained within the group.
+                        description: Member.
                     tags:
                         type: raw
                         description: (list or str) Tags.
                     uuid:
                         type: str
-                        description: Universally Unique Identifier
+                        description: Uuid.
                     visibility:
                         type: str
-                        description: Enable/disable address visibility in the GUI.
+                        description: Visibility.
                         choices:
                             - 'disable'
                             - 'enable'
                     _image-base64:
                         type: str
-                        description: Deprecated, please rename it to _image_base64. _Image-Base64.
+                        description: Deprecated, please rename it to _image_base64. Image base64.
                     global-object:
                         type: int
-                        description: Deprecated, please rename it to global_object. Global-Object.
+                        description: Deprecated, please rename it to global_object. Global object.
                     type:
                         type: str
                         description: Type.
@@ -225,7 +225,7 @@ options:
                 description: Name
             _image-base64:
                 type: str
-                description: Deprecated, please rename it to _image_base64. _Image-Base64.
+                description: Deprecated, please rename it to _image_base64. Image base64.
             global-object:
                 type: int
                 description: Deprecated, please rename it to global_object. Global Object.
@@ -412,9 +412,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

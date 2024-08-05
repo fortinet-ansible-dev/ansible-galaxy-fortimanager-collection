@@ -105,11 +105,11 @@ options:
             exclude-list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exclude_list.
+                description: Deprecated, please rename it to exclude_list. Exclude list.
                 suboptions:
                     category:
                         type: str
-                        description: No description.
+                        description: Category.
                         choices:
                             - 'app-ctrl'
                             - 'attack'
@@ -126,23 +126,23 @@ options:
                     fields:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Fields.
                         suboptions:
                             args:
                                 type: raw
-                                description: (list) No description.
+                                description: (list) Args.
                             field:
                                 type: str
-                                description: No description.
+                                description: Field.
                             negate:
                                 type: str
-                                description: No description.
+                                description: Negate.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                     id:
                         type: int
-                        description: No description.
+                        description: Id.
             forward-traffic:
                 type: str
                 description: Deprecated, please rename it to forward_traffic. Enable/disable forward traffic logging.
@@ -152,7 +152,7 @@ options:
             free-style:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to free_style.
+                description: Deprecated, please rename it to free_style. Free style.
                 suboptions:
                     category:
                         type: str
@@ -236,13 +236,13 @@ options:
                 description: Syslog filter.
             cifs:
                 type: str
-                description: No description.
+                description: Cifs.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl:
                 type: str
-                description: No description.
+                description: Ssl.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -477,9 +477,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

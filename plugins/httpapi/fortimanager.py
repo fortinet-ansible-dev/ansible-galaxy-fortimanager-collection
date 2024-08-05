@@ -71,26 +71,13 @@ class HttpApi(HttpApiBase):
         self._prelocking_user_params = list()
         self._access_token = None
         self._login_method = None
+        self.customer_options = {}
 
-    def get_forticloud_access_token(self):
-        try:
-            token = self.connection.get_option("forticloud_access_token")
-            return token
-        except Exception as e:
-            return None
-
-    def get_access_token(self):
-        try:
-            token = self.connection.get_option("access_token")
-            return token
-        except Exception as e:
-            return None
+    def set_customer_option(self, key, value):
+        self.customer_options[key] = value
 
     def log(self, msg):
-        try:
-            log_enabled = self.connection.get_option("enable_log")
-        except Exception as e:
-            return
+        log_enabled = self.customer_options.get("enable_log", False)
         if not log_enabled:
             return
         if not self._log:
@@ -118,7 +105,7 @@ class HttpApi(HttpApiBase):
         return None
 
     def forticloud_login(self):
-        login_data = '{"access_token": "%s"}' % (self.get_forticloud_access_token())
+        login_data = '{"access_token": "%s"}' % (self.customer_options.get("forticloud_access_token", None))
         try:
             response, response_data = self.connection.send(
                 path=to_text("/p/forticloud_jsonrpc_login/"),
@@ -141,8 +128,8 @@ class HttpApi(HttpApiBase):
         """
         self.log("login begin, user: %s" % (username))
         self._logged_in_user = username
-        forticloud_access_token = self.get_forticloud_access_token()
-        self._access_token = self.get_access_token()
+        forticloud_access_token = self.customer_options.get("forticloud_access_token", None)
+        self._access_token = self.customer_options.get("access_token", None)
         if self._access_token:
             self._login_method = 'access_token'
         elif forticloud_access_token:

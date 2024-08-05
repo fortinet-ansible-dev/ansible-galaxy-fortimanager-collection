@@ -129,7 +129,7 @@ options:
             ssl-exempt:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_exempt. Ssl-Exempt.
+                description: Deprecated, please rename it to ssl_exempt. Ssl exempt.
                 suboptions:
                     address:
                         type: str
@@ -168,7 +168,7 @@ options:
             ssl-server:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_server. Ssl-Server.
+                description: Deprecated, please rename it to ssl_server. Ssl server.
                 suboptions:
                     ftps-client-cert-request:
                         type: str
@@ -298,7 +298,7 @@ options:
                     - 'enable'
             ftps:
                 type: dict
-                description: No description.
+                description: Ftps.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -421,7 +421,7 @@ options:
                             - 'inspect'
             https:
                 type: dict
-                description: No description.
+                description: Https.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -564,9 +564,15 @@ options:
                             - 'bypass'
                             - 'block'
                             - 'inspect'
+                    encrypted-client-hello:
+                        type: str
+                        description: Deprecated, please rename it to encrypted_client_hello. Block/allow session based on existence of encrypted-client...
+                        choices:
+                            - 'block'
+                            - 'allow'
             imaps:
                 type: dict
-                description: No description.
+                description: Imaps.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -686,7 +692,7 @@ options:
                             - 'inspect'
                     min-allowed-ssl-version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version.
+                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -695,7 +701,7 @@ options:
                             - 'tls-1.3'
             pop3s:
                 type: dict
-                description: No description.
+                description: Pop3s.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -815,7 +821,7 @@ options:
                             - 'inspect'
                     min-allowed-ssl-version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version.
+                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -824,7 +830,7 @@ options:
                             - 'tls-1.3'
             smtps:
                 type: dict
-                description: No description.
+                description: Smtps.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -944,7 +950,7 @@ options:
                             - 'inspect'
                     min-allowed-ssl-version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version.
+                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -953,7 +959,7 @@ options:
                             - 'tls-1.3'
             ssh:
                 type: dict
-                description: No description.
+                description: Ssh.
                 suboptions:
                     inspect-all:
                         type: str
@@ -1003,7 +1009,7 @@ options:
                     block:
                         type: list
                         elements: str
-                        description: No description.
+                        description: SSH blocking options.
                         choices:
                             - 'x11-filter'
                             - 'ssh-shell'
@@ -1012,7 +1018,7 @@ options:
                     log:
                         type: list
                         elements: str
-                        description: No description.
+                        description: SSH logging options.
                         choices:
                             - 'x11-filter'
                             - 'ssh-shell'
@@ -1020,7 +1026,7 @@ options:
                             - 'port-forward'
             ssl:
                 type: dict
-                description: No description.
+                description: Ssl.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -1145,6 +1151,12 @@ options:
                             - 'block'
                             - 'allow'
                             - 'inspect'
+                    encrypted-client-hello:
+                        type: str
+                        description: Deprecated, please rename it to encrypted_client_hello. Block/allow session based on existence of encrypted-client...
+                        choices:
+                            - 'block'
+                            - 'allow'
             allowlist:
                 type: str
                 description: Enable/disable exempting servers by FortiGuard allowlist.
@@ -1159,7 +1171,7 @@ options:
                     - 'enable'
             dot:
                 type: dict
-                description: No description.
+                description: Dot.
                 suboptions:
                     cert-validation-failure:
                         type: str
@@ -1243,7 +1255,7 @@ options:
                             - 'inspect'
                     min-allowed-ssl-version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version.
+                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -1297,6 +1309,17 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            ech-outer-sni:
+                type: list
+                elements: dict
+                description: Deprecated, please rename it to ech_outer_sni. Ech outer sni.
+                suboptions:
+                    name:
+                        type: str
+                        description: ClientHelloOuter SNI name.
+                    sni:
+                        type: str
+                        description: ClientHelloOuter SNI to be blocked.
 '''
 
 EXAMPLES = '''
@@ -1454,6 +1477,7 @@ def main():
                 'ssl-invalid-server-cert-log': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-negotiation-log': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ftps': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1489,6 +1513,7 @@ def main():
                     }
                 },
                 'https': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1527,10 +1552,12 @@ def main():
                             'type': 'str'
                         },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
-                        'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'}
+                        'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
+                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
                     }
                 },
                 'imaps': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1567,6 +1594,7 @@ def main():
                     }
                 },
                 'pop3s': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1603,6 +1631,7 @@ def main():
                     }
                 },
                 'smtps': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1639,6 +1668,7 @@ def main():
                     }
                 },
                 'ssh': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
@@ -1664,6 +1694,7 @@ def main():
                     }
                 },
                 'ssl': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1699,12 +1730,14 @@ def main():
                             'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'],
                             'type': 'str'
                         },
-                        'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'}
+                        'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
+                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
                     }
                 },
                 'allowlist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'block-blocklisted-certificates': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dot': {
+                    'v_range': [['7.0.0', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['7.0.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1732,7 +1765,13 @@ def main():
                 'ssl-exemption-ip-rating': {'v_range': [['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-exemption-log': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-handshake-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-server-cert-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ssl-server-cert-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ech-outer-sni': {
+                    'v_range': [['7.4.3', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['7.4.3', '']], 'type': 'str'}, 'sni': {'v_range': [['7.4.3', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
 
         }
@@ -1748,9 +1787,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

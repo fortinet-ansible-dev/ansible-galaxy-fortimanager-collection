@@ -208,7 +208,7 @@ options:
                     - 'block'
             members:
                 type: raw
-                description: (list) No description.
+                description: (list) Aggregated LAG bundle interfaces.
             min-bundle:
                 type: int
                 description: Deprecated, please rename it to min_bundle. Minimum size of LAG bundle
@@ -332,7 +332,7 @@ options:
                 description: Deprecated, please rename it to storm_control_policy. Switch controller storm control policy from available options.
             dot1x-enable:
                 type: str
-                description: Deprecated, please rename it to dot1x_enable.
+                description: Deprecated, please rename it to dot1x_enable. Dot1x enable.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -355,10 +355,10 @@ options:
                     - 'enable'
             mclag-icl-port:
                 type: int
-                description: Deprecated, please rename it to mclag_icl_port.
+                description: Deprecated, please rename it to mclag_icl_port. Mclag icl port.
             p2p-port:
                 type: int
-                description: Deprecated, please rename it to p2p_port.
+                description: Deprecated, please rename it to p2p_port. P2p port.
             aggregator-mode:
                 type: str
                 description: Deprecated, please rename it to aggregator_mode. LACP member select mode.
@@ -381,7 +381,7 @@ options:
                     - 'both'
             media-type:
                 type: str
-                description: Deprecated, please rename it to media_type.
+                description: Deprecated, please rename it to media_type. Media type.
             pause-meter:
                 type: int
                 description: Deprecated, please rename it to pause_meter. Configure ingress pause metering rate, in kbps
@@ -441,13 +441,13 @@ options:
                     - 'enable'
             interface-tags:
                 type: raw
-                description: (list or str) Deprecated, please rename it to interface_tags.
+                description: (list or str) Deprecated, please rename it to interface_tags. Tag
             poe-max-power:
                 type: str
-                description: Deprecated, please rename it to poe_max_power.
+                description: Deprecated, please rename it to poe_max_power. Poe max power.
             poe-standard:
                 type: str
-                description: Deprecated, please rename it to poe_standard.
+                description: Deprecated, please rename it to poe_standard. Poe standard.
             igmp-snooping-flood-reports:
                 type: str
                 description: Deprecated, please rename it to igmp_snooping_flood_reports. Enable/disable flooding of IGMP reports to this interface whe...
@@ -462,7 +462,7 @@ options:
                     - 'enable'
             link-status:
                 type: str
-                description: Deprecated, please rename it to link_status.
+                description: Deprecated, please rename it to link_status. Link status.
                 choices:
                     - 'down'
                     - 'up'
@@ -493,11 +493,11 @@ options:
                     - 'medium-priority'
             acl-group:
                 type: raw
-                description: (list) Deprecated, please rename it to acl_group.
+                description: (list) Deprecated, please rename it to acl_group. ACL groups on this port.
             dhcp-snoop-option82-override:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dhcp_snoop_option82_override.
+                description: Deprecated, please rename it to dhcp_snoop_option82_override. Dhcp snoop option82 override.
                 suboptions:
                     circuit-id:
                         type: str
@@ -510,16 +510,16 @@ options:
                         description: Deprecated, please rename it to vlan_name. DHCP snooping option 82 VLAN.
             fortiswitch-acls:
                 type: raw
-                description: (list) Deprecated, please rename it to fortiswitch_acls.
+                description: (list) Deprecated, please rename it to fortiswitch_acls. ACLs on this port.
             isl-peer-device-sn:
                 type: str
-                description: Deprecated, please rename it to isl_peer_device_sn.
+                description: Deprecated, please rename it to isl_peer_device_sn. Isl peer device sn.
             authenticated-port:
                 type: int
-                description: Deprecated, please rename it to authenticated_port.
+                description: Deprecated, please rename it to authenticated_port. Authenticated port.
             encrypted-port:
                 type: int
-                description: Deprecated, please rename it to encrypted_port.
+                description: Deprecated, please rename it to encrypted_port. Encrypted port.
             ptp-status:
                 type: str
                 description: Deprecated, please rename it to ptp_status. Enable/disable PTP policy on this FortiSwitch port.
@@ -528,7 +528,113 @@ options:
                     - 'enable'
             restricted-auth-port:
                 type: int
-                description: Deprecated, please rename it to restricted_auth_port.
+                description: Deprecated, please rename it to restricted_auth_port. Restricted auth port.
+            allow-arp-monitor:
+                type: str
+                description: Deprecated, please rename it to allow_arp_monitor. Enable/Disable allow ARP monitor.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            export-to:
+                type: raw
+                description: (list) Deprecated, please rename it to export_to. Export managed-switch port to a tenant VDOM.
+            export-to-pool:
+                type: raw
+                description: (list) Deprecated, please rename it to export_to_pool. Switch controller export port to pool-list.
+            fallback-port:
+                type: str
+                description: Deprecated, please rename it to fallback_port. LACP fallback port.
+            fgt-peer-device-name:
+                type: str
+                description: Deprecated, please rename it to fgt_peer_device_name. Fgt peer device name.
+            fgt-peer-port-name:
+                type: str
+                description: Deprecated, please rename it to fgt_peer_port_name. Fgt peer port name.
+            fiber-port:
+                type: int
+                description: Deprecated, please rename it to fiber_port. Fiber port.
+            flags:
+                type: int
+                description: Flags.
+            fortilink-port:
+                type: int
+                description: Deprecated, please rename it to fortilink_port. Fortilink port.
+            isl-local-trunk-name:
+                type: str
+                description: Deprecated, please rename it to isl_local_trunk_name. Isl local trunk name.
+            isl-peer-device-name:
+                type: str
+                description: Deprecated, please rename it to isl_peer_device_name. Isl peer device name.
+            isl-peer-port-name:
+                type: str
+                description: Deprecated, please rename it to isl_peer_port_name. Isl peer port name.
+            poe-capable:
+                type: int
+                description: Deprecated, please rename it to poe_capable. PoE capable.
+            port-number:
+                type: int
+                description: Deprecated, please rename it to port_number. Port number.
+            port-prefix-type:
+                type: int
+                description: Deprecated, please rename it to port_prefix_type. Port prefix type.
+            ptp-policy:
+                type: raw
+                description: (list) Deprecated, please rename it to ptp_policy. PTP policy configuration.
+            speed:
+                type: str
+                description: Switch port speed; default and available settings depend on hardware.
+                choices:
+                    - 'auto'
+                    - '10full'
+                    - '10half'
+                    - '100full'
+                    - '100half'
+                    - '1000full'
+                    - '10000full'
+                    - '1000auto'
+                    - '40000full'
+                    - '1000fiber'
+                    - '10000'
+                    - '40000'
+                    - 'auto-module'
+                    - '100FX-half'
+                    - '100FX-full'
+                    - '100000full'
+                    - '2500full'
+                    - '25000full'
+                    - '50000full'
+                    - '40000auto'
+                    - '10000cr'
+                    - '10000sr'
+                    - '100000sr4'
+                    - '100000cr4'
+                    - '25000cr4'
+                    - '25000sr4'
+                    - '5000full'
+                    - '2500auto'
+                    - '5000auto'
+                    - '1000full-fiber'
+                    - '40000sr4'
+                    - '40000cr4'
+                    - '25000cr'
+                    - '25000sr'
+                    - '50000cr'
+                    - '50000sr'
+            speed-mask:
+                type: int
+                description: Deprecated, please rename it to speed_mask. Switch port speed mask.
+            stacking-port:
+                type: int
+                description: Deprecated, please rename it to stacking_port. Stacking port.
+            switch-id:
+                type: str
+                description: Deprecated, please rename it to switch_id. Switch id.
+            virtual-port:
+                type: int
+                description: Deprecated, please rename it to virtual_port. Virtualized switch port.
+            export-tags:
+                type: raw
+                description: (list) Deprecated, please rename it to export_tags. Configure export tag
 '''
 
 EXAMPLES = '''
@@ -645,6 +751,28 @@ EXAMPLES = '''
           encrypted_port: <integer>
           ptp_status: <value in [disable, enable]>
           restricted_auth_port: <integer>
+          allow_arp_monitor: <value in [disable, enable]>
+          export_to: <list or string>
+          export_to_pool: <list or string>
+          fallback_port: <string>
+          fgt_peer_device_name: <string>
+          fgt_peer_port_name: <string>
+          fiber_port: <integer>
+          flags: <integer>
+          fortilink_port: <integer>
+          isl_local_trunk_name: <string>
+          isl_peer_device_name: <string>
+          isl_peer_port_name: <string>
+          poe_capable: <integer>
+          port_number: <integer>
+          port_prefix_type: <integer>
+          ptp_policy: <list or string>
+          speed: <value in [auto, 10full, 10half, ...]>
+          speed_mask: <integer>
+          stacking_port: <integer>
+          switch_id: <string>
+          virtual_port: <integer>
+          export_tags: <list or string>
 '''
 
 RETURN = '''
@@ -757,12 +885,12 @@ def main():
                 'type': {'choices': ['physical', 'trunk'], 'type': 'str'},
                 'untagged-vlans': {'type': 'raw'},
                 'vlan': {'type': 'str'},
-                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3']], 'type': 'int'},
-                'mac-addr': {'v_range': [['6.2.1', '6.2.1']], 'type': 'str'},
+                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
+                'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'packet-sample-rate': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'packet-sampler': {'v_range': [['6.2.0', '']], 'choices': ['disabled', 'enabled'], 'type': 'str'},
                 'sticky-mac': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3']], 'type': 'str'},
+                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
                 'dot1x-enable': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'},
                 'access-mode': {'v_range': [['6.4.0', '']], 'choices': ['normal', 'nac', 'dynamic', 'static'], 'type': 'str'},
@@ -817,7 +945,38 @@ def main():
                 'authenticated-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'encrypted-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'ptp-status': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'restricted-auth-port': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'restricted-auth-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'allow-arp-monitor': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'export-to': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'export-to-pool': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'fallback-port': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'fgt-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'fgt-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'fiber-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'flags': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'fortilink-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'isl-local-trunk-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'isl-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'isl-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'poe-capable': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'port-number': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'port-prefix-type': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'ptp-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'speed': {
+                    'v_range': [['7.4.3', '']],
+                    'choices': [
+                        'auto', '10full', '10half', '100full', '100half', '1000full', '10000full', '1000auto', '40000full', '1000fiber', '10000',
+                        '40000', 'auto-module', '100FX-half', '100FX-full', '100000full', '2500full', '25000full', '50000full', '40000auto', '10000cr',
+                        '10000sr', '100000sr4', '100000cr4', '25000cr4', '25000sr4', '5000full', '2500auto', '5000auto', '1000full-fiber', '40000sr4',
+                        '40000cr4', '25000cr', '25000sr', '50000cr', '50000sr'
+                    ],
+                    'type': 'str'
+                },
+                'speed-mask': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'stacking-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'switch-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'virtual-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'export-tags': {'v_range': [['7.4.3', '']], 'type': 'raw'}
             }
 
         }
@@ -833,9 +992,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -88,7 +88,7 @@ options:
         suboptions:
             ports:
                 type: raw
-                description: (list) No description.
+                description: (list) Ports to scan for content
             status:
                 type: str
                 description: Enable/disable the active status of scanning for this protocol.
@@ -98,7 +98,7 @@ options:
             options:
                 type: list
                 elements: str
-                description: No description.
+                description: One or more options that can be applied to the session.
                 choices:
                     - 'oversize'
             oversize-limit:
@@ -138,12 +138,12 @@ options:
                 description: Deprecated, please rename it to domain_controller. Domain for which to decrypt CIFS traffic.
             file-filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter.
+                description: Deprecated, please rename it to file_filter. File filter.
                 suboptions:
                     entries:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Entries.
                         suboptions:
                             action:
                                 type: str
@@ -163,14 +163,14 @@ options:
                                     - 'outgoing'
                             file-type:
                                 type: raw
-                                description: (list) Deprecated, please rename it to file_type.
+                                description: (list) Deprecated, please rename it to file_type. Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
                             protocol:
                                 type: list
                                 elements: str
-                                description: No description.
+                                description: Protocols to apply with.
                                 choices:
                                     - 'cifs'
                     log:
@@ -195,14 +195,14 @@ options:
             server-keytab:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to server_keytab.
+                description: Deprecated, please rename it to server_keytab. Server keytab.
                 suboptions:
                     keytab:
                         type: str
                         description: Base64 encoded keytab file containing credential of the server.
                     password:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Password for keytab.
                     principal:
                         type: str
                         description: Service principal.
@@ -341,6 +341,7 @@ def main():
                 'uncompressed-oversize-limit': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'domain-controller': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'file-filter': {
+                    'v_range': [['6.4.2', '']],
                     'type': 'dict',
                     'options': {
                         'entries': {
@@ -387,9 +388,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

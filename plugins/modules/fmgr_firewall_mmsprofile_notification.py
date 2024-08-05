@@ -137,7 +137,7 @@ options:
             days-allowed:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to days_allowed.
+                description: Deprecated, please rename it to days_allowed. Weekdays on which notification messages may be sent.
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -223,7 +223,7 @@ options:
                 description: Deprecated, please rename it to mmsc_hostname. Host name or IP address of the MMSC.
             mmsc-password:
                 type: raw
-                description: (list) Deprecated, please rename it to mmsc_password.
+                description: (list) Deprecated, please rename it to mmsc_password. Password required for authentication with the MMSC.
             mmsc-port:
                 type: int
                 description: Deprecated, please rename it to mmsc_port. Port used on the MMSC for sending MMS messages
@@ -489,9 +489,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

@@ -635,7 +635,7 @@ def main():
                 'app-category': {'type': 'raw'},
                 'application': {'type': 'raw'},
                 'application-list': {'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'type': 'str'},
                 'comments': {'type': 'str'},
                 'custom-log-fields': {'type': 'raw'},
@@ -663,7 +663,7 @@ def main():
                 'label': {'type': 'str'},
                 'logtraffic': {'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
                 'name': {'type': 'str'},
                 'nat': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -674,7 +674,7 @@ def main():
                 'policyid': {'required': True, 'type': 'int'},
                 'poolname': {'type': 'raw'},
                 'profile-group': {'type': 'str'},
-                'profile-protocol-options': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['6.0.0', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'profile-type': {'choices': ['single', 'group'], 'type': 'str'},
                 'replacemsg-override-group': {'type': 'str'},
                 'rsso': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -689,7 +689,7 @@ def main():
                 'srcintf': {'type': 'raw'},
                 'ssl-mirror': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror-intf': {'type': 'raw'},
-                'ssl-ssh-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'tags': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
                 'tcp-mss-receiver': {'type': 'int'},
@@ -714,16 +714,16 @@ def main():
                 'emailfilter-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'http-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'inspection-mode': {'v_range': [['6.2.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
-                'np-acceleration': {'v_range': [['6.2.0', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.1']], 'type': 'str'},
+                'np-acceleration': {'v_range': [['6.2.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tos': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'tos-mask': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'tos-negate': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vlan-filter': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'waf-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'webcache': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.2.1', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webproxy-forward-server': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'webproxy-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
@@ -747,9 +747,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

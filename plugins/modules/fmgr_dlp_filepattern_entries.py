@@ -158,6 +158,10 @@ options:
                     - 'jad'
                     - 'cod'
                     - 'flac'
+                    - 'registry'
+                    - 'hwp'
+                    - 'rpm'
+                    - 'c/cpp'
             filter-type:
                 type: str
                 description: Deprecated, please rename it to filter_type. Filter by file name pattern or by file type.
@@ -266,7 +270,8 @@ def main():
                         'unknown', 'ignored', 'exe', 'elf', 'bat', 'javascript', 'html', 'hta', 'msoffice', 'gzip', 'rar', 'tar', 'lzh', 'upx', 'zip',
                         'cab', 'bzip2', 'bzip', 'activemime', 'mime', 'hlp', 'arj', 'base64', 'binhex', 'uue', 'fsg', 'aspack', 'msc', 'petite', 'jpeg',
                         'gif', 'tiff', 'png', 'bmp', 'msi', 'mpeg', 'mov', 'mp3', 'wma', 'wav', 'pdf', 'avi', 'rm', 'torrent', 'hibun', '7z', 'xz',
-                        'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad', 'cod', 'flac'
+                        'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad', 'cod', 'flac', 'registry', 'hwp',
+                        'rpm', 'c/cpp'
                     ],
                     'type': 'str'
                 },
@@ -287,9 +292,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

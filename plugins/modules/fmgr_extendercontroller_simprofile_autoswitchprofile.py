@@ -86,47 +86,47 @@ options:
         suboptions:
             dataplan:
                 type: str
-                description: No description.
+                description: Dataplan.
                 choices:
                     - 'disable'
                     - 'enable'
             disconnect:
                 type: str
-                description: No description.
+                description: Disconnect.
                 choices:
                     - 'disable'
                     - 'enable'
             disconnect-period:
                 type: int
-                description: Deprecated, please rename it to disconnect_period.
+                description: Deprecated, please rename it to disconnect_period. Disconnect period.
             disconnect-threshold:
                 type: int
-                description: Deprecated, please rename it to disconnect_threshold.
+                description: Deprecated, please rename it to disconnect_threshold. Disconnect threshold.
             signal:
                 type: str
-                description: No description.
+                description: Signal.
                 choices:
                     - 'disable'
                     - 'enable'
             status:
                 type: str
-                description: No description.
+                description: Status.
                 choices:
                     - 'disable'
                     - 'enable'
             switch-back:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to switch_back.
+                description: Deprecated, please rename it to switch_back. Switch back.
                 choices:
                     - 'time'
                     - 'timer'
             switch-back-time:
                 type: str
-                description: Deprecated, please rename it to switch_back_time.
+                description: Deprecated, please rename it to switch_back_time. Switch back time.
             switch-back-timer:
                 type: int
-                description: Deprecated, please rename it to switch_back_timer.
+                description: Deprecated, please rename it to switch_back_timer. Switch back timer.
 '''
 
 EXAMPLES = '''
@@ -252,9 +252,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_partial_curd(argument_specs=module_arg_spec)

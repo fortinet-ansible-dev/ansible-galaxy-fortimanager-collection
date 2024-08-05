@@ -92,7 +92,7 @@ options:
             allowaccess:
                 type: list
                 elements: str
-                description: No description.
+                description: Control management access to the managed extender.
                 choices:
                     - 'https'
                     - 'ping'
@@ -105,11 +105,11 @@ options:
                 description: Deprecated, please rename it to bandwidth_limit. FortiExtender LAN extension bandwidth limit
             cellular:
                 type: dict
-                description: No description.
+                description: Cellular.
                 suboptions:
                     controller-report:
                         type: dict
-                        description: Deprecated, please rename it to controller_report.
+                        description: Deprecated, please rename it to controller_report. Controller report.
                         suboptions:
                             interval:
                                 type: int
@@ -125,14 +125,14 @@ options:
                                     - 'enable'
                     dataplan:
                         type: raw
-                        description: (list or str) No description.
+                        description: (list or str) Dataplan names.
                     modem1:
                         type: dict
-                        description: No description.
+                        description: Modem1.
                         suboptions:
                             auto-switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch.
+                                description: Deprecated, please rename it to auto_switch. Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -161,7 +161,7 @@ options:
                                     switch-back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back.
+                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -173,7 +173,7 @@ options:
                                         description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
                             conn-status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status.
+                                description: Deprecated, please rename it to conn_status. Conn status.
                             default-sim:
                                 type: str
                                 description: Deprecated, please rename it to default_sim. Default SIM selection.
@@ -211,7 +211,7 @@ options:
                                     - 'enable'
                             sim1-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code.
+                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
                             sim2-pin:
                                 type: str
                                 description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
@@ -220,14 +220,14 @@ options:
                                     - 'enable'
                             sim2-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code.
+                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
                     modem2:
                         type: dict
-                        description: No description.
+                        description: Modem2.
                         suboptions:
                             auto-switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch.
+                                description: Deprecated, please rename it to auto_switch. Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -256,7 +256,7 @@ options:
                                     switch-back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back.
+                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
@@ -268,7 +268,7 @@ options:
                                         description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
                             conn-status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status.
+                                description: Deprecated, please rename it to conn_status. Conn status.
                             default-sim:
                                 type: str
                                 description: Deprecated, please rename it to default_sim. Default SIM selection.
@@ -306,7 +306,7 @@ options:
                                     - 'enable'
                             sim1-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code.
+                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
                             sim2-pin:
                                 type: str
                                 description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
@@ -315,14 +315,14 @@ options:
                                     - 'enable'
                             sim2-pin-code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code.
+                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
                     sms-notification:
                         type: dict
-                        description: Deprecated, please rename it to sms_notification.
+                        description: Deprecated, please rename it to sms_notification. Sms notification.
                         suboptions:
                             alert:
                                 type: dict
-                                description: No description.
+                                description: Alert.
                                 suboptions:
                                     data-exhausted:
                                         type: str
@@ -348,12 +348,12 @@ options:
                             receiver:
                                 type: list
                                 elements: dict
-                                description: No description.
+                                description: Receiver.
                                 suboptions:
                                     alert:
                                         type: list
                                         elements: str
-                                        description: No description.
+                                        description: Alert multi-options.
                                         choices:
                                             - 'system-reboot'
                                             - 'data-exhausted'
@@ -398,12 +398,12 @@ options:
                 required: true
             lan-extension:
                 type: dict
-                description: Deprecated, please rename it to lan_extension.
+                description: Deprecated, please rename it to lan_extension. Lan extension.
                 suboptions:
                     backhaul:
                         type: list
                         elements: dict
-                        description: No description.
+                        description: Backhaul.
                         suboptions:
                             name:
                                 type: str
@@ -447,7 +447,7 @@ options:
                             - 'loadbalance'
             login-password:
                 type: raw
-                description: (list) Deprecated, please rename it to login_password.
+                description: (list) Deprecated, please rename it to login_password. Set the managed extenders administrator password.
             login-password-change:
                 type: str
                 description: Deprecated, please rename it to login_password_change. Change or reset the administrator password of a managed extender
@@ -680,9 +680,11 @@ def main():
                 },
                 'bandwidth-limit': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'cellular': {
+                    'v_range': [['7.0.2', '']],
                     'type': 'dict',
                     'options': {
                         'controller-report': {
+                            'v_range': [['7.0.2', '']],
                             'type': 'dict',
                             'options': {
                                 'interval': {'v_range': [['7.0.2', '']], 'type': 'int'},
@@ -692,9 +694,11 @@ def main():
                         },
                         'dataplan': {'v_range': [['7.0.2', '']], 'type': 'raw'},
                         'modem1': {
+                            'v_range': [['7.0.2', '']],
                             'type': 'dict',
                             'options': {
                                 'auto-switch': {
+                                    'v_range': [['7.0.2', '']],
                                     'type': 'dict',
                                     'options': {
                                         'dataplan': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -721,9 +725,11 @@ def main():
                             }
                         },
                         'modem2': {
+                            'v_range': [['7.0.2', '']],
                             'type': 'dict',
                             'options': {
                                 'auto-switch': {
+                                    'v_range': [['7.0.2', '']],
                                     'type': 'dict',
                                     'options': {
                                         'dataplan': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -750,9 +756,11 @@ def main():
                             }
                         },
                         'sms-notification': {
+                            'v_range': [['7.0.2', '']],
                             'type': 'dict',
                             'options': {
                                 'alert': {
+                                    'v_range': [['7.0.2', '']],
                                     'type': 'dict',
                                     'options': {
                                         'data-exhausted': {'v_range': [['7.0.2', '']], 'type': 'str'},
@@ -792,6 +800,7 @@ def main():
                 'extension': {'v_range': [['7.0.2', '']], 'choices': ['wan-extension', 'lan-extension'], 'type': 'str'},
                 'id': {'v_range': [['7.0.2', '']], 'required': True, 'type': 'int'},
                 'lan-extension': {
+                    'v_range': [['7.0.2', '']],
                     'type': 'dict',
                     'options': {
                         'backhaul': {
@@ -841,9 +850,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

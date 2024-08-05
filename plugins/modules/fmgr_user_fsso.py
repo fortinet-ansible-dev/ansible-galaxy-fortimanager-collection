@@ -91,19 +91,19 @@ options:
         suboptions:
             _gui_meta:
                 type: str
-                description: _Gui_Meta.
+                description: Gui meta.
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _gui_meta:
                         type: str
-                        description: _Gui_Meta.
+                        description: Gui meta.
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -113,70 +113,70 @@ options:
                                 description: Vdom.
                     ldap-server:
                         type: str
-                        description: Deprecated, please rename it to ldap_server. LDAP server to get group information.
+                        description: Deprecated, please rename it to ldap_server. Ldap server.
                     password:
                         type: raw
-                        description: (list) Password of the first FSSO collector agent.
+                        description: (list) Password.
                     password2:
                         type: raw
-                        description: (list) Password of the second FSSO collector agent.
+                        description: (list) Password2.
                     password3:
                         type: raw
-                        description: (list) Password of the third FSSO collector agent.
+                        description: (list) Password3.
                     password4:
                         type: raw
-                        description: (list) Password of the fourth FSSO collector agent.
+                        description: (list) Password4.
                     password5:
                         type: raw
-                        description: (list) Password of the fifth FSSO collector agent.
+                        description: (list) Password5.
                     port:
                         type: int
-                        description: Port of the first FSSO collector agent.
+                        description: Port.
                     port2:
                         type: int
-                        description: Port of the second FSSO collector agent.
+                        description: Port2.
                     port3:
                         type: int
-                        description: Port of the third FSSO collector agent.
+                        description: Port3.
                     port4:
                         type: int
-                        description: Port of the fourth FSSO collector agent.
+                        description: Port4.
                     port5:
                         type: int
-                        description: Port of the fifth FSSO collector agent.
+                        description: Port5.
                     server:
                         type: str
-                        description: Domain name or IP address of the first FSSO collector agent.
+                        description: Server.
                     server2:
                         type: str
-                        description: Domain name or IP address of the second FSSO collector agent.
+                        description: Server2.
                     server3:
                         type: str
-                        description: Domain name or IP address of the third FSSO collector agent.
+                        description: Server3.
                     server4:
                         type: str
-                        description: Domain name or IP address of the fourth FSSO collector agent.
+                        description: Server4.
                     server5:
                         type: str
-                        description: Domain name or IP address of the fifth FSSO collector agent.
+                        description: Server5.
                     source-ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source IP for communications to FSSO agent.
+                        description: Deprecated, please rename it to source_ip. Source ip.
                     source-ip6:
                         type: str
-                        description: Deprecated, please rename it to source_ip6. IPv6 source for communications to FSSO agent.
+                        description: Deprecated, please rename it to source_ip6. Source ip6.
                     ssl:
                         type: str
-                        description: Enable/disable use of SSL.
+                        description: Ssl.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssl-trusted-cert:
                         type: str
-                        description: Deprecated, please rename it to ssl_trusted_cert. Trusted server certificate or CA certificate.
+                        description: Deprecated, please rename it to ssl_trusted_cert. Ssl trusted cert.
                     type:
                         type: str
-                        description: Server type.
+                        description: Type.
                         choices:
                             - 'default'
                             - 'fortiems'
@@ -184,28 +184,28 @@ options:
                             - 'fortiems-cloud'
                     user-info-server:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to user_info_server. LDAP server to get user information.
+                        description: (list or str) Deprecated, please rename it to user_info_server. User info server.
                     ldap-poll:
                         type: str
-                        description: Deprecated, please rename it to ldap_poll. Enable/disable automatic fetching of groups from LDAP server.
+                        description: Deprecated, please rename it to ldap_poll. Ldap poll.
                         choices:
                             - 'disable'
                             - 'enable'
                     ldap-poll-filter:
                         type: str
-                        description: Deprecated, please rename it to ldap_poll_filter. Filter used to fetch groups.
+                        description: Deprecated, please rename it to ldap_poll_filter. Ldap poll filter.
                     ldap-poll-interval:
                         type: int
-                        description: Deprecated, please rename it to ldap_poll_interval. Interval in minutes within to fetch groups from LDAP server.
+                        description: Deprecated, please rename it to ldap_poll_interval. Ldap poll interval.
                     group-poll-interval:
                         type: int
-                        description: Deprecated, please rename it to group_poll_interval. Interval in minutes within to fetch groups from FSSO server, ...
+                        description: Deprecated, please rename it to group_poll_interval. Group poll interval.
                     interface:
                         type: str
-                        description: Specify outgoing interface to reach server.
+                        description: Interface.
                     interface-select-method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                        description: Deprecated, please rename it to interface_select_method. Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
@@ -534,9 +534,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

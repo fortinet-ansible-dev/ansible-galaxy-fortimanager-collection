@@ -105,11 +105,11 @@ options:
                     - 'sha512'
             auth-pwd:
                 type: raw
-                description: (list) Deprecated, please rename it to auth_pwd.
+                description: (list) Deprecated, please rename it to auth_pwd. Password for authentication protocol.
             events:
                 type: list
                 elements: str
-                description: No description.
+                description: SNMP notifications
                 choices:
                     - 'cpu-high'
                     - 'mem-low'
@@ -180,7 +180,7 @@ options:
                 required: true
             notify-hosts:
                 type: raw
-                description: (list) Deprecated, please rename it to notify_hosts.
+                description: (list) Deprecated, please rename it to notify_hosts. SNMP managers to send notifications
             notify-hosts6:
                 type: str
                 description: Deprecated, please rename it to notify_hosts6. IPv6 SNMP managers to send notifications
@@ -194,7 +194,7 @@ options:
                     - 'aes256cisco'
             priv-pwd:
                 type: raw
-                description: (list) Deprecated, please rename it to priv_pwd.
+                description: (list) Deprecated, please rename it to priv_pwd. Password for privacy
             queries:
                 type: str
                 description: Enable/disable SNMP queries for this user.
@@ -240,7 +240,7 @@ options:
                 description: Deprecated, please rename it to mib_view. SNMP access control MIB view.
             vdoms:
                 type: raw
-                description: (list) No description.
+                description: (list) SNMP access control VDOMs.
 '''
 
 EXAMPLES = '''
@@ -455,9 +455,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

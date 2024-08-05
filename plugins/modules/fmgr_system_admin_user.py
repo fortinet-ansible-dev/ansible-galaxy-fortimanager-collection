@@ -96,7 +96,7 @@ options:
             adom-exclude:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to adom_exclude. Adom-Exclude.
+                description: Deprecated, please rename it to adom_exclude. Adom exclude.
                 suboptions:
                     adom-name:
                         type: str
@@ -104,7 +104,7 @@ options:
             app-filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to app_filter. App-Filter.
+                description: Deprecated, please rename it to app_filter. App filter.
                 suboptions:
                     app-filter-name:
                         type: str
@@ -304,7 +304,7 @@ options:
             dashboard-tabs:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dashboard_tabs. Dashboard-Tabs.
+                description: Deprecated, please rename it to dashboard_tabs. Dashboard tabs.
                 suboptions:
                     name:
                         type: str
@@ -366,7 +366,7 @@ options:
             ips-filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ips_filter. Ips-Filter.
+                description: Deprecated, please rename it to ips_filter. Ips filter.
                 suboptions:
                     ips-filter-name:
                         type: str
@@ -410,7 +410,7 @@ options:
             meta-data:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to meta_data. Meta-Data.
+                description: Deprecated, please rename it to meta_data. Meta data.
                 suboptions:
                     fieldlength:
                         type: int
@@ -457,7 +457,7 @@ options:
             policy-package:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to policy_package. Policy-Package.
+                description: Deprecated, please rename it to policy_package. Policy package.
                 suboptions:
                     policy-package-name:
                         type: str
@@ -481,7 +481,7 @@ options:
             restrict-dev-vdom:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to restrict_dev_vdom.
+                description: Deprecated, please rename it to restrict_dev_vdom. Restrict dev vdom.
                 suboptions:
                     dev-vdom:
                         type: str
@@ -584,7 +584,7 @@ options:
             web-filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to web_filter. Web-Filter.
+                description: Deprecated, please rename it to web_filter. Web filter.
                 suboptions:
                     web-filter-name:
                         type: str
@@ -936,9 +936,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

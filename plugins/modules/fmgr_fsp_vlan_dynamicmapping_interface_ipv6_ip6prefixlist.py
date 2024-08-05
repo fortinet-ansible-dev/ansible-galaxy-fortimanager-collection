@@ -99,31 +99,31 @@ options:
         suboptions:
             autonomous-flag:
                 type: str
-                description: Deprecated, please rename it to autonomous_flag.
+                description: Deprecated, please rename it to autonomous_flag. Autonomous flag.
                 choices:
                     - 'disable'
                     - 'enable'
             dnssl:
                 type: raw
-                description: (list) No description.
+                description: (list) Dnssl.
             onlink-flag:
                 type: str
-                description: Deprecated, please rename it to onlink_flag.
+                description: Deprecated, please rename it to onlink_flag. Onlink flag.
                 choices:
                     - 'disable'
                     - 'enable'
             preferred-life-time:
                 type: int
-                description: Deprecated, please rename it to preferred_life_time.
+                description: Deprecated, please rename it to preferred_life_time. Preferred life time.
             prefix:
                 type: str
-                description: No description.
+                description: Prefix.
             rdnss:
                 type: raw
-                description: (list) No description.
+                description: (list) Rdnss.
             valid-life-time:
                 type: int
-                description: Deprecated, please rename it to valid_life_time.
+                description: Deprecated, please rename it to valid_life_time. Valid life time.
 '''
 
 EXAMPLES = '''
@@ -246,9 +246,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

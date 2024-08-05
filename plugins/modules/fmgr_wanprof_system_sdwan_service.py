@@ -187,7 +187,7 @@ options:
                     - 'enable'
             internet-service-app-ctrl:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_app_ctrl.
+                description: (list) Deprecated, please rename it to internet_service_app_ctrl. Application control based Internet Service ID list.
             internet-service-app-ctrl-group:
                 type: raw
                 description: (list or str) Deprecated, please rename it to internet_service_app_ctrl_group. Application control based Internet Service ...
@@ -263,7 +263,7 @@ options:
             sla:
                 type: list
                 elements: dict
-                description: No description.
+                description: Sla.
                 suboptions:
                     health-check:
                         type: str
@@ -329,10 +329,10 @@ options:
                     - 'enable'
             input-zone:
                 type: raw
-                description: (list) Deprecated, please rename it to input_zone.
+                description: (list) Deprecated, please rename it to input_zone. Source input-zone name.
             internet-service-app-ctrl-category:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_app_ctrl_category.
+                description: (list) Deprecated, please rename it to internet_service_app_ctrl_category. IDs of one or more application control categories.
             passive-measurement:
                 type: str
                 description: Deprecated, please rename it to passive_measurement. Enable/disable passive measurement based on the service criteria.
@@ -341,7 +341,7 @@ options:
                     - 'enable'
             priority-zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to priority_zone.
+                description: (list or str) Deprecated, please rename it to priority_zone. Priority zone name list.
             agent-exclusive:
                 type: str
                 description: Deprecated, please rename it to agent_exclusive. Set/unset the service as agent use exclusively.
@@ -641,9 +641,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

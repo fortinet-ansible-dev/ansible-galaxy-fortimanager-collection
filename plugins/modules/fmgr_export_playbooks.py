@@ -298,6 +298,9 @@ options:
                     - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
                     - 'extensioncontroller_extenderprofile_lanextension'
                     - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'extensioncontroller_extenderprofile_wifi'
+                    - 'extensioncontroller_extenderprofile_wifi_radio1'
+                    - 'extensioncontroller_extenderprofile_wifi_radio2'
                     - 'filefilter_profile'
                     - 'filefilter_profile_rules'
                     - 'firewall_accessproxy'
@@ -437,6 +440,7 @@ options:
                     - 'firewall_ssh_localca'
                     - 'firewall_sslsshprofile'
                     - 'firewall_sslsshprofile_dot'
+                    - 'firewall_sslsshprofile_echoutersni'
                     - 'firewall_sslsshprofile_ftps'
                     - 'firewall_sslsshprofile_https'
                     - 'firewall_sslsshprofile_imaps'
@@ -751,13 +755,10 @@ options:
                     - 'switchcontroller_lldpprofile_mednetworkpolicy'
                     - 'switchcontroller_macpolicy'
                     - 'switchcontroller_managedswitch'
-                    - 'switchcontroller_managedswitch_8021xsettings'
                     - 'switchcontroller_managedswitch_customcommand'
                     - 'switchcontroller_managedswitch_dhcpsnoopingstaticclient'
-                    - 'switchcontroller_managedswitch_igmpsnooping'
                     - 'switchcontroller_managedswitch_ipsourceguard'
                     - 'switchcontroller_managedswitch_ipsourceguard_bindingentry'
-                    - 'switchcontroller_managedswitch_mirror'
                     - 'switchcontroller_managedswitch_ports'
                     - 'switchcontroller_managedswitch_ports_dhcpsnoopoption82override'
                     - 'switchcontroller_managedswitch_remotelog'
@@ -767,12 +768,6 @@ options:
                     - 'switchcontroller_managedswitch_snmpsysinfo'
                     - 'switchcontroller_managedswitch_snmptrapthreshold'
                     - 'switchcontroller_managedswitch_snmpuser'
-                    - 'switchcontroller_managedswitch_staticmac'
-                    - 'switchcontroller_managedswitch_stormcontrol'
-                    - 'switchcontroller_managedswitch_stpinstance'
-                    - 'switchcontroller_managedswitch_stpsettings'
-                    - 'switchcontroller_managedswitch_switchlog'
-                    - 'switchcontroller_managedswitch_switchstpsettings'
                     - 'switchcontroller_managedswitch_vlan'
                     - 'switchcontroller_ptp_profile'
                     - 'switchcontroller_qos_dot1pmap'
@@ -891,6 +886,7 @@ options:
                     - 'system_log_settings_rollinglocal'
                     - 'system_log_settings_rollingregular'
                     - 'system_log_topology'
+                    - 'system_log_ueba'
                     - 'system_logfetch_clientprofile'
                     - 'system_logfetch_clientprofile_devicefilter'
                     - 'system_logfetch_clientprofile_logfilter'
@@ -907,6 +903,7 @@ options:
                     - 'system_npu_dswqueuedtsprofile'
                     - 'system_npu_fpanomaly'
                     - 'system_npu_hpe'
+                    - 'system_npu_icmpratectrl'
                     - 'system_npu_ipreassembly'
                     - 'system_npu_isfnpqueues'
                     - 'system_npu_npqueues'
@@ -1029,6 +1026,7 @@ options:
                     - 'user_domaincontroller'
                     - 'user_domaincontroller_extraserver'
                     - 'user_exchange'
+                    - 'user_externalidentityprovider'
                     - 'user_flexvm'
                     - 'user_fortitoken'
                     - 'user_fsso'
@@ -1304,47 +1302,57 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_mmschecksum': {
-            'params': ['mms-checksum', 'adom'],
+            'params': ['adom', 'mms-checksum'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/mms-checksum',
                 '/pm/config/adom/{adom}/obj/antivirus/mms-checksum/{mms-checksum}',
+                '/pm/config/global/obj/antivirus/mms-checksum',
                 '/pm/config/global/obj/antivirus/mms-checksum/{mms-checksum}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'antivirus_mmschecksum_entries': {
-            'params': ['mms-checksum', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'mms-checksum'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/mms-checksum/{mms-checksum}/entries',
                 '/pm/config/adom/{adom}/obj/antivirus/mms-checksum/{mms-checksum}/entries/{entries}',
+                '/pm/config/global/obj/antivirus/mms-checksum/{mms-checksum}/entries',
                 '/pm/config/global/obj/antivirus/mms-checksum/{mms-checksum}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'antivirus_notification': {
-            'params': ['notification', 'adom'],
+            'params': ['adom', 'notification'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/notification',
                 '/pm/config/adom/{adom}/obj/antivirus/notification/{notification}',
+                '/pm/config/global/obj/antivirus/notification',
                 '/pm/config/global/obj/antivirus/notification/{notification}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'antivirus_notification_entries': {
-            'params': ['notification', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'notification'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/notification/{notification}/entries',
                 '/pm/config/adom/{adom}/obj/antivirus/notification/{notification}/entries/{entries}',
+                '/pm/config/global/obj/antivirus/notification/{notification}/entries',
                 '/pm/config/global/obj/antivirus/notification/{notification}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/antivirus/profile',
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}',
+                '/pm/config/global/obj/antivirus/profile',
                 '/pm/config/global/obj/antivirus/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_cifs': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/cifs',
                 '/pm/config/global/obj/antivirus/profile/{profile}/cifs'
@@ -1352,7 +1360,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'antivirus_profile_contentdisarm': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/content-disarm',
                 '/pm/config/global/obj/antivirus/profile/{profile}/content-disarm'
@@ -1360,7 +1368,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_ftp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/ftp',
                 '/pm/config/global/obj/antivirus/profile/{profile}/ftp'
@@ -1368,7 +1376,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_http': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/http',
                 '/pm/config/global/obj/antivirus/profile/{profile}/http'
@@ -1376,7 +1384,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_imap': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/imap',
                 '/pm/config/global/obj/antivirus/profile/{profile}/imap'
@@ -1384,7 +1392,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_mapi': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/mapi',
                 '/pm/config/global/obj/antivirus/profile/{profile}/mapi'
@@ -1392,7 +1400,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_nacquar': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/nac-quar',
                 '/pm/config/global/obj/antivirus/profile/{profile}/nac-quar'
@@ -1400,7 +1408,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_nntp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/nntp',
                 '/pm/config/global/obj/antivirus/profile/{profile}/nntp'
@@ -1408,7 +1416,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_outbreakprevention': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/outbreak-prevention',
                 '/pm/config/global/obj/antivirus/profile/{profile}/outbreak-prevention'
@@ -1416,7 +1424,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'antivirus_profile_pop3': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/pop3',
                 '/pm/config/global/obj/antivirus/profile/{profile}/pop3'
@@ -1424,7 +1432,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_smb': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/smb',
                 '/pm/config/global/obj/antivirus/profile/{profile}/smb'
@@ -1432,7 +1440,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'antivirus_profile_smtp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/smtp',
                 '/pm/config/global/obj/antivirus/profile/{profile}/smtp'
@@ -1440,7 +1448,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'antivirus_profile_ssh': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/ssh',
                 '/pm/config/global/obj/antivirus/profile/{profile}/ssh'
@@ -1448,57 +1456,71 @@ def main():
             'v_range': [['6.2.2', '']]
         },
         'apcfgprofile': {
-            'params': ['apcfg-profile', 'adom'],
+            'params': ['adom', 'apcfg-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile',
                 '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}'
             ],
             'v_range': [['6.4.6', '']]
         },
         'apcfgprofile_commandlist': {
-            'params': ['apcfg-profile', 'command-list', 'adom'],
+            'params': ['adom', 'apcfg-profile', 'command-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}',
+                '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list',
                 '/pm/config/global/obj/wireless-controller/apcfg-profile/{apcfg-profile}/command-list/{command-list}'
             ],
             'v_range': [['6.4.6', '']]
         },
         'application_casi_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/casi/profile',
                 '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}',
+                '/pm/config/global/obj/application/casi/profile',
                 '/pm/config/global/obj/application/casi/profile/{profile}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_casi_profile_entries': {
-            'params': ['profile', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries',
                 '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}',
+                '/pm/config/global/obj/application/casi/profile/{profile}/entries',
                 '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_categories': {
-            'params': ['categories', 'adom'],
+            'params': ['adom', 'categories'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/categories',
                 '/pm/config/adom/{adom}/obj/application/categories/{categories}',
+                '/pm/config/global/obj/application/categories',
                 '/pm/config/global/obj/application/categories/{categories}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'application_custom': {
-            'params': ['custom', 'adom'],
+            'params': ['adom', 'custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/custom',
                 '/pm/config/adom/{adom}/obj/application/custom/{custom}',
+                '/pm/config/global/obj/application/custom',
                 '/pm/config/global/obj/application/custom/{custom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'application_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/group',
                 '/pm/config/adom/{adom}/obj/application/group/{group}',
+                '/pm/config/global/obj/application/group',
                 '/pm/config/global/obj/application/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
@@ -1512,247 +1534,307 @@ def main():
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservice_entry': {
-            'params': ['entry', 'adom'],
+            'params': ['adom', 'entry'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service/entry',
                 '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service/entry',
                 '/pm/config/global/obj/application/internet-service/entry/{entry}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservicecustom': {
-            'params': ['internet-service-custom', 'adom'],
+            'params': ['adom', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom',
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}',
+                '/pm/config/global/obj/application/internet-service-custom',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservicecustom_disableentry': {
-            'params': ['internet-service-custom', 'disable-entry', 'adom'],
+            'params': ['adom', 'disable-entry', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry',
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservicecustom_disableentry_iprange': {
-            'params': ['internet-service-custom', 'disable-entry', 'ip-range', 'adom'],
+            'params': ['adom', 'disable-entry', 'internet-service-custom', 'ip-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservicecustom_entry': {
-            'params': ['internet-service-custom', 'entry', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry',
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_internetservicecustom_entry_portrange': {
-            'params': ['internet-service-custom', 'entry', 'port-range', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-custom', 'port-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range',
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'application_list': {
-            'params': ['list', 'adom'],
+            'params': ['adom', 'list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/list',
                 '/pm/config/adom/{adom}/obj/application/list/{list}',
+                '/pm/config/global/obj/application/list',
                 '/pm/config/global/obj/application/list/{list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'application_list_defaultnetworkservices': {
-            'params': ['list', 'default-network-services', 'adom'],
+            'params': ['adom', 'default-network-services', 'list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services',
                 '/pm/config/adom/{adom}/obj/application/list/{list}/default-network-services/{default-network-services}',
+                '/pm/config/global/obj/application/list/{list}/default-network-services',
                 '/pm/config/global/obj/application/list/{list}/default-network-services/{default-network-services}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'application_list_entries': {
-            'params': ['list', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries',
                 '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}',
+                '/pm/config/global/obj/application/list/{list}/entries',
                 '/pm/config/global/obj/application/list/{list}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'application_list_entries_parameters': {
-            'params': ['list', 'entries', 'parameters', 'adom'],
+            'params': ['adom', 'entries', 'list', 'parameters'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters',
                 '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}',
+                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters',
                 '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'application_list_entries_parameters_members': {
-            'params': ['list', 'entries', 'parameters', 'members', 'adom'],
+            'params': ['adom', 'entries', 'list', 'members', 'parameters'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members',
                 '/pm/config/adom/{adom}/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}',
+                '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members',
                 '/pm/config/global/obj/application/list/{list}/entries/{entries}/parameters/{parameters}/members/{members}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'arrpprofile': {
-            'params': ['arrp-profile', 'adom'],
+            'params': ['adom', 'arrp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}',
+                '/pm/config/global/obj/wireless-controller/arrp-profile',
                 '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'authentication_scheme': {
-            'params': ['scheme', 'adom'],
+            'params': ['adom', 'scheme'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/authentication/scheme',
                 '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}',
+                '/pm/config/global/obj/authentication/scheme',
                 '/pm/config/global/obj/authentication/scheme/{scheme}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'bleprofile': {
-            'params': ['ble-profile', 'adom'],
+            'params': ['adom', 'ble-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/ble-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/ble-profile/{ble-profile}',
+                '/pm/config/global/obj/wireless-controller/ble-profile',
                 '/pm/config/global/obj/wireless-controller/ble-profile/{ble-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'bonjourprofile': {
-            'params': ['bonjour-profile', 'adom'],
+            'params': ['adom', 'bonjour-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}',
+                '/pm/config/global/obj/wireless-controller/bonjour-profile',
                 '/pm/config/global/obj/wireless-controller/bonjour-profile/{bonjour-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'bonjourprofile_policylist': {
-            'params': ['bonjour-profile', 'policy-list', 'adom'],
+            'params': ['adom', 'bonjour-profile', 'policy-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}',
+                '/pm/config/global/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list',
                 '/pm/config/global/obj/wireless-controller/bonjour-profile/{bonjour-profile}/policy-list/{policy-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'casb_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile',
                 '/pm/config/adom/{adom}/obj/casb/profile/{profile}',
+                '/pm/config/global/obj/casb/profile',
                 '/pm/config/global/obj/casb/profile/{profile}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_profile_saasapplication': {
-            'params': ['profile', 'saas-application', 'adom'],
+            'params': ['adom', 'profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application',
                 '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application',
                 '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_profile_saasapplication_accessrule': {
-            'params': ['profile', 'saas-application', 'access-rule', 'adom'],
+            'params': ['access-rule', 'adom', 'profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule',
                 '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule',
                 '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_profile_saasapplication_customcontrol': {
-            'params': ['profile', 'saas-application', 'custom-control', 'adom'],
+            'params': ['adom', 'custom-control', 'profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control',
                 '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control',
                 '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_profile_saasapplication_customcontrol_option': {
-            'params': ['profile', 'saas-application', 'custom-control', 'option', 'adom'],
+            'params': ['adom', 'custom-control', 'option', 'profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/option',
                 '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/option/{option}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/option',
                 '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/option/{option}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_saasapplication': {
-            'params': ['saas-application', 'adom'],
+            'params': ['adom', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/saas-application',
                 '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}',
+                '/pm/config/global/obj/casb/saas-application',
                 '/pm/config/global/obj/casb/saas-application/{saas-application}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_useractivity': {
-            'params': ['user-activity', 'adom'],
+            'params': ['adom', 'user-activity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity',
                 '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}',
+                '/pm/config/global/obj/casb/user-activity',
                 '/pm/config/global/obj/casb/user-activity/{user-activity}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_useractivity_controloptions': {
-            'params': ['user-activity', 'control-options', 'adom'],
+            'params': ['adom', 'control-options', 'user-activity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options',
                 '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options/{control-options}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options',
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options/{control-options}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_useractivity_controloptions_operations': {
-            'params': ['user-activity', 'control-options', 'operations', 'adom'],
+            'params': ['adom', 'control-options', 'operations', 'user-activity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options/{control-options}/operations',
                 '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options/{control-options}/operations/{operations}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options/{control-options}/operations',
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options/{control-options}/operations/{operations}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_useractivity_match': {
-            'params': ['user-activity', 'match', 'adom'],
+            'params': ['adom', 'match', 'user-activity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match',
                 '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match',
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'casb_useractivity_match_rules': {
-            'params': ['user-activity', 'match', 'rules', 'adom'],
+            'params': ['adom', 'match', 'rules', 'user-activity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/rules',
                 '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/rules/{rules}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/rules',
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/rules/{rules}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'certificate_template': {
-            'params': ['template', 'adom'],
+            'params': ['adom', 'template'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/certificate/template',
                 '/pm/config/adom/{adom}/obj/certificate/template/{template}',
+                '/pm/config/global/obj/certificate/template',
                 '/pm/config/global/obj/certificate/template/{template}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'cifs_domaincontroller': {
-            'params': ['domain-controller', 'adom'],
+            'params': ['adom', 'domain-controller'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cifs/domain-controller',
                 '/pm/config/adom/{adom}/obj/cifs/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/cifs/domain-controller',
                 '/pm/config/global/obj/cifs/domain-controller/{domain-controller}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'cifs_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cifs/profile',
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}',
+                '/pm/config/global/obj/cifs/profile',
                 '/pm/config/global/obj/cifs/profile/{profile}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'cifs_profile_filefilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter',
                 '/pm/config/global/obj/cifs/profile/{profile}/file-filter'
@@ -1760,488 +1842,550 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'cifs_profile_filefilter_entries': {
-            'params': ['profile', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter/entries',
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/cifs/profile/{profile}/file-filter/entries',
                 '/pm/config/global/obj/cifs/profile/{profile}/file-filter/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'cifs_profile_serverkeytab': {
-            'params': ['profile', 'server-keytab', 'adom'],
+            'params': ['adom', 'profile', 'server-keytab'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/server-keytab',
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/server-keytab/{server-keytab}',
+                '/pm/config/global/obj/cifs/profile/{profile}/server-keytab',
                 '/pm/config/global/obj/cifs/profile/{profile}/server-keytab/{server-keytab}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'cloud_orchestaws': {
-            'params': ['orchest-aws', 'adom'],
+            'params': ['adom', 'orchest-aws'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchest-aws',
                 '/pm/config/adom/{adom}/obj/cloud/orchest-aws/{orchest-aws}',
+                '/pm/config/global/obj/cloud/orchest-aws',
                 '/pm/config/global/obj/cloud/orchest-aws/{orchest-aws}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'cloud_orchestawsconnector': {
-            'params': ['orchest-awsconnector', 'adom'],
+            'params': ['adom', 'orchest-awsconnector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector',
                 '/pm/config/adom/{adom}/obj/cloud/orchest-awsconnector/{orchest-awsconnector}',
+                '/pm/config/global/obj/cloud/orchest-awsconnector',
                 '/pm/config/global/obj/cloud/orchest-awsconnector/{orchest-awsconnector}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'cloud_orchestawstemplate_autoscaleexistingvpc': {
-            'params': ['autoscale-existing-vpc', 'adom'],
+            'params': ['adom', 'autoscale-existing-vpc'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc',
                 '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc',
                 '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-existing-vpc/{autoscale-existing-vpc}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'cloud_orchestawstemplate_autoscalenewvpc': {
-            'params': ['autoscale-new-vpc', 'adom'],
+            'params': ['adom', 'autoscale-new-vpc'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc',
                 '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc',
                 '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'cloud_orchestawstemplate_autoscaletgwnewvpc': {
-            'params': ['autoscale-tgw-new-vpc', 'adom'],
+            'params': ['adom', 'autoscale-tgw-new-vpc'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc',
                 '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}',
+                '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc',
                 '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-tgw-new-vpc/{autoscale-tgw-new-vpc}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'cloud_orchestration': {
-            'params': ['orchestration', 'adom'],
+            'params': ['adom', 'orchestration'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cloud/orchestration',
                 '/pm/config/adom/{adom}/obj/cloud/orchestration/{orchestration}',
+                '/pm/config/global/obj/cloud/orchestration',
                 '/pm/config/global/obj/cloud/orchestration/{orchestration}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'credentialstore_domaincontroller': {
-            'params': ['domain-controller', 'adom'],
+            'params': ['adom', 'domain-controller'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/credential-store/domain-controller',
                 '/pm/config/adom/{adom}/obj/credential-store/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/credential-store/domain-controller',
                 '/pm/config/global/obj/credential-store/domain-controller/{domain-controller}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'devprof_device_profile_fortianalyzer': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/device/profile/fortianalyzer'
             ],
             'v_range': [['6.0.0', '']]
         },
         'devprof_device_profile_fortiguard': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/device/profile/fortiguard'
             ],
             'v_range': [['6.0.0', '']]
         },
         'devprof_log_fortianalyzer_setting': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/fortianalyzer/setting'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_log_fortianalyzercloud_setting': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/fortianalyzer-cloud/setting'
             ],
             'v_range': [['6.2.1', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_log_syslogd_filter': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_log_syslogd_filter_excludelist': {
-            'params': ['devprof', 'exclude-list', 'adom'],
+            'params': ['adom', 'devprof', 'exclude-list'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
             'v_range': [['7.0.4', '7.0.12']]
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
-            'params': ['devprof', 'exclude-list', 'fields', 'adom'],
+            'params': ['adom', 'devprof', 'exclude-list', 'fields'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields/{fields}'
             ],
             'v_range': [['7.0.4', '7.0.12']]
         },
         'devprof_log_syslogd_filter_freestyle': {
-            'params': ['devprof', 'free-style', 'adom'],
+            'params': ['adom', 'devprof', 'free-style'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
             ],
             'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_log_syslogd_setting': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_log_syslogd_setting_customfieldname': {
-            'params': ['devprof', 'custom-field-name', 'adom'],
+            'params': ['adom', 'custom-field-name', 'devprof'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
             ],
             'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
         },
         'devprof_system_centralmanagement': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_centralmanagement_serverlist': {
-            'params': ['devprof', 'server-list', 'adom'],
+            'params': ['adom', 'devprof', 'server-list'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/server-list',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/server-list/{server-list}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_dns': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/dns'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']]
         },
         'devprof_system_emailserver': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/email-server'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_global': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/global'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_ntp': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_ntp_ntpserver': {
-            'params': ['devprof', 'ntpserver', 'adom'],
+            'params': ['adom', 'devprof', 'ntpserver'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp/ntpserver',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/ntp/ntpserver/{ntpserver}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_admin': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/admin'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_alertmail': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/alertmail'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_auth': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/auth'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_devicedetectionportal': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/device-detection-portal'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_ec': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/ec'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']]
         },
         'devprof_system_replacemsg_fortiguardwf': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/fortiguard-wf'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_ftp': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/ftp'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_http': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/http'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_mail': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/mail'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_mms': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/mms'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_nacquar': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/nac-quar'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_nntp': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/nntp'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_spam': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/spam'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_sslvpn': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/sslvpn'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_trafficquota': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/traffic-quota'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_utm': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/utm'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_replacemsg_webproxy': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/replacemsg/webproxy'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_snmp_community': {
-            'params': ['devprof', 'community', 'adom'],
+            'params': ['adom', 'community', 'devprof'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_snmp_community_hosts': {
-            'params': ['devprof', 'community', 'hosts', 'adom'],
+            'params': ['adom', 'community', 'devprof', 'hosts'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts/{hosts}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_snmp_community_hosts6': {
-            'params': ['devprof', 'community', 'hosts6', 'adom'],
+            'params': ['adom', 'community', 'devprof', 'hosts6'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts6',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts6/{hosts6}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_snmp_sysinfo': {
-            'params': ['devprof', 'adom'],
+            'params': ['adom', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/sysinfo'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'devprof_system_snmp_user': {
-            'params': ['devprof', 'user', 'adom'],
+            'params': ['adom', 'devprof', 'user'],
             'urls': [
+                '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/user',
                 '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/user/{user}'
             ],
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'diameterfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/diameter-filter/profile',
                 '/pm/config/adom/{adom}/obj/diameter-filter/profile/{profile}',
+                '/pm/config/global/obj/diameter-filter/profile',
                 '/pm/config/global/obj/diameter-filter/profile/{profile}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'dlp_datatype': {
-            'params': ['data-type', 'adom'],
+            'params': ['adom', 'data-type'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/data-type',
                 '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}',
+                '/pm/config/global/obj/dlp/data-type',
                 '/pm/config/global/obj/dlp/data-type/{data-type}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_dictionary': {
-            'params': ['dictionary', 'adom'],
+            'params': ['adom', 'dictionary'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/dictionary',
                 '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}',
+                '/pm/config/global/obj/dlp/dictionary',
                 '/pm/config/global/obj/dlp/dictionary/{dictionary}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_dictionary_entries': {
-            'params': ['dictionary', 'entries', 'adom'],
+            'params': ['adom', 'dictionary', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries',
                 '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}',
+                '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries',
                 '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_filepattern': {
-            'params': ['filepattern', 'adom'],
+            'params': ['adom', 'filepattern'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/filepattern',
                 '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}',
+                '/pm/config/global/obj/dlp/filepattern',
                 '/pm/config/global/obj/dlp/filepattern/{filepattern}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dlp_filepattern_entries': {
-            'params': ['filepattern', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'filepattern'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}/entries',
                 '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}/entries/{entries}',
+                '/pm/config/global/obj/dlp/filepattern/{filepattern}/entries',
                 '/pm/config/global/obj/dlp/filepattern/{filepattern}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dlp_fpsensitivity': {
-            'params': ['fp-sensitivity', 'adom'],
+            'params': ['adom', 'fp-sensitivity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/fp-sensitivity',
                 '/pm/config/adom/{adom}/obj/dlp/fp-sensitivity/{fp-sensitivity}',
+                '/pm/config/global/obj/dlp/fp-sensitivity',
                 '/pm/config/global/obj/dlp/fp-sensitivity/{fp-sensitivity}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'dlp_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/profile',
                 '/pm/config/adom/{adom}/obj/dlp/profile/{profile}',
+                '/pm/config/global/obj/dlp/profile',
                 '/pm/config/global/obj/dlp/profile/{profile}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_profile_rule': {
-            'params': ['profile', 'rule', 'adom'],
+            'params': ['adom', 'profile', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule',
                 '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}',
+                '/pm/config/global/obj/dlp/profile/{profile}/rule',
                 '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_sensitivity': {
-            'params': ['sensitivity', 'adom'],
+            'params': ['adom', 'sensitivity'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/sensitivity',
                 '/pm/config/adom/{adom}/obj/dlp/sensitivity/{sensitivity}',
+                '/pm/config/global/obj/dlp/sensitivity',
                 '/pm/config/global/obj/dlp/sensitivity/{sensitivity}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'dlp_sensor': {
-            'params': ['sensor', 'adom'],
+            'params': ['adom', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/sensor',
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}',
+                '/pm/config/global/obj/dlp/sensor',
                 '/pm/config/global/obj/dlp/sensor/{sensor}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dlp_sensor_entries': {
-            'params': ['sensor', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries',
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/dlp/sensor/{sensor}/entries',
                 '/pm/config/global/obj/dlp/sensor/{sensor}/entries/{entries}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'dlp_sensor_filter': {
-            'params': ['sensor', 'filter', 'adom'],
+            'params': ['adom', 'filter', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter',
                 '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/dlp/sensor/{sensor}/filter',
                 '/pm/config/global/obj/dlp/sensor/{sensor}/filter/{filter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_domainfilter': {
-            'params': ['domain-filter', 'adom'],
+            'params': ['adom', 'domain-filter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter',
                 '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter/{domain-filter}',
+                '/pm/config/global/obj/dnsfilter/domain-filter',
                 '/pm/config/global/obj/dnsfilter/domain-filter/{domain-filter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_domainfilter_entries': {
-            'params': ['domain-filter', 'entries', 'adom'],
+            'params': ['adom', 'domain-filter', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter/{domain-filter}/entries',
                 '/pm/config/adom/{adom}/obj/dnsfilter/domain-filter/{domain-filter}/entries/{entries}',
+                '/pm/config/global/obj/dnsfilter/domain-filter/{domain-filter}/entries',
                 '/pm/config/global/obj/dnsfilter/domain-filter/{domain-filter}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile',
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}',
+                '/pm/config/global/obj/dnsfilter/profile',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_profile_dnstranslation': {
-            'params': ['profile', 'dns-translation', 'adom'],
+            'params': ['adom', 'dns-translation', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation',
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}',
+                '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/dns-translation/{dns-translation}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'dnsfilter_profile_domainfilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/domain-filter',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/domain-filter'
@@ -2249,7 +2393,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_profile_ftgddns': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/ftgd-dns',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/ftgd-dns'
@@ -2257,15 +2401,17 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_profile_ftgddns_filters': {
-            'params': ['profile', 'filters', 'adom'],
+            'params': ['adom', 'filters', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/ftgd-dns/filters',
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/ftgd-dns/filters/{filters}',
+                '/pm/config/global/obj/dnsfilter/profile/{profile}/ftgd-dns/filters',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/ftgd-dns/filters/{filters}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dnsfilter_profile_urlfilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dnsfilter/profile/{profile}/urlfilter',
                 '/pm/config/global/obj/dnsfilter/profile/{profile}/urlfilter'
@@ -2273,17 +2419,21 @@ def main():
             'v_range': [['6.2.0', '6.2.12']]
         },
         'dnsfilter_urlfilter': {
-            'params': ['urlfilter', 'adom'],
+            'params': ['adom', 'urlfilter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter',
                 '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}',
+                '/pm/config/global/obj/dnsfilter/urlfilter',
                 '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'dnsfilter_urlfilter_entries': {
-            'params': ['urlfilter', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'urlfilter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries',
                 '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries',
                 '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
@@ -2291,46 +2441,57 @@ def main():
         'dvmdb_adom': {
             'params': ['adom'],
             'urls': [
+                '/dvmdb/adom',
                 '/dvmdb/adom/{adom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_device': {
-            'params': ['device', 'adom'],
+            'params': ['adom', 'device'],
             'urls': [
+                '/dvmdb/adom/{adom}/device',
                 '/dvmdb/adom/{adom}/device/{device}',
+                '/dvmdb/device',
                 '/dvmdb/device/{device}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_device_haslave': {
-            'params': ['device', 'ha_slave', 'adom'],
+            'params': ['adom', 'device', 'ha_slave'],
             'urls': [
+                '/dvmdb/adom/{adom}/device/{device}/ha_slave',
                 '/dvmdb/adom/{adom}/device/{device}/ha_slave/{ha_slave}',
+                '/dvmdb/device/{device}/ha_slave',
                 '/dvmdb/device/{device}/ha_slave/{ha_slave}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_device_vdom': {
-            'params': ['device', 'vdom', 'adom'],
+            'params': ['adom', 'device', 'vdom'],
             'urls': [
+                '/dvmdb/adom/{adom}/device/{device}/vdom',
                 '/dvmdb/adom/{adom}/device/{device}/vdom/{vdom}',
+                '/dvmdb/device/{device}/vdom',
                 '/dvmdb/device/{device}/vdom/{vdom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_folder': {
-            'params': ['folder', 'adom'],
+            'params': ['adom', 'folder'],
             'urls': [
+                '/dvmdb/adom/{adom}/folder',
                 '/dvmdb/adom/{adom}/folder/{folder}',
+                '/dvmdb/folder',
                 '/dvmdb/folder/{folder}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'dvmdb_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/dvmdb/adom/{adom}/group',
                 '/dvmdb/adom/{adom}/group/{group}',
+                '/dvmdb/group',
                 '/dvmdb/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
@@ -2357,19 +2518,25 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_revision': {
-            'params': ['revision', 'adom'],
+            'params': ['adom', 'revision'],
             'urls': [
+                '/dvmdb/adom/{adom}/revision',
                 '/dvmdb/adom/{adom}/revision/{revision}',
+                '/dvmdb/global/revision',
                 '/dvmdb/global/revision/{revision}',
+                '/dvmdb/revision',
                 '/dvmdb/revision/{revision}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script': {
-            'params': ['script', 'adom'],
+            'params': ['adom', 'script'],
             'urls': [
+                '/dvmdb/adom/{adom}/script',
                 '/dvmdb/adom/{adom}/script/{script}',
+                '/dvmdb/global/script',
                 '/dvmdb/global/script/{script}',
+                '/dvmdb/script',
                 '/dvmdb/script/{script}'
             ],
             'v_range': [['6.0.0', '']]
@@ -2383,7 +2550,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_log_latest_device': {
-            'params': ['device_name', 'adom'],
+            'params': ['adom', 'device_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/script/log/latest/device/{device_name}',
                 '/dvmdb/script/log/latest/device/{device_name}'
@@ -2399,7 +2566,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_log_list_device': {
-            'params': ['device_name', 'adom'],
+            'params': ['adom', 'device_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/script/log/list/device/{device_name}',
                 '/dvmdb/script/log/list/device/{device_name}'
@@ -2407,7 +2574,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_log_output_device_logid': {
-            'params': ['device', 'log_id', 'adom'],
+            'params': ['adom', 'device', 'log_id'],
             'urls': [
                 '/dvmdb/adom/{adom}/script/log/output/device/{device}/logid/{log_id}',
                 '/dvmdb/script/log/output/device/{device}/logid/{log_id}'
@@ -2415,7 +2582,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_log_output_logid': {
-            'params': ['log_id', 'adom'],
+            'params': ['adom', 'log_id'],
             'urls': [
                 '/dvmdb/adom/{adom}/script/log/output/logid/{log_id}',
                 '/dvmdb/global/script/log/output/logid/{log_id}'
@@ -2431,7 +2598,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_log_summary_device': {
-            'params': ['device_name', 'adom'],
+            'params': ['adom', 'device_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/script/log/summary/device/{device_name}',
                 '/dvmdb/script/log/summary/device/{device_name}'
@@ -2439,28 +2606,37 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_script_scriptschedule': {
-            'params': ['script', 'script_schedule', 'adom'],
+            'params': ['adom', 'script', 'script_schedule'],
             'urls': [
+                '/dvmdb/adom/{adom}/script/{script}/script_schedule',
                 '/dvmdb/adom/{adom}/script/{script}/script_schedule/{script_schedule}',
+                '/dvmdb/global/script/{script}/script_schedule',
                 '/dvmdb/global/script/{script}/script_schedule/{script_schedule}',
+                '/dvmdb/script/{script}/script_schedule',
                 '/dvmdb/script/{script}/script_schedule/{script_schedule}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workflow': {
-            'params': ['workflow', 'adom'],
+            'params': ['adom', 'workflow'],
             'urls': [
+                '/dvmdb/adom/{adom}/workflow',
                 '/dvmdb/adom/{adom}/workflow/{workflow}',
+                '/dvmdb/global/workflow',
                 '/dvmdb/global/workflow/{workflow}',
+                '/dvmdb/workflow',
                 '/dvmdb/workflow/{workflow}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workflow_wflog': {
-            'params': ['workflow', 'wflog', 'adom'],
+            'params': ['adom', 'wflog', 'workflow'],
             'urls': [
+                '/dvmdb/adom/{adom}/workflow/{workflow}/wflog',
                 '/dvmdb/adom/{adom}/workflow/{workflow}/wflog/{wflog}',
+                '/dvmdb/global/workflow/{workflow}/wflog',
                 '/dvmdb/global/workflow/{workflow}/wflog/{wflog}',
+                '/dvmdb/workflow/{workflow}/wflog',
                 '/dvmdb/workflow/{workflow}/wflog/{wflog}'
             ],
             'v_range': [['6.0.0', '']]
@@ -2474,7 +2650,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workspace_dirty_dev': {
-            'params': ['device_name', 'adom'],
+            'params': ['adom', 'device_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/workspace/dirty/dev/{device_name}'
             ],
@@ -2489,14 +2665,14 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workspace_lockinfo_dev': {
-            'params': ['device_name', 'adom'],
+            'params': ['adom', 'device_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/workspace/lockinfo/dev/{device_name}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workspace_lockinfo_obj': {
-            'params': ['object_url_name', 'adom'],
+            'params': ['adom', 'object_url_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/workspace/lockinfo/obj/{object_url_name}',
                 '/dvmdb/global/workspace/lockinfo/obj/{object_url_name}'
@@ -2504,7 +2680,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'dvmdb_workspace_lockinfo_pkg': {
-            'params': ['package_path_name', 'adom'],
+            'params': ['adom', 'package_path_name'],
             'urls': [
                 '/dvmdb/adom/{adom}/workspace/lockinfo/pkg/{package_path_name}',
                 '/dvmdb/global/workspace/lockinfo/pkg/{package_path_name}'
@@ -2514,231 +2690,289 @@ def main():
         'dynamic_address': {
             'params': ['address', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/address',
                 '/pm/config/adom/{adom}/obj/dynamic/address/{address}',
+                '/pm/config/global/obj/dynamic/address',
                 '/pm/config/global/obj/dynamic/address/{address}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_address_dynamicaddrmapping': {
-            'params': ['address', 'dynamic_addr_mapping', 'adom'],
+            'params': ['address', 'adom', 'dynamic_addr_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/address/{address}/dynamic_addr_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/address/{address}/dynamic_addr_mapping/{dynamic_addr_mapping}',
+                '/pm/config/global/obj/dynamic/address/{address}/dynamic_addr_mapping',
                 '/pm/config/global/obj/dynamic/address/{address}/dynamic_addr_mapping/{dynamic_addr_mapping}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_certificate_local': {
-            'params': ['local', 'adom'],
+            'params': ['adom', 'local'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/certificate/local',
                 '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}',
+                '/pm/config/global/obj/dynamic/certificate/local',
                 '/pm/config/global/obj/dynamic/certificate/local/{local}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_certificate_local_dynamicmapping': {
-            'params': ['local', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'local'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/certificate/local/{local}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/certificate/local/{local}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'dynamic_input_interface': {
-            'params': ['interface', 'adom'],
+            'params': ['adom', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/input/interface',
                 '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}',
+                '/pm/config/global/obj/dynamic/input/interface',
                 '/pm/config/global/obj/dynamic/input/interface/{interface}'
             ],
             'v_range': [['6.2.2', '6.4.0']]
         },
         'dynamic_input_interface_dynamicmapping': {
-            'params': ['interface', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/input/interface/{interface}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/input/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
             'v_range': [['6.2.2', '6.4.0']]
         },
         'dynamic_interface': {
-            'params': ['interface', 'adom'],
+            'params': ['adom', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/interface',
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}',
+                '/pm/config/global/obj/dynamic/interface',
                 '/pm/config/global/obj/dynamic/interface/{interface}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_interface_dynamicmapping': {
-            'params': ['interface', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/interface/{interface}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'dynamic_interface_platformmapping': {
-            'params': ['interface', 'platform_mapping', 'adom'],
+            'params': ['adom', 'interface', 'platform_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
+                '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping',
                 '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'dynamic_ippool': {
-            'params': ['ippool', 'adom'],
+            'params': ['adom', 'ippool'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/ippool',
                 '/pm/config/adom/{adom}/obj/dynamic/ippool/{ippool}',
+                '/pm/config/global/obj/dynamic/ippool',
                 '/pm/config/global/obj/dynamic/ippool/{ippool}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_multicast_interface': {
-            'params': ['interface', 'adom'],
+            'params': ['adom', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/multicast/interface',
                 '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}',
+                '/pm/config/global/obj/dynamic/multicast/interface',
                 '/pm/config/global/obj/dynamic/multicast/interface/{interface}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_multicast_interface_dynamicmapping': {
-            'params': ['interface', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'interface'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/multicast/interface/{interface}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/multicast/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'dynamic_vip': {
-            'params': ['vip', 'adom'],
+            'params': ['adom', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/vip',
                 '/pm/config/adom/{adom}/obj/dynamic/vip/{vip}',
+                '/pm/config/global/obj/dynamic/vip',
                 '/pm/config/global/obj/dynamic/vip/{vip}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_virtualwanlink_members': {
-            'params': ['members', 'adom'],
+            'params': ['adom', 'members'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/members',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}'
             ],
             'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
-            'params': ['members', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'members'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}'
             ],
             'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_neighbor': {
-            'params': ['neighbor', 'adom'],
+            'params': ['adom', 'neighbor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
             'v_range': [['6.2.2', '6.4.14']]
         },
         'dynamic_virtualwanlink_neighbor_dynamicmapping': {
-            'params': ['neighbor', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'neighbor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}'
             ],
             'v_range': [['6.2.2', '6.4.14']]
         },
         'dynamic_virtualwanlink_server': {
-            'params': ['server', 'adom'],
+            'params': ['adom', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/server',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}'
             ],
             'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
-            'params': ['server', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}'
             ],
             'v_range': [['6.0.0', '6.4.14']]
         },
         'dynamic_vpntunnel': {
-            'params': ['vpntunnel', 'adom'],
+            'params': ['adom', 'vpntunnel'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/vpntunnel',
                 '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}',
+                '/pm/config/global/obj/dynamic/vpntunnel',
                 '/pm/config/global/obj/dynamic/vpntunnel/{vpntunnel}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'dynamic_vpntunnel_dynamicmapping': {
-            'params': ['vpntunnel', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vpntunnel'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping',
                 '/pm/config/global/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'emailfilter_blockallowlist': {
-            'params': ['block-allow-list', 'adom'],
+            'params': ['adom', 'block-allow-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list',
                 '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}',
+                '/pm/config/global/obj/emailfilter/block-allow-list',
                 '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'emailfilter_blockallowlist_entries': {
-            'params': ['block-allow-list', 'entries', 'adom'],
+            'params': ['adom', 'block-allow-list', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries',
                 '/pm/config/global/obj/emailfilter/block-allow-list/{block-allow-list}/entries/{entries}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'emailfilter_bwl': {
-            'params': ['bwl', 'adom'],
+            'params': ['adom', 'bwl'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl',
                 '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}',
+                '/pm/config/global/obj/emailfilter/bwl',
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_bwl_entries': {
-            'params': ['bwl', 'entries', 'adom'],
+            'params': ['adom', 'bwl', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/bwl/{bwl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries',
                 '/pm/config/global/obj/emailfilter/bwl/{bwl}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_bword': {
-            'params': ['bword', 'adom'],
+            'params': ['adom', 'bword'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/bword',
                 '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}',
+                '/pm/config/global/obj/emailfilter/bword',
                 '/pm/config/global/obj/emailfilter/bword/{bword}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_bword_entries': {
-            'params': ['bword', 'entries', 'adom'],
+            'params': ['adom', 'bword', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/bword/{bword}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/bword/{bword}/entries',
                 '/pm/config/global/obj/emailfilter/bword/{bword}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_dnsbl': {
-            'params': ['dnsbl', 'adom'],
+            'params': ['adom', 'dnsbl'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl',
                 '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}',
+                '/pm/config/global/obj/emailfilter/dnsbl',
                 '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_dnsbl_entries': {
-            'params': ['dnsbl', 'entries', 'adom'],
+            'params': ['adom', 'dnsbl', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries',
                 '/pm/config/global/obj/emailfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
@@ -2752,33 +2986,41 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_iptrust': {
-            'params': ['iptrust', 'adom'],
+            'params': ['adom', 'iptrust'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust',
                 '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}',
+                '/pm/config/global/obj/emailfilter/iptrust',
                 '/pm/config/global/obj/emailfilter/iptrust/{iptrust}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_iptrust_entries': {
-            'params': ['iptrust', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'iptrust'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/iptrust/{iptrust}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries',
                 '/pm/config/global/obj/emailfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_mheader': {
-            'params': ['mheader', 'adom'],
+            'params': ['adom', 'mheader'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader',
                 '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}',
+                '/pm/config/global/obj/emailfilter/mheader',
                 '/pm/config/global/obj/emailfilter/mheader/{mheader}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_mheader_entries': {
-            'params': ['mheader', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'mheader'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/mheader/{mheader}/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries',
                 '/pm/config/global/obj/emailfilter/mheader/{mheader}/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
@@ -2792,15 +3034,17 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/profile',
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}',
+                '/pm/config/global/obj/emailfilter/profile',
                 '/pm/config/global/obj/emailfilter/profile/{profile}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_filefilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter'
@@ -2808,15 +3052,17 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_filefilter_entries': {
-            'params': ['profile', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter/entries',
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter/entries',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_gmail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/gmail',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/gmail'
@@ -2824,7 +3070,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_imap': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/imap',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/imap'
@@ -2832,7 +3078,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_mapi': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/mapi',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/mapi'
@@ -2840,7 +3086,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_msnhotmail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/msn-hotmail',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/msn-hotmail'
@@ -2848,7 +3094,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_otherwebmails': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/other-webmails',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/other-webmails'
@@ -2856,7 +3102,7 @@ def main():
             'v_range': [['6.4.2', '']]
         },
         'emailfilter_profile_pop3': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/pop3',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/pop3'
@@ -2864,7 +3110,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_smtp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/smtp',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/smtp'
@@ -2872,7 +3118,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'emailfilter_profile_yahoomail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/yahoo-mail',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/yahoo-mail'
@@ -2880,31 +3126,37 @@ def main():
             'v_range': [['6.2.0', '6.2.0']]
         },
         'endpointcontrol_fctems': {
-            'params': ['fctems', 'adom'],
+            'params': ['adom', 'fctems'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/endpoint-control/fctems',
                 '/pm/config/adom/{adom}/obj/endpoint-control/fctems/{fctems}',
+                '/pm/config/global/obj/endpoint-control/fctems',
                 '/pm/config/global/obj/endpoint-control/fctems/{fctems}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_dataplan': {
-            'params': ['dataplan', 'adom'],
+            'params': ['adom', 'dataplan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/dataplan',
                 '/pm/config/adom/{adom}/obj/extender-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extender-controller/dataplan',
                 '/pm/config/global/obj/extender-controller/dataplan/{dataplan}'
             ],
             'v_range': [['6.4.4', '']]
         },
         'extendercontroller_extenderprofile': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extender-controller/extender-profile',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular'
@@ -2912,7 +3164,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_controllerreport': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/controller-report'
@@ -2920,7 +3172,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_modem1': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1'
@@ -2928,7 +3180,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_modem1_autoswitch': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
@@ -2936,7 +3188,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_modem2': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2'
@@ -2944,7 +3196,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_modem2_autoswitch': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
@@ -2952,7 +3204,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_smsnotification': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification'
@@ -2960,7 +3212,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_smsnotification_alert': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
@@ -2968,15 +3220,17 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_cellular_smsnotification_receiver': {
-            'params': ['extender-profile', 'receiver', 'adom'],
+            'params': ['adom', 'extender-profile', 'receiver'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_lanextension': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension'
@@ -2984,23 +3238,27 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_extenderprofile_lanextension_backhaul': {
-            'params': ['extender-profile', 'backhaul', 'adom'],
+            'params': ['adom', 'backhaul', 'extender-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul',
                 '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul',
                 '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'extendercontroller_simprofile': {
-            'params': ['sim_profile', 'adom'],
+            'params': ['adom', 'sim_profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/sim_profile',
                 '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}',
+                '/pm/config/global/obj/extender-controller/sim_profile',
                 '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}'
             ],
             'v_range': [['6.4.4', '']]
         },
         'extendercontroller_simprofile_autoswitchprofile': {
-            'params': ['sim_profile', 'adom'],
+            'params': ['adom', 'sim_profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile',
                 '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}/auto-switch_profile'
@@ -3008,31 +3266,37 @@ def main():
             'v_range': [['6.4.4', '']]
         },
         'extendercontroller_template': {
-            'params': ['template', 'adom'],
+            'params': ['adom', 'template'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extender-controller/template',
                 '/pm/config/adom/{adom}/obj/extender-controller/template/{template}',
+                '/pm/config/global/obj/extender-controller/template',
                 '/pm/config/global/obj/extender-controller/template/{template}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'extensioncontroller_dataplan': {
-            'params': ['dataplan', 'adom'],
+            'params': ['adom', 'dataplan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/dataplan',
                 '/pm/config/adom/{adom}/obj/extension-controller/dataplan/{dataplan}',
+                '/pm/config/global/obj/extension-controller/dataplan',
                 '/pm/config/global/obj/extension-controller/dataplan/{dataplan}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile',
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}',
+                '/pm/config/global/obj/extension-controller/extender-profile',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular'
@@ -3040,7 +3304,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_controllerreport': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/controller-report'
@@ -3048,7 +3312,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_modem1': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1'
@@ -3056,7 +3320,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_modem1_autoswitch': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
@@ -3064,7 +3328,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_modem2': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2'
@@ -3072,7 +3336,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_modem2_autoswitch': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/modem2/auto-switch'
@@ -3080,7 +3344,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_smsnotification': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification'
@@ -3088,7 +3352,7 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_smsnotification_alert': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/alert'
@@ -3096,15 +3360,17 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_cellular_smsnotification_receiver': {
-            'params': ['extender-profile', 'receiver', 'adom'],
+            'params': ['adom', 'extender-profile', 'receiver'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver',
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/cellular/sms-notification/receiver/{receiver}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_lanextension': {
-            'params': ['extender-profile', 'adom'],
+            'params': ['adom', 'extender-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension'
@@ -3112,25 +3378,55 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'extensioncontroller_extenderprofile_lanextension_backhaul': {
-            'params': ['extender-profile', 'backhaul', 'adom'],
+            'params': ['adom', 'backhaul', 'extender-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul',
                 '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul',
                 '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/backhaul/{backhaul}'
             ],
             'v_range': [['7.2.1', '']]
         },
-        'filefilter_profile': {
-            'params': ['profile', 'adom'],
+        'extensioncontroller_extenderprofile_wifi': {
+            'params': ['adom', 'extender-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/wifi',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/wifi'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
+        'extensioncontroller_extenderprofile_wifi_radio1': {
+            'params': ['adom', 'extender-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/wifi/radio-1',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/wifi/radio-1'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
+        'extensioncontroller_extenderprofile_wifi_radio2': {
+            'params': ['adom', 'extender-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/wifi/radio-2',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/wifi/radio-2'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
+        'filefilter_profile': {
+            'params': ['adom', 'profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/file-filter/profile',
                 '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}',
+                '/pm/config/global/obj/file-filter/profile',
                 '/pm/config/global/obj/file-filter/profile/{profile}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'filefilter_profile_rules': {
-            'params': ['profile', 'rules', 'adom'],
+            'params': ['adom', 'profile', 'rules'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules',
                 '/pm/config/adom/{adom}/obj/file-filter/profile/{profile}/rules/{rules}',
+                '/pm/config/global/obj/file-filter/profile/{profile}/rules',
                 '/pm/config/global/obj/file-filter/profile/{profile}/rules/{rules}'
             ],
             'v_range': [['6.4.1', '']]
@@ -3138,7 +3434,9 @@ def main():
         'firewall_accessproxy': {
             'params': ['access-proxy', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}',
+                '/pm/config/global/obj/firewall/access-proxy',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}'
             ],
             'v_range': [['7.0.0', '']]
@@ -3146,29 +3444,35 @@ def main():
         'firewall_accessproxy6': {
             'params': ['access-proxy6', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}',
+                '/pm/config/global/obj/firewall/access-proxy6',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway': {
-            'params': ['access-proxy6', 'api-gateway', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway6': {
-            'params': ['access-proxy6', 'api-gateway6', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway6_quic': {
-            'params': ['access-proxy6', 'api-gateway6', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway6'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic'
@@ -3176,23 +3480,27 @@ def main():
             'v_range': [['7.4.1', '']]
         },
         'firewall_accessproxy6_apigateway6_realservers': {
-            'params': ['access-proxy6', 'api-gateway6', 'realservers', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway6', 'realservers'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway6_sslciphersuites': {
-            'params': ['access-proxy6', 'api-gateway6', 'ssl-cipher-suites', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway6', 'ssl-cipher-suites'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway_quic': {
-            'params': ['access-proxy6', 'api-gateway', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/quic',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/quic'
@@ -3200,39 +3508,47 @@ def main():
             'v_range': [['7.4.1', '']]
         },
         'firewall_accessproxy6_apigateway_realservers': {
-            'params': ['access-proxy6', 'api-gateway', 'realservers', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway', 'realservers'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy6_apigateway_sslciphersuites': {
-            'params': ['access-proxy6', 'api-gateway', 'ssl-cipher-suites', 'adom'],
+            'params': ['access-proxy6', 'adom', 'api-gateway', 'ssl-cipher-suites'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'firewall_accessproxy_apigateway': {
-            'params': ['access-proxy', 'api-gateway', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'firewall_accessproxy_apigateway6': {
-            'params': ['access-proxy', 'api-gateway6', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}'
             ],
             'v_range': [['7.0.1', '']]
         },
         'firewall_accessproxy_apigateway6_quic': {
-            'params': ['access-proxy', 'api-gateway6', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway6'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/quic',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/quic'
@@ -3240,23 +3556,27 @@ def main():
             'v_range': [['7.4.1', '']]
         },
         'firewall_accessproxy_apigateway6_realservers': {
-            'params': ['access-proxy', 'api-gateway6', 'realservers', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway6', 'realservers'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
             ],
             'v_range': [['7.0.1', '']]
         },
         'firewall_accessproxy_apigateway6_sslciphersuites': {
-            'params': ['access-proxy', 'api-gateway6', 'ssl-cipher-suites', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway6', 'ssl-cipher-suites'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['7.0.1', '']]
         },
         'firewall_accessproxy_apigateway_quic': {
-            'params': ['access-proxy', 'api-gateway', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/quic',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/quic'
@@ -3264,25 +3584,31 @@ def main():
             'v_range': [['7.4.1', '']]
         },
         'firewall_accessproxy_apigateway_realservers': {
-            'params': ['access-proxy', 'api-gateway', 'realservers', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway', 'realservers'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/realservers/{realservers}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'firewall_accessproxy_apigateway_sslciphersuites': {
-            'params': ['access-proxy', 'api-gateway', 'ssl-cipher-suites', 'adom'],
+            'params': ['access-proxy', 'adom', 'api-gateway', 'ssl-cipher-suites'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway/{api-gateway}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'firewall_accessproxy_realservers': {
-            'params': ['access-proxy', 'realservers', 'adom'],
+            'params': ['access-proxy', 'adom', 'realservers'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/realservers/{realservers}'
             ],
             'v_range': [['7.0.0', '']]
@@ -3296,9 +3622,11 @@ def main():
             'v_range': [['7.0.0', '']]
         },
         'firewall_accessproxy_serverpubkeyauthsettings_certextension': {
-            'params': ['access-proxy', 'cert-extension', 'adom'],
+            'params': ['access-proxy', 'adom', 'cert-extension'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}',
+                '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension',
                 '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/cert-extension/{cert-extension}'
             ],
             'v_range': [['7.0.0', '']]
@@ -3306,15 +3634,19 @@ def main():
         'firewall_accessproxysshclientcert': {
             'params': ['access-proxy-ssh-client-cert', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy-ssh-client-cert',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}',
+                '/pm/config/global/obj/firewall/access-proxy-ssh-client-cert',
                 '/pm/config/global/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'firewall_accessproxysshclientcert_certextension': {
-            'params': ['access-proxy-ssh-client-cert', 'cert-extension', 'adom'],
+            'params': ['access-proxy-ssh-client-cert', 'adom', 'cert-extension'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}/cert-extension',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}/cert-extension/{cert-extension}',
+                '/pm/config/global/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}/cert-extension',
                 '/pm/config/global/obj/firewall/access-proxy-ssh-client-cert/{access-proxy-ssh-client-cert}/cert-extension/{cert-extension}'
             ],
             'v_range': [['7.4.2', '']]
@@ -3322,7 +3654,9 @@ def main():
         'firewall_accessproxyvirtualhost': {
             'params': ['access-proxy-virtual-host', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host',
                 '/pm/config/adom/{adom}/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}',
+                '/pm/config/global/obj/firewall/access-proxy-virtual-host',
                 '/pm/config/global/obj/firewall/access-proxy-virtual-host/{access-proxy-virtual-host}'
             ],
             'v_range': [['7.0.1', '']]
@@ -3330,7 +3664,9 @@ def main():
         'firewall_address': {
             'params': ['address', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address',
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}',
+                '/pm/config/global/obj/firewall/address',
                 '/pm/config/global/obj/firewall/address/{address}'
             ],
             'v_range': [['6.0.0', '']]
@@ -3338,55 +3674,69 @@ def main():
         'firewall_address6': {
             'params': ['address6', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}',
+                '/pm/config/global/obj/firewall/address6',
                 '/pm/config/global/obj/firewall/address6/{address6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address6_dynamicmapping': {
-            'params': ['address6', 'dynamic_mapping', 'adom'],
+            'params': ['address6', 'adom', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_address6_dynamicmapping_subnetsegment': {
-            'params': ['address6', 'dynamic_mapping', 'subnet-segment', 'adom'],
+            'params': ['address6', 'adom', 'dynamic_mapping', 'subnet-segment'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
+                '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment',
                 '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
             ],
             'v_range': [['6.2.1', '7.4.0']]
         },
         'firewall_address6_list': {
-            'params': ['address6', 'list', 'adom'],
+            'params': ['address6', 'adom', 'list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/list',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/list/{list}',
+                '/pm/config/global/obj/firewall/address6/{address6}/list',
                 '/pm/config/global/obj/firewall/address6/{address6}/list/{list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address6_profilelist': {
-            'params': ['address6', 'profile-list', 'adom'],
+            'params': ['address6', 'adom', 'profile-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/profile-list',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/profile-list/{profile-list}',
+                '/pm/config/global/obj/firewall/address6/{address6}/profile-list',
                 '/pm/config/global/obj/firewall/address6/{address6}/profile-list/{profile-list}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_address6_subnetsegment': {
-            'params': ['address6', 'subnet-segment', 'adom'],
+            'params': ['address6', 'adom', 'subnet-segment'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/subnet-segment',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/subnet-segment/{subnet-segment}',
+                '/pm/config/global/obj/firewall/address6/{address6}/subnet-segment',
                 '/pm/config/global/obj/firewall/address6/{address6}/subnet-segment/{subnet-segment}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address6_tagging': {
-            'params': ['address6', 'tagging', 'adom'],
+            'params': ['address6', 'adom', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/address6/{address6}/tagging',
                 '/pm/config/global/obj/firewall/address6/{address6}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
@@ -3394,55 +3744,69 @@ def main():
         'firewall_address6template': {
             'params': ['address6-template', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6-template',
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}',
+                '/pm/config/global/obj/firewall/address6-template',
                 '/pm/config/global/obj/firewall/address6-template/{address6-template}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address6template_subnetsegment': {
-            'params': ['address6-template', 'subnet-segment', 'adom'],
+            'params': ['address6-template', 'adom', 'subnet-segment'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment',
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}',
+                '/pm/config/global/obj/firewall/address6-template/{address6-template}/subnet-segment',
                 '/pm/config/global/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address6template_subnetsegment_values': {
-            'params': ['address6-template', 'subnet-segment', 'values', 'adom'],
+            'params': ['address6-template', 'adom', 'subnet-segment', 'values'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}/values',
                 '/pm/config/adom/{adom}/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}/values/{values}',
+                '/pm/config/global/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}/values',
                 '/pm/config/global/obj/firewall/address6-template/{address6-template}/subnet-segment/{subnet-segment}/values/{values}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address_dynamicmapping': {
-            'params': ['address', 'dynamic_mapping', 'adom'],
+            'params': ['address', 'adom', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address/{address}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/address/{address}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/address/{address}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_address_list': {
-            'params': ['address', 'list', 'adom'],
+            'params': ['address', 'adom', 'list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address/{address}/list',
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/list/{list}',
+                '/pm/config/global/obj/firewall/address/{address}/list',
                 '/pm/config/global/obj/firewall/address/{address}/list/{list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_address_profilelist': {
-            'params': ['address', 'profile-list', 'adom'],
+            'params': ['address', 'adom', 'profile-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address/{address}/profile-list',
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/profile-list/{profile-list}',
+                '/pm/config/global/obj/firewall/address/{address}/profile-list',
                 '/pm/config/global/obj/firewall/address/{address}/profile-list/{profile-list}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_address_tagging': {
-            'params': ['address', 'tagging', 'adom'],
+            'params': ['address', 'adom', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/address/{address}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/address/{address}/tagging',
                 '/pm/config/global/obj/firewall/address/{address}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
@@ -3450,7 +3814,9 @@ def main():
         'firewall_addrgrp': {
             'params': ['addrgrp', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}',
+                '/pm/config/global/obj/firewall/addrgrp',
                 '/pm/config/global/obj/firewall/addrgrp/{addrgrp}'
             ],
             'v_range': [['6.0.0', '']]
@@ -3458,159 +3824,197 @@ def main():
         'firewall_addrgrp6': {
             'params': ['addrgrp6', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp6',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}',
+                '/pm/config/global/obj/firewall/addrgrp6',
                 '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_addrgrp6_dynamicmapping': {
-            'params': ['addrgrp6', 'dynamic_mapping', 'adom'],
+            'params': ['addrgrp6', 'adom', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_addrgrp6_tagging': {
-            'params': ['addrgrp6', 'tagging', 'adom'],
+            'params': ['addrgrp6', 'adom', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}/tagging',
                 '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_addrgrp_dynamicmapping': {
-            'params': ['addrgrp', 'dynamic_mapping', 'adom'],
+            'params': ['addrgrp', 'adom', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_addrgrp_tagging': {
-            'params': ['addrgrp', 'tagging', 'adom'],
+            'params': ['addrgrp', 'adom', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/addrgrp/{addrgrp}/tagging',
                 '/pm/config/global/obj/firewall/addrgrp/{addrgrp}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_carrierendpointbwl': {
-            'params': ['carrier-endpoint-bwl', 'adom'],
+            'params': ['adom', 'carrier-endpoint-bwl'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl',
                 '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}',
+                '/pm/config/global/obj/firewall/carrier-endpoint-bwl',
                 '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_carrierendpointbwl_entries': {
-            'params': ['carrier-endpoint-bwl', 'entries', 'adom'],
+            'params': ['adom', 'carrier-endpoint-bwl', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries',
                 '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}',
+                '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries',
                 '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_casbprofile': {
-            'params': ['casb-profile', 'adom'],
+            'params': ['adom', 'casb-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/casb-profile',
                 '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}',
+                '/pm/config/global/obj/firewall/casb-profile',
                 '/pm/config/global/obj/firewall/casb-profile/{casb-profile}'
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
         'firewall_casbprofile_saasapplication': {
-            'params': ['casb-profile', 'saas-application', 'adom'],
+            'params': ['adom', 'casb-profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application',
                 '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}',
+                '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application',
                 '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}'
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
         'firewall_casbprofile_saasapplication_accessrule': {
-            'params': ['casb-profile', 'saas-application', 'access-rule', 'adom'],
+            'params': ['access-rule', 'adom', 'casb-profile', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/access-rule',
                 '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/access-rule/{access-rule}',
+                '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/access-rule',
                 '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/access-rule/{access-rule}'
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
         'firewall_casbprofile_saasapplication_customcontrol': {
-            'params': ['casb-profile', 'saas-application', 'custom-control', 'adom'],
+            'params': ['adom', 'casb-profile', 'custom-control', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control',
                 '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}',
+                '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control',
                 '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}'
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
         'firewall_casbprofile_saasapplication_customcontrol_option': {
-            'params': ['casb-profile', 'saas-application', 'custom-control', 'option', 'adom'],
+            'params': ['adom', 'casb-profile', 'custom-control', 'option', 'saas-application'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}/option',
                 '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}/option/{'
                 'option}',
+                '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}/option',
                 '/pm/config/global/obj/firewall/casb-profile/{casb-profile}/saas-application/{saas-application}/custom-control/{custom-control}/option/{optio'
                 'n}'
             ],
             'v_range': [['7.4.1', '7.4.1']]
         },
         'firewall_decryptedtrafficmirror': {
-            'params': ['decrypted-traffic-mirror', 'adom'],
+            'params': ['adom', 'decrypted-traffic-mirror'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror',
                 '/pm/config/adom/{adom}/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}',
+                '/pm/config/global/obj/firewall/decrypted-traffic-mirror',
                 '/pm/config/global/obj/firewall/decrypted-traffic-mirror/{decrypted-traffic-mirror}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'firewall_explicitproxyaddress': {
-            'params': ['explicit-proxy-address', 'adom'],
+            'params': ['adom', 'explicit-proxy-address'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address',
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address',
                 '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_explicitproxyaddress_headergroup': {
-            'params': ['explicit-proxy-address', 'header-group', 'adom'],
+            'params': ['adom', 'explicit-proxy-address', 'header-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group',
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
+                '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group',
                 '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_explicitproxyaddrgrp': {
-            'params': ['explicit-proxy-addrgrp', 'adom'],
+            'params': ['adom', 'explicit-proxy-addrgrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp',
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
+                '/pm/config/global/obj/firewall/explicit-proxy-addrgrp',
                 '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_gtp': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}',
+                '/pm/config/global/obj/firewall/gtp',
                 '/pm/config/global/obj/firewall/gtp/{gtp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_apn': {
-            'params': ['gtp', 'apn', 'adom'],
+            'params': ['adom', 'apn', 'gtp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/apn',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/apn/{apn}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/apn',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/apn/{apn}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_ieremovepolicy': {
-            'params': ['gtp', 'ie-remove-policy', 'adom'],
+            'params': ['adom', 'gtp', 'ie-remove-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-remove-policy',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-remove-policy/{ie-remove-policy}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/ie-remove-policy',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/ie-remove-policy/{ie-remove-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_ievalidation': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-validation',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/ie-validation'
@@ -3618,23 +4022,27 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_imsi': {
-            'params': ['gtp', 'imsi', 'adom'],
+            'params': ['adom', 'gtp', 'imsi'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/imsi',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/imsi/{imsi}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/imsi',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/imsi/{imsi}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_ippolicy': {
-            'params': ['gtp', 'ip-policy', 'adom'],
+            'params': ['adom', 'gtp', 'ip-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ip-policy',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ip-policy/{ip-policy}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/ip-policy',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/ip-policy/{ip-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_messagefilter': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-filter',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/message-filter'
@@ -3642,7 +4050,7 @@ def main():
             'v_range': [['6.2.0', '6.2.12']]
         },
         'firewall_gtp_messageratelimit': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit'
@@ -3650,7 +4058,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_messageratelimitv0': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit-v0',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit-v0'
@@ -3658,7 +4066,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_messageratelimitv1': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit-v1',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit-v1'
@@ -3666,7 +4074,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_messageratelimitv2': {
-            'params': ['gtp', 'adom'],
+            'params': ['adom', 'gtp'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit-v2',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit-v2'
@@ -3674,49 +4082,61 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_noippolicy': {
-            'params': ['gtp', 'noip-policy', 'adom'],
+            'params': ['adom', 'gtp', 'noip-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/noip-policy',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/noip-policy/{noip-policy}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/noip-policy',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/noip-policy/{noip-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_perapnshaper': {
-            'params': ['gtp', 'per-apn-shaper', 'adom'],
+            'params': ['adom', 'gtp', 'per-apn-shaper'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/per-apn-shaper',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/per-apn-shaper/{per-apn-shaper}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/per-apn-shaper',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/per-apn-shaper/{per-apn-shaper}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_policy': {
-            'params': ['gtp', 'policy', 'adom'],
+            'params': ['adom', 'gtp', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy/{policy}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/policy',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/policy/{policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_gtp_policyv2': {
-            'params': ['gtp', 'policy-v2', 'adom'],
+            'params': ['adom', 'gtp', 'policy-v2'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2',
                 '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
+                '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2',
                 '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'firewall_identitybasedroute': {
-            'params': ['identity-based-route', 'adom'],
+            'params': ['adom', 'identity-based-route'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/identity-based-route',
                 '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}',
+                '/pm/config/global/obj/firewall/identity-based-route',
                 '/pm/config/global/obj/firewall/identity-based-route/{identity-based-route}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_identitybasedroute_rule': {
-            'params': ['identity-based-route', 'rule', 'adom'],
+            'params': ['adom', 'identity-based-route', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}/rule',
                 '/pm/config/adom/{adom}/obj/firewall/identity-based-route/{identity-based-route}/rule/{rule}',
+                '/pm/config/global/obj/firewall/identity-based-route/{identity-based-route}/rule',
                 '/pm/config/global/obj/firewall/identity-based-route/{identity-based-route}/rule/{rule}'
             ],
             'v_range': [['6.0.0', '']]
@@ -3730,159 +4150,197 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservice_entry': {
-            'params': ['entry', 'adom'],
+            'params': ['adom', 'entry'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service/entry',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service/entry/{entry}',
+                '/pm/config/global/obj/firewall/internet-service/entry',
                 '/pm/config/global/obj/firewall/internet-service/entry/{entry}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'firewall_internetserviceaddition': {
-            'params': ['internet-service-addition', 'adom'],
+            'params': ['adom', 'internet-service-addition'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}',
+                '/pm/config/global/obj/firewall/internet-service-addition',
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'firewall_internetserviceaddition_entry': {
-            'params': ['internet-service-addition', 'entry', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-addition'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry',
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'firewall_internetserviceaddition_entry_portrange': {
-            'params': ['internet-service-addition', 'entry', 'port-range', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-addition', 'port-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range',
                 '/pm/config/global/obj/firewall/internet-service-addition/{internet-service-addition}/entry/{entry}/port-range/{port-range}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'firewall_internetservicecustom': {
-            'params': ['internet-service-custom', 'adom'],
+            'params': ['adom', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}',
+                '/pm/config/global/obj/firewall/internet-service-custom',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservicecustom_disableentry': {
-            'params': ['internet-service-custom', 'disable-entry', 'adom'],
+            'params': ['adom', 'disable-entry', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
+                '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'firewall_internetservicecustom_disableentry_iprange': {
-            'params': ['internet-service-custom', 'disable-entry', 'ip-range', 'adom'],
+            'params': ['adom', 'disable-entry', 'internet-service-custom', 'ip-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
+                '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'firewall_internetservicecustom_entry': {
-            'params': ['internet-service-custom', 'entry', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}',
+                '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/entry',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservicecustom_entry_portrange': {
-            'params': ['internet-service-custom', 'entry', 'port-range', 'adom'],
+            'params': ['adom', 'entry', 'internet-service-custom', 'port-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
+                '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range',
                 '/pm/config/global/obj/firewall/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservicecustomgroup': {
-            'params': ['internet-service-custom-group', 'adom'],
+            'params': ['adom', 'internet-service-custom-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-custom-group',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-custom-group/{internet-service-custom-group}',
+                '/pm/config/global/obj/firewall/internet-service-custom-group',
                 '/pm/config/global/obj/firewall/internet-service-custom-group/{internet-service-custom-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservicegroup': {
-            'params': ['internet-service-group', 'adom'],
+            'params': ['adom', 'internet-service-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-group',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-group/{internet-service-group}',
+                '/pm/config/global/obj/firewall/internet-service-group',
                 '/pm/config/global/obj/firewall/internet-service-group/{internet-service-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_internetservicename': {
-            'params': ['internet-service-name', 'adom'],
+            'params': ['adom', 'internet-service-name'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/internet-service-name',
                 '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}',
+                '/pm/config/global/obj/firewall/internet-service-name',
                 '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'firewall_ippool': {
-            'params': ['ippool', 'adom'],
+            'params': ['adom', 'ippool'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ippool',
                 '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}',
+                '/pm/config/global/obj/firewall/ippool',
                 '/pm/config/global/obj/firewall/ippool/{ippool}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_ippool6': {
-            'params': ['ippool6', 'adom'],
+            'params': ['adom', 'ippool6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ippool6',
                 '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}',
+                '/pm/config/global/obj/firewall/ippool6',
                 '/pm/config/global/obj/firewall/ippool6/{ippool6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_ippool6_dynamicmapping': {
-            'params': ['ippool6', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ippool6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/ippool6/{ippool6}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/ippool6/{ippool6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_ippool_dynamicmapping': {
-            'params': ['ippool', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ippool'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/ippool/{ippool}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_ippoolgrp': {
-            'params': ['ippool_grp', 'adom'],
+            'params': ['adom', 'ippool_grp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ippool_grp',
                 '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
+                '/pm/config/global/obj/firewall/ippool_grp',
                 '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'firewall_ldbmonitor': {
-            'params': ['ldb-monitor', 'adom'],
+            'params': ['adom', 'ldb-monitor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ldb-monitor',
                 '/pm/config/adom/{adom}/obj/firewall/ldb-monitor/{ldb-monitor}',
+                '/pm/config/global/obj/firewall/ldb-monitor',
                 '/pm/config/global/obj/firewall/ldb-monitor/{ldb-monitor}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile': {
-            'params': ['mms-profile', 'adom'],
+            'params': ['adom', 'mms-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/mms-profile',
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}',
+                '/pm/config/global/obj/firewall/mms-profile',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile_dupe': {
-            'params': ['mms-profile', 'adom'],
+            'params': ['adom', 'mms-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/dupe',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/dupe'
@@ -3890,7 +4348,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile_flood': {
-            'params': ['mms-profile', 'adom'],
+            'params': ['adom', 'mms-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/flood',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/flood'
@@ -3898,7 +4356,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile_notification': {
-            'params': ['mms-profile', 'adom'],
+            'params': ['adom', 'mms-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notification',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/notification'
@@ -3906,15 +4364,17 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile_notifmsisdn': {
-            'params': ['mms-profile', 'notif-msisdn', 'adom'],
+            'params': ['adom', 'mms-profile', 'notif-msisdn'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notif-msisdn',
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notif-msisdn/{notif-msisdn}',
+                '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/notif-msisdn',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/notif-msisdn/{notif-msisdn}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_mmsprofile_outbreakprevention': {
-            'params': ['mms-profile', 'adom'],
+            'params': ['adom', 'mms-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention',
                 '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/outbreak-prevention'
@@ -3922,63 +4382,77 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'firewall_multicastaddress': {
-            'params': ['multicast-address', 'adom'],
+            'params': ['adom', 'multicast-address'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/multicast-address',
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address/{multicast-address}',
+                '/pm/config/global/obj/firewall/multicast-address',
                 '/pm/config/global/obj/firewall/multicast-address/{multicast-address}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_multicastaddress6': {
-            'params': ['multicast-address6', 'adom'],
+            'params': ['adom', 'multicast-address6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/multicast-address6',
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address6/{multicast-address6}',
+                '/pm/config/global/obj/firewall/multicast-address6',
                 '/pm/config/global/obj/firewall/multicast-address6/{multicast-address6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_multicastaddress6_tagging': {
-            'params': ['multicast-address6', 'tagging', 'adom'],
+            'params': ['adom', 'multicast-address6', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/multicast-address6/{multicast-address6}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address6/{multicast-address6}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/multicast-address6/{multicast-address6}/tagging',
                 '/pm/config/global/obj/firewall/multicast-address6/{multicast-address6}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_multicastaddress_tagging': {
-            'params': ['multicast-address', 'tagging', 'adom'],
+            'params': ['adom', 'multicast-address', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/multicast-address/{multicast-address}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/multicast-address/{multicast-address}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/multicast-address/{multicast-address}/tagging',
                 '/pm/config/global/obj/firewall/multicast-address/{multicast-address}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_networkservicedynamic': {
-            'params': ['network-service-dynamic', 'adom'],
+            'params': ['adom', 'network-service-dynamic'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic',
                 '/pm/config/adom/{adom}/obj/firewall/network-service-dynamic/{network-service-dynamic}',
+                '/pm/config/global/obj/firewall/network-service-dynamic',
                 '/pm/config/global/obj/firewall/network-service-dynamic/{network-service-dynamic}'
             ],
             'v_range': [['7.2.2', '']]
         },
         'firewall_profilegroup': {
-            'params': ['profile-group', 'adom'],
+            'params': ['adom', 'profile-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/profile-group',
                 '/pm/config/adom/{adom}/obj/firewall/profile-group/{profile-group}',
+                '/pm/config/global/obj/firewall/profile-group',
                 '/pm/config/global/obj/firewall/profile-group/{profile-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options',
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}',
+                '/pm/config/global/obj/firewall/profile-protocol-options',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_cifs': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs'
@@ -3986,7 +4460,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'firewall_profileprotocoloptions_cifs_filefilter': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter'
@@ -3994,23 +4468,27 @@ def main():
             'v_range': [['6.4.2', '']]
         },
         'firewall_profileprotocoloptions_cifs_filefilter_entries': {
-            'params': ['profile-protocol-options', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile-protocol-options'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries',
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/file-filter/entries/{entries}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'firewall_profileprotocoloptions_cifs_serverkeytab': {
-            'params': ['profile-protocol-options', 'server-keytab', 'adom'],
+            'params': ['adom', 'profile-protocol-options', 'server-keytab'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab',
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}',
+                '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/server-keytab/{server-keytab}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'firewall_profileprotocoloptions_dns': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/dns',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/dns'
@@ -4018,7 +4496,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_ftp': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/ftp',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/ftp'
@@ -4026,7 +4504,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_http': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/http',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/http'
@@ -4034,7 +4512,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_imap': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/imap',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/imap'
@@ -4042,7 +4520,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_mailsignature': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/mail-signature',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/mail-signature'
@@ -4050,7 +4528,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_mapi': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/mapi',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/mapi'
@@ -4058,7 +4536,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_nntp': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp'
@@ -4066,7 +4544,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_pop3': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/pop3',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/pop3'
@@ -4074,7 +4552,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_smtp': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/smtp',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/smtp'
@@ -4082,7 +4560,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_profileprotocoloptions_ssh': {
-            'params': ['profile-protocol-options', 'adom'],
+            'params': ['adom', 'profile-protocol-options'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh',
                 '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/ssh'
@@ -4090,151 +4568,195 @@ def main():
             'v_range': [['6.2.2', '']]
         },
         'firewall_proxyaddress': {
-            'params': ['proxy-address', 'adom'],
+            'params': ['adom', 'proxy-address'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/proxy-address',
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}',
+                '/pm/config/global/obj/firewall/proxy-address',
                 '/pm/config/global/obj/firewall/proxy-address/{proxy-address}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_proxyaddress_headergroup': {
-            'params': ['proxy-address', 'header-group', 'adom'],
+            'params': ['adom', 'header-group', 'proxy-address'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/header-group',
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/header-group/{header-group}',
+                '/pm/config/global/obj/firewall/proxy-address/{proxy-address}/header-group',
                 '/pm/config/global/obj/firewall/proxy-address/{proxy-address}/header-group/{header-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_proxyaddress_tagging': {
-            'params': ['proxy-address', 'tagging', 'adom'],
+            'params': ['adom', 'proxy-address', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/proxy-address/{proxy-address}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/proxy-address/{proxy-address}/tagging',
                 '/pm/config/global/obj/firewall/proxy-address/{proxy-address}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_proxyaddrgrp': {
-            'params': ['proxy-addrgrp', 'adom'],
+            'params': ['adom', 'proxy-addrgrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp',
                 '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp/{proxy-addrgrp}',
+                '/pm/config/global/obj/firewall/proxy-addrgrp',
                 '/pm/config/global/obj/firewall/proxy-addrgrp/{proxy-addrgrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_proxyaddrgrp_tagging': {
-            'params': ['proxy-addrgrp', 'tagging', 'adom'],
+            'params': ['adom', 'proxy-addrgrp', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp/{proxy-addrgrp}/tagging',
                 '/pm/config/adom/{adom}/obj/firewall/proxy-addrgrp/{proxy-addrgrp}/tagging/{tagging}',
+                '/pm/config/global/obj/firewall/proxy-addrgrp/{proxy-addrgrp}/tagging',
                 '/pm/config/global/obj/firewall/proxy-addrgrp/{proxy-addrgrp}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_schedule_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/schedule/group',
                 '/pm/config/adom/{adom}/obj/firewall/schedule/group/{group}',
+                '/pm/config/global/obj/firewall/schedule/group',
                 '/pm/config/global/obj/firewall/schedule/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_schedule_onetime': {
-            'params': ['onetime', 'adom'],
+            'params': ['adom', 'onetime'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/schedule/onetime',
                 '/pm/config/adom/{adom}/obj/firewall/schedule/onetime/{onetime}',
+                '/pm/config/global/obj/firewall/schedule/onetime',
                 '/pm/config/global/obj/firewall/schedule/onetime/{onetime}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_schedule_recurring': {
-            'params': ['recurring', 'adom'],
+            'params': ['adom', 'recurring'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/schedule/recurring',
                 '/pm/config/adom/{adom}/obj/firewall/schedule/recurring/{recurring}',
+                '/pm/config/global/obj/firewall/schedule/recurring',
                 '/pm/config/global/obj/firewall/schedule/recurring/{recurring}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_service_category': {
-            'params': ['category', 'adom'],
+            'params': ['adom', 'category'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/service/category',
                 '/pm/config/adom/{adom}/obj/firewall/service/category/{category}',
+                '/pm/config/global/obj/firewall/service/category',
                 '/pm/config/global/obj/firewall/service/category/{category}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_service_custom': {
-            'params': ['custom', 'adom'],
+            'params': ['adom', 'custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/service/custom',
                 '/pm/config/adom/{adom}/obj/firewall/service/custom/{custom}',
+                '/pm/config/global/obj/firewall/service/custom',
                 '/pm/config/global/obj/firewall/service/custom/{custom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_service_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/service/group',
                 '/pm/config/adom/{adom}/obj/firewall/service/group/{group}',
+                '/pm/config/global/obj/firewall/service/group',
                 '/pm/config/global/obj/firewall/service/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_shaper_peripshaper': {
-            'params': ['per-ip-shaper', 'adom'],
+            'params': ['adom', 'per-ip-shaper'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaper/per-ip-shaper',
                 '/pm/config/adom/{adom}/obj/firewall/shaper/per-ip-shaper/{per-ip-shaper}',
+                '/pm/config/global/obj/firewall/shaper/per-ip-shaper',
                 '/pm/config/global/obj/firewall/shaper/per-ip-shaper/{per-ip-shaper}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_shaper_trafficshaper': {
-            'params': ['traffic-shaper', 'adom'],
+            'params': ['adom', 'traffic-shaper'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaper/traffic-shaper',
                 '/pm/config/adom/{adom}/obj/firewall/shaper/traffic-shaper/{traffic-shaper}',
+                '/pm/config/global/obj/firewall/shaper/traffic-shaper',
                 '/pm/config/global/obj/firewall/shaper/traffic-shaper/{traffic-shaper}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_shapingprofile': {
-            'params': ['shaping-profile', 'adom'],
+            'params': ['adom', 'shaping-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaping-profile',
                 '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}',
+                '/pm/config/global/obj/firewall/shaping-profile',
                 '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_shapingprofile_shapingentries': {
-            'params': ['shaping-profile', 'shaping-entries', 'adom'],
+            'params': ['adom', 'shaping-entries', 'shaping-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries',
                 '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}',
+                '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries',
                 '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/shaping-entries/{shaping-entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_ssh_localca': {
-            'params': ['local-ca', 'adom'],
+            'params': ['adom', 'local-ca'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca',
                 '/pm/config/adom/{adom}/obj/firewall/ssh/local-ca/{local-ca}',
+                '/pm/config/global/obj/firewall/ssh/local-ca',
                 '/pm/config/global/obj/firewall/ssh/local-ca/{local-ca}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'firewall_sslsshprofile': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile',
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_dot': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/dot'
             ],
             'v_range': [['7.0.0', '']]
         },
+        'firewall_sslsshprofile_echoutersni': {
+            'params': ['adom', 'ech-outer-sni', 'ssl-ssh-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni',
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ech-outer-sni/{ech-outer-sni}'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
         'firewall_sslsshprofile_ftps': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ftps',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ftps'
@@ -4242,7 +4764,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_https': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/https',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/https'
@@ -4250,7 +4772,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_imaps': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/imaps',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/imaps'
@@ -4258,7 +4780,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_pop3s': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/pop3s',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/pop3s'
@@ -4266,7 +4788,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_smtps': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/smtps',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/smtps'
@@ -4274,7 +4796,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_ssh': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh'
@@ -4282,7 +4804,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_ssl': {
-            'params': ['ssl-ssh-profile', 'adom'],
+            'params': ['adom', 'ssl-ssh-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl'
@@ -4290,25 +4812,31 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_sslexempt': {
-            'params': ['ssl-ssh-profile', 'ssl-exempt', 'adom'],
+            'params': ['adom', 'ssl-exempt', 'ssl-ssh-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt',
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt/{ssl-exempt}',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt/{ssl-exempt}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_sslsshprofile_sslserver': {
-            'params': ['ssl-ssh-profile', 'ssl-server', 'adom'],
+            'params': ['adom', 'ssl-server', 'ssl-ssh-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server',
                 '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server/{ssl-server}',
+                '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server',
                 '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server/{ssl-server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_trafficclass': {
-            'params': ['traffic-class', 'adom'],
+            'params': ['adom', 'traffic-class'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/traffic-class',
                 '/pm/config/adom/{adom}/obj/firewall/traffic-class/{traffic-class}',
+                '/pm/config/global/obj/firewall/traffic-class',
                 '/pm/config/global/obj/firewall/traffic-class/{traffic-class}'
             ],
             'v_range': [['6.2.2', '']]
@@ -4322,95 +4850,117 @@ def main():
             'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']]
         },
         'firewall_vip': {
-            'params': ['vip', 'adom'],
+            'params': ['adom', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}',
+                '/pm/config/global/obj/firewall/vip',
                 '/pm/config/global/obj/firewall/vip/{vip}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip46': {
-            'params': ['vip46', 'adom'],
+            'params': ['adom', 'vip46'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip46',
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}',
+                '/pm/config/global/obj/firewall/vip46',
                 '/pm/config/global/obj/firewall/vip46/{vip46}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip46_dynamicmapping': {
-            'params': ['vip46', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vip46'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/vip46/{vip46}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/vip46/{vip46}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_vip46_realservers': {
-            'params': ['vip46', 'realservers', 'adom'],
+            'params': ['adom', 'realservers', 'vip46'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip46/{vip46}/realservers',
                 '/pm/config/global/obj/firewall/vip46/{vip46}/realservers/{realservers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip6': {
-            'params': ['vip6', 'adom'],
+            'params': ['adom', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}',
+                '/pm/config/global/obj/firewall/vip6',
                 '/pm/config/global/obj/firewall/vip6/{vip6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip64': {
-            'params': ['vip64', 'adom'],
+            'params': ['adom', 'vip64'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip64',
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}',
+                '/pm/config/global/obj/firewall/vip64',
                 '/pm/config/global/obj/firewall/vip64/{vip64}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip64_dynamicmapping': {
-            'params': ['vip64', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vip64'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/vip64/{vip64}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/vip64/{vip64}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_vip64_realservers': {
-            'params': ['vip64', 'realservers', 'adom'],
+            'params': ['adom', 'realservers', 'vip64'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip64/{vip64}/realservers',
                 '/pm/config/global/obj/firewall/vip64/{vip64}/realservers/{realservers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip6_dynamicmapping': {
-            'params': ['vip6', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_vip6_dynamicmapping_realservers': {
-            'params': ['vip6', 'dynamic_mapping', 'realservers', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'realservers', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
             'v_range': [['7.0.2', '7.4.0']]
         },
         'firewall_vip6_dynamicmapping_sslciphersuites': {
-            'params': ['vip6', 'dynamic_mapping', 'ssl-cipher-suites', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ssl-cipher-suites', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['7.0.2', '7.4.0']]
         },
         'firewall_vip6_quic': {
-            'params': ['vip6', 'adom'],
+            'params': ['adom', 'vip6'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/quic',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/quic'
@@ -4418,63 +4968,77 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'firewall_vip6_realservers': {
-            'params': ['vip6', 'realservers', 'adom'],
+            'params': ['adom', 'realservers', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/realservers',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/realservers/{realservers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip6_sslciphersuites': {
-            'params': ['vip6', 'ssl-cipher-suites', 'adom'],
+            'params': ['adom', 'ssl-cipher-suites', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip6_sslserverciphersuites': {
-            'params': ['vip6', 'ssl-server-cipher-suites', 'adom'],
+            'params': ['adom', 'ssl-server-cipher-suites', 'vip6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-server-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/ssl-server-cipher-suites/{ssl-server-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip6/{vip6}/ssl-server-cipher-suites',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/ssl-server-cipher-suites/{ssl-server-cipher-suites}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip_dynamicmapping': {
-            'params': ['vip', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_vip_dynamicmapping_realservers': {
-            'params': ['vip', 'dynamic_mapping', 'realservers', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'realservers', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'firewall_vip_dynamicmapping_sslciphersuites': {
-            'params': ['vip', 'dynamic_mapping', 'ssl-cipher-suites', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ssl-cipher-suites', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'firewall_vip_gslbpublicips': {
-            'params': ['vip', 'gslb-public-ips', 'adom'],
+            'params': ['adom', 'gslb-public-ips', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/gslb-public-ips',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/gslb-public-ips/{gslb-public-ips}',
+                '/pm/config/global/obj/firewall/vip/{vip}/gslb-public-ips',
                 '/pm/config/global/obj/firewall/vip/{vip}/gslb-public-ips/{gslb-public-ips}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'firewall_vip_quic': {
-            'params': ['vip', 'adom'],
+            'params': ['adom', 'vip'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/quic',
                 '/pm/config/global/obj/firewall/vip/{vip}/quic'
@@ -4482,124 +5046,154 @@ def main():
             'v_range': [['7.4.1', '']]
         },
         'firewall_vip_realservers': {
-            'params': ['vip', 'realservers', 'adom'],
+            'params': ['adom', 'realservers', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/realservers',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/realservers/{realservers}',
+                '/pm/config/global/obj/firewall/vip/{vip}/realservers',
                 '/pm/config/global/obj/firewall/vip/{vip}/realservers/{realservers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip_sslciphersuites': {
-            'params': ['vip', 'ssl-cipher-suites', 'adom'],
+            'params': ['adom', 'ssl-cipher-suites', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-cipher-suites/{ssl-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip/{vip}/ssl-cipher-suites',
                 '/pm/config/global/obj/firewall/vip/{vip}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vip_sslserverciphersuites': {
-            'params': ['vip', 'ssl-server-cipher-suites', 'adom'],
+            'params': ['adom', 'ssl-server-cipher-suites', 'vip'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-server-cipher-suites',
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/ssl-server-cipher-suites/{ssl-server-cipher-suites}',
+                '/pm/config/global/obj/firewall/vip/{vip}/ssl-server-cipher-suites',
                 '/pm/config/global/obj/firewall/vip/{vip}/ssl-server-cipher-suites/{ssl-server-cipher-suites}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vipgrp': {
-            'params': ['vipgrp', 'adom'],
+            'params': ['adom', 'vipgrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vipgrp',
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}',
+                '/pm/config/global/obj/firewall/vipgrp',
                 '/pm/config/global/obj/firewall/vipgrp/{vipgrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vipgrp46': {
-            'params': ['vipgrp46', 'adom'],
+            'params': ['adom', 'vipgrp46'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vipgrp46',
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp46/{vipgrp46}',
+                '/pm/config/global/obj/firewall/vipgrp46',
                 '/pm/config/global/obj/firewall/vipgrp46/{vipgrp46}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vipgrp6': {
-            'params': ['vipgrp6', 'adom'],
+            'params': ['adom', 'vipgrp6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vipgrp6',
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp6/{vipgrp6}',
+                '/pm/config/global/obj/firewall/vipgrp6',
                 '/pm/config/global/obj/firewall/vipgrp6/{vipgrp6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vipgrp64': {
-            'params': ['vipgrp64', 'adom'],
+            'params': ['adom', 'vipgrp64'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vipgrp64',
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp64/{vipgrp64}',
+                '/pm/config/global/obj/firewall/vipgrp64',
                 '/pm/config/global/obj/firewall/vipgrp64/{vipgrp64}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_vipgrp_dynamicmapping': {
-            'params': ['vipgrp', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vipgrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping',
                 '/pm/config/global/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'firewall_wildcardfqdn_custom': {
-            'params': ['custom', 'adom'],
+            'params': ['adom', 'custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/custom',
                 '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/custom/{custom}',
+                '/pm/config/global/obj/firewall/wildcard-fqdn/custom',
                 '/pm/config/global/obj/firewall/wildcard-fqdn/custom/{custom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'firewall_wildcardfqdn_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/group',
                 '/pm/config/adom/{adom}/obj/firewall/wildcard-fqdn/group/{group}',
+                '/pm/config/global/obj/firewall/wildcard-fqdn/group',
                 '/pm/config/global/obj/firewall/wildcard-fqdn/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fmg_device_blueprint': {
-            'params': ['blueprint', 'adom'],
+            'params': ['adom', 'blueprint'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/device/blueprint',
                 '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}',
+                '/pm/config/global/obj/fmg/device/blueprint',
                 '/pm/config/global/obj/fmg/device/blueprint/{blueprint}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'fmg_fabric_authorization_template': {
-            'params': ['template', 'adom'],
+            'params': ['adom', 'template'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template',
                 '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}',
+                '/pm/config/global/obj/fmg/fabric/authorization/template',
                 '/pm/config/global/obj/fmg/fabric/authorization/template/{template}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'fmg_fabric_authorization_template_platforms': {
-            'params': ['template', 'platforms', 'adom'],
+            'params': ['adom', 'platforms', 'template'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}/platforms',
                 '/pm/config/adom/{adom}/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}',
+                '/pm/config/global/obj/fmg/fabric/authorization/template/{template}/platforms',
                 '/pm/config/global/obj/fmg/fabric/authorization/template/{template}/platforms/{platforms}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'fmg_variable': {
-            'params': ['variable', 'adom'],
+            'params': ['adom', 'variable'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/variable',
                 '/pm/config/adom/{adom}/obj/fmg/variable/{variable}',
+                '/pm/config/global/obj/fmg/variable',
                 '/pm/config/global/obj/fmg/variable/{variable}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'fmg_variable_dynamicmapping': {
-            'params': ['variable', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'variable'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/variable/{variable}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/fmg/variable/{variable}/dynamic_mapping',
                 '/pm/config/global/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.2.0', '7.4.0']]
+            'v_range': [['7.2.0', '']]
         },
         'fmupdate_analyzer_virusreport': {
             'params': [],
@@ -4667,6 +5261,7 @@ def main():
         'fmupdate_fdssetting_pushoverridetoclient_announceip': {
             'params': ['announce-ip'],
             'urls': [
+                '/cli/global/fmupdate/fds-setting/push-override-to-client/announce-ip',
                 '/cli/global/fmupdate/fds-setting/push-override-to-client/announce-ip/{announce-ip}'
             ],
             'v_range': [['6.0.0', '']]
@@ -4681,6 +5276,7 @@ def main():
         'fmupdate_fdssetting_serveroverride_servlist': {
             'params': ['servlist'],
             'urls': [
+                '/cli/global/fmupdate/fds-setting/server-override/servlist',
                 '/cli/global/fmupdate/fds-setting/server-override/servlist/{servlist}'
             ],
             'v_range': [['6.0.0', '']]
@@ -4730,6 +5326,7 @@ def main():
         'fmupdate_serveraccesspriorities_privateserver': {
             'params': ['private-server'],
             'urls': [
+                '/cli/global/fmupdate/server-access-priorities/private-server',
                 '/cli/global/fmupdate/server-access-priorities/private-server/{private-server}'
             ],
             'v_range': [['6.0.0', '']]
@@ -4765,6 +5362,7 @@ def main():
         'fmupdate_webspam_fgdsetting_serveroverride_servlist': {
             'params': ['servlist'],
             'urls': [
+                '/cli/global/fmupdate/web-spam/fgd-setting/server-override/servlist',
                 '/cli/global/fmupdate/web-spam/fgd-setting/server-override/servlist/{servlist}'
             ],
             'v_range': [['6.0.0', '']]
@@ -4777,57 +5375,65 @@ def main():
             'v_range': [['6.0.0', '7.4.0']]
         },
         'footer_consolidated_policy': {
-            'params': ['policy', 'adom'],
+            'params': ['adom', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/consolidated/policy',
                 '/pm/config/adom/{adom}/obj/global/footer/consolidated/policy/{policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'footer_policy': {
-            'params': ['policy', 'adom'],
+            'params': ['adom', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/policy',
                 '/pm/config/adom/{adom}/obj/global/footer/policy/{policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'footer_policy6': {
-            'params': ['policy6', 'adom'],
+            'params': ['adom', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/policy6',
                 '/pm/config/adom/{adom}/obj/global/footer/policy6/{policy6}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'footer_policy6_identitybasedpolicy6': {
-            'params': ['policy6', 'identity-based-policy6', 'adom'],
+            'params': ['adom', 'identity-based-policy6', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/policy6/{policy6}/identity-based-policy6',
                 '/pm/config/adom/{adom}/obj/global/footer/policy6/{policy6}/identity-based-policy6/{identity-based-policy6}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'footer_policy_identitybasedpolicy': {
-            'params': ['policy', 'identity-based-policy', 'adom'],
+            'params': ['adom', 'identity-based-policy', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/policy/{policy}/identity-based-policy',
                 '/pm/config/adom/{adom}/obj/global/footer/policy/{policy}/identity-based-policy/{identity-based-policy}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'footer_shapingpolicy': {
-            'params': ['shaping-policy', 'adom'],
+            'params': ['adom', 'shaping-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/footer/shaping-policy',
                 '/pm/config/adom/{adom}/obj/global/footer/shaping-policy/{shaping-policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'fsp_vlan': {
-            'params': ['vlan', 'adom'],
+            'params': ['adom', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}',
+                '/pm/config/global/obj/fsp/vlan',
                 '/pm/config/global/obj/fsp/vlan/{vlan}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dhcpserver': {
-            'params': ['vlan', 'adom'],
+            'params': ['adom', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server'
@@ -4835,47 +5441,57 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dhcpserver_excluderange': {
-            'params': ['vlan', 'exclude-range', 'adom'],
+            'params': ['adom', 'exclude-range', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/exclude-range',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/exclude-range/{exclude-range}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/exclude-range',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/exclude-range/{exclude-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dhcpserver_iprange': {
-            'params': ['vlan', 'ip-range', 'adom'],
+            'params': ['adom', 'ip-range', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/ip-range',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/ip-range/{ip-range}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/ip-range',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dhcpserver_options': {
-            'params': ['vlan', 'options', 'adom'],
+            'params': ['adom', 'options', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/options',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/options/{options}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/options',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/options/{options}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dhcpserver_reservedaddress': {
-            'params': ['vlan', 'reserved-address', 'adom'],
+            'params': ['adom', 'reserved-address', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address/{reserved-address}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dhcp-server/reserved-address/{reserved-address}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dynamicmapping': {
-            'params': ['vlan', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver': {
-            'params': ['vlan', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server'
@@ -4883,39 +5499,47 @@ def main():
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_excluderange': {
-            'params': ['vlan', 'dynamic_mapping', 'exclude-range', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'exclude-range', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range/{exclude-range}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range/{exclude-range}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_iprange': {
-            'params': ['vlan', 'dynamic_mapping', 'ip-range', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ip-range', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_options': {
-            'params': ['vlan', 'dynamic_mapping', 'options', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'options', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options/{options}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options/{options}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress': {
-            'params': ['vlan', 'dynamic_mapping', 'reserved-address', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'reserved-address', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address/{reserved-address}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address/{reserved-address}'
             ],
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface': {
-            'params': ['vlan', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface'
@@ -4923,7 +5547,7 @@ def main():
             'v_range': [['6.0.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6': {
-            'params': ['vlan', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6'
@@ -4931,64 +5555,78 @@ def main():
             'v_range': [['6.2.2', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist': {
-            'params': ['vlan', 'dynamic_mapping', 'ip6-delegated-prefix-list', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ip6-delegated-prefix-list', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-'
                 'list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
             ],
             'v_range': [['6.2.2', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr': {
-            'params': ['vlan', 'dynamic_mapping', 'ip6-extra-addr', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ip6-extra-addr', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
             ],
             'v_range': [['6.2.2', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist': {
-            'params': ['vlan', 'dynamic_mapping', 'ip6-prefix-list', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ip6-prefix-list', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
             ],
             'v_range': [['6.2.2', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_vrrp6': {
-            'params': ['vlan', 'dynamic_mapping', 'vrrp6', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan', 'vrrp6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}'
             ],
             'v_range': [['6.2.2', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_secondaryip': {
-            'params': ['vlan', 'dynamic_mapping', 'secondaryip', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'secondaryip', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
             ],
             'v_range': [['6.2.3', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_vrrp': {
-            'params': ['vlan', 'dynamic_mapping', 'vrrp', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vlan', 'vrrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}'
             ],
             'v_range': [['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_vrrp_proxyarp': {
-            'params': ['vlan', 'dynamic_mapping', 'vrrp', 'proxy-arp', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'proxy-arp', 'vlan', 'vrrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'v_range': [['7.4.0', '7.4.0']]
         },
         'fsp_vlan_interface': {
-            'params': ['vlan', 'adom'],
+            'params': ['adom', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface'
@@ -4996,7 +5634,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_interface_ipv6': {
-            'params': ['vlan', 'adom'],
+            'params': ['adom', 'vlan'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6'
@@ -5004,586 +5642,737 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_interface_ipv6_ip6delegatedprefixlist': {
-            'params': ['vlan', 'ip6-delegated-prefix-list', 'adom'],
+            'params': ['adom', 'ip6-delegated-prefix-list', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'fsp_vlan_interface_ipv6_ip6extraaddr': {
-            'params': ['vlan', 'ip6-extra-addr', 'adom'],
+            'params': ['adom', 'ip6-extra-addr', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'fsp_vlan_interface_ipv6_ip6prefixlist': {
-            'params': ['vlan', 'ip6-prefix-list', 'adom'],
+            'params': ['adom', 'ip6-prefix-list', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'fsp_vlan_interface_ipv6_vrrp6': {
-            'params': ['vlan', 'vrrp6', 'adom'],
+            'params': ['adom', 'vlan', 'vrrp6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/ipv6/vrrp6/{vrrp6}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'fsp_vlan_interface_secondaryip': {
-            'params': ['vlan', 'secondaryip', 'adom'],
+            'params': ['adom', 'secondaryip', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/secondaryip',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/secondaryip/{secondaryip}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/secondaryip',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/secondaryip/{secondaryip}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_interface_vrrp': {
-            'params': ['vlan', 'vrrp', 'adom'],
+            'params': ['adom', 'vlan', 'vrrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'fsp_vlan_interface_vrrp_proxyarp': {
-            'params': ['vlan', 'vrrp', 'proxy-arp', 'adom'],
+            'params': ['adom', 'proxy-arp', 'vlan', 'vrrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp',
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}',
+                '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}/proxy-arp/{proxy-arp}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'gtp_apn': {
-            'params': ['apn', 'adom'],
+            'params': ['adom', 'apn'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/apn',
                 '/pm/config/adom/{adom}/obj/gtp/apn/{apn}',
+                '/pm/config/global/obj/gtp/apn',
                 '/pm/config/global/obj/gtp/apn/{apn}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_apngrp': {
-            'params': ['apngrp', 'adom'],
+            'params': ['adom', 'apngrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/apngrp',
                 '/pm/config/adom/{adom}/obj/gtp/apngrp/{apngrp}',
+                '/pm/config/global/obj/gtp/apngrp',
                 '/pm/config/global/obj/gtp/apngrp/{apngrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_iewhitelist': {
-            'params': ['ie-white-list', 'adom'],
+            'params': ['adom', 'ie-white-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-white-list',
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}',
+                '/pm/config/global/obj/gtp/ie-white-list',
                 '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_iewhitelist_entries': {
-            'params': ['ie-white-list', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'ie-white-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}/entries',
                 '/pm/config/adom/{adom}/obj/gtp/ie-white-list/{ie-white-list}/entries/{entries}',
+                '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}/entries',
                 '/pm/config/global/obj/gtp/ie-white-list/{ie-white-list}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_messagefilterv0v1': {
-            'params': ['message-filter-v0v1', 'adom'],
+            'params': ['adom', 'message-filter-v0v1'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/message-filter-v0v1',
                 '/pm/config/adom/{adom}/obj/gtp/message-filter-v0v1/{message-filter-v0v1}',
+                '/pm/config/global/obj/gtp/message-filter-v0v1',
                 '/pm/config/global/obj/gtp/message-filter-v0v1/{message-filter-v0v1}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_messagefilterv2': {
-            'params': ['message-filter-v2', 'adom'],
+            'params': ['adom', 'message-filter-v2'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/message-filter-v2',
                 '/pm/config/adom/{adom}/obj/gtp/message-filter-v2/{message-filter-v2}',
+                '/pm/config/global/obj/gtp/message-filter-v2',
                 '/pm/config/global/obj/gtp/message-filter-v2/{message-filter-v2}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'gtp_tunnellimit': {
-            'params': ['tunnel-limit', 'adom'],
+            'params': ['adom', 'tunnel-limit'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/tunnel-limit',
                 '/pm/config/adom/{adom}/obj/gtp/tunnel-limit/{tunnel-limit}',
+                '/pm/config/global/obj/gtp/tunnel-limit',
                 '/pm/config/global/obj/gtp/tunnel-limit/{tunnel-limit}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'header_consolidated_policy': {
-            'params': ['policy', 'adom'],
+            'params': ['adom', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/consolidated/policy',
                 '/pm/config/adom/{adom}/obj/global/header/consolidated/policy/{policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'header_policy': {
-            'params': ['policy', 'adom'],
+            'params': ['adom', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/policy',
                 '/pm/config/adom/{adom}/obj/global/header/policy/{policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'header_policy6': {
-            'params': ['policy6', 'adom'],
+            'params': ['adom', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/policy6',
                 '/pm/config/adom/{adom}/obj/global/header/policy6/{policy6}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'header_policy6_identitybasedpolicy6': {
-            'params': ['policy6', 'identity-based-policy6', 'adom'],
+            'params': ['adom', 'identity-based-policy6', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/policy6/{policy6}/identity-based-policy6',
                 '/pm/config/adom/{adom}/obj/global/header/policy6/{policy6}/identity-based-policy6/{identity-based-policy6}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'header_policy_identitybasedpolicy': {
-            'params': ['policy', 'identity-based-policy', 'adom'],
+            'params': ['adom', 'identity-based-policy', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/policy/{policy}/identity-based-policy',
                 '/pm/config/adom/{adom}/obj/global/header/policy/{policy}/identity-based-policy/{identity-based-policy}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'header_shapingpolicy': {
-            'params': ['shaping-policy', 'adom'],
+            'params': ['adom', 'shaping-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/header/shaping-policy',
                 '/pm/config/adom/{adom}/obj/global/header/shaping-policy/{shaping-policy}'
             ],
             'v_range': [['6.0.0', '7.0.4'], ['7.2.0', '7.2.1']]
         },
         'hotspot20_anqp3gppcellular': {
-            'params': ['anqp-3gpp-cellular', 'adom'],
+            'params': ['adom', 'anqp-3gpp-cellular'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-3gpp-cellular',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqp3gppcellular_mccmnclist': {
-            'params': ['anqp-3gpp-cellular', 'mcc-mnc-list', 'adom'],
+            'params': ['adom', 'anqp-3gpp-cellular', 'mcc-mnc-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}/mcc-mnc-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}/mcc-mnc-list/{mcc-mnc-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}/mcc-mnc-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-3gpp-cellular/{anqp-3gpp-cellular}/mcc-mnc-list/{mcc-mnc-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpipaddresstype': {
-            'params': ['anqp-ip-address-type', 'adom'],
+            'params': ['adom', 'anqp-ip-address-type'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-ip-address-type',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-ip-address-type/{anqp-ip-address-type}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-ip-address-type',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-ip-address-type/{anqp-ip-address-type}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpnairealm': {
-            'params': ['anqp-nai-realm', 'adom'],
+            'params': ['adom', 'anqp-nai-realm'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpnairealm_nailist': {
-            'params': ['anqp-nai-realm', 'nai-list', 'adom'],
+            'params': ['adom', 'anqp-nai-realm', 'nai-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpnairealm_nailist_eapmethod': {
-            'params': ['anqp-nai-realm', 'nai-list', 'eap-method', 'adom'],
+            'params': ['adom', 'anqp-nai-realm', 'eap-method', 'nai-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpnairealm_nailist_eapmethod_authparam': {
-            'params': ['anqp-nai-realm', 'nai-list', 'eap-method', 'auth-param', 'adom'],
+            'params': ['adom', 'anqp-nai-realm', 'auth-param', 'eap-method', 'nai-list'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-pa'
+                'ram',
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-pa'
                 'ram/{auth-param}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-param',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-param/{'
                 'auth-param}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpnetworkauthtype': {
-            'params': ['anqp-network-auth-type', 'adom'],
+            'params': ['adom', 'anqp-network-auth-type'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-network-auth-type',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-network-auth-type/{anqp-network-auth-type}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-network-auth-type',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-network-auth-type/{anqp-network-auth-type}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqproamingconsortium': {
-            'params': ['anqp-roaming-consortium', 'adom'],
+            'params': ['adom', 'anqp-roaming-consortium'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-roaming-consortium',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqproamingconsortium_oilist': {
-            'params': ['anqp-roaming-consortium', 'oi-list', 'adom'],
+            'params': ['adom', 'anqp-roaming-consortium', 'oi-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}/oi-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}/oi-list/{oi-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}/oi-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-roaming-consortium/{anqp-roaming-consortium}/oi-list/{oi-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpvenuename': {
-            'params': ['anqp-venue-name', 'adom'],
+            'params': ['adom', 'anqp-venue-name'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-name',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpvenuename_valuelist': {
-            'params': ['anqp-venue-name', 'value-list', 'adom'],
+            'params': ['adom', 'anqp-venue-name', 'value-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}/value-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}/value-list/{value-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}/value-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-name/{anqp-venue-name}/value-list/{value-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_anqpvenueurl': {
-            'params': ['anqp-venue-url', 'adom'],
+            'params': ['adom', 'anqp-venue-url'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_anqpvenueurl_valuelist': {
-            'params': ['anqp-venue-url', 'value-list', 'adom'],
+            'params': ['adom', 'anqp-venue-url', 'value-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-venue-url/{anqp-venue-url}/value-list/{value-list}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qpadviceofcharge': {
-            'params': ['h2qp-advice-of-charge', 'adom'],
+            'params': ['adom', 'h2qp-advice-of-charge'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qpadviceofcharge_aoclist': {
-            'params': ['h2qp-advice-of-charge', 'aoc-list', 'adom'],
+            'params': ['adom', 'aoc-list', 'h2qp-advice-of-charge'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qpadviceofcharge_aoclist_planinfo': {
-            'params': ['h2qp-advice-of-charge', 'aoc-list', 'plan-info', 'adom'],
+            'params': ['adom', 'aoc-list', 'h2qp-advice-of-charge', 'plan-info'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-i'
                 'nfo}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}/aoc-list/{aoc-list}/plan-info/{plan-info}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qpconncapability': {
-            'params': ['h2qp-conn-capability', 'adom'],
+            'params': ['adom', 'h2qp-conn-capability'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-conn-capability',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-conn-capability/{h2qp-conn-capability}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-conn-capability',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-conn-capability/{h2qp-conn-capability}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qpoperatorname': {
-            'params': ['h2qp-operator-name', 'adom'],
+            'params': ['adom', 'h2qp-operator-name'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-operator-name',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qpoperatorname_valuelist': {
-            'params': ['h2qp-operator-name', 'value-list', 'adom'],
+            'params': ['adom', 'h2qp-operator-name', 'value-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}/value-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}/value-list/{value-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}/value-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-operator-name/{h2qp-operator-name}/value-list/{value-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qposuprovider': {
-            'params': ['h2qp-osu-provider', 'adom'],
+            'params': ['adom', 'h2qp-osu-provider'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qposuprovider_friendlyname': {
-            'params': ['h2qp-osu-provider', 'friendly-name', 'adom'],
+            'params': ['adom', 'friendly-name', 'h2qp-osu-provider'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/friendly-name',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/friendly-name/{friendly-name}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/friendly-name',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/friendly-name/{friendly-name}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qposuprovider_servicedescription': {
-            'params': ['h2qp-osu-provider', 'service-description', 'adom'],
+            'params': ['adom', 'h2qp-osu-provider', 'service-description'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/service-description',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/service-description/{service-description}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/service-description',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider/{h2qp-osu-provider}/service-description/{service-description}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_h2qposuprovidernai': {
-            'params': ['h2qp-osu-provider-nai', 'adom'],
+            'params': ['adom', 'h2qp-osu-provider-nai'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qposuprovidernai_nailist': {
-            'params': ['h2qp-osu-provider-nai', 'nai-list', 'adom'],
+            'params': ['adom', 'h2qp-osu-provider-nai', 'nai-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-osu-provider-nai/{h2qp-osu-provider-nai}/nai-list/{nai-list}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qptermsandconditions': {
-            'params': ['h2qp-terms-and-conditions', 'adom'],
+            'params': ['adom', 'h2qp-terms-and-conditions'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-terms-and-conditions/{h2qp-terms-and-conditions}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_h2qpwanmetric': {
-            'params': ['h2qp-wan-metric', 'adom'],
+            'params': ['adom', 'h2qp-wan-metric'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-wan-metric',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-wan-metric/{h2qp-wan-metric}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-wan-metric',
                 '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-wan-metric/{h2qp-wan-metric}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_hsprofile': {
-            'params': ['hs-profile', 'adom'],
+            'params': ['adom', 'hs-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/hs-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/hs-profile/{hs-profile}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/hs-profile',
                 '/pm/config/global/obj/wireless-controller/hotspot20/hs-profile/{hs-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_icon': {
-            'params': ['icon', 'adom'],
+            'params': ['adom', 'icon'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon',
                 '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_icon_iconlist': {
-            'params': ['icon', 'icon-list', 'adom'],
+            'params': ['adom', 'icon', 'icon-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list',
                 '/pm/config/global/obj/wireless-controller/hotspot20/icon/{icon}/icon-list/{icon-list}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'hotspot20_qosmap': {
-            'params': ['qos-map', 'adom'],
+            'params': ['adom', 'qos-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/qos-map',
                 '/pm/config/global/obj/wireless-controller/hotspot20/qos-map/{qos-map}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_qosmap_dscpexcept': {
-            'params': ['qos-map', 'dscp-except', 'adom'],
+            'params': ['adom', 'dscp-except', 'qos-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-except',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-except/{dscp-except}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-except',
                 '/pm/config/global/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-except/{dscp-except}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'hotspot20_qosmap_dscprange': {
-            'params': ['qos-map', 'dscp-range', 'adom'],
+            'params': ['adom', 'dscp-range', 'qos-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-range',
                 '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-range/{dscp-range}',
+                '/pm/config/global/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-range',
                 '/pm/config/global/obj/wireless-controller/hotspot20/qos-map/{qos-map}/dscp-range/{dscp-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'icap_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/icap/profile',
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}',
+                '/pm/config/global/obj/icap/profile',
                 '/pm/config/global/obj/icap/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'icap_profile_icapheaders': {
-            'params': ['profile', 'icap-headers', 'adom'],
+            'params': ['adom', 'icap-headers', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers',
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}/icap-headers/{icap-headers}',
+                '/pm/config/global/obj/icap/profile/{profile}/icap-headers',
                 '/pm/config/global/obj/icap/profile/{profile}/icap-headers/{icap-headers}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'icap_profile_respmodforwardrules': {
-            'params': ['profile', 'respmod-forward-rules', 'adom'],
+            'params': ['adom', 'profile', 'respmod-forward-rules'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules',
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules',
                 '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'icap_profile_respmodforwardrules_headergroup': {
-            'params': ['profile', 'respmod-forward-rules', 'header-group', 'adom'],
+            'params': ['adom', 'header-group', 'profile', 'respmod-forward-rules'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group',
                 '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}',
+                '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group',
                 '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}/header-group/{header-group}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'icap_server': {
-            'params': ['server', 'adom'],
+            'params': ['adom', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/icap/server',
                 '/pm/config/adom/{adom}/obj/icap/server/{server}',
+                '/pm/config/global/obj/icap/server',
                 '/pm/config/global/obj/icap/server/{server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'ips_baseline_sensor': {
-            'params': ['sensor', 'adom'],
+            'params': ['adom', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}',
+                '/pm/config/global/obj/ips/baseline/sensor',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_baseline_sensor_entries': {
-            'params': ['sensor', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_baseline_sensor_entries_exemptip': {
-            'params': ['sensor', 'entries', 'exempt-ip', 'adom'],
+            'params': ['adom', 'entries', 'exempt-ip', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_baseline_sensor_filter': {
-            'params': ['sensor', 'filter', 'adom'],
+            'params': ['adom', 'filter', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}/filter/{filter}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_baseline_sensor_override': {
-            'params': ['sensor', 'override', 'adom'],
+            'params': ['adom', 'override', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_baseline_sensor_override_exemptip': {
-            'params': ['sensor', 'override', 'exempt-ip', 'adom'],
+            'params': ['adom', 'exempt-ip', 'override', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
             ],
             'v_range': [['7.0.1', '7.0.2']]
         },
         'ips_custom': {
-            'params': ['custom', 'adom'],
+            'params': ['adom', 'custom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ips/custom',
                 '/pm/config/adom/{adom}/obj/ips/custom/{custom}',
+                '/pm/config/global/obj/ips/custom',
                 '/pm/config/global/obj/ips/custom/{custom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'ips_sensor': {
-            'params': ['sensor', 'adom'],
+            'params': ['adom', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}',
+                '/pm/config/adom/{adom}/obj/ips/sensor',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}',
+                '/pm/config/global/obj/global/ips/sensor',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}',
+                '/pm/config/global/obj/ips/sensor',
                 '/pm/config/global/obj/ips/sensor/{sensor}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'ips_sensor_entries': {
-            'params': ['sensor', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'sensor'],
             'urls': [
-                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}'
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries',
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries',
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.3', '']]
         },
         'ips_sensor_entries_exemptip': {
-            'params': ['sensor', 'entries', 'exempt-ip', 'adom'],
+            'params': ['adom', 'entries', 'exempt-ip', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip',
                 '/pm/config/global/obj/ips/sensor/{sensor}/entries/{entries}/exempt-ip/{exempt-ip}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'ips_sensor_filter': {
-            'params': ['sensor', 'filter', 'adom'],
+            'params': ['adom', 'filter', 'sensor'],
             'urls': [
-                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter/{filter}',
-                '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}',
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/filter',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/filter/{filter}',
-                '/pm/config/global/obj/global/ips/sensor/{sensor}/filter/{filter}'
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter',
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/filter',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/filter/{filter}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/filter',
+                '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}'
             ],
-            'v_range': [['6.0.0', '6.2.0']]
+            'v_range': [['7.0.3', '']]
         },
         'ips_sensor_override': {
-            'params': ['sensor', 'override', 'adom'],
+            'params': ['adom', 'override', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}',
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override/{override}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/override',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/override/{override}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/override',
                 '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'ips_sensor_override_exemptip': {
-            'params': ['sensor', 'override', 'exempt-ip', 'adom'],
+            'params': ['adom', 'exempt-ip', 'override', 'sensor'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/adom/{adom}/obj/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/global/obj/global/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}',
+                '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}/exempt-ip',
                 '/pm/config/global/obj/ips/sensor/{sensor}/override/{override}/exempt-ip/{exempt-ip}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'log_customfield': {
-            'params': ['custom-field', 'adom'],
+            'params': ['adom', 'custom-field'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/log/custom-field',
                 '/pm/config/adom/{adom}/obj/log/custom-field/{custom-field}',
+                '/pm/config/global/obj/log/custom-field',
                 '/pm/config/global/obj/log/custom-field/{custom-field}'
             ],
             'v_range': [['6.0.0', '']]
@@ -5597,17 +6386,21 @@ def main():
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'log_npuserver_servergroup': {
-            'params': ['server-group', 'adom'],
+            'params': ['adom', 'server-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-group',
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}',
+                '/pm/config/global/obj/log/npu-server/server-group',
                 '/pm/config/global/obj/log/npu-server/server-group/{server-group}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'log_npuserver_serverinfo': {
-            'params': ['server-info', 'adom'],
+            'params': ['adom', 'server-info'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/log/npu-server/server-info',
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
+                '/pm/config/global/obj/log/npu-server/server-info',
                 '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
@@ -5620,363 +6413,416 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'mpskprofile': {
-            'params': ['mpsk-profile', 'adom'],
+            'params': ['adom', 'mpsk-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile',
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'mpskprofile_mpskgroup': {
-            'params': ['mpsk-profile', 'mpsk-group', 'adom'],
+            'params': ['adom', 'mpsk-group', 'mpsk-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group',
                 '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group',
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'mpskprofile_mpskgroup_mpskkey': {
-            'params': ['mpsk-profile', 'mpsk-group', 'mpsk-key', 'adom'],
+            'params': ['adom', 'mpsk-group', 'mpsk-key', 'mpsk-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key',
                 '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
+                '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key',
                 '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'nacprofile': {
-            'params': ['nac-profile', 'adom'],
+            'params': ['adom', 'nac-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/nac-profile/{nac-profile}',
+                '/pm/config/global/obj/wireless-controller/nac-profile',
                 '/pm/config/global/obj/wireless-controller/nac-profile/{nac-profile}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'pkg_authentication_rule': {
-            'params': ['pkg', 'rule', 'adom'],
+            'params': ['adom', 'pkg', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/authentication/rule',
                 '/pm/config/adom/{adom}/pkg/{pkg}/authentication/rule/{rule}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'pkg_authentication_setting': {
-            'params': ['pkg', 'adom'],
+            'params': ['adom', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/authentication/setting'
             ],
             'v_range': [['6.2.1', '']]
         },
         'pkg_central_dnat': {
-            'params': ['pkg', 'dnat', 'adom'],
+            'params': ['adom', 'dnat', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat',
                 '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat/{dnat}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_central_dnat6': {
-            'params': ['pkg', 'dnat6', 'adom'],
+            'params': ['adom', 'dnat6', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/central/dnat6/{dnat6}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'pkg_firewall_acl': {
-            'params': ['pkg', 'acl', 'adom'],
+            'params': ['acl', 'adom', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'v_range': [['7.2.0', '7.2.0']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
-            'params': ['pkg', 'acl6', 'adom'],
+            'params': ['acl6', 'adom', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'v_range': [['7.2.0', '7.2.0']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
-            'params': ['pkg', 'central-snat-map', 'adom'],
+            'params': ['adom', 'central-snat-map', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/central-snat-map',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/central-snat-map/{central-snat-map}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_consolidated_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/consolidated/policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/consolidated/policy/{policy}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'pkg_firewall_dospolicy': {
-            'params': ['pkg', 'DoS-policy', 'adom'],
+            'params': ['DoS-policy', 'adom', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy/{DoS-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_dospolicy6': {
-            'params': ['pkg', 'DoS-policy6', 'adom'],
+            'params': ['DoS-policy6', 'adom', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_dospolicy6_anomaly': {
-            'params': ['pkg', 'DoS-policy6', 'anomaly', 'adom'],
+            'params': ['DoS-policy6', 'adom', 'anomaly', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}/anomaly',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}/anomaly/{anomaly}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_dospolicy_anomaly': {
-            'params': ['pkg', 'DoS-policy', 'anomaly', 'adom'],
+            'params': ['DoS-policy', 'adom', 'anomaly', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy/{DoS-policy}/anomaly',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy/{DoS-policy}/anomaly/{anomaly}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_explicitproxypolicy': {
-            'params': ['pkg', 'explicit-proxy-policy', 'adom'],
+            'params': ['adom', 'explicit-proxy-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'pkg_firewall_explicitproxypolicy_identitybasedpolicy': {
-            'params': ['pkg', 'explicit-proxy-policy', 'identity-based-policy', 'adom'],
+            'params': ['adom', 'explicit-proxy-policy', 'identity-based-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}/identity-based-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}/identity-based-policy/{identity-based-policy}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'pkg_firewall_hyperscalepolicy': {
-            'params': ['pkg', 'hyperscale-policy', 'adom'],
+            'params': ['adom', 'hyperscale-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
-            'params': ['pkg', 'hyperscale-policy46', 'adom'],
+            'params': ['adom', 'hyperscale-policy46', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
-            'params': ['pkg', 'hyperscale-policy6', 'adom'],
+            'params': ['adom', 'hyperscale-policy6', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
-            'params': ['pkg', 'hyperscale-policy64', 'adom'],
+            'params': ['adom', 'hyperscale-policy64', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0']]
+            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
-            'params': ['pkg', 'interface-policy', 'adom'],
+            'params': ['adom', 'interface-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'v_range': [['6.0.0', '7.2.2']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
-            'params': ['pkg', 'interface-policy6', 'adom'],
+            'params': ['adom', 'interface-policy6', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'v_range': [['6.0.0', '7.2.2']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
-            'params': ['pkg', 'local-in-policy', 'adom'],
+            'params': ['adom', 'local-in-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy/{local-in-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_localinpolicy6': {
-            'params': ['pkg', 'local-in-policy6', 'adom'],
+            'params': ['adom', 'local-in-policy6', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy6/{local-in-policy6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_multicastpolicy': {
-            'params': ['pkg', 'multicast-policy', 'adom'],
+            'params': ['adom', 'multicast-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy/{multicast-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_multicastpolicy6': {
-            'params': ['pkg', 'multicast-policy6', 'adom'],
+            'params': ['adom', 'multicast-policy6', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy6/{multicast-policy6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_policy46': {
-            'params': ['pkg', 'policy46', 'adom'],
+            'params': ['adom', 'pkg', 'policy46'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy46',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy46/{policy46}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_policy6': {
-            'params': ['pkg', 'policy6', 'adom'],
+            'params': ['adom', 'pkg', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy6/{policy6}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_policy64': {
-            'params': ['pkg', 'policy64', 'adom'],
+            'params': ['adom', 'pkg', 'policy64'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64/{policy64}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_policy_vpndstnode': {
-            'params': ['pkg', 'policy', 'vpn_dst_node', 'adom'],
+            'params': ['adom', 'pkg', 'policy', 'vpn_dst_node'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_dst_node',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_dst_node/{vpn_dst_node}'
             ],
             'v_range': [['6.0.0', '7.0.2']]
         },
         'pkg_firewall_policy_vpnsrcnode': {
-            'params': ['pkg', 'policy', 'vpn_src_node', 'adom'],
+            'params': ['adom', 'pkg', 'policy', 'vpn_src_node'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_src_node',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy/{policy}/vpn_src_node/{vpn_src_node}'
             ],
             'v_range': [['6.0.0', '7.0.2']]
         },
         'pkg_firewall_proxypolicy': {
-            'params': ['pkg', 'proxy-policy', 'adom'],
+            'params': ['adom', 'pkg', 'proxy-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/proxy-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/proxy-policy/{proxy-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_firewall_securitypolicy': {
-            'params': ['pkg', 'security-policy', 'adom'],
+            'params': ['adom', 'pkg', 'security-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/security-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/security-policy/{security-policy}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'pkg_firewall_shapingpolicy': {
-            'params': ['pkg', 'shaping-policy', 'adom'],
+            'params': ['adom', 'pkg', 'shaping-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy/{shaping-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'pkg_footer_consolidated_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/footer/consolidated/policy/{policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/consolidated/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/consolidated/policy/{policy}',
+                '/pm/config/global/pkg/{pkg}/global/footer/consolidated/policy',
+                '/pm/config/global/pkg/{pkg}/global/footer/consolidated/policy/{policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_footer_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/policy/{policy}',
+                '/pm/config/global/pkg/{pkg}/global/footer/policy',
+                '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_footer_policy6': {
-            'params': ['pkg', 'policy6', 'adom'],
+            'params': ['adom', 'pkg', 'policy6'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/policy6/{policy6}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/policy6/{policy6}',
+                '/pm/config/global/pkg/{pkg}/global/footer/policy6',
+                '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_footer_policy6_identitybasedpolicy6': {
-            'params': ['pkg', 'policy6', 'identity-based-policy6'],
+            'params': ['identity-based-policy6', 'pkg', 'policy6'],
             'urls': [
+                '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}/identity-based-policy6',
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}/identity-based-policy6/{identity-based-policy6}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'pkg_footer_policy_identitybasedpolicy': {
-            'params': ['pkg', 'policy', 'identity-based-policy'],
+            'params': ['identity-based-policy', 'pkg', 'policy'],
             'urls': [
+                '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}/identity-based-policy',
                 '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}/identity-based-policy/{identity-based-policy}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'pkg_footer_shapingpolicy': {
-            'params': ['pkg', 'shaping-policy', 'adom'],
+            'params': ['adom', 'pkg', 'shaping-policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}',
+                '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy',
+                '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_header_consolidated_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/header/consolidated/policy/{policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/consolidated/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/consolidated/policy/{policy}',
+                '/pm/config/global/pkg/{pkg}/global/header/consolidated/policy',
+                '/pm/config/global/pkg/{pkg}/global/header/consolidated/policy/{policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_header_policy': {
-            'params': ['pkg', 'policy', 'adom'],
+            'params': ['adom', 'pkg', 'policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/policy/{policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/policy/{policy}',
+                '/pm/config/global/pkg/{pkg}/global/header/policy',
+                '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_header_policy6': {
-            'params': ['pkg', 'policy6', 'adom'],
+            'params': ['adom', 'pkg', 'policy6'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/policy6/{policy6}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/policy6/{policy6}',
+                '/pm/config/global/pkg/{pkg}/global/header/policy6',
+                '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_header_policy6_identitybasedpolicy6': {
-            'params': ['pkg', 'policy6', 'identity-based-policy6'],
+            'params': ['identity-based-policy6', 'pkg', 'policy6'],
             'urls': [
+                '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}/identity-based-policy6',
                 '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}/identity-based-policy6/{identity-based-policy6}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'pkg_header_policy_identitybasedpolicy': {
-            'params': ['pkg', 'policy', 'identity-based-policy'],
+            'params': ['identity-based-policy', 'pkg', 'policy'],
             'urls': [
+                '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}/identity-based-policy',
                 '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}/identity-based-policy/{identity-based-policy}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
         },
         'pkg_header_shapingpolicy': {
-            'params': ['pkg', 'shaping-policy', 'adom'],
+            'params': ['adom', 'pkg', 'shaping-policy'],
             'urls': [
-                '/pm/config/global/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}',
-                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}'
+                '/pm/config/adom/{adom}/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}',
+                '/pm/config/global/pkg/{pkg}/global/header/shaping-policy',
+                '/pm/config/global/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']]
         },
         'pkg_user_nacpolicy': {
-            'params': ['pkg', 'nac-policy', 'adom'],
+            'params': ['adom', 'nac-policy', 'pkg'],
             'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/user/nac-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/user/nac-policy/{nac-policy}'
             ],
             'v_range': [['7.2.1', '']]
@@ -6010,47 +6856,57 @@ def main():
                 '/pm/config/adom/{adom}/_data/default_sslvpn_os_check_list',
                 '/pm/config/global/_data/default_sslvpn_os_check_list'
             ],
-            'v_range': [['7.2.5', '7.2.5']]
+            'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']]
         },
         'pm_config_data_tablesize': {
-            'params': ['tablesize', 'adom'],
+            'params': ['adom', 'tablesize'],
             'urls': [
+                '/pm/config/adom/{adom}/_data/tablesize',
                 '/pm/config/adom/{adom}/_data/tablesize/{tablesize}',
+                '/pm/config/global/_data/tablesize',
                 '/pm/config/global/_data/tablesize/{tablesize}'
             ],
-            'v_range': [['6.2.0', '7.0.6'], ['7.2.0', '7.2.1']]
+            'v_range': [['6.2.0', '']]
         },
         'pm_config_data_tablesize_faz': {
-            'params': ['faz', 'adom'],
+            'params': ['adom', 'faz'],
             'urls': [
+                '/pm/config/adom/{adom}/_data/tablesize/faz',
                 '/pm/config/adom/{adom}/_data/tablesize/faz/{faz}',
+                '/pm/config/global/_data/tablesize/faz',
                 '/pm/config/global/_data/tablesize/faz/{faz}'
             ],
-            'v_range': [['6.2.0', '7.0.6'], ['7.2.0', '7.2.1']]
+            'v_range': [['6.2.0', '']]
         },
         'pm_config_data_tablesize_fmg': {
-            'params': ['fmg', 'adom'],
+            'params': ['adom', 'fmg'],
             'urls': [
+                '/pm/config/adom/{adom}/_data/tablesize/fmg',
                 '/pm/config/adom/{adom}/_data/tablesize/fmg/{fmg}',
+                '/pm/config/global/_data/tablesize/fmg',
                 '/pm/config/global/_data/tablesize/fmg/{fmg}'
             ],
-            'v_range': [['6.2.0', '7.0.6'], ['7.2.0', '7.2.1']]
+            'v_range': [['6.2.0', '']]
         },
         'pm_config_data_tablesize_fos': {
-            'params': ['fos', 'adom'],
+            'params': ['adom', 'fos'],
             'urls': [
+                '/pm/config/adom/{adom}/_data/tablesize/fos',
                 '/pm/config/adom/{adom}/_data/tablesize/fos/{fos}',
+                '/pm/config/global/_data/tablesize/fos',
                 '/pm/config/global/_data/tablesize/fos/{fos}'
             ],
-            'v_range': [['6.2.0', '7.0.6'], ['7.2.0', '7.2.1']]
+            'v_range': [['6.2.0', '']]
         },
         'pm_config_data_tablesize_log': {
-            'params': ['log', 'adom'],
+            'params': ['adom', 'log'],
             'urls': [
+                '/pm/config/adom/{adom}/_data/tablesize/log',
                 '/pm/config/adom/{adom}/_data/tablesize/log/{log}',
+                '/pm/config/global/_data/tablesize/log',
                 '/pm/config/global/_data/tablesize/log/{log}'
             ],
-            'v_range': [['6.2.0', '7.0.6'], ['7.2.0', '7.2.1']]
+            'v_range': [['6.2.0', '']]
         },
         'pm_config_fct_endpointcontrol_profile': {
             'params': ['adom'],
@@ -6102,36 +6958,42 @@ def main():
             'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']]
         },
         'pm_config_package_status': {
-            'params': ['device_name', 'vdom_name', 'adom'],
+            'params': ['adom', 'device_name', 'vdom_name'],
             'urls': [
-                '/pm/config/adom/{adom}/_package/status/{device_name}/{vdom_name}'
+                '/pm/config/adom/{adom}/_package/status',
+                '/pm/config/adom/{adom}/_package/status/{device_name}/{vdom_name}',
+                '/pm/config/global/_package/status'
             ],
             'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']]
         },
         'pm_config_pblock_firewall_consolidated_policy': {
-            'params': ['pblock', 'policy', 'adom'],
+            'params': ['adom', 'pblock', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/consolidated/policy',
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/consolidated/policy/{policy}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'pm_config_pblock_firewall_policy': {
-            'params': ['pblock', 'policy', 'adom'],
+            'params': ['adom', 'pblock', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy',
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy/{policy}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'pm_config_pblock_firewall_policy6': {
-            'params': ['pblock', 'policy6', 'adom'],
+            'params': ['adom', 'pblock', 'policy6'],
             'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6',
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6/{policy6}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'pm_config_pblock_firewall_securitypolicy': {
-            'params': ['pblock', 'security-policy', 'adom'],
+            'params': ['adom', 'pblock', 'security-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/security-policy',
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/security-policy/{security-policy}'
             ],
             'v_range': [['7.0.3', '']]
@@ -6145,7 +7007,7 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'pm_devprof': {
-            'params': ['pkg_path', 'adom'],
+            'params': ['adom', 'pkg_path'],
             'urls': [
                 '/pm/devprof/adom/{adom}/{pkg_path}'
             ],
@@ -6159,7 +7021,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'pm_pblock': {
-            'params': ['pkg_path', 'adom'],
+            'params': ['adom', 'pkg_path'],
             'urls': [
                 '/pm/pblock/adom/{adom}/{pkg_path}'
             ],
@@ -6173,7 +7035,7 @@ def main():
             'v_range': [['7.0.3', '']]
         },
         'pm_pkg': {
-            'params': ['pkg_path', 'adom'],
+            'params': ['adom', 'pkg_path'],
             'urls': [
                 '/pm/pkg/adom/{adom}/{pkg_path}',
                 '/pm/pkg/global/{pkg_path}'
@@ -6195,7 +7057,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'pm_pkg_schedule': {
-            'params': ['pkg_name_path', 'adom'],
+            'params': ['adom', 'pkg_name_path'],
             'urls': [
                 '/pm/pkg/adom/{adom}/{pkg_name_path}/schedule',
                 '/pm/pkg/global/{pkg_name_path}/schedule'
@@ -6203,7 +7065,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'pm_wanprof': {
-            'params': ['pkg_path', 'adom'],
+            'params': ['adom', 'pkg_path'],
             'urls': [
                 '/pm/wanprof/adom/{adom}/{pkg_path}'
             ],
@@ -6217,17 +7079,21 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'qosprofile': {
-            'params': ['qos-profile', 'adom'],
+            'params': ['adom', 'qos-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/qos-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/qos-profile/{qos-profile}',
+                '/pm/config/global/obj/wireless-controller/qos-profile',
                 '/pm/config/global/obj/wireless-controller/qos-profile/{qos-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'region': {
-            'params': ['region', 'adom'],
+            'params': ['adom', 'region'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/region',
                 '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}',
+                '/pm/config/global/obj/wireless-controller/region',
                 '/pm/config/global/obj/wireless-controller/region/{region}'
             ],
             'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']]
@@ -6235,7 +7101,9 @@ def main():
         'router_accesslist': {
             'params': ['access-list', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/access-list',
                 '/pm/config/adom/{adom}/obj/router/access-list/{access-list}',
+                '/pm/config/global/obj/router/access-list',
                 '/pm/config/global/obj/router/access-list/{access-list}'
             ],
             'v_range': [['7.0.2', '']]
@@ -6243,213 +7111,265 @@ def main():
         'router_accesslist6': {
             'params': ['access-list6', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/access-list6',
                 '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}',
+                '/pm/config/global/obj/router/access-list6',
                 '/pm/config/global/obj/router/access-list6/{access-list6}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_accesslist6_rule': {
-            'params': ['access-list6', 'rule', 'adom'],
+            'params': ['access-list6', 'adom', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule',
                 '/pm/config/adom/{adom}/obj/router/access-list6/{access-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list6/{access-list6}/rule',
                 '/pm/config/global/obj/router/access-list6/{access-list6}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_accesslist_rule': {
-            'params': ['access-list', 'rule', 'adom'],
+            'params': ['access-list', 'adom', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule',
                 '/pm/config/adom/{adom}/obj/router/access-list/{access-list}/rule/{rule}',
+                '/pm/config/global/obj/router/access-list/{access-list}/rule',
                 '/pm/config/global/obj/router/access-list/{access-list}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_aspathlist': {
-            'params': ['aspath-list', 'adom'],
+            'params': ['adom', 'aspath-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/aspath-list',
                 '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}',
+                '/pm/config/global/obj/router/aspath-list',
                 '/pm/config/global/obj/router/aspath-list/{aspath-list}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_aspathlist_rule': {
-            'params': ['aspath-list', 'rule', 'adom'],
+            'params': ['adom', 'aspath-list', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule',
                 '/pm/config/adom/{adom}/obj/router/aspath-list/{aspath-list}/rule/{rule}',
+                '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule',
                 '/pm/config/global/obj/router/aspath-list/{aspath-list}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_communitylist': {
-            'params': ['community-list', 'adom'],
+            'params': ['adom', 'community-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/community-list',
                 '/pm/config/adom/{adom}/obj/router/community-list/{community-list}',
+                '/pm/config/global/obj/router/community-list',
                 '/pm/config/global/obj/router/community-list/{community-list}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_communitylist_rule': {
-            'params': ['community-list', 'rule', 'adom'],
+            'params': ['adom', 'community-list', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule',
                 '/pm/config/adom/{adom}/obj/router/community-list/{community-list}/rule/{rule}',
+                '/pm/config/global/obj/router/community-list/{community-list}/rule',
                 '/pm/config/global/obj/router/community-list/{community-list}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_prefixlist': {
-            'params': ['prefix-list', 'adom'],
+            'params': ['adom', 'prefix-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/prefix-list',
                 '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}',
+                '/pm/config/global/obj/router/prefix-list',
                 '/pm/config/global/obj/router/prefix-list/{prefix-list}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_prefixlist6': {
-            'params': ['prefix-list6', 'adom'],
+            'params': ['adom', 'prefix-list6'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/prefix-list6',
                 '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}',
+                '/pm/config/global/obj/router/prefix-list6',
                 '/pm/config/global/obj/router/prefix-list6/{prefix-list6}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_prefixlist6_rule': {
-            'params': ['prefix-list6', 'rule', 'adom'],
+            'params': ['adom', 'prefix-list6', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule',
                 '/pm/config/adom/{adom}/obj/router/prefix-list6/{prefix-list6}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule',
                 '/pm/config/global/obj/router/prefix-list6/{prefix-list6}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_prefixlist_rule': {
-            'params': ['prefix-list', 'rule', 'adom'],
+            'params': ['adom', 'prefix-list', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule',
                 '/pm/config/adom/{adom}/obj/router/prefix-list/{prefix-list}/rule/{rule}',
+                '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule',
                 '/pm/config/global/obj/router/prefix-list/{prefix-list}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_routemap': {
-            'params': ['route-map', 'adom'],
+            'params': ['adom', 'route-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/route-map',
                 '/pm/config/adom/{adom}/obj/router/route-map/{route-map}',
+                '/pm/config/global/obj/router/route-map',
                 '/pm/config/global/obj/router/route-map/{route-map}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'router_routemap_rule': {
-            'params': ['route-map', 'rule', 'adom'],
+            'params': ['adom', 'route-map', 'rule'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule',
                 '/pm/config/adom/{adom}/obj/router/route-map/{route-map}/rule/{rule}',
+                '/pm/config/global/obj/router/route-map/{route-map}/rule',
                 '/pm/config/global/obj/router/route-map/{route-map}/rule/{rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'sctpfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/sctp-filter/profile',
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}',
+                '/pm/config/global/obj/sctp-filter/profile',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
             'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
-            'params': ['profile', 'ppid-filters', 'adom'],
+            'params': ['adom', 'ppid-filters', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters',
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}',
+                '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
             'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
-            'params': ['bwl', 'adom'],
+            'params': ['adom', 'bwl'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bwl',
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}',
+                '/pm/config/global/obj/spamfilter/bwl',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_bwl_entries': {
-            'params': ['bwl', 'entries', 'adom'],
+            'params': ['adom', 'bwl', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries',
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_bword': {
-            'params': ['bword', 'adom'],
+            'params': ['adom', 'bword'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bword',
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}',
+                '/pm/config/global/obj/spamfilter/bword',
                 '/pm/config/global/obj/spamfilter/bword/{bword}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_bword_entries': {
-            'params': ['bword', 'entries', 'adom'],
+            'params': ['adom', 'bword', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries',
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/bword/{bword}/entries',
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_dnsbl': {
-            'params': ['dnsbl', 'adom'],
+            'params': ['adom', 'dnsbl'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/dnsbl',
                 '/pm/config/adom/{adom}/obj/spamfilter/dnsbl/{dnsbl}',
+                '/pm/config/global/obj/spamfilter/dnsbl',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_dnsbl_entries': {
-            'params': ['dnsbl', 'entries', 'adom'],
+            'params': ['adom', 'dnsbl', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/dnsbl/{dnsbl}/entries',
                 '/pm/config/adom/{adom}/obj/spamfilter/dnsbl/{dnsbl}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}/entries',
                 '/pm/config/global/obj/spamfilter/dnsbl/{dnsbl}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_iptrust': {
-            'params': ['iptrust', 'adom'],
+            'params': ['adom', 'iptrust'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/iptrust',
                 '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}',
+                '/pm/config/global/obj/spamfilter/iptrust',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_iptrust_entries': {
-            'params': ['iptrust', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'iptrust'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}/entries',
                 '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/iptrust/{iptrust}/entries',
                 '/pm/config/global/obj/spamfilter/iptrust/{iptrust}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_mheader': {
-            'params': ['mheader', 'adom'],
+            'params': ['adom', 'mheader'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/mheader',
                 '/pm/config/adom/{adom}/obj/spamfilter/mheader/{mheader}',
+                '/pm/config/global/obj/spamfilter/mheader',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_mheader_entries': {
-            'params': ['mheader', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'mheader'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/mheader/{mheader}/entries',
                 '/pm/config/adom/{adom}/obj/spamfilter/mheader/{mheader}/entries/{entries}',
+                '/pm/config/global/obj/spamfilter/mheader/{mheader}/entries',
                 '/pm/config/global/obj/spamfilter/mheader/{mheader}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/spamfilter/profile',
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}',
+                '/pm/config/global/obj/spamfilter/profile',
                 '/pm/config/global/obj/spamfilter/profile/{profile}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_gmail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/gmail',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/gmail'
@@ -6457,7 +7377,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_imap': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/imap',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/imap'
@@ -6465,7 +7385,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_mapi': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/mapi',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/mapi'
@@ -6473,7 +7393,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_msnhotmail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/msn-hotmail',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/msn-hotmail'
@@ -6481,7 +7401,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_pop3': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/pop3',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/pop3'
@@ -6489,7 +7409,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_smtp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/smtp',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/smtp'
@@ -6497,7 +7417,7 @@ def main():
             'v_range': [['6.0.0', '7.2.1']]
         },
         'spamfilter_profile_yahoomail': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/yahoo-mail',
                 '/pm/config/global/obj/spamfilter/profile/{profile}/yahoo-mail'
@@ -6505,15 +7425,17 @@ def main():
             'v_range': [['6.0.0', '6.2.12']]
         },
         'sshfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile',
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}',
+                '/pm/config/global/obj/ssh-filter/profile',
                 '/pm/config/global/obj/ssh-filter/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'sshfilter_profile_filefilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter',
                 '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter'
@@ -6521,39 +7443,47 @@ def main():
             'v_range': [['6.2.2', '']]
         },
         'sshfilter_profile_filefilter_entries': {
-            'params': ['profile', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter/entries',
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter/entries',
                 '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'sshfilter_profile_shellcommands': {
-            'params': ['profile', 'shell-commands', 'adom'],
+            'params': ['adom', 'profile', 'shell-commands'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/shell-commands',
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}',
+                '/pm/config/global/obj/ssh-filter/profile/{profile}/shell-commands',
                 '/pm/config/global/obj/ssh-filter/profile/{profile}/shell-commands/{shell-commands}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_acl_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/group',
                 '/pm/config/adom/{adom}/obj/switch-controller/acl/group/{group}',
+                '/pm/config/global/obj/switch-controller/acl/group',
                 '/pm/config/global/obj/switch-controller/acl/group/{group}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'switchcontroller_acl_ingress': {
-            'params': ['ingress', 'adom'],
+            'params': ['adom', 'ingress'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress',
                 '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}',
+                '/pm/config/global/obj/switch-controller/acl/ingress',
                 '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'switchcontroller_acl_ingress_action': {
-            'params': ['ingress', 'adom'],
+            'params': ['adom', 'ingress'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/action',
                 '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/action'
@@ -6561,7 +7491,7 @@ def main():
             'v_range': [['7.4.0', '']]
         },
         'switchcontroller_acl_ingress_classifier': {
-            'params': ['ingress', 'adom'],
+            'params': ['adom', 'ingress'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/classifier',
                 '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/classifier'
@@ -6569,47 +7499,57 @@ def main():
             'v_range': [['7.4.0', '']]
         },
         'switchcontroller_customcommand': {
-            'params': ['custom-command', 'adom'],
+            'params': ['adom', 'custom-command'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/custom-command',
                 '/pm/config/adom/{adom}/obj/switch-controller/custom-command/{custom-command}',
+                '/pm/config/global/obj/switch-controller/custom-command',
                 '/pm/config/global/obj/switch-controller/custom-command/{custom-command}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'switchcontroller_dsl_policy': {
-            'params': ['policy', 'adom'],
+            'params': ['adom', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dsl/policy',
                 '/pm/config/global/obj/switch-controller/dsl/policy/{policy}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'switchcontroller_dynamicportpolicy': {
-            'params': ['dynamic-port-policy', 'adom'],
+            'params': ['adom', 'dynamic-port-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy',
                 '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_dynamicportpolicy_policy': {
-            'params': ['dynamic-port-policy', 'policy', 'adom'],
+            'params': ['adom', 'dynamic-port-policy', 'policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
+                '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy',
                 '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_fortilinksettings': {
-            'params': ['fortilink-settings', 'adom'],
+            'params': ['adom', 'fortilink-settings'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings',
                 '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}',
+                '/pm/config/global/obj/switch-controller/fortilink-settings',
                 '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_fortilinksettings_nacports': {
-            'params': ['fortilink-settings', 'adom'],
+            'params': ['adom', 'fortilink-settings'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports',
                 '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports'
@@ -6617,158 +7557,169 @@ def main():
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_lldpprofile': {
-            'params': ['lldp-profile', 'adom'],
+            'params': ['adom', 'lldp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile',
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}',
+                '/pm/config/global/obj/switch-controller/lldp-profile',
                 '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_lldpprofile_customtlvs': {
-            'params': ['lldp-profile', 'custom-tlvs', 'adom'],
+            'params': ['adom', 'custom-tlvs', 'lldp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/custom-tlvs',
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/custom-tlvs/{custom-tlvs}',
+                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/custom-tlvs',
                 '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/custom-tlvs/{custom-tlvs}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_lldpprofile_medlocationservice': {
-            'params': ['lldp-profile', 'med-location-service', 'adom'],
+            'params': ['adom', 'lldp-profile', 'med-location-service'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service',
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}',
+                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service',
                 '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-location-service/{med-location-service}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'switchcontroller_lldpprofile_mednetworkpolicy': {
-            'params': ['lldp-profile', 'med-network-policy', 'adom'],
+            'params': ['adom', 'lldp-profile', 'med-network-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-network-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}/med-network-policy/{med-network-policy}',
+                '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-network-policy',
                 '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}/med-network-policy/{med-network-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_macpolicy': {
-            'params': ['mac-policy', 'adom'],
+            'params': ['adom', 'mac-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/mac-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/mac-policy/{mac-policy}',
+                '/pm/config/global/obj/switch-controller/mac-policy',
                 '/pm/config/global/obj/switch-controller/mac-policy/{mac-policy}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_managedswitch': {
-            'params': ['managed-switch', 'adom'],
+            'params': ['adom', 'managed-switch'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}',
+                '/pm/config/global/obj/switch-controller/managed-switch',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}'
             ],
             'v_range': [['6.0.0', '']]
         },
-        'switchcontroller_managedswitch_8021xsettings': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/802-1X-settings'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
         'switchcontroller_managedswitch_customcommand': {
-            'params': ['managed-switch', 'custom-command', 'adom'],
+            'params': ['adom', 'custom-command', 'managed-switch'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/custom-command/{custom-command}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'switchcontroller_managedswitch_dhcpsnoopingstaticclient': {
-            'params': ['managed-switch', 'dhcp-snooping-static-client', 'adom'],
+            'params': ['adom', 'dhcp-snooping-static-client', 'managed-switch'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/dhcp-snooping-static-client/{dhcp-snooping-static-client}'
             ],
             'v_range': [['7.2.2', '']]
         },
-        'switchcontroller_managedswitch_igmpsnooping': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/igmp-snooping'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
         'switchcontroller_managedswitch_ipsourceguard': {
-            'params': ['managed-switch', 'ip-source-guard', 'adom'],
+            'params': ['adom', 'ip-source-guard', 'managed-switch'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}'
             ],
             'v_range': [['6.4.0', '6.4.1']]
         },
         'switchcontroller_managedswitch_ipsourceguard_bindingentry': {
-            'params': ['managed-switch', 'ip-source-guard', 'binding-entry', 'adom'],
+            'params': ['adom', 'binding-entry', 'ip-source-guard', 'managed-switch'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ip-source-guard/{ip-source-guard}/binding-entry/{binding-entry}'
             ],
             'v_range': [['6.4.0', '6.4.1']]
         },
-        'switchcontroller_managedswitch_mirror': {
-            'params': ['device', 'vdom', 'managed-switch', 'mirror'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/mirror/{mirror}'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
         'switchcontroller_managedswitch_ports': {
-            'params': ['managed-switch', 'ports', 'adom'],
+            'params': ['adom', 'managed-switch', 'ports'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_managedswitch_ports_dhcpsnoopoption82override': {
-            'params': ['managed-switch', 'ports', 'dhcp-snoop-option82-override', 'adom'],
+            'params': ['adom', 'dhcp-snoop-option82-override', 'managed-switch', 'ports'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82'
                 '-override}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}/dhcp-snoop-option82-override/{dhcp-snoop-option82-over'
                 'ride}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'switchcontroller_managedswitch_remotelog': {
-            'params': ['managed-switch', 'remote-log', 'adom'],
+            'params': ['adom', 'managed-switch', 'remote-log'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/remote-log/{remote-log}'
             ],
             'v_range': [['6.2.1', '6.2.3']]
         },
         'switchcontroller_managedswitch_routeoffloadrouter': {
-            'params': ['managed-switch', 'route-offload-router', 'adom'],
+            'params': ['adom', 'managed-switch', 'route-offload-router'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router/{route-offload-router}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/route-offload-router/{route-offload-router}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'switchcontroller_managedswitch_snmpcommunity': {
-            'params': ['managed-switch', 'snmp-community', 'adom'],
+            'params': ['adom', 'managed-switch', 'snmp-community'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
             ],
             'v_range': [['6.2.1', '6.2.3']]
         },
         'switchcontroller_managedswitch_snmpcommunity_hosts': {
-            'params': ['managed-switch', 'snmp-community', 'hosts', 'adom'],
+            'params': ['adom', 'hosts', 'managed-switch', 'snmp-community'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}/hosts/{hosts}'
             ],
             'v_range': [['6.2.1', '6.2.3']]
         },
         'switchcontroller_managedswitch_snmpsysinfo': {
-            'params': ['managed-switch', 'adom'],
+            'params': ['adom', 'managed-switch'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-sysinfo'
@@ -6776,7 +7727,7 @@ def main():
             'v_range': [['6.2.1', '6.2.3']]
         },
         'switchcontroller_managedswitch_snmptrapthreshold': {
-            'params': ['managed-switch', 'adom'],
+            'params': ['adom', 'managed-switch'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold'
@@ -6784,115 +7735,91 @@ def main():
             'v_range': [['6.2.1', '6.2.3']]
         },
         'switchcontroller_managedswitch_snmpuser': {
-            'params': ['managed-switch', 'snmp-user', 'adom'],
+            'params': ['adom', 'managed-switch', 'snmp-user'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-user/{snmp-user}'
             ],
             'v_range': [['6.2.1', '6.2.3']]
         },
-        'switchcontroller_managedswitch_staticmac': {
-            'params': ['device', 'vdom', 'managed-switch', 'static-mac'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/static-mac/{static-mac}'
-            ],
-            'v_range': [['6.2.0', '6.2.0']]
-        },
-        'switchcontroller_managedswitch_stormcontrol': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/storm-control'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
-        'switchcontroller_managedswitch_stpinstance': {
-            'params': ['device', 'vdom', 'managed-switch', 'stp-instance'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/stp-instance/{stp-instance}'
-            ],
-            'v_range': [['6.2.0', '6.2.0']]
-        },
-        'switchcontroller_managedswitch_stpsettings': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/stp-settings'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
-        'switchcontroller_managedswitch_switchlog': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/switch-log'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
-        'switchcontroller_managedswitch_switchstpsettings': {
-            'params': ['device', 'vdom', 'managed-switch'],
-            'urls': [
-                '/pm/config/device/{device}/vdom/{vdom}/switch-controller/managed-switch/{managed-switch}/switch-stp-settings'
-            ],
-            'v_range': [['6.0.0', '6.2.0']]
-        },
         'switchcontroller_managedswitch_vlan': {
-            'params': ['managed-switch', 'vlan', 'adom'],
+            'params': ['adom', 'managed-switch', 'vlan'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/vlan',
                 '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/vlan/{vlan}',
+                '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/vlan',
                 '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/vlan/{vlan}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'switchcontroller_ptp_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/ptp/profile',
                 '/pm/config/adom/{adom}/obj/switch-controller/ptp/profile/{profile}',
+                '/pm/config/global/obj/switch-controller/ptp/profile',
                 '/pm/config/global/obj/switch-controller/ptp/profile/{profile}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'switchcontroller_qos_dot1pmap': {
-            'params': ['dot1p-map', 'adom'],
+            'params': ['adom', 'dot1p-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/dot1p-map',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/dot1p-map/{dot1p-map}',
+                '/pm/config/global/obj/switch-controller/qos/dot1p-map',
                 '/pm/config/global/obj/switch-controller/qos/dot1p-map/{dot1p-map}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_qos_ipdscpmap': {
-            'params': ['ip-dscp-map', 'adom'],
+            'params': ['adom', 'ip-dscp-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}',
+                '/pm/config/global/obj/switch-controller/qos/ip-dscp-map',
                 '/pm/config/global/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_qos_ipdscpmap_map': {
-            'params': ['ip-dscp-map', 'map', 'adom'],
+            'params': ['adom', 'ip-dscp-map', 'map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map/{map}',
+                '/pm/config/global/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map',
                 '/pm/config/global/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map/{map}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_qos_qospolicy': {
-            'params': ['qos-policy', 'adom'],
+            'params': ['adom', 'qos-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/qos-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/qos-policy/{qos-policy}',
+                '/pm/config/global/obj/switch-controller/qos/qos-policy',
                 '/pm/config/global/obj/switch-controller/qos/qos-policy/{qos-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_qos_queuepolicy': {
-            'params': ['queue-policy', 'adom'],
+            'params': ['adom', 'queue-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}',
+                '/pm/config/global/obj/switch-controller/qos/queue-policy',
                 '/pm/config/global/obj/switch-controller/qos/queue-policy/{queue-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_qos_queuepolicy_cosqueue': {
-            'params': ['queue-policy', 'cos-queue', 'adom'],
+            'params': ['adom', 'cos-queue', 'queue-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}/cos-queue',
                 '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}/cos-queue/{cos-queue}',
+                '/pm/config/global/obj/switch-controller/qos/queue-policy/{queue-policy}/cos-queue',
                 '/pm/config/global/obj/switch-controller/qos/queue-policy/{queue-policy}/cos-queue/{cos-queue}'
             ],
             'v_range': [['6.0.0', '']]
@@ -6900,39 +7827,49 @@ def main():
         'switchcontroller_securitypolicy_8021x': {
             'params': ['802-1X', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X',
                 '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X/{802-1X}',
+                '/pm/config/global/obj/switch-controller/security-policy/802-1X',
                 '/pm/config/global/obj/switch-controller/security-policy/802-1X/{802-1X}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'switchcontroller_securitypolicy_captiveportal': {
-            'params': ['captive-portal', 'adom'],
+            'params': ['adom', 'captive-portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/security-policy/captive-portal',
                 '/pm/config/adom/{adom}/obj/switch-controller/security-policy/captive-portal/{captive-portal}',
+                '/pm/config/global/obj/switch-controller/security-policy/captive-portal',
                 '/pm/config/global/obj/switch-controller/security-policy/captive-portal/{captive-portal}'
             ],
             'v_range': [['6.0.0', '6.2.1']]
         },
         'switchcontroller_switchinterfacetag': {
-            'params': ['switch-interface-tag', 'adom'],
+            'params': ['adom', 'switch-interface-tag'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag',
                 '/pm/config/adom/{adom}/obj/switch-controller/switch-interface-tag/{switch-interface-tag}',
+                '/pm/config/global/obj/switch-controller/switch-interface-tag',
                 '/pm/config/global/obj/switch-controller/switch-interface-tag/{switch-interface-tag}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_trafficpolicy': {
-            'params': ['traffic-policy', 'adom'],
+            'params': ['adom', 'traffic-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/traffic-policy/{traffic-policy}',
+                '/pm/config/global/obj/switch-controller/traffic-policy',
                 '/pm/config/global/obj/switch-controller/traffic-policy/{traffic-policy}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'switchcontroller_vlanpolicy': {
-            'params': ['vlan-policy', 'adom'],
+            'params': ['adom', 'vlan-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy',
                 '/pm/config/adom/{adom}/obj/switch-controller/vlan-policy/{vlan-policy}',
+                '/pm/config/global/obj/switch-controller/vlan-policy',
                 '/pm/config/global/obj/switch-controller/vlan-policy/{vlan-policy}'
             ],
             'v_range': [['7.2.1', '']]
@@ -6954,6 +7891,7 @@ def main():
         'system_admin_group': {
             'params': ['group'],
             'urls': [
+                '/cli/global/system/admin/group',
                 '/cli/global/system/admin/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
@@ -6961,6 +7899,7 @@ def main():
         'system_admin_group_member': {
             'params': ['group', 'member'],
             'urls': [
+                '/cli/global/system/admin/group/{group}/member',
                 '/cli/global/system/admin/group/{group}/member/{member}'
             ],
             'v_range': [['6.0.0', '']]
@@ -6968,13 +7907,15 @@ def main():
         'system_admin_ldap': {
             'params': ['ldap'],
             'urls': [
+                '/cli/global/system/admin/ldap',
                 '/cli/global/system/admin/ldap/{ldap}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_ldap_adom': {
-            'params': ['ldap', 'adom'],
+            'params': ['adom', 'ldap'],
             'urls': [
+                '/cli/global/system/admin/ldap/{ldap}/adom',
                 '/cli/global/system/admin/ldap/{ldap}/adom/{adom}'
             ],
             'v_range': [['6.0.0', '']]
@@ -6982,13 +7923,15 @@ def main():
         'system_admin_profile': {
             'params': ['profile'],
             'urls': [
+                '/cli/global/system/admin/profile',
                 '/cli/global/system/admin/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_profile_datamaskcustomfields': {
-            'params': ['profile', 'datamask-custom-fields'],
+            'params': ['datamask-custom-fields', 'profile'],
             'urls': [
+                '/cli/global/system/admin/profile/{profile}/datamask-custom-fields',
                 '/cli/global/system/admin/profile/{profile}/datamask-custom-fields/{datamask-custom-fields}'
             ],
             'v_range': [['6.0.0', '']]
@@ -6996,6 +7939,7 @@ def main():
         'system_admin_profile_writepasswdprofiles': {
             'params': ['profile', 'write-passwd-profiles'],
             'urls': [
+                '/cli/global/system/admin/profile/{profile}/write-passwd-profiles',
                 '/cli/global/system/admin/profile/{profile}/write-passwd-profiles/{write-passwd-profiles}'
             ],
             'v_range': [['7.4.2', '']]
@@ -7003,6 +7947,7 @@ def main():
         'system_admin_profile_writepasswduserlist': {
             'params': ['profile', 'write-passwd-user-list'],
             'urls': [
+                '/cli/global/system/admin/profile/{profile}/write-passwd-user-list',
                 '/cli/global/system/admin/profile/{profile}/write-passwd-user-list/{write-passwd-user-list}'
             ],
             'v_range': [['7.4.2', '']]
@@ -7010,6 +7955,7 @@ def main():
         'system_admin_radius': {
             'params': ['radius'],
             'urls': [
+                '/cli/global/system/admin/radius',
                 '/cli/global/system/admin/radius/{radius}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7024,6 +7970,7 @@ def main():
         'system_admin_tacacs': {
             'params': ['tacacs'],
             'urls': [
+                '/cli/global/system/admin/tacacs',
                 '/cli/global/system/admin/tacacs/{tacacs}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7031,69 +7978,79 @@ def main():
         'system_admin_user': {
             'params': ['user'],
             'urls': [
+                '/cli/global/system/admin/user',
                 '/cli/global/system/admin/user/{user}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_adom': {
-            'params': ['user', 'adom'],
+            'params': ['adom', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/adom',
                 '/cli/global/system/admin/user/{user}/adom/{adom}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_adomexclude': {
-            'params': ['user', 'adom-exclude'],
+            'params': ['adom-exclude', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/adom-exclude',
                 '/cli/global/system/admin/user/{user}/adom-exclude/{adom-exclude}'
             ],
             'v_range': [['6.0.0', '7.0.2']]
         },
         'system_admin_user_appfilter': {
-            'params': ['user', 'app-filter'],
+            'params': ['app-filter', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/app-filter',
                 '/cli/global/system/admin/user/{user}/app-filter/{app-filter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_dashboard': {
-            'params': ['user', 'dashboard'],
+            'params': ['dashboard', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/dashboard',
                 '/cli/global/system/admin/user/{user}/dashboard/{dashboard}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_dashboardtabs': {
-            'params': ['user', 'dashboard-tabs'],
+            'params': ['dashboard-tabs', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/dashboard-tabs',
                 '/cli/global/system/admin/user/{user}/dashboard-tabs/{dashboard-tabs}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_ipsfilter': {
-            'params': ['user', 'ips-filter'],
+            'params': ['ips-filter', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/ips-filter',
                 '/cli/global/system/admin/user/{user}/ips-filter/{ips-filter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_metadata': {
-            'params': ['user', 'meta-data'],
+            'params': ['meta-data', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/meta-data',
                 '/cli/global/system/admin/user/{user}/meta-data/{meta-data}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_policypackage': {
-            'params': ['user', 'policy-package'],
+            'params': ['policy-package', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/policy-package',
                 '/cli/global/system/admin/user/{user}/policy-package/{policy-package}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_admin_user_restrictdevvdom': {
-            'params': ['user', 'restrict-dev-vdom'],
+            'params': ['restrict-dev-vdom', 'user'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/restrict-dev-vdom',
                 '/cli/global/system/admin/user/{user}/restrict-dev-vdom/{restrict-dev-vdom}'
             ],
             'v_range': [['6.0.0', '6.2.3'], ['6.4.0', '6.4.0']]
@@ -7101,6 +8058,7 @@ def main():
         'system_admin_user_webfilter': {
             'params': ['user', 'web-filter'],
             'urls': [
+                '/cli/global/system/admin/user/{user}/web-filter',
                 '/cli/global/system/admin/user/{user}/web-filter/{web-filter}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7122,13 +8080,15 @@ def main():
         'system_alertevent': {
             'params': ['alert-event'],
             'urls': [
+                '/cli/global/system/alert-event',
                 '/cli/global/system/alert-event/{alert-event}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_alertevent_alertdestination': {
-            'params': ['alert-event', 'alert-destination'],
+            'params': ['alert-destination', 'alert-event'],
             'urls': [
+                '/cli/global/system/alert-event/{alert-event}/alert-destination',
                 '/cli/global/system/alert-event/{alert-event}/alert-destination/{alert-destination}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7178,6 +8138,7 @@ def main():
         'system_certificate_ca': {
             'params': ['ca'],
             'urls': [
+                '/cli/global/system/certificate/ca',
                 '/cli/global/system/certificate/ca/{ca}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7185,6 +8146,7 @@ def main():
         'system_certificate_crl': {
             'params': ['crl'],
             'urls': [
+                '/cli/global/system/certificate/crl',
                 '/cli/global/system/certificate/crl/{crl}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7192,6 +8154,7 @@ def main():
         'system_certificate_local': {
             'params': ['local'],
             'urls': [
+                '/cli/global/system/certificate/local',
                 '/cli/global/system/certificate/local/{local}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7206,6 +8169,7 @@ def main():
         'system_certificate_remote': {
             'params': ['remote'],
             'urls': [
+                '/cli/global/system/certificate/remote',
                 '/cli/global/system/certificate/remote/{remote}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7213,6 +8177,7 @@ def main():
         'system_certificate_ssh': {
             'params': ['ssh'],
             'urls': [
+                '/cli/global/system/certificate/ssh',
                 '/cli/global/system/certificate/ssh/{ssh}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7234,6 +8199,7 @@ def main():
         'system_csf_fabricconnector': {
             'params': ['fabric-connector'],
             'urls': [
+                '/cli/global/system/csf/fabric-connector',
                 '/cli/global/system/csf/fabric-connector/{fabric-connector}'
             ],
             'v_range': [['7.4.1', '']]
@@ -7241,54 +8207,67 @@ def main():
         'system_csf_trustedlist': {
             'params': ['trusted-list'],
             'urls': [
+                '/cli/global/system/csf/trusted-list',
                 '/cli/global/system/csf/trusted-list/{trusted-list}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'system_customlanguage': {
-            'params': ['custom-language', 'adom'],
+            'params': ['adom', 'custom-language'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/custom-language',
                 '/pm/config/adom/{adom}/obj/system/custom-language/{custom-language}',
+                '/pm/config/global/obj/system/custom-language',
                 '/pm/config/global/obj/system/custom-language/{custom-language}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_dhcp_server': {
-            'params': ['server', 'adom'],
+            'params': ['adom', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/server',
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}',
+                '/pm/config/global/obj/system/dhcp/server',
                 '/pm/config/global/obj/system/dhcp/server/{server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_dhcp_server_excluderange': {
-            'params': ['server', 'exclude-range', 'adom'],
+            'params': ['adom', 'exclude-range', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/exclude-range',
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/exclude-range/{exclude-range}',
+                '/pm/config/global/obj/system/dhcp/server/{server}/exclude-range',
                 '/pm/config/global/obj/system/dhcp/server/{server}/exclude-range/{exclude-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_dhcp_server_iprange': {
-            'params': ['server', 'ip-range', 'adom'],
+            'params': ['adom', 'ip-range', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/ip-range',
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/ip-range/{ip-range}',
+                '/pm/config/global/obj/system/dhcp/server/{server}/ip-range',
                 '/pm/config/global/obj/system/dhcp/server/{server}/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_dhcp_server_options': {
-            'params': ['server', 'options', 'adom'],
+            'params': ['adom', 'options', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/options',
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/options/{options}',
+                '/pm/config/global/obj/system/dhcp/server/{server}/options',
                 '/pm/config/global/obj/system/dhcp/server/{server}/options/{options}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_dhcp_server_reservedaddress': {
-            'params': ['server', 'reserved-address', 'adom'],
+            'params': ['adom', 'reserved-address', 'server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/reserved-address',
                 '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/reserved-address/{reserved-address}',
+                '/pm/config/global/obj/system/dhcp/server/{server}/reserved-address',
                 '/pm/config/global/obj/system/dhcp/server/{server}/reserved-address/{reserved-address}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7315,9 +8294,11 @@ def main():
             'v_range': [['6.4.0', '']]
         },
         'system_externalresource': {
-            'params': ['external-resource', 'adom'],
+            'params': ['adom', 'external-resource'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/external-resource',
                 '/pm/config/adom/{adom}/obj/system/external-resource/{external-resource}',
+                '/pm/config/global/obj/system/external-resource',
                 '/pm/config/global/obj/system/external-resource/{external-resource}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7352,33 +8333,41 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'system_geoipcountry': {
-            'params': ['geoip-country', 'adom'],
+            'params': ['adom', 'geoip-country'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/geoip-country',
                 '/pm/config/adom/{adom}/obj/system/geoip-country/{geoip-country}',
+                '/pm/config/global/obj/system/geoip-country',
                 '/pm/config/global/obj/system/geoip-country/{geoip-country}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_geoipoverride': {
-            'params': ['geoip-override', 'adom'],
+            'params': ['adom', 'geoip-override'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/geoip-override',
                 '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}',
+                '/pm/config/global/obj/system/geoip-override',
                 '/pm/config/global/obj/system/geoip-override/{geoip-override}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_geoipoverride_ip6range': {
-            'params': ['geoip-override', 'ip6-range', 'adom'],
+            'params': ['adom', 'geoip-override', 'ip6-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range',
                 '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}',
+                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range',
                 '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip6-range/{ip6-range}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'system_geoipoverride_iprange': {
-            'params': ['geoip-override', 'ip-range', 'adom'],
+            'params': ['adom', 'geoip-override', 'ip-range'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip-range',
                 '/pm/config/adom/{adom}/obj/system/geoip-override/{geoip-override}/ip-range/{ip-range}',
+                '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip-range',
                 '/pm/config/global/obj/system/geoip-override/{geoip-override}/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7407,6 +8396,7 @@ def main():
         'system_ha_monitoredinterfaces': {
             'params': ['monitored-interfaces'],
             'urls': [
+                '/cli/global/system/ha/monitored-interfaces',
                 '/cli/global/system/ha/monitored-interfaces/{monitored-interfaces}'
             ],
             'v_range': [['7.2.0', '']]
@@ -7414,6 +8404,7 @@ def main():
         'system_ha_monitoredips': {
             'params': ['monitored-ips'],
             'urls': [
+                '/cli/global/system/ha/monitored-ips',
                 '/cli/global/system/ha/monitored-ips/{monitored-ips}'
             ],
             'v_range': [['7.2.0', '']]
@@ -7421,6 +8412,7 @@ def main():
         'system_ha_peer': {
             'params': ['peer'],
             'urls': [
+                '/cli/global/system/ha/peer',
                 '/cli/global/system/ha/peer/{peer}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7435,6 +8427,7 @@ def main():
         'system_interface': {
             'params': ['interface'],
             'urls': [
+                '/cli/global/system/interface',
                 '/cli/global/system/interface/{interface}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7449,6 +8442,7 @@ def main():
         'system_interface_member': {
             'params': ['interface', 'member'],
             'urls': [
+                '/cli/global/system/interface/{interface}/member',
                 '/cli/global/system/interface/{interface}/member/{member}'
             ],
             'v_range': [['7.2.0', '']]
@@ -7456,6 +8450,7 @@ def main():
         'system_localinpolicy': {
             'params': ['local-in-policy'],
             'urls': [
+                '/cli/global/system/local-in-policy',
                 '/cli/global/system/local-in-policy/{local-in-policy}'
             ],
             'v_range': [['7.2.0', '']]
@@ -7463,6 +8458,7 @@ def main():
         'system_localinpolicy6': {
             'params': ['local-in-policy6'],
             'urls': [
+                '/cli/global/system/local-in-policy6',
                 '/cli/global/system/local-in-policy6/{local-in-policy6}'
             ],
             'v_range': [['7.2.0', '']]
@@ -7596,6 +8592,7 @@ def main():
         'system_log_devicedisable': {
             'params': ['device-disable'],
             'urls': [
+                '/cli/global/system/log/device-disable',
                 '/cli/global/system/log/device-disable/{device-disable}'
             ],
             'v_range': [['6.4.4', '']]
@@ -7624,6 +8621,7 @@ def main():
         'system_log_maildomain': {
             'params': ['mail-domain'],
             'urls': [
+                '/cli/global/system/log/mail-domain',
                 '/cli/global/system/log/mail-domain/{mail-domain}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7638,6 +8636,7 @@ def main():
         'system_log_ratelimit_device': {
             'params': ['device'],
             'urls': [
+                '/cli/global/system/log/ratelimit/device',
                 '/cli/global/system/log/ratelimit/device/{device}'
             ],
             'v_range': [['6.4.8', '7.0.2']]
@@ -7645,6 +8644,7 @@ def main():
         'system_log_ratelimit_ratelimits': {
             'params': ['ratelimits'],
             'urls': [
+                '/cli/global/system/log/ratelimit/ratelimits',
                 '/cli/global/system/log/ratelimit/ratelimits/{ratelimits}'
             ],
             'v_range': [['7.0.3', '']]
@@ -7684,9 +8684,17 @@ def main():
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
+        'system_log_ueba': {
+            'params': [],
+            'urls': [
+                '/cli/global/system/log/ueba'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
         'system_logfetch_clientprofile': {
             'params': ['client-profile'],
             'urls': [
+                '/cli/global/system/log-fetch/client-profile',
                 '/cli/global/system/log-fetch/client-profile/{client-profile}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
@@ -7694,6 +8702,7 @@ def main():
         'system_logfetch_clientprofile_devicefilter': {
             'params': ['client-profile', 'device-filter'],
             'urls': [
+                '/cli/global/system/log-fetch/client-profile/{client-profile}/device-filter',
                 '/cli/global/system/log-fetch/client-profile/{client-profile}/device-filter/{device-filter}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
@@ -7701,6 +8710,7 @@ def main():
         'system_logfetch_clientprofile_logfilter': {
             'params': ['client-profile', 'log-filter'],
             'urls': [
+                '/cli/global/system/log-fetch/client-profile/{client-profile}/log-filter',
                 '/cli/global/system/log-fetch/client-profile/{client-profile}/log-filter/{log-filter}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
@@ -7715,6 +8725,7 @@ def main():
         'system_mail': {
             'params': ['mail'],
             'urls': [
+                '/cli/global/system/mail',
                 '/cli/global/system/mail/{mail}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7722,22 +8733,27 @@ def main():
         'system_mcpolicydisabledadoms': {
             'params': ['mc-policy-disabled-adoms'],
             'urls': [
+                '/cli/global/system/global/mc-policy-disabled-adoms',
                 '/cli/global/system/global/mc-policy-disabled-adoms/{mc-policy-disabled-adoms}'
             ],
             'v_range': [['6.2.3', '']]
         },
         'system_meta': {
-            'params': ['meta', 'adom'],
+            'params': ['adom', 'meta'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/meta',
                 '/pm/config/adom/{adom}/obj/system/meta/{meta}',
+                '/pm/config/global/obj/system/meta',
                 '/pm/config/global/obj/system/meta/{meta}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_meta_sysmetafields': {
-            'params': ['meta', 'sys_meta_fields', 'adom'],
+            'params': ['adom', 'meta', 'sys_meta_fields'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/meta/{meta}/sys_meta_fields',
                 '/pm/config/adom/{adom}/obj/system/meta/{meta}/sys_meta_fields/{sys_meta_fields}',
+                '/pm/config/global/obj/system/meta/{meta}/sys_meta_fields',
                 '/pm/config/global/obj/system/meta/{meta}/sys_meta_fields/{sys_meta_fields}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7745,6 +8761,7 @@ def main():
         'system_metadata_admins': {
             'params': ['admins'],
             'urls': [
+                '/cli/global/system/metadata/admins',
                 '/cli/global/system/metadata/admins/{admins}'
             ],
             'v_range': [['6.0.0', '']]
@@ -7774,17 +8791,21 @@ def main():
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_dswdtsprofile': {
-            'params': ['dsw-dts-profile', 'adom'],
+            'params': ['adom', 'dsw-dts-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile',
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}',
+                '/pm/config/global/obj/system/npu/dsw-dts-profile',
                 '/pm/config/global/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_dswqueuedtsprofile': {
-            'params': ['dsw-queue-dts-profile', 'adom'],
+            'params': ['adom', 'dsw-queue-dts-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile',
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
+                '/pm/config/global/obj/system/npu/dsw-queue-dts-profile',
                 '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
@@ -7804,6 +8825,14 @@ def main():
                 '/pm/config/global/obj/system/npu/hpe'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+        },
+        'system_npu_icmpratectrl': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/icmp-rate-ctrl',
+                '/pm/config/global/obj/system/npu/icmp-rate-ctrl'
+            ],
+            'v_range': [['7.4.3', '']]
         },
         'system_npu_ipreassembly': {
             'params': ['adom'],
@@ -7830,55 +8859,67 @@ def main():
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ethernettype': {
-            'params': ['ethernet-type', 'adom'],
+            'params': ['adom', 'ethernet-type'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type',
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
+                '/pm/config/global/obj/system/npu/np-queues/ethernet-type',
                 '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipprotocol': {
-            'params': ['ip-protocol', 'adom'],
+            'params': ['adom', 'ip-protocol'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol',
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-protocol',
                 '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipservice': {
-            'params': ['ip-service', 'adom'],
+            'params': ['adom', 'ip-service'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service',
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
+                '/pm/config/global/obj/system/npu/np-queues/ip-service',
                 '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile',
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
+                '/pm/config/global/obj/system/npu/np-queues/profile',
                 '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_npqueues_scheduler': {
-            'params': ['scheduler', 'adom'],
+            'params': ['adom', 'scheduler'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler',
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
+                '/pm/config/global/obj/system/npu/np-queues/scheduler',
                 '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_nputcam': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/npu-tcam',
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}',
+                '/pm/config/global/obj/system/npu/npu-tcam',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_data': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/data',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/data'
@@ -7886,7 +8927,7 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_mask': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/mask',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/mask'
@@ -7894,7 +8935,7 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_miract': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/mir-act',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/mir-act'
@@ -7902,7 +8943,7 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_priact': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/pri-act',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/pri-act'
@@ -7910,7 +8951,7 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_sact': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/sact',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/sact'
@@ -7918,7 +8959,7 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_nputcam_tact': {
-            'params': ['npu-tcam', 'adom'],
+            'params': ['adom', 'npu-tcam'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/tact',
                 '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/tact'
@@ -7926,17 +8967,21 @@ def main():
             'v_range': [['7.4.2', '']]
         },
         'system_npu_portcpumap': {
-            'params': ['port-cpu-map', 'adom'],
+            'params': ['adom', 'port-cpu-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map',
                 '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}',
+                '/pm/config/global/obj/system/npu/port-cpu-map',
                 '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_portnpumap': {
-            'params': ['port-npu-map', 'adom'],
+            'params': ['adom', 'port-npu-map'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/port-npu-map',
                 '/pm/config/adom/{adom}/obj/system/npu/port-npu-map/{port-npu-map}',
+                '/pm/config/global/obj/system/npu/port-npu-map',
                 '/pm/config/global/obj/system/npu/port-npu-map/{port-npu-map}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
@@ -7982,17 +9027,21 @@ def main():
             'v_range': [['7.2.4', '']]
         },
         'system_npu_tcptimeoutprofile': {
-            'params': ['tcp-timeout-profile', 'adom'],
+            'params': ['adom', 'tcp-timeout-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile',
                 '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/tcp-timeout-profile',
                 '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
         },
         'system_npu_udptimeoutprofile': {
-            'params': ['udp-timeout-profile', 'adom'],
+            'params': ['adom', 'udp-timeout-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile',
                 '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
+                '/pm/config/global/obj/system/npu/udp-timeout-profile',
                 '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
@@ -8007,22 +9056,27 @@ def main():
         'system_ntp_ntpserver': {
             'params': ['ntpserver'],
             'urls': [
+                '/cli/global/system/ntp/ntpserver',
                 '/cli/global/system/ntp/ntpserver/{ntpserver}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_objecttag': {
-            'params': ['object-tag', 'adom'],
+            'params': ['adom', 'object-tag'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/object-tag',
                 '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
+                '/pm/config/global/obj/system/object-tag',
                 '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
             'v_range': [['6.2.0', '6.4.14']]
         },
         'system_objecttagging': {
-            'params': ['object-tagging', 'adom'],
+            'params': ['adom', 'object-tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/object-tagging',
                 '/pm/config/adom/{adom}/obj/system/object-tagging/{object-tagging}',
+                '/pm/config/global/obj/system/object-tagging',
                 '/pm/config/global/obj/system/object-tagging/{object-tagging}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8042,209 +9096,261 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup': {
-            'params': ['replacemsg-group', 'adom'],
+            'params': ['adom', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}',
+                '/pm/config/global/obj/system/replacemsg-group',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_admin': {
-            'params': ['replacemsg-group', 'admin', 'adom'],
+            'params': ['admin', 'adom', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/admin',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/admin/{admin}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/admin',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/admin/{admin}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_alertmail': {
-            'params': ['replacemsg-group', 'alertmail', 'adom'],
+            'params': ['adom', 'alertmail', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/alertmail',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/alertmail/{alertmail}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/alertmail',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/alertmail/{alertmail}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_auth': {
-            'params': ['replacemsg-group', 'auth', 'adom'],
+            'params': ['adom', 'auth', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/auth',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/auth/{auth}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/auth',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/auth/{auth}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_automation': {
-            'params': ['replacemsg-group', 'automation', 'adom'],
+            'params': ['adom', 'automation', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/automation',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/automation',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/automation/{automation}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'system_replacemsggroup_custommessage': {
-            'params': ['replacemsg-group', 'custom-message', 'adom'],
+            'params': ['adom', 'custom-message', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/custom-message',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/custom-message/{custom-message}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/custom-message',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/custom-message/{custom-message}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_devicedetectionportal': {
-            'params': ['replacemsg-group', 'device-detection-portal', 'adom'],
+            'params': ['adom', 'device-detection-portal', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal/{device-detection-portal}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/device-detection-portal/{device-detection-portal}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_ec': {
-            'params': ['replacemsg-group', 'ec', 'adom'],
+            'params': ['adom', 'ec', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ec',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ec/{ec}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ec',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ec/{ec}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'system_replacemsggroup_fortiguardwf': {
-            'params': ['replacemsg-group', 'fortiguard-wf', 'adom'],
+            'params': ['adom', 'fortiguard-wf', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/fortiguard-wf',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/fortiguard-wf/{fortiguard-wf}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/fortiguard-wf',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/fortiguard-wf/{fortiguard-wf}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_ftp': {
-            'params': ['replacemsg-group', 'ftp', 'adom'],
+            'params': ['adom', 'ftp', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ftp',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/ftp/{ftp}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ftp',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/ftp/{ftp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_http': {
-            'params': ['replacemsg-group', 'http', 'adom'],
+            'params': ['adom', 'http', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/http',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/http/{http}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/http',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/http/{http}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_icap': {
-            'params': ['replacemsg-group', 'icap', 'adom'],
+            'params': ['adom', 'icap', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/icap',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/icap/{icap}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/icap',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/icap/{icap}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mail': {
-            'params': ['replacemsg-group', 'mail', 'adom'],
+            'params': ['adom', 'mail', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mail',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mail/{mail}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mail',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mail/{mail}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mm1': {
-            'params': ['replacemsg-group', 'mm1', 'adom'],
+            'params': ['adom', 'mm1', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm1',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm1/{mm1}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm1',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm1/{mm1}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mm3': {
-            'params': ['replacemsg-group', 'mm3', 'adom'],
+            'params': ['adom', 'mm3', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm3',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm3/{mm3}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm3',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm3/{mm3}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mm4': {
-            'params': ['replacemsg-group', 'mm4', 'adom'],
+            'params': ['adom', 'mm4', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm4',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm4/{mm4}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm4',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm4/{mm4}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mm7': {
-            'params': ['replacemsg-group', 'mm7', 'adom'],
+            'params': ['adom', 'mm7', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm7',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm7/{mm7}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm7',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm7/{mm7}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_mms': {
-            'params': ['replacemsg-group', 'mms', 'adom'],
+            'params': ['adom', 'mms', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mms',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mms/{mms}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mms',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mms/{mms}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_nacquar': {
-            'params': ['replacemsg-group', 'nac-quar', 'adom'],
+            'params': ['adom', 'nac-quar', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nac-quar',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nac-quar/{nac-quar}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nac-quar',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nac-quar/{nac-quar}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_nntp': {
-            'params': ['replacemsg-group', 'nntp', 'adom'],
+            'params': ['adom', 'nntp', 'replacemsg-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nntp',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/nntp/{nntp}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nntp',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/nntp/{nntp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_spam': {
-            'params': ['replacemsg-group', 'spam', 'adom'],
+            'params': ['adom', 'replacemsg-group', 'spam'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/spam',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/spam/{spam}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/spam',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/spam/{spam}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_sslvpn': {
-            'params': ['replacemsg-group', 'sslvpn', 'adom'],
+            'params': ['adom', 'replacemsg-group', 'sslvpn'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/sslvpn',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/sslvpn/{sslvpn}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/sslvpn',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/sslvpn/{sslvpn}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_trafficquota': {
-            'params': ['replacemsg-group', 'traffic-quota', 'adom'],
+            'params': ['adom', 'replacemsg-group', 'traffic-quota'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/traffic-quota',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/traffic-quota/{traffic-quota}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/traffic-quota',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/traffic-quota/{traffic-quota}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_utm': {
-            'params': ['replacemsg-group', 'utm', 'adom'],
+            'params': ['adom', 'replacemsg-group', 'utm'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/utm',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/utm/{utm}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/utm',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/utm/{utm}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsggroup_webproxy': {
-            'params': ['replacemsg-group', 'webproxy', 'adom'],
+            'params': ['adom', 'replacemsg-group', 'webproxy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/webproxy',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/webproxy/{webproxy}',
+                '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/webproxy',
                 '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/webproxy/{webproxy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_replacemsgimage': {
-            'params': ['replacemsg-image', 'adom'],
+            'params': ['adom', 'replacemsg-image'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/replacemsg-image',
                 '/pm/config/adom/{adom}/obj/system/replacemsg-image/{replacemsg-image}',
+                '/pm/config/global/obj/system/replacemsg-image',
                 '/pm/config/global/obj/system/replacemsg-image/{replacemsg-image}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8266,13 +9372,15 @@ def main():
         'system_report_group': {
             'params': ['group'],
             'urls': [
+                '/cli/global/system/report/group',
                 '/cli/global/system/report/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_report_group_chartalternative': {
-            'params': ['group', 'chart-alternative'],
+            'params': ['chart-alternative', 'group'],
             'urls': [
+                '/cli/global/system/report/group/{group}/chart-alternative',
                 '/cli/global/system/report/group/{group}/chart-alternative/{chart-alternative}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8280,6 +9388,7 @@ def main():
         'system_report_group_groupby': {
             'params': ['group', 'group-by'],
             'urls': [
+                '/cli/global/system/report/group/{group}/group-by',
                 '/cli/global/system/report/group/{group}/group-by/{group-by}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8294,6 +9403,7 @@ def main():
         'system_route': {
             'params': ['route'],
             'urls': [
+                '/cli/global/system/route',
                 '/cli/global/system/route/{route}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8301,6 +9411,7 @@ def main():
         'system_route6': {
             'params': ['route6'],
             'urls': [
+                '/cli/global/system/route6',
                 '/cli/global/system/route6/{route6}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8315,6 +9426,7 @@ def main():
         'system_saml_fabricidp': {
             'params': ['fabric-idp'],
             'urls': [
+                '/cli/global/system/saml/fabric-idp',
                 '/cli/global/system/saml/fabric-idp/{fabric-idp}'
             ],
             'v_range': [['6.4.0', '']]
@@ -8322,118 +9434,147 @@ def main():
         'system_saml_serviceproviders': {
             'params': ['service-providers'],
             'urls': [
+                '/cli/global/system/saml/service-providers',
                 '/cli/global/system/saml/service-providers/{service-providers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector': {
-            'params': ['sdn-connector', 'adom'],
+            'params': ['adom', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}',
+                '/pm/config/global/obj/system/sdn-connector',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_compartmentlist': {
-            'params': ['sdn-connector', 'compartment-list', 'adom'],
+            'params': ['adom', 'compartment-list', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/compartment-list',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/compartment-list',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/compartment-list/{compartment-list}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'system_sdnconnector_externalaccountlist': {
-            'params': ['sdn-connector', 'external-account-list', 'adom'],
+            'params': ['adom', 'external-account-list', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-account-list',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-account-list',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-account-list/{external-account-list}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'system_sdnconnector_externalip': {
-            'params': ['sdn-connector', 'external-ip', 'adom'],
+            'params': ['adom', 'external-ip', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-ip',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/external-ip/{external-ip}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-ip',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/external-ip/{external-ip}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_forwardingrule': {
-            'params': ['sdn-connector', 'forwarding-rule', 'adom'],
+            'params': ['adom', 'forwarding-rule', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/forwarding-rule',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/forwarding-rule',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/forwarding-rule/{forwarding-rule}'
             ],
             'v_range': [['7.0.2', '']]
         },
         'system_sdnconnector_gcpprojectlist': {
-            'params': ['sdn-connector', 'gcp-project-list', 'adom'],
+            'params': ['adom', 'gcp-project-list', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
             'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
-            'params': ['sdn-connector', 'nic', 'adom'],
+            'params': ['adom', 'nic', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic/{nic}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_nic_ip': {
-            'params': ['sdn-connector', 'nic', 'ip', 'adom'],
+            'params': ['adom', 'ip', 'nic', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}/ip',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}/ip/{ip}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic/{nic}/ip',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic/{nic}/ip/{ip}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_ociregionlist': {
-            'params': ['sdn-connector', 'oci-region-list', 'adom'],
+            'params': ['adom', 'oci-region-list', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/oci-region-list/{oci-region-list}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'system_sdnconnector_route': {
-            'params': ['sdn-connector', 'route', 'adom'],
+            'params': ['adom', 'route', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route/{route}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route/{route}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_routetable': {
-            'params': ['sdn-connector', 'route-table', 'adom'],
+            'params': ['adom', 'route-table', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnconnector_routetable_route': {
-            'params': ['sdn-connector', 'route-table', 'route', 'adom'],
+            'params': ['adom', 'route', 'route-table', 'sdn-connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}/route',
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}/route/{route}',
+                '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}/route',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}/route/{route}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_sdnproxy': {
-            'params': ['sdn-proxy', 'adom'],
+            'params': ['adom', 'sdn-proxy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sdn-proxy',
                 '/pm/config/adom/{adom}/obj/system/sdn-proxy/{sdn-proxy}',
+                '/pm/config/global/obj/system/sdn-proxy',
                 '/pm/config/global/obj/system/sdn-proxy/{sdn-proxy}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'system_smsserver': {
-            'params': ['sms-server', 'adom'],
+            'params': ['adom', 'sms-server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/sms-server',
                 '/pm/config/adom/{adom}/obj/system/sms-server/{sms-server}',
+                '/pm/config/global/obj/system/sms-server',
                 '/pm/config/global/obj/system/sms-server/{sms-server}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8441,6 +9582,7 @@ def main():
         'system_sniffer': {
             'params': ['sniffer'],
             'urls': [
+                '/cli/global/system/sniffer',
                 '/cli/global/system/sniffer/{sniffer}'
             ],
             'v_range': [['6.2.2', '']]
@@ -8448,6 +9590,7 @@ def main():
         'system_snmp_community': {
             'params': ['community'],
             'urls': [
+                '/cli/global/system/snmp/community',
                 '/cli/global/system/snmp/community/{community}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8455,6 +9598,7 @@ def main():
         'system_snmp_community_hosts': {
             'params': ['community', 'hosts'],
             'urls': [
+                '/cli/global/system/snmp/community/{community}/hosts',
                 '/cli/global/system/snmp/community/{community}/hosts/{hosts}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8462,6 +9606,7 @@ def main():
         'system_snmp_community_hosts6': {
             'params': ['community', 'hosts6'],
             'urls': [
+                '/cli/global/system/snmp/community/{community}/hosts6',
                 '/cli/global/system/snmp/community/{community}/hosts6/{hosts6}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8476,6 +9621,7 @@ def main():
         'system_snmp_user': {
             'params': ['user'],
             'urls': [
+                '/cli/global/system/snmp/user',
                 '/cli/global/system/snmp/user/{user}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8490,6 +9636,7 @@ def main():
         'system_socfabric_trustedlist': {
             'params': ['trusted-list'],
             'urls': [
+                '/cli/global/system/soc-fabric/trusted-list',
                 '/cli/global/system/soc-fabric/trusted-list/{trusted-list}'
             ],
             'v_range': [['7.4.0', '']]
@@ -8504,6 +9651,7 @@ def main():
         'system_sql_customindex': {
             'params': ['custom-index'],
             'urls': [
+                '/cli/global/system/sql/custom-index',
                 '/cli/global/system/sql/custom-index/{custom-index}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8511,6 +9659,7 @@ def main():
         'system_sql_customskipidx': {
             'params': ['custom-skipidx'],
             'urls': [
+                '/cli/global/system/sql/custom-skipidx',
                 '/cli/global/system/sql/custom-skipidx/{custom-skipidx}'
             ],
             'v_range': [['6.2.3', '']]
@@ -8518,6 +9667,7 @@ def main():
         'system_sql_tsindexfield': {
             'params': ['ts-index-field'],
             'urls': [
+                '/cli/global/system/sql/ts-index-field',
                 '/cli/global/system/sql/ts-index-field/{ts-index-field}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8525,6 +9675,7 @@ def main():
         'system_sslciphersuites': {
             'params': ['ssl-cipher-suites'],
             'urls': [
+                '/cli/global/system/global/ssl-cipher-suites',
                 '/cli/global/system/global/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
             'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']]
@@ -8539,14 +9690,17 @@ def main():
         'system_syslog': {
             'params': ['syslog'],
             'urls': [
+                '/cli/global/system/syslog',
                 '/cli/global/system/syslog/{syslog}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'system_virtualwirepair': {
-            'params': ['virtual-wire-pair', 'adom'],
+            'params': ['adom', 'virtual-wire-pair'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/system/virtual-wire-pair',
                 '/pm/config/adom/{adom}/obj/system/virtual-wire-pair/{virtual-wire-pair}',
+                '/pm/config/global/obj/system/virtual-wire-pair',
                 '/pm/config/global/obj/system/virtual-wire-pair/{virtual-wire-pair}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8561,6 +9715,7 @@ def main():
         'system_workflow_approvalmatrix': {
             'params': ['approval-matrix'],
             'urls': [
+                '/cli/global/system/workflow/approval-matrix',
                 '/cli/global/system/workflow/approval-matrix/{approval-matrix}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8568,6 +9723,7 @@ def main():
         'system_workflow_approvalmatrix_approver': {
             'params': ['approval-matrix', 'approver'],
             'urls': [
+                '/cli/global/system/workflow/approval-matrix/{approval-matrix}/approver',
                 '/cli/global/system/workflow/approval-matrix/{approval-matrix}/approver/{approver}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8575,43 +9731,51 @@ def main():
         'task_task': {
             'params': ['task'],
             'urls': [
+                '/task/task',
                 '/task/task/{task}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'task_task_history': {
-            'params': ['task', 'history'],
+            'params': ['history', 'task'],
             'urls': [
+                '/task/task/{task}/history',
                 '/task/task/{task}/history/{history}'
             ],
             'v_range': [['6.0.0', '6.2.12']]
         },
         'task_task_line': {
-            'params': ['task', 'line'],
+            'params': ['line', 'task'],
             'urls': [
+                '/task/task/{task}/line',
                 '/task/task/{task}/line/{line}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'task_task_line_history': {
-            'params': ['task', 'line', 'history'],
+            'params': ['history', 'line', 'task'],
             'urls': [
+                '/task/task/{task}/line/{line}/history',
                 '/task/task/{task}/line/{line}/history/{history}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'template': {
-            'params': ['template', 'adom'],
+            'params': ['adom', 'template'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cli/template',
                 '/pm/config/adom/{adom}/obj/cli/template/{template}',
+                '/pm/config/global/obj/cli/template',
                 '/pm/config/global/obj/cli/template/{template}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'templategroup': {
-            'params': ['template-group', 'adom'],
+            'params': ['adom', 'template-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/cli/template-group',
                 '/pm/config/adom/{adom}/obj/cli/template-group/{template-group}',
+                '/pm/config/global/obj/cli/template-group',
                 '/pm/config/global/obj/cli/template-group/{template-group}'
             ],
             'v_range': [['6.0.0', '']]
@@ -8619,213 +9783,275 @@ def main():
         'user_adgrp': {
             'params': ['adgrp', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/adgrp',
                 '/pm/config/adom/{adom}/obj/user/adgrp/{adgrp}',
+                '/pm/config/global/obj/user/adgrp',
                 '/pm/config/global/obj/user/adgrp/{adgrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_certificate': {
-            'params': ['certificate', 'adom'],
+            'params': ['adom', 'certificate'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/certificate',
                 '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
+                '/pm/config/global/obj/user/certificate',
                 '/pm/config/global/obj/user/certificate/{certificate}'
             ],
             'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']]
         },
         'user_clearpass': {
-            'params': ['clearpass', 'adom'],
+            'params': ['adom', 'clearpass'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/clearpass',
                 '/pm/config/adom/{adom}/obj/user/clearpass/{clearpass}',
+                '/pm/config/global/obj/user/clearpass',
                 '/pm/config/global/obj/user/clearpass/{clearpass}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'user_connector': {
-            'params': ['connector', 'adom'],
+            'params': ['adom', 'connector'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/connector',
                 '/pm/config/adom/{adom}/obj/user/connector/{connector}',
+                '/pm/config/global/obj/user/connector',
                 '/pm/config/global/obj/user/connector/{connector}'
             ],
             'v_range': [['7.0.1', '']]
         },
         'user_device': {
-            'params': ['device', 'adom'],
+            'params': ['adom', 'device'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device',
                 '/pm/config/adom/{adom}/obj/user/device/{device}',
+                '/pm/config/global/obj/user/device',
                 '/pm/config/global/obj/user/device/{device}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['6.0.0', '7.4.2']]
         },
         'user_device_dynamicmapping': {
-            'params': ['device', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'device', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/device/{device}/dynamic_mapping',
                 '/pm/config/global/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '7.4.2']]
         },
         'user_device_tagging': {
-            'params': ['device', 'tagging', 'adom'],
+            'params': ['adom', 'device', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device/{device}/tagging',
                 '/pm/config/adom/{adom}/obj/user/device/{device}/tagging/{tagging}',
+                '/pm/config/global/obj/user/device/{device}/tagging',
                 '/pm/config/global/obj/user/device/{device}/tagging/{tagging}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['6.0.0', '7.4.2']]
         },
         'user_deviceaccesslist': {
-            'params': ['device-access-list', 'adom'],
+            'params': ['adom', 'device-access-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-access-list',
                 '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}',
+                '/pm/config/global/obj/user/device-access-list',
                 '/pm/config/global/obj/user/device-access-list/{device-access-list}'
             ],
             'v_range': [['6.2.2', '7.2.1']]
         },
         'user_deviceaccesslist_devicelist': {
-            'params': ['device-access-list', 'device-list', 'adom'],
+            'params': ['adom', 'device-access-list', 'device-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list',
                 '/pm/config/adom/{adom}/obj/user/device-access-list/{device-access-list}/device-list/{device-list}',
+                '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list',
                 '/pm/config/global/obj/user/device-access-list/{device-access-list}/device-list/{device-list}'
             ],
             'v_range': [['6.2.2', '7.2.1']]
         },
         'user_devicecategory': {
-            'params': ['device-category', 'adom'],
+            'params': ['adom', 'device-category'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-category',
                 '/pm/config/adom/{adom}/obj/user/device-category/{device-category}',
+                '/pm/config/global/obj/user/device-category',
                 '/pm/config/global/obj/user/device-category/{device-category}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'user_devicegroup': {
-            'params': ['device-group', 'adom'],
+            'params': ['adom', 'device-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-group',
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}',
+                '/pm/config/global/obj/user/device-group',
                 '/pm/config/global/obj/user/device-group/{device-group}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'user_devicegroup_dynamicmapping': {
-            'params': ['device-group', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'device-group', 'dynamic_mapping'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/device-group/{device-group}/dynamic_mapping',
                 '/pm/config/global/obj/user/device-group/{device-group}/dynamic_mapping/{dynamic_mapping}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'user_devicegroup_tagging': {
-            'params': ['device-group', 'tagging', 'adom'],
+            'params': ['adom', 'device-group', 'tagging'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/tagging',
                 '/pm/config/adom/{adom}/obj/user/device-group/{device-group}/tagging/{tagging}',
+                '/pm/config/global/obj/user/device-group/{device-group}/tagging',
                 '/pm/config/global/obj/user/device-group/{device-group}/tagging/{tagging}'
             ],
             'v_range': [['6.0.0', '7.2.1']]
         },
         'user_domaincontroller': {
-            'params': ['domain-controller', 'adom'],
+            'params': ['adom', 'domain-controller'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/domain-controller',
                 '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}',
+                '/pm/config/global/obj/user/domain-controller',
                 '/pm/config/global/obj/user/domain-controller/{domain-controller}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'user_domaincontroller_extraserver': {
-            'params': ['domain-controller', 'extra-server', 'adom'],
+            'params': ['adom', 'domain-controller', 'extra-server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server',
                 '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}',
+                '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server',
                 '/pm/config/global/obj/user/domain-controller/{domain-controller}/extra-server/{extra-server}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'user_exchange': {
-            'params': ['exchange', 'adom'],
+            'params': ['adom', 'exchange'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/exchange',
                 '/pm/config/adom/{adom}/obj/user/exchange/{exchange}',
+                '/pm/config/global/obj/user/exchange',
                 '/pm/config/global/obj/user/exchange/{exchange}'
             ],
             'v_range': [['6.2.0', '']]
         },
-        'user_flexvm': {
-            'params': ['flexvm', 'adom'],
+        'user_externalidentityprovider': {
+            'params': ['adom', 'external-identity-provider'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/external-identity-provider',
+                '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
+                '/pm/config/global/obj/user/external-identity-provider',
+                '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
+            ],
+            'v_range': [['7.4.3', '']]
+        },
+        'user_flexvm': {
+            'params': ['adom', 'flexvm'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/user/flexvm',
                 '/pm/config/adom/{adom}/obj/user/flexvm/{flexvm}',
+                '/pm/config/global/obj/user/flexvm',
                 '/pm/config/global/obj/user/flexvm/{flexvm}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'user_fortitoken': {
-            'params': ['fortitoken', 'adom'],
+            'params': ['adom', 'fortitoken'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/fortitoken',
                 '/pm/config/adom/{adom}/obj/user/fortitoken/{fortitoken}',
+                '/pm/config/global/obj/user/fortitoken',
                 '/pm/config/global/obj/user/fortitoken/{fortitoken}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_fsso': {
-            'params': ['fsso', 'adom'],
+            'params': ['adom', 'fsso'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/fsso',
                 '/pm/config/adom/{adom}/obj/user/fsso/{fsso}',
+                '/pm/config/global/obj/user/fsso',
                 '/pm/config/global/obj/user/fsso/{fsso}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_fsso_dynamicmapping': {
-            'params': ['fsso', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'fsso'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/fsso/{fsso}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/fsso/{fsso}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/fsso/{fsso}/dynamic_mapping',
                 '/pm/config/global/obj/user/fsso/{fsso}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'user_fssopolling': {
-            'params': ['fsso-polling', 'adom'],
+            'params': ['adom', 'fsso-polling'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/fsso-polling',
                 '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}',
+                '/pm/config/global/obj/user/fsso-polling',
                 '/pm/config/global/obj/user/fsso-polling/{fsso-polling}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_fssopolling_adgrp': {
-            'params': ['fsso-polling', 'adgrp', 'adom'],
+            'params': ['adgrp', 'adom', 'fsso-polling'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}/adgrp',
                 '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}/adgrp/{adgrp}',
+                '/pm/config/global/obj/user/fsso-polling/{fsso-polling}/adgrp',
                 '/pm/config/global/obj/user/fsso-polling/{fsso-polling}/adgrp/{adgrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_group': {
-            'params': ['group', 'adom'],
+            'params': ['adom', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group',
                 '/pm/config/adom/{adom}/obj/user/group/{group}',
+                '/pm/config/global/obj/user/group',
                 '/pm/config/global/obj/user/group/{group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_group_dynamicmapping': {
-            'params': ['group', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.0.2', '7.4.0']]
+            'v_range': [['7.0.2', '']]
         },
         'user_group_dynamicmapping_guest': {
-            'params': ['group', 'dynamic_mapping', 'guest', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'group', 'guest'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
             ],
             'v_range': [['7.0.2', '7.4.0']]
         },
         'user_group_dynamicmapping_match': {
-            'params': ['group', 'dynamic_mapping', 'match', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'group', 'match'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
+                '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
             ],
             'v_range': [['7.0.2', '7.4.0']]
         },
         'user_group_dynamicmapping_sslvpnoschecklist': {
-            'params': ['group', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'group'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/sslvpn-os-check-list'
@@ -8833,255 +10059,317 @@ def main():
             'v_range': [['7.0.2', '7.4.0']]
         },
         'user_group_guest': {
-            'params': ['group', 'guest', 'adom'],
+            'params': ['adom', 'group', 'guest'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group/{group}/guest',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/guest/{guest}',
+                '/pm/config/global/obj/user/group/{group}/guest',
                 '/pm/config/global/obj/user/group/{group}/guest/{guest}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_group_match': {
-            'params': ['group', 'match', 'adom'],
+            'params': ['adom', 'group', 'match'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/group/{group}/match',
                 '/pm/config/adom/{adom}/obj/user/group/{group}/match/{match}',
+                '/pm/config/global/obj/user/group/{group}/match',
                 '/pm/config/global/obj/user/group/{group}/match/{match}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_json': {
-            'params': ['json', 'adom'],
+            'params': ['adom', 'json'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/json',
                 '/pm/config/adom/{adom}/obj/user/json/{json}',
+                '/pm/config/global/obj/user/json',
                 '/pm/config/global/obj/user/json/{json}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'user_krbkeytab': {
-            'params': ['krb-keytab', 'adom'],
+            'params': ['adom', 'krb-keytab'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/krb-keytab',
                 '/pm/config/adom/{adom}/obj/user/krb-keytab/{krb-keytab}',
+                '/pm/config/global/obj/user/krb-keytab',
                 '/pm/config/global/obj/user/krb-keytab/{krb-keytab}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'user_ldap': {
-            'params': ['ldap', 'adom'],
+            'params': ['adom', 'ldap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/ldap',
                 '/pm/config/adom/{adom}/obj/user/ldap/{ldap}',
+                '/pm/config/global/obj/user/ldap',
                 '/pm/config/global/obj/user/ldap/{ldap}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_ldap_dynamicmapping': {
-            'params': ['ldap', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'ldap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping',
                 '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'user_local': {
-            'params': ['local', 'adom'],
+            'params': ['adom', 'local'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/local',
                 '/pm/config/adom/{adom}/obj/user/local/{local}',
+                '/pm/config/global/obj/user/local',
                 '/pm/config/global/obj/user/local/{local}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_nsx': {
-            'params': ['nsx', 'adom'],
+            'params': ['adom', 'nsx'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/nsx',
                 '/pm/config/adom/{adom}/obj/user/nsx/{nsx}',
+                '/pm/config/global/obj/user/nsx',
                 '/pm/config/global/obj/user/nsx/{nsx}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'user_nsx_service': {
-            'params': ['nsx', 'service', 'adom'],
+            'params': ['adom', 'nsx', 'service'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service',
                 '/pm/config/adom/{adom}/obj/user/nsx/{nsx}/service/{service}',
+                '/pm/config/global/obj/user/nsx/{nsx}/service',
                 '/pm/config/global/obj/user/nsx/{nsx}/service/{service}'
             ],
             'v_range': [['7.0.4', '']]
         },
         'user_passwordpolicy': {
-            'params': ['password-policy', 'adom'],
+            'params': ['adom', 'password-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/password-policy',
                 '/pm/config/adom/{adom}/obj/user/password-policy/{password-policy}',
+                '/pm/config/global/obj/user/password-policy',
                 '/pm/config/global/obj/user/password-policy/{password-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_peer': {
-            'params': ['peer', 'adom'],
+            'params': ['adom', 'peer'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/peer',
                 '/pm/config/adom/{adom}/obj/user/peer/{peer}',
+                '/pm/config/global/obj/user/peer',
                 '/pm/config/global/obj/user/peer/{peer}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_peergrp': {
-            'params': ['peergrp', 'adom'],
+            'params': ['adom', 'peergrp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/peergrp',
                 '/pm/config/adom/{adom}/obj/user/peergrp/{peergrp}',
+                '/pm/config/global/obj/user/peergrp',
                 '/pm/config/global/obj/user/peergrp/{peergrp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_pop3': {
-            'params': ['pop3', 'adom'],
+            'params': ['adom', 'pop3'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/pop3',
                 '/pm/config/adom/{adom}/obj/user/pop3/{pop3}',
+                '/pm/config/global/obj/user/pop3',
                 '/pm/config/global/obj/user/pop3/{pop3}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_pxgrid': {
-            'params': ['pxgrid', 'adom'],
+            'params': ['adom', 'pxgrid'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/pxgrid',
                 '/pm/config/adom/{adom}/obj/user/pxgrid/{pxgrid}',
+                '/pm/config/global/obj/user/pxgrid',
                 '/pm/config/global/obj/user/pxgrid/{pxgrid}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_radius': {
-            'params': ['radius', 'adom'],
+            'params': ['adom', 'radius'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/radius',
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}',
+                '/pm/config/global/obj/user/radius',
                 '/pm/config/global/obj/user/radius/{radius}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_radius_accountingserver': {
-            'params': ['radius', 'accounting-server', 'adom'],
+            'params': ['accounting-server', 'adom', 'radius'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/radius/{radius}/accounting-server',
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/accounting-server/{accounting-server}',
+                '/pm/config/global/obj/user/radius/{radius}/accounting-server',
                 '/pm/config/global/obj/user/radius/{radius}/accounting-server/{accounting-server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_radius_dynamicmapping': {
-            'params': ['radius', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'radius'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping',
                 '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'user_radius_dynamicmapping_accountingserver': {
-            'params': ['radius', 'dynamic_mapping', 'accounting-server', 'adom'],
+            'params': ['accounting-server', 'adom', 'dynamic_mapping', 'radius'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server',
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
+                '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server',
                 '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
             ],
             'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.4.0']]
         },
         'user_saml': {
-            'params': ['saml', 'adom'],
+            'params': ['adom', 'saml'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/saml',
                 '/pm/config/adom/{adom}/obj/user/saml/{saml}',
+                '/pm/config/global/obj/user/saml',
                 '/pm/config/global/obj/user/saml/{saml}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'user_saml_dynamicmapping': {
-            'params': ['saml', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'saml'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping',
                 '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '7.4.0']]
+            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']]
         },
         'user_securityexemptlist': {
-            'params': ['security-exempt-list', 'adom'],
+            'params': ['adom', 'security-exempt-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/security-exempt-list',
                 '/pm/config/adom/{adom}/obj/user/security-exempt-list/{security-exempt-list}',
+                '/pm/config/global/obj/user/security-exempt-list',
                 '/pm/config/global/obj/user/security-exempt-list/{security-exempt-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_securityexemptlist_rule': {
-            'params': ['security-exempt-list', 'rule', 'adom'],
+            'params': ['adom', 'rule', 'security-exempt-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/security-exempt-list/{security-exempt-list}/rule',
                 '/pm/config/adom/{adom}/obj/user/security-exempt-list/{security-exempt-list}/rule/{rule}',
+                '/pm/config/global/obj/user/security-exempt-list/{security-exempt-list}/rule',
                 '/pm/config/global/obj/user/security-exempt-list/{security-exempt-list}/rule/{rule}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_tacacs': {
-            'params': ['tacacs+', 'adom'],
+            'params': ['adom', 'tacacs+'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/tacacs+',
                 '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}',
+                '/pm/config/global/obj/user/tacacs+',
                 '/pm/config/global/obj/user/tacacs+/{tacacs+}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'user_tacacs_dynamicmapping': {
-            'params': ['tacacs+', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'tacacs+'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/user/tacacs+/{tacacs+}/dynamic_mapping',
                 '/pm/config/global/obj/user/tacacs+/{tacacs+}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'user_vcenter': {
-            'params': ['vcenter', 'adom'],
+            'params': ['adom', 'vcenter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/vcenter',
                 '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}',
+                '/pm/config/global/obj/user/vcenter',
                 '/pm/config/global/obj/user/vcenter/{vcenter}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'user_vcenter_rule': {
-            'params': ['vcenter', 'rule', 'adom'],
+            'params': ['adom', 'rule', 'vcenter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule',
                 '/pm/config/adom/{adom}/obj/user/vcenter/{vcenter}/rule/{rule}',
+                '/pm/config/global/obj/user/vcenter/{vcenter}/rule',
                 '/pm/config/global/obj/user/vcenter/{vcenter}/rule/{rule}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'utmprofile': {
-            'params': ['utm-profile', 'adom'],
+            'params': ['adom', 'utm-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/utm-profile/{utm-profile}',
+                '/pm/config/global/obj/wireless-controller/utm-profile',
                 '/pm/config/global/obj/wireless-controller/utm-profile/{utm-profile}'
             ],
             'v_range': [['6.2.2', '']]
         },
         'vap': {
-            'params': ['vap', 'adom'],
+            'params': ['adom', 'vap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}',
+                '/pm/config/global/obj/wireless-controller/vap',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vap_dynamicmapping': {
-            'params': ['vap', 'dynamic_mapping', 'adom'],
+            'params': ['adom', 'dynamic_mapping', 'vap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/dynamic_mapping',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/dynamic_mapping/{dynamic_mapping}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/dynamic_mapping',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['6.0.0', '7.4.0']]
+            'v_range': [['6.0.0', '']]
         },
         'vap_macfilterlist': {
-            'params': ['vap', 'mac-filter-list', 'adom'],
+            'params': ['adom', 'mac-filter-list', 'vap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mac-filter-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mac-filter-list/{mac-filter-list}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/mac-filter-list',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/mac-filter-list/{mac-filter-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vap_mpskkey': {
-            'params': ['vap', 'mpsk-key', 'adom'],
+            'params': ['adom', 'mpsk-key', 'vap'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vap_portalmessageoverrides': {
-            'params': ['vap', 'adom'],
+            'params': ['adom', 'vap'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/portal-message-overrides',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/portal-message-overrides'
@@ -9089,63 +10377,77 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'vap_vlanname': {
-            'params': ['vap', 'vlan-name', 'adom'],
+            'params': ['adom', 'vap', 'vlan-name'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-name/{vlan-name}'
             ],
             'v_range': [['7.0.3', '']]
         },
         'vap_vlanpool': {
-            'params': ['vap', 'vlan-pool', 'adom'],
+            'params': ['adom', 'vap', 'vlan-pool'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-pool',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/vlan-pool/{vlan-pool}',
+                '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-pool',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/vlan-pool/{vlan-pool}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vapgroup': {
-            'params': ['vap-group', 'adom'],
+            'params': ['adom', 'vap-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/vap-group',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap-group/{vap-group}',
+                '/pm/config/global/obj/wireless-controller/vap-group',
                 '/pm/config/global/obj/wireless-controller/vap-group/{vap-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'videofilter_keyword': {
-            'params': ['keyword', 'adom'],
+            'params': ['adom', 'keyword'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/keyword',
                 '/pm/config/adom/{adom}/obj/videofilter/keyword/{keyword}',
+                '/pm/config/global/obj/videofilter/keyword',
                 '/pm/config/global/obj/videofilter/keyword/{keyword}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'videofilter_keyword_word': {
-            'params': ['keyword', 'word', 'adom'],
+            'params': ['adom', 'keyword', 'word'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/keyword/{keyword}/word',
                 '/pm/config/adom/{adom}/obj/videofilter/keyword/{keyword}/word/{word}',
+                '/pm/config/global/obj/videofilter/keyword/{keyword}/word',
                 '/pm/config/global/obj/videofilter/keyword/{keyword}/word/{word}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'videofilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/profile',
                 '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}',
+                '/pm/config/global/obj/videofilter/profile',
                 '/pm/config/global/obj/videofilter/profile/{profile}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'videofilter_profile_filters': {
-            'params': ['profile', 'filters', 'adom'],
+            'params': ['adom', 'filters', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/filters',
                 '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/filters/{filters}',
+                '/pm/config/global/obj/videofilter/profile/{profile}/filters',
                 '/pm/config/global/obj/videofilter/profile/{profile}/filters/{filters}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'videofilter_profile_fortiguardcategory': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category',
                 '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category'
@@ -9153,63 +10455,77 @@ def main():
             'v_range': [['7.0.0', '']]
         },
         'videofilter_profile_fortiguardcategory_filters': {
-            'params': ['profile', 'filters', 'adom'],
+            'params': ['adom', 'filters', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters',
                 '/pm/config/adom/{adom}/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}',
+                '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters',
                 '/pm/config/global/obj/videofilter/profile/{profile}/fortiguard-category/filters/{filters}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'videofilter_youtubechannelfilter': {
-            'params': ['youtube-channel-filter', 'adom'],
+            'params': ['adom', 'youtube-channel-filter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter',
                 '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter',
                 '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'videofilter_youtubechannelfilter_entries': {
-            'params': ['youtube-channel-filter', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'youtube-channel-filter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries',
                 '/pm/config/adom/{adom}/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}',
+                '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries',
                 '/pm/config/global/obj/videofilter/youtube-channel-filter/{youtube-channel-filter}/entries/{entries}'
             ],
             'v_range': [['7.0.0', '']]
         },
         'videofilter_youtubekey': {
-            'params': ['youtube-key', 'adom'],
+            'params': ['adom', 'youtube-key'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/videofilter/youtube-key',
                 '/pm/config/adom/{adom}/obj/videofilter/youtube-key/{youtube-key}',
+                '/pm/config/global/obj/videofilter/youtube-key',
                 '/pm/config/global/obj/videofilter/youtube-key/{youtube-key}'
             ],
             'v_range': [['7.4.2', '']]
         },
         'virtualpatch_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/virtual-patch/profile',
                 '/pm/config/adom/{adom}/obj/virtual-patch/profile/{profile}',
+                '/pm/config/global/obj/virtual-patch/profile',
                 '/pm/config/global/obj/virtual-patch/profile/{profile}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'virtualpatch_profile_exemption': {
-            'params': ['profile', 'exemption', 'adom'],
+            'params': ['adom', 'exemption', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/virtual-patch/profile/{profile}/exemption',
                 '/pm/config/adom/{adom}/obj/virtual-patch/profile/{profile}/exemption/{exemption}',
+                '/pm/config/global/obj/virtual-patch/profile/{profile}/exemption',
                 '/pm/config/global/obj/virtual-patch/profile/{profile}/exemption/{exemption}'
             ],
             'v_range': [['7.4.1', '']]
         },
         'voip_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/voip/profile',
                 '/pm/config/adom/{adom}/obj/voip/profile/{profile}',
+                '/pm/config/global/obj/voip/profile',
                 '/pm/config/global/obj/voip/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'voip_profile_msrp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/voip/profile/{profile}/msrp',
                 '/pm/config/global/obj/voip/profile/{profile}/msrp'
@@ -9217,7 +10533,7 @@ def main():
             'v_range': [['7.0.2', '']]
         },
         'voip_profile_sccp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sccp',
                 '/pm/config/global/obj/voip/profile/{profile}/sccp'
@@ -9225,7 +10541,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'voip_profile_sip': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sip',
                 '/pm/config/global/obj/voip/profile/{profile}/sip'
@@ -9233,41 +10549,51 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'vpn_certificate_ca': {
-            'params': ['ca', 'adom'],
+            'params': ['adom', 'ca'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/certificate/ca',
                 '/pm/config/adom/{adom}/obj/vpn/certificate/ca/{ca}',
+                '/pm/config/global/obj/vpn/certificate/ca',
                 '/pm/config/global/obj/vpn/certificate/ca/{ca}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpn_certificate_ocspserver': {
-            'params': ['ocsp-server', 'adom'],
+            'params': ['adom', 'ocsp-server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/certificate/ocsp-server',
                 '/pm/config/adom/{adom}/obj/vpn/certificate/ocsp-server/{ocsp-server}',
+                '/pm/config/global/obj/vpn/certificate/ocsp-server',
                 '/pm/config/global/obj/vpn/certificate/ocsp-server/{ocsp-server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpn_certificate_remote': {
-            'params': ['remote', 'adom'],
+            'params': ['adom', 'remote'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/certificate/remote',
                 '/pm/config/adom/{adom}/obj/vpn/certificate/remote/{remote}',
+                '/pm/config/global/obj/vpn/certificate/remote',
                 '/pm/config/global/obj/vpn/certificate/remote/{remote}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpn_ipsec_fec': {
-            'params': ['fec', 'adom'],
+            'params': ['adom', 'fec'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec',
                 '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}',
+                '/pm/config/global/obj/vpn/ipsec/fec',
                 '/pm/config/global/obj/vpn/ipsec/fec/{fec}'
             ],
             'v_range': [['7.2.0', '']]
         },
         'vpn_ipsec_fec_mappings': {
-            'params': ['fec', 'mappings', 'adom'],
+            'params': ['adom', 'fec', 'mappings'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings',
                 '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}',
+                '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings',
                 '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
             ],
             'v_range': [['7.2.0', '']]
@@ -9280,110 +10606,135 @@ def main():
             'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']]
         },
         'vpn_ssl_settings_authenticationrule': {
-            'params': ['device', 'vdom', 'authentication-rule'],
+            'params': ['authentication-rule', 'device', 'vdom'],
             'urls': [
+                '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule',
                 '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule/{authentication-rule}'
             ],
             'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']]
         },
         'vpnmgr_node': {
-            'params': ['node', 'adom'],
+            'params': ['adom', 'node'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/node',
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}',
+                '/pm/config/global/obj/vpnmgr/node',
                 '/pm/config/global/obj/vpnmgr/node/{node}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnmgr_node_iprange': {
-            'params': ['node', 'ip-range', 'adom'],
+            'params': ['adom', 'ip-range', 'node'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ip-range',
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ip-range/{ip-range}',
+                '/pm/config/global/obj/vpnmgr/node/{node}/ip-range',
                 '/pm/config/global/obj/vpnmgr/node/{node}/ip-range/{ip-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnmgr_node_ipv4excluderange': {
-            'params': ['node', 'ipv4-exclude-range', 'adom'],
+            'params': ['adom', 'ipv4-exclude-range', 'node'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ipv4-exclude-range',
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/ipv4-exclude-range/{ipv4-exclude-range}',
+                '/pm/config/global/obj/vpnmgr/node/{node}/ipv4-exclude-range',
                 '/pm/config/global/obj/vpnmgr/node/{node}/ipv4-exclude-range/{ipv4-exclude-range}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnmgr_node_protectedsubnet': {
-            'params': ['node', 'protected_subnet', 'adom'],
+            'params': ['adom', 'node', 'protected_subnet'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/protected_subnet',
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/protected_subnet/{protected_subnet}',
+                '/pm/config/global/obj/vpnmgr/node/{node}/protected_subnet',
                 '/pm/config/global/obj/vpnmgr/node/{node}/protected_subnet/{protected_subnet}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnmgr_node_summaryaddr': {
-            'params': ['node', 'summary_addr', 'adom'],
+            'params': ['adom', 'node', 'summary_addr'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/summary_addr',
                 '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}/summary_addr/{summary_addr}',
+                '/pm/config/global/obj/vpnmgr/node/{node}/summary_addr',
                 '/pm/config/global/obj/vpnmgr/node/{node}/summary_addr/{summary_addr}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnmgr_vpntable': {
-            'params': ['vpntable', 'adom'],
+            'params': ['adom', 'vpntable'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpnmgr/vpntable',
                 '/pm/config/adom/{adom}/obj/vpnmgr/vpntable/{vpntable}',
+                '/pm/config/global/obj/vpnmgr/vpntable',
                 '/pm/config/global/obj/vpnmgr/vpntable/{vpntable}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_hostchecksoftware': {
-            'params': ['host-check-software', 'adom'],
+            'params': ['adom', 'host-check-software'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software/{host-check-software}',
+                '/pm/config/global/obj/vpn/ssl/web/host-check-software',
                 '/pm/config/global/obj/vpn/ssl/web/host-check-software/{host-check-software}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_hostchecksoftware_checkitemlist': {
-            'params': ['host-check-software', 'check-item-list', 'adom'],
+            'params': ['adom', 'check-item-list', 'host-check-software'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software/{host-check-software}/check-item-list',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/host-check-software/{host-check-software}/check-item-list/{check-item-list}',
+                '/pm/config/global/obj/vpn/ssl/web/host-check-software/{host-check-software}/check-item-list',
                 '/pm/config/global/obj/vpn/ssl/web/host-check-software/{host-check-software}/check-item-list/{check-item-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal': {
-            'params': ['portal', 'adom'],
+            'params': ['adom', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}',
+                '/pm/config/global/obj/vpn/ssl/web/portal',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_bookmarkgroup': {
-            'params': ['portal', 'bookmark-group', 'adom'],
+            'params': ['adom', 'bookmark-group', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_bookmarkgroup_bookmarks': {
-            'params': ['portal', 'bookmark-group', 'bookmarks', 'adom'],
+            'params': ['adom', 'bookmark-group', 'bookmarks', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_bookmarkgroup_bookmarks_formdata': {
-            'params': ['portal', 'bookmark-group', 'bookmarks', 'form-data', 'adom'],
+            'params': ['adom', 'bookmark-group', 'bookmarks', 'form-data', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}/form-data',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}/form-data/{form-data}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}/form-data',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}/form-data/{form-data}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_landingpage': {
-            'params': ['portal', 'adom'],
+            'params': ['adom', 'portal'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page'
@@ -9391,23 +10742,27 @@ def main():
             'v_range': [['7.4.0', '']]
         },
         'vpnsslweb_portal_landingpage_formdata': {
-            'params': ['portal', 'form-data', 'adom'],
+            'params': ['adom', 'form-data', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/form-data/{form-data}'
             ],
             'v_range': [['7.4.0', '']]
         },
         'vpnsslweb_portal_macaddrcheckrule': {
-            'params': ['portal', 'mac-addr-check-rule', 'adom'],
+            'params': ['adom', 'mac-addr-check-rule', 'portal'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/mac-addr-check-rule',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/mac-addr-check-rule/{mac-addr-check-rule}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/mac-addr-check-rule',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/mac-addr-check-rule/{mac-addr-check-rule}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_oschecklist': {
-            'params': ['portal', 'adom'],
+            'params': ['adom', 'portal'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/os-check-list',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/os-check-list'
@@ -9415,55 +10770,67 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_portal_splitdns': {
-            'params': ['portal', 'split-dns', 'adom'],
+            'params': ['adom', 'portal', 'split-dns'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/split-dns',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/split-dns/{split-dns}',
+                '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/split-dns',
                 '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/split-dns/{split-dns}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_realm': {
-            'params': ['realm', 'adom'],
+            'params': ['adom', 'realm'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/realm',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/realm/{realm}',
+                '/pm/config/global/obj/vpn/ssl/web/realm',
                 '/pm/config/global/obj/vpn/ssl/web/realm/{realm}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'vpnsslweb_virtualdesktopapplist': {
-            'params': ['virtual-desktop-app-list', 'adom'],
+            'params': ['adom', 'virtual-desktop-app-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list',
                 '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'vpnsslweb_virtualdesktopapplist_apps': {
-            'params': ['virtual-desktop-app-list', 'apps', 'adom'],
+            'params': ['adom', 'apps', 'virtual-desktop-app-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps',
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
+                '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps',
                 '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
             ],
             'v_range': [['6.2.0', '6.2.12']]
         },
         'waf_mainclass': {
-            'params': ['main-class', 'adom'],
+            'params': ['adom', 'main-class'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/main-class',
                 '/pm/config/adom/{adom}/obj/waf/main-class/{main-class}',
+                '/pm/config/global/obj/waf/main-class',
                 '/pm/config/global/obj/waf/main-class/{main-class}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}',
+                '/pm/config/global/obj/waf/profile',
                 '/pm/config/global/obj/waf/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_addresslist': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/address-list',
                 '/pm/config/global/obj/waf/profile/{profile}/address-list'
@@ -9471,7 +10838,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint'
@@ -9479,7 +10846,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_contentlength': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/content-length',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/content-length'
@@ -9487,15 +10854,17 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_exception': {
-            'params': ['profile', 'exception', 'adom'],
+            'params': ['adom', 'exception', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/exception',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/exception/{exception}',
+                '/pm/config/global/obj/waf/profile/{profile}/constraint/exception',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/exception/{exception}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_headerlength': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/header-length',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/header-length'
@@ -9503,7 +10872,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_hostname': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/hostname',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/hostname'
@@ -9511,7 +10880,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_linelength': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/line-length',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/line-length'
@@ -9519,7 +10888,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_malformed': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/malformed',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/malformed'
@@ -9527,7 +10896,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_maxcookie': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/max-cookie',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/max-cookie'
@@ -9535,7 +10904,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_maxheaderline': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/max-header-line',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/max-header-line'
@@ -9543,7 +10912,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_maxrangesegment': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/max-range-segment',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/max-range-segment'
@@ -9551,7 +10920,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_maxurlparam': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/max-url-param',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/max-url-param'
@@ -9559,7 +10928,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_method': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/method',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/method'
@@ -9567,7 +10936,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_paramlength': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/param-length',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/param-length'
@@ -9575,7 +10944,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_urlparamlength': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/url-param-length',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/url-param-length'
@@ -9583,7 +10952,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_constraint_version': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/version',
                 '/pm/config/global/obj/waf/profile/{profile}/constraint/version'
@@ -9591,7 +10960,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_method': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method',
                 '/pm/config/global/obj/waf/profile/{profile}/method'
@@ -9599,15 +10968,17 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_method_methodpolicy': {
-            'params': ['profile', 'method-policy', 'adom'],
+            'params': ['adom', 'method-policy', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method/method-policy',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method/method-policy/{method-policy}',
+                '/pm/config/global/obj/waf/profile/{profile}/method/method-policy',
                 '/pm/config/global/obj/waf/profile/{profile}/method/method-policy/{method-policy}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_signature': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/signature',
                 '/pm/config/global/obj/waf/profile/{profile}/signature'
@@ -9615,15 +10986,17 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_signature_customsignature': {
-            'params': ['profile', 'custom-signature', 'adom'],
+            'params': ['adom', 'custom-signature', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile/{profile}/signature/custom-signature',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/signature/custom-signature/{custom-signature}',
+                '/pm/config/global/obj/waf/profile/{profile}/signature/custom-signature',
                 '/pm/config/global/obj/waf/profile/{profile}/signature/custom-signature/{custom-signature}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_signature_mainclass': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/signature/main-class',
                 '/pm/config/global/obj/waf/profile/{profile}/signature/main-class'
@@ -9631,71 +11004,87 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_urlaccess': {
-            'params': ['profile', 'url-access', 'adom'],
+            'params': ['adom', 'profile', 'url-access'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access/{url-access}',
+                '/pm/config/global/obj/waf/profile/{profile}/url-access',
                 '/pm/config/global/obj/waf/profile/{profile}/url-access/{url-access}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_profile_urlaccess_accesspattern': {
-            'params': ['profile', 'url-access', 'access-pattern', 'adom'],
+            'params': ['access-pattern', 'adom', 'profile', 'url-access'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access/{url-access}/access-pattern',
                 '/pm/config/adom/{adom}/obj/waf/profile/{profile}/url-access/{url-access}/access-pattern/{access-pattern}',
+                '/pm/config/global/obj/waf/profile/{profile}/url-access/{url-access}/access-pattern',
                 '/pm/config/global/obj/waf/profile/{profile}/url-access/{url-access}/access-pattern/{access-pattern}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_signature': {
-            'params': ['signature', 'adom'],
+            'params': ['adom', 'signature'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/signature',
                 '/pm/config/adom/{adom}/obj/waf/signature/{signature}',
+                '/pm/config/global/obj/waf/signature',
                 '/pm/config/global/obj/waf/signature/{signature}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'waf_subclass': {
-            'params': ['sub-class', 'adom'],
+            'params': ['adom', 'sub-class'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/waf/sub-class',
                 '/pm/config/adom/{adom}/obj/waf/sub-class/{sub-class}',
+                '/pm/config/global/obj/waf/sub-class',
                 '/pm/config/global/obj/waf/sub-class/{sub-class}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wagprofile': {
-            'params': ['wag-profile', 'adom'],
+            'params': ['adom', 'wag-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}',
+                '/pm/config/global/obj/wireless-controller/wag-profile',
                 '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}'
             ],
             'v_range': [['6.2.3', '']]
         },
         'wanopt_authgroup': {
-            'params': ['auth-group', 'adom'],
+            'params': ['adom', 'auth-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wanopt/auth-group',
                 '/pm/config/adom/{adom}/obj/wanopt/auth-group/{auth-group}',
+                '/pm/config/global/obj/wanopt/auth-group',
                 '/pm/config/global/obj/wanopt/auth-group/{auth-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanopt_peer': {
-            'params': ['peer', 'adom'],
+            'params': ['adom', 'peer'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wanopt/peer',
                 '/pm/config/adom/{adom}/obj/wanopt/peer/{peer}',
+                '/pm/config/global/obj/wanopt/peer',
                 '/pm/config/global/obj/wanopt/peer/{peer}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wanopt/profile',
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}',
+                '/pm/config/global/obj/wanopt/profile',
                 '/pm/config/global/obj/wanopt/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile_cifs': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/cifs',
                 '/pm/config/global/obj/wanopt/profile/{profile}/cifs'
@@ -9703,7 +11092,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile_ftp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/ftp',
                 '/pm/config/global/obj/wanopt/profile/{profile}/ftp'
@@ -9711,7 +11100,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile_http': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/http',
                 '/pm/config/global/obj/wanopt/profile/{profile}/http'
@@ -9719,7 +11108,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile_mapi': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/mapi',
                 '/pm/config/global/obj/wanopt/profile/{profile}/mapi'
@@ -9727,7 +11116,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wanopt_profile_tcp': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/tcp',
                 '/pm/config/global/obj/wanopt/profile/{profile}/tcp'
@@ -9735,183 +11124,213 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_sdwan': {
-            'params': ['wanprof', 'adom'],
+            'params': ['adom', 'wanprof'],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_duplication': {
-            'params': ['wanprof', 'duplication', 'adom'],
+            'params': ['adom', 'duplication', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/duplication',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/duplication/{duplication}'
             ],
             'v_range': [['6.4.2', '']]
         },
         'wanprof_system_sdwan_healthcheck': {
-            'params': ['wanprof', 'health-check', 'adom'],
+            'params': ['adom', 'health-check', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_healthcheck_sla': {
-            'params': ['wanprof', 'health-check', 'sla', 'adom'],
+            'params': ['adom', 'health-check', 'sla', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla/{sla}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_members': {
-            'params': ['wanprof', 'members', 'adom'],
+            'params': ['adom', 'members', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/members',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/members/{members}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_neighbor': {
-            'params': ['wanprof', 'neighbor', 'adom'],
+            'params': ['adom', 'neighbor', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/neighbor',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/neighbor/{neighbor}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_service': {
-            'params': ['wanprof', 'service', 'adom'],
+            'params': ['adom', 'service', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service/{service}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_service_sla': {
-            'params': ['wanprof', 'service', 'sla', 'adom'],
+            'params': ['adom', 'service', 'sla', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service/{service}/sla',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/service/{service}/sla/{sla}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_sdwan_zone': {
-            'params': ['wanprof', 'zone', 'adom'],
+            'params': ['adom', 'wanprof', 'zone'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/zone',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/zone/{zone}'
             ],
             'v_range': [['6.4.1', '']]
         },
         'wanprof_system_virtualwanlink': {
-            'params': ['wanprof', 'adom'],
+            'params': ['adom', 'wanprof'],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_virtualwanlink_healthcheck': {
-            'params': ['wanprof', 'health-check', 'adom'],
+            'params': ['adom', 'health-check', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_virtualwanlink_healthcheck_sla': {
-            'params': ['wanprof', 'health-check', 'sla', 'adom'],
+            'params': ['adom', 'health-check', 'sla', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}/sla',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}/sla/{sla}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_virtualwanlink_members': {
-            'params': ['wanprof', 'members', 'adom'],
+            'params': ['adom', 'members', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members/{members}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_virtualwanlink_neighbor': {
-            'params': ['wanprof', 'neighbor', 'adom'],
+            'params': ['adom', 'neighbor', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/neighbor',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/neighbor/{neighbor}'
             ],
             'v_range': [['6.2.1', '']]
         },
         'wanprof_system_virtualwanlink_service': {
-            'params': ['wanprof', 'service', 'adom'],
+            'params': ['adom', 'service', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wanprof_system_virtualwanlink_service_sla': {
-            'params': ['wanprof', 'service', 'sla', 'adom'],
+            'params': ['adom', 'service', 'sla', 'wanprof'],
             'urls': [
+                '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla',
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla/{sla}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_categories': {
-            'params': ['categories', 'adom'],
+            'params': ['adom', 'categories'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/categories',
                 '/pm/config/adom/{adom}/obj/webfilter/categories/{categories}',
+                '/pm/config/global/obj/webfilter/categories',
                 '/pm/config/global/obj/webfilter/categories/{categories}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_content': {
-            'params': ['content', 'adom'],
+            'params': ['adom', 'content'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/content',
                 '/pm/config/adom/{adom}/obj/webfilter/content/{content}',
+                '/pm/config/global/obj/webfilter/content',
                 '/pm/config/global/obj/webfilter/content/{content}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_content_entries': {
-            'params': ['content', 'entries', 'adom'],
+            'params': ['adom', 'content', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/content/{content}/entries',
                 '/pm/config/adom/{adom}/obj/webfilter/content/{content}/entries/{entries}',
+                '/pm/config/global/obj/webfilter/content/{content}/entries',
                 '/pm/config/global/obj/webfilter/content/{content}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_contentheader': {
-            'params': ['content-header', 'adom'],
+            'params': ['adom', 'content-header'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/content-header',
                 '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}',
+                '/pm/config/global/obj/webfilter/content-header',
                 '/pm/config/global/obj/webfilter/content-header/{content-header}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_contentheader_entries': {
-            'params': ['content-header', 'entries', 'adom'],
+            'params': ['adom', 'content-header', 'entries'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}/entries',
                 '/pm/config/adom/{adom}/obj/webfilter/content-header/{content-header}/entries/{entries}',
+                '/pm/config/global/obj/webfilter/content-header/{content-header}/entries',
                 '/pm/config/global/obj/webfilter/content-header/{content-header}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_ftgdlocalcat': {
-            'params': ['ftgd-local-cat', 'adom'],
+            'params': ['adom', 'ftgd-local-cat'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-cat',
                 '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-cat/{ftgd-local-cat}',
+                '/pm/config/global/obj/webfilter/ftgd-local-cat',
                 '/pm/config/global/obj/webfilter/ftgd-local-cat/{ftgd-local-cat}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_ftgdlocalrating': {
-            'params': ['ftgd-local-rating', 'adom'],
+            'params': ['adom', 'ftgd-local-rating'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-rating',
                 '/pm/config/adom/{adom}/obj/webfilter/ftgd-local-rating/{ftgd-local-rating}',
+                '/pm/config/global/obj/webfilter/ftgd-local-rating',
                 '/pm/config/global/obj/webfilter/ftgd-local-rating/{ftgd-local-rating}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}',
+                '/pm/config/global/obj/webfilter/profile',
                 '/pm/config/global/obj/webfilter/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_antiphish': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish',
                 '/pm/config/global/obj/webfilter/profile/{profile}/antiphish'
@@ -9919,23 +11338,27 @@ def main():
             'v_range': [['6.4.0', '']]
         },
         'webfilter_profile_antiphish_custompatterns': {
-            'params': ['profile', 'custom-patterns', 'adom'],
+            'params': ['adom', 'custom-patterns', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/custom-patterns',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/custom-patterns',
                 '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/custom-patterns/{custom-patterns}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'webfilter_profile_antiphish_inspectionentries': {
-            'params': ['profile', 'inspection-entries', 'adom'],
+            'params': ['adom', 'inspection-entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries',
                 '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/inspection-entries/{inspection-entries}'
             ],
             'v_range': [['6.4.0', '']]
         },
         'webfilter_profile_filefilter': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter',
                 '/pm/config/global/obj/webfilter/profile/{profile}/file-filter'
@@ -9943,15 +11366,17 @@ def main():
             'v_range': [['6.2.0', '']]
         },
         'webfilter_profile_filefilter_entries': {
-            'params': ['profile', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter/entries',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter/entries/{entries}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/file-filter/entries',
                 '/pm/config/global/obj/webfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
             'v_range': [['6.2.0', '']]
         },
         'webfilter_profile_ftgdwf': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf',
                 '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf'
@@ -9959,23 +11384,27 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_ftgdwf_filters': {
-            'params': ['profile', 'filters', 'adom'],
+            'params': ['adom', 'filters', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/filters',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/filters/{filters}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/filters',
                 '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/filters/{filters}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_ftgdwf_quota': {
-            'params': ['profile', 'quota', 'adom'],
+            'params': ['adom', 'profile', 'quota'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/quota',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/quota/{quota}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/quota',
                 '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/quota/{quota}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_override': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/override',
                 '/pm/config/global/obj/webfilter/profile/{profile}/override'
@@ -9983,7 +11412,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_urlextraction': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/url-extraction',
                 '/pm/config/global/obj/webfilter/profile/{profile}/url-extraction'
@@ -9991,7 +11420,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_web': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/web',
                 '/pm/config/global/obj/webfilter/profile/{profile}/web'
@@ -9999,81 +11428,101 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'webfilter_profile_youtubechannelfilter': {
-            'params': ['profile', 'youtube-channel-filter', 'adom'],
+            'params': ['adom', 'profile', 'youtube-channel-filter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/youtube-channel-filter',
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/youtube-channel-filter/{youtube-channel-filter}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/youtube-channel-filter',
                 '/pm/config/global/obj/webfilter/profile/{profile}/youtube-channel-filter/{youtube-channel-filter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_urlfilter': {
-            'params': ['urlfilter', 'adom'],
+            'params': ['adom', 'urlfilter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/urlfilter',
                 '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}',
+                '/pm/config/global/obj/webfilter/urlfilter',
                 '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webfilter_urlfilter_entries': {
-            'params': ['urlfilter', 'entries', 'adom'],
+            'params': ['adom', 'entries', 'urlfilter'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}/entries',
                 '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}',
+                '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}/entries',
                 '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_forwardserver': {
-            'params': ['forward-server', 'adom'],
+            'params': ['adom', 'forward-server'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/forward-server',
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server/{forward-server}',
+                '/pm/config/global/obj/web-proxy/forward-server',
                 '/pm/config/global/obj/web-proxy/forward-server/{forward-server}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_forwardservergroup': {
-            'params': ['forward-server-group', 'adom'],
+            'params': ['adom', 'forward-server-group'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group',
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group/{forward-server-group}',
+                '/pm/config/global/obj/web-proxy/forward-server-group',
                 '/pm/config/global/obj/web-proxy/forward-server-group/{forward-server-group}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_forwardservergroup_serverlist': {
-            'params': ['forward-server-group', 'server-list', 'adom'],
+            'params': ['adom', 'forward-server-group', 'server-list'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group/{forward-server-group}/server-list',
                 '/pm/config/adom/{adom}/obj/web-proxy/forward-server-group/{forward-server-group}/server-list/{server-list}',
+                '/pm/config/global/obj/web-proxy/forward-server-group/{forward-server-group}/server-list',
                 '/pm/config/global/obj/web-proxy/forward-server-group/{forward-server-group}/server-list/{server-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_profile': {
-            'params': ['profile', 'adom'],
+            'params': ['adom', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/profile',
                 '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}',
+                '/pm/config/global/obj/web-proxy/profile',
                 '/pm/config/global/obj/web-proxy/profile/{profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_profile_headers': {
-            'params': ['profile', 'headers', 'adom'],
+            'params': ['adom', 'headers', 'profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}/headers',
                 '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}/headers/{headers}',
+                '/pm/config/global/obj/web-proxy/profile/{profile}/headers',
                 '/pm/config/global/obj/web-proxy/profile/{profile}/headers/{headers}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'webproxy_wisp': {
-            'params': ['wisp', 'adom'],
+            'params': ['adom', 'wisp'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/wisp',
                 '/pm/config/adom/{adom}/obj/web-proxy/wisp/{wisp}',
+                '/pm/config/global/obj/web-proxy/wisp',
                 '/pm/config/global/obj/web-proxy/wisp/{wisp}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'widsprofile': {
-            'params': ['wids-profile', 'adom'],
+            'params': ['adom', 'wids-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/wids-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/wids-profile/{wids-profile}',
+                '/pm/config/global/obj/wireless-controller/wids-profile',
                 '/pm/config/global/obj/wireless-controller/wids-profile/{wids-profile}'
             ],
             'v_range': [['6.0.0', '']]
@@ -10081,23 +11530,29 @@ def main():
         'wireless_accesscontrollist': {
             'params': ['access-control-list', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}',
+                '/pm/config/global/obj/wireless-controller/access-control-list',
                 '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'wireless_accesscontrollist_layer3ipv4rules': {
-            'params': ['access-control-list', 'layer3-ipv4-rules', 'adom'],
+            'params': ['access-control-list', 'adom', 'layer3-ipv4-rules'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules',
                 '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules',
                 '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv4-rules/{layer3-ipv4-rules}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'wireless_accesscontrollist_layer3ipv6rules': {
-            'params': ['access-control-list', 'layer3-ipv6-rules', 'adom'],
+            'params': ['access-control-list', 'adom', 'layer3-ipv6-rules'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules',
                 '/pm/config/adom/{adom}/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}',
+                '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules',
                 '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
             ],
             'v_range': [['7.2.1', '']]
@@ -10105,7 +11560,9 @@ def main():
         'wireless_address': {
             'params': ['address', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/address',
                 '/pm/config/adom/{adom}/obj/wireless-controller/address/{address}',
+                '/pm/config/global/obj/wireless-controller/address',
                 '/pm/config/global/obj/wireless-controller/address/{address}'
             ],
             'v_range': [['7.0.1', '']]
@@ -10113,45 +11570,55 @@ def main():
         'wireless_addrgrp': {
             'params': ['addrgrp', 'adom'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp',
                 '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}',
+                '/pm/config/global/obj/wireless-controller/addrgrp',
                 '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}'
             ],
             'v_range': [['7.0.1', '']]
         },
         'wireless_ssidpolicy': {
-            'params': ['ssid-policy', 'adom'],
+            'params': ['adom', 'ssid-policy'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy',
                 '/pm/config/adom/{adom}/obj/wireless-controller/ssid-policy/{ssid-policy}',
+                '/pm/config/global/obj/wireless-controller/ssid-policy',
                 '/pm/config/global/obj/wireless-controller/ssid-policy/{ssid-policy}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'wireless_syslogprofile': {
-            'params': ['syslog-profile', 'adom'],
+            'params': ['adom', 'syslog-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}',
+                '/pm/config/global/obj/wireless-controller/syslog-profile',
                 '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}'
             ],
             'v_range': [['7.2.1', '']]
         },
         'wtpprofile': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile',
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}',
+                '/pm/config/global/obj/wireless-controller/wtp-profile',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_denymaclist': {
-            'params': ['wtp-profile', 'deny-mac-list', 'adom'],
+            'params': ['adom', 'deny-mac-list', 'wtp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/deny-mac-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/deny-mac-list/{deny-mac-list}',
+                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/deny-mac-list',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/deny-mac-list/{deny-mac-list}'
             ],
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_eslsesdongle': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle'
@@ -10159,7 +11626,7 @@ def main():
             'v_range': [['7.0.1', '']]
         },
         'wtpprofile_lan': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lan',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lan'
@@ -10167,7 +11634,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_lbs': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs'
@@ -10175,7 +11642,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_platform': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/platform',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/platform'
@@ -10183,7 +11650,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_radio1': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1'
@@ -10191,7 +11658,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_radio2': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-2',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-2'
@@ -10199,7 +11666,7 @@ def main():
             'v_range': [['6.0.0', '']]
         },
         'wtpprofile_radio3': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-3'
@@ -10207,7 +11674,7 @@ def main():
             'v_range': [['6.2.2', '']]
         },
         'wtpprofile_radio4': {
-            'params': ['wtp-profile', 'adom'],
+            'params': ['adom', 'wtp-profile'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-4'
@@ -10215,9 +11682,11 @@ def main():
             'v_range': [['6.2.5', '']]
         },
         'wtpprofile_splittunnelingacl': {
-            'params': ['wtp-profile', 'split-tunneling-acl', 'adom'],
+            'params': ['adom', 'split-tunneling-acl', 'wtp-profile'],
             'urls': [
+                '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl',
                 '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl/{split-tunneling-acl}',
+                '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl',
                 '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/split-tunneling-acl/{split-tunneling-acl}'
             ],
             'v_range': [['6.0.0', '']]
@@ -10473,6 +11942,9 @@ def main():
                         'extensioncontroller_extenderprofile_cellular_smsnotification_receiver',
                         'extensioncontroller_extenderprofile_lanextension',
                         'extensioncontroller_extenderprofile_lanextension_backhaul',
+                        'extensioncontroller_extenderprofile_wifi',
+                        'extensioncontroller_extenderprofile_wifi_radio1',
+                        'extensioncontroller_extenderprofile_wifi_radio2',
                         'filefilter_profile',
                         'filefilter_profile_rules',
                         'firewall_accessproxy',
@@ -10612,6 +12084,7 @@ def main():
                         'firewall_ssh_localca',
                         'firewall_sslsshprofile',
                         'firewall_sslsshprofile_dot',
+                        'firewall_sslsshprofile_echoutersni',
                         'firewall_sslsshprofile_ftps',
                         'firewall_sslsshprofile_https',
                         'firewall_sslsshprofile_imaps',
@@ -10926,13 +12399,10 @@ def main():
                         'switchcontroller_lldpprofile_mednetworkpolicy',
                         'switchcontroller_macpolicy',
                         'switchcontroller_managedswitch',
-                        'switchcontroller_managedswitch_8021xsettings',
                         'switchcontroller_managedswitch_customcommand',
                         'switchcontroller_managedswitch_dhcpsnoopingstaticclient',
-                        'switchcontroller_managedswitch_igmpsnooping',
                         'switchcontroller_managedswitch_ipsourceguard',
                         'switchcontroller_managedswitch_ipsourceguard_bindingentry',
-                        'switchcontroller_managedswitch_mirror',
                         'switchcontroller_managedswitch_ports',
                         'switchcontroller_managedswitch_ports_dhcpsnoopoption82override',
                         'switchcontroller_managedswitch_remotelog',
@@ -10942,12 +12412,6 @@ def main():
                         'switchcontroller_managedswitch_snmpsysinfo',
                         'switchcontroller_managedswitch_snmptrapthreshold',
                         'switchcontroller_managedswitch_snmpuser',
-                        'switchcontroller_managedswitch_staticmac',
-                        'switchcontroller_managedswitch_stormcontrol',
-                        'switchcontroller_managedswitch_stpinstance',
-                        'switchcontroller_managedswitch_stpsettings',
-                        'switchcontroller_managedswitch_switchlog',
-                        'switchcontroller_managedswitch_switchstpsettings',
                         'switchcontroller_managedswitch_vlan',
                         'switchcontroller_ptp_profile',
                         'switchcontroller_qos_dot1pmap',
@@ -11066,6 +12530,7 @@ def main():
                         'system_log_settings_rollinglocal',
                         'system_log_settings_rollingregular',
                         'system_log_topology',
+                        'system_log_ueba',
                         'system_logfetch_clientprofile',
                         'system_logfetch_clientprofile_devicefilter',
                         'system_logfetch_clientprofile_logfilter',
@@ -11082,6 +12547,7 @@ def main():
                         'system_npu_dswqueuedtsprofile',
                         'system_npu_fpanomaly',
                         'system_npu_hpe',
+                        'system_npu_icmpratectrl',
                         'system_npu_ipreassembly',
                         'system_npu_isfnpqueues',
                         'system_npu_npqueues',
@@ -11204,6 +12670,7 @@ def main():
                         'user_domaincontroller',
                         'user_domaincontroller_extraserver',
                         'user_exchange',
+                        'user_externalidentityprovider',
                         'user_flexvm',
                         'user_fortitoken',
                         'user_fsso',
@@ -11410,10 +12877,6 @@ def main():
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)
-        connection.set_option('access_token', module.params['access_token'] if 'access_token' in module.params else None)
-        connection.set_option('enable_log', module.params['enable_log'] if 'enable_log' in module.params else False)
-        connection.set_option('forticloud_access_token',
-                              module.params['forticloud_access_token'] if 'forticloud_access_token' in module.params else None)
         fmgr = NAPIManager(None, None, None, None, module, connection)
         fmgr.process_export(export_metadata)
     else:

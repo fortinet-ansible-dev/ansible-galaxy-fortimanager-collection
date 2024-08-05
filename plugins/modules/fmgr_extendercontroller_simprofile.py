@@ -91,7 +91,7 @@ options:
         suboptions:
             auto-switch_profile:
                 type: dict
-                description: Deprecated, please rename it to auto_switch_profile.
+                description: Deprecated, please rename it to auto_switch_profile. Auto switch profile.
                 suboptions:
                     dataplan:
                         type: str
@@ -107,10 +107,10 @@ options:
                             - 'enable'
                     disconnect-period:
                         type: int
-                        description: Deprecated, please rename it to disconnect_period. Disconnect-Period.
+                        description: Deprecated, please rename it to disconnect_period. Disconnect period.
                     disconnect-threshold:
                         type: int
-                        description: Deprecated, please rename it to disconnect_threshold. Disconnect-Threshold.
+                        description: Deprecated, please rename it to disconnect_threshold. Disconnect threshold.
                     signal:
                         type: str
                         description: Signal.
@@ -126,22 +126,22 @@ options:
                     switch-back:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to switch_back. Switch-Back.
+                        description: Deprecated, please rename it to switch_back. Switch back.
                         choices:
                             - 'time'
                             - 'timer'
                     switch-back-time:
                         type: str
-                        description: Deprecated, please rename it to switch_back_time. Switch-Back-Time.
+                        description: Deprecated, please rename it to switch_back_time. Switch back time.
                     switch-back-timer:
                         type: int
-                        description: Deprecated, please rename it to switch_back_timer. Switch-Back-Timer.
+                        description: Deprecated, please rename it to switch_back_timer. Switch back timer.
             conn-status:
                 type: int
-                description: Deprecated, please rename it to conn_status. Conn-Status.
+                description: Deprecated, please rename it to conn_status. Conn status.
             default-sim:
                 type: str
-                description: Deprecated, please rename it to default_sim. Default-Sim.
+                description: Deprecated, please rename it to default_sim. Default sim.
                 choices:
                     - 'sim1'
                     - 'sim2'
@@ -158,41 +158,41 @@ options:
                     - 'enable'
             modem-id:
                 type: int
-                description: Deprecated, please rename it to modem_id. Modem-Id.
+                description: Deprecated, please rename it to modem_id. Modem id.
             name:
                 type: str
                 description: Name.
                 required: true
             preferred-carrier:
                 type: str
-                description: Deprecated, please rename it to preferred_carrier. Preferred-Carrier.
+                description: Deprecated, please rename it to preferred_carrier. Preferred carrier.
             redundant-intf:
                 type: str
-                description: Deprecated, please rename it to redundant_intf. Redundant-Intf.
+                description: Deprecated, please rename it to redundant_intf. Redundant intf.
             redundant-mode:
                 type: str
-                description: Deprecated, please rename it to redundant_mode. Redundant-Mode.
+                description: Deprecated, please rename it to redundant_mode. Redundant mode.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1-pin:
                 type: str
-                description: Deprecated, please rename it to sim1_pin. Sim1-Pin.
+                description: Deprecated, please rename it to sim1_pin. Sim1 pin.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1-pin-code:
                 type: raw
-                description: (list) Deprecated, please rename it to sim1_pin_code. Sim1-Pin-Code.
+                description: (list) Deprecated, please rename it to sim1_pin_code. Sim1 pin code.
             sim2-pin:
                 type: str
-                description: Deprecated, please rename it to sim2_pin. Sim2-Pin.
+                description: Deprecated, please rename it to sim2_pin. Sim2 pin.
                 choices:
                     - 'disable'
                     - 'enable'
             sim2-pin-code:
                 type: raw
-                description: (list) Deprecated, please rename it to sim2_pin_code. Sim2-Pin-Code.
+                description: (list) Deprecated, please rename it to sim2_pin_code. Sim2 pin code.
             status:
                 type: str
                 description: Status.
@@ -315,6 +315,7 @@ def main():
             'v_range': [['6.4.4', '']],
             'options': {
                 'auto-switch_profile': {
+                    'v_range': [['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'dataplan': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -357,9 +358,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

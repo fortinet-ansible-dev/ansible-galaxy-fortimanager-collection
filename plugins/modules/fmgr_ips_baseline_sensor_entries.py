@@ -103,14 +103,14 @@ options:
                     - 'default'
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) Applications to be protected.
             cve:
                 type: raw
-                description: (list) No description.
+                description: (list) List of CVE IDs of the signatures to add to the sensor
             exempt-ip:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exempt_ip.
+                description: Deprecated, please rename it to exempt_ip. Exempt ip.
                 suboptions:
                     dst-ip:
                         type: str
@@ -127,7 +127,7 @@ options:
                 required: true
             location:
                 type: raw
-                description: (list) No description.
+                description: (list) Protect client or server traffic.
             log:
                 type: str
                 description: Enable/disable logging of signatures included in filter.
@@ -148,10 +148,10 @@ options:
                     - 'enable'
             os:
                 type: raw
-                description: (list) No description.
+                description: (list) Operating systems to be protected.
             protocol:
                 type: raw
-                description: (list) No description.
+                description: (list) Protocols to be examined.
             quarantine:
                 type: str
                 description: Quarantine method.
@@ -195,7 +195,7 @@ options:
                 description: Identifies the predefined or custom IPS signatures to add to the sensor.
             severity:
                 type: raw
-                description: (list) No description.
+                description: (list) Relative severity of the signature, from info to critical.
             status:
                 type: str
                 description: Status of the signatures included in filter.
@@ -205,7 +205,7 @@ options:
                     - 'default'
             tags:
                 type: str
-                description: No description.
+                description: Tags.
 '''
 
 EXAMPLES = '''
@@ -369,9 +369,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

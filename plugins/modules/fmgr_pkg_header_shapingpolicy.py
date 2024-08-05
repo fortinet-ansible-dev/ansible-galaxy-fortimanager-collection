@@ -91,164 +91,164 @@ options:
         suboptions:
             app-category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_category.
+                description: (list or str) Deprecated, please rename it to app_category. App category.
             app-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_group.
+                description: (list or str) Deprecated, please rename it to app_group. App group.
             application:
                 type: raw
-                description: (list) No description.
+                description: (list) Application.
             class-id:
                 type: raw
-                description: (int or str) Deprecated, please rename it to class_id.
+                description: (int or str) Deprecated, please rename it to class_id. Class id.
             comment:
                 type: str
-                description: No description.
+                description: Comment.
             diffserv-forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward.
+                description: Deprecated, please rename it to diffserv_forward. Diffserv forward.
                 choices:
                     - 'disable'
                     - 'enable'
             diffserv-reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse.
+                description: Deprecated, please rename it to diffserv_reverse. Diffserv reverse.
                 choices:
                     - 'disable'
                     - 'enable'
             diffservcode-forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward.
+                description: Deprecated, please rename it to diffservcode_forward. Diffservcode forward.
             diffservcode-rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev.
+                description: Deprecated, please rename it to diffservcode_rev. Diffservcode rev.
             dstaddr:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Dstaddr.
             dstaddr6:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Dstaddr6.
             dstintf:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Dstintf.
             groups:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Groups.
             id:
                 type: int
-                description: No description.
+                description: Id.
                 required: true
             internet-service:
                 type: str
-                description: Deprecated, please rename it to internet_service.
+                description: Deprecated, please rename it to internet_service. Internet service.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service-custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom.
+                description: (list or str) Deprecated, please rename it to internet_service_custom. Internet service custom.
             internet-service-custom-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom_group.
+                description: (list or str) Deprecated, please rename it to internet_service_custom_group. Internet service custom group.
             internet-service-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_group.
+                description: (list or str) Deprecated, please rename it to internet_service_group. Internet service group.
             internet-service-id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_id.
+                description: (list or str) Deprecated, please rename it to internet_service_id. Internet service id.
             internet-service-src:
                 type: str
-                description: Deprecated, please rename it to internet_service_src.
+                description: Deprecated, please rename it to internet_service_src. Internet service src.
                 choices:
                     - 'disable'
                     - 'enable'
             internet-service-src-custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom.
+                description: (list or str) Deprecated, please rename it to internet_service_src_custom. Internet service src custom.
             internet-service-src-custom-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom_group.
+                description: (list or str) Deprecated, please rename it to internet_service_src_custom_group. Internet service src custom group.
             internet-service-src-group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_group.
+                description: (list or str) Deprecated, please rename it to internet_service_src_group. Internet service src group.
             internet-service-src-id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_id.
+                description: (list or str) Deprecated, please rename it to internet_service_src_id. Internet service src id.
             ip-version:
                 type: str
-                description: Deprecated, please rename it to ip_version.
+                description: Deprecated, please rename it to ip_version. Ip version.
                 choices:
                     - '4'
                     - '6'
             per-ip-shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper.
+                description: Deprecated, please rename it to per_ip_shaper. Per ip shaper.
             schedule:
                 type: str
-                description: No description.
+                description: Schedule.
             service:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Service.
             srcaddr:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Srcaddr.
             srcaddr6:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Srcaddr6.
             srcintf:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Srcintf.
             status:
                 type: str
-                description: No description.
+                description: Status.
                 choices:
                     - 'disable'
                     - 'enable'
             tos:
                 type: str
-                description: No description.
+                description: Tos.
             tos-mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask.
+                description: Deprecated, please rename it to tos_mask. Tos mask.
             tos-negate:
                 type: str
-                description: Deprecated, please rename it to tos_negate.
+                description: Deprecated, please rename it to tos_negate. Tos negate.
                 choices:
                     - 'disable'
                     - 'enable'
             traffic-shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper.
+                description: Deprecated, please rename it to traffic_shaper. Traffic shaper.
             traffic-shaper-reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse.
+                description: Deprecated, please rename it to traffic_shaper_reverse. Traffic shaper reverse.
             url-category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to url_category.
+                description: (list or str) Deprecated, please rename it to url_category. Url category.
             users:
                 type: raw
-                description: (list or str) No description.
+                description: (list or str) Users.
             uuid:
                 type: str
-                description: No description.
+                description: Uuid.
             internet-service-name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_name.
+                description: (list or str) Deprecated, please rename it to internet_service_name. Internet service name.
             internet-service-src-name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_name.
+                description: (list or str) Deprecated, please rename it to internet_service_src_name. Internet service src name.
             class-id-reverse:
                 type: int
-                description: Deprecated, please rename it to class_id_reverse.
+                description: Deprecated, please rename it to class_id_reverse. Class id reverse.
             service-type:
                 type: str
-                description: Deprecated, please rename it to service_type.
+                description: Deprecated, please rename it to service_type. Service type.
                 choices:
                     - 'service'
                     - 'internet-service'
             uuid-idx:
                 type: int
-                description: Deprecated, please rename it to uuid_idx.
+                description: Deprecated, please rename it to uuid_idx. Uuid idx.
             cos:
                 type: str
                 description: VLAN CoS bit pattern.
@@ -468,9 +468,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

@@ -98,12 +98,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -113,19 +113,19 @@ options:
                                 description: Vdom.
                     color:
                         type: int
-                        description: Integer value to determine the color of the icon in the GUI
+                        description: Color.
                     comments:
                         type: str
-                        description: Comment.
+                        description: Comments.
                     interface:
                         type: str
                         description: Interface.
                     member:
                         type: raw
-                        description: (list or str) Member VIP objects of the group
+                        description: (list or str) Member.
                     uuid:
                         type: str
-                        description: Universally Unique Identifier
+                        description: Uuid.
             interface:
                 type: str
                 description: Interface.
@@ -278,9 +278,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

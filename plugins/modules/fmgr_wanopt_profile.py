@@ -107,7 +107,7 @@ options:
                     - 'enable'
             cifs:
                 type: dict
-                description: No description.
+                description: Cifs.
                 suboptions:
                     byte-caching:
                         type: str
@@ -154,10 +154,10 @@ options:
                             - 'express-shared'
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Single port number or port number range for CIFS.
             ftp:
                 type: dict
-                description: No description.
+                description: Ftp.
                 suboptions:
                     byte-caching:
                         type: str
@@ -210,10 +210,10 @@ options:
                             - 'express-shared'
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Single port number or port number range for FTP.
             http:
                 type: dict
-                description: No description.
+                description: Http.
                 suboptions:
                     byte-caching:
                         type: str
@@ -279,13 +279,13 @@ options:
                             - 'tunnel'
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Single port number or port number range for HTTP.
                     ssl-port:
                         type: raw
-                        description: (list) Deprecated, please rename it to ssl_port.
+                        description: (list) Deprecated, please rename it to ssl_port. Port on which to expect HTTPS traffic for SSL/TLS offloading.
             mapi:
                 type: dict
-                description: No description.
+                description: Mapi.
                 suboptions:
                     byte-caching:
                         type: str
@@ -320,10 +320,10 @@ options:
                             - 'express-shared'
                     port:
                         type: raw
-                        description: (list) No description.
+                        description: (list) Single port number or port number range for MAPI.
             tcp:
                 type: dict
-                description: No description.
+                description: Tcp.
                 suboptions:
                     byte-caching:
                         type: str
@@ -521,6 +521,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'transparent': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'cifs': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'byte-caching': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -538,6 +539,7 @@ def main():
                     }
                 },
                 'ftp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'byte-caching': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -556,6 +558,7 @@ def main():
                     }
                 },
                 'http': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'byte-caching': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -581,6 +584,7 @@ def main():
                     }
                 },
                 'mapi': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'byte-caching': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -596,6 +600,7 @@ def main():
                     }
                 },
                 'tcp': {
+                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'byte-caching': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -628,9 +633,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)

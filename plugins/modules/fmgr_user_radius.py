@@ -92,7 +92,7 @@ options:
             accounting-server:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to accounting_server. Accounting-Server.
+                description: Deprecated, please rename it to accounting_server. Accounting server.
                 suboptions:
                     id:
                         type: int
@@ -155,12 +155,12 @@ options:
             dynamic_mapping:
                 type: list
                 elements: dict
-                description: Dynamic_Mapping.
+                description: Dynamic mapping.
                 suboptions:
                     _scope:
                         type: list
                         elements: dict
-                        description: _Scope.
+                        description: Scope.
                         suboptions:
                             name:
                                 type: str
@@ -170,22 +170,22 @@ options:
                                 description: Vdom.
                     acct-all-servers:
                         type: str
-                        description: Deprecated, please rename it to acct_all_servers. Enable/disable sending of accounting messages to all configured ...
+                        description: Deprecated, please rename it to acct_all_servers. Acct all servers.
                         choices:
                             - 'disable'
                             - 'enable'
                     acct-interim-interval:
                         type: int
-                        description: Deprecated, please rename it to acct_interim_interval. Time in seconds between each accounting interim update message.
+                        description: Deprecated, please rename it to acct_interim_interval. Acct interim interval.
                     all-usergroup:
                         type: str
-                        description: Deprecated, please rename it to all_usergroup. Enable/disable automatically including this RADIUS server in all us...
+                        description: Deprecated, please rename it to all_usergroup. All usergroup.
                         choices:
                             - 'disable'
                             - 'enable'
                     auth-type:
                         type: str
-                        description: Deprecated, please rename it to auth_type. Authentication methods/protocols permitted for this RADIUS server.
+                        description: Deprecated, please rename it to auth_type. Auth type.
                         choices:
                             - 'pap'
                             - 'chap'
@@ -194,10 +194,10 @@ options:
                             - 'auto'
                     class:
                         type: raw
-                        description: (list) Class attribute name
+                        description: (list) Class.
                     dp-carrier-endpoint-attribute:
                         type: str
-                        description: Deprecated, please rename it to dp_carrier_endpoint_attribute. Dp-Carrier-Endpoint-Attribute.
+                        description: Deprecated, please rename it to dp_carrier_endpoint_attribute. Dp carrier endpoint attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -254,7 +254,7 @@ options:
                             - 'Login-LAT-Port'
                     dp-carrier-endpoint-block-attribute:
                         type: str
-                        description: Deprecated, please rename it to dp_carrier_endpoint_block_attribute. Dp-Carrier-Endpoint-Block-Attribute.
+                        description: Deprecated, please rename it to dp_carrier_endpoint_block_attribute. Dp carrier endpoint block attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -311,41 +311,41 @@ options:
                             - 'Login-LAT-Port'
                     dp-context-timeout:
                         type: int
-                        description: Deprecated, please rename it to dp_context_timeout. Dp-Context-Timeout.
+                        description: Deprecated, please rename it to dp_context_timeout. Dp context timeout.
                     dp-flush-ip-session:
                         type: str
-                        description: Deprecated, please rename it to dp_flush_ip_session. Dp-Flush-Ip-Session.
+                        description: Deprecated, please rename it to dp_flush_ip_session. Dp flush ip session.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp-hold-time:
                         type: int
-                        description: Deprecated, please rename it to dp_hold_time. Dp-Hold-Time.
+                        description: Deprecated, please rename it to dp_hold_time. Dp hold time.
                     dp-http-header:
                         type: str
-                        description: Deprecated, please rename it to dp_http_header. Dp-Http-Header.
+                        description: Deprecated, please rename it to dp_http_header. Dp http header.
                     dp-http-header-fallback:
                         type: str
-                        description: Deprecated, please rename it to dp_http_header_fallback. Dp-Http-Header-Fallback.
+                        description: Deprecated, please rename it to dp_http_header_fallback. Dp http header fallback.
                         choices:
                             - 'ip-header-address'
                             - 'default-profile'
                     dp-http-header-status:
                         type: str
-                        description: Deprecated, please rename it to dp_http_header_status. Dp-Http-Header-Status.
+                        description: Deprecated, please rename it to dp_http_header_status. Dp http header status.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp-http-header-suppress:
                         type: str
-                        description: Deprecated, please rename it to dp_http_header_suppress. Dp-Http-Header-Suppress.
+                        description: Deprecated, please rename it to dp_http_header_suppress. Dp http header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp-log-dyn_flags:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to dp_log_dyn_flags. Dp-Log-Dyn_Flags.
+                        description: Deprecated, please rename it to dp_log_dyn_flags. Dp log dyn flags.
                         choices:
                             - 'none'
                             - 'protocol-error'
@@ -357,13 +357,13 @@ options:
                             - 'endpoint-block'
                     dp-log-period:
                         type: int
-                        description: Deprecated, please rename it to dp_log_period. Dp-Log-Period.
+                        description: Deprecated, please rename it to dp_log_period. Dp log period.
                     dp-mem-percent:
                         type: int
-                        description: Deprecated, please rename it to dp_mem_percent. Dp-Mem-Percent.
+                        description: Deprecated, please rename it to dp_mem_percent. Dp mem percent.
                     dp-profile-attribute:
                         type: str
-                        description: Deprecated, please rename it to dp_profile_attribute. Dp-Profile-Attribute.
+                        description: Deprecated, please rename it to dp_profile_attribute. Dp profile attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -420,104 +420,104 @@ options:
                             - 'Login-LAT-Port'
                     dp-profile-attribute-key:
                         type: str
-                        description: Deprecated, please rename it to dp_profile_attribute_key. Dp-Profile-Attribute-Key.
+                        description: Deprecated, please rename it to dp_profile_attribute_key. Dp profile attribute key.
                     dp-radius-response:
                         type: str
-                        description: Deprecated, please rename it to dp_radius_response. Dp-Radius-Response.
+                        description: Deprecated, please rename it to dp_radius_response. Dp radius response.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp-radius-server-port:
                         type: int
-                        description: Deprecated, please rename it to dp_radius_server_port. Dp-Radius-Server-Port.
+                        description: Deprecated, please rename it to dp_radius_server_port. Dp radius server port.
                     dp-secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to dp_secret. Dp-Secret.
+                        description: (list) Deprecated, please rename it to dp_secret. Dp secret.
                     dp-validate-request-secret:
                         type: str
-                        description: Deprecated, please rename it to dp_validate_request_secret. Dp-Validate-Request-Secret.
+                        description: Deprecated, please rename it to dp_validate_request_secret. Dp validate request secret.
                         choices:
                             - 'disable'
                             - 'enable'
                     dynamic-profile:
                         type: str
-                        description: Deprecated, please rename it to dynamic_profile. Dynamic-Profile.
+                        description: Deprecated, please rename it to dynamic_profile. Dynamic profile.
                         choices:
                             - 'disable'
                             - 'enable'
                     endpoint-translation:
                         type: str
-                        description: Deprecated, please rename it to endpoint_translation. Endpoint-Translation.
+                        description: Deprecated, please rename it to endpoint_translation. Endpoint translation.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep-carrier-endpoint-convert-hex:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_convert_hex. Ep-Carrier-Endpoint-Convert-Hex.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_convert_hex. Ep carrier endpoint convert hex.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep-carrier-endpoint-header:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_header. Ep-Carrier-Endpoint-Header.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_header. Ep carrier endpoint header.
                     ep-carrier-endpoint-header-suppress:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_header_suppress. Ep-Carrier-Endpoint-Header-Suppress.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_header_suppress. Ep carrier endpoint header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep-carrier-endpoint-prefix:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix. Ep-Carrier-Endpoint-Prefix.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix. Ep carrier endpoint prefix.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep-carrier-endpoint-prefix-range-max:
                         type: int
-                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_range_max. Ep-Carrier-Endpoint-Prefix-Range-Max.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_range_max. Ep carrier endpoint prefix range max.
                     ep-carrier-endpoint-prefix-range-min:
                         type: int
-                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_range_min. Ep-Carrier-Endpoint-Prefix-Range-Min.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_range_min. Ep carrier endpoint prefix range min.
                     ep-carrier-endpoint-prefix-string:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_string. Ep-Carrier-Endpoint-Prefix-String.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_prefix_string. Ep carrier endpoint prefix string.
                     ep-carrier-endpoint-source:
                         type: str
-                        description: Deprecated, please rename it to ep_carrier_endpoint_source. Ep-Carrier-Endpoint-Source.
+                        description: Deprecated, please rename it to ep_carrier_endpoint_source. Ep carrier endpoint source.
                         choices:
                             - 'http-header'
                             - 'cookie'
                     ep-ip-header:
                         type: str
-                        description: Deprecated, please rename it to ep_ip_header. Ep-Ip-Header.
+                        description: Deprecated, please rename it to ep_ip_header. Ep ip header.
                     ep-ip-header-suppress:
                         type: str
-                        description: Deprecated, please rename it to ep_ip_header_suppress. Ep-Ip-Header-Suppress.
+                        description: Deprecated, please rename it to ep_ip_header_suppress. Ep ip header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep-missing-header-fallback:
                         type: str
-                        description: Deprecated, please rename it to ep_missing_header_fallback. Ep-Missing-Header-Fallback.
+                        description: Deprecated, please rename it to ep_missing_header_fallback. Ep missing header fallback.
                         choices:
                             - 'session-ip'
                             - 'policy-profile'
                     ep-profile-query-type:
                         type: str
-                        description: Deprecated, please rename it to ep_profile_query_type. Ep-Profile-Query-Type.
+                        description: Deprecated, please rename it to ep_profile_query_type. Ep profile query type.
                         choices:
                             - 'session-ip'
                             - 'extract-ip'
                             - 'extract-carrier-endpoint'
                     h3c-compatibility:
                         type: str
-                        description: Deprecated, please rename it to h3c_compatibility. Enable/disable compatibility with the H3C, a mechanism that per...
+                        description: Deprecated, please rename it to h3c_compatibility. H3c compatibility.
                         choices:
                             - 'disable'
                             - 'enable'
                     nas-ip:
                         type: str
-                        description: Deprecated, please rename it to nas_ip. IP address used to communicate with the RADIUS server and used as NAS-IP-A...
+                        description: Deprecated, please rename it to nas_ip. Nas ip.
                     password-encoding:
                         type: str
                         description: Deprecated, please rename it to password_encoding. Password encoding.
@@ -526,31 +526,31 @@ options:
                             - 'auto'
                     password-renewal:
                         type: str
-                        description: Deprecated, please rename it to password_renewal. Enable/disable password renewal.
+                        description: Deprecated, please rename it to password_renewal. Password renewal.
                         choices:
                             - 'disable'
                             - 'enable'
                     radius-coa:
                         type: str
-                        description: Deprecated, please rename it to radius_coa. Enable to allow a mechanism to change the attributes of an authenticat...
+                        description: Deprecated, please rename it to radius_coa. Radius coa.
                         choices:
                             - 'disable'
                             - 'enable'
                     radius-port:
                         type: int
-                        description: Deprecated, please rename it to radius_port. RADIUS service port number.
+                        description: Deprecated, please rename it to radius_port. Radius port.
                     rsso:
                         type: str
-                        description: Enable/disable RADIUS based single sign on feature.
+                        description: Rsso.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso-context-timeout:
                         type: int
-                        description: Deprecated, please rename it to rsso_context_timeout. Time in seconds before the logged out user is removed from t...
+                        description: Deprecated, please rename it to rsso_context_timeout. Rsso context timeout.
                     rsso-endpoint-attribute:
                         type: str
-                        description: Deprecated, please rename it to rsso_endpoint_attribute. RADIUS attributes used to extract the user end point iden...
+                        description: Deprecated, please rename it to rsso_endpoint_attribute. Rsso endpoint attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -606,7 +606,7 @@ options:
                             - 'Login-LAT-Port'
                     rsso-endpoint-block-attribute:
                         type: str
-                        description: Deprecated, please rename it to rsso_endpoint_block_attribute. RADIUS attributes used to block a user.
+                        description: Deprecated, please rename it to rsso_endpoint_block_attribute. Rsso endpoint block attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -662,20 +662,20 @@ options:
                             - 'Login-LAT-Port'
                     rsso-ep-one-ip-only:
                         type: str
-                        description: Deprecated, please rename it to rsso_ep_one_ip_only. Enable/disable the replacement of old IP addresses with new o...
+                        description: Deprecated, please rename it to rsso_ep_one_ip_only. Rsso ep one ip only.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso-flush-ip-session:
                         type: str
-                        description: Deprecated, please rename it to rsso_flush_ip_session. Enable/disable flushing user IP sessions on RADIUS accounti...
+                        description: Deprecated, please rename it to rsso_flush_ip_session. Rsso flush ip session.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso-log-flags:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rsso_log_flags. Events to log.
+                        description: Deprecated, please rename it to rsso_log_flags. Rsso log flags.
                         choices:
                             - 'none'
                             - 'protocol-error'
@@ -687,43 +687,43 @@ options:
                             - 'endpoint-block'
                     rsso-log-period:
                         type: int
-                        description: Deprecated, please rename it to rsso_log_period. Time interval in seconds that group event log messages will be ge...
+                        description: Deprecated, please rename it to rsso_log_period. Rsso log period.
                     rsso-radius-response:
                         type: str
-                        description: Deprecated, please rename it to rsso_radius_response. Enable/disable sending RADIUS response packets after receivi...
+                        description: Deprecated, please rename it to rsso_radius_response. Rsso radius response.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso-radius-server-port:
                         type: int
-                        description: Deprecated, please rename it to rsso_radius_server_port. UDP port to listen on for RADIUS Start and Stop records.
+                        description: Deprecated, please rename it to rsso_radius_server_port. Rsso radius server port.
                     rsso-secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to rsso_secret. RADIUS secret used by the RADIUS accounting server.
+                        description: (list) Deprecated, please rename it to rsso_secret. Rsso secret.
                     rsso-validate-request-secret:
                         type: str
-                        description: Deprecated, please rename it to rsso_validate_request_secret. Enable/disable validating the RADIUS request shared ...
+                        description: Deprecated, please rename it to rsso_validate_request_secret. Rsso validate request secret.
                         choices:
                             - 'disable'
                             - 'enable'
                     secondary-secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to secondary_secret. Secret key to access the secondary server.
+                        description: (list) Deprecated, please rename it to secondary_secret. Secondary secret.
                     secondary-server:
                         type: str
-                        description: Deprecated, please rename it to secondary_server. No description
+                        description: Deprecated, please rename it to secondary_server. Secondary server.
                     secret:
                         type: raw
-                        description: (list) Pre-shared secret key used to access the primary RADIUS server.
+                        description: (list) Secret.
                     server:
                         type: str
-                        description: Primary RADIUS server CN domain name or IP address.
+                        description: Server.
                     source-ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source IP address for communications to the RADIUS server.
+                        description: Deprecated, please rename it to source_ip. Source ip.
                     sso-attribute:
                         type: str
-                        description: Deprecated, please rename it to sso_attribute. RADIUS attribute that contains the profile group name to be extract...
+                        description: Deprecated, please rename it to sso_attribute. Sso attribute.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -779,89 +779,89 @@ options:
                             - 'Login-LAT-Port'
                     sso-attribute-key:
                         type: str
-                        description: Deprecated, please rename it to sso_attribute_key. Key prefix for SSO group value in the SSO attribute.
+                        description: Deprecated, please rename it to sso_attribute_key. Sso attribute key.
                     sso-attribute-value-override:
                         type: str
-                        description: Deprecated, please rename it to sso_attribute_value_override. Enable/disable override old attribute value with new...
+                        description: Deprecated, please rename it to sso_attribute_value_override. Sso attribute value override.
                         choices:
                             - 'disable'
                             - 'enable'
                     tertiary-secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to tertiary_secret. Secret key to access the tertiary server.
+                        description: (list) Deprecated, please rename it to tertiary_secret. Tertiary secret.
                     tertiary-server:
                         type: str
-                        description: Deprecated, please rename it to tertiary_server. No description
+                        description: Deprecated, please rename it to tertiary_server. Tertiary server.
                     timeout:
                         type: int
-                        description: Time in seconds between re-sending authentication requests.
+                        description: Timeout.
                     use-group-for-profile:
                         type: str
-                        description: Deprecated, please rename it to use_group_for_profile. Use-Group-For-Profile.
+                        description: Deprecated, please rename it to use_group_for_profile. Use group for profile.
                         choices:
                             - 'disable'
                             - 'enable'
                     use-management-vdom:
                         type: str
-                        description: Deprecated, please rename it to use_management_vdom. Enable/disable using management VDOM to send requests.
+                        description: Deprecated, please rename it to use_management_vdom. Use management vdom.
                         choices:
                             - 'disable'
                             - 'enable'
                     username-case-sensitive:
                         type: str
-                        description: Deprecated, please rename it to username_case_sensitive. Enable/disable case sensitive user names.
+                        description: Deprecated, please rename it to username_case_sensitive. Username case sensitive.
                         choices:
                             - 'disable'
                             - 'enable'
                     interface:
                         type: str
-                        description: Specify outgoing interface to reach server.
+                        description: Interface.
                     interface-select-method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                        description: Deprecated, please rename it to interface_select_method. Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
                     group-override-attr-type:
                         type: str
-                        description: Deprecated, please rename it to group_override_attr_type. Group-Override-Attr-Type.
+                        description: Deprecated, please rename it to group_override_attr_type. Group override attr type.
                         choices:
                             - 'filter-Id'
                             - 'class'
                     switch-controller-acct-fast-framedip-detect:
                         type: int
-                        description: Deprecated, please rename it to switch_controller_acct_fast_framedip_detect. Switch-Controller-Acct-Fast-Framedip-...
+                        description: Deprecated, please rename it to switch_controller_acct_fast_framedip_detect. Switch controller acct fast framedip ...
                     accounting-server:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to accounting_server. Accounting-Server.
+                        description: Deprecated, please rename it to accounting_server. Accounting server.
                         suboptions:
                             id:
                                 type: int
-                                description: ID
+                                description: Id.
                             interface:
                                 type: str
-                                description: Specify outgoing interface to reach server.
+                                description: Interface.
                             interface-select-method:
                                 type: str
-                                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach...
+                                description: Deprecated, please rename it to interface_select_method. Interface select method.
                                 choices:
                                     - 'auto'
                                     - 'sdwan'
                                     - 'specify'
                             port:
                                 type: int
-                                description: RADIUS accounting port number.
+                                description: Port.
                             secret:
                                 type: raw
-                                description: (list) Secret key.
+                                description: (list) Secret.
                             server:
                                 type: str
-                                description: No description
+                                description: Server.
                             source-ip:
                                 type: str
-                                description: Deprecated, please rename it to source_ip. Source IP address for communications to the RADIUS server.
+                                description: Deprecated, please rename it to source_ip. Source ip.
                             status:
                                 type: str
                                 description: Status.
@@ -871,7 +871,7 @@ options:
                     switch-controller-service-type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to switch_controller_service_type. Switch-Controller-Service-Type.
+                        description: Deprecated, please rename it to switch_controller_service_type. Switch controller service type.
                         choices:
                             - 'login'
                             - 'framed'
@@ -961,6 +961,7 @@ options:
                             - 'othername'
                             - 'rfc822name'
                             - 'dnsname'
+                            - 'cn'
                     account-key-processing:
                         type: str
                         description: Deprecated, please rename it to account_key_processing. Account key processing operation.
@@ -1394,6 +1395,7 @@ options:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
+                    - 'cn'
             account-key-processing:
                 type: str
                 description: Deprecated, please rename it to account_key_processing. Account key processing operation.
@@ -1758,7 +1760,7 @@ def main():
                             'type': 'str'
                         },
                         'transport-protocol': {'v_range': [['7.4.0', '']], 'choices': ['udp', 'tcp', 'tls'], 'type': 'str'},
-                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
+                        'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                         'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                         'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
                         'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
@@ -1872,7 +1874,7 @@ def main():
                     'type': 'str'
                 },
                 'transport-protocol': {'v_range': [['7.4.0', '']], 'choices': ['udp', 'tcp', 'tls'], 'type': 'str'},
-                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
+                'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
                 'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
@@ -1891,9 +1893,6 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    connection.set_option('access_token', module.params.get('access_token', None))
-    connection.set_option('enable_log', module.params.get('enable_log', False))
-    connection.set_option('forticloud_access_token', module.params.get('forticloud_access_token', None))
     fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
     fmgr.process_curd(argument_specs=module_arg_spec)
