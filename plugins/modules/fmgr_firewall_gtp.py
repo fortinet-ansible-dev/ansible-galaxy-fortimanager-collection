@@ -1234,6 +1234,12 @@ options:
                         choices:
                             - 'allow'
                             - 'deny'
+            gtpv0:
+                type: str
+                description: GTPv0 traffic.
+                choices:
+                    - 'allow'
+                    - 'deny'
 '''
 
 EXAMPLES = '''
@@ -1679,7 +1685,8 @@ def main():
                         'update-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
                         'version-not-support': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'}
                     }
-                }
+                },
+                'gtpv0': {'v_range': [['7.6.0', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
 
         }
@@ -1690,7 +1697,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_gtp'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

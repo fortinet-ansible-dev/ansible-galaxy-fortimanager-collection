@@ -935,6 +935,9 @@ options:
                                                 choices:
                                                     - 'disable'
                                                     - 'enable'
+                                            vrdst-priority:
+                                                type: int
+                                                description: Deprecated, please rename it to vrdst_priority. Priority of the virtual router when the vi...
                                     cli-conn6-status:
                                         type: int
                                         description: Deprecated, please rename it to cli_conn6_status. Cli conn6 status.
@@ -997,6 +1000,7 @@ options:
                                             - 'fabric'
                                             - 'speed-test'
                                             - 'icond'
+                                            - 'scim'
                                     detectprotocol:
                                         type: list
                                         elements: str
@@ -2512,6 +2516,9 @@ options:
                                         choices:
                                             - 'disable'
                                             - 'enable'
+                                    vrdst-priority:
+                                        type: int
+                                        description: Deprecated, please rename it to vrdst_priority. Priority of the virtual router when the virtual ro...
                             cli-conn6-status:
                                 type: int
                                 description: Deprecated, please rename it to cli_conn6_status. Cli conn6 status.
@@ -2929,6 +2936,7 @@ options:
                                     - 'fabric'
                                     - 'speed-test'
                                     - 'icond'
+                                    - 'scim'
                             detectprotocol:
                                 type: list
                                 elements: str
@@ -3815,6 +3823,33 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    netflow-sample-rate:
+                        type: int
+                        description: Deprecated, please rename it to netflow_sample_rate. NetFlow sample rate.
+                    netflow-sampler-id:
+                        type: int
+                        description: Deprecated, please rename it to netflow_sampler_id. Netflow sampler ID.
+                    pppoe-egress-cos:
+                        type: str
+                        description: Deprecated, please rename it to pppoe_egress_cos. CoS in VLAN tag for outgoing PPPoE/PPP packets.
+                        choices:
+                            - 'cos0'
+                            - 'cos1'
+                            - 'cos2'
+                            - 'cos3'
+                            - 'cos4'
+                            - 'cos5'
+                            - 'cos6'
+                            - 'cos7'
+                    security-ip-auth-bypass:
+                        type: str
+                        description: Deprecated, please rename it to security_ip_auth_bypass. Enable/disable IP authentication bypass.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    virtual-mac:
+                        type: str
+                        description: Deprecated, please rename it to virtual_mac. Change the interfaces virtual MAC address.
 '''
 
 EXAMPLES = '''
@@ -4038,6 +4073,7 @@ EXAMPLES = '''
                       vrid: <integer>
                       vrip6: <string>
                       ignore_default_route: <value in [disable, enable]>
+                      vrdst_priority: <integer>
                   cli_conn6_status: <integer>
                   ip6_prefix_mode: <value in [dhcp6, ra]>
                   ra_send_mtu: <value in [disable, enable]>
@@ -4065,6 +4101,7 @@ EXAMPLES = '''
                       - fabric
                       - speed-test
                       - icond
+                      - scim
                     detectprotocol:
                       - ping
                       - tcp-echo
@@ -4454,6 +4491,7 @@ EXAMPLES = '''
                   vrid: <integer>
                   vrip6: <string>
                   ignore_default_route: <value in [disable, enable]>
+                  vrdst_priority: <integer>
               cli_conn6_status: <integer>
               ip6_prefix_mode: <value in [dhcp6, ra]>
               ra_send_mtu: <value in [disable, enable]>
@@ -4547,6 +4585,7 @@ EXAMPLES = '''
                   - fabric
                   - speed-test
                   - icond
+                  - scim
                 detectprotocol:
                   - ping
                   - tcp-echo
@@ -4729,6 +4768,11 @@ EXAMPLES = '''
             security_8021x_member_mode: <value in [disable, switch]>
             stp_edge: <value in [disable, enable]>
             dhcp_relay_allow_no_end_option: <value in [disable, enable]>
+            netflow_sample_rate: <integer>
+            netflow_sampler_id: <integer>
+            pppoe_egress_cos: <value in [cos0, cos1, cos2, ...]>
+            security_ip_auth_bypass: <value in [disable, enable]>
+            virtual_mac: <string>
 '''
 
 RETURN = '''
@@ -5144,7 +5188,8 @@ def main():
                                                 'vrgrp': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                                                 'vrid': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                                                 'vrip6': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                                'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                                'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                                'vrdst-priority': {'v_range': [['7.6.0', '']], 'type': 'int'}
                                             },
                                             'elements': 'dict'
                                         },
@@ -5167,7 +5212,7 @@ def main():
                                             'type': 'list',
                                             'choices': [
                                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response',
-                                                'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond'
+                                                'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond', 'scim'
                                             ],
                                             'elements': 'str'
                                         },
@@ -5697,7 +5742,8 @@ def main():
                                         'vrgrp': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                                         'vrid': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
                                         'vrip6': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                        'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                        'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                        'vrdst-priority': {'v_range': [['7.6.0', '']], 'type': 'int'}
                                     },
                                     'elements': 'dict'
                                 },
@@ -5820,7 +5866,7 @@ def main():
                                     'type': 'list',
                                     'choices': [
                                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response',
-                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond'
+                                        'capwap', 'dnp', 'ftm', 'fabric', 'speed-test', 'icond', 'scim'
                                     ],
                                     'elements': 'str'
                                 },
@@ -6122,7 +6168,16 @@ def main():
                         'port-mirroring': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'security-8021x-member-mode': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'switch'], 'type': 'str'},
                         'stp-edge': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dhcp-relay-allow-no-end-option': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dhcp-relay-allow-no-end-option': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'netflow-sample-rate': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'netflow-sampler-id': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'pppoe-egress-cos': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['cos0', 'cos1', 'cos2', 'cos3', 'cos4', 'cos5', 'cos6', 'cos7'],
+                            'type': 'str'
+                        },
+                        'security-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'virtual-mac': {'v_range': [['7.6.0', '']], 'type': 'str'}
                     }
                 }
             }
@@ -6135,7 +6190,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

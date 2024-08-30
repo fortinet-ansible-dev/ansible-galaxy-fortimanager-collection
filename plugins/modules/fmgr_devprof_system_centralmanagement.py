@@ -123,6 +123,7 @@ options:
                             - 'rating'
                             - 'iot-query'
                             - 'iot-collect'
+                            - 'vpatch-query'
             ltefw-upgrade-time:
                 type: str
                 description: Deprecated, please rename it to ltefw_upgrade_time. Schedule next LTE firmware upgrade time
@@ -293,6 +294,7 @@ EXAMPLES = '''
                 - rating
                 - iot-query
                 - iot-collect
+                - vpatch-query
           ltefw_upgrade_time: <string>
           vdom: <list or string>
           allow_remote_firmware_upgrade: <value in [disable, enable]>
@@ -408,7 +410,7 @@ def main():
                         'server-type': {
                             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
                             'type': 'list',
-                            'choices': ['update', 'rating', 'iot-query', 'iot-collect'],
+                            'choices': ['update', 'rating', 'iot-query', 'iot-collect', 'vpatch-query'],
                             'elements': 'str'
                         }
                     },
@@ -451,7 +453,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_centralmanagement'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -130,6 +130,12 @@ options:
             location:
                 type: str
                 description: System location.
+            non-mgmt-vdom-query:
+                type: str
+                description: Deprecated, please rename it to non_mgmt_vdom_query. Enable/disable allowance of SNMPv3 query from non-management vdoms.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -163,6 +169,7 @@ EXAMPLES = '''
           trap_free_memory_threshold: <integer>
           trap_low_memory_threshold: <integer>
           location: <string>
+          non_mgmt_vdom_query: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -241,7 +248,8 @@ def main():
                 'description': {'v_range': [['7.4.3', '']], 'type': 'str'},
                 'trap-free-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'trap-low-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'location': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'location': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'non-mgmt-vdom-query': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -252,7 +260,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_snmp_sysinfo'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

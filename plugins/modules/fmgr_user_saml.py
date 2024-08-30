@@ -316,6 +316,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    scim-client:
+                        type: raw
+                        description: (list) Deprecated, please rename it to scim_client. SCIM client name.
             auth-url:
                 type: str
                 description: Deprecated, please rename it to auth_url. URL to verify authentication.
@@ -325,6 +328,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            scim-client:
+                type: raw
+                description: (list) Deprecated, please rename it to scim_client. SCIM client name.
 '''
 
 EXAMPLES = '''
@@ -387,8 +393,10 @@ EXAMPLES = '''
               user_name: <string>
               auth_url: <string>
               reauth: <value in [disable, enable]>
+              scim_client: <list or string>
           auth_url: <string>
           reauth: <value in [disable, enable]>
+          scim_client: <list or string>
 '''
 
 RETURN = '''
@@ -536,12 +544,14 @@ def main():
                         },
                         'user-name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
                         'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
                 'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -552,7 +562,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_saml'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

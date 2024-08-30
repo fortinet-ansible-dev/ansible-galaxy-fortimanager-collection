@@ -230,6 +230,27 @@ options:
             pba-interim-log:
                 type: int
                 description: Deprecated, please rename it to pba_interim_log. Port block allocation interim logging interval
+            client-prefix-length:
+                type: int
+                description: Deprecated, please rename it to client_prefix_length. Subnet length of a single deterministic NAT64 client
+            icmp-session-quota:
+                type: int
+                description: Deprecated, please rename it to icmp_session_quota. Maximum number of concurrent ICMP sessions allowed per client
+            privileged-port-use-pba:
+                type: str
+                description: Deprecated, please rename it to privileged_port_use_pba. Enable/disable selection of the external port from the port block...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            source-prefix6:
+                type: str
+                description: Deprecated, please rename it to source_prefix6. Source IPv6 network to be translated
+            tcp-session-quota:
+                type: int
+                description: Deprecated, please rename it to tcp_session_quota. Maximum number of concurrent TCP sessions allowed per client
+            udp-session-quota:
+                type: int
+                description: Deprecated, please rename it to udp_session_quota. Maximum number of concurrent UDP sessions allowed per client
 '''
 
 EXAMPLES = '''
@@ -374,7 +395,13 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
-                'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'client-prefix-length': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'icmp-session-quota': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'privileged-port-use-pba': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-prefix6': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'tcp-session-quota': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'udp-session-quota': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -385,7 +412,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_ippool_dynamicmapping'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

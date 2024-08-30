@@ -210,6 +210,8 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'all'
+                    - 'non-console-only'
             gui-workflow-management:
                 type: str
                 description: Deprecated, please rename it to gui_workflow_management. Enable/disable Workflow management features on the GUI.
@@ -1683,6 +1685,60 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            user-history-password-threshold:
+                type: int
+                description: Deprecated, please rename it to user_history_password_threshold. Maximum number of previous passwords saved per admin/user
+            delay-tcp-npu-session:
+                type: str
+                description: Deprecated, please rename it to delay_tcp_npu_session. Enable TCP NPU session delay to guarantee packet order of 3-way han...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            auth-session-auto-backup-interval:
+                type: str
+                description: Deprecated, please rename it to auth_session_auto_backup_interval. Configure automatic authentication session backup inter...
+                choices:
+                    - '1min'
+                    - '5min'
+                    - '15min'
+                    - '30min'
+                    - '1hr'
+            ip-conflict-detection:
+                type: str
+                description: Deprecated, please rename it to ip_conflict_detection. Enable/disable logging of IPv4 address conflict detection.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            gtpu-dynamic-source-port:
+                type: str
+                description: Deprecated, please rename it to gtpu_dynamic_source_port. Enable/disable GTP-U dynamic source port support.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ip-fragment-timeout:
+                type: int
+                description: Deprecated, please rename it to ip_fragment_timeout. Timeout value in seconds for any fragment not being reassembled
+            ipv6-fragment-timeout:
+                type: int
+                description: Deprecated, please rename it to ipv6_fragment_timeout. Timeout value in seconds for any IPv6 fragment not being reassembled
+            scim-server-cert:
+                type: raw
+                description: (list) Deprecated, please rename it to scim_server_cert. Server certificate that the FortiGate uses for SCIM connections.
+            scim-http-port:
+                type: int
+                description: Deprecated, please rename it to scim_http_port. SCIM http port
+            auth-session-auto-backup:
+                type: str
+                description: Deprecated, please rename it to auth_session_auto_backup. Enable/disable automatic and periodic backup of authentication s...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            scim-https-port:
+                type: int
+                description: Deprecated, please rename it to scim_https_port. SCIM port
+            httpd-max-worker-count:
+                type: int
+                description: Deprecated, please rename it to httpd_max_worker_count. Maximum number of simultaneous HTTP requests that will be served.
 '''
 
 EXAMPLES = '''
@@ -1724,7 +1780,7 @@ EXAMPLES = '''
           check_reset_range: <value in [disable, strict]>
           pmtu_discovery: <value in [disable, enable]>
           gui_allow_incompatible_fabric_fgt: <value in [disable, enable]>
-          admin_restrict_local: <value in [disable, enable]>
+          admin_restrict_local: <value in [disable, enable, all, ...]>
           gui_workflow_management: <value in [disable, enable]>
           send_pmtu_icmp: <value in [disable, enable]>
           tcp_halfclose_timer: <integer>
@@ -2101,6 +2157,18 @@ EXAMPLES = '''
           proxy_cipher_hardware_acceleration: <value in [disable, enable]>
           proxy_kxp_hardware_acceleration: <value in [disable, enable]>
           virtual_server_hardware_acceleration: <value in [disable, enable]>
+          user_history_password_threshold: <integer>
+          delay_tcp_npu_session: <value in [disable, enable]>
+          auth_session_auto_backup_interval: <value in [1min, 5min, 15min, ...]>
+          ip_conflict_detection: <value in [disable, enable]>
+          gtpu_dynamic_source_port: <value in [disable, enable]>
+          ip_fragment_timeout: <integer>
+          ipv6_fragment_timeout: <integer>
+          scim_server_cert: <list or string>
+          scim_http_port: <integer>
+          auth_session_auto_backup: <value in [disable, enable]>
+          scim_https_port: <integer>
+          httpd_max_worker_count: <integer>
 '''
 
 RETURN = '''
@@ -2210,7 +2278,7 @@ def main():
                 'check-reset-range': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'strict'], 'type': 'str'},
                 'pmtu-discovery': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'gui-allow-incompatible-fabric-fgt': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'admin-restrict-local': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'admin-restrict-local': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'all', 'non-console-only'], 'type': 'str'},
                 'gui-workflow-management': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'send-pmtu-icmp': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-halfclose-timer': {'v_range': [['7.4.3', '']], 'type': 'int'},
@@ -2579,7 +2647,19 @@ def main():
                 'endpoint-control-fds-access': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'proxy-cipher-hardware-acceleration': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'proxy-kxp-hardware-acceleration': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-server-hardware-acceleration': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'virtual-server-hardware-acceleration': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'user-history-password-threshold': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
+                'delay-tcp-npu-session': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auth-session-auto-backup-interval': {'v_range': [['7.6.0', '']], 'choices': ['1min', '5min', '15min', '30min', '1hr'], 'type': 'str'},
+                'ip-conflict-detection': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gtpu-dynamic-source-port': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip-fragment-timeout': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'ipv6-fragment-timeout': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'scim-server-cert': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'scim-http-port': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'auth-session-auto-backup': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scim-https-port': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'httpd-max-worker-count': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -2590,7 +2670,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_global'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

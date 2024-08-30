@@ -485,6 +485,8 @@ options:
                     - 'fmg_device_blueprint'
                     - 'fmg_fabric_authorization_template'
                     - 'fmg_fabric_authorization_template_platforms'
+                    - 'fmg_sasemanager_settings'
+                    - 'fmg_sasemanager_status'
                     - 'fmg_variable'
                     - 'fmg_variable_dynamicmapping'
                     - 'fmupdate_analyzer_virusreport'
@@ -687,6 +689,7 @@ options:
                     - 'pm_config_pblock_firewall_consolidated_policy'
                     - 'pm_config_pblock_firewall_policy'
                     - 'pm_config_pblock_firewall_policy6'
+                    - 'pm_config_pblock_firewall_proxypolicy'
                     - 'pm_config_pblock_firewall_securitypolicy'
                     - 'pm_config_rule_list'
                     - 'pm_devprof'
@@ -802,6 +805,7 @@ options:
                     - 'system_admin_user_dashboardtabs'
                     - 'system_admin_user_ipsfilter'
                     - 'system_admin_user_metadata'
+                    - 'system_admin_user_policyblock'
                     - 'system_admin_user_policypackage'
                     - 'system_admin_user_restrictdevvdom'
                     - 'system_admin_user_webfilter'
@@ -836,6 +840,8 @@ options:
                     - 'system_docker'
                     - 'system_externalresource'
                     - 'system_fips'
+                    - 'system_fmgcluster'
+                    - 'system_fmgcluster_peer'
                     - 'system_fortiguard'
                     - 'system_fortiview_autocache'
                     - 'system_fortiview_setting'
@@ -5175,6 +5181,22 @@ def main():
             ],
             'v_range': [['7.2.1', '']]
         },
+        'fmg_sasemanager_settings': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/sase-manager/settings',
+                '/pm/config/global/obj/fmg/sase-manager/settings'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
+        'fmg_sasemanager_status': {
+            'params': ['adom'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/sase-manager/status',
+                '/pm/config/global/obj/fmg/sase-manager/status'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
         'fmg_variable': {
             'params': ['adom', 'variable'],
             'urls': [
@@ -6990,6 +7012,14 @@ def main():
             ],
             'v_range': [['7.0.3', '']]
         },
+        'pm_config_pblock_firewall_proxypolicy': {
+            'params': ['adom', 'pblock', 'proxy-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy',
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy/{proxy-policy}'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
         'pm_config_pblock_firewall_securitypolicy': {
             'params': ['adom', 'pblock', 'security-policy'],
             'urls': [
@@ -8039,6 +8069,14 @@ def main():
             ],
             'v_range': [['6.0.0', '']]
         },
+        'system_admin_user_policyblock': {
+            'params': ['policy-block', 'user'],
+            'urls': [
+                '/cli/global/system/admin/user/{user}/policy-block',
+                '/cli/global/system/admin/user/{user}/policy-block/{policy-block}'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
         'system_admin_user_policypackage': {
             'params': ['policy-package', 'user'],
             'urls': [
@@ -8309,6 +8347,21 @@ def main():
                 '/cli/global/system/fips'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'system_fmgcluster': {
+            'params': [],
+            'urls': [
+                '/cli/global/system/fmg-cluster'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
+        'system_fmgcluster_peer': {
+            'params': ['peer'],
+            'urls': [
+                '/cli/global/system/fmg-cluster/peer',
+                '/cli/global/system/fmg-cluster/peer/{peer}'
+            ],
+            'v_range': [['7.6.0', '']]
         },
         'system_fortiguard': {
             'params': ['adom'],
@@ -12129,6 +12182,8 @@ def main():
                         'fmg_device_blueprint',
                         'fmg_fabric_authorization_template',
                         'fmg_fabric_authorization_template_platforms',
+                        'fmg_sasemanager_settings',
+                        'fmg_sasemanager_status',
                         'fmg_variable',
                         'fmg_variable_dynamicmapping',
                         'fmupdate_analyzer_virusreport',
@@ -12331,6 +12386,7 @@ def main():
                         'pm_config_pblock_firewall_consolidated_policy',
                         'pm_config_pblock_firewall_policy',
                         'pm_config_pblock_firewall_policy6',
+                        'pm_config_pblock_firewall_proxypolicy',
                         'pm_config_pblock_firewall_securitypolicy',
                         'pm_config_rule_list',
                         'pm_devprof',
@@ -12446,6 +12502,7 @@ def main():
                         'system_admin_user_dashboardtabs',
                         'system_admin_user_ipsfilter',
                         'system_admin_user_metadata',
+                        'system_admin_user_policyblock',
                         'system_admin_user_policypackage',
                         'system_admin_user_restrictdevvdom',
                         'system_admin_user_webfilter',
@@ -12480,6 +12537,8 @@ def main():
                         'system_docker',
                         'system_externalresource',
                         'system_fips',
+                        'system_fmgcluster',
+                        'system_fmgcluster_peer',
                         'system_fortiguard',
                         'system_fortiview_autocache',
                         'system_fortiview_setting',
@@ -12873,7 +12932,7 @@ def main():
         }
     }
     module = AnsibleModule(argument_spec=module_arg_spec,
-                           supports_check_mode=False)
+                           supports_check_mode=True)
     fmgr = None
     if module._socket_path:
         connection = Connection(module._socket_path)

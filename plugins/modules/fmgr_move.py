@@ -155,6 +155,7 @@ options:
                     - 'pm_config_pblock_firewall_consolidated_policy'
                     - 'pm_config_pblock_firewall_policy'
                     - 'pm_config_pblock_firewall_policy6'
+                    - 'pm_config_pblock_firewall_proxypolicy'
                     - 'pm_config_pblock_firewall_securitypolicy'
                     - 'spamfilter_bwl_entries'
                     - 'spamfilter_bword_entries'
@@ -821,6 +822,13 @@ def main():
             ],
             'v_range': [['7.0.3', '']]
         },
+        'pm_config_pblock_firewall_proxypolicy': {
+            'params': ['adom', 'pblock', 'proxy-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy/{proxy-policy}'
+            ],
+            'v_range': [['7.6.0', '']]
+        },
         'pm_config_pblock_firewall_securitypolicy': {
             'params': ['adom', 'pblock', 'security-policy'],
             'urls': [
@@ -1148,7 +1156,7 @@ def main():
             }
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec, supports_check_mode=False)
+    module = AnsibleModule(argument_spec=module_arg_spec, supports_check_mode=True)
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)

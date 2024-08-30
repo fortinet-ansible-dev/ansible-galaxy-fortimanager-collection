@@ -354,6 +354,7 @@ options:
                     - 'disable'
                     - 'nofilequery'
                     - 'all'
+                    - 'noiot'
             iot-preload:
                 type: str
                 description:
@@ -470,7 +471,7 @@ EXAMPLES = '''
           wf_log: <value in [disable, nourl, all]>
           wf_preload: <value in [disable, enable]>
           iot_cache: <integer>
-          iot_log: <value in [disable, nofilequery, all]>
+          iot_log: <value in [disable, nofilequery, all, ...]>
           iot_preload: <value in [disable, enable]>
           restrict_iots_dbver: <string>
           stat_log: <value in [emergency, alert, critical, ...]>
@@ -592,7 +593,7 @@ def main():
                 'wf-log': {'choices': ['disable', 'nourl', 'all'], 'type': 'str'},
                 'wf-preload': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'iot-cache': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'iot-log': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all'], 'type': 'str'},
+                'iot-log': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all', 'noiot'], 'type': 'str'},
                 'iot-preload': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
                 'stat-log': {
@@ -611,7 +612,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmupdate_webspam_fgdsetting'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

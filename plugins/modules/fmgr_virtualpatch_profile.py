@@ -139,6 +139,7 @@ options:
                     - 'medium'
                     - 'high'
                     - 'critical'
+                    - 'info'
 '''
 
 EXAMPLES = '''
@@ -175,6 +176,7 @@ EXAMPLES = '''
             - medium
             - high
             - critical
+            - info
 '''
 
 RETURN = '''
@@ -258,7 +260,7 @@ def main():
                 },
                 'log': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['7.4.1', '']], 'required': True, 'type': 'str'},
-                'severity': {'v_range': [['7.4.1', '']], 'type': 'list', 'choices': ['low', 'medium', 'high', 'critical'], 'elements': 'str'}
+                'severity': {'v_range': [['7.4.1', '']], 'type': 'list', 'choices': ['low', 'medium', 'high', 'critical', 'info'], 'elements': 'str'}
             }
 
         }
@@ -269,7 +271,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'virtualpatch_profile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

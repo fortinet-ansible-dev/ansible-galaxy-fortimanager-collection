@@ -116,6 +116,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            password-history:
+                type: int
+                description: Deprecated, please rename it to password_history. Number of unique new passwords that must be used before old password can...
 '''
 
 EXAMPLES = '''
@@ -144,6 +147,7 @@ EXAMPLES = '''
             - number
             - non-alphanumeric
           status: <value in [disable, enable]>
+          password_history: <integer>
 '''
 
 RETURN = '''
@@ -214,7 +218,8 @@ def main():
                 'expire': {'type': 'int'},
                 'minimum-length': {'type': 'int'},
                 'must-contain': {'type': 'list', 'choices': ['upper-case-letter', 'lower-case-letter', 'number', 'non-alphanumeric'], 'elements': 'str'},
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'}
+                'status': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'}
             }
 
         }
@@ -225,7 +230,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_passwordpolicy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -129,6 +129,9 @@ options:
             verify2:
                 type: str
                 description: Extra regular expression pattern string used to verify the data type.
+            fgd-id:
+                type: int
+                description: Deprecated, please rename it to fgd_id. ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -162,6 +165,7 @@ EXAMPLES = '''
           match_ahead: <integer>
           match_back: <integer>
           verify2: <string>
+          fgd_id: <integer>
 '''
 
 RETURN = '''
@@ -241,7 +245,8 @@ def main():
                 'match-around': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'match-ahead': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'match-back': {'v_range': [['7.4.2', '']], 'type': 'int'},
-                'verify2': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'verify2': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -252,7 +257,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dlp_datatype'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

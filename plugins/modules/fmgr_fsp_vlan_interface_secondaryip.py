@@ -114,6 +114,7 @@ options:
                     - 'fabric'
                     - 'speed-test'
                     - 'icond'
+                    - 'scim'
             detectprotocol:
                 type: list
                 elements: str
@@ -189,6 +190,7 @@ EXAMPLES = '''
             - fabric
             - speed-test
             - icond
+            - scim
           detectprotocol:
             - ping
             - tcp-echo
@@ -274,7 +276,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm',
-                        'fabric', 'speed-test', 'icond'
+                        'fabric', 'speed-test', 'icond', 'scim'
                     ],
                     'elements': 'str'
                 },
@@ -297,7 +299,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan_interface_secondaryip'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

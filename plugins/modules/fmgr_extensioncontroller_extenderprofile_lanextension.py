@@ -131,6 +131,37 @@ options:
                 choices:
                     - 'activebackup'
                     - 'loadbalance'
+            downlinks:
+                type: list
+                elements: dict
+                description: Downlinks.
+                suboptions:
+                    name:
+                        type: str
+                        description: FortiExtender LAN extension downlink config entry name.
+                    port:
+                        type: str
+                        description: FortiExtender LAN extension downlink port.
+                        choices:
+                            - 'port1'
+                            - 'port2'
+                            - 'port3'
+                            - 'port4'
+                            - 'port5'
+                            - 'lan1'
+                            - 'lan2'
+                    pvid:
+                        type: int
+                        description: FortiExtender LAN extension downlink PVID.
+                    type:
+                        type: str
+                        description: FortiExtender LAN extension downlink type [port/vap].
+                        choices:
+                            - 'port'
+                            - 'vap'
+                    vap:
+                        type: raw
+                        description: (list) FortiExtender LAN extension downlink vap.
 '''
 
 EXAMPLES = '''
@@ -162,6 +193,13 @@ EXAMPLES = '''
           backhaul_ip: <string>
           ipsec_tunnel: <string>
           link_loadbalance: <value in [activebackup, loadbalance]>
+          downlinks:
+            -
+              name: <string>
+              port: <value in [port1, port2, port3, ...]>
+              pvid: <integer>
+              type: <value in [port, vap]>
+              vap: <list or string>
 '''
 
 RETURN = '''
@@ -250,7 +288,19 @@ def main():
                 'backhaul-interface': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'backhaul-ip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'ipsec-tunnel': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'link-loadbalance': {'v_range': [['7.2.1', '']], 'choices': ['activebackup', 'loadbalance'], 'type': 'str'}
+                'link-loadbalance': {'v_range': [['7.2.1', '']], 'choices': ['activebackup', 'loadbalance'], 'type': 'str'},
+                'downlinks': {
+                    'v_range': [['7.6.0', '']],
+                    'type': 'list',
+                    'options': {
+                        'name': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'port': {'v_range': [['7.6.0', '']], 'choices': ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2'], 'type': 'str'},
+                        'pvid': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'type': {'v_range': [['7.6.0', '']], 'choices': ['port', 'vap'], 'type': 'str'},
+                        'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                    },
+                    'elements': 'dict'
+                }
             }
 
         }
@@ -261,7 +311,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'extensioncontroller_extenderprofile_lanextension'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

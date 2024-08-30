@@ -1337,6 +1337,41 @@ options:
             rates-11be-mcs-map-320:
                 type: str
                 description: Deprecated, please rename it to rates_11be_mcs_map_320. Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, ...
+            _intf_ip-managed-by-fortiipam:
+                type: str
+                description: Deprecated, please rename it to _intf_ip_managed_by_fortiipam. Intf ip managed by fortiipam.
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'inherit-global'
+            _intf_managed-subnetwork-size:
+                type: str
+                description: Deprecated, please rename it to _intf_managed_subnetwork_size. Intf managed subnetwork size.
+                choices:
+                    - '32'
+                    - '64'
+                    - '128'
+                    - '256'
+                    - '512'
+                    - '1024'
+                    - '2048'
+                    - '4096'
+                    - '8192'
+                    - '16384'
+                    - '32768'
+                    - '65536'
+            domain-name-stripping:
+                type: str
+                description: Deprecated, please rename it to domain_name_stripping. Enable/disable stripping domain name from identity
+                choices:
+                    - 'disable'
+                    - 'enable'
+            local-lan-partition:
+                type: str
+                description: Deprecated, please rename it to local_lan_partition. Enable/disable segregating client traffic to local LAN side
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1815,6 +1850,10 @@ EXAMPLES = '''
           rates_11be_mcs_map: <string>
           rates_11be_mcs_map_160: <string>
           rates_11be_mcs_map_320: <string>
+          _intf_ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
+          _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
+          domain_name_stripping: <value in [disable, enable]>
+          local_lan_partition: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -2187,7 +2226,15 @@ def main():
                 'nas-filter-rule': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rates-11be-mcs-map': {'v_range': [['7.4.3', '']], 'type': 'str'},
                 'rates-11be-mcs-map-160': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'rates-11be-mcs-map-320': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'rates-11be-mcs-map-320': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                '_intf_ip-managed-by-fortiipam': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable', 'inherit-global'], 'type': 'str'},
+                '_intf_managed-subnetwork-size': {
+                    'v_range': [['7.6.0', '']],
+                    'choices': ['32', '64', '128', '256', '512', '1024', '2048', '4096', '8192', '16384', '32768', '65536'],
+                    'type': 'str'
+                },
+                'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -2198,7 +2245,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vap_dynamicmapping'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

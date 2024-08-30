@@ -168,6 +168,8 @@ options:
                     - 'slbc'
                     - 'faz'
                     - 'power-supply'
+                    - 'ippool'
+                    - 'interface'
             ha-direct:
                 type: str
                 description: Deprecated, please rename it to ha_direct. Enable/disable direct management of HA cluster members.
@@ -241,6 +243,16 @@ options:
             vdoms:
                 type: raw
                 description: (list) SNMP access control VDOMs.
+            interface:
+                type: raw
+                description: (list) Specify outgoing interface to reach server.
+            interface-select-method:
+                type: str
+                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
 '''
 
 EXAMPLES = '''
@@ -411,7 +423,7 @@ def main():
                         'ips-fail-open', 'load-balance-real-server-down', 'device-new', 'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
                         'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage', 'power-redundancy-degrade', 'power-redundancy-failure',
                         'ospf-nbr-state-change', 'ospf-virtnbr-state-change', 'disk-failure', 'disk-overload', 'faz-main-failover', 'faz-alt-failover',
-                        'slbc', 'faz', 'power-supply'
+                        'slbc', 'faz', 'power-supply', 'ippool', 'interface'
                     ],
                     'elements': 'str'
                 },
@@ -439,7 +451,9 @@ def main():
                 'trap-rport': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'int'},
                 'trap-status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mib-view': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'vdoms': {'v_range': [['7.2.0', '']], 'type': 'raw'}
+                'vdoms': {'v_range': [['7.2.0', '']], 'type': 'raw'},
+                'interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
             }
 
         }
@@ -450,7 +464,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_snmp_user'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -539,6 +539,22 @@ options:
                 choices:
                     - '320MHz-1'
                     - '320MHz-2'
+            80211mc:
+                type: str
+                description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ap-sniffer-chan-width:
+                type: str
+                description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                choices:
+                    - '320MHz'
+                    - '240MHz'
+                    - '160MHz'
+                    - '80MHz'
+                    - '40MHz'
+                    - '20MHz'
 '''
 
 EXAMPLES = '''
@@ -660,6 +676,8 @@ EXAMPLES = '''
           sam_private_key: <string>
           sam_private_key_password: <list or string>
           channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+          d80211mc: <value in [disable, enable]>
+          ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
 '''
 
 RETURN = '''
@@ -845,7 +863,9 @@ def main():
                 'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                 'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
                 'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
-                'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
+                'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
+                '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ap-sniffer-chan-width': {'v_range': [['7.6.0', '']], 'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'], 'type': 'str'}
             }
 
         }
@@ -856,7 +876,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wtpprofile_radio3'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

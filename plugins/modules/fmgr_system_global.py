@@ -1161,6 +1161,42 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            admin-host:
+                type: str
+                description: Deprecated, please rename it to admin_host. Administrative host for HTTP and HTTPs.
+            admin-ssh-grace-time:
+                type: int
+                description: Deprecated, please rename it to admin_ssh_grace_time. Maximum time in seconds permitted between making an SSH connection t...
+            fabric-storage-pool-quota:
+                type: int
+                description: Deprecated, please rename it to fabric_storage_pool_quota. Disk quota for Fabric
+            fabric-storage-pool-size:
+                type: int
+                description: Deprecated, please rename it to fabric_storage_pool_size. Max storage pooll size
+            fcp-cfg-service:
+                type: str
+                description:
+                    - Deprecated, please rename it to fcp_cfg_service.
+                    - Enable/disable FCP service processing configuration requests
+                    - disable - FCP service doesn&apos;t process configuration requests from web
+                    - enable - FCP service processes configuration requests from web.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            jsonapi-log:
+                type: str
+                description:
+                    - Deprecated, please rename it to jsonapi_log.
+                    - enable jsonapi log.
+                    - disable - disable jsonapi log.
+                    - request - logging jsonapi request.
+                    - response - logging jsonapi response.
+                    - all - logging both jsonapi request &amp; response.
+                choices:
+                    - 'disable'
+                    - 'request'
+                    - 'response'
+                    - 'all'
 '''
 
 EXAMPLES = '''
@@ -1434,7 +1470,13 @@ def main():
                 'management-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'management-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'save-last-hit-in-adomdb': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'api-ip-binding': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'api-ip-binding': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'admin-host': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'admin-ssh-grace-time': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'fabric-storage-pool-quota': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'fabric-storage-pool-size': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'fcp-cfg-service': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'jsonapi-log': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'request', 'response', 'all'], 'type': 'str'}
             }
 
         }
@@ -1445,7 +1487,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_global'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

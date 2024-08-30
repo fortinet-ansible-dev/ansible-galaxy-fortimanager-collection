@@ -138,6 +138,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            vrdst-priority:
+                type: int
+                description: Deprecated, please rename it to vrdst_priority. Priority of the virtual router when the virtual router destination becomes...
 '''
 
 EXAMPLES = '''
@@ -171,6 +174,7 @@ EXAMPLES = '''
           vrid: <integer>
           vrip6: <string>
           ignore_default_route: <value in [disable, enable]>
+          vrdst_priority: <integer>
 '''
 
 RETURN = '''
@@ -250,7 +254,8 @@ def main():
                 'vrgrp': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'vrid': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'vrip6': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ignore-default-route': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vrdst-priority': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -261,7 +266,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fsp_vlan_interface_ipv6_vrrp6'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -166,6 +166,10 @@ options:
                             - 'hwp'
                             - 'rpm'
                             - 'c/cpp'
+                            - 'pfile'
+                            - 'lzip'
+                            - 'wasm'
+                            - 'sylk'
                     filter-type:
                         type: str
                         description: Deprecated, please rename it to filter_type. Filter by file name pattern or by file type.
@@ -289,7 +293,7 @@ def main():
                                 'zip', 'cab', 'bzip2', 'bzip', 'activemime', 'mime', 'hlp', 'arj', 'base64', 'binhex', 'uue', 'fsg', 'aspack', 'msc',
                                 'petite', 'jpeg', 'gif', 'tiff', 'png', 'bmp', 'msi', 'mpeg', 'mov', 'mp3', 'wma', 'wav', 'pdf', 'avi', 'rm', 'torrent',
                                 'hibun', '7z', 'xz', 'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad',
-                                'cod', 'flac', 'registry', 'hwp', 'rpm', 'c/cpp'
+                                'cod', 'flac', 'registry', 'hwp', 'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk'
                             ],
                             'type': 'str'
                         },
@@ -310,7 +314,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dlp_filepattern'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

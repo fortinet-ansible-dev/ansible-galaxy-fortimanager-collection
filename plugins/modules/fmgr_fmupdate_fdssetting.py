@@ -259,6 +259,7 @@ options:
                                 choices:
                                     - 'fds'
                                     - 'fct'
+                                    - 'fai'
                     status:
                         type: str
                         description:
@@ -310,6 +311,7 @@ options:
                     - '7.0'
                     - '7.2'
                     - '7.4'
+                    - '7.6'
             system-support-fml:
                 type: list
                 elements: str
@@ -523,6 +525,15 @@ options:
                 choices:
                     - '1.x'
                     - '2.x'
+            system-support-fai:
+                type: list
+                elements: str
+                description:
+                    - Deprecated, please rename it to system_support_fai.
+                    - Supported FortiNDR versions.
+                    - '7.'
+                choices:
+                    - '7.x'
 '''
 
 EXAMPLES = '''
@@ -572,6 +583,7 @@ EXAMPLES = '''
                 service_type: # <list or string>
                   - fds
                   - fct
+                  - fai
             status: <value in [disable, enable]>
           system_support_fct:
             - 4.x
@@ -593,6 +605,7 @@ EXAMPLES = '''
             - 7.0
             - 7.2
             - 7.4
+            - 7.6
           system_support_fml:
             - 4.x
             - 5.x
@@ -643,6 +656,8 @@ EXAMPLES = '''
           system_support_fis:
             - 1.x
             - 2.x
+          system_support_fai:
+            - 7.x
 '''
 
 RETURN = '''
@@ -742,7 +757,7 @@ def main():
                                 'ip': {'type': 'str'},
                                 'ip6': {'type': 'str'},
                                 'port': {'type': 'int'},
-                                'service-type': {'type': 'raw', 'choices': ['fds', 'fct']}
+                                'service-type': {'type': 'raw', 'choices': ['fds', 'fct', 'fai']}
                             },
                             'elements': 'dict'
                         },
@@ -754,7 +769,7 @@ def main():
                     'choices': ['4.x', '5.0', '5.2', '5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2'],
                     'elements': 'str'
                 },
-                'system-support-fgt': {'type': 'list', 'choices': ['5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4'], 'elements': 'str'},
+                'system-support-fgt': {'type': 'list', 'choices': ['5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4', '7.6'], 'elements': 'str'},
                 'system-support-fml': {'type': 'list', 'choices': ['4.x', '5.x', '6.x', '6.0', '6.2', '6.4', '7.0', '7.2', '7.x'], 'elements': 'str'},
                 'system-support-fsa': {'type': 'list', 'choices': ['1.x', '2.x', '3.x', '4.x', '3.0', '3.1', '3.2'], 'elements': 'str'},
                 'system-support-fsw': {
@@ -785,7 +800,8 @@ def main():
                     'elements': 'str'
                 },
                 'system-support-faz': {'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
-                'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'}
+                'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'},
+                'system-support-fai': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['7.x'], 'elements': 'str'}
             }
 
         }
@@ -796,7 +812,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmupdate_fdssetting'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -941,6 +941,16 @@ options:
                     userid:
                         type: str
                         description: User ID.
+            adom-admin:
+                type: str
+                description:
+                    - Deprecated, please rename it to adom_admin.
+                    - Enable Adom Admin.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1154,7 +1164,8 @@ def main():
                     'type': 'list',
                     'options': {'userid': {'v_range': [['7.4.2', '']], 'type': 'str'}},
                     'elements': 'dict'
-                }
+                },
+                'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -1165,7 +1176,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_admin_profile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

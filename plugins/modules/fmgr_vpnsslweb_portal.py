@@ -791,6 +791,9 @@ options:
                     tolerance:
                         type: int
                         description: OS patch level tolerance.
+                    minor-version:
+                        type: int
+                        description: Deprecated, please rename it to minor_version. Minor version number.
             use-sdwan:
                 type: str
                 description: Deprecated, please rename it to use_sdwan. Use SD-WAN rules to get output interface.
@@ -900,6 +903,12 @@ options:
             focus-bookmark:
                 type: str
                 description: Deprecated, please rename it to focus_bookmark. Enable to prioritize the placement of the bookmark section over the quick-...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dhcp-reservation:
+                type: str
+                description: Deprecated, please rename it to dhcp_reservation. Enable/disable dhcp reservation.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1062,6 +1071,7 @@ EXAMPLES = '''
             latest_patch_level: <string>
             name: <string>
             tolerance: <integer>
+            minor_version: <integer>
           use_sdwan: <value in [disable, enable]>
           prefer_ipv6_dns: <value in [disable, enable]>
           rewrite_ip_uri_ui: <value in [disable, enable]>
@@ -1086,6 +1096,7 @@ EXAMPLES = '''
           landing_page_mode: <value in [disable, enable]>
           default_protocol: <value in [web, ftp, telnet, ...]>
           focus_bookmark: <value in [disable, enable]>
+          dhcp_reservation: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1333,7 +1344,8 @@ def main():
                         'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
                         'latest-patch-level': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
                         'name': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'tolerance': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'tolerance': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
                     }
                 },
                 'use-sdwan': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1366,7 +1378,8 @@ def main():
                 },
                 'landing-page-mode': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-protocol': {'v_range': [['7.4.1', '']], 'choices': ['web', 'ftp', 'telnet', 'smb', 'vnc', 'rdp', 'ssh', 'sftp'], 'type': 'str'},
-                'focus-bookmark': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'focus-bookmark': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dhcp-reservation': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -1377,7 +1390,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vpnsslweb_portal'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

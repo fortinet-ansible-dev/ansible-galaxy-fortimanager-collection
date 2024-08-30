@@ -75,6 +75,17 @@ options:
             device:
                 type: str
                 description: Device.
+            scope:
+                type: list
+                elements: dict
+                description: Scope.
+                suboptions:
+                    name:
+                        type: str
+                        description: Name.
+                    vdom:
+                        type: str
+                        description: Vdom.
 '''
 
 EXAMPLES = '''
@@ -203,7 +214,16 @@ def main():
         'securityconsole_preview_result': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
-            'options': {'adom': {'type': 'str'}, 'device': {'type': 'str'}}
+            'options': {
+                'adom': {'type': 'str'},
+                'device': {'v_range': [['6.0.0', '7.4.3']], 'type': 'str'},
+                'scope': {
+                    'v_range': [['7.6.0', '']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['7.6.0', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.6.0', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
+            }
 
         }
     }
@@ -213,7 +233,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'securityconsole_preview_result'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

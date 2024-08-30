@@ -106,6 +106,13 @@ options:
             variables:
                 type: raw
                 description: (list) Variables.
+            option:
+                type: list
+                elements: str
+                description: Option.
+                choices:
+                    - 'sdwan-overlay'
+                    - 'sdwan-manager'
 '''
 
 EXAMPLES = '''
@@ -132,6 +139,9 @@ EXAMPLES = '''
           modification_time: <string>
           name: <string>
           variables: <list or string>
+          option:
+            - sdwan-overlay
+            - sdwan-manager
 '''
 
 RETURN = '''
@@ -204,7 +214,8 @@ def main():
                 'member': {'type': 'list', 'elements': 'str'},
                 'modification-time': {'v_range': [['6.0.0', '7.0.3']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
-                'variables': {'v_range': [['7.2.3', '']], 'type': 'raw'}
+                'variables': {'v_range': [['7.2.3', '']], 'type': 'raw'},
+                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'}
             }
 
         }
@@ -215,7 +226,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'templategroup'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -721,7 +721,8 @@ releases:
     changes:
       bugfixes:
         - Added more description in the documentation.
-        - Deleted 9 fmgr_switchcontroller_managedswitch_* modules. Will support them in FortiManager Device Ansible.
+        - Deleted 9 fmgr_switchcontroller_managedswitch_* modules. Will support them
+          in FortiManager Device Ansible.
         - Improved fmgr_fact, fmgr_clone, fmgr_move.
       minor_changes:
         - Supported FortiManager 7.4.3. 7 new modules.
@@ -751,4 +752,40 @@ releases:
       - description: Configure external identity provider.
         name: fmgr_user_externalidentityprovider
         namespace: ""
-    release_date: "2024-07-31"
+    release_date: "2024-08-05"
+  2.7.0:
+    changes:
+      bugfixes:
+        - Fixed Bug in "fmgr_fact"
+        - Improved documentation.
+      minor_changes:
+        - Supported FortiManager 7.6.0. Added 7 new modules.
+        - Supported check mode for all modules except "fmgr_generic".
+          You can use "ansible-playbook -i <your-host-file> <your-playbook> --check"
+          to validate whether your playbook will make any changes to the FortiManager.
+      release_summary: Release fortinet.fortimanager 2.7.0
+    fragments:
+      - 2.7.0.yml
+    modules:
+      - description: Fmg sase manager settings
+        name: fmgr_fmg_sasemanager_settings
+        namespace: ""
+      - description: Fmg sase manager status
+        name: fmgr_fmg_sasemanager_status
+        namespace: ""
+      - description: Configure proxy policies.
+        name: fmgr_pm_config_pblock_firewall_proxypolicy
+        namespace: ""
+      - description: Configure proxy policies.
+        name: fmgr_pm_config_pblock_firewall_proxypolicy_sectionvalue
+        namespace: ""
+      - description: Policy block write access.
+        name: fmgr_system_admin_user_policyblock
+        namespace: ""
+      - description: fmg clsuter.
+        name: fmgr_system_fmgcluster
+        namespace: ""
+      - description: Peer.
+        name: fmgr_system_fmgcluster_peer
+        namespace: ""
+    release_date: "2024-08-30"

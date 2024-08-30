@@ -149,6 +149,12 @@ options:
                 choices:
                     - 'policing'
                     - 'queuing'
+            npu-offloading:
+                type: str
+                description: Deprecated, please rename it to npu_offloading. Enable/disable NPU offloading.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -273,7 +279,8 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'}
+                'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'},
+                'npu-offloading': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -284,7 +291,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_shapingprofile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

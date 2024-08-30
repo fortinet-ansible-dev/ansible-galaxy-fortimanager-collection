@@ -200,6 +200,12 @@ options:
                     - 'block'
                     - 'log-only'
                     - 'ignore'
+            analytics-suspicious:
+                type: str
+                description: Deprecated, please rename it to analytics_suspicious. Enable/disable using CDR as a secondary method for determining suspi...
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -240,6 +246,7 @@ EXAMPLES = '''
           office_action: <value in [disable, enable]>
           office_dde: <value in [disable, enable]>
           error_action: <value in [block, log-only, ignore]>
+          analytics_suspicious: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -327,7 +334,8 @@ def main():
                 'pdf-javacode': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'office-action': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'office-dde': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'error-action': {'v_range': [['6.4.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'}
+                'error-action': {'v_range': [['6.4.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
+                'analytics-suspicious': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -338,7 +346,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'antivirus_profile_contentdisarm'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

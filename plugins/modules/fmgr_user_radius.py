@@ -981,6 +981,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    source-ip-interface:
+                        type: raw
+                        description: (list) Deprecated, please rename it to source_ip_interface. Source interface for communication with the RADIUS server.
             h3c-compatibility:
                 type: str
                 description: Deprecated, please rename it to h3c_compatibility. Enable/disable compatibility with the H3C, a mechanism that performs se...
@@ -1415,6 +1418,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            source-ip-interface:
+                type: raw
+                description: (list) Deprecated, please rename it to source_ip_interface. Source interface for communication with the RADIUS server.
 '''
 
 EXAMPLES = '''
@@ -1763,7 +1769,8 @@ def main():
                         'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                         'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                         'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
-                        'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -1877,7 +1884,8 @@ def main():
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
-                'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'switch-controller-nas-ip-dynamic': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -1888,7 +1896,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_radius'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -212,6 +212,9 @@ options:
             source-ip:
                 type: str
                 description: Deprecated, please rename it to source_ip. Source IP address of syslog.
+            source-ip-interface:
+                type: raw
+                description: (list) Deprecated, please rename it to source_ip_interface. Source interface of syslog.
 '''
 
 EXAMPLES = '''
@@ -255,6 +258,7 @@ EXAMPLES = '''
               id: <integer>
               name: <string>
           source_ip: <string>
+          source_ip_interface: <list or string>
 '''
 
 RETURN = '''
@@ -367,7 +371,8 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -378,7 +383,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_log_syslogd_setting'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

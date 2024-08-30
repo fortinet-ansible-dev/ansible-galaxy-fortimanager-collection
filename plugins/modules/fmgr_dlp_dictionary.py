@@ -146,6 +146,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            fgd-id:
+                type: int
+                description: Deprecated, please rename it to fgd_id. ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -181,6 +184,7 @@ EXAMPLES = '''
           name: <string>
           uuid: <string>
           match_around: <value in [disable, enable]>
+          fgd_id: <integer>
 '''
 
 RETURN = '''
@@ -267,7 +271,8 @@ def main():
                 'match-type': {'v_range': [['7.2.0', '']], 'choices': ['match-all', 'match-any'], 'type': 'str'},
                 'name': {'v_range': [['7.2.0', '']], 'required': True, 'type': 'str'},
                 'uuid': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'match-around': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'match-around': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -278,7 +283,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dlp_dictionary'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

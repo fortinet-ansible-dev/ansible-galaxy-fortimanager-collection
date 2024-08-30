@@ -220,6 +220,7 @@ options:
                     - 'ssh'
                     - 'ssh-tunnel'
                     - 'access-proxy'
+                    - 'ztna-proxy'
             redirect-url:
                 type: str
                 description: Deprecated, please rename it to redirect_url. Redirect URL for further explicit web proxy processing.
@@ -434,6 +435,21 @@ options:
             virtual-patch-profile:
                 type: str
                 description: Deprecated, please rename it to virtual_patch_profile. Virtual patch profile.
+            _policy_block:
+                type: int
+                description: Assigned policy block.
+            dnsfilter-profile:
+                type: raw
+                description: (list) Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
+            log-http-transaction:
+                type: str
+                description: Deprecated, please rename it to log_http_transaction. Enable/disable HTTP transaction log.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ztna-proxy:
+                type: raw
+                description: (list) Deprecated, please rename it to ztna_proxy. IPv4 ZTNA traffic forward proxy.
 '''
 
 EXAMPLES = '''
@@ -575,7 +591,10 @@ def main():
                 'profile-group': {'type': 'str'},
                 'profile-protocol-options': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.4.2', '']], 'type': 'str'},
                 'profile-type': {'choices': ['single', 'group'], 'type': 'str'},
-                'proxy': {'choices': ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel', 'access-proxy'], 'type': 'str'},
+                'proxy': {
+                    'choices': ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel', 'access-proxy', 'ztna-proxy'],
+                    'type': 'str'
+                },
                 'redirect-url': {'type': 'str'},
                 'replacemsg-override-group': {'type': 'str'},
                 'scan-botnet-connections': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
@@ -635,7 +654,11 @@ def main():
                 'internet-service6-name': {'v_range': [['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-negate': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-voip-filter': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                '_policy_block': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'dnsfilter-profile': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'log-http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-proxy': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -646,7 +669,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_firewall_proxypolicy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

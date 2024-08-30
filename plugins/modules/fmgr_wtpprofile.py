@@ -1323,6 +1323,22 @@ options:
                         choices:
                             - '320MHz-1'
                             - '320MHz-2'
+                    80211mc:
+                        type: str
+                        description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ap-sniffer-chan-width:
+                        type: str
+                        description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                        choices:
+                            - '320MHz'
+                            - '240MHz'
+                            - '160MHz'
+                            - '80MHz'
+                            - '40MHz'
+                            - '20MHz'
             radio-2:
                 type: dict
                 description: Deprecated, please rename it to radio_2. Radio 2.
@@ -1782,6 +1798,22 @@ options:
                         choices:
                             - '320MHz-1'
                             - '320MHz-2'
+                    80211mc:
+                        type: str
+                        description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ap-sniffer-chan-width:
+                        type: str
+                        description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                        choices:
+                            - '320MHz'
+                            - '240MHz'
+                            - '160MHz'
+                            - '80MHz'
+                            - '40MHz'
+                            - '20MHz'
             radio-3:
                 type: dict
                 description: Deprecated, please rename it to radio_3. Radio 3.
@@ -2239,6 +2271,22 @@ options:
                         choices:
                             - '320MHz-1'
                             - '320MHz-2'
+                    80211mc:
+                        type: str
+                        description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ap-sniffer-chan-width:
+                        type: str
+                        description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                        choices:
+                            - '320MHz'
+                            - '240MHz'
+                            - '160MHz'
+                            - '80MHz'
+                            - '40MHz'
+                            - '20MHz'
             radio-4:
                 type: dict
                 description: Deprecated, please rename it to radio_4. Radio 4.
@@ -2696,6 +2744,22 @@ options:
                         choices:
                             - '320MHz-1'
                             - '320MHz-2'
+                    80211mc:
+                        type: str
+                        description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ap-sniffer-chan-width:
+                        type: str
+                        description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                        choices:
+                            - '320MHz'
+                            - '240MHz'
+                            - '160MHz'
+                            - '80MHz'
+                            - '40MHz'
+                            - '20MHz'
             console-login:
                 type: str
                 description: Deprecated, please rename it to console_login. Enable/disable FortiAP console login access
@@ -3080,6 +3144,8 @@ EXAMPLES = '''
             sam_private_key: <string>
             sam_private_key_password: <list or string>
             channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+            d80211mc: <value in [disable, enable]>
+            ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           radio_2:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3181,6 +3247,8 @@ EXAMPLES = '''
             sam_private_key: <string>
             sam_private_key_password: <list or string>
             channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+            d80211mc: <value in [disable, enable]>
+            ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           radio_3:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3282,6 +3350,8 @@ EXAMPLES = '''
             sam_private_key: <string>
             sam_private_key_password: <list or string>
             channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+            d80211mc: <value in [disable, enable]>
+            ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           radio_4:
             airtime_fairness: <value in [disable, enable]>
             amsdu: <value in [disable, enable]>
@@ -3383,6 +3453,8 @@ EXAMPLES = '''
             sam_private_key: <string>
             sam_private_key_password: <list or string>
             channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+            d80211mc: <value in [disable, enable]>
+            ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
           console_login: <value in [disable, enable]>
           esl_ses_dongle:
             apc_addr_type: <value in [fqdn, ip]>
@@ -3801,7 +3873,13 @@ def main():
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
                         'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
-                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
+                        '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-sniffer-chan-width': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
+                            'type': 'str'
+                        }
                     }
                 },
                 'radio-2': {
@@ -3943,7 +4021,13 @@ def main():
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
                         'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
-                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
+                        '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-sniffer-chan-width': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
+                            'type': 'str'
+                        }
                     }
                 },
                 'radio-3': {
@@ -4085,7 +4169,13 @@ def main():
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
                         'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
-                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
+                        '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-sniffer-chan-width': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
+                            'type': 'str'
+                        }
                     }
                 },
                 'radio-4': {
@@ -4227,7 +4317,13 @@ def main():
                         'sam-eap-method': {'v_range': [['7.4.2', '']], 'choices': ['tls', 'peap', 'both'], 'type': 'str'},
                         'sam-private-key': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'str'},
                         'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
-                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'}
+                        'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
+                        '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-sniffer-chan-width': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
+                            'type': 'str'
+                        }
                     }
                 },
                 'console-login': {'v_range': [['6.2.9', '6.2.12'], ['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4273,7 +4369,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wtpprofile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

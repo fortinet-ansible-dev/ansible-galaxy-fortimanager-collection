@@ -160,6 +160,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            port-provisioning:
+                type: int
+                description: Deprecated, please rename it to port_provisioning. Port provisioning.
+            sdwan-management:
+                type: str
+                description: Deprecated, please rename it to sdwan_management. Sdwan management.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            split-switch-port:
+                type: str
+                description: Deprecated, please rename it to split_switch_port. Split switch port.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -200,6 +215,9 @@ EXAMPLES = '''
           ha_monitor: <list or string>
           ha_password: <list or string>
           linked_to_model: <value in [disable, enable]>
+          port_provisioning: <integer>
+          sdwan_management: <value in [disable, enable]>
+          split_switch_port: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -286,7 +304,10 @@ def main():
                 'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'ha-monitor': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'raw'},
-                'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'port-provisioning': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'sdwan-management': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'split-switch-port': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -297,7 +318,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmg_device_blueprint'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -135,6 +135,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            reuse-password-limit:
+                type: int
+                description: Deprecated, please rename it to reuse_password_limit. Number of times passwords can be reused
 '''
 
 EXAMPLES = '''
@@ -168,6 +171,7 @@ EXAMPLES = '''
           min_upper_case_letter: <integer>
           minimum_length: <integer>
           reuse_password: <value in [disable, enable]>
+          reuse_password_limit: <integer>
 '''
 
 RETURN = '''
@@ -248,7 +252,8 @@ def main():
                 'min-number': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'min-upper-case-letter': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'minimum-length': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'reuse-password': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'reuse-password': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reuse-password-limit': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'}
             }
 
         }
@@ -259,7 +264,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_passwordpolicy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

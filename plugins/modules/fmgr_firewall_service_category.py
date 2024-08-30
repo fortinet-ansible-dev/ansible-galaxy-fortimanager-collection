@@ -105,6 +105,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            uuid:
+                type: str
+                description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -212,7 +215,8 @@ def main():
                 'comment': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
-                'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
 
         }
@@ -223,7 +227,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_service_category'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

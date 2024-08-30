@@ -5,6 +5,37 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.7.0
+======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.7.0
+
+Minor Changes
+-------------
+
+- Supported FortiManager 7.6.0. Added 7 new modules.
+- Supported check mode for all modules except "fmgr_generic". You can use "ansible-playbook -i <your-host-file> <your-playbook> --check" to validate whether your playbook will make any changes to the FortiManager.
+
+Bugfixes
+--------
+
+- Fixed Bug in "fmgr_fact"
+- Improved documentation.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_fmg_sasemanager_settings - Fmg sase manager settings
+- fortinet.fortimanager.fmgr_fmg_sasemanager_status - Fmg sase manager status
+- fortinet.fortimanager.fmgr_pm_config_pblock_firewall_proxypolicy - Configure proxy policies.
+- fortinet.fortimanager.fmgr_pm_config_pblock_firewall_proxypolicy_sectionvalue - Configure proxy policies.
+- fortinet.fortimanager.fmgr_system_admin_user_policyblock - Policy block write access.
+- fortinet.fortimanager.fmgr_system_fmgcluster - fmg clsuter.
+- fortinet.fortimanager.fmgr_system_fmgcluster_peer - Peer.
+
 v2.6.0
 ======
 

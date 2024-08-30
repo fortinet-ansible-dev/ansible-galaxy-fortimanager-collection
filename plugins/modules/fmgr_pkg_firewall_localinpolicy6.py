@@ -178,6 +178,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            logtraffic:
+                type: str
+                description: Enable/disable local-in traffic logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -308,7 +314,8 @@ def main():
                 'internet-service6-src-custom-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service6-src-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service6-src-name': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'internet-service6-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'internet-service6-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -319,7 +326,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_firewall_localinpolicy6'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

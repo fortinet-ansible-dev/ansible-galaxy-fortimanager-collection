@@ -391,6 +391,9 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'auto'
+            comment:
+                type: str
+                description: Comments.
 '''
 
 EXAMPLES = '''
@@ -481,6 +484,7 @@ EXAMPLES = '''
           start_src_port: <integer>
           zone_mode: <value in [disable, enable]>
           shortcut_priority: <value in [disable, enable, auto]>
+          comment: <string>
 '''
 
 RETURN = '''
@@ -625,7 +629,8 @@ def main():
                 'sla-stickiness': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'start-src-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'}
+                'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
+                'comment': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
 
         }
@@ -636,7 +641,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wanprof_system_sdwan_service'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

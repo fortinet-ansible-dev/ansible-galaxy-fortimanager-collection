@@ -277,6 +277,16 @@ options:
             upstream-port:
                 type: int
                 description: Deprecated, please rename it to upstream_port. The port number to use to communicate with the FortiGate upstream from this...
+            upstream-confirm:
+                type: str
+                description:
+                    - Deprecated, please rename it to upstream_confirm.
+                    - Upstream authorization confirm.
+                    - discover - Discover upstream device&apos;s info.
+                    - confirm - Confirm upstream device&apos;s access.
+                choices:
+                    - 'discover'
+                    - 'confirm'
 '''
 
 EXAMPLES = '''
@@ -331,6 +341,7 @@ EXAMPLES = '''
               serial: <string>
           upstream: <string>
           upstream_port: <integer>
+          upstream_confirm: <value in [discover, confirm]>
 '''
 
 RETURN = '''
@@ -399,7 +410,7 @@ def main():
                 'accept-auth-by-cert': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'authorization-request-type': {'v_range': [['7.4.1', '']], 'choices': ['certificate', 'serial'], 'type': 'str'},
                 'certificate': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'configuration-sync': {'v_range': [['7.4.1', '']], 'choices': ['default', 'local'], 'type': 'str'},
+                'configuration-sync': {'v_range': [['7.4.1', '7.4.3']], 'choices': ['default', 'local'], 'type': 'str'},
                 'downstream-access': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'downstream-accprofile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'fabric-connector': {
@@ -412,17 +423,17 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'fabric-object-unification': {'v_range': [['7.4.1', '']], 'choices': ['local', 'default'], 'type': 'str'},
+                'fabric-object-unification': {'v_range': [['7.4.1', '7.4.3']], 'choices': ['local', 'default'], 'type': 'str'},
                 'fabric-workers': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'file-mgmt': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'file-quota': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'file-quota-warning': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'file-mgmt': {'v_range': [['7.4.1', '7.4.3']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'file-quota': {'v_range': [['7.4.1', '7.4.3']], 'type': 'int'},
+                'file-quota-warning': {'v_range': [['7.4.1', '7.4.3']], 'type': 'int'},
                 'fixed-key': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'forticloud-account-enforcement': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'group-name': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'group-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'log-unification': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'saml-configuration-sync': {'v_range': [['7.4.1', '']], 'choices': ['local', 'default'], 'type': 'str'},
+                'saml-configuration-sync': {'v_range': [['7.4.1', '7.4.3']], 'choices': ['local', 'default'], 'type': 'str'},
                 'status': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'trusted-list': {
                     'v_range': [['7.4.1', '']],
@@ -440,7 +451,8 @@ def main():
                     'elements': 'dict'
                 },
                 'upstream': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'upstream-port': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'upstream-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'upstream-confirm': {'v_range': [['7.6.0', '']], 'choices': ['discover', 'confirm'], 'type': 'str'}
             }
 
         }
@@ -451,7 +463,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_csf'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

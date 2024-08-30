@@ -316,6 +316,9 @@ options:
                     - 'match-all'
                     - 'match-any'
                     - 'match-eval'
+            fgd-id:
+                type: int
+                description: Deprecated, please rename it to fgd_id. ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -428,6 +431,7 @@ EXAMPLES = '''
               status: <value in [disable, enable]>
           eval: <string>
           match_type: <value in [match-all, match-any, match-eval]>
+          fgd_id: <integer>
 '''
 
 RETURN = '''
@@ -570,7 +574,8 @@ def main():
                     'elements': 'dict'
                 },
                 'eval': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'match-type': {'v_range': [['7.2.0', '']], 'choices': ['match-all', 'match-any', 'match-eval'], 'type': 'str'}
+                'match-type': {'v_range': [['7.2.0', '']], 'choices': ['match-all', 'match-any', 'match-eval'], 'type': 'str'},
+                'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -581,7 +586,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dlp_sensor'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

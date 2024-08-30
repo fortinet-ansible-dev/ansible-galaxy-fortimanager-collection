@@ -123,6 +123,13 @@ options:
                 choices:
                     - 'post-vdom-copy'
                     - 'prep-vdom-copy'
+            option:
+                type: list
+                elements: str
+                description: Option.
+                choices:
+                    - 'sdwan-overlay'
+                    - 'sdwan-manager'
 '''
 
 EXAMPLES = '''
@@ -152,6 +159,9 @@ EXAMPLES = '''
           type: <value in [cli, jinja]>
           variables: <list or string>
           position: <value in [post-vdom-copy, prep-vdom-copy]>
+          option:
+            - sdwan-overlay
+            - sdwan-manager
 '''
 
 RETURN = '''
@@ -227,7 +237,8 @@ def main():
                 'provision': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {'v_range': [['7.0.1', '']], 'choices': ['cli', 'jinja'], 'type': 'str'},
                 'variables': {'v_range': [['7.0.1', '']], 'type': 'raw'},
-                'position': {'v_range': [['7.4.2', '']], 'choices': ['post-vdom-copy', 'prep-vdom-copy'], 'type': 'str'}
+                'position': {'v_range': [['7.4.2', '']], 'choices': ['post-vdom-copy', 'prep-vdom-copy'], 'type': 'str'},
+                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'}
             }
 
         }
@@ -238,7 +249,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'template'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

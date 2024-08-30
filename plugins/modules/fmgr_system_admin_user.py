@@ -703,6 +703,23 @@ options:
             cors-allow-origin:
                 type: str
                 description: Deprecated, please rename it to cors_allow_origin. Access-Control-Allow-Origin.
+            fortiai:
+                type: str
+                description:
+                    - Enable/disble FortiAI.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            policy-block:
+                type: list
+                elements: dict
+                description: Deprecated, please rename it to policy_block. Policy block.
+                suboptions:
+                    policy-block-name:
+                        type: str
+                        description: Deprecated, please rename it to policy_block_name. Policy block names.
 '''
 
 EXAMPLES = '''
@@ -920,7 +937,14 @@ def main():
                 'fingerprint': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
                 'th-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'th6-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                'cors-allow-origin': {'v_range': [['7.2.2', '']], 'type': 'str'}
+                'cors-allow-origin': {'v_range': [['7.2.2', '']], 'type': 'str'},
+                'fortiai': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'policy-block': {
+                    'v_range': [['7.6.0', '']],
+                    'type': 'list',
+                    'options': {'policy-block-name': {'v_range': [['7.6.0', '']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
 
         }
@@ -931,7 +955,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_admin_user'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -185,6 +185,16 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            query-ioc:
+                type: str
+                description:
+                    - Deprecated, please rename it to query_ioc.
+                    - Enable/disable the built-in FortiGuard to provide IoC query
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -215,6 +225,7 @@ EXAMPLES = '''
           query_iot: <value in [disable, enable]>
           query_iot_collection: <value in [disable, enable]>
           query_iot_vulnerability: <value in [disable, enable]>
+          query_ioc: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -290,7 +301,8 @@ def main():
                 'webfilter-https-traversal': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-collection': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'query-iot-vulnerability': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'query-iot-vulnerability': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'query-ioc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -301,7 +313,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'fmupdate_service'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

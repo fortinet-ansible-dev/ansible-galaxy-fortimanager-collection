@@ -276,6 +276,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            http-transaction:
+                type: str
+                description: Deprecated, please rename it to http_transaction. Enable/disable log HTTP transaction messages.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -330,6 +336,7 @@ EXAMPLES = '''
           netscan_discovery: <value in [disable, enable]>
           netscan_vulnerability: <value in [disable, enable]>
           forti_switch: <value in [disable, enable]>
+          http_transaction: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -461,7 +468,8 @@ def main():
                 'ssh': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'netscan-discovery': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -472,7 +480,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_log_syslogd_filter'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

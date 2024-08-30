@@ -1574,6 +1574,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            cgn-sw-eif-ctrl:
+                type: str
+                description: Deprecated, please rename it to cgn_sw_eif_ctrl. Enable/disable software endpoint independent filtering control.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            eif-check:
+                type: str
+                description: Deprecated, please rename it to eif_check. Enable/Disable check endpoint-independent-filtering pinhole.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            eif-learn:
+                type: str
+                description: Deprecated, please rename it to eif_learn. Enable/Disable learning of end-point-independent filtering pinhole.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            radius-ip-auth-bypass:
+                type: str
+                description: Deprecated, please rename it to radius_ip_auth_bypass. Enable IP authentication bypass.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -2022,7 +2046,11 @@ def main():
                 'detect-https-in-http-request': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'redirect-profile': {'v_range': [['7.4.2', '']], 'type': 'raw'},
-                'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-sw-eif-ctrl': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -2041,7 +2069,7 @@ def main():
 
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_header_policy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

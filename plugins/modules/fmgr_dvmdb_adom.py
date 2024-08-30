@@ -207,6 +207,7 @@ options:
                     - 'fpa'
                     - 'fca'
                     - 'ftc'
+                    - 'fss'
             state:
                 type: int
                 description: State.
@@ -333,6 +334,7 @@ EXAMPLES = '''
             - fpa
             - fca
             - ftc
+            - fss
           state: <integer>
           uuid: <string>
           create_time: <integer>
@@ -439,7 +441,7 @@ def main():
                     'type': 'raw',
                     'choices': [
                         'fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
-                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc'
+                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss'
                     ]
                 },
                 'state': {'type': 'int'},
@@ -468,7 +470,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_adom'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -276,6 +276,7 @@ options:
                                     - 'jitter'
                                     - 'packet-loss'
                                     - 'mos'
+                                    - 'remote'
                             packetloss-threshold:
                                 type: int
                                 description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
@@ -444,6 +445,12 @@ options:
                     transport-group:
                         type: int
                         description: Deprecated, please rename it to transport_group. Measured transport group
+                    priority-in-sla:
+                        type: int
+                        description: Deprecated, please rename it to priority_in_sla. Preferred priority of routes to this member when this member is i...
+                    priority-out-sla:
+                        type: int
+                        description: Deprecated, please rename it to priority_out_sla. Preferred priority of routes to this member when this member is ...
             neighbor:
                 type: list
                 elements: dict
@@ -794,6 +801,9 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'auto'
+                    comment:
+                        type: str
+                        description: Comments.
             status:
                 type: str
                 description: Enable/disable SD-WAN.
@@ -839,6 +849,236 @@ options:
             app-perf-log-period:
                 type: int
                 description: Deprecated, please rename it to app_perf_log_period. Time interval in seconds that applicationperformance logs are generated
+            health-check-fortiguard:
+                type: list
+                elements: dict
+                description: Deprecated, please rename it to health_check_fortiguard. Health check fortiguard.
+                suboptions:
+                    addr-mode:
+                        type: str
+                        description: Deprecated, please rename it to addr_mode. Address mode
+                        choices:
+                            - 'ipv4'
+                            - 'ipv6'
+                    class-id:
+                        type: raw
+                        description: (list) Deprecated, please rename it to class_id. Traffic class ID.
+                    detect-mode:
+                        type: str
+                        description: Deprecated, please rename it to detect_mode. The mode determining how to detect the server.
+                        choices:
+                            - 'active'
+                            - 'passive'
+                            - 'prefer-passive'
+                            - 'remote'
+                            - 'agent-based'
+                    diffservcode:
+                        type: str
+                        description: Differentiated services code point
+                    dns-match-ip:
+                        type: str
+                        description: Deprecated, please rename it to dns_match_ip. Response IP expected from DNS server if the protocol is DNS.
+                    dns-request-domain:
+                        type: str
+                        description: Deprecated, please rename it to dns_request_domain. Fully qualified domain name to resolve for the DNS probe.
+                    embed-measured-health:
+                        type: str
+                        description: Deprecated, please rename it to embed_measured_health. Enable/disable embedding measured health information.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    failtime:
+                        type: int
+                        description: Number of failures before server is considered lost
+                    ftp-file:
+                        type: str
+                        description: Deprecated, please rename it to ftp_file. Full path and file name on the FTP server to download for FTP health-che...
+                    ftp-mode:
+                        type: str
+                        description: Deprecated, please rename it to ftp_mode. FTP mode.
+                        choices:
+                            - 'passive'
+                            - 'port'
+                    ha-priority:
+                        type: int
+                        description: Deprecated, please rename it to ha_priority. HA election priority
+                    http-agent:
+                        type: str
+                        description: Deprecated, please rename it to http_agent. String in the http-agent field in the HTTP header.
+                    http-get:
+                        type: str
+                        description: Deprecated, please rename it to http_get. URL used to communicate with the server if the protocol if the protocol ...
+                    http-match:
+                        type: str
+                        description: Deprecated, please rename it to http_match. Response string expected from the server if the protocol is HTTP.
+                    interval:
+                        type: int
+                        description: Status check interval in milliseconds, or the time between attempting to connect to the server
+                    members:
+                        type: raw
+                        description: (list) Member sequence number list.
+                    mos-codec:
+                        type: str
+                        description: Deprecated, please rename it to mos_codec. Codec to use for MOS calculation
+                        choices:
+                            - 'g711'
+                            - 'g722'
+                            - 'g729'
+                    packet-size:
+                        type: int
+                        description: Deprecated, please rename it to packet_size. Packet size of a TWAMP test session.
+                    password:
+                        type: raw
+                        description: (list) TWAMP controller password in authentication mode.
+                    port:
+                        type: int
+                        description: Port number used to communicate with the server over the selected protocol
+                    probe-count:
+                        type: int
+                        description: Deprecated, please rename it to probe_count. Number of most recent probes that should be used to calculate latency...
+                    probe-packets:
+                        type: str
+                        description: Deprecated, please rename it to probe_packets. Enable/disable transmission of probe packets.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    probe-timeout:
+                        type: int
+                        description: Deprecated, please rename it to probe_timeout. Time to wait before a probe packet is considered lost
+                    protocol:
+                        type: str
+                        description: Protocol used to determine if the FortiGate can communicate with the server.
+                        choices:
+                            - 'ping'
+                            - 'tcp-echo'
+                            - 'udp-echo'
+                            - 'http'
+                            - 'twamp'
+                            - 'dns'
+                            - 'tcp-connect'
+                            - 'ftp'
+                            - 'https'
+                    quality-measured-method:
+                        type: str
+                        description: Deprecated, please rename it to quality_measured_method. Method to measure the quality of tcp-connect.
+                        choices:
+                            - 'half-close'
+                            - 'half-open'
+                    recoverytime:
+                        type: int
+                        description: Number of successful responses received before server is considered recovered
+                    security-mode:
+                        type: str
+                        description: Deprecated, please rename it to security_mode. Twamp controller security mode.
+                        choices:
+                            - 'none'
+                            - 'authentication'
+                    server:
+                        type: raw
+                        description: (list) Predefined IP address or FQDN name from FortiGuard.
+                    sla:
+                        type: list
+                        elements: dict
+                        description: Sla.
+                        suboptions:
+                            id:
+                                type: int
+                                description: SLA ID.
+                            jitter-threshold:
+                                type: int
+                                description: Deprecated, please rename it to jitter_threshold. Jitter for SLA to make decision in milliseconds.
+                            latency-threshold:
+                                type: int
+                                description: Deprecated, please rename it to latency_threshold. Latency for SLA to make decision in milliseconds.
+                            link-cost-factor:
+                                type: list
+                                elements: str
+                                description: Deprecated, please rename it to link_cost_factor. Criteria on which to base link selection.
+                                choices:
+                                    - 'latency'
+                                    - 'jitter'
+                                    - 'packet-loss'
+                                    - 'mos'
+                                    - 'remote'
+                            mos-threshold:
+                                type: str
+                                description: Deprecated, please rename it to mos_threshold. Minimum Mean Opinion Score for SLA to be marked as pass.
+                            packetloss-threshold:
+                                type: int
+                                description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
+                            priority-in-sla:
+                                type: int
+                                description: Deprecated, please rename it to priority_in_sla. Value to be distributed into routing table when in-sla
+                            priority-out-sla:
+                                type: int
+                                description: Deprecated, please rename it to priority_out_sla. Value to be distributed into routing table when out-sla
+                    sla-fail-log-period:
+                        type: int
+                        description: Deprecated, please rename it to sla_fail_log_period. Time interval in seconds that SLA fail log messages will be g...
+                    sla-id-redistribute:
+                        type: int
+                        description: Deprecated, please rename it to sla_id_redistribute. Select the ID from the SLA sub-table.
+                    sla-pass-log-period:
+                        type: int
+                        description: Deprecated, please rename it to sla_pass_log_period. Time interval in seconds that SLA pass log messages will be g...
+                    source:
+                        type: str
+                        description: Source IP address used in the health-check packet to the server.
+                    source6:
+                        type: str
+                        description: Source IPv6 address used in the health-check packet to server.
+                    system-dns:
+                        type: str
+                        description: Deprecated, please rename it to system_dns. Enable/disable system DNS as the probe server.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    target-name:
+                        type: str
+                        description: Deprecated, please rename it to target_name. Status check or predefined health-check targets name.
+                    threshold-alert-jitter:
+                        type: int
+                        description: Deprecated, please rename it to threshold_alert_jitter. Alert threshold for jitter
+                    threshold-alert-latency:
+                        type: int
+                        description: Deprecated, please rename it to threshold_alert_latency. Alert threshold for latency
+                    threshold-alert-packetloss:
+                        type: int
+                        description: Deprecated, please rename it to threshold_alert_packetloss. Alert threshold for packet loss
+                    threshold-warning-jitter:
+                        type: int
+                        description: Deprecated, please rename it to threshold_warning_jitter. Warning threshold for jitter
+                    threshold-warning-latency:
+                        type: int
+                        description: Deprecated, please rename it to threshold_warning_latency. Warning threshold for latency
+                    threshold-warning-packetloss:
+                        type: int
+                        description: Deprecated, please rename it to threshold_warning_packetloss. Warning threshold for packet loss
+                    update-cascade-interface:
+                        type: str
+                        description: Deprecated, please rename it to update_cascade_interface. Enable/disable update cascade interface.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    update-static-route:
+                        type: str
+                        description: Deprecated, please rename it to update_static_route. Enable/disable updating the static route.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    user:
+                        type: str
+                        description: The user name to access probe server.
+                    vrf:
+                        type: int
+                        description: Virtual Routing Forwarding ID.
+            option:
+                type: list
+                elements: str
+                description: Option.
+                choices:
+                    - 'sdwan-overlay'
+                    - 'sdwan-manager'
 '''
 
 EXAMPLES = '''
@@ -914,6 +1154,7 @@ EXAMPLES = '''
                     - jitter
                     - packet-loss
                     - mos
+                    - remote
                   packetloss_threshold: <integer>
                   mos_threshold: <string>
                   priority_in_sla: <integer>
@@ -960,6 +1201,8 @@ EXAMPLES = '''
               priority6: <integer>
               preferred_source: <string>
               transport_group: <integer>
+              priority_in_sla: <integer>
+              priority_out_sla: <integer>
           neighbor:
             -
               health_check: <string>
@@ -1043,6 +1286,7 @@ EXAMPLES = '''
               start_src_port: <integer>
               zone_mode: <value in [disable, enable]>
               shortcut_priority: <value in [disable, enable, auto]>
+              comment: <string>
           status: <value in [disable, enable]>
           zone:
             -
@@ -1054,6 +1298,71 @@ EXAMPLES = '''
           speedtest_bypass_routing: <value in [disable, enable]>
           fail_alert_interfaces: <list or string>
           app_perf_log_period: <integer>
+          health_check_fortiguard:
+            -
+              addr_mode: <value in [ipv4, ipv6]>
+              class_id: <list or string>
+              detect_mode: <value in [active, passive, prefer-passive, ...]>
+              diffservcode: <string>
+              dns_match_ip: <string>
+              dns_request_domain: <string>
+              embed_measured_health: <value in [disable, enable]>
+              failtime: <integer>
+              ftp_file: <string>
+              ftp_mode: <value in [passive, port]>
+              ha_priority: <integer>
+              http_agent: <string>
+              http_get: <string>
+              http_match: <string>
+              interval: <integer>
+              members: <list or string>
+              mos_codec: <value in [g711, g722, g729]>
+              packet_size: <integer>
+              password: <list or string>
+              port: <integer>
+              probe_count: <integer>
+              probe_packets: <value in [disable, enable]>
+              probe_timeout: <integer>
+              protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+              quality_measured_method: <value in [half-close, half-open]>
+              recoverytime: <integer>
+              security_mode: <value in [none, authentication]>
+              server: <list or string>
+              sla:
+                -
+                  id: <integer>
+                  jitter_threshold: <integer>
+                  latency_threshold: <integer>
+                  link_cost_factor:
+                    - latency
+                    - jitter
+                    - packet-loss
+                    - mos
+                    - remote
+                  mos_threshold: <string>
+                  packetloss_threshold: <integer>
+                  priority_in_sla: <integer>
+                  priority_out_sla: <integer>
+              sla_fail_log_period: <integer>
+              sla_id_redistribute: <integer>
+              sla_pass_log_period: <integer>
+              source: <string>
+              source6: <string>
+              system_dns: <value in [disable, enable]>
+              target_name: <string>
+              threshold_alert_jitter: <integer>
+              threshold_alert_latency: <integer>
+              threshold_alert_packetloss: <integer>
+              threshold_warning_jitter: <integer>
+              threshold_warning_latency: <integer>
+              threshold_warning_packetloss: <integer>
+              update_cascade_interface: <value in [disable, enable]>
+              update_static_route: <value in [disable, enable]>
+              user: <string>
+              vrf: <integer>
+          option:
+            - sdwan-overlay
+            - sdwan-manager
 '''
 
 RETURN = '''
@@ -1186,7 +1495,7 @@ def main():
                                 'link-cost-factor': {
                                     'v_range': [['6.4.1', '']],
                                     'type': 'list',
-                                    'choices': ['latency', 'jitter', 'packet-loss', 'mos'],
+                                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
                                     'elements': 'str'
                                 },
                                 'packetloss-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -1250,7 +1559,9 @@ def main():
                         'zone': {'v_range': [['6.4.1', '']], 'type': 'str'},
                         'priority6': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'preferred-source': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                        'transport-group': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                        'transport-group': {'v_range': [['7.4.2', '']], 'type': 'int'},
+                        'priority-in-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1353,7 +1664,8 @@ def main():
                         'sla-stickiness': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'start-src-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'}
+                        'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
+                        'comment': {'v_range': [['7.6.0', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1372,7 +1684,88 @@ def main():
                 },
                 'speedtest-bypass-routing': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fail-alert-interfaces': {'v_range': [['7.2.3', '']], 'type': 'raw'},
-                'app-perf-log-period': {'v_range': [['7.4.0', '']], 'type': 'int'}
+                'app-perf-log-period': {'v_range': [['7.4.0', '']], 'type': 'int'},
+                'health-check-fortiguard': {
+                    'v_range': [['7.6.0', '']],
+                    'type': 'list',
+                    'options': {
+                        'addr-mode': {'v_range': [['7.6.0', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                        'class-id': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                        'detect-mode': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['active', 'passive', 'prefer-passive', 'remote', 'agent-based'],
+                            'type': 'str'
+                        },
+                        'diffservcode': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'dns-match-ip': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'dns-request-domain': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'embed-measured-health': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'failtime': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'ftp-file': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'ftp-mode': {'v_range': [['7.6.0', '']], 'choices': ['passive', 'port'], 'type': 'str'},
+                        'ha-priority': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'http-agent': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'http-get': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'http-match': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'interval': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'members': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                        'mos-codec': {'v_range': [['7.6.0', '']], 'choices': ['g711', 'g722', 'g729'], 'type': 'str'},
+                        'packet-size': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'password': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'raw'},
+                        'port': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'probe-count': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'probe-packets': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'probe-timeout': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'protocol': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['ping', 'tcp-echo', 'udp-echo', 'http', 'twamp', 'dns', 'tcp-connect', 'ftp', 'https'],
+                            'type': 'str'
+                        },
+                        'quality-measured-method': {'v_range': [['7.6.0', '']], 'choices': ['half-close', 'half-open'], 'type': 'str'},
+                        'recoverytime': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'security-mode': {'v_range': [['7.6.0', '']], 'choices': ['none', 'authentication'], 'type': 'str'},
+                        'server': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                        'sla': {
+                            'v_range': [['7.6.0', '']],
+                            'type': 'list',
+                            'options': {
+                                'id': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                                'jitter-threshold': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                                'latency-threshold': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                                'link-cost-factor': {
+                                    'v_range': [['7.6.0', '']],
+                                    'type': 'list',
+                                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
+                                    'elements': 'str'
+                                },
+                                'mos-threshold': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                                'packetloss-threshold': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                                'priority-in-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                                'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                            },
+                            'elements': 'dict'
+                        },
+                        'sla-fail-log-period': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'sla-id-redistribute': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'sla-pass-log-period': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
+                        'source': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'source6': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'system-dns': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'target-name': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'threshold-alert-jitter': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'threshold-alert-latency': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'threshold-alert-packetloss': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'threshold-warning-jitter': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'threshold-warning-latency': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'threshold-warning-packetloss': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'update-cascade-interface': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'update-static-route': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'user': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'vrf': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                    },
+                    'elements': 'dict'
+                },
+                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'}
             }
 
         }
@@ -1383,7 +1776,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wanprof_system_sdwan'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

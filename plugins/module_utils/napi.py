@@ -94,7 +94,8 @@ def modify_argument_spec(schema):
                   "syslog-facility": "fmgr_syslog_facility",
                   "80211d": "d80211d",
                   "80211k": "d80211k",
-                  "80211v": "d80211v"}
+                  "80211v": "d80211v",
+                  "80211mc": "d80211mc"}
     for param_name in schema:
         if param_name != "v_range" and param_name != "api_name":
             new_content = modify_argument_spec(schema[param_name])
@@ -133,7 +134,8 @@ def remove_aliases(user_params, metadata, bypass_valid=False):
                    "fmgr_syslog_facility": "syslog-facility",
                    "d80211d": "80211d",
                    "d80211k": "80211k",
-                   "d80211v": "80211v"}
+                   "d80211v": "80211v",
+                   "d80211mc": "80211mc"}
     new_params = {}
     considered_keys = set()
     for param_name, param_data in metadata.items():
@@ -202,13 +204,13 @@ class NAPIManager(object):
     def process_workspace_lock(self):
         self.conn.process_workspace_locking(self.module.params)
 
-    def _method_proposed(self):
+    def is_force_update(self):
         return (
             "proposed_method" in self.module.params
             and self.module.params["proposed_method"]
         )
 
-    def _propose_method(self, default_method):
+    def get_propose_method(self, default_method):
         if (
             "proposed_method" in self.module.params
             and self.module.params["proposed_method"]
@@ -280,14 +282,14 @@ class NAPIManager(object):
             adom = self.module.params["adom"]
             if adom == "global":
                 for url in url_libs:
-                    if "/global/" in url and "/adom/{adom}/" not in url:
+                    if "/global/" in url and "/adom/{adom}" not in url:
                         the_url = url
                         break
                 if not the_url:
                     self.module.fail_json(msg="No global url for the request, please use other adom.")
             else:
                 for url in url_libs:
-                    if "/adom/{adom}/" in url:
+                    if "/adom/{adom}" in url:
                         the_url = url
                         break
                 if not the_url:
@@ -295,7 +297,7 @@ class NAPIManager(object):
         else:
             the_url = url_libs[0]
         if not the_url:
-            raise AssertionError("the_url is not expected to be NULL")
+            self.module.fail_json(msg="Can't find target url, please check param: adom")
         return self._get_replaced_url(the_url)
 
     def _get_replaced_url(self, url_template):
@@ -338,7 +340,9 @@ class NAPIManager(object):
             "url": url_updating,
             self.top_level_schema_name: raw_attributes,
         }
-        response = self.conn.send_request(self._propose_method("update"), [params])
+        if self.module.check_mode:
+            self.do_check_exit(True)
+        response = self.conn.send_request(self.get_propose_method("update"), [params])
         return response
 
     def create_object(self):
@@ -350,11 +354,15 @@ class NAPIManager(object):
             "url": url_creating,
             self.top_level_schema_name: raw_attributes,
         }
-        return self.conn.send_request(self._propose_method("set"), [params])
+        if self.module.check_mode:
+            self.do_check_exit(True)
+        return self.conn.send_request(self.get_propose_method("set"), [params])
 
     def delete_object(self, mvalue):
         url_deleting = self._get_base_perobject_url(mvalue)
         params = [{"url": url_deleting}]
+        if self.module.check_mode:
+            self.do_check_exit(True)
         return self.conn.send_request("delete", params)
 
     def get_system_status(self):
@@ -362,7 +370,7 @@ class NAPIManager(object):
         response = self.conn.send_request("get", params)
         if response[0] == 0:
             if "data" not in response[1]:
-                raise AssertionError()
+                raise AssertionError("Error when getting system status")
             return response[1]["data"]
         return None
 
@@ -431,11 +439,14 @@ class NAPIManager(object):
         if self.module.params["state"] == "present":
             rc, robject = self.get_object(mvalue)
             if rc == 0:
-                if self._method_proposed() or self._update_required(robject):
+                if self.is_force_update() or self._update_required(robject):
                     return self.update_object(mvalue)
                 else:
-                    self.module.exit_json(message="Your FortiManager is already up to date and does not need to be updated. "
-                                          "To force update, please add argument proposed_method:update")
+                    return_msg = "Your FortiManager is already up to date and does not need to be updated. "
+                    return_msg += "To force update, please add argument proposed_method:update"
+                    if self.module.check_mode:
+                        self.do_check_exit(False, message=return_msg)
+                    self.module.exit_json(message=return_msg)
             else:
                 return self.create_object()
         elif self.module.params["state"] == "absent":
@@ -466,6 +477,8 @@ class NAPIManager(object):
         if module_name in params:
             params = remove_aliases(params, argument_specs, bypass_valid)
             api_params[self.top_level_schema_name] = params[module_name]
+        if self.module.check_mode:
+            self.do_check_exit(True)
         response = self.conn.send_request("exec", [api_params])
         self.do_exit(response)
 
@@ -541,6 +554,9 @@ class NAPIManager(object):
             if fact_params.get("extra_params", None):
                 for key in fact_params["extra_params"]:
                     api_params[key] = fact_params["extra_params"][key]
+        if self.module.check_mode:
+            if task_type in ["clone", "rename", "move"]:
+                self.do_check_exit(True)
         response = self.conn.send_request(request_type[task_type], [api_params])
         self.do_exit(response, changed=(task_type != "facts"))
 
@@ -730,7 +746,6 @@ class NAPIManager(object):
         from ansible_collections.fortinet.fortimanager.plugins.module_utils.exported_schema import (
             schemas as exported_schema_inventory,
         )
-
         params = self.module.params
         export_selectors = params["export_playbooks"]["selector"]
         export_path = "./"
@@ -821,18 +836,18 @@ class NAPIManager(object):
         if adom_value is not None and not url_list[0].endswith("{adom}"):
             if adom_value == "global":
                 for url in url_list:
-                    if "/global/" in url and "/adom/{adom}/" not in url:
+                    if "/global/" in url and "/adom/{adom}" not in url:
                         target_url = url
                         break
             elif adom_value:
                 for url in url_list:
-                    if "/adom/{adom}/" in url:
+                    if "/adom/{adom}" in url:
                         target_url = url
                         break
             else:
                 # adom = "", choose default URL which is for all domains
                 for url in url_list:
-                    if "/global/" not in url and "/adom/{adom}/" not in url:
+                    if "/global/" not in url and "/adom/{adom}" not in url:
                         target_url = url
                         break
         else:
@@ -849,7 +864,7 @@ class NAPIManager(object):
         bypass_valid = self.module.params.get("bypass_validation", False)
         if not bypass_valid:
             self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
-        member_url = self._get_basic_url(True)
+        member_url = self._get_basic_url(False)
         parent_url, separator, task_type = member_url.rpartition("/")
         response = (-1, {})
         object_present = remove_aliases(self.module.params, self.metadata, bypass_valid)
@@ -871,11 +886,12 @@ class NAPIManager(object):
                         require_update = self.is_object_difference(object_remote, object_present)
                     except Exception as e:
                         pass
-                if self._method_proposed() or require_update:
+                if self.is_force_update() or require_update:
                     response = self.update_object("")
                 else:
-                    self.module.exit_json(message="Your FortiManager is already up to date and does not need to be updated. "
-                                          "To force update, please add argument proposed_method:update")
+                    return_msg = "Your FortiManager is already up to date and does not need to be updated. "
+                    return_msg += "To force update, please add argument proposed_method:update"
+                    self.module.exit_json(message=return_msg)
             else:
                 resource_name = parent_url.split("/")[-1]
                 parent_module, separator, task_name = module_name.rpartition("_")
@@ -888,6 +904,8 @@ class NAPIManager(object):
                                       (resource_name, parent_module))
         elif self.module.params["state"] == "absent":
             params = [{"url": member_url, self.top_level_schema_name: object_present}]
+            if self.module.check_mode:
+                self.do_check_exit(True)
             response = self.conn.send_request("delete", params)
         self.do_exit(response)
 
@@ -927,10 +945,23 @@ class NAPIManager(object):
         target_url = self._get_replaced_url(target_url)
         target_url = target_url.rstrip("/")
         api_params = {"url": target_url}
+        # Try to get and compare, and skip update if same.
+        try:
+            rc, robject = self.conn.send_request("get", [api_params])
+            if rc == 0 and not (self.is_force_update() or self._update_required(robject)):
+                return_msg = "Your FortiManager is already up to date and does not need to be updated. "
+                return_msg += "To force update, please add argument proposed_method:update"
+                if self.module.check_mode:
+                    self.do_check_exit(False, message=return_msg)
+                self.module.exit_json(message=return_msg)
+        except Exception as e:
+            pass
         if module_name in params:
             params = remove_aliases(params, argument_specs, bypass_valid)
             api_params[self.top_level_schema_name] = params[module_name]
-        response = self.conn.send_request(self._propose_method("set"), [api_params])
+        if self.module.check_mode:
+            self.do_check_exit(True)
+        response = self.conn.send_request(self.get_propose_method("set"), [api_params])
         self.do_exit(response)
 
     def check_versioning_mismatch(self, track, schema, params):
@@ -991,7 +1022,7 @@ class NAPIManager(object):
                     # assert blob['fail_action'] == 'quit':
                     self.module.fail_json(msg=blob["hint_message"])
 
-    def _do_final_exit(self, rc, result, changed=True):
+    def do_final_exit(self, rc, result, changed=True):
         # XXX: as with https://github.com/fortinet/ansible-fortimanager-generic.
         # the failing conditions priority: failed_when > rc_failed > rc_succeeded.
         failed = rc != 0
@@ -1012,23 +1043,48 @@ class NAPIManager(object):
         if self.system_status:
             result["system_information"] = self.system_status
         if len(self.version_check_warnings):
-            version_check_warning = dict()
+            version_check_warning = {}
             version_check_warning["mismatches"] = self.version_check_warnings
-            if not self.system_status:
-                raise AssertionError("Can't get system status, please check Internet connection.")
-            version_check_warning["system_version"] = "v%s.%s.%s" % (
-                self.system_status["Major"],
-                self.system_status["Minor"],
-                self.system_status["Patch"],
-            )
+            if self.system_status:
+                version_check_warning["system_version"] = "v%s.%s.%s" % (
+                    self.system_status["Major"],
+                    self.system_status["Minor"],
+                    self.system_status["Patch"],
+                )
             self.module.warn(
                 "Some parameters in the playbook may not be supported by the current FortiManager version. "
                 "To see which parameters are not available, check version_check_warning in the output. "
-                "This message is only a suggestion. Please ignore this warning if you think your cofigurations are correct."
+                "This message is only a suggestion. Please ignore this warning if you think your configurations are correct."
             )
             self.module.exit_json(rc=rc, meta=result, version_check_warning=version_check_warning, failed=failed, changed=changed)
         else:
             self.module.exit_json(rc=rc, meta=result, failed=failed, changed=changed)
+
+    def do_check_exit(self, changed, message=""):
+        result = {}
+        if message:
+            message = "Using check mode. " + message
+        else:
+            message = "Using check mode."
+        if self.system_status:
+            result["system_information"] = self.system_status
+        if len(self.version_check_warnings):
+            version_check_warning = {}
+            version_check_warning["mismatches"] = self.version_check_warnings
+            if self.system_status:
+                version_check_warning["system_version"] = "v%s.%s.%s" % (
+                    self.system_status["Major"],
+                    self.system_status["Minor"],
+                    self.system_status["Patch"],
+                )
+            self.module.warn(
+                "Some parameters in the playbook may not be supported by the current FortiManager version. "
+                "To see which parameters are not available, check version_check_warning in the output. "
+                "This message is only a suggestion. Please ignore this warning if you think your configurations are correct."
+            )
+            self.module.exit_json(meta=result, version_check_warning=version_check_warning, changed=changed, message=message)
+        else:
+            self.module.exit_json(meta=result, changed=changed, message=message)
 
     def do_exit(self, response, changed=True):
         rc, response_data = response
@@ -1049,4 +1105,4 @@ class NAPIManager(object):
                 if "taskid" in response_data and isinstance(result["response_data"], dict) \
                         and "task" not in result["response_data"]:
                     result["response_data"]["task"] = response_data["taskid"]
-        self._do_final_exit(rc, result, changed=changed)
+        self.do_final_exit(rc, result, changed=changed)

@@ -662,8 +662,8 @@ def main():
                 'offline_mode': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'register_passwd': {'no_log': True, 'type': 'raw'},
                 'sdwan-monitor-history': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'shell-access': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'shell-password': {'no_log': True, 'type': 'raw'},
+                'shell-access': {'v_range': [['6.0.0', '7.4.3']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'shell-password': {'v_range': [['6.0.0', '7.4.3']], 'no_log': True, 'type': 'raw'},
                 'show-add-multiple': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'show-adom-devman': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'show-checkbox-in-table': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -704,7 +704,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_admin_setting'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

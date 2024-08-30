@@ -174,6 +174,7 @@ options:
                     - 'ALL'
                     - 'SOCKS-TCP'
                     - 'SOCKS-UDP'
+                    - 'TCP/UDP/UDP-Lite/SCTP'
             protocol-number:
                 type: int
                 description: Deprecated, please rename it to protocol_number. IP protocol number.
@@ -234,6 +235,9 @@ options:
             uuid:
                 type: str
                 description: Universally Unique Identifier
+            udplite-portrange:
+                type: str
+                description: Deprecated, please rename it to udplite_portrange. Multiple UDP-Lite port ranges.
 '''
 
 EXAMPLES = '''
@@ -364,7 +368,10 @@ def main():
                 'iprange': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'protocol': {
-                    'choices': ['ICMP', 'IP', 'TCP/UDP/SCTP', 'ICMP6', 'HTTP', 'FTP', 'CONNECT', 'SOCKS', 'ALL', 'SOCKS-TCP', 'SOCKS-UDP'],
+                    'choices': [
+                        'ICMP', 'IP', 'TCP/UDP/SCTP', 'ICMP6', 'HTTP', 'FTP', 'CONNECT', 'SOCKS', 'ALL', 'SOCKS-TCP', 'SOCKS-UDP',
+                        'TCP/UDP/UDP-Lite/SCTP'
+                    ],
                     'type': 'str'
                 },
                 'protocol-number': {'type': 'int'},
@@ -382,7 +389,8 @@ def main():
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-rst-timer': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                'uuid': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'uuid': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'udplite-portrange': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
 
         }
@@ -393,7 +401,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_service_custom'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

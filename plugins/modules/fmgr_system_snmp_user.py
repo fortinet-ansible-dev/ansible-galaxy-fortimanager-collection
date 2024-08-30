@@ -95,6 +95,10 @@ options:
                 choices:
                     - 'md5'
                     - 'sha'
+                    - 'sha224'
+                    - 'sha256'
+                    - 'sha384'
+                    - 'sha512'
             auth-pwd:
                 type: raw
                 description: (list) Deprecated, please rename it to auth_pwd. Password for authentication protocol.
@@ -148,6 +152,8 @@ options:
                 choices:
                     - 'aes'
                     - 'des'
+                    - 'aes256'
+                    - 'aes256cisco'
             priv-pwd:
                 type: raw
                 description: (list) Deprecated, please rename it to priv_pwd. Password for privacy
@@ -290,7 +296,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'auth-proto': {'choices': ['md5', 'sha'], 'type': 'str'},
+                'auth-proto': {'choices': ['md5', 'sha', 'sha224', 'sha256', 'sha384', 'sha512'], 'type': 'str'},
                 'auth-pwd': {'type': 'raw'},
                 'events': {
                     'type': 'list',
@@ -303,7 +309,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'notify-hosts': {'type': 'str'},
                 'notify-hosts6': {'type': 'str'},
-                'priv-proto': {'choices': ['aes', 'des'], 'type': 'str'},
+                'priv-proto': {'choices': ['aes', 'des', 'aes256', 'aes256cisco'], 'type': 'str'},
                 'priv-pwd': {'type': 'raw'},
                 'queries': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-port': {'type': 'int'},
@@ -318,7 +324,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'system_snmp_user'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

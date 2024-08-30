@@ -154,6 +154,12 @@ options:
             transport-group:
                 type: int
                 description: Deprecated, please rename it to transport_group. Measured transport group
+            priority-in-sla:
+                type: int
+                description: Deprecated, please rename it to priority_in_sla. Preferred priority of routes to this member when this member is in-sla
+            priority-out-sla:
+                type: int
+                description: Deprecated, please rename it to priority_out_sla. Preferred priority of routes to this member when this member is out-of-sla
 '''
 
 EXAMPLES = '''
@@ -195,6 +201,8 @@ EXAMPLES = '''
           priority6: <integer>
           preferred_source: <string>
           transport_group: <integer>
+          priority_in_sla: <integer>
+          priority_out_sla: <integer>
 '''
 
 RETURN = '''
@@ -280,7 +288,9 @@ def main():
                 'zone': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'priority6': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'preferred-source': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'transport-group': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                'transport-group': {'v_range': [['7.4.2', '']], 'type': 'int'},
+                'priority-in-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -291,7 +301,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wanprof_system_sdwan_members'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

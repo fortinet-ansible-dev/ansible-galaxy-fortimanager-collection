@@ -198,6 +198,20 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            auth-order:
+                type: str
+                description: Deprecated, please rename it to auth_order. Configure authentication order.
+                choices:
+                    - 'dot1x-mab'
+                    - 'mab-dot1x'
+                    - 'mab'
+            auth-priority:
+                type: str
+                description: Deprecated, please rename it to auth_priority. Configure authentication priority.
+                choices:
+                    - 'dot1x-mab'
+                    - 'mab-dot1x'
+                    - 'legacy'
 '''
 
 EXAMPLES = '''
@@ -242,6 +256,8 @@ EXAMPLES = '''
           authserver_timeout_tagged: <value in [static, disable, lldp-voice]>
           authserver_timeout_tagged_vlanid: <list or string>
           dacl: <value in [disable, enable]>
+          auth_order: <value in [dot1x-mab, mab-dot1x, mab]>
+          auth_priority: <value in [dot1x-mab, mab-dot1x, legacy]>
 '''
 
 RETURN = '''
@@ -332,7 +348,9 @@ def main():
                 'authserver-timeout-vlanid': {'v_range': [['6.4.3', '']], 'type': 'str'},
                 'authserver-timeout-tagged': {'v_range': [['7.4.3', '']], 'choices': ['static', 'disable', 'lldp-voice'], 'type': 'str'},
                 'authserver-timeout-tagged-vlanid': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auth-order': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'mab'], 'type': 'str'},
+                'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'}
             }
 
         }
@@ -343,7 +361,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_securitypolicy_8021x'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

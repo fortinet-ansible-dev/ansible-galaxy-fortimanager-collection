@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.6.0 - configuring FortiManager
+# fortinet.fortimanager:2.7.0 - configuring FortiManager
 
 ## Description
 
@@ -518,6 +518,8 @@ The collection provides the following modules:
 * `fmgr_fmg_device_blueprint`  Fmg device blueprint.
 * `fmgr_fmg_fabric_authorization_template`  Fmg fabric authorization template.
 * `fmgr_fmg_fabric_authorization_template_platforms`  Fmg fabric authorization template platforms.
+* `fmgr_fmg_sasemanager_settings`  Fmg sase manager settings.
+* `fmgr_fmg_sasemanager_status`  Fmg sase manager status.
 * `fmgr_fmg_variable`  Fmg variable.
 * `fmgr_fmg_variable_dynamicmapping`  Fmg variable dynamic mapping.
 * `fmgr_fmupdate_analyzer_virusreport`  Send virus detection notification to FortiGuard.
@@ -700,6 +702,8 @@ The collection provides the following modules:
 * `fmgr_pm_config_pblock_firewall_policy6`  Configure IPv6 policies.
 * `fmgr_pm_config_pblock_firewall_policy6_sectionvalue`  Configure IPv6 policies.
 * `fmgr_pm_config_pblock_firewall_policy_sectionvalue`  Configure IPv4/IPv6 policies.
+* `fmgr_pm_config_pblock_firewall_proxypolicy`  Configure proxy policies.
+* `fmgr_pm_config_pblock_firewall_proxypolicy_sectionvalue`  Configure proxy policies.
 * `fmgr_pm_config_pblock_firewall_securitypolicy`  Configure NGFW IPv4/IPv6 application policies.
 * `fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue`  Configure NGFW IPv4/IPv6 application policies.
 * `fmgr_pm_config_reset_database`  Reset Global ADOM to a specific version.
@@ -847,6 +851,7 @@ The collection provides the following modules:
 * `fmgr_system_admin_user_dashboardtabs`  Custom dashboard.
 * `fmgr_system_admin_user_ipsfilter`  IPS filter.
 * `fmgr_system_admin_user_metadata`  Configure meta data.
+* `fmgr_system_admin_user_policyblock`  Policy block write access.
 * `fmgr_system_admin_user_policypackage`  Policy package access.
 * `fmgr_system_admin_user_restrictdevvdom`  Restricted to these devices/VDOMs.
 * `fmgr_system_admin_user_webfilter`  Web filter.
@@ -881,6 +886,8 @@ The collection provides the following modules:
 * `fmgr_system_docker`  Docker host.
 * `fmgr_system_externalresource`  Configure external resource.
 * `fmgr_system_fips`  Settings for FIPS-CC mode.
+* `fmgr_system_fmgcluster`  fmg clsuter.
+* `fmgr_system_fmgcluster_peer`  Peer.
 * `fmgr_system_fortiguard`  Configure FortiGuard services.
 * `fmgr_system_fortiview_autocache`  FortiView auto-cache settings.
 * `fmgr_system_fortiview_setting`  FortiView settings.

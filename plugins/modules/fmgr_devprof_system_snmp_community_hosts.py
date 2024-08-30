@@ -120,6 +120,16 @@ options:
             source-ip:
                 type: str
                 description: Deprecated, please rename it to source_ip. Source IPv4 address for SNMP traps.
+            interface-select-method:
+                type: str
+                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
+            interface:
+                type: raw
+                description: (list) Specify outgoing interface to reach server.
 '''
 
 EXAMPLES = '''
@@ -233,7 +243,9 @@ def main():
                 'host-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['any', 'query', 'trap'], 'type': 'str'},
                 'id': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'required': True, 'type': 'int'},
                 'ip': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'},
-                'source-ip': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'}
+                'source-ip': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -244,7 +256,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_snmp_community_hosts'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

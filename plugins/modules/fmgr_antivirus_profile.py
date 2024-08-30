@@ -382,6 +382,12 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    analytics-suspicious:
+                        type: str
+                        description: Deprecated, please rename it to analytics_suspicious. Enable/disable using CDR as a secondary method for determini...
+                        choices:
+                            - 'disable'
+                            - 'enable'
             ftp:
                 type: dict
                 description: Ftp.
@@ -1601,7 +1607,8 @@ def main():
                         'pdf-act-sound': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'pdf-embedfile': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'pdf-hyperlink': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-javacode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'pdf-javacode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'analytics-suspicious': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'ftp': {
@@ -2014,7 +2021,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'antivirus_profile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

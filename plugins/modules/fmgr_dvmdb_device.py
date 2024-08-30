@@ -199,6 +199,8 @@ options:
                     - 'cnf_mode'
                     - 'sase_managed'
                     - 'override_management_intf'
+                    - 'sdwan_management'
+                    - 'deny_api_access'
             foslic_cpu:
                 type: int
                 description: VM Meter vCPU count.
@@ -404,6 +406,7 @@ options:
                     - 'fpa'
                     - 'fca'
                     - 'ftc'
+                    - 'fss'
             os_ver:
                 type: str
                 description: Os ver.
@@ -533,6 +536,15 @@ options:
             relver_info:
                 type: str
                 description: Relver info.
+            cluster_worker:
+                type: str
+                description: Cluster worker.
+            ha.vsn:
+                type: str
+                description: Deprecated, please rename it to ha_vsn. Ha.
+            ha_upgrade_mode:
+                type: int
+                description: Ha upgrade mode.
 '''
 
 EXAMPLES = '''
@@ -682,7 +694,7 @@ def main():
                     'choices': [
                         'has_hdd', 'vdom_enabled', 'discover', 'reload', 'interim_build', 'offline_mode', 'is_model', 'fips_mode', 'linked_to_model',
                         'ip-conflict', 'faz-autosync', 'need_reset', 'backup_mode', 'azure_vwan_nva', 'fgsp_configured', 'cnf_mode', 'sase_managed',
-                        'override_management_intf'
+                        'override_management_intf', 'sdwan_management', 'deny_api_access'
                     ],
                     'elements': 'str'
                 },
@@ -736,7 +748,7 @@ def main():
                 'os_type': {
                     'choices': [
                         'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc'
+                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss'
                     ],
                     'type': 'str'
                 },
@@ -779,7 +791,10 @@ def main():
                 'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
-                'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'ha.vsn': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'ha_upgrade_mode': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -790,7 +805,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_device'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

@@ -642,6 +642,18 @@ options:
                     export-tags:
                         type: raw
                         description: (list) Deprecated, please rename it to export_tags. Configure export tag
+                    log-mac-event:
+                        type: str
+                        description: Deprecated, please rename it to log_mac_event. Enable/disable logging for dynamic MAC address events.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    pd-capable:
+                        type: int
+                        description: Deprecated, please rename it to pd_capable. Powered device capable.
+                    qnq:
+                        type: raw
+                        description: (list) '802.'
             switch-id:
                 type: str
                 description: Deprecated, please rename it to switch_id. Managed-switch id.
@@ -754,6 +766,7 @@ options:
                             - 'log-full'
                             - 'intf-ip'
                             - 'ent-conf-change'
+                            - 'l2mac'
                     hosts:
                         type: list
                         elements: dict
@@ -1596,6 +1609,9 @@ EXAMPLES = '''
               switch_id: <string>
               virtual_port: <integer>
               export_tags: <list or string>
+              log_mac_event: <value in [disable, enable]>
+              pd_capable: <integer>
+              qnq: <list or string>
           switch_id: <string>
           override_snmp_community: <value in [disable, enable]>
           override_snmp_sysinfo: <value in [disable, enable]>
@@ -1619,6 +1635,7 @@ EXAMPLES = '''
                 - log-full
                 - intf-ip
                 - ent-conf-change
+                - l2mac
               hosts:
                 -
                   id: <integer>
@@ -1994,7 +2011,10 @@ def main():
                         'stacking-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'switch-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
                         'virtual-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'export-tags': {'v_range': [['7.4.3', '']], 'type': 'raw'}
+                        'export-tags': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                        'log-mac-event': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pd-capable': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'qnq': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -2036,7 +2056,7 @@ def main():
                         'events': {
                             'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
                             'type': 'list',
-                            'choices': ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'ent-conf-change'],
+                            'choices': ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'ent-conf-change', 'l2mac'],
                             'elements': 'str'
                         },
                         'hosts': {
@@ -2340,7 +2360,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'switchcontroller_managedswitch'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

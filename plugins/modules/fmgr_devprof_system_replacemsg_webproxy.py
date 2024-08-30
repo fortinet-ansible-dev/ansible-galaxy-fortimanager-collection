@@ -95,6 +95,7 @@ options:
                     - 'text'
                     - 'html'
                     - 'wml'
+                    - 'opt:none'
             header:
                 type: str
                 description: Header flag.
@@ -102,6 +103,7 @@ options:
                     - 'none'
                     - 'http'
                     - '8bit'
+                    - 'opt:none'
             msg-type:
                 type: str
                 description: Deprecated, please rename it to msg_type. Message type.
@@ -128,7 +130,7 @@ EXAMPLES = '''
         devprof_system_replacemsg_webproxy:
           buffer: <string>
           format: <value in [none, text, html, ...]>
-          header: <value in [none, http, 8bit]>
+          header: <value in [none, http, 8bit, ...]>
           msg_type: <string>
 '''
 
@@ -198,8 +200,16 @@ def main():
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
             'options': {
                 'buffer': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'},
-                'format': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                'header': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                'format': {
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
+                    'choices': ['none', 'text', 'html', 'wml', 'opt:none'],
+                    'type': 'str'
+                },
+                'header': {
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
+                    'choices': ['none', 'http', '8bit', 'opt:none'],
+                    'type': 'str'
+                },
                 'msg-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'}
             }
 
@@ -211,7 +221,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'devprof_system_replacemsg_webproxy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

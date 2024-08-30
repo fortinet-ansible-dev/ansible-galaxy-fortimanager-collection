@@ -450,6 +450,7 @@ options:
                     - 'pm_config_pblock_firewall_consolidated_policy'
                     - 'pm_config_pblock_firewall_policy'
                     - 'pm_config_pblock_firewall_policy6'
+                    - 'pm_config_pblock_firewall_proxypolicy'
                     - 'pm_config_pblock_firewall_securitypolicy'
                     - 'pm_devprof_pkg'
                     - 'pm_pblock_obj'
@@ -549,6 +550,7 @@ options:
                     - 'system_dhcp_server_options'
                     - 'system_dhcp_server_reservedaddress'
                     - 'system_externalresource'
+                    - 'system_fmgcluster_peer'
                     - 'system_geoipcountry'
                     - 'system_geoipoverride'
                     - 'system_geoipoverride_ip6range'
@@ -3840,6 +3842,13 @@ def main():
             ],
             'mkey': 'policyid', 'v_range': [['7.0.3', '']]
         },
+        'pm_config_pblock_firewall_proxypolicy': {
+            'params': ['adom', 'pblock', 'proxy-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy/{proxy-policy}'
+            ],
+            'mkey': 'policyid', 'v_range': [['7.6.0', '']]
+        },
         'pm_config_pblock_firewall_securitypolicy': {
             'params': ['adom', 'pblock', 'security-policy'],
             'urls': [
@@ -4601,6 +4610,13 @@ def main():
                 '/pm/config/global/obj/system/external-resource/{external-resource}'
             ],
             'mkey': 'name'
+        },
+        'system_fmgcluster_peer': {
+            'params': ['peer'],
+            'urls': [
+                '/cli/global/system/fmg-cluster/peer/{peer}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.0', '']]
         },
         'system_geoipcountry': {
             'params': ['adom', 'geoip-country'],
@@ -6438,7 +6454,7 @@ def main():
             }
         }
     }
-    module = AnsibleModule(argument_spec=module_arg_spec, supports_check_mode=False)
+    module = AnsibleModule(argument_spec=module_arg_spec, supports_check_mode=True)
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)

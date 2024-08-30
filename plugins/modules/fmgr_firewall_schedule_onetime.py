@@ -120,6 +120,9 @@ options:
             start-utc:
                 type: str
                 description: Deprecated, please rename it to start_utc. Schedule start date and time, in epoch format.
+            uuid:
+                type: str
+                description: Universally Unique Identifier
 '''
 
 EXAMPLES = '''
@@ -234,7 +237,8 @@ def main():
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'end-utc': {'v_range': [['7.2.2', '']], 'type': 'str'},
-                'start-utc': {'v_range': [['7.2.2', '']], 'type': 'str'}
+                'start-utc': {'v_range': [['7.2.2', '']], 'type': 'str'},
+                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
 
         }
@@ -245,7 +249,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_schedule_onetime'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

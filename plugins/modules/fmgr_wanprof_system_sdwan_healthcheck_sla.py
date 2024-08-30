@@ -118,6 +118,7 @@ options:
                     - 'jitter'
                     - 'packet-loss'
                     - 'mos'
+                    - 'remote'
             packetloss-threshold:
                 type: int
                 description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
@@ -161,6 +162,7 @@ EXAMPLES = '''
             - jitter
             - packet-loss
             - mos
+            - remote
           packetloss_threshold: <integer>
           mos_threshold: <string>
           priority_in_sla: <integer>
@@ -240,7 +242,7 @@ def main():
                 'link-cost-factor': {
                     'v_range': [['6.4.1', '']],
                     'type': 'list',
-                    'choices': ['latency', 'jitter', 'packet-loss', 'mos'],
+                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
                     'elements': 'str'
                 },
                 'packetloss-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -257,7 +259,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'wanprof_system_sdwan_healthcheck_sla'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

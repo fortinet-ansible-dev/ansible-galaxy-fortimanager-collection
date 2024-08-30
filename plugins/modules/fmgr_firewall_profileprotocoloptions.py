@@ -534,6 +534,13 @@ options:
                             - 'block'
                             - 'inspect'
                             - 'bypass'
+                    domain-fronting:
+                        type: str
+                        description: Deprecated, please rename it to domain_fronting. Configure HTTP domain fronting
+                        choices:
+                            - 'block'
+                            - 'monitor'
+                            - 'allow'
             imap:
                 type: dict
                 description: Imap.
@@ -1115,7 +1122,8 @@ def main():
                         'address-ip-rating': {'v_range': [['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h2c': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'verify-dns-for-policy-matching': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'}
+                        'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
+                        'domain-fronting': {'v_range': [['7.6.0', '']], 'choices': ['block', 'monitor', 'allow'], 'type': 'str'}
                     }
                 },
                 'imap': {
@@ -1262,7 +1270,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_profileprotocoloptions'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

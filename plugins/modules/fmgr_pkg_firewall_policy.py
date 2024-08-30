@@ -1073,6 +1073,38 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            cgn-sw-eif-ctrl:
+                type: str
+                description: Deprecated, please rename it to cgn_sw_eif_ctrl. Enable/disable software endpoint independent filtering control.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            eif-check:
+                type: str
+                description: Deprecated, please rename it to eif_check. Enable/Disable check endpoint-independent-filtering pinhole.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            eif-learn:
+                type: str
+                description: Deprecated, please rename it to eif_learn. Enable/Disable learning of end-point-independent filtering pinhole.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            log-http-transaction:
+                type: str
+                description: Deprecated, please rename it to log_http_transaction. Enable/disable HTTP transaction log.
+                choices:
+                    - 'disable'
+                    - 'enable'
+                    - 'all'
+                    - 'utm'
+            radius-ip-auth-bypass:
+                type: str
+                description: Deprecated, please rename it to radius_ip_auth_bypass. Enable IP authentication bypass.
+                choices:
+                    - 'disable'
+                    - 'enable'
             object position:
                 type: list
                 elements: str
@@ -1433,6 +1465,11 @@ def main():
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-sw-eif-ctrl': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
+                'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'object position': {'type': 'list', 'elements': 'str'}
             }
 
@@ -1444,7 +1481,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pkg_firewall_policy'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

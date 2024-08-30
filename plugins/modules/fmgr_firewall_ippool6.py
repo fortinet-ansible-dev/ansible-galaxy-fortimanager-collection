@@ -129,6 +129,24 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    external-prefix:
+                        type: str
+                        description:
+                            - Deprecated, please rename it to external_prefix.
+                            - Support meta variable
+                            - External NPTv6 prefix length
+                    internal-prefix:
+                        type: str
+                        description:
+                            - Deprecated, please rename it to internal_prefix.
+                            - Support meta variable
+                            - Internal NPTv6 prefix length
+                    type:
+                        type: str
+                        description: Configure IPv6 pool type
+                        choices:
+                            - 'overload'
+                            - 'nptv6'
             endip:
                 type: str
                 description: Final IPv6 address
@@ -151,6 +169,24 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            external-prefix:
+                type: str
+                description:
+                    - Deprecated, please rename it to external_prefix.
+                    - Support meta variable
+                    - External NPTv6 prefix length
+            internal-prefix:
+                type: str
+                description:
+                    - Deprecated, please rename it to internal_prefix.
+                    - Support meta variable
+                    - Internal NPTv6 prefix length
+            type:
+                type: str
+                description: Configure IPv6 pool type
+                choices:
+                    - 'overload'
+                    - 'nptv6'
 '''
 
 EXAMPLES = '''
@@ -266,7 +302,10 @@ def main():
                         'endip': {'type': 'str'},
                         'startip': {'type': 'str'},
                         'add-nat46-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'external-prefix': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'internal-prefix': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'type': {'v_range': [['7.6.0', '']], 'choices': ['overload', 'nptv6'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -274,7 +313,10 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'startip': {'type': 'str'},
                 'add-nat46-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'external-prefix': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'internal-prefix': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'type': {'v_range': [['7.6.0', '']], 'choices': ['overload', 'nptv6'], 'type': 'str'}
             }
 
         }
@@ -285,7 +327,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_ippool6'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

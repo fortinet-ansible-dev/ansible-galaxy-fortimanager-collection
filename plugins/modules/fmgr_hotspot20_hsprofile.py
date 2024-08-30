@@ -312,6 +312,24 @@ options:
             venue-url:
                 type: str
                 description: Deprecated, please rename it to venue_url. Venue name.
+            wba-charging-currency:
+                type: str
+                description: Deprecated, please rename it to wba_charging_currency. Three letter currency code.
+            wba-charging-rate:
+                type: int
+                description: Deprecated, please rename it to wba_charging_rate. Number of currency units per kilobyte.
+            wba-data-clearing-provider:
+                type: str
+                description: Deprecated, please rename it to wba_data_clearing_provider. WBA ID of data clearing provider.
+            wba-financial-clearing-provider:
+                type: str
+                description: Deprecated, please rename it to wba_financial_clearing_provider. WBA ID of financial clearing provider.
+            wba-open-roaming:
+                type: str
+                description: Deprecated, please rename it to wba_open_roaming. Enable/disable WBA open roaming support.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -371,6 +389,11 @@ EXAMPLES = '''
           release: <integer>
           terms_and_conditions: <string>
           venue_url: <string>
+          wba_charging_currency: <string>
+          wba_charging_rate: <integer>
+          wba_data_clearing_provider: <string>
+          wba_financial_clearing_provider: <string>
+          wba_open_roaming: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -500,7 +523,12 @@ def main():
                 'osu-provider-nai': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'release': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'terms-and-conditions': {'v_range': [['7.0.2', '']], 'type': 'str'},
-                'venue-url': {'v_range': [['7.0.2', '']], 'type': 'str'}
+                'venue-url': {'v_range': [['7.0.2', '']], 'type': 'str'},
+                'wba-charging-currency': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'wba-charging-rate': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'wba-data-clearing-provider': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'wba-financial-clearing-provider': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'wba-open-roaming': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -511,7 +539,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'hotspot20_hsprofile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

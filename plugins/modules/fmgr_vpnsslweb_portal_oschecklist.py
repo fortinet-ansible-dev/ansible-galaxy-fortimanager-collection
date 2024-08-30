@@ -100,6 +100,9 @@ options:
             tolerance:
                 type: int
                 description: OS patch level tolerance.
+            minor-version:
+                type: int
+                description: Deprecated, please rename it to minor_version. Minor version number.
 '''
 
 EXAMPLES = '''
@@ -125,6 +128,7 @@ EXAMPLES = '''
           latest_patch_level: <string>
           name: <string>
           tolerance: <integer>
+          minor_version: <integer>
 '''
 
 RETURN = '''
@@ -197,7 +201,8 @@ def main():
                 'action': {'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
                 'latest-patch-level': {'type': 'str'},
                 'name': {'type': 'str'},
-                'tolerance': {'type': 'int'}
+                'tolerance': {'type': 'int'},
+                'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
 
         }
@@ -208,7 +213,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'vpnsslweb_portal_oschecklist'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

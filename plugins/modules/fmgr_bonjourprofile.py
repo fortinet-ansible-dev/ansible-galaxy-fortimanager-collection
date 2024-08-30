@@ -131,6 +131,12 @@ options:
                     to-vlan:
                         type: str
                         description: Deprecated, please rename it to to_vlan. VLAN ID to which the Bonjour service is made available
+            micro-location:
+                type: str
+                description: Deprecated, please rename it to micro_location. Enable/disable Micro location for Bonjour profile
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -174,6 +180,7 @@ EXAMPLES = '''
                 - all
                 - miracast
               to_vlan: <string>
+          micro_location: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -261,7 +268,8 @@ def main():
                         'to-vlan': {'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'micro-location': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
 
         }
@@ -272,7 +280,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'bonjourprofile'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

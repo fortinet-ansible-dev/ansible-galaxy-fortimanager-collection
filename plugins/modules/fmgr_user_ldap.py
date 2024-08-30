@@ -328,6 +328,9 @@ options:
                     status-ttl:
                         type: int
                         description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is ...
+                    source-ip-interface:
+                        type: raw
+                        description: (list) Deprecated, please rename it to source_ip_interface. Source interface for communication with the LDAP server.
             group-filter:
                 type: str
                 description: Deprecated, please rename it to group_filter. Filter used for group matching.
@@ -507,6 +510,9 @@ options:
             status-ttl:
                 type: int
                 description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
+            source-ip-interface:
+                type: raw
+                description: (list) Deprecated, please rename it to source_ip_interface. Source interface for communication with the LDAP server.
 '''
 
 EXAMPLES = '''
@@ -672,7 +678,8 @@ def main():
                         'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
                         'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
-                        'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                        'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                        'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -713,7 +720,8 @@ def main():
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
-                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
 
         }
@@ -724,7 +732,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'user_ldap'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')

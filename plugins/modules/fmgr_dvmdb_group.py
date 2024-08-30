@@ -133,6 +133,7 @@ options:
                     - 'fpa'
                     - 'fca'
                     - 'ftc'
+                    - 'fss'
             type:
                 type: str
                 description: Type.
@@ -264,7 +265,7 @@ def main():
                 'os_type': {
                     'choices': [
                         'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc'
+                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss'
                     ],
                     'type': 'str'
                 },
@@ -281,7 +282,7 @@ def main():
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
     module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'dvmdb_group'),
-                           supports_check_mode=False)
+                           supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
