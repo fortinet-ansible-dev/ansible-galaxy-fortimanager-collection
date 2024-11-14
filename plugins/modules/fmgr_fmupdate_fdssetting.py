@@ -76,13 +76,12 @@ options:
         required: false
         type: dict
         suboptions:
-            User-Agent:
+            User_Agent:
                 type: str
-                description: Deprecated, please rename it to User_Agent. Configure the user agent string.
-            fds-clt-ssl-protocol:
+                description: Configure the user agent string.
+            fds_clt_ssl_protocol:
                 type: str
                 description:
-                    - Deprecated, please rename it to fds_clt_ssl_protocol.
                     - The SSL protocols version for connecting fds server
                     - sslv3 - set SSLv3 as the client version.
                     - tlsv1.
@@ -94,10 +93,9 @@ options:
                     - 'tlsv1.1'
                     - 'tlsv1.2'
                     - 'tlsv1.3'
-            fds-ssl-protocol:
+            fds_ssl_protocol:
                 type: str
                 description:
-                    - Deprecated, please rename it to fds_ssl_protocol.
                     - The SSL protocols version for receiving fgt connection
                     - sslv3 - set SSLv3 as the lowest version.
                     - tlsv1.
@@ -109,10 +107,9 @@ options:
                     - 'tlsv1.1'
                     - 'tlsv1.2'
                     - 'tlsv1.3'
-            fmtr-log:
+            fmtr_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to fmtr_log.
                     - fmtr log level
                     - emergency - Log level - emergency
                     - alert - Log level - alert
@@ -133,10 +130,9 @@ options:
                     - 'info'
                     - 'debug'
                     - 'disable'
-            linkd-log:
+            linkd_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to linkd_log.
                     - The linkd log level
                     - emergency - Log level - emergency
                     - alert - Log level - alert
@@ -157,15 +153,15 @@ options:
                     - 'info'
                     - 'debug'
                     - 'disable'
-            max-av-ips-version:
+            max_av_ips_version:
                 type: int
-                description: Deprecated, please rename it to max_av_ips_version. The maximum number of downloadable, full version AV/IPS packages
-            max-work:
+                description: The maximum number of downloadable, full version AV/IPS packages
+            max_work:
                 type: int
-                description: Deprecated, please rename it to max_work. The maximum number of worker processing download requests
-            push-override:
+                description: The maximum number of worker processing download requests
+            push_override:
                 type: dict
-                description: Deprecated, please rename it to push_override. Push override.
+                description: Push override.
                 suboptions:
                     ip:
                         type: str
@@ -182,14 +178,14 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            push-override-to-client:
+            push_override_to_client:
                 type: dict
-                description: Deprecated, please rename it to push_override_to_client. Push override to client.
+                description: Push override to client.
                 suboptions:
-                    announce-ip:
+                    announce_ip:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to announce_ip. Announce ip.
+                        description: Announce ip.
                         suboptions:
                             id:
                                 type: int
@@ -227,9 +223,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            server-override:
+            server_override:
                 type: dict
-                description: Deprecated, please rename it to server_override. Server override.
+                description: Server override.
                 suboptions:
                     servlist:
                         type: list
@@ -248,11 +244,10 @@ options:
                             port:
                                 type: int
                                 description: Port number to use when contacting FortiGuard
-                            service-type:
+                            service_type:
                                 type: raw
                                 description:
                                     - (list or str)
-                                    - Deprecated, please rename it to service_type.
                                     - Override service type.
                                     - fds - Server override config for fds
                                     - fct - Server override config for fct
@@ -269,11 +264,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            system-support-fct:
+            system_support_fct:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fct.
                     - Supported FortiClient versions.
                     - '4.'
                     - '5.'
@@ -292,11 +286,10 @@ options:
                     - '6.4'
                     - '7.0'
                     - '7.2'
-            system-support-fgt:
+            system_support_fgt:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fgt.
                     - Supported FortiOS versions.
                     - '5.'
                     - '5.'
@@ -312,11 +305,10 @@ options:
                     - '7.2'
                     - '7.4'
                     - '7.6'
-            system-support-fml:
+            system_support_fml:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fml.
                     - Supported FortiMail versions.
                     - '4.'
                     - '5.'
@@ -331,11 +323,10 @@ options:
                     - '7.0'
                     - '7.2'
                     - '7.x'
-            system-support-fsa:
+            system_support_fsa:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fsa.
                     - Supported FortiSandbox versions.
                     - '1.'
                     - '2.'
@@ -348,11 +339,10 @@ options:
                     - '3.0'
                     - '3.1'
                     - '3.2'
-            system-support-fsw:
+            system_support_fsw:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fsw.
                     - Supported FortiSwitch versions.
                     - '5.'
                     - '5.'
@@ -367,10 +357,9 @@ options:
                     - '5.0'
                     - '5.2'
                     - '6.4'
-            umsvc-log:
+            umsvc_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to umsvc_log.
                     - The um_service log level
                     - emergency - Log level - emergency
                     - alert - Log level - alert
@@ -391,10 +380,9 @@ options:
                     - 'info'
                     - 'debug'
                     - 'disable'
-            unreg-dev-option:
+            unreg_dev_option:
                 type: str
                 description:
-                    - Deprecated, please rename it to unreg_dev_option.
                     - set the option for unregister devices
                     - ignore - Ignore all unregistered devices.
                     - svc-only - Allow update requests without adding the device.
@@ -403,9 +391,9 @@ options:
                     - 'ignore'
                     - 'svc-only'
                     - 'add-service'
-            update-schedule:
+            update_schedule:
                 type: dict
-                description: Deprecated, please rename it to update_schedule. Update schedule.
+                description: Update schedule.
                 suboptions:
                     day:
                         type: str
@@ -449,52 +437,49 @@ options:
                     time:
                         type: raw
                         description: (list) Time interval between updates, or the hour and minute when the update occurs
-            wanip-query-mode:
+            wanip_query_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to wanip_query_mode.
                     - public ip query mode
                     - disable - Do not query public ip
                     - ipify - Get public IP through https
                 choices:
                     - 'disable'
                     - 'ipify'
-            fortiguard-anycast:
+            fortiguard_anycast:
                 type: str
                 description:
-                    - Deprecated, please rename it to fortiguard_anycast.
                     - Enable/disable use of FortiGuards anycast network
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortiguard-anycast-source:
+            fortiguard_anycast_source:
                 type: str
                 description:
-                    - Deprecated, please rename it to fortiguard_anycast_source.
                     - Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                     - fortinet - Use Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                     - aws - Use Fortinets AWS servers to provide FortiGuard services in FortiGuards anycast network.
                 choices:
                     - 'fortinet'
                     - 'aws'
-            system-support-fdc:
+            system_support_fdc:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fdc.
                     - Supported FortiDeceptor versions.
                     - '3.'
                     - '4.'
                 choices:
                     - '3.x'
                     - '4.x'
-            system-support-fts:
+                    - '5.x'
+                    - '6.x'
+            system_support_fts:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fts.
                     - Supported FortiTester versions.
                     - '3.'
                     - '4.'
@@ -503,33 +488,30 @@ options:
                     - '3.x'
                     - '4.x'
                     - '7.x'
-            system-support-faz:
+            system_support_faz:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_faz.
                     - Supported FortiAnalyzer versions.
                     - '6.'
                     - '7.'
                 choices:
                     - '6.x'
                     - '7.x'
-            system-support-fis:
+            system_support_fis:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fis.
                     - Supported FortiIsolator versions.
                     - '1.'
                     - '2.'
                 choices:
                     - '1.x'
                     - '2.x'
-            system-support-fai:
+            system_support_fai:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to system_support_fai.
                     - Supported FortiNDR versions.
                     - '7.'
                 choices:
@@ -581,58 +563,58 @@ EXAMPLES = '''
                 ip6: <string>
                 port: <integer>
                 service_type: # <list or string>
-                  - fds
-                  - fct
-                  - fai
+                  - "fds"
+                  - "fct"
+                  - "fai"
             status: <value in [disable, enable]>
           system_support_fct:
-            - 4.x
-            - 5.0
-            - 5.2
-            - 5.4
-            - 5.6
-            - 6.0
-            - 6.2
-            - 6.4
-            - 7.0
-            - 7.2
+            - "4.x"
+            - "5.0"
+            - "5.2"
+            - "5.4"
+            - "5.6"
+            - "6.0"
+            - "6.2"
+            - "6.4"
+            - "7.0"
+            - "7.2"
           system_support_fgt:
-            - 5.4
-            - 5.6
-            - 6.0
-            - 6.2
-            - 6.4
-            - 7.0
-            - 7.2
-            - 7.4
-            - 7.6
+            - "5.4"
+            - "5.6"
+            - "6.0"
+            - "6.2"
+            - "6.4"
+            - "7.0"
+            - "7.2"
+            - "7.4"
+            - "7.6"
           system_support_fml:
-            - 4.x
-            - 5.x
-            - 6.x
-            - 6.0
-            - 6.2
-            - 6.4
-            - 7.0
-            - 7.2
-            - 7.x
+            - "4.x"
+            - "5.x"
+            - "6.x"
+            - "6.0"
+            - "6.2"
+            - "6.4"
+            - "7.0"
+            - "7.2"
+            - "7.x"
           system_support_fsa:
-            - 1.x
-            - 2.x
-            - 3.x
-            - 4.x
-            - 3.0
-            - 3.1
-            - 3.2
+            - "1.x"
+            - "2.x"
+            - "3.x"
+            - "4.x"
+            - "3.0"
+            - "3.1"
+            - "3.2"
           system_support_fsw:
-            - 5.4
-            - 5.6
-            - 6.0
-            - 6.2
-            - 4.x
-            - 5.0
-            - 5.2
-            - 6.4
+            - "5.4"
+            - "5.6"
+            - "6.0"
+            - "6.2"
+            - "4.x"
+            - "5.0"
+            - "5.2"
+            - "6.4"
           umsvc_log: <value in [emergency, alert, critical, ...]>
           unreg_dev_option: <value in [ignore, svc-only, add-service]>
           update_schedule:
@@ -644,20 +626,22 @@ EXAMPLES = '''
           fortiguard_anycast: <value in [disable, enable]>
           fortiguard_anycast_source: <value in [fortinet, aws]>
           system_support_fdc:
-            - 3.x
-            - 4.x
+            - "3.x"
+            - "4.x"
+            - "5.x"
+            - "6.x"
           system_support_fts:
-            - 3.x
-            - 4.x
-            - 7.x
+            - "3.x"
+            - "4.x"
+            - "7.x"
           system_support_faz:
-            - 6.x
-            - 7.x
+            - "6.x"
+            - "7.x"
           system_support_fis:
-            - 1.x
-            - 2.x
+            - "1.x"
+            - "2.x"
           system_support_fai:
-            - 7.x
+            - "7.x"
 '''
 
 RETURN = '''
@@ -701,21 +685,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/fmupdate/fds-setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/fmupdate/fds-setting/{fds-setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -792,18 +769,22 @@ def main():
                 'wanip-query-mode': {'choices': ['disable', 'ipify'], 'type': 'str'},
                 'fortiguard-anycast': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiguard-anycast-source': {'v_range': [['6.4.0', '']], 'choices': ['fortinet', 'aws'], 'type': 'str'},
-                'system-support-fdc': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'list', 'choices': ['3.x', '4.x'], 'elements': 'str'},
+                'system-support-fdc': {
+                    'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']],
+                    'type': 'list',
+                    'choices': ['3.x', '4.x', '5.x', '6.x'],
+                    'elements': 'str'
+                },
                 'system-support-fts': {
-                    'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'choices': ['3.x', '4.x', '7.x'],
                     'elements': 'str'
                 },
-                'system-support-faz': {'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
+                'system-support-faz': {'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
                 'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'},
                 'system-support-fai': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['7.x'], 'elements': 'str'}
             }
-
         }
     }
 
@@ -817,9 +798,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

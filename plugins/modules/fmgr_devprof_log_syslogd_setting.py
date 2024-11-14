@@ -87,9 +87,9 @@ options:
             certificate:
                 type: str
                 description: Certificate used to communicate with Syslog server.
-            enc-algorithm:
+            enc_algorithm:
                 type: str
-                description: Deprecated, please rename it to enc_algorithm. Enable/disable reliable syslogging with TLS encryption.
+                description: Enable/disable reliable syslogging with TLS encryption.
                 choices:
                     - 'high'
                     - 'low'
@@ -136,9 +136,9 @@ options:
             server:
                 type: str
                 description: Address of remote syslog server.
-            ssl-min-proto-version:
+            ssl_min_proto_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_version. Minimum supported protocol version for SSL/TLS connections
+                description: Minimum supported protocol version for SSL/TLS connections
                 choices:
                     - 'default'
                     - 'TLSv1-1'
@@ -164,9 +164,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            max-log-rate:
+            max_log_rate:
                 type: int
-                description: Deprecated, please rename it to max_log_rate. Syslog maximum log rate in MBps
+                description: Syslog maximum log rate in MBps
             priority:
                 type: str
                 description: Set log transmission priority.
@@ -176,9 +176,9 @@ options:
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -192,13 +192,13 @@ options:
                     - 'cef'
                     - 'rfc5424'
                     - 'json'
-            syslog-type:
+            syslog_type:
                 type: int
-                description: Deprecated, please rename it to syslog_type. Syslog type.
-            custom-field-name:
+                description: Syslog type.
+            custom_field_name:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_field_name. Custom field name.
+                description: Custom field name.
                 suboptions:
                     custom:
                         type: str
@@ -209,12 +209,12 @@ options:
                     name:
                         type: str
                         description: Field name.
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IP address of syslog.
-            source-ip-interface:
+                description: Source IP address of syslog.
+            source_ip_interface:
                 type: raw
-                description: (list) Deprecated, please rename it to source_ip_interface. Source interface of syslog.
+                description: (list) Source interface of syslog.
 '''
 
 EXAMPLES = '''
@@ -302,21 +302,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/{setting}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -353,28 +346,27 @@ def main():
                     'type': 'str'
                 },
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'reliable': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'csv': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reliable': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'csv': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-log-rate': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'int'},
                 'priority': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['low', 'default'], 'type': 'str'},
-                'interface': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'format': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
+                'interface': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'format': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
                 'syslog-type': {'v_range': [['6.2.0', '6.2.0']], 'type': 'int'},
                 'custom-field-name': {
-                    'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'custom': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
+                        'custom': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -388,9 +380,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

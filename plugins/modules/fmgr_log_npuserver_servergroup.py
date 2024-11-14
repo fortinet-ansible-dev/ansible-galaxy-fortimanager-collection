@@ -89,46 +89,46 @@ options:
         required: false
         type: dict
         suboptions:
-            group-name:
+            group_name:
                 type: str
-                description: Deprecated, please rename it to group_name. Server group name.
-            log-format:
+                description: Server group name.
+            log_format:
                 type: str
-                description: Deprecated, please rename it to log_format. Set the log format
+                description: Set the log format
                 choices:
                     - 'syslog'
                     - 'netflow'
-            log-mode:
+            log_mode:
                 type: str
-                description: Deprecated, please rename it to log_mode. Set the log mode
+                description: Set the log mode
                 choices:
                     - 'per-session'
                     - 'per-nat-mapping'
                     - 'per-session-ending'
-            log-tx-mode:
+            log_tx_mode:
                 type: str
-                description: Deprecated, please rename it to log_tx_mode. Configure log transmit mode.
+                description: Configure log transmit mode.
                 choices:
                     - 'multicast'
                     - 'roundrobin'
-            server-number:
+            server_number:
                 type: int
-                description: Deprecated, please rename it to server_number. Server number in this group.
-            server-start-id:
+                description: Server number in this group.
+            server_start_id:
                 type: int
-                description: Deprecated, please rename it to server_start_id. The start id of the continuous server series in this group,[1,16].
-            sw-log-flags:
+                description: The start id of the continuous server series in this group,[1,16].
+            sw_log_flags:
                 type: raw
-                description: (int or str) Deprecated, please rename it to sw_log_flags. Set flags for software logging via driver.
-            log-gen-event:
+                description: (int or str) Set flags for software logging via driver.
+            log_gen_event:
                 type: str
-                description: Deprecated, please rename it to log_gen_event. Enable/disbale generating event for Per-Mapping log
+                description: Enable/disbale generating event for Per-Mapping log
                 choices:
                     - 'disable'
                     - 'enable'
-            log-user-info:
+            log_user_info:
                 type: str
-                description: Deprecated, please rename it to log_user_info. Enable/disbale logging user information.
+                description: Enable/disbale logging user information.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -205,46 +205,37 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/log/npu-server/server-group',
         '/pm/config/global/obj/log/npu-server/server-group'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}',
-        '/pm/config/global/obj/log/npu-server/server-group/{server-group}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'log_npuserver_servergroup': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'group-name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                'log-format': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
+                'group-name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                'log-format': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
                 'log-mode': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['per-session', 'per-nat-mapping', 'per-session-ending'],
                     'type': 'str'
                 },
-                'log-tx-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
-                'server-number': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'server-start-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'sw-log-flags': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'raw'},
-                'log-gen-event': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log-user-info': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log-tx-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
+                'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'raw'},
+                'log-gen-event': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-user-info': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -258,9 +249,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

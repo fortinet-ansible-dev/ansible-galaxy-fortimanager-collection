@@ -97,27 +97,27 @@ options:
         required: false
         type: dict
         suboptions:
-            autonomous-flag:
+            autonomous_flag:
                 type: str
-                description: Deprecated, please rename it to autonomous_flag. Autonomous flag.
+                description: Autonomous flag.
                 choices:
                     - 'disable'
                     - 'enable'
-            onlink-flag:
+            onlink_flag:
                 type: str
-                description: Deprecated, please rename it to onlink_flag. Onlink flag.
+                description: Onlink flag.
                 choices:
                     - 'disable'
                     - 'enable'
-            prefix-id:
+            prefix_id:
                 type: int
-                description: Deprecated, please rename it to prefix_id. Prefix id.
+                description: Prefix id.
             rdnss:
                 type: raw
                 description: (list) Rdnss.
-            rdnss-service:
+            rdnss_service:
                 type: str
-                description: Deprecated, please rename it to rdnss_service. Rdnss service.
+                description: Rdnss service.
                 choices:
                     - 'delegated'
                     - 'default'
@@ -125,12 +125,12 @@ options:
             subnet:
                 type: str
                 description: Subnet.
-            upstream-interface:
+            upstream_interface:
                 type: str
-                description: Deprecated, please rename it to upstream_interface. Upstream interface.
-            delegated-prefix-iaid:
+                description: Upstream interface.
+            delegated_prefix_iaid:
                 type: int
-                description: Deprecated, please rename it to delegated_prefix_iaid. IAID of obtained delegated-prefix from the upstream interface.
+                description: IAID of obtained delegated-prefix from the upstream interface.
 '''
 
 EXAMPLES = '''
@@ -205,23 +205,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}',
-        '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
-    ]
-
     url_params = ['adom', 'vlan', 'dynamic_mapping']
     module_primary_key = None
     module_arg_spec = {
@@ -230,18 +222,17 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist': {
             'type': 'dict',
-            'v_range': [['6.2.2', '7.4.0']],
+            'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
-                'autonomous-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'onlink-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'prefix-id': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'rdnss': {'v_range': [['6.2.2', '7.4.0']], 'type': 'raw'},
-                'rdnss-service': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['delegated', 'default', 'specify'], 'type': 'str'},
-                'subnet': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'upstream-interface': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'delegated-prefix-iaid': {'v_range': [['7.0.2', '7.4.0']], 'type': 'int'}
+                'autonomous-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'onlink-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'prefix-id': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'rdnss': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                'rdnss-service': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['delegated', 'default', 'specify'], 'type': 'str'},
+                'subnet': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'upstream-interface': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'delegated-prefix-iaid': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'}
             }
-
         }
     }
 
@@ -255,9 +246,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

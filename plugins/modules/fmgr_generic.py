@@ -172,7 +172,7 @@ def main():
     if not module._socket_path:
         module.fail_json(msg="Only Httpapi plugin is supported in this module.")
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(None, None, None, None, module, connection)
+    fmgr = NAPIManager('generic', None, None, None, None, module, connection)
     method = None
     params = None
 

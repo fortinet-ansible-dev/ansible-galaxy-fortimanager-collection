@@ -92,34 +92,34 @@ options:
             comment:
                 type: str
                 description: Comment.
-            dhcp-ip-addr:
+            dhcp_ip_addr:
                 type: str
-                description: Deprecated, please rename it to dhcp_ip_addr. IP address of the monitoring DHCP request packet sent through the tunnel.
+                description: IP address of the monitoring DHCP request packet sent through the tunnel.
             name:
                 type: str
                 description: Tunnel profile name.
                 required: true
-            ping-interval:
+            ping_interval:
                 type: int
-                description: Deprecated, please rename it to ping_interval. Interval between two tunnel monitoring echo packets
-            ping-number:
+                description: Interval between two tunnel monitoring echo packets
+            ping_number:
                 type: int
-                description: Deprecated, please rename it to ping_number. Number of the tunnel monitoring echo packets
-            return-packet-timeout:
+                description: Number of the tunnel monitoring echo packets
+            return_packet_timeout:
                 type: int
-                description: Deprecated, please rename it to return_packet_timeout. Window of time for the return packets from the tunnels remote end
-            tunnel-type:
+                description: Window of time for the return packets from the tunnels remote end
+            tunnel_type:
                 type: str
-                description: Deprecated, please rename it to tunnel_type. Tunnel type.
+                description: Tunnel type.
                 choices:
                     - 'gre'
                     - 'l2tpv3'
-            wag-ip:
+            wag_ip:
                 type: str
-                description: Deprecated, please rename it to wag_ip. IP Address of the wireless access gateway.
-            wag-port:
+                description: IP Address of the wireless access gateway.
+            wag_port:
                 type: int
-                description: Deprecated, please rename it to wag_port. UDP port of the wireless access gateway.
+                description: UDP port of the wireless access gateway.
 '''
 
 EXAMPLES = '''
@@ -193,23 +193,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile',
         '/pm/config/global/obj/wireless-controller/wag-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wag-profile/{wag-profile}',
-        '/pm/config/global/obj/wireless-controller/wag-profile/{wag-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -228,7 +220,6 @@ def main():
                 'wag-ip': {'v_range': [['6.2.3', '']], 'type': 'str'},
                 'wag-port': {'v_range': [['6.2.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -242,9 +233,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

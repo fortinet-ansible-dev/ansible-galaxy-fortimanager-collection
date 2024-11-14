@@ -101,9 +101,9 @@ options:
             address6:
                 type: str
                 description: IPv6 address object.
-            fortiguard-category:
+            fortiguard_category:
                 type: str
-                description: Deprecated, please rename it to fortiguard_category. FortiGuard category ID.
+                description: FortiGuard category ID.
             id:
                 type: int
                 description: ID number.
@@ -121,9 +121,9 @@ options:
                     - 'wildcard-fqdn'
                     - 'regex'
                     - 'finger-print'
-            wildcard-fqdn:
+            wildcard_fqdn:
                 type: str
-                description: Deprecated, please rename it to wildcard_fqdn. Exempt servers by wildcard FQDN.
+                description: Exempt servers by wildcard FQDN.
 '''
 
 EXAMPLES = '''
@@ -205,23 +205,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt',
         '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt/{ssl-exempt}',
-        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-exempt/{ssl-exempt}'
-    ]
-
     url_params = ['adom', 'ssl-ssh-profile']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -240,7 +232,6 @@ def main():
                 'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
                 'wildcard-fqdn': {'type': 'str'}
             }
-
         }
     }
 
@@ -254,9 +245,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -113,16 +113,16 @@ options:
             name:
                 type: str
                 description: HTTP forwarded header name.
-            add-option:
+            add_option:
                 type: str
-                description: Deprecated, please rename it to add_option. Configure options to append content to existing HTTP header or add new HTTP he...
+                description: Configure options to append content to existing HTTP header or add new HTTP header.
                 choices:
                     - 'append'
                     - 'new-on-not-found'
                     - 'new'
-            base64-encoding:
+            base64_encoding:
                 type: str
-                description: Deprecated, please rename it to base64_encoding. Enable/disable use of base64 encoding of HTTP content.
+                description: Enable/disable use of base64 encoding of HTTP content.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -170,8 +170,8 @@ EXAMPLES = '''
           dstaddr: <list or string>
           dstaddr6: <list or string>
           protocol:
-            - https
-            - http
+            - "https"
+            - "http"
 '''
 
 RETURN = '''
@@ -215,23 +215,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}/headers',
         '/pm/config/global/obj/web-proxy/profile/{profile}/headers'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}/headers/{headers}',
-        '/pm/config/global/obj/web-proxy/profile/{profile}/headers/{headers}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -254,7 +246,6 @@ def main():
                 'dstaddr6': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'protocol': {'v_range': [['6.2.0', '']], 'type': 'list', 'choices': ['https', 'http'], 'elements': 'str'}
             }
-
         }
     }
 
@@ -268,9 +259,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

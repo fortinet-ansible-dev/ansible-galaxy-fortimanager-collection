@@ -84,10 +84,10 @@ options:
         required: false
         type: dict
         suboptions:
-            form-data:
+            form_data:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to form_data. Form data.
+                description: Form data.
                 suboptions:
                     name:
                         type: str
@@ -95,9 +95,9 @@ options:
                     value:
                         type: str
                         description: Value.
-            logout-url:
+            logout_url:
                 type: str
-                description: Deprecated, please rename it to logout_url. Landing page log out URL.
+                description: Landing page log out URL.
             sso:
                 type: str
                 description: Single sign-on.
@@ -105,18 +105,18 @@ options:
                     - 'disable'
                     - 'static'
                     - 'auto'
-            sso-credential:
+            sso_credential:
                 type: str
-                description: Deprecated, please rename it to sso_credential. Single sign-on credentials.
+                description: Single sign-on credentials.
                 choices:
                     - 'sslvpn-login'
                     - 'alternative'
-            sso-password:
+            sso_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sso_password. SSO password.
-            sso-username:
+                description: (list) SSO password.
+            sso_username:
                 type: str
-                description: Deprecated, please rename it to sso_username. SSO user name.
+                description: SSO user name.
             url:
                 type: str
                 description: Landing page URL.
@@ -194,23 +194,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page',
         '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/landing-page/{landing-page}',
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/landing-page/{landing-page}'
-    ]
-
     url_params = ['adom', 'portal']
     module_primary_key = None
     module_arg_spec = {
@@ -233,7 +225,6 @@ def main():
                 'sso-username': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'url': {'v_range': [['7.4.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -247,9 +238,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

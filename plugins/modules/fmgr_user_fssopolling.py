@@ -100,25 +100,25 @@ options:
                     name:
                         type: str
                         description: Name.
-            default-domain:
+            default_domain:
                 type: str
-                description: Deprecated, please rename it to default_domain. Default domain managed by this Active Directory server.
+                description: Default domain managed by this Active Directory server.
             id:
                 type: int
                 description: Active Directory server ID.
                 required: true
-            ldap-server:
+            ldap_server:
                 type: str
-                description: Deprecated, please rename it to ldap_server. LDAP server name used in LDAP connection strings.
-            logon-history:
+                description: LDAP server name used in LDAP connection strings.
+            logon_history:
                 type: int
-                description: Deprecated, please rename it to logon_history. Number of hours of logon history to keep, 0 means keep all history.
+                description: Number of hours of logon history to keep, 0 means keep all history.
             password:
                 type: raw
                 description: (list) Password required to log into this Active Directory server
-            polling-frequency:
+            polling_frequency:
                 type: int
-                description: Deprecated, please rename it to polling_frequency. Polling frequency
+                description: Polling frequency
             port:
                 type: int
                 description: Port to communicate with this Active Directory server.
@@ -134,9 +134,9 @@ options:
             user:
                 type: str
                 description: User name required to log into this Active Directory server.
-            smb-ntlmv1-auth:
+            smb_ntlmv1_auth:
                 type: str
-                description: Deprecated, please rename it to smb_ntlmv1_auth. Enable/disable support of NTLMv1 for Samba authentication.
+                description: Enable/disable support of NTLMv1 for Samba authentication.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -228,23 +228,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/fsso-polling',
         '/pm/config/global/obj/user/fsso-polling'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/fsso-polling/{fsso-polling}',
-        '/pm/config/global/obj/user/fsso-polling/{fsso-polling}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -268,7 +260,6 @@ def main():
                 'smb-ntlmv1-auth': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'smbv1': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -282,9 +273,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

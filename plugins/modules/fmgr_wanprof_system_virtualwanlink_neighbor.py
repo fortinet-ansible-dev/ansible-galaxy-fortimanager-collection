@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            health-check:
+            health_check:
                 type: str
-                description: Deprecated, please rename it to health_check. SD-WAN health-check name.
+                description: SD-WAN health-check name.
             ip:
                 type: str
                 description: IP address of neighbor.
@@ -109,9 +109,9 @@ options:
                     - 'primary'
                     - 'secondary'
                     - 'standalone'
-            sla-id:
+            sla_id:
                 type: int
-                description: Deprecated, please rename it to sla_id. SLA ID.
+                description: SLA ID.
 '''
 
 EXAMPLES = '''
@@ -182,21 +182,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/neighbor'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/neighbor/{neighbor}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = None
     module_arg_spec = {
@@ -212,7 +205,6 @@ def main():
                 'role': {'v_range': [['6.2.1', '']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'},
                 'sla-id': {'v_range': [['6.2.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -226,9 +218,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

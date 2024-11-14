@@ -482,6 +482,7 @@ options:
                     - 'pkg_header_policy_identitybasedpolicy'
                     - 'pkg_header_shapingpolicy'
                     - 'pkg_user_nacpolicy'
+                    - 'pkg_videofilter_youtubekey'
                     - 'pm_config_pblock_firewall_consolidated_policy'
                     - 'pm_config_pblock_firewall_policy'
                     - 'pm_config_pblock_firewall_policy6'
@@ -921,7 +922,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}',
                 '/pm/config/global/obj/application/casi/profile/{profile}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_casi_profile_entries': {
             'params': ['adom', 'entries', 'profile'],
@@ -929,7 +930,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}',
                 '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_categories': {
             'params': ['adom', 'categories'],
@@ -961,7 +962,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service/entry/{entry}',
                 '/pm/config/global/obj/application/internet-service/entry/{entry}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_internetservicecustom': {
             'params': ['adom', 'internet-service-custom'],
@@ -969,7 +970,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_internetservicecustom_disableentry': {
             'params': ['adom', 'disable-entry', 'internet-service-custom'],
@@ -977,7 +978,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_internetservicecustom_disableentry_iprange': {
             'params': ['adom', 'disable-entry', 'internet-service-custom', 'ip-range'],
@@ -985,7 +986,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/disable-entry/{disable-entry}/ip-range/{ip-range}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_internetservicecustom_entry': {
             'params': ['adom', 'entry', 'internet-service-custom'],
@@ -993,7 +994,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_internetservicecustom_entry_portrange': {
             'params': ['adom', 'entry', 'internet-service-custom', 'port-range'],
@@ -1001,7 +1002,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}',
                 '/pm/config/global/obj/application/internet-service-custom/{internet-service-custom}/entry/{entry}/port-range/{port-range}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'application_list': {
             'params': ['adom', 'list'],
@@ -1272,28 +1273,28 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.13']]
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
             'params': ['adom', 'devprof', 'exclude-list', 'fields'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields/{fields}'
             ],
-            'mkey': None, 'v_range': [['7.0.4', '7.0.12']]
+            'mkey': None, 'v_range': [['7.0.4', '7.0.13']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['adom', 'devprof', 'free-style'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']]
         },
         'devprof_log_syslogd_setting_customfieldname': {
             'params': ['adom', 'custom-field-name', 'devprof'],
             'urls': [
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']]
+            'mkey': 'id', 'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']]
         },
         'devprof_system_centralmanagement_serverlist': {
             'params': ['adom', 'devprof', 'server-list'],
@@ -1487,7 +1488,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}',
                 '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'dnsfilter_urlfilter_entries': {
             'params': ['adom', 'entries', 'urlfilter'],
@@ -1495,7 +1496,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
                 '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'dvmdb_revision': {
             'params': ['adom', 'revision'],
@@ -1536,7 +1537,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/certificate/local/{local}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/certificate/local/{local}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'dynamic_input_interface': {
             'params': ['adom', 'interface'],
@@ -1568,7 +1569,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'dynamic_interface_platformmapping': {
             'params': ['adom', 'interface', 'platform_mapping'],
@@ -1600,7 +1601,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/multicast/interface/{interface}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/multicast/interface/{interface}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'dynamic_vip': {
             'params': ['adom', 'vip'],
@@ -1616,7 +1617,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}'
             ],
-            'mkey': 'name', 'v_range': [['6.0.0', '6.4.14']]
+            'mkey': 'name', 'v_range': [['6.0.0', '6.4.15']]
         },
         'dynamic_virtualwanlink_members_dynamicmapping': {
             'params': ['adom', 'dynamic_mapping', 'members'],
@@ -1624,7 +1625,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '6.4.14']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '6.4.15']]
         },
         'dynamic_virtualwanlink_neighbor': {
             'params': ['adom', 'neighbor'],
@@ -1632,7 +1633,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.2', '6.4.14']]
+            'mkey': 'name', 'v_range': [['6.2.2', '6.4.15']]
         },
         'dynamic_virtualwanlink_neighbor_dynamicmapping': {
             'params': ['adom', 'dynamic_mapping', 'neighbor'],
@@ -1640,7 +1641,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/neighbor/{neighbor}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': None, 'v_range': [['6.2.2', '6.4.14']]
+            'mkey': None, 'v_range': [['6.2.2', '6.4.15']]
         },
         'dynamic_virtualwanlink_server': {
             'params': ['adom', 'server'],
@@ -1648,7 +1649,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}'
             ],
-            'mkey': 'name', 'v_range': [['6.0.0', '6.4.14']]
+            'mkey': 'name', 'v_range': [['6.0.0', '6.4.15']]
         },
         'dynamic_virtualwanlink_server_dynamicmapping': {
             'params': ['adom', 'dynamic_mapping', 'server'],
@@ -1656,7 +1657,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/virtual-wan-link/server/{server}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '6.4.14']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '6.4.15']]
         },
         'dynamic_vpntunnel': {
             'params': ['adom', 'vpntunnel'],
@@ -1672,7 +1673,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/dynamic/vpntunnel/{vpntunnel}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'emailfilter_blockallowlist': {
             'params': ['adom', 'block-allow-list'],
@@ -2064,7 +2065,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_address6_dynamicmapping_subnetsegment': {
             'params': ['address6', 'adom', 'dynamic_mapping', 'subnet-segment'],
@@ -2072,7 +2073,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}',
                 '/pm/config/global/obj/firewall/address6/{address6}/dynamic_mapping/{dynamic_mapping}/subnet-segment/{subnet-segment}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.1', '7.4.0']]
+            'mkey': 'name', 'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_address6_list': {
             'params': ['address6', 'adom', 'list'],
@@ -2088,7 +2089,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/address6/{address6}/profile-list/{profile-list}',
                 '/pm/config/global/obj/firewall/address6/{address6}/profile-list/{profile-list}'
             ],
-            'mkey': None, 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': None, 'v_range': [['6.2.0', '6.2.13']]
         },
         'firewall_address6_subnetsegment': {
             'params': ['address6', 'adom', 'subnet-segment'],
@@ -2136,7 +2137,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/address/{address}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_address_list': {
             'params': ['address', 'adom', 'list'],
@@ -2152,7 +2153,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/address/{address}/profile-list/{profile-list}',
                 '/pm/config/global/obj/firewall/address/{address}/profile-list/{profile-list}'
             ],
-            'mkey': None, 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': None, 'v_range': [['6.2.0', '6.2.13']]
         },
         'firewall_address_tagging': {
             'params': ['address', 'adom', 'tagging'],
@@ -2184,7 +2185,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/addrgrp6/{addrgrp6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_addrgrp6_tagging': {
             'params': ['addrgrp6', 'adom', 'tagging'],
@@ -2200,7 +2201,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/addrgrp/{addrgrp}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_addrgrp_tagging': {
             'params': ['addrgrp', 'adom', 'tagging'],
@@ -2282,7 +2283,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
                 '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'firewall_explicitproxyaddress_headergroup': {
             'params': ['adom', 'explicit-proxy-address', 'header-group'],
@@ -2290,7 +2291,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}',
                 '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}/header-group/{header-group}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'firewall_explicitproxyaddrgrp': {
             'params': ['adom', 'explicit-proxy-addrgrp'],
@@ -2298,7 +2299,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}',
                 '/pm/config/global/obj/firewall/explicit-proxy-addrgrp/{explicit-proxy-addrgrp}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'firewall_gtp': {
             'params': ['adom', 'gtp'],
@@ -2506,7 +2507,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ippool6/{ippool6}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/ippool6/{ippool6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_ippool_dynamicmapping': {
             'params': ['adom', 'dynamic_mapping', 'ippool'],
@@ -2514,7 +2515,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_ippoolgrp': {
             'params': ['adom', 'ippool_grp'],
@@ -2522,7 +2523,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/ippool_grp/{ippool_grp}',
                 '/pm/config/global/obj/firewall/ippool_grp/{ippool_grp}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'firewall_ldbmonitor': {
             'params': ['adom', 'ldb-monitor'],
@@ -2810,7 +2811,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip46/{vip46}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/vip46/{vip46}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip46_realservers': {
             'params': ['adom', 'realservers', 'vip46'],
@@ -2842,7 +2843,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/vip64/{vip64}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip64_realservers': {
             'params': ['adom', 'realservers', 'vip64'],
@@ -2858,7 +2859,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip6_dynamicmapping_realservers': {
             'params': ['adom', 'dynamic_mapping', 'realservers', 'vip6'],
@@ -2866,7 +2867,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.2', '7.4.0']]
+            'mkey': 'id', 'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip6_dynamicmapping_sslciphersuites': {
             'params': ['adom', 'dynamic_mapping', 'ssl-cipher-suites', 'vip6'],
@@ -2874,7 +2875,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
                 '/pm/config/global/obj/firewall/vip6/{vip6}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
-            'mkey': None, 'v_range': [['7.0.2', '7.4.0']]
+            'mkey': None, 'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip6_realservers': {
             'params': ['adom', 'realservers', 'vip6'],
@@ -2906,7 +2907,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip_dynamicmapping_realservers': {
             'params': ['adom', 'dynamic_mapping', 'realservers', 'vip'],
@@ -2914,7 +2915,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
             ],
-            'mkey': 'seq', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'seq', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip_dynamicmapping_sslciphersuites': {
             'params': ['adom', 'dynamic_mapping', 'ssl-cipher-suites', 'vip'],
@@ -2922,7 +2923,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}',
                 '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/ssl-cipher-suites/{ssl-cipher-suites}'
             ],
-            'mkey': 'id', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_vip_gslbpublicips': {
             'params': ['adom', 'gslb-public-ips', 'vip'],
@@ -2994,7 +2995,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/firewall/vipgrp/{vipgrp}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'firewall_wildcardfqdn_custom': {
             'params': ['adom', 'custom'],
@@ -3050,7 +3051,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/fmg/variable/{variable}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': None, 'v_range': [['7.2.0', '7.4.0']]
+            'mkey': None, 'v_range': [['7.2.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan': {
             'params': ['adom', 'vlan'],
@@ -3098,7 +3099,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': None, 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': None, 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_excluderange': {
             'params': ['adom', 'dynamic_mapping', 'exclude-range', 'vlan'],
@@ -3106,7 +3107,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range/{exclude-range}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/exclude-range/{exclude-range}'
             ],
-            'mkey': 'id', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_iprange': {
             'params': ['adom', 'dynamic_mapping', 'ip-range', 'vlan'],
@@ -3114,7 +3115,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}'
             ],
-            'mkey': 'id', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_options': {
             'params': ['adom', 'dynamic_mapping', 'options', 'vlan'],
@@ -3122,7 +3123,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options/{options}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/options/{options}'
             ],
-            'mkey': 'id', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_dhcpserver_reservedaddress': {
             'params': ['adom', 'dynamic_mapping', 'reserved-address', 'vlan'],
@@ -3130,7 +3131,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address/{reserved-address}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/reserved-address/{reserved-address}'
             ],
-            'mkey': 'id', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist': {
             'params': ['adom', 'dynamic_mapping', 'ip6-delegated-prefix-list', 'vlan'],
@@ -3139,7 +3140,7 @@ def main():
                 'list}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-delegated-prefix-list/{ip6-delegated-prefix-list}'
             ],
-            'mkey': None, 'v_range': [['6.2.2', '7.4.0']]
+            'mkey': None, 'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr': {
             'params': ['adom', 'dynamic_mapping', 'ip6-extra-addr', 'vlan'],
@@ -3147,7 +3148,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-extra-addr/{ip6-extra-addr}'
             ],
-            'mkey': None, 'v_range': [['6.2.2', '7.4.0']]
+            'mkey': None, 'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_ip6prefixlist': {
             'params': ['adom', 'dynamic_mapping', 'ip6-prefix-list', 'vlan'],
@@ -3155,7 +3156,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/ip6-prefix-list/{ip6-prefix-list}'
             ],
-            'mkey': None, 'v_range': [['6.2.2', '7.4.0']]
+            'mkey': None, 'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_ipv6_vrrp6': {
             'params': ['adom', 'dynamic_mapping', 'vlan', 'vrrp6'],
@@ -3163,7 +3164,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/vrrp6/{vrrp6}'
             ],
-            'mkey': None, 'v_range': [['6.2.2', '7.4.0']]
+            'mkey': None, 'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_secondaryip': {
             'params': ['adom', 'dynamic_mapping', 'secondaryip', 'vlan'],
@@ -3171,7 +3172,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
                 '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.3', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'fsp_vlan_dynamicmapping_interface_vrrp': {
             'params': ['adom', 'dynamic_mapping', 'vlan', 'vrrp'],
@@ -3738,7 +3739,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-group/{server-group}',
                 '/pm/config/global/obj/log/npu-server/server-group/{server-group}'
             ],
-            'mkey': None, 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': None, 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'log_npuserver_serverinfo': {
             'params': ['adom', 'server-info'],
@@ -3746,7 +3747,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
                 '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'mpskprofile': {
             'params': ['adom', 'mpsk-profile'],
@@ -3806,14 +3807,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['acl6', 'adom', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'central-snat-map', 'pkg'],
@@ -3862,56 +3863,56 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'policyid', 'v_range': [['6.2.0', '6.2.13']]
         },
         'pkg_firewall_explicitproxypolicy_identitybasedpolicy': {
             'params': ['adom', 'explicit-proxy-policy', 'identity-based-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}/identity-based-policy/{identity-based-policy}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'id', 'v_range': [['6.2.0', '6.2.13']]
         },
         'pkg_firewall_hyperscalepolicy': {
             'params': ['adom', 'hyperscale-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'interface-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'local-in-policy', 'pkg'],
@@ -4095,6 +4096,13 @@ def main():
             ],
             'mkey': 'name', 'v_range': [['7.2.1', '']]
         },
+        'pkg_videofilter_youtubekey': {
+            'params': ['adom', 'pkg', 'youtube-key'],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key/{youtube-key}'
+            ],
+            'mkey': 'id', 'v_range': [['7.4.4', '7.4.5']]
+        },
         'pm_config_pblock_firewall_consolidated_policy': {
             'params': ['adom', 'pblock', 'policy'],
             'urls': [
@@ -4144,7 +4152,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}',
                 '/pm/config/global/obj/wireless-controller/region/{region}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']]
+            'mkey': 'name', 'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']]
         },
         'router_accesslist': {
             'params': ['access-list', 'adom'],
@@ -4264,7 +4272,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'mkey': 'name', 'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
+            'mkey': 'name', 'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['adom', 'ppid-filters', 'profile'],
@@ -4272,7 +4280,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'mkey': 'id', 'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']]
+            'mkey': 'id', 'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['adom', 'bwl'],
@@ -4794,7 +4802,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}',
                 '/pm/config/global/obj/system/npu/dsw-dts-profile/{dsw-dts-profile}'
             ],
-            'mkey': None, 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': None, 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_dswqueuedtsprofile': {
             'params': ['adom', 'dsw-queue-dts-profile'],
@@ -4802,7 +4810,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
                 '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ethernettype': {
             'params': ['adom', 'ethernet-type'],
@@ -4810,7 +4818,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ethernet-type/{ethernet-type}',
                 '/pm/config/global/obj/system/npu/np-queues/ethernet-type/{ethernet-type}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipprotocol': {
             'params': ['adom', 'ip-protocol'],
@@ -4818,7 +4826,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-protocol/{ip-protocol}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-protocol/{ip-protocol}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_npqueues_ipservice': {
             'params': ['adom', 'ip-service'],
@@ -4826,7 +4834,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/ip-service/{ip-service}',
                 '/pm/config/global/obj/system/npu/np-queues/ip-service/{ip-service}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_npqueues_profile': {
             'params': ['adom', 'profile'],
@@ -4834,7 +4842,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/profile/{profile}',
                 '/pm/config/global/obj/system/npu/np-queues/profile/{profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_npqueues_scheduler': {
             'params': ['adom', 'scheduler'],
@@ -4842,7 +4850,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/np-queues/scheduler/{scheduler}',
                 '/pm/config/global/obj/system/npu/np-queues/scheduler/{scheduler}'
             ],
-            'mkey': 'name', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'name', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_nputcam': {
             'params': ['adom', 'npu-tcam'],
@@ -4858,7 +4866,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/port-cpu-map/{port-cpu-map}',
                 '/pm/config/global/obj/system/npu/port-cpu-map/{port-cpu-map}'
             ],
-            'mkey': None, 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': None, 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_portnpumap': {
             'params': ['adom', 'port-npu-map'],
@@ -4866,7 +4874,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/port-npu-map/{port-npu-map}',
                 '/pm/config/global/obj/system/npu/port-npu-map/{port-npu-map}'
             ],
-            'mkey': None, 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': None, 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_tcptimeoutprofile': {
             'params': ['adom', 'tcp-timeout-profile'],
@@ -4874,7 +4882,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_npu_udptimeoutprofile': {
             'params': ['adom', 'udp-timeout-profile'],
@@ -4882,7 +4890,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}',
                 '/pm/config/global/obj/system/npu/udp-timeout-profile/{udp-timeout-profile}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']]
         },
         'system_objecttag': {
             'params': ['adom', 'object-tag'],
@@ -4890,7 +4898,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/object-tag/{object-tag}',
                 '/pm/config/global/obj/system/object-tag/{object-tag}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.4.14']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.4.15']]
         },
         'system_objecttagging': {
             'params': ['adom', 'object-tagging'],
@@ -5154,7 +5162,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
-            'mkey': 'id', 'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
+            'mkey': 'id', 'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
             'params': ['adom', 'nic', 'sdn-connector'],
@@ -5258,7 +5266,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/certificate/{certificate}',
                 '/pm/config/global/obj/user/certificate/{certificate}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']]
+            'mkey': 'id', 'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']]
         },
         'user_clearpass': {
             'params': ['adom', 'clearpass'],
@@ -5282,7 +5290,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}',
                 '/pm/config/global/obj/user/device/{device}'
             ],
-            'mkey': 'alias', 'v_range': [['6.0.0', '7.4.2']]
+            'mkey': 'alias', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']]
         },
         'user_device_dynamicmapping': {
             'params': ['adom', 'device', 'dynamic_mapping'],
@@ -5290,7 +5298,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_device_tagging': {
             'params': ['adom', 'device', 'tagging'],
@@ -5298,7 +5306,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/device/{device}/tagging/{tagging}',
                 '/pm/config/global/obj/user/device/{device}/tagging/{tagging}'
             ],
-            'mkey': 'name', 'v_range': [['6.0.0', '7.4.2']]
+            'mkey': 'name', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']]
         },
         'user_deviceaccesslist': {
             'params': ['adom', 'device-access-list'],
@@ -5378,7 +5386,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
                 '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
             ],
-            'mkey': 'name', 'v_range': [['7.4.3', '']]
+            'mkey': 'name', 'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'user_flexvm': {
             'params': ['adom', 'flexvm'],
@@ -5410,7 +5418,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/fsso/{fsso}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/fsso/{fsso}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_fssopolling': {
             'params': ['adom', 'fsso-polling'],
@@ -5442,7 +5450,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.2', '7.4.0']]
+            'mkey': 'id', 'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_group_dynamicmapping_guest': {
             'params': ['adom', 'dynamic_mapping', 'group', 'guest'],
@@ -5450,7 +5458,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.2', '7.4.0']]
+            'mkey': 'id', 'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_group_dynamicmapping_match': {
             'params': ['adom', 'dynamic_mapping', 'group', 'match'],
@@ -5458,7 +5466,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}',
                 '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/match/{match}'
             ],
-            'mkey': 'id', 'v_range': [['7.0.2', '7.4.0']]
+            'mkey': 'id', 'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_group_guest': {
             'params': ['adom', 'group', 'guest'],
@@ -5506,7 +5514,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_local': {
             'params': ['adom', 'local'],
@@ -5594,7 +5602,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_radius_dynamicmapping_accountingserver': {
             'params': ['accounting-server', 'adom', 'dynamic_mapping', 'radius'],
@@ -5602,7 +5610,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}',
                 '/pm/config/global/obj/user/radius/{radius}/dynamic_mapping/{dynamic_mapping}/accounting-server/{accounting-server}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.4.0']]
+            'mkey': 'id', 'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_saml': {
             'params': ['adom', 'saml'],
@@ -5618,7 +5626,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': None, 'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '7.4.0']]
+            'mkey': None, 'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_securityexemptlist': {
             'params': ['adom', 'security-exempt-list'],
@@ -5650,7 +5658,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/user/tacacs+/{tacacs+}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'user_vcenter': {
             'params': ['adom', 'vcenter'],
@@ -5690,7 +5698,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/dynamic_mapping/{dynamic_mapping}',
                 '/pm/config/global/obj/wireless-controller/vap/{vap}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'mkey': '_scope', 'v_range': [['6.0.0', '7.4.0']]
+            'mkey': '_scope', 'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']]
         },
         'vap_macfilterlist': {
             'params': ['adom', 'mac-filter-list', 'vap'],
@@ -5794,7 +5802,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/videofilter/youtube-key/{youtube-key}',
                 '/pm/config/global/obj/videofilter/youtube-key/{youtube-key}'
             ],
-            'mkey': 'id', 'v_range': [['7.4.2', '']]
+            'mkey': 'id', 'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']]
         },
         'virtualpatch_profile': {
             'params': ['adom', 'profile'],
@@ -5865,7 +5873,7 @@ def main():
             'urls': [
                 '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule/{authentication-rule}'
             ],
-            'mkey': 'id', 'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']]
+            'mkey': 'id', 'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']]
         },
         'vpnmgr_node': {
             'params': ['adom', 'node'],
@@ -6001,7 +6009,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}',
                 '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'vpnsslweb_virtualdesktopapplist_apps': {
             'params': ['adom', 'apps', 'virtual-desktop-app-list'],
@@ -6009,7 +6017,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}',
                 '/pm/config/global/obj/vpn/ssl/web/virtual-desktop-app-list/{virtual-desktop-app-list}/apps/{apps}'
             ],
-            'mkey': 'name', 'v_range': [['6.2.0', '6.2.12']]
+            'mkey': 'name', 'v_range': [['6.2.0', '6.2.13']]
         },
         'waf_mainclass': {
             'params': ['adom', 'main-class'],
@@ -6505,8 +6513,8 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(None, None, None, None, module, connection)
-    fmgr.process_task(clone_metadata, task_type="clone")
+    fmgr = NAPIManager('clone', clone_metadata, None, None, None, module, connection)
+    fmgr.process_task()
     module.exit_json(meta=module.params)
 
 

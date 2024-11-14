@@ -97,21 +97,21 @@ options:
                 elements: dict
                 description: Entries.
                 suboptions:
-                    addr-type:
+                    addr_type:
                         type: str
-                        description: Deprecated, please rename it to addr_type. Type of address.
+                        description: Type of address.
                         choices:
                             - 'ipv4'
                             - 'ipv6'
                     id:
                         type: int
                         description: Trusted IP entry ID.
-                    ip4-subnet:
+                    ip4_subnet:
                         type: str
-                        description: Deprecated, please rename it to ip4_subnet. IPv4 network address or network address/subnet mask bits.
-                    ip6-subnet:
+                        description: IPv4 network address or network address/subnet mask bits.
+                    ip6_subnet:
                         type: str
-                        description: Deprecated, please rename it to ip6_subnet. IPv6 network address/subnet mask bits.
+                        description: IPv6 network address/subnet mask bits.
                     status:
                         type: str
                         description: Enable/disable status.
@@ -199,23 +199,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/spamfilter/iptrust',
         '/pm/config/global/obj/spamfilter/iptrust'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/spamfilter/iptrust/{iptrust}',
-        '/pm/config/global/obj/spamfilter/iptrust/{iptrust}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -240,7 +232,6 @@ def main():
                 'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
                 'name': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'}
             }
-
         }
     }
 
@@ -254,9 +245,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -103,18 +103,18 @@ options:
                 elements: dict
                 description: Ports.
                 suboptions:
-                    allowed-vlans:
+                    allowed_vlans:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to allowed_vlans. Configure switch port tagged vlans
-                    allowed-vlans-all:
+                        description: (list or str) Configure switch port tagged vlans
+                    allowed_vlans_all:
                         type: str
-                        description: Deprecated, please rename it to allowed_vlans_all. Enable/disable all defined vlans on this port.
+                        description: Enable/disable all defined vlans on this port.
                         choices:
                             - 'disable'
                             - 'enable'
-                    arp-inspection-trust:
+                    arp_inspection_trust:
                         type: str
-                        description: Deprecated, please rename it to arp_inspection_trust. Trusted or untrusted dynamic ARP inspection.
+                        description: Trusted or untrusted dynamic ARP inspection.
                         choices:
                             - 'untrusted'
                             - 'trusted'
@@ -127,99 +127,99 @@ options:
                     description:
                         type: str
                         description: Description for port.
-                    dhcp-snoop-option82-trust:
+                    dhcp_snoop_option82_trust:
                         type: str
-                        description: Deprecated, please rename it to dhcp_snoop_option82_trust. Enable/disable allowance of DHCP with option-82 on untr...
+                        description: Enable/disable allowance of DHCP with option-82 on untrusted interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dhcp-snooping:
+                    dhcp_snooping:
                         type: str
-                        description: Deprecated, please rename it to dhcp_snooping. Trusted or untrusted DHCP-snooping interface.
+                        description: Trusted or untrusted DHCP-snooping interface.
                         choices:
                             - 'trusted'
                             - 'untrusted'
-                    discard-mode:
+                    discard_mode:
                         type: str
-                        description: Deprecated, please rename it to discard_mode. Configure discard mode for port.
+                        description: Configure discard mode for port.
                         choices:
                             - 'none'
                             - 'all-untagged'
                             - 'all-tagged'
-                    edge-port:
+                    edge_port:
                         type: str
-                        description: Deprecated, please rename it to edge_port. Enable/disable this interface as an edge port, bridging connections bet...
+                        description: Enable/disable this interface as an edge port, bridging connections between workstations and/or computers.
                         choices:
                             - 'disable'
                             - 'enable'
-                    igmp-snooping:
+                    igmp_snooping:
                         type: str
-                        description: Deprecated, please rename it to igmp_snooping. Set IGMP snooping mode for the physical port interface.
+                        description: Set IGMP snooping mode for the physical port interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    igmps-flood-reports:
+                    igmps_flood_reports:
                         type: str
-                        description: Deprecated, please rename it to igmps_flood_reports. Enable/disable flooding of IGMP reports to this interface whe...
+                        description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                         choices:
                             - 'disable'
                             - 'enable'
-                    igmps-flood-traffic:
+                    igmps_flood_traffic:
                         type: str
-                        description: Deprecated, please rename it to igmps_flood_traffic. Enable/disable flooding of IGMP snooping traffic to this inte...
+                        description: Enable/disable flooding of IGMP snooping traffic to this interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    lacp-speed:
+                    lacp_speed:
                         type: str
-                        description: Deprecated, please rename it to lacp_speed. End Link Aggregation Control Protocol
+                        description: End Link Aggregation Control Protocol
                         choices:
                             - 'slow'
                             - 'fast'
-                    learning-limit:
+                    learning_limit:
                         type: int
-                        description: Deprecated, please rename it to learning_limit. Limit the number of dynamic MAC addresses on this Port
-                    lldp-profile:
+                        description: Limit the number of dynamic MAC addresses on this Port
+                    lldp_profile:
                         type: str
-                        description: Deprecated, please rename it to lldp_profile. LLDP port TLV profile.
-                    lldp-status:
+                        description: LLDP port TLV profile.
+                    lldp_status:
                         type: str
-                        description: Deprecated, please rename it to lldp_status. LLDP transmit and receive status.
+                        description: LLDP transmit and receive status.
                         choices:
                             - 'disable'
                             - 'rx-only'
                             - 'tx-only'
                             - 'tx-rx'
-                    loop-guard:
+                    loop_guard:
                         type: str
-                        description: Deprecated, please rename it to loop_guard. Enable/disable loop-guard on this interface, an STP optimization used ...
+                        description: Enable/disable loop-guard on this interface, an STP optimization used to prevent network loops.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    loop-guard-timeout:
+                    loop_guard_timeout:
                         type: int
-                        description: Deprecated, please rename it to loop_guard_timeout. Loop-guard timeout
-                    max-bundle:
+                        description: Loop-guard timeout
+                    max_bundle:
                         type: int
-                        description: Deprecated, please rename it to max_bundle. Maximum size of LAG bundle
+                        description: Maximum size of LAG bundle
                     mclag:
                         type: str
                         description: Enable/disable multi-chassis link aggregation
                         choices:
                             - 'disable'
                             - 'enable'
-                    member-withdrawal-behavior:
+                    member_withdrawal_behavior:
                         type: str
-                        description: Deprecated, please rename it to member_withdrawal_behavior. Port behavior after it withdraws because of loss of co...
+                        description: Port behavior after it withdraws because of loss of control packets.
                         choices:
                             - 'forward'
                             - 'block'
                     members:
                         type: raw
                         description: (list) Aggregated LAG bundle interfaces.
-                    min-bundle:
+                    min_bundle:
                         type: int
-                        description: Deprecated, please rename it to min_bundle. Minimum size of LAG bundle
+                        description: Minimum size of LAG bundle
                     mode:
                         type: str
                         description: LACP mode
@@ -227,30 +227,30 @@ options:
                             - 'static'
                             - 'lacp-passive'
                             - 'lacp-active'
-                    poe-pre-standard-detection:
+                    poe_pre_standard_detection:
                         type: str
-                        description: Deprecated, please rename it to poe_pre_standard_detection. Enable/disable PoE pre-standard detection.
+                        description: Enable/disable PoE pre-standard detection.
                         choices:
                             - 'disable'
                             - 'enable'
-                    poe-status:
+                    poe_status:
                         type: str
-                        description: Deprecated, please rename it to poe_status. Enable/disable PoE status.
+                        description: Enable/disable PoE status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    port-name:
+                    port_name:
                         type: str
-                        description: Deprecated, please rename it to port_name. Switch port name.
-                    port-owner:
+                        description: Switch port name.
+                    port_owner:
                         type: str
-                        description: Deprecated, please rename it to port_owner. Switch port name.
-                    port-security-policy:
+                        description: Switch port name.
+                    port_security_policy:
                         type: str
-                        description: Deprecated, please rename it to port_security_policy. Switch controller authentication policy to apply to this man...
-                    port-selection-criteria:
+                        description: Switch controller authentication policy to apply to this managed switch from available options.
+                    port_selection_criteria:
                         type: str
-                        description: Deprecated, please rename it to port_selection_criteria. Algorithm for aggregate port selection.
+                        description: Algorithm for aggregate port selection.
                         choices:
                             - 'src-mac'
                             - 'dst-mac'
@@ -258,46 +258,46 @@ options:
                             - 'src-ip'
                             - 'dst-ip'
                             - 'src-dst-ip'
-                    qos-policy:
+                    qos_policy:
                         type: str
-                        description: Deprecated, please rename it to qos_policy. Switch controller QoS policy from available options.
-                    sample-direction:
+                        description: Switch controller QoS policy from available options.
+                    sample_direction:
                         type: str
-                        description: Deprecated, please rename it to sample_direction. SFlow sample direction.
+                        description: SFlow sample direction.
                         choices:
                             - 'rx'
                             - 'tx'
                             - 'both'
-                    sflow-counter-interval:
+                    sflow_counter_interval:
                         type: int
-                        description: Deprecated, please rename it to sflow_counter_interval. SFlow sampler counter polling interval
-                    sflow-sample-rate:
+                        description: SFlow sampler counter polling interval
+                    sflow_sample_rate:
                         type: int
-                        description: Deprecated, please rename it to sflow_sample_rate. SFlow sampler sample rate
-                    sflow-sampler:
+                        description: SFlow sampler sample rate
+                    sflow_sampler:
                         type: str
-                        description: Deprecated, please rename it to sflow_sampler. Enable/disable sFlow protocol on this interface.
+                        description: Enable/disable sFlow protocol on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    stp-bpdu-guard:
+                    stp_bpdu_guard:
                         type: str
-                        description: Deprecated, please rename it to stp_bpdu_guard. Enable/disable STP BPDU guard on this interface.
+                        description: Enable/disable STP BPDU guard on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    stp-bpdu-guard-timeout:
+                    stp_bpdu_guard_timeout:
                         type: int
-                        description: Deprecated, please rename it to stp_bpdu_guard_timeout. BPDU Guard disabling protection
-                    stp-root-guard:
+                        description: BPDU Guard disabling protection
+                    stp_root_guard:
                         type: str
-                        description: Deprecated, please rename it to stp_root_guard. Enable/disable STP root guard on this interface.
+                        description: Enable/disable STP root guard on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    stp-state:
+                    stp_state:
                         type: str
-                        description: Deprecated, please rename it to stp_state. Enable/disable Spanning Tree Protocol
+                        description: Enable/disable Spanning Tree Protocol
                         choices:
                             - 'disabled'
                             - 'enabled'
@@ -307,286 +307,286 @@ options:
                         choices:
                             - 'physical'
                             - 'trunk'
-                    untagged-vlans:
+                    untagged_vlans:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to untagged_vlans. Configure switch port untagged vlans
+                        description: (list or str) Configure switch port untagged vlans
                     vlan:
                         type: str
                         description: Assign switch ports to a VLAN.
-                    export-to-pool-flag:
+                    export_to_pool_flag:
                         type: int
-                        description: Deprecated, please rename it to export_to_pool_flag. Switch controller export port to pool-list.
-                    mac-addr:
+                        description: Switch controller export port to pool-list.
+                    mac_addr:
                         type: str
-                        description: Deprecated, please rename it to mac_addr. Port/Trunk MAC.
-                    packet-sample-rate:
+                        description: Port/Trunk MAC.
+                    packet_sample_rate:
                         type: int
-                        description: Deprecated, please rename it to packet_sample_rate. Packet sampling rate
-                    packet-sampler:
+                        description: Packet sampling rate
+                    packet_sampler:
                         type: str
-                        description: Deprecated, please rename it to packet_sampler. Enable/disable packet sampling on this interface.
+                        description: Enable/disable packet sampling on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    sticky-mac:
+                    sticky_mac:
                         type: str
-                        description: Deprecated, please rename it to sticky_mac. Enable or disable sticky-mac on the interface.
+                        description: Enable or disable sticky-mac on the interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    storm-control-policy:
+                    storm_control_policy:
                         type: str
-                        description: Deprecated, please rename it to storm_control_policy. Switch controller storm control policy from available options.
-                    dot1x-enable:
+                        description: Switch controller storm control policy from available options.
+                    dot1x_enable:
                         type: str
-                        description: Deprecated, please rename it to dot1x_enable. Dot1x enable.
+                        description: Dot1x enable.
                         choices:
                             - 'disable'
                             - 'enable'
-                    max-miss-heartbeats:
+                    max_miss_heartbeats:
                         type: int
-                        description: Deprecated, please rename it to max_miss_heartbeats. Maximum tolerant missed heartbeats.
-                    access-mode:
+                        description: Maximum tolerant missed heartbeats.
+                    access_mode:
                         type: str
-                        description: Deprecated, please rename it to access_mode. Access mode of the port.
+                        description: Access mode of the port.
                         choices:
                             - 'normal'
                             - 'nac'
                             - 'dynamic'
                             - 'static'
-                    ip-source-guard:
+                    ip_source_guard:
                         type: str
-                        description: Deprecated, please rename it to ip_source_guard. Enable/disable IP source guard.
+                        description: Enable/disable IP source guard.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mclag-icl-port:
+                    mclag_icl_port:
                         type: int
-                        description: Deprecated, please rename it to mclag_icl_port. Mclag icl port.
-                    p2p-port:
+                        description: Mclag icl port.
+                    p2p_port:
                         type: int
-                        description: Deprecated, please rename it to p2p_port. P2p port.
-                    aggregator-mode:
+                        description: P2p port.
+                    aggregator_mode:
                         type: str
-                        description: Deprecated, please rename it to aggregator_mode. LACP member select mode.
+                        description: LACP member select mode.
                         choices:
                             - 'bandwidth'
                             - 'count'
-                    rpvst-port:
+                    rpvst_port:
                         type: str
-                        description: Deprecated, please rename it to rpvst_port. Enable/disable inter-operability with rapid PVST on this interface.
+                        description: Enable/disable inter-operability with rapid PVST on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
-                    flow-control:
+                    flow_control:
                         type: str
-                        description: Deprecated, please rename it to flow_control. Flow control direction.
+                        description: Flow control direction.
                         choices:
                             - 'disable'
                             - 'tx'
                             - 'rx'
                             - 'both'
-                    media-type:
+                    media_type:
                         type: str
-                        description: Deprecated, please rename it to media_type. Media type.
-                    pause-meter:
+                        description: Media type.
+                    pause_meter:
                         type: int
-                        description: Deprecated, please rename it to pause_meter. Configure ingress pause metering rate, in kbps
-                    pause-meter-resume:
+                        description: Configure ingress pause metering rate, in kbps
+                    pause_meter_resume:
                         type: str
-                        description: Deprecated, please rename it to pause_meter_resume. Resume threshold for resuming traffic on ingress port.
+                        description: Resume threshold for resuming traffic on ingress port.
                         choices:
                             - '25%'
                             - '50%'
                             - '75%'
-                    trunk-member:
+                    trunk_member:
                         type: int
-                        description: Deprecated, please rename it to trunk_member. Trunk member.
-                    fec-capable:
+                        description: Trunk member.
+                    fec_capable:
                         type: int
-                        description: Deprecated, please rename it to fec_capable. FEC capable.
-                    fec-state:
+                        description: FEC capable.
+                    fec_state:
                         type: str
-                        description: Deprecated, please rename it to fec_state. State of forward error correction.
+                        description: State of forward error correction.
                         choices:
                             - 'disabled'
                             - 'cl74'
                             - 'cl91'
                             - 'detect-by-module'
-                    matched-dpp-intf-tags:
+                    matched_dpp_intf_tags:
                         type: str
-                        description: Deprecated, please rename it to matched_dpp_intf_tags. Matched interface tags in the dynamic port policy.
-                    matched-dpp-policy:
+                        description: Matched interface tags in the dynamic port policy.
+                    matched_dpp_policy:
                         type: str
-                        description: Deprecated, please rename it to matched_dpp_policy. Matched child policy in the dynamic port policy.
-                    port-policy:
+                        description: Matched child policy in the dynamic port policy.
+                    port_policy:
                         type: str
-                        description: Deprecated, please rename it to port_policy. Switch controller dynamic port policy from available options.
+                        description: Switch controller dynamic port policy from available options.
                     status:
                         type: str
                         description: Switch port admin status
                         choices:
                             - 'down'
                             - 'up'
-                    dsl-profile:
+                    dsl_profile:
                         type: str
-                        description: Deprecated, please rename it to dsl_profile. DSL policy configuration.
-                    flap-duration:
+                        description: DSL policy configuration.
+                    flap_duration:
                         type: int
-                        description: Deprecated, please rename it to flap_duration. Period over which flap events are calculated
-                    flap-rate:
+                        description: Period over which flap events are calculated
+                    flap_rate:
                         type: int
-                        description: Deprecated, please rename it to flap_rate. Number of stage change events needed within flap-duration.
-                    flap-timeout:
+                        description: Number of stage change events needed within flap-duration.
+                    flap_timeout:
                         type: int
-                        description: Deprecated, please rename it to flap_timeout. Flap guard disabling protection
+                        description: Flap guard disabling protection
                     flapguard:
                         type: str
                         description: Enable/disable flap guard.
                         choices:
                             - 'disable'
                             - 'enable'
-                    interface-tags:
+                    interface_tags:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to interface_tags. Tag
-                    poe-max-power:
+                        description: (list or str) Tag
+                    poe_max_power:
                         type: str
-                        description: Deprecated, please rename it to poe_max_power. Poe max power.
-                    poe-standard:
+                        description: Poe max power.
+                    poe_standard:
                         type: str
-                        description: Deprecated, please rename it to poe_standard. Poe standard.
-                    igmp-snooping-flood-reports:
+                        description: Poe standard.
+                    igmp_snooping_flood_reports:
                         type: str
-                        description: Deprecated, please rename it to igmp_snooping_flood_reports. Enable/disable flooding of IGMP reports to this inter...
+                        description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mcast-snooping-flood-traffic:
+                    mcast_snooping_flood_traffic:
                         type: str
-                        description: Deprecated, please rename it to mcast_snooping_flood_traffic. Enable/disable flooding of IGMP snooping traffic to ...
+                        description: Enable/disable flooding of IGMP snooping traffic to this interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    link-status:
+                    link_status:
                         type: str
-                        description: Deprecated, please rename it to link_status. Link status.
+                        description: Link status.
                         choices:
                             - 'down'
                             - 'up'
-                    poe-mode-bt-cabable:
+                    poe_mode_bt_cabable:
                         type: int
-                        description: Deprecated, please rename it to poe_mode_bt_cabable. PoE mode IEEE 802.
-                    poe-port-mode:
+                        description: PoE mode IEEE 802.
+                    poe_port_mode:
                         type: str
-                        description: Deprecated, please rename it to poe_port_mode. Configure PoE port mode.
+                        description: Configure PoE port mode.
                         choices:
                             - 'ieee802-3af'
                             - 'ieee802-3at'
                             - 'ieee802-3bt'
-                    poe-port-power:
+                    poe_port_power:
                         type: str
-                        description: Deprecated, please rename it to poe_port_power. Configure PoE port power.
+                        description: Configure PoE port power.
                         choices:
                             - 'normal'
                             - 'perpetual'
                             - 'perpetual-fast'
-                    poe-port-priority:
+                    poe_port_priority:
                         type: str
-                        description: Deprecated, please rename it to poe_port_priority. Configure PoE port priority.
+                        description: Configure PoE port priority.
                         choices:
                             - 'critical-priority'
                             - 'high-priority'
                             - 'low-priority'
                             - 'medium-priority'
-                    acl-group:
+                    acl_group:
                         type: raw
-                        description: (list) Deprecated, please rename it to acl_group. ACL groups on this port.
-                    dhcp-snoop-option82-override:
+                        description: (list) ACL groups on this port.
+                    dhcp_snoop_option82_override:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to dhcp_snoop_option82_override. Dhcp snoop option82 override.
+                        description: Dhcp snoop option82 override.
                         suboptions:
-                            circuit-id:
+                            circuit_id:
                                 type: str
-                                description: Deprecated, please rename it to circuit_id. Circuit ID string.
-                            remote-id:
+                                description: Circuit ID string.
+                            remote_id:
                                 type: str
-                                description: Deprecated, please rename it to remote_id. Remote ID string.
-                            vlan-name:
+                                description: Remote ID string.
+                            vlan_name:
                                 type: str
-                                description: Deprecated, please rename it to vlan_name. DHCP snooping option 82 VLAN.
-                    fortiswitch-acls:
+                                description: DHCP snooping option 82 VLAN.
+                    fortiswitch_acls:
                         type: raw
-                        description: (list) Deprecated, please rename it to fortiswitch_acls. ACLs on this port.
-                    isl-peer-device-sn:
+                        description: (list) ACLs on this port.
+                    isl_peer_device_sn:
                         type: str
-                        description: Deprecated, please rename it to isl_peer_device_sn. Isl peer device sn.
-                    authenticated-port:
+                        description: Isl peer device sn.
+                    authenticated_port:
                         type: int
-                        description: Deprecated, please rename it to authenticated_port. Authenticated port.
-                    encrypted-port:
+                        description: Authenticated port.
+                    encrypted_port:
                         type: int
-                        description: Deprecated, please rename it to encrypted_port. Encrypted port.
-                    ptp-status:
+                        description: Encrypted port.
+                    ptp_status:
                         type: str
-                        description: Deprecated, please rename it to ptp_status. Enable/disable PTP policy on this FortiSwitch port.
+                        description: Enable/disable PTP policy on this FortiSwitch port.
                         choices:
                             - 'disable'
                             - 'enable'
-                    restricted-auth-port:
+                    restricted_auth_port:
                         type: int
-                        description: Deprecated, please rename it to restricted_auth_port. Restricted auth port.
-                    allow-arp-monitor:
+                        description: Restricted auth port.
+                    allow_arp_monitor:
                         type: str
-                        description: Deprecated, please rename it to allow_arp_monitor. Enable/Disable allow ARP monitor.
+                        description: Enable/Disable allow ARP monitor.
                         choices:
                             - 'disable'
                             - 'enable'
-                    export-to:
+                    export_to:
                         type: raw
-                        description: (list) Deprecated, please rename it to export_to. Export managed-switch port to a tenant VDOM.
-                    export-to-pool:
+                        description: (list) Export managed-switch port to a tenant VDOM.
+                    export_to_pool:
                         type: raw
-                        description: (list) Deprecated, please rename it to export_to_pool. Switch controller export port to pool-list.
-                    fallback-port:
+                        description: (list) Switch controller export port to pool-list.
+                    fallback_port:
                         type: str
-                        description: Deprecated, please rename it to fallback_port. LACP fallback port.
-                    fgt-peer-device-name:
+                        description: LACP fallback port.
+                    fgt_peer_device_name:
                         type: str
-                        description: Deprecated, please rename it to fgt_peer_device_name. Fgt peer device name.
-                    fgt-peer-port-name:
+                        description: Fgt peer device name.
+                    fgt_peer_port_name:
                         type: str
-                        description: Deprecated, please rename it to fgt_peer_port_name. Fgt peer port name.
-                    fiber-port:
+                        description: Fgt peer port name.
+                    fiber_port:
                         type: int
-                        description: Deprecated, please rename it to fiber_port. Fiber port.
+                        description: Fiber port.
                     flags:
                         type: int
                         description: Flags.
-                    fortilink-port:
+                    fortilink_port:
                         type: int
-                        description: Deprecated, please rename it to fortilink_port. Fortilink port.
-                    isl-local-trunk-name:
+                        description: Fortilink port.
+                    isl_local_trunk_name:
                         type: str
-                        description: Deprecated, please rename it to isl_local_trunk_name. Isl local trunk name.
-                    isl-peer-device-name:
+                        description: Isl local trunk name.
+                    isl_peer_device_name:
                         type: str
-                        description: Deprecated, please rename it to isl_peer_device_name. Isl peer device name.
-                    isl-peer-port-name:
+                        description: Isl peer device name.
+                    isl_peer_port_name:
                         type: str
-                        description: Deprecated, please rename it to isl_peer_port_name. Isl peer port name.
-                    poe-capable:
+                        description: Isl peer port name.
+                    poe_capable:
                         type: int
-                        description: Deprecated, please rename it to poe_capable. PoE capable.
-                    port-number:
+                        description: PoE capable.
+                    port_number:
                         type: int
-                        description: Deprecated, please rename it to port_number. Port number.
-                    port-prefix-type:
+                        description: Port number.
+                    port_prefix_type:
                         type: int
-                        description: Deprecated, please rename it to port_prefix_type. Port prefix type.
-                    ptp-policy:
+                        description: Port prefix type.
+                    ptp_policy:
                         type: raw
-                        description: (list) Deprecated, please rename it to ptp_policy. PTP policy configuration.
+                        description: (list) PTP policy configuration.
                     speed:
                         type: str
                         description: Switch port speed; default and available settings depend on hardware.
@@ -627,68 +627,68 @@ options:
                             - '25000sr'
                             - '50000cr'
                             - '50000sr'
-                    speed-mask:
+                    speed_mask:
                         type: int
-                        description: Deprecated, please rename it to speed_mask. Switch port speed mask.
-                    stacking-port:
+                        description: Switch port speed mask.
+                    stacking_port:
                         type: int
-                        description: Deprecated, please rename it to stacking_port. Stacking port.
-                    switch-id:
+                        description: Stacking port.
+                    switch_id:
                         type: str
-                        description: Deprecated, please rename it to switch_id. Switch id.
-                    virtual-port:
+                        description: Switch id.
+                    virtual_port:
                         type: int
-                        description: Deprecated, please rename it to virtual_port. Virtualized switch port.
-                    export-tags:
+                        description: Virtualized switch port.
+                    export_tags:
                         type: raw
-                        description: (list) Deprecated, please rename it to export_tags. Configure export tag
-                    log-mac-event:
+                        description: (list) Configure export tag
+                    log_mac_event:
                         type: str
-                        description: Deprecated, please rename it to log_mac_event. Enable/disable logging for dynamic MAC address events.
+                        description: Enable/disable logging for dynamic MAC address events.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pd-capable:
+                    pd_capable:
                         type: int
-                        description: Deprecated, please rename it to pd_capable. Powered device capable.
+                        description: Powered device capable.
                     qnq:
                         type: raw
                         description: (list) '802.'
-            switch-id:
+            switch_id:
                 type: str
-                description: Deprecated, please rename it to switch_id. Managed-switch id.
+                description: Managed-switch id.
                 required: true
-            override-snmp-community:
+            override_snmp_community:
                 type: str
-                description: Deprecated, please rename it to override_snmp_community. Enable/disable overriding the global SNMP communities.
+                description: Enable/disable overriding the global SNMP communities.
                 choices:
                     - 'disable'
                     - 'enable'
-            override-snmp-sysinfo:
+            override_snmp_sysinfo:
                 type: str
-                description: Deprecated, please rename it to override_snmp_sysinfo. Enable/disable overriding the global SNMP system information.
+                description: Enable/disable overriding the global SNMP system information.
                 choices:
                     - 'disable'
                     - 'enable'
-            override-snmp-trap-threshold:
+            override_snmp_trap_threshold:
                 type: str
-                description: Deprecated, please rename it to override_snmp_trap_threshold. Enable/disable overriding the global SNMP trap threshold values.
+                description: Enable/disable overriding the global SNMP trap threshold values.
                 choices:
                     - 'disable'
                     - 'enable'
-            override-snmp-user:
+            override_snmp_user:
                 type: str
-                description: Deprecated, please rename it to override_snmp_user. Enable/disable overriding the global SNMP users.
+                description: Enable/disable overriding the global SNMP users.
                 choices:
                     - 'disable'
                     - 'enable'
-            poe-detection-type:
+            poe_detection_type:
                 type: int
-                description: Deprecated, please rename it to poe_detection_type. Poe detection type.
-            remote-log:
+                description: Poe detection type.
+            remote_log:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to remote_log. Remote log.
+                description: Remote log.
                 suboptions:
                     csv:
                         type: str
@@ -751,10 +751,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            snmp-community:
+            snmp_community:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to snmp_community. Snmp community.
+                description: Snmp community.
                 suboptions:
                     events:
                         type: list
@@ -784,21 +784,21 @@ options:
                     name:
                         type: str
                         description: SNMP community name.
-                    query-v1-port:
+                    query_v1_port:
                         type: int
-                        description: Deprecated, please rename it to query_v1_port. SNMP v1 query port
-                    query-v1-status:
+                        description: SNMP v1 query port
+                    query_v1_status:
                         type: str
-                        description: Deprecated, please rename it to query_v1_status. Enable/disable SNMP v1 queries.
+                        description: Enable/disable SNMP v1 queries.
                         choices:
                             - 'disable'
                             - 'enable'
-                    query-v2c-port:
+                    query_v2c_port:
                         type: int
-                        description: Deprecated, please rename it to query_v2c_port. SNMP v2c query port
-                    query-v2c-status:
+                        description: SNMP v2c query port
+                    query_v2c_status:
                         type: str
-                        description: Deprecated, please rename it to query_v2c_status. Enable/disable SNMP v2c queries.
+                        description: Enable/disable SNMP v2c queries.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -808,38 +808,38 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    trap-v1-lport:
+                    trap_v1_lport:
                         type: int
-                        description: Deprecated, please rename it to trap_v1_lport. SNMP v2c trap local port
-                    trap-v1-rport:
+                        description: SNMP v2c trap local port
+                    trap_v1_rport:
                         type: int
-                        description: Deprecated, please rename it to trap_v1_rport. SNMP v2c trap remote port
-                    trap-v1-status:
+                        description: SNMP v2c trap remote port
+                    trap_v1_status:
                         type: str
-                        description: Deprecated, please rename it to trap_v1_status. Enable/disable SNMP v1 traps.
+                        description: Enable/disable SNMP v1 traps.
                         choices:
                             - 'disable'
                             - 'enable'
-                    trap-v2c-lport:
+                    trap_v2c_lport:
                         type: int
-                        description: Deprecated, please rename it to trap_v2c_lport. SNMP v2c trap local port
-                    trap-v2c-rport:
+                        description: SNMP v2c trap local port
+                    trap_v2c_rport:
                         type: int
-                        description: Deprecated, please rename it to trap_v2c_rport. SNMP v2c trap remote port
-                    trap-v2c-status:
+                        description: SNMP v2c trap remote port
+                    trap_v2c_status:
                         type: str
-                        description: Deprecated, please rename it to trap_v2c_status. Enable/disable SNMP v2c traps.
+                        description: Enable/disable SNMP v2c traps.
                         choices:
                             - 'disable'
                             - 'enable'
-            snmp-user:
+            snmp_user:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to snmp_user. Snmp user.
+                description: Snmp user.
                 suboptions:
-                    auth-proto:
+                    auth_proto:
                         type: str
-                        description: Deprecated, please rename it to auth_proto. Authentication protocol.
+                        description: Authentication protocol.
                         choices:
                             - 'md5'
                             - 'sha'
@@ -848,15 +848,15 @@ options:
                             - 'sha384'
                             - 'sha512'
                             - 'sha224'
-                    auth-pwd:
+                    auth_pwd:
                         type: raw
-                        description: (list) Deprecated, please rename it to auth_pwd. Password for authentication protocol.
+                        description: (list) Password for authentication protocol.
                     name:
                         type: str
                         description: SNMP user name.
-                    priv-proto:
+                    priv_proto:
                         type: str
-                        description: Deprecated, please rename it to priv_proto. Privacy
+                        description: Privacy
                         choices:
                             - 'des'
                             - 'aes'
@@ -865,44 +865,44 @@ options:
                             - 'aes256'
                             - 'aes192c'
                             - 'aes256c'
-                    priv-pwd:
+                    priv_pwd:
                         type: raw
-                        description: (list) Deprecated, please rename it to priv_pwd. Password for privacy
+                        description: (list) Password for privacy
                     queries:
                         type: str
                         description: Enable/disable SNMP queries for this user.
                         choices:
                             - 'disable'
                             - 'enable'
-                    query-port:
+                    query_port:
                         type: int
-                        description: Deprecated, please rename it to query_port. SNMPv3 query port
-                    security-level:
+                        description: SNMPv3 query port
+                    security_level:
                         type: str
-                        description: Deprecated, please rename it to security_level. Security level for message authentication and encryption.
+                        description: Security level for message authentication and encryption.
                         choices:
                             - 'no-auth-no-priv'
                             - 'auth-no-priv'
                             - 'auth-priv'
-            mclag-igmp-snooping-aware:
+            mclag_igmp_snooping_aware:
                 type: str
-                description: Deprecated, please rename it to mclag_igmp_snooping_aware. Enable/disable MCLAG IGMP-snooping awareness.
+                description: Enable/disable MCLAG IGMP-snooping awareness.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip-source-guard:
+            ip_source_guard:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip_source_guard. Ip source guard.
+                description: Ip source guard.
                 suboptions:
-                    binding-entry:
+                    binding_entry:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to binding_entry. Binding entry.
+                        description: Binding entry.
                         suboptions:
-                            entry-name:
+                            entry_name:
                                 type: str
-                                description: Deprecated, please rename it to entry_name. Configure binding pair.
+                                description: Configure binding pair.
                             ip:
                                 type: str
                                 description: Source IP for this rule.
@@ -915,61 +915,61 @@ options:
                     port:
                         type: str
                         description: Ingress interface to which source guard is bound.
-            l3-discovered:
+            l3_discovered:
                 type: int
-                description: Deprecated, please rename it to l3_discovered. L3 discovered.
-            qos-drop-policy:
+                description: L3 discovered.
+            qos_drop_policy:
                 type: str
-                description: Deprecated, please rename it to qos_drop_policy. Set QoS drop-policy.
+                description: Set QoS drop-policy.
                 choices:
                     - 'taildrop'
                     - 'random-early-detection'
-            qos-red-probability:
+            qos_red_probability:
                 type: int
-                description: Deprecated, please rename it to qos_red_probability. Set QoS RED/WRED drop probability.
-            switch-dhcp_opt43_key:
+                description: Set QoS RED/WRED drop probability.
+            switch_dhcp_opt43_key:
                 type: str
-                description: Deprecated, please rename it to switch_dhcp_opt43_key. DHCP option43 key.
-            tdr-supported:
+                description: DHCP option43 key.
+            tdr_supported:
                 type: str
-                description: Deprecated, please rename it to tdr_supported. Tdr supported.
-            custom-command:
+                description: Tdr supported.
+            custom_command:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_command. Custom command.
+                description: Custom command.
                 suboptions:
-                    command-entry:
+                    command_entry:
                         type: str
-                        description: Deprecated, please rename it to command_entry. List of FortiSwitch commands.
-                    command-name:
+                        description: List of FortiSwitch commands.
+                    command_name:
                         type: str
-                        description: Deprecated, please rename it to command_name. Names of commands to be pushed to this FortiSwitch device, as config...
-            firmware-provision:
+                        description: Names of commands to be pushed to this FortiSwitch device, as configured under config switch-controller custom-com...
+            firmware_provision:
                 type: str
-                description: Deprecated, please rename it to firmware_provision. Enable/disable provisioning of firmware to FortiSwitches on join conne...
+                description: Enable/disable provisioning of firmware to FortiSwitches on join connection.
                 choices:
                     - 'disable'
                     - 'enable'
-            firmware-provision-version:
+            firmware_provision_version:
                 type: str
-                description: Deprecated, please rename it to firmware_provision_version. Firmware version to provision to this FortiSwitch on bootup
-            dhcp-server-access-list:
+                description: Firmware version to provision to this FortiSwitch on bootup
+            dhcp_server_access_list:
                 type: str
-                description: Deprecated, please rename it to dhcp_server_access_list. DHCP snooping server access list.
+                description: DHCP snooping server access list.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'global'
-            firmware-provision-latest:
+            firmware_provision_latest:
                 type: str
-                description: Deprecated, please rename it to firmware_provision_latest. Enable/disable one-time automatic provisioning of the latest fi...
+                description: Enable/disable one-time automatic provisioning of the latest firmware version.
                 choices:
                     - 'disable'
                     - 'once'
-            dhcp-snooping-static-client:
+            dhcp_snooping_static_client:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dhcp_snooping_static_client. Dhcp snooping static client.
+                description: Dhcp snooping static client.
                 suboptions:
                     ip:
                         type: str
@@ -986,44 +986,44 @@ options:
                     vlan:
                         type: str
                         description: VLAN name.
-            ptp-profile:
+            ptp_profile:
                 type: str
-                description: Deprecated, please rename it to ptp_profile. PTP profile configuration.
-            ptp-status:
+                description: PTP profile configuration.
+            ptp_status:
                 type: str
-                description: Deprecated, please rename it to ptp_status. Enable/disable PTP profile on this FortiSwitch.
+                description: Enable/disable PTP profile on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
-            route-offload:
+            route_offload:
                 type: str
-                description: Deprecated, please rename it to route_offload. Enable/disable route offload on this FortiSwitch.
+                description: Enable/disable route offload on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
-            route-offload-mclag:
+            route_offload_mclag:
                 type: str
-                description: Deprecated, please rename it to route_offload_mclag. Enable/disable route offload MCLAG on this FortiSwitch.
+                description: Enable/disable route offload MCLAG on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
-            route-offload-router:
+            route_offload_router:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to route_offload_router. Route offload router.
+                description: Route offload router.
                 suboptions:
-                    router-ip:
+                    router_ip:
                         type: str
-                        description: Deprecated, please rename it to router_ip. Router IP address.
-                    vlan-name:
+                        description: Router IP address.
+                    vlan_name:
                         type: str
-                        description: Deprecated, please rename it to vlan_name. VLAN name.
-            mgmt-mode:
+                        description: VLAN name.
+            mgmt_mode:
                 type: int
-                description: Deprecated, please rename it to mgmt_mode. FortiLink management mode.
-            purdue-level:
+                description: FortiLink management mode.
+            purdue_level:
                 type: str
-                description: Deprecated, please rename it to purdue_level. Purdue Level of this FortiSwitch.
+                description: Purdue Level of this FortiSwitch.
                 choices:
                     - '1'
                     - '2'
@@ -1034,152 +1034,152 @@ options:
                     - '2.5'
                     - '3.5'
                     - '5.5'
-            radius-nas-ip:
+            radius_nas_ip:
                 type: str
-                description: Deprecated, please rename it to radius_nas_ip. NAS-IP address.
-            radius-nas-ip-override:
+                description: NAS-IP address.
+            radius_nas_ip_override:
                 type: str
-                description: Deprecated, please rename it to radius_nas_ip_override. Use locally defined NAS-IP.
+                description: Use locally defined NAS-IP.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-discovered:
+            tunnel_discovered:
                 type: int
-                description: Deprecated, please rename it to tunnel_discovered. Tunnel discovered.
+                description: Tunnel discovered.
             vlan:
                 type: list
                 elements: dict
                 description: Vlan.
                 suboptions:
-                    assignment-priority:
+                    assignment_priority:
                         type: int
-                        description: Deprecated, please rename it to assignment_priority. '802.'
-                    vlan-name:
+                        description: '802.'
+                    vlan_name:
                         type: str
-                        description: Deprecated, please rename it to vlan_name. VLAN name.
-            802-1X-settings:
+                        description: VLAN name.
+            802_1X_settings:
                 type: dict
-                description: Deprecated, please rename it to 802_1X_settings. 802 1X settings.
+                description: 802 1X settings.
                 suboptions:
-                    link-down-auth:
+                    link_down_auth:
                         type: str
-                        description: Deprecated, please rename it to link_down_auth. Authentication state to set if a link is down.
+                        description: Authentication state to set if a link is down.
                         choices:
                             - 'set-unauth'
                             - 'no-action'
-                    local-override:
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable to override global 802.
+                        description: Enable to override global 802.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mab-reauth:
+                    mab_reauth:
                         type: str
-                        description: Deprecated, please rename it to mab_reauth. Enable or disable MAB reauthentication settings.
+                        description: Enable or disable MAB reauthentication settings.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-called-station-delimiter:
+                    mac_called_station_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_called_station_delimiter. MAC called station delimiter
+                        description: MAC called station delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-calling-station-delimiter:
+                    mac_calling_station_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_calling_station_delimiter. MAC calling station delimiter
+                        description: MAC calling station delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-case:
+                    mac_case:
                         type: str
-                        description: Deprecated, please rename it to mac_case. MAC case
+                        description: MAC case
                         choices:
                             - 'uppercase'
                             - 'lowercase'
-                    mac-password-delimiter:
+                    mac_password_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_password_delimiter. MAC authentication password delimiter
+                        description: MAC authentication password delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-username-delimiter:
+                    mac_username_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_username_delimiter. MAC authentication username delimiter
+                        description: MAC authentication username delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    max-reauth-attempt:
+                    max_reauth_attempt:
                         type: int
-                        description: Deprecated, please rename it to max_reauth_attempt. Maximum number of authentication attempts
-                    reauth-period:
+                        description: Maximum number of authentication attempts
+                    reauth_period:
                         type: int
-                        description: Deprecated, please rename it to reauth_period. Reauthentication time interval
-                    tx-period:
+                        description: Reauthentication time interval
+                    tx_period:
                         type: int
-                        description: Deprecated, please rename it to tx_period. '802.'
-            access-profile:
+                        description: '802.'
+            access_profile:
                 type: raw
-                description: (list) Deprecated, please rename it to access_profile. FortiSwitch access profile.
-            delayed-restart-trigger:
+                description: (list) FortiSwitch access profile.
+            delayed_restart_trigger:
                 type: int
-                description: Deprecated, please rename it to delayed_restart_trigger. Delayed restart triggered for this FortiSwitch.
-            directly-connected:
+                description: Delayed restart triggered for this FortiSwitch.
+            directly_connected:
                 type: int
-                description: Deprecated, please rename it to directly_connected. Directly connected.
-            dynamic-capability:
+                description: Directly connected.
+            dynamic_capability:
                 type: str
-                description: Deprecated, please rename it to dynamic_capability. List of features this FortiSwitch supports
-            dynamically-discovered:
+                description: List of features this FortiSwitch supports
+            dynamically_discovered:
                 type: int
-                description: Deprecated, please rename it to dynamically_discovered. Dynamically discovered.
-            flow-identity:
+                description: Dynamically discovered.
+            flow_identity:
                 type: str
-                description: Deprecated, please rename it to flow_identity. Flow-tracking netflow ipfix switch identity in hex format
-            fsw-wan1-admin:
+                description: Flow-tracking netflow ipfix switch identity in hex format
+            fsw_wan1_admin:
                 type: str
-                description: Deprecated, please rename it to fsw_wan1_admin. FortiSwitch WAN1 admin status; enable to authorize the FortiSwitch as a ma...
+                description: FortiSwitch WAN1 admin status; enable to authorize the FortiSwitch as a managed switch.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'discovered'
-            fsw-wan1-peer:
+            fsw_wan1_peer:
                 type: raw
-                description: (list) Deprecated, please rename it to fsw_wan1_peer. FortiSwitch WAN1 peer port.
-            fsw-wan2-admin:
+                description: (list) FortiSwitch WAN1 peer port.
+            fsw_wan2_admin:
                 type: str
-                description: Deprecated, please rename it to fsw_wan2_admin. FortiSwitch WAN2 admin status; enable to authorize the FortiSwitch as a ma...
+                description: FortiSwitch WAN2 admin status; enable to authorize the FortiSwitch as a managed switch.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'discovered'
-            fsw-wan2-peer:
+            fsw_wan2_peer:
                 type: str
-                description: Deprecated, please rename it to fsw_wan2_peer. FortiSwitch WAN2 peer port.
-            igmp-snooping:
+                description: FortiSwitch WAN2 peer port.
+            igmp_snooping:
                 type: dict
-                description: Deprecated, please rename it to igmp_snooping. Igmp snooping.
+                description: Igmp snooping.
                 suboptions:
-                    aging-time:
+                    aging_time:
                         type: int
-                        description: Deprecated, please rename it to aging_time. Maximum time to retain a multicast snooping entry for which no packets...
-                    flood-unknown-multicast:
+                        description: Maximum time to retain a multicast snooping entry for which no packets have been seen
+                    flood_unknown_multicast:
                         type: str
-                        description: Deprecated, please rename it to flood_unknown_multicast. Enable/disable unknown multicast flooding.
+                        description: Enable/disable unknown multicast flooding.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-override:
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable/disable overriding the global IGMP snooping configuration.
+                        description: Enable/disable overriding the global IGMP snooping configuration.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1201,18 +1201,18 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            querier-addr:
+                            querier_addr:
                                 type: str
-                                description: Deprecated, please rename it to querier_addr. IGMP snooping querier address.
+                                description: IGMP snooping querier address.
                             version:
                                 type: int
                                 description: IGMP snooping querying version.
-                            vlan-name:
+                            vlan_name:
                                 type: raw
-                                description: (list) Deprecated, please rename it to vlan_name. List of FortiSwitch VLANs.
-            max-allowed-trunk-members:
+                                description: (list) List of FortiSwitch VLANs.
+            max_allowed_trunk_members:
                 type: int
-                description: Deprecated, please rename it to max_allowed_trunk_members. FortiSwitch maximum allowed trunk members.
+                description: FortiSwitch maximum allowed trunk members.
             mirror:
                 type: list
                 elements: dict
@@ -1224,52 +1224,52 @@ options:
                     name:
                         type: str
                         description: Mirror name.
-                    src-egress:
+                    src_egress:
                         type: raw
-                        description: (list) Deprecated, please rename it to src_egress. Source egress interfaces.
-                    src-ingress:
+                        description: (list) Source egress interfaces.
+                    src_ingress:
                         type: raw
-                        description: (list) Deprecated, please rename it to src_ingress. Source ingress interfaces.
+                        description: (list) Source ingress interfaces.
                     status:
                         type: str
                         description: Active/inactive mirror configuration.
                         choices:
                             - 'inactive'
                             - 'active'
-                    switching-packet:
+                    switching_packet:
                         type: str
-                        description: Deprecated, please rename it to switching_packet. Enable/disable switching functionality when mirroring.
+                        description: Enable/disable switching functionality when mirroring.
                         choices:
                             - 'disable'
                             - 'enable'
-            owner-vdom:
+            owner_vdom:
                 type: str
-                description: Deprecated, please rename it to owner_vdom. VDOM which owner of port belongs to.
-            poe-pre-standard-detection:
+                description: VDOM which owner of port belongs to.
+            poe_pre_standard_detection:
                 type: str
-                description: Deprecated, please rename it to poe_pre_standard_detection. Enable/disable PoE pre-standard detection.
+                description: Enable/disable PoE pre-standard detection.
                 choices:
                     - 'disable'
                     - 'enable'
-            pre-provisioned:
+            pre_provisioned:
                 type: int
-                description: Deprecated, please rename it to pre_provisioned. Pre-provisioned managed switch.
+                description: Pre-provisioned managed switch.
             sn:
                 type: str
                 description: Managed-switch serial number.
-            snmp-sysinfo:
+            snmp_sysinfo:
                 type: dict
-                description: Deprecated, please rename it to snmp_sysinfo. Snmp sysinfo.
+                description: Snmp sysinfo.
                 suboptions:
-                    contact-info:
+                    contact_info:
                         type: str
-                        description: Deprecated, please rename it to contact_info. Contact information.
+                        description: Contact information.
                     description:
                         type: str
                         description: System description.
-                    engine-id:
+                    engine_id:
                         type: str
-                        description: Deprecated, please rename it to engine_id. Local SNMP engine ID string
+                        description: Local SNMP engine ID string
                     location:
                         type: str
                         description: System location.
@@ -1279,26 +1279,26 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            snmp-trap-threshold:
+            snmp_trap_threshold:
                 type: dict
-                description: Deprecated, please rename it to snmp_trap_threshold. Snmp trap threshold.
+                description: Snmp trap threshold.
                 suboptions:
-                    trap-high-cpu-threshold:
+                    trap_high_cpu_threshold:
                         type: int
-                        description: Deprecated, please rename it to trap_high_cpu_threshold. CPU usage when trap is sent.
-                    trap-log-full-threshold:
+                        description: CPU usage when trap is sent.
+                    trap_log_full_threshold:
                         type: int
-                        description: Deprecated, please rename it to trap_log_full_threshold. Log disk usage when trap is sent.
-                    trap-low-memory-threshold:
+                        description: Log disk usage when trap is sent.
+                    trap_low_memory_threshold:
                         type: int
-                        description: Deprecated, please rename it to trap_low_memory_threshold. Memory usage when trap is sent.
-            staged-image-version:
+                        description: Memory usage when trap is sent.
+            staged_image_version:
                 type: str
-                description: Deprecated, please rename it to staged_image_version. Staged image version for FortiSwitch.
-            static-mac:
+                description: Staged image version for FortiSwitch.
+            static_mac:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to static_mac. Static mac.
+                description: Static mac.
                 suboptions:
                     description:
                         type: str
@@ -1321,9 +1321,9 @@ options:
                     vlan:
                         type: raw
                         description: (list) Vlan.
-            storm-control:
+            storm_control:
                 type: dict
-                description: Deprecated, please rename it to storm_control. Storm control.
+                description: Storm control.
                 suboptions:
                     broadcast:
                         type: str
@@ -1331,31 +1331,31 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-override:
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable to override global FortiSwitch storm control settings for t...
+                        description: Enable to override global FortiSwitch storm control settings for this FortiSwitch.
                         choices:
                             - 'disable'
                             - 'enable'
                     rate:
                         type: int
                         description: Rate in packets per second at which storm control drops excess traffic
-                    unknown-multicast:
+                    unknown_multicast:
                         type: str
-                        description: Deprecated, please rename it to unknown_multicast. Enable/disable storm control to drop unknown multicast traffic.
+                        description: Enable/disable storm control to drop unknown multicast traffic.
                         choices:
                             - 'disable'
                             - 'enable'
-                    unknown-unicast:
+                    unknown_unicast:
                         type: str
-                        description: Deprecated, please rename it to unknown_unicast. Enable/disable storm control to drop unknown unicast traffic.
+                        description: Enable/disable storm control to drop unknown unicast traffic.
                         choices:
                             - 'disable'
                             - 'enable'
-            stp-instance:
+            stp_instance:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to stp_instance. Stp instance.
+                description: Stp instance.
                 suboptions:
                     id:
                         type: str
@@ -1381,34 +1381,34 @@ options:
                             - '53248'
                             - '57344'
                             - '61440'
-            stp-settings:
+            stp_settings:
                 type: dict
-                description: Deprecated, please rename it to stp_settings. Stp settings.
+                description: Stp settings.
                 suboptions:
-                    forward-time:
+                    forward_time:
                         type: int
-                        description: Deprecated, please rename it to forward_time. Period of time a port is in listening and learning state
-                    hello-time:
+                        description: Period of time a port is in listening and learning state
+                    hello_time:
                         type: int
-                        description: Deprecated, please rename it to hello_time. Period of time between successive STP frame Bridge Protocol Data Units
-                    local-override:
+                        description: Period of time between successive STP frame Bridge Protocol Data Units
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable to configure local STP settings that override global STP se...
+                        description: Enable to configure local STP settings that override global STP settings.
                         choices:
                             - 'disable'
                             - 'enable'
-                    max-age:
+                    max_age:
                         type: int
-                        description: Deprecated, please rename it to max_age. Maximum time before a bridge port saves its configuration BPDU information
-                    max-hops:
+                        description: Maximum time before a bridge port saves its configuration BPDU information
+                    max_hops:
                         type: int
-                        description: Deprecated, please rename it to max_hops. Maximum number of hops between the root bridge and the furthest bridge
+                        description: Maximum number of hops between the root bridge and the furthest bridge
                     name:
                         type: str
                         description: Name of local STP settings configuration.
-                    pending-timer:
+                    pending_timer:
                         type: int
-                        description: Deprecated, please rename it to pending_timer. Pending time
+                        description: Pending time
                     revision:
                         type: int
                         description: STP revision number
@@ -1418,16 +1418,16 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            switch-device-tag:
+            switch_device_tag:
                 type: str
-                description: Deprecated, please rename it to switch_device_tag. User definable label/tag.
-            switch-log:
+                description: User definable label/tag.
+            switch_log:
                 type: dict
-                description: Deprecated, please rename it to switch_log. Switch log.
+                description: Switch log.
                 suboptions:
-                    local-override:
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable to configure local logging settings that override global lo...
+                        description: Enable to configure local logging settings that override global logging settings.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1449,9 +1449,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            switch-profile:
+            switch_profile:
                 type: raw
-                description: (list) Deprecated, please rename it to switch_profile. FortiSwitch profile.
+                description: (list) FortiSwitch profile.
             type:
                 type: str
                 description: Indication of switch type, physical or virtual.
@@ -1461,9 +1461,9 @@ options:
             version:
                 type: int
                 description: FortiSwitch version.
-            poe-lldp-detection:
+            poe_lldp_detection:
                 type: str
-                description: Deprecated, please rename it to poe_lldp_detection. Enable/disable PoE LLDP detection.
+                description: Enable/disable PoE LLDP detection.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1630,12 +1630,12 @@ EXAMPLES = '''
           snmp_community:
             -
               events:
-                - cpu-high
-                - mem-low
-                - log-full
-                - intf-ip
-                - ent-conf-change
-                - l2mac
+                - "cpu-high"
+                - "mem-low"
+                - "log-full"
+                - "intf-ip"
+                - "ent-conf-change"
+                - "l2mac"
               hosts:
                 -
                   id: <integer>
@@ -1847,23 +1847,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/managed-switch',
         '/pm/config/global/obj/switch-controller/managed-switch'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}',
-        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'switch-id'
     module_arg_spec = {
@@ -1920,14 +1912,14 @@ def main():
                         'type': {'choices': ['physical', 'trunk'], 'type': 'str'},
                         'untagged-vlans': {'type': 'raw'},
                         'vlan': {'type': 'str'},
-                        'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.4.3', '']], 'type': 'str'},
+                        'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                         'packet-sample-rate': {'v_range': [['6.2.0', '']], 'type': 'int'},
                         'packet-sampler': {'v_range': [['6.2.0', '']], 'choices': ['disabled', 'enabled'], 'type': 'str'},
                         'sticky-mac': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
-                        'dot1x-enable': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'},
+                        'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'dot1x-enable': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'},
                         'access-mode': {'v_range': [['6.4.0', '']], 'choices': ['normal', 'nac', 'dynamic', 'static'], 'type': 'str'},
                         'ip-source-guard': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'mclag-icl-port': {'v_range': [['6.4.0', '']], 'type': 'int'},
@@ -1938,7 +1930,7 @@ def main():
                         'media-type': {'v_range': [['6.4.3', '']], 'type': 'str'},
                         'pause-meter': {'v_range': [['6.4.3', '']], 'type': 'int'},
                         'pause-meter-resume': {'v_range': [['6.4.3', '']], 'choices': ['25%', '50%', '75%'], 'type': 'str'},
-                        'trunk-member': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
+                        'trunk-member': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
                         'fec-capable': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'fec-state': {'v_range': [['7.0.0', '']], 'choices': ['disabled', 'cl74', 'cl91', 'detect-by-module'], 'type': 'str'},
                         'matched-dpp-intf-tags': {'v_range': [['7.0.0', '']], 'type': 'str'},
@@ -1982,23 +1974,23 @@ def main():
                         'ptp-status': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'restricted-auth-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'allow-arp-monitor': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'export-to': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                        'export-to-pool': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                        'export-to': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                        'export-to-pool': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                         'fallback-port': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'fgt-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'fgt-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'fiber-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'flags': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'fortilink-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'isl-local-trunk-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'isl-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'isl-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'poe-capable': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'port-number': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'port-prefix-type': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'ptp-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                        'fgt-peer-device-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'fgt-peer-port-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'fiber-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'flags': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'fortilink-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'isl-local-trunk-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'isl-peer-device-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'isl-peer-port-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'poe-capable': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'port-number': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'port-prefix-type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'ptp-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                         'speed': {
-                            'v_range': [['7.4.3', '']],
+                            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': [
                                 'auto', '10full', '10half', '100full', '100half', '1000full', '10000full', '1000auto', '40000full', '1000fiber', '10000',
                                 '40000', 'auto-module', '100FX-half', '100FX-full', '100000full', '2500full', '25000full', '50000full', '40000auto',
@@ -2007,13 +1999,13 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'speed-mask': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'stacking-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'switch-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'virtual-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'export-tags': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                        'speed-mask': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'stacking-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'switch-id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'virtual-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'export-tags': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                         'log-mac-event': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pd-capable': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                        'pd-capable': {'v_range': [['7.4.4', '']], 'type': 'int'},
                         'qnq': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
@@ -2025,86 +2017,102 @@ def main():
                 'override-snmp-user': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'poe-detection-type': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'remote-log': {
-                    'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                    'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
-                        'csv': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'csv': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'facility': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': [
                                 'kernel', 'user', 'mail', 'daemon', 'auth', 'syslog', 'lpr', 'news', 'uucp', 'cron', 'authpriv', 'ftp', 'ntp', 'audit',
                                 'alert', 'clock', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7'
                             ],
                             'type': 'str'
                         },
-                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
-                        'port': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'server': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
+                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'port': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'server': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                         'severity': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['emergency', 'alert', 'critical', 'error', 'warning', 'notification', 'information', 'debug'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'status': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'snmp-community': {
-                    'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                    'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
                         'events': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'type': 'list',
                             'choices': ['cpu-high', 'mem-low', 'log-full', 'intf-ip', 'ent-conf-change', 'l2mac'],
                             'elements': 'str'
                         },
                         'hosts': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'type': 'list',
                             'options': {
-                                'id': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                                'ip': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'str'}
+                                'id': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                                'ip': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'id': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
-                        'query-v1-port': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'query-v1-status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'query-v2c-port': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'query-v2c-status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'trap-v1-lport': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'trap-v1-rport': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'trap-v1-status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'trap-v2c-lport': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'trap-v2c-rport': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                        'trap-v2c-status': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'id': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'query-v1-port': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'query-v1-status': {
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        },
+                        'query-v2c-port': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'query-v2c-status': {
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        },
+                        'status': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'trap-v1-lport': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-v1-rport': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-v1-status': {
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        },
+                        'trap-v2c-lport': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-v2c-rport': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-v2c-status': {
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        }
                     },
                     'elements': 'dict'
                 },
                 'snmp-user': {
-                    'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                    'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
                         'auth-proto': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['md5', 'sha', 'sha1', 'sha256', 'sha384', 'sha512', 'sha224'],
                             'type': 'str'
                         },
-                        'auth-pwd': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'raw'},
-                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
+                        'auth-pwd': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                        'name': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                         'priv-proto': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['des', 'aes', 'aes128', 'aes192', 'aes256', 'aes192c', 'aes256c'],
                             'type': 'str'
                         },
-                        'priv-pwd': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'raw'},
-                        'queries': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'query-port': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
+                        'priv-pwd': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                        'queries': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'query-port': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
                         'security-level': {
-                            'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']],
+                            'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['no-auth-no-priv', 'auth-no-priv', 'auth-priv'],
                             'type': 'str'
                         }
@@ -2113,21 +2121,21 @@ def main():
                 },
                 'mclag-igmp-snooping-aware': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip-source-guard': {
-                    'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']],
+                    'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
                         'binding-entry': {
-                            'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']],
+                            'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'type': 'list',
                             'options': {
-                                'entry-name': {'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']], 'type': 'str'},
-                                'ip': {'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']], 'type': 'str'},
-                                'mac': {'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']], 'type': 'str'}
+                                'entry-name': {'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                                'ip': {'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                                'mac': {'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'description': {'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']], 'type': 'str'},
-                        'port': {'v_range': [['6.4.0', '6.4.1'], ['7.4.3', '']], 'type': 'str'}
+                        'description': {'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'port': {'v_range': [['6.4.0', '6.4.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -2170,8 +2178,8 @@ def main():
                 },
                 'mgmt-mode': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'purdue-level': {'v_range': [['7.4.2', '']], 'choices': ['1', '2', '3', '4', '5', '1.5', '2.5', '3.5', '5.5'], 'type': 'str'},
-                'radius-nas-ip': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'radius-nas-ip-override': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'radius-nas-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'radius-nas-ip-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-discovered': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'vlan': {
                     'v_range': [['7.4.2', '']],
@@ -2183,12 +2191,12 @@ def main():
                     'elements': 'dict'
                 },
                 '802-1X-settings': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'link-down-auth': {'v_range': [['7.4.3', '']], 'choices': ['set-unauth', 'no-action'], 'type': 'str'},
-                        'local-override': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'mab-reauth': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'link-down-auth': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['set-unauth', 'no-action'], 'type': 'str'},
+                        'local-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mab-reauth': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'mac-called-station-delimiter': {
                             'v_range': [['7.4.3', '']],
                             'choices': ['hyphen', 'single-hyphen', 'colon', 'none'],
@@ -2202,112 +2210,112 @@ def main():
                         'mac-case': {'v_range': [['7.4.3', '']], 'choices': ['uppercase', 'lowercase'], 'type': 'str'},
                         'mac-password-delimiter': {'v_range': [['7.4.3', '']], 'choices': ['hyphen', 'single-hyphen', 'colon', 'none'], 'type': 'str'},
                         'mac-username-delimiter': {'v_range': [['7.4.3', '']], 'choices': ['hyphen', 'single-hyphen', 'colon', 'none'], 'type': 'str'},
-                        'max-reauth-attempt': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'reauth-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'tx-period': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                        'max-reauth-attempt': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'reauth-period': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'tx-period': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'}
                     }
                 },
-                'access-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'delayed-restart-trigger': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'directly-connected': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'dynamic-capability': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'dynamically-discovered': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'flow-identity': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fsw-wan1-admin': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'discovered'], 'type': 'str'},
-                'fsw-wan1-peer': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'fsw-wan2-admin': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'discovered'], 'type': 'str'},
-                'fsw-wan2-peer': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'access-profile': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'delayed-restart-trigger': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'directly-connected': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'dynamic-capability': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dynamically-discovered': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'flow-identity': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'fsw-wan1-admin': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'discovered'], 'type': 'str'},
+                'fsw-wan1-peer': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'fsw-wan2-admin': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'discovered'], 'type': 'str'},
+                'fsw-wan2-peer': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'igmp-snooping': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'aging-time': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'flood-unknown-multicast': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'local-override': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'aging-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'flood-unknown-multicast': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'local-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'vlans': {
-                            'v_range': [['7.4.3', '']],
+                            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'type': 'list',
                             'options': {
-                                'proxy': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
-                                'querier': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'querier-addr': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                                'version': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                                'vlan-name': {'v_range': [['7.4.3', '']], 'type': 'raw'}
+                                'proxy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
+                                'querier': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'querier-addr': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                                'version': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                                'vlan-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'}
                             },
                             'elements': 'dict'
                         }
                     }
                 },
-                'max-allowed-trunk-members': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'max-allowed-trunk-members': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
                 'mirror': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
-                        'dst': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'src-egress': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                        'src-ingress': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['inactive', 'active'], 'type': 'str'},
-                        'switching-packet': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dst': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'src-egress': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                        'src-ingress': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                        'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['inactive', 'active'], 'type': 'str'},
+                        'switching-packet': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'owner-vdom': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'poe-pre-standard-detection': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pre-provisioned': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'owner-vdom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'poe-pre-standard-detection': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pre-provisioned': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
                 'sn': {'v_range': [['7.4.3', '']], 'type': 'str'},
                 'snmp-sysinfo': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'contact-info': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'description': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'engine-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'location': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'contact-info': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'description': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'engine-id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'location': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'snmp-trap-threshold': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'trap-high-cpu-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'trap-log-full-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'trap-low-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                        'trap-high-cpu-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-log-full-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'trap-low-memory-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'}
                     }
                 },
-                'staged-image-version': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'staged-image-version': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'static-mac': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
-                        'description': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'interface': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'mac': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'type': {'v_range': [['7.4.3', '']], 'choices': ['static', 'sticky'], 'type': 'str'},
-                        'vlan': {'v_range': [['7.4.3', '']], 'type': 'raw'}
+                        'description': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'interface': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'mac': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['static', 'sticky'], 'type': 'str'},
+                        'vlan': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
                 'storm-control': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'broadcast': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'local-override': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'unknown-multicast': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'unknown-unicast': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'broadcast': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'local-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'unknown-multicast': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'unknown-unicast': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'stp-instance': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                         'priority': {
-                            'v_range': [['7.4.3', '']],
+                            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': [
                                 '0', '4096', '8192', '12288', '12328', '16384', '20480', '24576', '28672', '32768', '36864', '40960', '45056', '49152',
                                 '53248', '57344', '61440'
@@ -2318,40 +2326,39 @@ def main():
                     'elements': 'dict'
                 },
                 'stp-settings': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'forward-time': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'hello-time': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'local-override': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'max-age': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'max-hops': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                        'pending-timer': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'revision': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'forward-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'hello-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'local-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'max-age': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'max-hops': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                        'pending-timer': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'revision': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                        'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
-                'switch-device-tag': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'switch-device-tag': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'switch-log': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'type': 'dict',
                     'options': {
-                        'local-override': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'local-override': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'severity': {
-                            'v_range': [['7.4.3', '']],
+                            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['emergency', 'alert', 'critical', 'error', 'warning', 'notification', 'information', 'debug'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
-                'switch-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'type': {'v_range': [['7.4.3', '']], 'choices': ['physical', 'virtual'], 'type': 'str'},
-                'version': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'poe-lldp-detection': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'switch-profile': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['physical', 'virtual'], 'type': 'str'},
+                'version': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'poe-lldp-detection': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -2365,9 +2372,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

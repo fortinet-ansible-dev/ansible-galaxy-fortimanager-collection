@@ -86,15 +86,15 @@ options:
         required: false
         type: dict
         suboptions:
-            trap-high-cpu-threshold:
+            trap_high_cpu_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_high_cpu_threshold. CPU usage when trap is sent.
-            trap-log-full-threshold:
+                description: CPU usage when trap is sent.
+            trap_log_full_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_log_full_threshold. Log disk usage when trap is sent.
-            trap-low-memory-threshold:
+                description: Log disk usage when trap is sent.
+            trap_low_memory_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_low_memory_threshold. Memory usage when trap is sent.
+                description: Memory usage when trap is sent.
 '''
 
 EXAMPLES = '''
@@ -162,23 +162,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold',
         '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold/{snmp-trap-threshold}',
-        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-trap-threshold/{snmp-trap-threshold}'
-    ]
-
     url_params = ['adom', 'managed-switch']
     module_primary_key = None
     module_arg_spec = {
@@ -193,7 +185,6 @@ def main():
                 'trap-log-full-threshold': {'v_range': [['6.2.1', '6.2.3']], 'type': 'int'},
                 'trap-low-memory-threshold': {'v_range': [['6.2.1', '6.2.3']], 'type': 'int'}
             }
-
         }
     }
 
@@ -207,9 +198,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

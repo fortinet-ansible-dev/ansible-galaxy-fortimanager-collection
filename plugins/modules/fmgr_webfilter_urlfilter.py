@@ -106,9 +106,9 @@ options:
                             - 'allow'
                             - 'monitor'
                             - 'pass'
-                    dns-address-family:
+                    dns_address_family:
                         type: str
-                        description: Deprecated, please rename it to dns_address_family. Resolve IPv4 address, IPv6 address, or both from DNS server.
+                        description: Resolve IPv4 address, IPv6 address, or both from DNS server.
                         choices:
                             - 'ipv4'
                             - 'ipv6'
@@ -131,9 +131,9 @@ options:
                     id:
                         type: int
                         description: Id.
-                    referrer-host:
+                    referrer_host:
                         type: str
-                        description: Deprecated, please rename it to referrer_host. Referrer host name.
+                        description: Referrer host name.
                     status:
                         type: str
                         description: Enable/disable this URL filter.
@@ -150,12 +150,12 @@ options:
                     url:
                         type: str
                         description: URL to be filtered.
-                    web-proxy-profile:
+                    web_proxy_profile:
                         type: str
-                        description: Deprecated, please rename it to web_proxy_profile. Web proxy profile.
-                    antiphish-action:
+                        description: Web proxy profile.
+                    antiphish_action:
                         type: str
-                        description: Deprecated, please rename it to antiphish_action. Action to take for AntiPhishing matches.
+                        description: Action to take for AntiPhishing matches.
                         choices:
                             - 'block'
                             - 'log'
@@ -163,24 +163,24 @@ options:
                 type: int
                 description: ID.
                 required: true
-            ip-addr-block:
+            ip_addr_block:
                 type: str
-                description: Deprecated, please rename it to ip_addr_block. Enable/disable blocking URLs when the hostname appears as an IP address.
+                description: Enable/disable blocking URLs when the hostname appears as an IP address.
                 choices:
                     - 'disable'
                     - 'enable'
             name:
                 type: str
                 description: Name of URL filter list.
-            one-arm-ips-urlfilter:
+            one_arm_ips_urlfilter:
                 type: str
-                description: Deprecated, please rename it to one_arm_ips_urlfilter. Enable/disable DNS resolver for one-arm IPS URL filter operation.
+                description: Enable/disable DNS resolver for one-arm IPS URL filter operation.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip4-mapped-ip6:
+            ip4_mapped_ip6:
                 type: str
-                description: Deprecated, please rename it to ip4_mapped_ip6. Enable/disable matching of IPv4 mapped IPv6 URLs.
+                description: Enable/disable matching of IPv4 mapped IPv6 URLs.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -211,16 +211,16 @@ EXAMPLES = '''
               action: <value in [exempt, block, allow, ...]>
               dns_address_family: <value in [ipv4, ipv6, both]>
               exempt:
-                - av
-                - web-content
-                - activex-java-cookie
-                - dlp
-                - fortiguard
-                - all
-                - filepattern
-                - pass
-                - range-block
-                - antiphish
+                - "av"
+                - "web-content"
+                - "activex-java-cookie"
+                - "dlp"
+                - "fortiguard"
+                - "all"
+                - "filepattern"
+                - "pass"
+                - "range-block"
+                - "antiphish"
               id: <integer>
               referrer_host: <string>
               status: <value in [disable, enable]>
@@ -276,23 +276,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/urlfilter',
         '/pm/config/global/obj/webfilter/urlfilter'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/urlfilter/{urlfilter}',
-        '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -331,7 +323,6 @@ def main():
                 'one-arm-ips-urlfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip4-mapped-ip6': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -345,9 +336,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

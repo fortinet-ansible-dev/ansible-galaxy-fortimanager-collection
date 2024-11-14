@@ -89,31 +89,31 @@ options:
         required: false
         type: dict
         suboptions:
-            aoc-list:
+            aoc_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to aoc_list. Aoc list.
+                description: Aoc list.
                 suboptions:
-                    nai-realm:
+                    nai_realm:
                         type: str
-                        description: Deprecated, please rename it to nai_realm. NAI realm list name.
-                    nai-realm-encoding:
+                        description: NAI realm list name.
+                    nai_realm_encoding:
                         type: str
-                        description: Deprecated, please rename it to nai_realm_encoding. NAI realm encoding.
+                        description: NAI realm encoding.
                     name:
                         type: str
                         description: Advice of charge ID.
-                    plan-info:
+                    plan_info:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to plan_info. Plan info.
+                        description: Plan info.
                         suboptions:
                             currency:
                                 type: str
                                 description: Currency code.
-                            info-file:
+                            info_file:
                                 type: str
-                                description: Deprecated, please rename it to info_file. Info file.
+                                description: Info file.
                             lang:
                                 type: str
                                 description: Language code.
@@ -209,23 +209,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge',
         '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}',
-        '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-advice-of-charge/{h2qp-advice-of-charge}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -262,7 +254,6 @@ def main():
                 },
                 'name': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -276,9 +267,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

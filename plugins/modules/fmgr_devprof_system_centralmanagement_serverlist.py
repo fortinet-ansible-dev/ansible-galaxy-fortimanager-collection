@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            addr-type:
+            addr_type:
                 type: str
-                description: Deprecated, please rename it to addr_type. Indicate whether the FortiGate communicates with the override server using an I...
+                description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
                 choices:
                     - 'fqdn'
                     - 'ipv4'
@@ -107,16 +107,16 @@ options:
                 type: int
                 description: ID.
                 required: true
-            server-address:
+            server_address:
                 type: str
-                description: Deprecated, please rename it to server_address. IPv4 address of override server.
-            server-address6:
+                description: IPv4 address of override server.
+            server_address6:
                 type: str
-                description: Deprecated, please rename it to server_address6. IPv6 address of override server.
-            server-type:
+                description: IPv6 address of override server.
+            server_type:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to server_type. FortiGuard service type.
+                description: FortiGuard service type.
                 choices:
                     - 'update'
                     - 'rating'
@@ -207,21 +207,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/server-list'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/server-list/{server-list}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -243,7 +236,6 @@ def main():
                     'elements': 'str'
                 }
             }
-
         }
     }
 
@@ -257,9 +249,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

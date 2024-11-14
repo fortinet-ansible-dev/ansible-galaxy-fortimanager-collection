@@ -124,9 +124,9 @@ options:
             mac:
                 type: str
                 description: Mac.
-            master-device:
+            master_device:
                 type: str
-                description: Deprecated, please rename it to master_device. Master device.
+                description: Master device.
             tags:
                 type: raw
                 description: (list or str) Tags.
@@ -161,18 +161,18 @@ options:
             family:
                 type: str
                 description: Family.
-            hardware-vendor:
+            hardware_vendor:
                 type: str
-                description: Deprecated, please rename it to hardware_vendor. Hardware vendor.
-            hardware-version:
+                description: Hardware vendor.
+            hardware_version:
                 type: str
-                description: Deprecated, please rename it to hardware_version. Hardware version.
+                description: Hardware version.
             os:
                 type: str
                 description: Os.
-            software-version:
+            software_version:
                 type: str
-                description: Deprecated, please rename it to software_version. Software version.
+                description: Software version.
 '''
 
 EXAMPLES = '''
@@ -259,23 +259,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping',
         '/pm/config/global/obj/user/device/{device}/dynamic_mapping'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}',
-        '/pm/config/global/obj/user/device/{device}/dynamic_mapping/{dynamic_mapping}'
-    ]
-
     url_params = ['adom', 'device']
     module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
     module_arg_spec = {
@@ -283,26 +275,29 @@ def main():
         'device': {'required': True, 'type': 'str'},
         'user_device_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.4.2']],
+            'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']],
             'options': {
                 '_scope': {
-                    'v_range': [['6.0.0', '7.4.2']],
+                    'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'}},
+                    'options': {
+                        'name': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                        'vdom': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'}
+                    },
                     'elements': 'dict'
                 },
-                'avatar': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
+                'avatar': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
                 'category': {
-                    'v_range': [['6.0.0', '7.4.2']],
+                    'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']],
                     'choices': ['none', 'android-device', 'blackberry-device', 'fortinet-device', 'ios-device', 'windows-device', 'amazon-device'],
                     'type': 'str'
                 },
-                'comment': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
-                'mac': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
-                'master-device': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
-                'tags': {'v_range': [['6.0.0', '7.4.2']], 'type': 'raw'},
+                'comment': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'mac': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'master-device': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
                 'type': {
-                    'v_range': [['6.0.0', '7.4.2']],
+                    'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']],
                     'choices': [
                         'ipad', 'iphone', 'gaming-console', 'blackberry-phone', 'blackberry-playbook', 'linux-pc', 'mac', 'windows-pc', 'android-phone',
                         'android-tablet', 'media-streaming', 'windows-phone', 'fortinet-device', 'ip-phone', 'router-nat-device', 'other-network-device',
@@ -310,14 +305,13 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'user': {'v_range': [['6.0.0', '7.4.2']], 'type': 'str'},
-                'family': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
-                'hardware-vendor': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
-                'hardware-version': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
-                'os': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'},
-                'software-version': {'v_range': [['6.2.1', '7.4.2']], 'type': 'str'}
+                'user': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'family': {'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'hardware-vendor': {'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'hardware-version': {'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'os': {'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'},
+                'software-version': {'v_range': [['6.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'str'}
             }
-
         }
     }
 
@@ -331,9 +325,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

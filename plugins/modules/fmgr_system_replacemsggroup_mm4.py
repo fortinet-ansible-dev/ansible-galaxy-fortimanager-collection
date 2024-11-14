@@ -95,9 +95,9 @@ options:
         required: false
         type: dict
         suboptions:
-            add-smil:
+            add_smil:
                 type: str
-                description: Deprecated, please rename it to add_smil. Add message encapsulation
+                description: Add message encapsulation
                 choices:
                     - 'disable'
                     - 'enable'
@@ -130,9 +130,9 @@ options:
             from:
                 type: str
                 description: From address
-            from-sender:
+            from_sender:
                 type: str
-                description: Deprecated, please rename it to from_sender. Notification message sent from recipient
+                description: Notification message sent from recipient
                 choices:
                     - 'disable'
                     - 'enable'
@@ -149,9 +149,9 @@ options:
             fmgr_message:
                 type: str
                 description: Message text
-            msg-type:
+            msg_type:
                 type: str
-                description: Deprecated, please rename it to msg_type. Message type.
+                description: Message type.
                 required: true
             priority:
                 type: str
@@ -161,9 +161,9 @@ options:
                     - 'normal'
                     - 'high'
                     - 'not-included'
-            rsp-status:
+            rsp_status:
                 type: str
-                description: Deprecated, please rename it to rsp_status. Response status
+                description: Response status
                 choices:
                     - 'ok'
                     - 'err-unspecified'
@@ -173,9 +173,9 @@ options:
                     - 'err-net-prob'
                     - 'err-content-not-accept'
                     - 'err-unsupp-msg'
-            smil-part:
+            smil_part:
                 type: str
-                description: Deprecated, please rename it to smil_part. Message encapsulation text
+                description: Message encapsulation text
             subject:
                 type: str
                 description: Subject text string
@@ -259,23 +259,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm4',
         '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm4'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}/mm4/{mm4}',
-        '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}/mm4/{mm4}'
-    ]
-
     url_params = ['adom', 'replacemsg-group']
     module_primary_key = 'msg-type'
     module_arg_spec = {
@@ -308,7 +300,6 @@ def main():
                 'smil-part': {'type': 'str'},
                 'subject': {'type': 'str'}
             }
-
         }
     }
 
@@ -322,9 +313,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

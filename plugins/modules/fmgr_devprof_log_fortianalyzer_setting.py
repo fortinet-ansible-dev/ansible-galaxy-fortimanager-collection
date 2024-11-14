@@ -87,12 +87,12 @@ options:
             certificate:
                 type: str
                 description: Certificate used to communicate with FortiAnalyzer.
-            conn-timeout:
+            conn_timeout:
                 type: int
-                description: Deprecated, please rename it to conn_timeout. FortiAnalyzer connection time-out in seconds
-            enc-algorithm:
+                description: FortiAnalyzer connection time-out in seconds
+            enc_algorithm:
                 type: str
-                description: Deprecated, please rename it to enc_algorithm. Enable/disable sending FortiAnalyzer log data with SSL encryption.
+                description: Enable/disable sending FortiAnalyzer log data with SSL encryption.
                 choices:
                     - 'default'
                     - 'high'
@@ -100,33 +100,33 @@ options:
                     - 'disable'
                     - 'high-medium'
                     - 'low-medium'
-            hmac-algorithm:
+            hmac_algorithm:
                 type: str
-                description: Deprecated, please rename it to hmac_algorithm. FortiAnalyzer IPsec tunnel HMAC algorithm.
+                description: FortiAnalyzer IPsec tunnel HMAC algorithm.
                 choices:
                     - 'sha256'
                     - 'sha1'
-            ips-archive:
+            ips_archive:
                 type: str
-                description: Deprecated, please rename it to ips_archive. Enable/disable IPS packet archive logging.
+                description: Enable/disable IPS packet archive logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            monitor-failure-retry-period:
+            monitor_failure_retry_period:
                 type: int
-                description: Deprecated, please rename it to monitor_failure_retry_period. Time between FortiAnalyzer connection retries in seconds
-            monitor-keepalive-period:
+                description: Time between FortiAnalyzer connection retries in seconds
+            monitor_keepalive_period:
                 type: int
-                description: Deprecated, please rename it to monitor_keepalive_period. Time between OFTP keepalives in seconds
+                description: Time between OFTP keepalives in seconds
             reliable:
                 type: str
                 description: Enable/disable reliable logging to FortiAnalyzer.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-min-proto-version:
+            ssl_min_proto_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_version. Minimum supported protocol version for SSL/TLS connections
+                description: Minimum supported protocol version for SSL/TLS connections
                 choices:
                     - 'default'
                     - 'TLSv1'
@@ -134,42 +134,42 @@ options:
                     - 'TLSv1-2'
                     - 'SSLv3'
                     - 'TLSv1-3'
-            upload-day:
+            upload_day:
                 type: str
-                description: Deprecated, please rename it to upload_day. Day of week
-            upload-interval:
+                description: Day of week
+            upload_interval:
                 type: str
-                description: Deprecated, please rename it to upload_interval. Frequency to upload log files to FortiAnalyzer.
+                description: Frequency to upload log files to FortiAnalyzer.
                 choices:
                     - 'daily'
                     - 'weekly'
                     - 'monthly'
-            upload-option:
+            upload_option:
                 type: str
-                description: Deprecated, please rename it to upload_option. Enable/disable logging to hard disk and then uploading to FortiAnalyzer.
+                description: Enable/disable logging to hard disk and then uploading to FortiAnalyzer.
                 choices:
                     - 'store-and-upload'
                     - 'realtime'
                     - '1-minute'
                     - '5-minute'
-            upload-time:
+            upload_time:
                 type: str
-                description: Deprecated, please rename it to upload_time. Time to upload logs
-            access-config:
+                description: Time to upload logs
+            access_config:
                 type: str
-                description: Deprecated, please rename it to access_config. Enable/disable FortiAnalyzer access to configuration and data.
+                description: Enable/disable FortiAnalyzer access to configuration and data.
                 choices:
                     - 'disable'
                     - 'enable'
-            certificate-verification:
+            certificate_verification:
                 type: str
-                description: Deprecated, please rename it to certificate_verification. Enable/disable identity verification of FortiAnalyzer by use of ...
+                description: Enable/disable identity verification of FortiAnalyzer by use of certificate.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-log-rate:
+            max_log_rate:
                 type: int
-                description: Deprecated, please rename it to max_log_rate. FortiAnalyzer maximum log rate in MBps
+                description: FortiAnalyzer maximum log rate in MBps
             priority:
                 type: str
                 description: Set log transmission priority.
@@ -179,34 +179,34 @@ options:
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
-            preshared-key:
+            preshared_key:
                 type: str
-                description: Deprecated, please rename it to preshared_key. Preshared-key used for auto-authorization on FortiAnalyzer.
-            alt-server:
+                description: Preshared-key used for auto-authorization on FortiAnalyzer.
+            alt_server:
                 type: str
-                description: Deprecated, please rename it to alt_server. Alt server.
-            fallback-to-primary:
+                description: Alt server.
+            fallback_to_primary:
                 type: str
-                description: Deprecated, please rename it to fallback_to_primary. Enable/disable this FortiGate unit to fallback to the primary FortiAn...
+                description: Enable/disable this FortiGate unit to fallback to the primary FortiAnalyzer when it is available.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-cert-ca:
+            server_cert_ca:
                 type: str
-                description: Deprecated, please rename it to server_cert_ca. Mandatory CA on FortiGate in certificate chain of server.
+                description: Mandatory CA on FortiGate in certificate chain of server.
             serial:
                 type: raw
                 description: (list) Serial numbers of the FortiAnalyzer.
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
+                description: Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
             status:
                 type: str
                 description: Enable/disable logging to FortiAnalyzer.
@@ -311,21 +311,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/log/fortianalyzer/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/log/fortianalyzer/setting/{setting}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -372,19 +365,18 @@ def main():
                 },
                 'max-log-rate': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'int'},
                 'priority': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['low', 'default'], 'type': 'str'},
-                'interface': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'interface': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'preshared-key': {'v_range': [['7.0.0', '']], 'no_log': True, 'type': 'str'},
                 'alt-server': {'v_range': [['7.2.2', '']], 'type': 'str'},
-                'fallback-to-primary': {'v_range': [['7.2.5', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'server-cert-ca': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'str'},
-                'serial': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                '__change_ip': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'server': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'fallback-to-primary': {'v_range': [['7.2.5', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'server-cert-ca': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'serial': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '__change_ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'server': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -398,9 +390,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

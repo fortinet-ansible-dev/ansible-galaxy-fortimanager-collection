@@ -89,21 +89,21 @@ options:
         required: false
         type: dict
         suboptions:
-            ip-address:
+            ip_address:
                 type: str
-                description: Deprecated, please rename it to ip_address. IPv4 address of the ICAP server.
-            ip-version:
+                description: IPv4 address of the ICAP server.
+            ip_version:
                 type: str
-                description: Deprecated, please rename it to ip_version. IP version.
+                description: IP version.
                 choices:
                     - '4'
                     - '6'
-            ip6-address:
+            ip6_address:
                 type: str
-                description: Deprecated, please rename it to ip6_address. IPv6 address of the ICAP server.
-            max-connections:
+                description: IPv6 address of the ICAP server.
+            max_connections:
                 type: int
-                description: Deprecated, please rename it to max_connections. Maximum number of concurrent connections to ICAP server.
+                description: Maximum number of concurrent connections to ICAP server.
             name:
                 type: str
                 description: Server name.
@@ -117,12 +117,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-cert:
+            ssl_cert:
                 type: str
-                description: Deprecated, please rename it to ssl_cert. CA certificate name.
-            addr-type:
+                description: CA certificate name.
+            addr_type:
                 type: str
-                description: Deprecated, please rename it to addr_type. Address type of the remote ICAP server
+                description: Address type of the remote ICAP server
                 choices:
                     - 'fqdn'
                     - 'ip4'
@@ -136,9 +136,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            healthcheck-service:
+            healthcheck_service:
                 type: str
-                description: Deprecated, please rename it to healthcheck_service. ICAP Service name to use for health checks.
+                description: ICAP Service name to use for health checks.
 '''
 
 EXAMPLES = '''
@@ -215,23 +215,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/icap/server',
         '/pm/config/global/obj/icap/server'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/icap/server/{server}',
-        '/pm/config/global/obj/icap/server/{server}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -253,7 +245,6 @@ def main():
                 'healthcheck': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'healthcheck-service': {'v_range': [['7.2.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -267,9 +258,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -105,9 +105,9 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            pdelay-req-interval:
+            pdelay_req_interval:
                 type: str
-                description: Deprecated, please rename it to pdelay_req_interval. Configure PTP peer delay request interval.
+                description: Configure PTP peer delay request interval.
                 choices:
                     - '1sec'
                     - '2sec'
@@ -115,9 +115,9 @@ options:
                     - '8sec'
                     - '16sec'
                     - '32sec'
-            ptp-profile:
+            ptp_profile:
                 type: str
-                description: Deprecated, please rename it to ptp_profile. Configure PTP power profile.
+                description: Configure PTP power profile.
                 choices:
                     - 'C37.238-2017'
             transport:
@@ -196,23 +196,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/ptp/profile',
         '/pm/config/global/obj/switch-controller/ptp/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/ptp/profile/{profile}',
-        '/pm/config/global/obj/switch-controller/ptp/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -229,7 +221,6 @@ def main():
                 'ptp-profile': {'v_range': [['7.4.1', '']], 'choices': ['C37.238-2017'], 'type': 'str'},
                 'transport': {'v_range': [['7.4.1', '']], 'choices': ['l2-mcast'], 'type': 'str'}
             }
-
         }
     }
 
@@ -243,9 +234,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

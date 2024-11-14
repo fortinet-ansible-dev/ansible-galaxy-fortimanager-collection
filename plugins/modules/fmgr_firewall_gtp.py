@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            addr-notify:
+            addr_notify:
                 type: str
-                description: Deprecated, please rename it to addr_notify. Overbilling notify address
+                description: Overbilling notify address
             apn:
                 type: list
                 elements: dict
@@ -109,155 +109,155 @@ options:
                     id:
                         type: int
                         description: ID.
-                    selection-mode:
+                    selection_mode:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to selection_mode. APN selection mode.
+                        description: APN selection mode.
                         choices:
                             - 'ms'
                             - 'net'
                             - 'vrf'
-            apn-filter:
+            apn_filter:
                 type: str
-                description: Deprecated, please rename it to apn_filter. Apn filter
+                description: Apn filter
                 choices:
                     - 'disable'
                     - 'enable'
-            authorized-ggsns:
+            authorized_ggsns:
                 type: str
-                description: Deprecated, please rename it to authorized_ggsns. Authorized GGSN group
-            authorized-sgsns:
+                description: Authorized GGSN group
+            authorized_sgsns:
                 type: str
-                description: Deprecated, please rename it to authorized_sgsns. Authorized SGSN group
+                description: Authorized SGSN group
             comment:
                 type: str
                 description: Comment.
-            context-id:
+            context_id:
                 type: int
-                description: Deprecated, please rename it to context_id. Overbilling context.
-            control-plane-message-rate-limit:
+                description: Overbilling context.
+            control_plane_message_rate_limit:
                 type: int
-                description: Deprecated, please rename it to control_plane_message_rate_limit. Control plane message rate limit
-            default-apn-action:
+                description: Control plane message rate limit
+            default_apn_action:
                 type: str
-                description: Deprecated, please rename it to default_apn_action. Default apn action
+                description: Default apn action
                 choices:
                     - 'allow'
                     - 'deny'
-            default-imsi-action:
+            default_imsi_action:
                 type: str
-                description: Deprecated, please rename it to default_imsi_action. Default imsi action
+                description: Default imsi action
                 choices:
                     - 'allow'
                     - 'deny'
-            default-ip-action:
+            default_ip_action:
                 type: str
-                description: Deprecated, please rename it to default_ip_action. Default action for encapsulated IP traffic
+                description: Default action for encapsulated IP traffic
                 choices:
                     - 'allow'
                     - 'deny'
-            default-noip-action:
+            default_noip_action:
                 type: str
-                description: Deprecated, please rename it to default_noip_action. Default action for encapsulated non-IP traffic
+                description: Default action for encapsulated non-IP traffic
                 choices:
                     - 'allow'
                     - 'deny'
-            default-policy-action:
+            default_policy_action:
                 type: str
-                description: Deprecated, please rename it to default_policy_action. Default advanced policy action
+                description: Default advanced policy action
                 choices:
                     - 'allow'
                     - 'deny'
-            denied-log:
+            denied_log:
                 type: str
-                description: Deprecated, please rename it to denied_log. Log denied
+                description: Log denied
                 choices:
                     - 'disable'
                     - 'enable'
-            echo-request-interval:
+            echo_request_interval:
                 type: int
-                description: Deprecated, please rename it to echo_request_interval. Echo request interval
-            extension-log:
+                description: Echo request interval
+            extension_log:
                 type: str
-                description: Deprecated, please rename it to extension_log. Log in extension format
+                description: Log in extension format
                 choices:
                     - 'disable'
                     - 'enable'
-            forwarded-log:
+            forwarded_log:
                 type: str
-                description: Deprecated, please rename it to forwarded_log. Log forwarded
+                description: Log forwarded
                 choices:
                     - 'disable'
                     - 'enable'
-            global-tunnel-limit:
+            global_tunnel_limit:
                 type: str
-                description: Deprecated, please rename it to global_tunnel_limit. Global tunnel limit.
-            gtp-in-gtp:
+                description: Global tunnel limit.
+            gtp_in_gtp:
                 type: str
-                description: Deprecated, please rename it to gtp_in_gtp. Gtp in gtp
+                description: Gtp in gtp
                 choices:
                     - 'allow'
                     - 'deny'
-            gtpu-denied-log:
+            gtpu_denied_log:
                 type: str
-                description: Deprecated, please rename it to gtpu_denied_log. Enable/disable logging of denied GTP-U packets.
+                description: Enable/disable logging of denied GTP-U packets.
                 choices:
                     - 'disable'
                     - 'enable'
-            gtpu-forwarded-log:
+            gtpu_forwarded_log:
                 type: str
-                description: Deprecated, please rename it to gtpu_forwarded_log. Enable/disable logging of forwarded GTP-U packets.
+                description: Enable/disable logging of forwarded GTP-U packets.
                 choices:
                     - 'disable'
                     - 'enable'
-            gtpu-log-freq:
+            gtpu_log_freq:
                 type: int
-                description: Deprecated, please rename it to gtpu_log_freq. Logging of frequency of GTP-U packets.
-            half-close-timeout:
+                description: Logging of frequency of GTP-U packets.
+            half_close_timeout:
                 type: int
-                description: Deprecated, please rename it to half_close_timeout. Half-close tunnel timeout
-            half-open-timeout:
+                description: Half-close tunnel timeout
+            half_open_timeout:
                 type: int
-                description: Deprecated, please rename it to half_open_timeout. Half-open tunnel timeout
-            handover-group:
+                description: Half-open tunnel timeout
+            handover_group:
                 type: str
-                description: Deprecated, please rename it to handover_group. Handover SGSN group
-            ie-remove-policy:
+                description: Handover SGSN group
+            ie_remove_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ie_remove_policy. Ie remove policy.
+                description: Ie remove policy.
                 suboptions:
                     id:
                         type: int
                         description: ID.
-                    remove-ies:
+                    remove_ies:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to remove_ies. GTP IEs to be removed.
+                        description: GTP IEs to be removed.
                         choices:
                             - 'apn-restriction'
                             - 'rat-type'
                             - 'rai'
                             - 'uli'
                             - 'imei'
-                    sgsn-addr:
+                    sgsn_addr:
                         type: str
-                        description: Deprecated, please rename it to sgsn_addr. SGSN address name.
-                    sgsn-addr6:
+                        description: SGSN address name.
+                    sgsn_addr6:
                         type: str
-                        description: Deprecated, please rename it to sgsn_addr6. SGSN IPv6 address name.
-            ie-remover:
+                        description: SGSN IPv6 address name.
+            ie_remover:
                 type: str
-                description: Deprecated, please rename it to ie_remover. IE removal policy.
+                description: IE removal policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            ie-white-list-v0v1:
+            ie_white_list_v0v1:
                 type: str
-                description: Deprecated, please rename it to ie_white_list_v0v1. IE white list.
-            ie-white-list-v2:
+                description: IE white list.
+            ie_white_list_v2:
                 type: str
-                description: Deprecated, please rename it to ie_white_list_v2. IE white list.
+                description: IE white list.
             imsi:
                 type: list
                 elements: dict
@@ -275,48 +275,48 @@ options:
                     id:
                         type: int
                         description: ID.
-                    mcc-mnc:
+                    mcc_mnc:
                         type: str
-                        description: Deprecated, please rename it to mcc_mnc. MCC MNC.
-                    msisdn-prefix:
+                        description: MCC MNC.
+                    msisdn_prefix:
                         type: str
-                        description: Deprecated, please rename it to msisdn_prefix. MSISDN prefix.
-                    selection-mode:
+                        description: MSISDN prefix.
+                    selection_mode:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to selection_mode. APN selection mode.
+                        description: APN selection mode.
                         choices:
                             - 'ms'
                             - 'net'
                             - 'vrf'
-            imsi-filter:
+            imsi_filter:
                 type: str
-                description: Deprecated, please rename it to imsi_filter. Imsi filter
+                description: Imsi filter
                 choices:
                     - 'disable'
                     - 'enable'
-            interface-notify:
+            interface_notify:
                 type: str
-                description: Deprecated, please rename it to interface_notify. Overbilling interface
-            invalid-reserved-field:
+                description: Overbilling interface
+            invalid_reserved_field:
                 type: str
-                description: Deprecated, please rename it to invalid_reserved_field. Invalid reserved field in GTP header
+                description: Invalid reserved field in GTP header
                 choices:
                     - 'allow'
                     - 'deny'
-            invalid-sgsns-to-log:
+            invalid_sgsns_to_log:
                 type: str
-                description: Deprecated, please rename it to invalid_sgsns_to_log. Invalid SGSN group to be logged
-            ip-filter:
+                description: Invalid SGSN group to be logged
+            ip_filter:
                 type: str
-                description: Deprecated, please rename it to ip_filter. IP filter for encapsulted traffic
+                description: IP filter for encapsulted traffic
                 choices:
                     - 'disable'
                     - 'enable'
-            ip-policy:
+            ip_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip_policy. Ip policy.
+                description: Ip policy.
                 suboptions:
                     action:
                         type: str
@@ -339,39 +339,39 @@ options:
                     srcaddr6:
                         type: str
                         description: Source IPv6 address name.
-            log-freq:
+            log_freq:
                 type: int
-                description: Deprecated, please rename it to log_freq. Logging of frequency of GTP-C packets.
-            log-gtpu-limit:
+                description: Logging of frequency of GTP-C packets.
+            log_gtpu_limit:
                 type: int
-                description: Deprecated, please rename it to log_gtpu_limit. The user data log limit
-            log-imsi-prefix:
+                description: The user data log limit
+            log_imsi_prefix:
                 type: str
-                description: Deprecated, please rename it to log_imsi_prefix. IMSI prefix for selective logging.
-            log-msisdn-prefix:
+                description: IMSI prefix for selective logging.
+            log_msisdn_prefix:
                 type: str
-                description: Deprecated, please rename it to log_msisdn_prefix. The msisdn prefix for selective logging
-            max-message-length:
+                description: The msisdn prefix for selective logging
+            max_message_length:
                 type: int
-                description: Deprecated, please rename it to max_message_length. Max message length
-            message-filter-v0v1:
+                description: Max message length
+            message_filter_v0v1:
                 type: str
-                description: Deprecated, please rename it to message_filter_v0v1. Message filter.
-            message-filter-v2:
+                description: Message filter.
+            message_filter_v2:
                 type: str
-                description: Deprecated, please rename it to message_filter_v2. Message filter.
-            min-message-length:
+                description: Message filter.
+            min_message_length:
                 type: int
-                description: Deprecated, please rename it to min_message_length. Min message length
-            miss-must-ie:
+                description: Min message length
+            miss_must_ie:
                 type: str
-                description: Deprecated, please rename it to miss_must_ie. Missing mandatory information element
+                description: Missing mandatory information element
                 choices:
                     - 'allow'
                     - 'deny'
-            monitor-mode:
+            monitor_mode:
                 type: str
-                description: Deprecated, please rename it to monitor_mode. GTP monitor mode
+                description: GTP monitor mode
                 choices:
                     - 'disable'
                     - 'enable'
@@ -380,16 +380,16 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            noip-filter:
+            noip_filter:
                 type: str
-                description: Deprecated, please rename it to noip_filter. Non-IP filter for encapsulted traffic
+                description: Non-IP filter for encapsulted traffic
                 choices:
                     - 'disable'
                     - 'enable'
-            noip-policy:
+            noip_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to noip_policy. Noip policy.
+                description: Noip policy.
                 suboptions:
                     action:
                         type: str
@@ -412,22 +412,22 @@ options:
                         choices:
                             - 'etsi'
                             - 'ietf'
-            out-of-state-ie:
+            out_of_state_ie:
                 type: str
-                description: Deprecated, please rename it to out_of_state_ie. Out of state information element.
+                description: Out of state information element.
                 choices:
                     - 'allow'
                     - 'deny'
-            out-of-state-message:
+            out_of_state_message:
                 type: str
-                description: Deprecated, please rename it to out_of_state_message. Out of state GTP message
+                description: Out of state GTP message
                 choices:
                     - 'allow'
                     - 'deny'
-            per-apn-shaper:
+            per_apn_shaper:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to per_apn_shaper. Per apn shaper.
+                description: Per apn shaper.
                 suboptions:
                     apn:
                         type: str
@@ -435,9 +435,9 @@ options:
                     id:
                         type: int
                         description: ID.
-                    rate-limit:
+                    rate_limit:
                         type: int
-                        description: Deprecated, please rename it to rate_limit. Rate limit
+                        description: Rate limit
                     version:
                         type: int
                         description: GTP version number
@@ -452,10 +452,10 @@ options:
                         choices:
                             - 'allow'
                             - 'deny'
-                    apn-sel-mode:
+                    apn_sel_mode:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to apn_sel_mode. APN selection mode.
+                        description: APN selection mode.
                         choices:
                             - 'ms'
                             - 'net'
@@ -472,9 +472,9 @@ options:
                     imsi:
                         type: str
                         description: IMSI prefix.
-                    max-apn-restriction:
+                    max_apn_restriction:
                         type: str
-                        description: Deprecated, please rename it to max_apn_restriction. Maximum APN restriction value.
+                        description: Maximum APN restriction value.
                         choices:
                             - 'all'
                             - 'public-1'
@@ -496,10 +496,10 @@ options:
                     rai:
                         type: str
                         description: RAI pattern.
-                    rat-type:
+                    rat_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rat_type. RAT Type.
+                        description: RAT Type.
                         choices:
                             - 'any'
                             - 'utran'
@@ -513,116 +513,116 @@ options:
                     uli:
                         type: str
                         description: ULI pattern.
-                    imsi-prefix:
+                    imsi_prefix:
                         type: str
-                        description: Deprecated, please rename it to imsi_prefix. IMSI prefix.
-                    msisdn-prefix:
+                        description: IMSI prefix.
+                    msisdn_prefix:
                         type: str
-                        description: Deprecated, please rename it to msisdn_prefix. MSISDN prefix.
+                        description: MSISDN prefix.
                     apn:
                         type: str
                         description: APN subfix.
-            policy-filter:
+            policy_filter:
                 type: str
-                description: Deprecated, please rename it to policy_filter. Advanced policy filter
+                description: Advanced policy filter
                 choices:
                     - 'disable'
                     - 'enable'
-            port-notify:
+            port_notify:
                 type: int
-                description: Deprecated, please rename it to port_notify. Overbilling notify port
-            rate-limit-mode:
+                description: Overbilling notify port
+            rate_limit_mode:
                 type: str
-                description: Deprecated, please rename it to rate_limit_mode. GTP rate limit mode.
+                description: GTP rate limit mode.
                 choices:
                     - 'per-profile'
                     - 'per-stream'
                     - 'per-apn'
-            rate-limited-log:
+            rate_limited_log:
                 type: str
-                description: Deprecated, please rename it to rate_limited_log. Log rate limited
+                description: Log rate limited
                 choices:
                     - 'disable'
                     - 'enable'
-            rate-sampling-interval:
+            rate_sampling_interval:
                 type: int
-                description: Deprecated, please rename it to rate_sampling_interval. Rate sampling interval
-            remove-if-echo-expires:
+                description: Rate sampling interval
+            remove_if_echo_expires:
                 type: str
-                description: Deprecated, please rename it to remove_if_echo_expires. Remove if echo response expires
+                description: Remove if echo response expires
                 choices:
                     - 'disable'
                     - 'enable'
-            remove-if-recovery-differ:
+            remove_if_recovery_differ:
                 type: str
-                description: Deprecated, please rename it to remove_if_recovery_differ. Remove upon different Recovery IE
+                description: Remove upon different Recovery IE
                 choices:
                     - 'disable'
                     - 'enable'
-            reserved-ie:
+            reserved_ie:
                 type: str
-                description: Deprecated, please rename it to reserved_ie. Reserved information element
+                description: Reserved information element
                 choices:
                     - 'allow'
                     - 'deny'
-            send-delete-when-timeout:
+            send_delete_when_timeout:
                 type: str
-                description: Deprecated, please rename it to send_delete_when_timeout. Send DELETE request to path endpoints when GTPv0/v1 tunnel timeout.
+                description: Send DELETE request to path endpoints when GTPv0/v1 tunnel timeout.
                 choices:
                     - 'disable'
                     - 'enable'
-            send-delete-when-timeout-v2:
+            send_delete_when_timeout_v2:
                 type: str
-                description: Deprecated, please rename it to send_delete_when_timeout_v2. Send DELETE request to path endpoints when GTPv2 tunnel timeout.
+                description: Send DELETE request to path endpoints when GTPv2 tunnel timeout.
                 choices:
                     - 'disable'
                     - 'enable'
-            spoof-src-addr:
+            spoof_src_addr:
                 type: str
-                description: Deprecated, please rename it to spoof_src_addr. Spoofed source address for Mobile Station.
+                description: Spoofed source address for Mobile Station.
                 choices:
                     - 'allow'
                     - 'deny'
-            state-invalid-log:
+            state_invalid_log:
                 type: str
-                description: Deprecated, please rename it to state_invalid_log. Log state invalid
+                description: Log state invalid
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-count-log:
+            traffic_count_log:
                 type: str
-                description: Deprecated, please rename it to traffic_count_log. Log tunnel traffic counter
+                description: Log tunnel traffic counter
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-limit:
+            tunnel_limit:
                 type: int
-                description: Deprecated, please rename it to tunnel_limit. Tunnel limit
-            tunnel-limit-log:
+                description: Tunnel limit
+            tunnel_limit_log:
                 type: str
-                description: Deprecated, please rename it to tunnel_limit_log. Tunnel limit
+                description: Tunnel limit
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-timeout:
+            tunnel_timeout:
                 type: int
-                description: Deprecated, please rename it to tunnel_timeout. Established tunnel timeout
-            unknown-version-action:
+                description: Established tunnel timeout
+            unknown_version_action:
                 type: str
-                description: Deprecated, please rename it to unknown_version_action. Action for unknown gtp version
+                description: Action for unknown gtp version
                 choices:
                     - 'allow'
                     - 'deny'
-            user-plane-message-rate-limit:
+            user_plane_message_rate_limit:
                 type: int
-                description: Deprecated, please rename it to user_plane_message_rate_limit. User plane message rate limit
-            warning-threshold:
+                description: User plane message rate limit
+            warning_threshold:
                 type: int
-                description: Deprecated, please rename it to warning_threshold. Warning threshold for rate limiting
-            policy-v2:
+                description: Warning threshold for rate limiting
+            policy_v2:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to policy_v2. Policy v2.
+                description: Policy v2.
                 suboptions:
                     action:
                         type: str
@@ -630,10 +630,10 @@ options:
                         choices:
                             - 'deny'
                             - 'allow'
-                    apn-sel-mode:
+                    apn_sel_mode:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to apn_sel_mode. APN selection mode.
+                        description: APN selection mode.
                         choices:
                             - 'ms'
                             - 'net'
@@ -644,12 +644,12 @@ options:
                     id:
                         type: int
                         description: ID.
-                    imsi-prefix:
+                    imsi_prefix:
                         type: str
-                        description: Deprecated, please rename it to imsi_prefix. IMSI prefix.
-                    max-apn-restriction:
+                        description: IMSI prefix.
+                    max_apn_restriction:
                         type: str
-                        description: Deprecated, please rename it to max_apn_restriction. Maximum APN restriction value.
+                        description: Maximum APN restriction value.
                         choices:
                             - 'all'
                             - 'public-1'
@@ -668,13 +668,13 @@ options:
                             - 'create-ses-res'
                             - 'modify-bearer-req'
                             - 'modify-bearer-res'
-                    msisdn-prefix:
+                    msisdn_prefix:
                         type: str
-                        description: Deprecated, please rename it to msisdn_prefix. MSISDN prefix.
-                    rat-type:
+                        description: MSISDN prefix.
+                    rat_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rat_type. RAT Type.
+                        description: RAT Type.
                         choices:
                             - 'any'
                             - 'utran'
@@ -690,62 +690,62 @@ options:
                     uli:
                         type: raw
                         description: (list) GTPv2 ULI patterns
-            sub-second-interval:
+            sub_second_interval:
                 type: str
-                description: Deprecated, please rename it to sub_second_interval. Sub-second interval
+                description: Sub-second interval
                 choices:
                     - '0.1'
                     - '0.25'
                     - '0.5'
-            sub-second-sampling:
+            sub_second_sampling:
                 type: str
-                description: Deprecated, please rename it to sub_second_sampling. Enable/disable sub-second sampling.
+                description: Enable/disable sub-second sampling.
                 choices:
                     - 'disable'
                     - 'enable'
-            authorized-ggsns6:
+            authorized_ggsns6:
                 type: str
-                description: Deprecated, please rename it to authorized_ggsns6. Authorized GGSN/PGW IPv6 group.
-            authorized-sgsns6:
+                description: Authorized GGSN/PGW IPv6 group.
+            authorized_sgsns6:
                 type: str
-                description: Deprecated, please rename it to authorized_sgsns6. Authorized SGSN/SGW IPv6 group.
-            handover-group6:
+                description: Authorized SGSN/SGW IPv6 group.
+            handover_group6:
                 type: str
-                description: Deprecated, please rename it to handover_group6. Handover SGSN/SGW IPv6 group.
-            invalid-sgsns6-to-log:
+                description: Handover SGSN/SGW IPv6 group.
+            invalid_sgsns6_to_log:
                 type: str
-                description: Deprecated, please rename it to invalid_sgsns6_to_log. Invalid SGSN IPv6 group to be logged.
-            ie-validation:
+                description: Invalid SGSN IPv6 group to be logged.
+            ie_validation:
                 type: dict
-                description: Deprecated, please rename it to ie_validation. Ie validation.
+                description: Ie validation.
                 suboptions:
-                    apn-restriction:
+                    apn_restriction:
                         type: str
-                        description: Deprecated, please rename it to apn_restriction. Validate APN restriction.
+                        description: Validate APN restriction.
                         choices:
                             - 'disable'
                             - 'enable'
-                    charging-ID:
+                    charging_ID:
                         type: str
-                        description: Deprecated, please rename it to charging_ID. Validate charging ID.
+                        description: Validate charging ID.
                         choices:
                             - 'disable'
                             - 'enable'
-                    charging-gateway-addr:
+                    charging_gateway_addr:
                         type: str
-                        description: Deprecated, please rename it to charging_gateway_addr. Validate charging gateway address.
+                        description: Validate charging gateway address.
                         choices:
                             - 'disable'
                             - 'enable'
-                    end-user-addr:
+                    end_user_addr:
                         type: str
-                        description: Deprecated, please rename it to end_user_addr. Validate end user address.
+                        description: Validate end user address.
                         choices:
                             - 'disable'
                             - 'enable'
-                    gsn-addr:
+                    gsn_addr:
                         type: str
-                        description: Deprecated, please rename it to gsn_addr. Validate GSN address.
+                        description: Validate GSN address.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -761,21 +761,21 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    mm-context:
+                    mm_context:
                         type: str
-                        description: Deprecated, please rename it to mm_context. Validate MM context.
+                        description: Validate MM context.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ms-tzone:
+                    ms_tzone:
                         type: str
-                        description: Deprecated, please rename it to ms_tzone. Validate MS time zone.
+                        description: Validate MS time zone.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ms-validated:
+                    ms_validated:
                         type: str
-                        description: Deprecated, please rename it to ms_validated. Validate MS validated.
+                        description: Validate MS validated.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -791,15 +791,15 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdp-context:
+                    pdp_context:
                         type: str
-                        description: Deprecated, please rename it to pdp_context. Validate PDP context.
+                        description: Validate PDP context.
                         choices:
                             - 'disable'
                             - 'enable'
-                    qos-profile:
+                    qos_profile:
                         type: str
-                        description: Deprecated, please rename it to qos_profile. Validate Quality of Service
+                        description: Validate Quality of Service
                         choices:
                             - 'disable'
                             - 'enable'
@@ -809,21 +809,21 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    rat-type:
+                    rat_type:
                         type: str
-                        description: Deprecated, please rename it to rat_type. Validate RAT type.
+                        description: Validate RAT type.
                         choices:
                             - 'disable'
                             - 'enable'
-                    reordering-required:
+                    reordering_required:
                         type: str
-                        description: Deprecated, please rename it to reordering_required. Validate re-ordering required.
+                        description: Validate re-ordering required.
                         choices:
                             - 'disable'
                             - 'enable'
-                    selection-mode:
+                    selection_mode:
                         type: str
-                        description: Deprecated, please rename it to selection_mode. Validate selection mode.
+                        description: Validate selection mode.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -833,278 +833,278 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            message-rate-limit:
+            message_rate_limit:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit. Message rate limit.
+                description: Message rate limit.
                 suboptions:
-                    create-aa-pdp-request:
+                    create_aa_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to create_aa_pdp_request. Rate limit for create AA PDP context request
-                    create-aa-pdp-response:
+                        description: Rate limit for create AA PDP context request
+                    create_aa_pdp_response:
                         type: int
-                        description: Deprecated, please rename it to create_aa_pdp_response. Rate limit for create AA PDP context response
-                    create-mbms-request:
+                        description: Rate limit for create AA PDP context response
+                    create_mbms_request:
                         type: int
-                        description: Deprecated, please rename it to create_mbms_request. Rate limit for create MBMS context request
-                    create-mbms-response:
+                        description: Rate limit for create MBMS context request
+                    create_mbms_response:
                         type: int
-                        description: Deprecated, please rename it to create_mbms_response. Rate limit for create MBMS context response
-                    create-pdp-request:
+                        description: Rate limit for create MBMS context response
+                    create_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to create_pdp_request. Rate limit for create PDP context request
-                    create-pdp-response:
+                        description: Rate limit for create PDP context request
+                    create_pdp_response:
                         type: int
-                        description: Deprecated, please rename it to create_pdp_response. Rate limit for create PDP context response
-                    delete-aa-pdp-request:
+                        description: Rate limit for create PDP context response
+                    delete_aa_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to delete_aa_pdp_request. Rate limit for delete AA PDP context request
-                    delete-aa-pdp-response:
+                        description: Rate limit for delete AA PDP context request
+                    delete_aa_pdp_response:
                         type: int
-                        description: Deprecated, please rename it to delete_aa_pdp_response. Rate limit for delete AA PDP context response
-                    delete-mbms-request:
+                        description: Rate limit for delete AA PDP context response
+                    delete_mbms_request:
                         type: int
-                        description: Deprecated, please rename it to delete_mbms_request. Rate limit for delete MBMS context request
-                    delete-mbms-response:
+                        description: Rate limit for delete MBMS context request
+                    delete_mbms_response:
                         type: int
-                        description: Deprecated, please rename it to delete_mbms_response. Rate limit for delete MBMS context response
-                    delete-pdp-request:
+                        description: Rate limit for delete MBMS context response
+                    delete_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to delete_pdp_request. Rate limit for delete PDP context request
-                    delete-pdp-response:
+                        description: Rate limit for delete PDP context request
+                    delete_pdp_response:
                         type: int
-                        description: Deprecated, please rename it to delete_pdp_response. Rate limit for delete PDP context response
-                    echo-reponse:
+                        description: Rate limit for delete PDP context response
+                    echo_reponse:
                         type: int
-                        description: Deprecated, please rename it to echo_reponse. Rate limit for echo response
-                    echo-request:
+                        description: Rate limit for echo response
+                    echo_request:
                         type: int
-                        description: Deprecated, please rename it to echo_request. Rate limit for echo requests
-                    error-indication:
+                        description: Rate limit for echo requests
+                    error_indication:
                         type: int
-                        description: Deprecated, please rename it to error_indication. Rate limit for error indication
-                    failure-report-request:
+                        description: Rate limit for error indication
+                    failure_report_request:
                         type: int
-                        description: Deprecated, please rename it to failure_report_request. Rate limit for failure report request
-                    failure-report-response:
+                        description: Rate limit for failure report request
+                    failure_report_response:
                         type: int
-                        description: Deprecated, please rename it to failure_report_response. Rate limit for failure report response
-                    fwd-reloc-complete-ack:
+                        description: Rate limit for failure report response
+                    fwd_reloc_complete_ack:
                         type: int
-                        description: Deprecated, please rename it to fwd_reloc_complete_ack. Rate limit for forward relocation complete acknowledge
-                    fwd-relocation-complete:
+                        description: Rate limit for forward relocation complete acknowledge
+                    fwd_relocation_complete:
                         type: int
-                        description: Deprecated, please rename it to fwd_relocation_complete. Rate limit for forward relocation complete
-                    fwd-relocation-request:
+                        description: Rate limit for forward relocation complete
+                    fwd_relocation_request:
                         type: int
-                        description: Deprecated, please rename it to fwd_relocation_request. Rate limit for forward relocation request
-                    fwd-relocation-response:
+                        description: Rate limit for forward relocation request
+                    fwd_relocation_response:
                         type: int
-                        description: Deprecated, please rename it to fwd_relocation_response. Rate limit for forward relocation response
-                    fwd-srns-context:
+                        description: Rate limit for forward relocation response
+                    fwd_srns_context:
                         type: int
-                        description: Deprecated, please rename it to fwd_srns_context. Rate limit for forward SRNS context
-                    fwd-srns-context-ack:
+                        description: Rate limit for forward SRNS context
+                    fwd_srns_context_ack:
                         type: int
-                        description: Deprecated, please rename it to fwd_srns_context_ack. Rate limit for forward SRNS context acknowledge
-                    g-pdu:
+                        description: Rate limit for forward SRNS context acknowledge
+                    g_pdu:
                         type: int
-                        description: Deprecated, please rename it to g_pdu. Rate limit for G-PDU
-                    identification-request:
+                        description: Rate limit for G-PDU
+                    identification_request:
                         type: int
-                        description: Deprecated, please rename it to identification_request. Rate limit for identification request
-                    identification-response:
+                        description: Rate limit for identification request
+                    identification_response:
                         type: int
-                        description: Deprecated, please rename it to identification_response. Rate limit for identification response
-                    mbms-de-reg-request:
+                        description: Rate limit for identification response
+                    mbms_de_reg_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_de_reg_request. Rate limit for MBMS de-registration request
-                    mbms-de-reg-response:
+                        description: Rate limit for MBMS de-registration request
+                    mbms_de_reg_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_de_reg_response. Rate limit for MBMS de-registration response
-                    mbms-notify-rej-request:
+                        description: Rate limit for MBMS de-registration response
+                    mbms_notify_rej_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_notify_rej_request. Rate limit for MBMS notification reject request
-                    mbms-notify-rej-response:
+                        description: Rate limit for MBMS notification reject request
+                    mbms_notify_rej_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_notify_rej_response. Rate limit for MBMS notification reject response
-                    mbms-notify-request:
+                        description: Rate limit for MBMS notification reject response
+                    mbms_notify_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_notify_request. Rate limit for MBMS notification request
-                    mbms-notify-response:
+                        description: Rate limit for MBMS notification request
+                    mbms_notify_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_notify_response. Rate limit for MBMS notification response
-                    mbms-reg-request:
+                        description: Rate limit for MBMS notification response
+                    mbms_reg_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_reg_request. Rate limit for MBMS registration request
-                    mbms-reg-response:
+                        description: Rate limit for MBMS registration request
+                    mbms_reg_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_reg_response. Rate limit for MBMS registration response
-                    mbms-ses-start-request:
+                        description: Rate limit for MBMS registration response
+                    mbms_ses_start_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_ses_start_request. Rate limit for MBMS session start request
-                    mbms-ses-start-response:
+                        description: Rate limit for MBMS session start request
+                    mbms_ses_start_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_ses_start_response. Rate limit for MBMS session start response
-                    mbms-ses-stop-request:
+                        description: Rate limit for MBMS session start response
+                    mbms_ses_stop_request:
                         type: int
-                        description: Deprecated, please rename it to mbms_ses_stop_request. Rate limit for MBMS session stop request
-                    mbms-ses-stop-response:
+                        description: Rate limit for MBMS session stop request
+                    mbms_ses_stop_response:
                         type: int
-                        description: Deprecated, please rename it to mbms_ses_stop_response. Rate limit for MBMS session stop response
-                    note-ms-request:
+                        description: Rate limit for MBMS session stop response
+                    note_ms_request:
                         type: int
-                        description: Deprecated, please rename it to note_ms_request. Rate limit for note MS GPRS present request
-                    note-ms-response:
+                        description: Rate limit for note MS GPRS present request
+                    note_ms_response:
                         type: int
-                        description: Deprecated, please rename it to note_ms_response. Rate limit for note MS GPRS present response
-                    pdu-notify-rej-request:
+                        description: Rate limit for note MS GPRS present response
+                    pdu_notify_rej_request:
                         type: int
-                        description: Deprecated, please rename it to pdu_notify_rej_request. Rate limit for PDU notify reject request
-                    pdu-notify-rej-response:
+                        description: Rate limit for PDU notify reject request
+                    pdu_notify_rej_response:
                         type: int
-                        description: Deprecated, please rename it to pdu_notify_rej_response. Rate limit for PDU notify reject response
-                    pdu-notify-request:
+                        description: Rate limit for PDU notify reject response
+                    pdu_notify_request:
                         type: int
-                        description: Deprecated, please rename it to pdu_notify_request. Rate limit for PDU notify request
-                    pdu-notify-response:
+                        description: Rate limit for PDU notify request
+                    pdu_notify_response:
                         type: int
-                        description: Deprecated, please rename it to pdu_notify_response. Rate limit for PDU notify response
-                    ran-info:
+                        description: Rate limit for PDU notify response
+                    ran_info:
                         type: int
-                        description: Deprecated, please rename it to ran_info. Rate limit for RAN information relay
-                    relocation-cancel-request:
+                        description: Rate limit for RAN information relay
+                    relocation_cancel_request:
                         type: int
-                        description: Deprecated, please rename it to relocation_cancel_request. Rate limit for relocation cancel request
-                    relocation-cancel-response:
+                        description: Rate limit for relocation cancel request
+                    relocation_cancel_response:
                         type: int
-                        description: Deprecated, please rename it to relocation_cancel_response. Rate limit for relocation cancel response
-                    send-route-request:
+                        description: Rate limit for relocation cancel response
+                    send_route_request:
                         type: int
-                        description: Deprecated, please rename it to send_route_request. Rate limit for send routing information for GPRS request
-                    send-route-response:
+                        description: Rate limit for send routing information for GPRS request
+                    send_route_response:
                         type: int
-                        description: Deprecated, please rename it to send_route_response. Rate limit for send routing information for GPRS response
-                    sgsn-context-ack:
+                        description: Rate limit for send routing information for GPRS response
+                    sgsn_context_ack:
                         type: int
-                        description: Deprecated, please rename it to sgsn_context_ack. Rate limit for SGSN context acknowledgement
-                    sgsn-context-request:
+                        description: Rate limit for SGSN context acknowledgement
+                    sgsn_context_request:
                         type: int
-                        description: Deprecated, please rename it to sgsn_context_request. Rate limit for SGSN context request
-                    sgsn-context-response:
+                        description: Rate limit for SGSN context request
+                    sgsn_context_response:
                         type: int
-                        description: Deprecated, please rename it to sgsn_context_response. Rate limit for SGSN context response
-                    support-ext-hdr-notify:
+                        description: Rate limit for SGSN context response
+                    support_ext_hdr_notify:
                         type: int
-                        description: Deprecated, please rename it to support_ext_hdr_notify. Rate limit for support extension headers notification
-                    update-mbms-request:
+                        description: Rate limit for support extension headers notification
+                    update_mbms_request:
                         type: int
-                        description: Deprecated, please rename it to update_mbms_request. Rate limit for update MBMS context request
-                    update-mbms-response:
+                        description: Rate limit for update MBMS context request
+                    update_mbms_response:
                         type: int
-                        description: Deprecated, please rename it to update_mbms_response. Rate limit for update MBMS context response
-                    update-pdp-request:
+                        description: Rate limit for update MBMS context response
+                    update_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to update_pdp_request. Rate limit for update PDP context request
-                    update-pdp-response:
+                        description: Rate limit for update PDP context request
+                    update_pdp_response:
                         type: int
-                        description: Deprecated, please rename it to update_pdp_response. Rate limit for update PDP context response
-                    version-not-support:
+                        description: Rate limit for update PDP context response
+                    version_not_support:
                         type: int
-                        description: Deprecated, please rename it to version_not_support. Rate limit for version not supported
-                    echo-response:
+                        description: Rate limit for version not supported
+                    echo_response:
                         type: int
-                        description: Deprecated, please rename it to echo_response. Rate limit for echo response
-            message-rate-limit-v0:
+                        description: Rate limit for echo response
+            message_rate_limit_v0:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v0. Message rate limit v0.
+                description: Message rate limit v0.
                 suboptions:
-                    create-pdp-request:
+                    create_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to create_pdp_request. Rate limit
-                    delete-pdp-request:
+                        description: Rate limit
+                    delete_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to delete_pdp_request. Rate limit
-                    echo-request:
+                        description: Rate limit
+                    echo_request:
                         type: int
-                        description: Deprecated, please rename it to echo_request. Rate limit
-            message-rate-limit-v1:
+                        description: Rate limit
+            message_rate_limit_v1:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v1. Message rate limit v1.
+                description: Message rate limit v1.
                 suboptions:
-                    create-pdp-request:
+                    create_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to create_pdp_request. Rate limit
-                    delete-pdp-request:
+                        description: Rate limit
+                    delete_pdp_request:
                         type: int
-                        description: Deprecated, please rename it to delete_pdp_request. Rate limit
-                    echo-request:
+                        description: Rate limit
+                    echo_request:
                         type: int
-                        description: Deprecated, please rename it to echo_request. Rate limit
-            message-rate-limit-v2:
+                        description: Rate limit
+            message_rate_limit_v2:
                 type: dict
-                description: Deprecated, please rename it to message_rate_limit_v2. Message rate limit v2.
+                description: Message rate limit v2.
                 suboptions:
-                    create-session-request:
+                    create_session_request:
                         type: int
-                        description: Deprecated, please rename it to create_session_request. Rate limit
-                    delete-session-request:
+                        description: Rate limit
+                    delete_session_request:
                         type: int
-                        description: Deprecated, please rename it to delete_session_request. Rate limit
-                    echo-request:
+                        description: Rate limit
+                    echo_request:
                         type: int
-                        description: Deprecated, please rename it to echo_request. Rate limit
-            ie-allow-list-v0v1:
+                        description: Rate limit
+            ie_allow_list_v0v1:
                 type: str
-                description: Deprecated, please rename it to ie_allow_list_v0v1. IE allow list.
-            ie-allow-list-v2:
+                description: IE allow list.
+            ie_allow_list_v2:
                 type: str
-                description: Deprecated, please rename it to ie_allow_list_v2. IE allow list.
-            rat-timeout-profile:
+                description: IE allow list.
+            rat_timeout_profile:
                 type: str
-                description: Deprecated, please rename it to rat_timeout_profile. RAT timeout profile.
-            message-filter:
+                description: RAT timeout profile.
+            message_filter:
                 type: dict
-                description: Deprecated, please rename it to message_filter. Message filter.
+                description: Message filter.
                 suboptions:
-                    create-aa-pdp:
+                    create_aa_pdp:
                         type: str
-                        description: Deprecated, please rename it to create_aa_pdp. Create AA PDP.
+                        description: Create AA PDP.
                         choices:
                             - 'allow'
                             - 'deny'
-                    create-mbms:
+                    create_mbms:
                         type: str
-                        description: Deprecated, please rename it to create_mbms. Create MBMS.
+                        description: Create MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
-                    create-pdp:
+                    create_pdp:
                         type: str
-                        description: Deprecated, please rename it to create_pdp. Create PDP.
+                        description: Create PDP.
                         choices:
                             - 'allow'
                             - 'deny'
-                    data-record:
+                    data_record:
                         type: str
-                        description: Deprecated, please rename it to data_record. Data record.
+                        description: Data record.
                         choices:
                             - 'allow'
                             - 'deny'
-                    delete-aa-pdp:
+                    delete_aa_pdp:
                         type: str
-                        description: Deprecated, please rename it to delete_aa_pdp. Delete AA PDP.
+                        description: Delete AA PDP.
                         choices:
                             - 'allow'
                             - 'deny'
-                    delete-mbms:
+                    delete_mbms:
                         type: str
-                        description: Deprecated, please rename it to delete_mbms. Delete MBMS.
+                        description: Delete MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
-                    delete-pdp:
+                    delete_pdp:
                         type: str
-                        description: Deprecated, please rename it to delete_pdp. Delete PDP.
+                        description: Delete PDP.
                         choices:
                             - 'allow'
                             - 'deny'
@@ -1114,33 +1114,33 @@ options:
                         choices:
                             - 'allow'
                             - 'deny'
-                    error-indication:
+                    error_indication:
                         type: str
-                        description: Deprecated, please rename it to error_indication. Error indication.
+                        description: Error indication.
                         choices:
                             - 'allow'
                             - 'deny'
-                    failure-report:
+                    failure_report:
                         type: str
-                        description: Deprecated, please rename it to failure_report. Failure report.
+                        description: Failure report.
                         choices:
                             - 'allow'
                             - 'deny'
-                    fwd-relocation:
+                    fwd_relocation:
                         type: str
-                        description: Deprecated, please rename it to fwd_relocation. Forward relocation.
+                        description: Forward relocation.
                         choices:
                             - 'allow'
                             - 'deny'
-                    fwd-srns-context:
+                    fwd_srns_context:
                         type: str
-                        description: Deprecated, please rename it to fwd_srns_context. Forward SRNS context.
+                        description: Forward SRNS context.
                         choices:
                             - 'allow'
                             - 'deny'
-                    gtp-pdu:
+                    gtp_pdu:
                         type: str
-                        description: Deprecated, please rename it to gtp_pdu. GTP PDU.
+                        description: GTP PDU.
                         choices:
                             - 'allow'
                             - 'deny'
@@ -1150,33 +1150,33 @@ options:
                         choices:
                             - 'allow'
                             - 'deny'
-                    mbms-notification:
+                    mbms_notification:
                         type: str
-                        description: Deprecated, please rename it to mbms_notification. MBMS notification.
+                        description: MBMS notification.
                         choices:
                             - 'allow'
                             - 'deny'
-                    node-alive:
+                    node_alive:
                         type: str
-                        description: Deprecated, please rename it to node_alive. Node alive.
+                        description: Node alive.
                         choices:
                             - 'allow'
                             - 'deny'
-                    note-ms-present:
+                    note_ms_present:
                         type: str
-                        description: Deprecated, please rename it to note_ms_present. Note MS present.
+                        description: Note MS present.
                         choices:
                             - 'allow'
                             - 'deny'
-                    pdu-notification:
+                    pdu_notification:
                         type: str
-                        description: Deprecated, please rename it to pdu_notification. PDU notification.
+                        description: PDU notification.
                         choices:
                             - 'allow'
                             - 'deny'
-                    ran-info:
+                    ran_info:
                         type: str
-                        description: Deprecated, please rename it to ran_info. Ran info.
+                        description: Ran info.
                         choices:
                             - 'allow'
                             - 'deny'
@@ -1186,51 +1186,51 @@ options:
                         choices:
                             - 'allow'
                             - 'deny'
-                    relocation-cancel:
+                    relocation_cancel:
                         type: str
-                        description: Deprecated, please rename it to relocation_cancel. Relocation cancel.
+                        description: Relocation cancel.
                         choices:
                             - 'allow'
                             - 'deny'
-                    send-route:
+                    send_route:
                         type: str
-                        description: Deprecated, please rename it to send_route. Send route.
+                        description: Send route.
                         choices:
                             - 'allow'
                             - 'deny'
-                    sgsn-context:
+                    sgsn_context:
                         type: str
-                        description: Deprecated, please rename it to sgsn_context. SGSN context.
+                        description: SGSN context.
                         choices:
                             - 'allow'
                             - 'deny'
-                    support-extension:
+                    support_extension:
                         type: str
-                        description: Deprecated, please rename it to support_extension. Support extension.
+                        description: Support extension.
                         choices:
                             - 'allow'
                             - 'deny'
-                    unknown-message-action:
+                    unknown_message_action:
                         type: str
-                        description: Deprecated, please rename it to unknown_message_action. Unknown message action.
+                        description: Unknown message action.
                         choices:
                             - 'allow'
                             - 'deny'
-                    update-mbms:
+                    update_mbms:
                         type: str
-                        description: Deprecated, please rename it to update_mbms. Update MBMS.
+                        description: Update MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
-                    update-pdp:
+                    update_pdp:
                         type: str
-                        description: Deprecated, please rename it to update_pdp. Update PDP.
+                        description: Update PDP.
                         choices:
                             - 'allow'
                             - 'deny'
-                    version-not-support:
+                    version_not_support:
                         type: str
-                        description: Deprecated, please rename it to version_not_support. Version not supported.
+                        description: Version not supported.
                         choices:
                             - 'allow'
                             - 'deny'
@@ -1319,23 +1319,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/gtp',
         '/pm/config/global/obj/firewall/gtp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}',
-        '/pm/config/global/obj/firewall/gtp/{gtp}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1471,7 +1463,7 @@ def main():
                         'uli': {'type': 'str'},
                         'imsi-prefix': {'v_range': [['6.2.0', '']], 'type': 'str'},
                         'msisdn-prefix': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'apn': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'}
+                        'apn': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1533,162 +1525,161 @@ def main():
                 'handover-group6': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'invalid-sgsns6-to-log': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'ie-validation': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'apn-restriction': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charging-ID': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charging-gateway-addr': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'end-user-addr': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'gsn-addr': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'imei': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'imsi': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'mm-context': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ms-tzone': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ms-validated': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'msisdn': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'nsapi': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdp-context': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'qos-profile': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rai': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rat-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'reordering-required': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'selection-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'uli': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'apn-restriction': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charging-ID': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charging-gateway-addr': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'end-user-addr': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'gsn-addr': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'imei': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'imsi': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mm-context': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ms-tzone': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ms-validated': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'msisdn': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'nsapi': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdp-context': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'qos-profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rai': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rat-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'reordering-required': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'selection-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'uli': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'message-rate-limit': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'create-aa-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'create-aa-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'create-mbms-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'create-mbms-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'create-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-aa-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-aa-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-mbms-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-mbms-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'echo-reponse': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'echo-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'error-indication': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'failure-report-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'failure-report-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-reloc-complete-ack': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-relocation-complete': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-relocation-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-relocation-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-srns-context': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'fwd-srns-context-ack': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'g-pdu': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'identification-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'identification-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-de-reg-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-de-reg-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-notify-rej-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-notify-rej-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-notify-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-notify-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-reg-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-reg-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-ses-start-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-ses-start-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-ses-stop-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mbms-ses-stop-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'note-ms-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'note-ms-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'pdu-notify-rej-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'pdu-notify-rej-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'pdu-notify-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'pdu-notify-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'ran-info': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'relocation-cancel-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'relocation-cancel-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'send-route-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'send-route-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'sgsn-context-ack': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'sgsn-context-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'sgsn-context-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'support-ext-hdr-notify': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'update-mbms-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'update-mbms-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'update-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'update-pdp-response': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'version-not-support': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'create-aa-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'create-aa-pdp-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'create-mbms-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'create-mbms-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'create-pdp-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-aa-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-aa-pdp-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-mbms-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-mbms-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-pdp-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-reponse': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'error-indication': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'failure-report-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'failure-report-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-reloc-complete-ack': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-relocation-complete': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-relocation-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-relocation-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-srns-context': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'fwd-srns-context-ack': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'g-pdu': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'identification-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'identification-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-de-reg-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-de-reg-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-notify-rej-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-notify-rej-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-notify-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-notify-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-reg-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-reg-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-ses-start-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-ses-start-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-ses-stop-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mbms-ses-stop-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'note-ms-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'note-ms-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'pdu-notify-rej-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'pdu-notify-rej-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'pdu-notify-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'pdu-notify-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'ran-info': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'relocation-cancel-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'relocation-cancel-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'send-route-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'send-route-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'sgsn-context-ack': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'sgsn-context-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'sgsn-context-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'support-ext-hdr-notify': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'update-mbms-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'update-mbms-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'update-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'update-pdp-response': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'version-not-support': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'echo-response': {'v_range': [['7.4.3', '']], 'type': 'int'}
                     }
                 },
                 'message-rate-limit-v0': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'echo-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'message-rate-limit-v1': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'echo-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'create-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-pdp-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'message-rate-limit-v2': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'create-session-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'delete-session-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'echo-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'create-session-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'delete-session-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'echo-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'ie-allow-list-v0v1': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'ie-allow-list-v2': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'rat-timeout-profile': {'v_range': [['7.0.1', '']], 'type': 'str'},
                 'message-filter': {
-                    'v_range': [['6.2.8', '6.2.12']],
+                    'v_range': [['6.2.8', '6.2.13']],
                     'type': 'dict',
                     'options': {
-                        'create-aa-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'create-mbms': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'create-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'data-record': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'delete-aa-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'delete-mbms': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'delete-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'echo': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'error-indication': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'failure-report': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'fwd-relocation': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'fwd-srns-context': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'gtp-pdu': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'identification': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'mbms-notification': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'node-alive': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'note-ms-present': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'pdu-notification': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'ran-info': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'redirection': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'relocation-cancel': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'send-route': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'sgsn-context': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'support-extension': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'unknown-message-action': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'update-mbms': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'update-pdp': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                        'version-not-support': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'}
+                        'create-aa-pdp': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'create-mbms': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'create-pdp': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'data-record': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'delete-aa-pdp': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'delete-mbms': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'delete-pdp': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'echo': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'error-indication': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'failure-report': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'fwd-relocation': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'fwd-srns-context': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'gtp-pdu': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'identification': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'mbms-notification': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'node-alive': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'note-ms-present': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'pdu-notification': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'ran-info': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'redirection': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'relocation-cancel': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'send-route': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'sgsn-context': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'support-extension': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'unknown-message-action': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'update-mbms': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'update-pdp': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                        'version-not-support': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'}
                     }
                 },
                 'gtpv0': {'v_range': [['7.6.0', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
-
         }
     }
 
@@ -1702,9 +1693,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -90,35 +90,34 @@ options:
                 elements: dict
                 description: Adom.
                 suboptions:
-                    adom-name:
+                    adom_name:
                         type: str
-                        description: Deprecated, please rename it to adom_name. Admin domain names.
-            adom-exclude:
+                        description: Admin domain names.
+            adom_exclude:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to adom_exclude. Adom exclude.
+                description: Adom exclude.
                 suboptions:
-                    adom-name:
+                    adom_name:
                         type: str
-                        description: Deprecated, please rename it to adom_name. Admin domain names.
-            app-filter:
+                        description: Admin domain names.
+            app_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to app_filter. App filter.
+                description: App filter.
                 suboptions:
-                    app-filter-name:
+                    app_filter_name:
                         type: str
-                        description: Deprecated, please rename it to app_filter_name. App filter name.
+                        description: App filter name.
             avatar:
                 type: str
                 description: Image file for avatar
             ca:
                 type: str
                 description: PKI user certificate CA
-            change-password:
+            change_password:
                 type: str
                 description:
-                    - Deprecated, please rename it to change_password.
                     - Enable/disable restricted user to change self password.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -133,10 +132,9 @@ options:
                     column:
                         type: int
                         description: Widgets column ID.
-                    diskio-content-type:
+                    diskio_content_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to diskio_content_type.
                             - Disk I/O Monitor widgets chart type.
                             - util - bandwidth utilization.
                             - iops - the number of I/O requests.
@@ -145,10 +143,9 @@ options:
                             - 'util'
                             - 'iops'
                             - 'blks'
-                    diskio-period:
+                    diskio_period:
                         type: str
                         description:
-                            - Deprecated, please rename it to diskio_period.
                             - Disk I/O Monitor widgets data period.
                             - 1hour - 1 hour.
                             - 8hour - 8 hour.
@@ -157,10 +154,9 @@ options:
                             - '1hour'
                             - '8hour'
                             - '24hour'
-                    log-rate-period:
+                    log_rate_period:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_rate_period.
                             - Log receive monitor widgets data period.
                             - 2min  - 2 minutes.
                             - 1hour - 1 hour.
@@ -169,10 +165,9 @@ options:
                             - '2min'
                             - '1hour'
                             - '6hours'
-                    log-rate-topn:
+                    log_rate_topn:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_rate_topn.
                             - Log receive monitor widgets number of top items to display.
                             - 1 - Top 1.
                             - 2 - Top 2.
@@ -185,10 +180,9 @@ options:
                             - '3'
                             - '4'
                             - '5'
-                    log-rate-type:
+                    log_rate_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_rate_type.
                             - Log receive monitor widgets statistics breakdown options.
                             - log - Show log rates for each log type.
                             - device - Show log rates for each device.
@@ -201,26 +195,24 @@ options:
                     name:
                         type: str
                         description: Widget name.
-                    num-entries:
+                    num_entries:
                         type: int
-                        description: Deprecated, please rename it to num_entries. Number of entries.
-                    refresh-interval:
+                        description: Number of entries.
+                    refresh_interval:
                         type: int
-                        description: Deprecated, please rename it to refresh_interval. Widgets refresh interval.
-                    res-cpu-display:
+                        description: Widgets refresh interval.
+                    res_cpu_display:
                         type: str
                         description:
-                            - Deprecated, please rename it to res_cpu_display.
                             - Widgets CPU display type.
                             - average  - Average usage of CPU.
                             - each - Each usage of CPU.
                         choices:
                             - 'average'
                             - 'each'
-                    res-period:
+                    res_period:
                         type: str
                         description:
-                            - Deprecated, please rename it to res_period.
                             - Widgets data period.
                             - 10min  - Last 10 minutes.
                             - hour - Last hour.
@@ -229,10 +221,9 @@ options:
                             - '10min'
                             - 'hour'
                             - 'day'
-                    res-view-type:
+                    res_view_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to res_view_type.
                             - Widgets data view type.
                             - real-time  - Real-time view.
                             - history - History view.
@@ -251,10 +242,9 @@ options:
                     tabid:
                         type: int
                         description: ID of tab where widget is displayed.
-                    time-period:
+                    time_period:
                         type: str
                         description:
-                            - Deprecated, please rename it to time_period.
                             - Log Database Monitor widgets data period.
                             - 1hour - 1 hour.
                             - 8hour - 8 hour.
@@ -263,10 +253,9 @@ options:
                             - '1hour'
                             - '8hour'
                             - '24hour'
-                    widget-type:
+                    widget_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to widget_type.
                             - Widget type.
                             - top-lograte - Log Receive Monitor.
                             - sysres - System resources.
@@ -301,10 +290,10 @@ options:
                             - 'logdb-lag'
                             - 'disk-io'
                             - 'log-rcvd-fwd'
-            dashboard-tabs:
+            dashboard_tabs:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dashboard_tabs. Dashboard tabs.
+                description: Dashboard tabs.
                 suboptions:
                     name:
                         type: str
@@ -315,42 +304,39 @@ options:
             description:
                 type: str
                 description: Description.
-            dev-group:
+            dev_group:
                 type: str
-                description: Deprecated, please rename it to dev_group. Device group.
-            email-address:
+                description: Device group.
+            email_address:
                 type: str
-                description: Deprecated, please rename it to email_address. Email address.
-            ext-auth-accprofile-override:
+                description: Email address.
+            ext_auth_accprofile_override:
                 type: str
                 description:
-                    - Deprecated, please rename it to ext_auth_accprofile_override.
                     - Allow to use the access profile provided by the remote authentication server.
                     - disable - Disable access profile override.
                     - enable - Enable access profile override.
                 choices:
                     - 'disable'
                     - 'enable'
-            ext-auth-adom-override:
+            ext_auth_adom_override:
                 type: str
                 description:
-                    - Deprecated, please rename it to ext_auth_adom_override.
                     - Allow to use the ADOM provided by the remote authentication server.
                     - disable - Disable ADOM override.
                     - enable - Enable ADOM override.
                 choices:
                     - 'disable'
                     - 'enable'
-            ext-auth-group-match:
+            ext_auth_group_match:
                 type: str
-                description: Deprecated, please rename it to ext_auth_group_match. Only administrators belonging to this group can login.
-            first-name:
+                description: Only administrators belonging to this group can login.
+            first_name:
                 type: str
-                description: Deprecated, please rename it to first_name. First name.
-            force-password-change:
+                description: First name.
+            force_password_change:
                 type: str
                 description:
-                    - Deprecated, please rename it to force_password_change.
                     - Enable/disable force password change on next login.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -363,14 +349,14 @@ options:
             hidden:
                 type: int
                 description: Hidden administrator.
-            ips-filter:
+            ips_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ips_filter. Ips filter.
+                description: Ips filter.
                 suboptions:
-                    ips-filter-name:
+                    ips_filter_name:
                         type: str
-                        description: Deprecated, please rename it to ips_filter_name. IPS filter name.
+                        description: IPS filter name.
             ipv6_trusthost1:
                 type: str
                 description: Admin user trusted host IPv6, default
@@ -401,16 +387,16 @@ options:
             ipv6_trusthost9:
                 type: str
                 description: Admin user trusted host IPv6, default ffff
-            last-name:
+            last_name:
                 type: str
-                description: Deprecated, please rename it to last_name. Last name.
-            ldap-server:
+                description: Last name.
+            ldap_server:
                 type: str
-                description: Deprecated, please rename it to ldap_server. LDAP server name.
-            meta-data:
+                description: LDAP server name.
+            meta_data:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to meta_data. Meta data.
+                description: Meta data.
                 suboptions:
                     fieldlength:
                         type: int
@@ -439,57 +425,55 @@ options:
                         choices:
                             - 'disabled'
                             - 'enabled'
-            mobile-number:
+            mobile_number:
                 type: str
-                description: Deprecated, please rename it to mobile_number. Mobile number.
-            pager-number:
+                description: Mobile number.
+            pager_number:
                 type: str
-                description: Deprecated, please rename it to pager_number. Pager number.
+                description: Pager number.
             password:
                 type: raw
                 description: (list) Password.
-            password-expire:
+            password_expire:
                 type: raw
-                description: (list or str) Deprecated, please rename it to password_expire. Password expire time in GMT.
-            phone-number:
+                description: (list or str) Password expire time in GMT.
+            phone_number:
                 type: str
-                description: Deprecated, please rename it to phone_number. Phone number.
-            policy-package:
+                description: Phone number.
+            policy_package:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to policy_package. Policy package.
+                description: Policy package.
                 suboptions:
-                    policy-package-name:
+                    policy_package_name:
                         type: str
-                        description: Deprecated, please rename it to policy_package_name. Policy package names.
+                        description: Policy package names.
             profileid:
                 type: str
                 description: Profile ID.
             radius_server:
                 type: str
                 description: RADIUS server name.
-            restrict-access:
+            restrict_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to restrict_access.
                     - Enable/disable restricted access to development VDOM.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            restrict-dev-vdom:
+            restrict_dev_vdom:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to restrict_dev_vdom. Restrict dev vdom.
+                description: Restrict dev vdom.
                 suboptions:
-                    dev-vdom:
+                    dev_vdom:
                         type: str
-                        description: Deprecated, please rename it to dev_vdom. Device or device VDOM.
-            rpc-permit:
+                        description: Device or device VDOM.
+            rpc_permit:
                 type: str
                 description:
-                    - Deprecated, please rename it to rpc_permit.
                     - set none/read/read-write rpc-permission.
                     - read-write - Read-write permission.
                     - none - No permission.
@@ -499,21 +483,21 @@ options:
                     - 'none'
                     - 'read'
                     - 'from-profile'
-            ssh-public-key1:
+            ssh_public_key1:
                 type: raw
-                description: (list) Deprecated, please rename it to ssh_public_key1. SSH public key 1.
-            ssh-public-key2:
+                description: (list) SSH public key 1.
+            ssh_public_key2:
                 type: raw
-                description: (list) Deprecated, please rename it to ssh_public_key2. SSH public key 2.
-            ssh-public-key3:
+                description: (list) SSH public key 2.
+            ssh_public_key3:
                 type: raw
-                description: (list) Deprecated, please rename it to ssh_public_key3. SSH public key 3.
+                description: (list) SSH public key 3.
             subject:
                 type: str
                 description: PKI user certificate name constraints.
-            tacacs-plus-server:
+            tacacs_plus_server:
                 type: str
-                description: Deprecated, please rename it to tacacs_plus_server. TACACS+ server name.
+                description: TACACS+ server name.
             trusthost1:
                 type: str
                 description: Admin user trusted host IP, default 0.
@@ -544,10 +528,9 @@ options:
             trusthost9:
                 type: str
                 description: Admin user trusted host IP, default 255.
-            two-factor-auth:
+            two_factor_auth:
                 type: str
                 description:
-                    - Deprecated, please rename it to two_factor_auth.
                     - Enable 2-factor authentication
                     - disable - Disable 2-factor authentication.
                     - enable - Enable 2-factor authentication.
@@ -581,14 +564,14 @@ options:
                 type: str
                 description: User name.
                 required: true
-            web-filter:
+            web_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to web_filter. Web filter.
+                description: Web filter.
                 suboptions:
-                    web-filter-name:
+                    web_filter_name:
                         type: str
-                        description: Deprecated, please rename it to web_filter_name. Web filter name.
+                        description: Web filter name.
             wildcard:
                 type: str
                 description:
@@ -598,23 +581,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            login-max:
+            login_max:
                 type: int
-                description: Deprecated, please rename it to login_max. Max login session for this user.
-            use-global-theme:
+                description: Max login session for this user.
+            use_global_theme:
                 type: str
                 description:
-                    - Deprecated, please rename it to use_global_theme.
                     - Enable/disble global theme for administration GUI.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-theme:
+            user_theme:
                 type: str
                 description:
-                    - Deprecated, please rename it to user_theme.
                     - Color scheme to use for the admin user GUI.
                     - blue - Blueberry
                     - green - Kiwi
@@ -678,10 +659,9 @@ options:
                     - 'forest'
                     - 'cat'
                     - 'graphite'
-            adom-access:
+            adom_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_access.
                     - set all/specify/exclude adom access mode.
                     - all - All ADOMs access.
                     - specify - Specify ADOMs access.
@@ -694,15 +674,15 @@ options:
             fingerprint:
                 type: str
                 description: PKI user certificate fingerprint
-            th-from-profile:
+            th_from_profile:
                 type: int
-                description: Deprecated, please rename it to th_from_profile. Internal use only
-            th6-from-profile:
+                description: Internal use only
+            th6_from_profile:
                 type: int
-                description: Deprecated, please rename it to th6_from_profile. Internal use only
-            cors-allow-origin:
+                description: Internal use only
+            cors_allow_origin:
                 type: str
-                description: Deprecated, please rename it to cors_allow_origin. Access-Control-Allow-Origin.
+                description: Access-Control-Allow-Origin.
             fortiai:
                 type: str
                 description:
@@ -712,14 +692,14 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            policy-block:
+            policy_block:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to policy_block. Policy block.
+                description: Policy block.
                 suboptions:
-                    policy-block-name:
+                    policy_block_name:
                         type: str
-                        description: Deprecated, please rename it to policy_block_name. Policy block names.
+                        description: Policy block names.
 '''
 
 EXAMPLES = '''
@@ -788,21 +768,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/admin/user'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/admin/user/{user}'
-    ]
-
     url_params = []
     module_primary_key = 'userid'
     module_arg_spec = {
@@ -934,7 +907,7 @@ def main():
                     'type': 'str'
                 },
                 'adom-access': {'v_range': [['7.0.3', '']], 'choices': ['all', 'specify', 'exclude', 'per-adom-profile'], 'type': 'str'},
-                'fingerprint': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
+                'fingerprint': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
                 'th-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'th6-from-profile': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'cors-allow-origin': {'v_range': [['7.2.2', '']], 'type': 'str'},
@@ -946,7 +919,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -960,9 +932,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

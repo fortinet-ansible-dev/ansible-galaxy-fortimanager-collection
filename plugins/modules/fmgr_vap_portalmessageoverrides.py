@@ -84,18 +84,18 @@ options:
         required: false
         type: dict
         suboptions:
-            auth-disclaimer-page:
+            auth_disclaimer_page:
                 type: str
-                description: Deprecated, please rename it to auth_disclaimer_page. Override auth-disclaimer-page message with message from portal-messa...
-            auth-login-failed-page:
+                description: Override auth-disclaimer-page message with message from portal-message-overrides group.
+            auth_login_failed_page:
                 type: str
-                description: Deprecated, please rename it to auth_login_failed_page. Override auth-login-failed-page message with message from portal-m...
-            auth-login-page:
+                description: Override auth-login-failed-page message with message from portal-message-overrides group.
+            auth_login_page:
                 type: str
-                description: Deprecated, please rename it to auth_login_page. Override auth-login-page message with message from portal-message-overrid...
-            auth-reject-page:
+                description: Override auth-login-page message with message from portal-message-overrides group.
+            auth_reject_page:
                 type: str
-                description: Deprecated, please rename it to auth_reject_page. Override auth-reject-page message with message from portal-message-overr...
+                description: Override auth-reject-page message with message from portal-message-overrides group.
 '''
 
 EXAMPLES = '''
@@ -164,23 +164,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/portal-message-overrides',
         '/pm/config/global/obj/wireless-controller/vap/{vap}/portal-message-overrides'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/portal-message-overrides/{portal-message-overrides}',
-        '/pm/config/global/obj/wireless-controller/vap/{vap}/portal-message-overrides/{portal-message-overrides}'
-    ]
-
     url_params = ['adom', 'vap']
     module_primary_key = None
     module_arg_spec = {
@@ -195,7 +187,6 @@ def main():
                 'auth-login-page': {'type': 'str'},
                 'auth-reject-page': {'type': 'str'}
             }
-
         }
     }
 
@@ -209,9 +200,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

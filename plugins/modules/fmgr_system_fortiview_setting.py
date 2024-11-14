@@ -76,30 +76,27 @@ options:
         required: false
         type: dict
         suboptions:
-            not-scanned-apps:
+            not_scanned_apps:
                 type: str
                 description:
-                    - Deprecated, please rename it to not_scanned_apps.
                     - Include/Exclude Not.
                     - exclude - Exclude Not.
                     - include - Include Not.
                 choices:
                     - 'exclude'
                     - 'include'
-            resolve-ip:
+            resolve_ip:
                 type: str
                 description:
-                    - Deprecated, please rename it to resolve_ip.
                     - Enable or disable resolving IP address to hostname in FortiView.
                     - disable - Disable resolving IP address to hostname.
                     - enable - Enable resolving IP address to hostname.
                 choices:
                     - 'disable'
                     - 'enable'
-            data-source:
+            data_source:
                 type: str
                 description:
-                    - Deprecated, please rename it to data_source.
                     - Data soure of the fortiview query.
                     - auto - Data from hcache, and from logs in a flexible way.
                     - cache-only - Data from hcache only.
@@ -173,21 +170,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/fortiview/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/fortiview/setting/{setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -197,9 +187,8 @@ def main():
             'options': {
                 'not-scanned-apps': {'choices': ['exclude', 'include'], 'type': 'str'},
                 'resolve-ip': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'data-source': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'}
+                'data-source': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'}
             }
-
         }
     }
 
@@ -213,9 +202,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

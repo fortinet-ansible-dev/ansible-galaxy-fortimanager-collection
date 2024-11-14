@@ -106,9 +106,9 @@ options:
             server:
                 type: str
                 description: No description
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IP address for communications to the RADIUS server.
+                description: Source IP address for communications to the RADIUS server.
             status:
                 type: str
                 description: Status.
@@ -118,9 +118,9 @@ options:
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -208,23 +208,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/radius/{radius}/accounting-server',
         '/pm/config/global/obj/user/radius/{radius}/accounting-server'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/radius/{radius}/accounting-server/{accounting-server}',
-        '/pm/config/global/obj/user/radius/{radius}/accounting-server/{accounting-server}'
-    ]
-
     url_params = ['adom', 'radius']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -240,10 +232,9 @@ def main():
                 'server': {'type': 'str'},
                 'source-ip': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
+                'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
             }
-
         }
     }
 
@@ -257,9 +248,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

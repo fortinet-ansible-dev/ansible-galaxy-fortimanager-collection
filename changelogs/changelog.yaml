@@ -760,9 +760,9 @@ releases:
         - Improved documentation.
       minor_changes:
         - Supported FortiManager 7.6.0. Added 7 new modules.
-        - Supported check mode for all modules except "fmgr_generic".
-          You can use "ansible-playbook -i <your-host-file> <your-playbook> --check"
-          to validate whether your playbook will make any changes to the FortiManager.
+        - Supported check mode for all modules except "fmgr_generic". You can use "ansible-playbook
+          -i <your-host-file> <your-playbook> --check" to validate whether your playbook
+          will make any changes to the FortiManager.
       release_summary: Release fortinet.fortimanager 2.7.0
     fragments:
       - 2.7.0.yml
@@ -789,3 +789,22 @@ releases:
         name: fmgr_system_fmgcluster_peer
         namespace: ""
     release_date: "2024-08-30"
+  2.8.0:
+    changes:
+      bugfixes:
+        - Changed all input argument name in ansible built-in documentation to the underscore
+          format. E.g., changed "var-name" to "var_name".
+        - Improved code logic, reduced redundant requests for system information.
+      minor_changes:
+        - Supported FortiManager 6.2.13, 6.4.15, 7.0.13, 7.2.8, 7.4.5, 7.6.1. Added 1 new module.
+        - Supported check diff for some modules except "fmgr_generic". You can use "ansible-playbook
+          -i <your-host-file> <your-playbook> --check --diff" to check what changes
+          your playbook will make to the FortiManager.
+      release_summary: Release fortinet.fortimanager 2.8.0
+    fragments:
+      - 2.8.0.yml
+    modules:
+      - description: Configure YouTube API keys.
+        name: fmgr_pkg_videofilter_youtubekey
+        namespace: ""
+    release_date: "2024-11-14"

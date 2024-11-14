@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            case-sensitivity:
+            case_sensitivity:
                 type: str
-                description: Deprecated, please rename it to case_sensitivity. Case sensitivity in pattern.
+                description: Case sensitivity in pattern.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -107,35 +107,35 @@ options:
             header:
                 type: str
                 description: HTTP header regular expression.
-            header-group:
+            header_group:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to header_group. Header group.
+                description: Header group.
                 suboptions:
-                    case-sensitivity:
+                    case_sensitivity:
                         type: str
-                        description: Deprecated, please rename it to case_sensitivity. Case sensitivity in pattern.
+                        description: Case sensitivity in pattern.
                         choices:
                             - 'disable'
                             - 'enable'
                     header:
                         type: str
                         description: HTTP header regular expression.
-                    header-name:
+                    header_name:
                         type: str
-                        description: Deprecated, please rename it to header_name. HTTP header.
+                        description: HTTP header.
                     id:
                         type: int
                         description: ID.
-            header-name:
+            header_name:
                 type: str
-                description: Deprecated, please rename it to header_name. HTTP header.
+                description: HTTP header.
             host:
                 type: str
                 description: Host address
-            host-regex:
+            host_regex:
                 type: str
-                description: Deprecated, please rename it to host_regex. Host regular expression.
+                description: Host regular expression.
             method:
                 type: list
                 elements: str
@@ -226,24 +226,24 @@ EXAMPLES = '''
           host: <string>
           host_regex: <string>
           method:
-            - delete
-            - get
-            - head
-            - options
-            - post
-            - put
-            - trace
-            - connect
+            - "delete"
+            - "get"
+            - "head"
+            - "options"
+            - "post"
+            - "put"
+            - "trace"
+            - "connect"
           name: <string>
           path: <string>
           tags: <string>
           type: <value in [host-regex, url, category, ...]>
           ua:
-            - chrome
-            - ms
-            - firefox
-            - safari
-            - other
+            - "chrome"
+            - "ms"
+            - "firefox"
+            - "safari"
+            - "other"
           uuid: <string>
           visibility: <value in [disable, enable]>
 '''
@@ -289,69 +289,60 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address',
         '/pm/config/global/obj/firewall/explicit-proxy-address'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/explicit-proxy-address/{explicit-proxy-address}',
-        '/pm/config/global/obj/firewall/explicit-proxy-address/{explicit-proxy-address}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'firewall_explicitproxyaddress': {
             'type': 'dict',
-            'v_range': [['6.2.0', '6.2.12']],
+            'v_range': [['6.2.0', '6.2.13']],
             'options': {
-                'case-sensitivity': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'category': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'color': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'},
-                'comment': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'header': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
+                'case-sensitivity': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'category': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'color': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'},
+                'comment': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'header': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'header-group': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
                     'options': {
-                        'case-sensitivity': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'header': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'header-name': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'id': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'}
+                        'case-sensitivity': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'header-name': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'id': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'header-name': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'host': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'host-regex': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
+                'header-name': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'host': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'host-regex': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'method': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
                     'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect'],
                     'elements': 'str'
                 },
-                'name': {'v_range': [['6.2.0', '6.2.12']], 'required': True, 'type': 'str'},
-                'path': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
+                'name': {'v_range': [['6.2.0', '6.2.13']], 'required': True, 'type': 'str'},
+                'path': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'type': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'choices': ['host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced'],
                     'type': 'str'
                 },
-                'ua': {'v_range': [['6.2.0', '6.2.12']], 'type': 'list', 'choices': ['chrome', 'ms', 'firefox', 'safari', 'other'], 'elements': 'str'},
-                'uuid': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'visibility': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ua': {'v_range': [['6.2.0', '6.2.13']], 'type': 'list', 'choices': ['chrome', 'ms', 'firefox', 'safari', 'other'], 'elements': 'str'},
+                'uuid': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'visibility': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -365,9 +356,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

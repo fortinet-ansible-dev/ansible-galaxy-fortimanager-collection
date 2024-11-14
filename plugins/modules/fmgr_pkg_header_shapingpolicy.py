@@ -89,39 +89,39 @@ options:
         required: false
         type: dict
         suboptions:
-            app-category:
+            app_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_category. App category.
-            app-group:
+                description: (list or str) App category.
+            app_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_group. App group.
+                description: (list or str) App group.
             application:
                 type: raw
                 description: (list) Application.
-            class-id:
+            class_id:
                 type: raw
-                description: (int or str) Deprecated, please rename it to class_id. Class id.
+                description: (int or str) Class id.
             comment:
                 type: str
                 description: Comment.
-            diffserv-forward:
+            diffserv_forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward. Diffserv forward.
+                description: Diffserv forward.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffserv-reverse:
+            diffserv_reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse. Diffserv reverse.
+                description: Diffserv reverse.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffservcode-forward:
+            diffservcode_forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward. Diffservcode forward.
-            diffservcode-rev:
+                description: Diffservcode forward.
+            diffservcode_rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev. Diffservcode rev.
+                description: Diffservcode rev.
             dstaddr:
                 type: raw
                 description: (list or str) Dstaddr.
@@ -138,51 +138,51 @@ options:
                 type: int
                 description: Id.
                 required: true
-            internet-service:
+            internet_service:
                 type: str
-                description: Deprecated, please rename it to internet_service. Internet service.
+                description: Internet service.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-custom:
+            internet_service_custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom. Internet service custom.
-            internet-service-custom-group:
+                description: (list or str) Internet service custom.
+            internet_service_custom_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom_group. Internet service custom group.
-            internet-service-group:
+                description: (list or str) Internet service custom group.
+            internet_service_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_group. Internet service group.
-            internet-service-id:
+                description: (list or str) Internet service group.
+            internet_service_id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_id. Internet service id.
-            internet-service-src:
+                description: (list or str) Internet service id.
+            internet_service_src:
                 type: str
-                description: Deprecated, please rename it to internet_service_src. Internet service src.
+                description: Internet service src.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-src-custom:
+            internet_service_src_custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom. Internet service src custom.
-            internet-service-src-custom-group:
+                description: (list or str) Internet service src custom.
+            internet_service_src_custom_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom_group. Internet service src custom group.
-            internet-service-src-group:
+                description: (list or str) Internet service src custom group.
+            internet_service_src_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_group. Internet service src group.
-            internet-service-src-id:
+                description: (list or str) Internet service src group.
+            internet_service_src_id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_id. Internet service src id.
-            ip-version:
+                description: (list or str) Internet service src id.
+            ip_version:
                 type: str
-                description: Deprecated, please rename it to ip_version. Ip version.
+                description: Ip version.
                 choices:
                     - '4'
                     - '6'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper. Per ip shaper.
+                description: Per ip shaper.
             schedule:
                 type: str
                 description: Schedule.
@@ -207,57 +207,57 @@ options:
             tos:
                 type: str
                 description: Tos.
-            tos-mask:
+            tos_mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask. Tos mask.
-            tos-negate:
+                description: Tos mask.
+            tos_negate:
                 type: str
-                description: Deprecated, please rename it to tos_negate. Tos negate.
+                description: Tos negate.
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-shaper:
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Traffic shaper.
-            traffic-shaper-reverse:
+                description: Traffic shaper.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Traffic shaper reverse.
-            url-category:
+                description: Traffic shaper reverse.
+            url_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to url_category. Url category.
+                description: (list or str) Url category.
             users:
                 type: raw
                 description: (list or str) Users.
             uuid:
                 type: str
                 description: Uuid.
-            internet-service-name:
+            internet_service_name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_name. Internet service name.
-            internet-service-src-name:
+                description: (list or str) Internet service name.
+            internet_service_src_name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_name. Internet service src name.
-            class-id-reverse:
+                description: (list or str) Internet service src name.
+            class_id_reverse:
                 type: int
-                description: Deprecated, please rename it to class_id_reverse. Class id reverse.
-            service-type:
+                description: Class id reverse.
+            service_type:
                 type: str
-                description: Deprecated, please rename it to service_type. Service type.
+                description: Service type.
                 choices:
                     - 'service'
                     - 'internet-service'
-            uuid-idx:
+            uuid_idx:
                 type: int
-                description: Deprecated, please rename it to uuid_idx. Uuid idx.
+                description: Uuid idx.
             cos:
                 type: str
                 description: VLAN CoS bit pattern.
-            cos-mask:
+            cos_mask:
                 type: str
-                description: Deprecated, please rename it to cos_mask. VLAN CoS evaluated bits.
-            traffic-type:
+                description: VLAN CoS evaluated bits.
+            traffic_type:
                 type: str
-                description: Deprecated, please rename it to traffic_type. Traffic type.
+                description: Traffic type.
                 choices:
                     - 'forwarding'
                     - 'local-in'
@@ -374,21 +374,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/global/pkg/{pkg}/global/header/shaping-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/global/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}'
-    ]
-
     url_params = ['pkg']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -446,7 +439,6 @@ def main():
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'}
             }
-
         }
     }
 
@@ -468,9 +460,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

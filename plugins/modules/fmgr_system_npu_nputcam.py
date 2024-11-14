@@ -114,72 +114,72 @@ options:
                     ethertype:
                         type: str
                         description: Tcam data ethertype.
-                    ext-tag:
+                    ext_tag:
                         type: str
-                        description: Deprecated, please rename it to ext_tag. Tcam data extension tag.
+                        description: Tcam data extension tag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    frag-off:
+                    frag_off:
                         type: int
-                        description: Deprecated, please rename it to frag_off. Tcam data ip flag fragment offset.
-                    gen-buf-cnt:
+                        description: Tcam data ip flag fragment offset.
+                    gen_buf_cnt:
                         type: int
-                        description: Deprecated, please rename it to gen_buf_cnt. Tcam data gen info buffer count.
-                    gen-iv:
+                        description: Tcam data gen info buffer count.
+                    gen_iv:
                         type: str
-                        description: Deprecated, please rename it to gen_iv. Tcam data gen info iv.
+                        description: Tcam data gen info iv.
                         choices:
                             - 'invalid'
                             - 'valid'
-                    gen-l3-flags:
+                    gen_l3_flags:
                         type: int
-                        description: Deprecated, please rename it to gen_l3_flags. Tcam data gen info L3 flags.
-                    gen-l4-flags:
+                        description: Tcam data gen info L3 flags.
+                    gen_l4_flags:
                         type: int
-                        description: Deprecated, please rename it to gen_l4_flags. Tcam data gen info L4 flags.
-                    gen-pkt-ctrl:
+                        description: Tcam data gen info L4 flags.
+                    gen_pkt_ctrl:
                         type: int
-                        description: Deprecated, please rename it to gen_pkt_ctrl. Tcam data gen info packet control.
-                    gen-pri:
+                        description: Tcam data gen info packet control.
+                    gen_pri:
                         type: int
-                        description: Deprecated, please rename it to gen_pri. Tcam data gen info priority.
-                    gen-pri-v:
+                        description: Tcam data gen info priority.
+                    gen_pri_v:
                         type: str
-                        description: Deprecated, please rename it to gen_pri_v. Tcam data gen info priority valid.
+                        description: Tcam data gen info priority valid.
                         choices:
                             - 'invalid'
                             - 'valid'
-                    gen-tv:
+                    gen_tv:
                         type: str
-                        description: Deprecated, please rename it to gen_tv. Tcam data gen info tv.
+                        description: Tcam data gen info tv.
                         choices:
                             - 'invalid'
                             - 'valid'
                     ihl:
                         type: int
                         description: Tcam data ipv4 IHL.
-                    ip4-id:
+                    ip4_id:
                         type: int
-                        description: Deprecated, please rename it to ip4_id. Tcam data ipv4 id.
-                    ip6-fl:
+                        description: Tcam data ipv4 id.
+                    ip6_fl:
                         type: int
-                        description: Deprecated, please rename it to ip6_fl. Tcam data ipv6 flow label.
+                        description: Tcam data ipv6 flow label.
                     ipver:
                         type: int
                         description: Tcam data ip header version.
-                    l4-wd10:
+                    l4_wd10:
                         type: int
-                        description: Deprecated, please rename it to l4_wd10. Tcam data L4 word10.
-                    l4-wd11:
+                        description: Tcam data L4 word10.
+                    l4_wd11:
                         type: int
-                        description: Deprecated, please rename it to l4_wd11. Tcam data L4 word11.
-                    l4-wd8:
+                        description: Tcam data L4 word11.
+                    l4_wd8:
                         type: int
-                        description: Deprecated, please rename it to l4_wd8. Tcam data L4 word8.
-                    l4-wd9:
+                        description: Tcam data L4 word8.
+                    l4_wd9:
                         type: int
-                        description: Deprecated, please rename it to l4_wd9. Tcam data L4 word9.
+                        description: Tcam data L4 word9.
                     mf:
                         type: str
                         description: Tcam data ip flag mf.
@@ -192,27 +192,27 @@ options:
                     slink:
                         type: int
                         description: Tcam data sublink.
-                    smac-change:
+                    smac_change:
                         type: str
-                        description: Deprecated, please rename it to smac_change. Tcam data source MAC change.
+                        description: Tcam data source MAC change.
                         choices:
                             - 'disable'
                             - 'enable'
                     sp:
                         type: int
                         description: Tcam data source port.
-                    src-cfi:
+                    src_cfi:
                         type: str
-                        description: Deprecated, please rename it to src_cfi. Tcam data source cfi.
+                        description: Tcam data source cfi.
                         choices:
                             - 'disable'
                             - 'enable'
-                    src-prio:
+                    src_prio:
                         type: int
-                        description: Deprecated, please rename it to src_prio. Tcam data source priority.
-                    src-updt:
+                        description: Tcam data source priority.
+                    src_updt:
                         type: str
-                        description: Deprecated, please rename it to src_updt. Tcam data source update.
+                        description: Tcam data source update.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -231,72 +231,72 @@ options:
                     svid:
                         type: int
                         description: Tcam data source vid.
-                    tcp-ack:
+                    tcp_ack:
                         type: str
-                        description: Deprecated, please rename it to tcp_ack. Tcam data tcp flag ack.
+                        description: Tcam data tcp flag ack.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-cwr:
+                    tcp_cwr:
                         type: str
-                        description: Deprecated, please rename it to tcp_cwr. Tcam data tcp flag cwr.
+                        description: Tcam data tcp flag cwr.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-ece:
+                    tcp_ece:
                         type: str
-                        description: Deprecated, please rename it to tcp_ece. Tcam data tcp flag ece.
+                        description: Tcam data tcp flag ece.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-fin:
+                    tcp_fin:
                         type: str
-                        description: Deprecated, please rename it to tcp_fin. Tcam data tcp flag fin.
+                        description: Tcam data tcp flag fin.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-push:
+                    tcp_push:
                         type: str
-                        description: Deprecated, please rename it to tcp_push. Tcam data tcp flag push.
+                        description: Tcam data tcp flag push.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-rst:
+                    tcp_rst:
                         type: str
-                        description: Deprecated, please rename it to tcp_rst. Tcam data tcp flag rst.
+                        description: Tcam data tcp flag rst.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-syn:
+                    tcp_syn:
                         type: str
-                        description: Deprecated, please rename it to tcp_syn. Tcam data tcp flag syn.
+                        description: Tcam data tcp flag syn.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-urg:
+                    tcp_urg:
                         type: str
-                        description: Deprecated, please rename it to tcp_urg. Tcam data tcp flag urg.
+                        description: Tcam data tcp flag urg.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-cfi:
+                    tgt_cfi:
                         type: str
-                        description: Deprecated, please rename it to tgt_cfi. Tcam data target cfi.
+                        description: Tcam data target cfi.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-prio:
+                    tgt_prio:
                         type: int
-                        description: Deprecated, please rename it to tgt_prio. Tcam data target priority.
-                    tgt-updt:
+                        description: Tcam data target priority.
+                    tgt_updt:
                         type: str
-                        description: Deprecated, please rename it to tgt_updt. Tcam data target port update.
+                        description: Tcam data target port update.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-v:
+                    tgt_v:
                         type: str
-                        description: Deprecated, please rename it to tgt_v. Tcam data target valid.
+                        description: Tcam data target valid.
                         choices:
                             - 'invalid'
                             - 'valid'
@@ -315,9 +315,9 @@ options:
                     vdid:
                         type: int
                         description: Tcam data vdom id.
-            dbg-dump:
+            dbg_dump:
                 type: int
-                description: Deprecated, please rename it to dbg_dump. Debug driver dump data/mask pdq.
+                description: Debug driver dump data/mask pdq.
             mask:
                 type: dict
                 description: Mask.
@@ -343,72 +343,72 @@ options:
                     ethertype:
                         type: str
                         description: Tcam mask ethertype.
-                    ext-tag:
+                    ext_tag:
                         type: str
-                        description: Deprecated, please rename it to ext_tag. Tcam mask extension tag.
+                        description: Tcam mask extension tag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    frag-off:
+                    frag_off:
                         type: int
-                        description: Deprecated, please rename it to frag_off. Tcam data ip flag fragment offset.
-                    gen-buf-cnt:
+                        description: Tcam data ip flag fragment offset.
+                    gen_buf_cnt:
                         type: int
-                        description: Deprecated, please rename it to gen_buf_cnt. Tcam mask gen info buffer count.
-                    gen-iv:
+                        description: Tcam mask gen info buffer count.
+                    gen_iv:
                         type: str
-                        description: Deprecated, please rename it to gen_iv. Tcam mask gen info iv.
+                        description: Tcam mask gen info iv.
                         choices:
                             - 'invalid'
                             - 'valid'
-                    gen-l3-flags:
+                    gen_l3_flags:
                         type: int
-                        description: Deprecated, please rename it to gen_l3_flags. Tcam mask gen info L3 flags.
-                    gen-l4-flags:
+                        description: Tcam mask gen info L3 flags.
+                    gen_l4_flags:
                         type: int
-                        description: Deprecated, please rename it to gen_l4_flags. Tcam mask gen info L4 flags.
-                    gen-pkt-ctrl:
+                        description: Tcam mask gen info L4 flags.
+                    gen_pkt_ctrl:
                         type: int
-                        description: Deprecated, please rename it to gen_pkt_ctrl. Tcam mask gen info packet control.
-                    gen-pri:
+                        description: Tcam mask gen info packet control.
+                    gen_pri:
                         type: int
-                        description: Deprecated, please rename it to gen_pri. Tcam mask gen info priority.
-                    gen-pri-v:
+                        description: Tcam mask gen info priority.
+                    gen_pri_v:
                         type: str
-                        description: Deprecated, please rename it to gen_pri_v. Tcam mask gen info priority valid.
+                        description: Tcam mask gen info priority valid.
                         choices:
                             - 'invalid'
                             - 'valid'
-                    gen-tv:
+                    gen_tv:
                         type: str
-                        description: Deprecated, please rename it to gen_tv. Tcam mask gen info tv.
+                        description: Tcam mask gen info tv.
                         choices:
                             - 'invalid'
                             - 'valid'
                     ihl:
                         type: int
                         description: Tcam mask ipv4 IHL.
-                    ip4-id:
+                    ip4_id:
                         type: int
-                        description: Deprecated, please rename it to ip4_id. Tcam mask ipv4 id.
-                    ip6-fl:
+                        description: Tcam mask ipv4 id.
+                    ip6_fl:
                         type: int
-                        description: Deprecated, please rename it to ip6_fl. Tcam mask ipv6 flow label.
+                        description: Tcam mask ipv6 flow label.
                     ipver:
                         type: int
                         description: Tcam mask ip header version.
-                    l4-wd10:
+                    l4_wd10:
                         type: int
-                        description: Deprecated, please rename it to l4_wd10. Tcam mask L4 word10.
-                    l4-wd11:
+                        description: Tcam mask L4 word10.
+                    l4_wd11:
                         type: int
-                        description: Deprecated, please rename it to l4_wd11. Tcam mask L4 word11.
-                    l4-wd8:
+                        description: Tcam mask L4 word11.
+                    l4_wd8:
                         type: int
-                        description: Deprecated, please rename it to l4_wd8. Tcam mask L4 word8.
-                    l4-wd9:
+                        description: Tcam mask L4 word8.
+                    l4_wd9:
                         type: int
-                        description: Deprecated, please rename it to l4_wd9. Tcam mask L4 word9.
+                        description: Tcam mask L4 word9.
                     mf:
                         type: str
                         description: Tcam mask ip flag mf.
@@ -421,27 +421,27 @@ options:
                     slink:
                         type: int
                         description: Tcam mask sublink.
-                    smac-change:
+                    smac_change:
                         type: str
-                        description: Deprecated, please rename it to smac_change. Tcam mask source MAC change.
+                        description: Tcam mask source MAC change.
                         choices:
                             - 'disable'
                             - 'enable'
                     sp:
                         type: int
                         description: Tcam mask source port.
-                    src-cfi:
+                    src_cfi:
                         type: str
-                        description: Deprecated, please rename it to src_cfi. Tcam mask source cfi.
+                        description: Tcam mask source cfi.
                         choices:
                             - 'disable'
                             - 'enable'
-                    src-prio:
+                    src_prio:
                         type: int
-                        description: Deprecated, please rename it to src_prio. Tcam mask source priority.
-                    src-updt:
+                        description: Tcam mask source priority.
+                    src_updt:
                         type: str
-                        description: Deprecated, please rename it to src_updt. Tcam mask source update.
+                        description: Tcam mask source update.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -460,72 +460,72 @@ options:
                     svid:
                         type: int
                         description: Tcam mask source vid.
-                    tcp-ack:
+                    tcp_ack:
                         type: str
-                        description: Deprecated, please rename it to tcp_ack. Tcam mask tcp flag ack.
+                        description: Tcam mask tcp flag ack.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-cwr:
+                    tcp_cwr:
                         type: str
-                        description: Deprecated, please rename it to tcp_cwr. Tcam mask tcp flag cwr.
+                        description: Tcam mask tcp flag cwr.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-ece:
+                    tcp_ece:
                         type: str
-                        description: Deprecated, please rename it to tcp_ece. Tcam mask tcp flag ece.
+                        description: Tcam mask tcp flag ece.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-fin:
+                    tcp_fin:
                         type: str
-                        description: Deprecated, please rename it to tcp_fin. Tcam mask tcp flag fin.
+                        description: Tcam mask tcp flag fin.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-push:
+                    tcp_push:
                         type: str
-                        description: Deprecated, please rename it to tcp_push. Tcam mask tcp flag push.
+                        description: Tcam mask tcp flag push.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-rst:
+                    tcp_rst:
                         type: str
-                        description: Deprecated, please rename it to tcp_rst. Tcam mask tcp flag rst.
+                        description: Tcam mask tcp flag rst.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-syn:
+                    tcp_syn:
                         type: str
-                        description: Deprecated, please rename it to tcp_syn. Tcam mask tcp flag syn.
+                        description: Tcam mask tcp flag syn.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-urg:
+                    tcp_urg:
                         type: str
-                        description: Deprecated, please rename it to tcp_urg. Tcam mask tcp flag urg.
+                        description: Tcam mask tcp flag urg.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-cfi:
+                    tgt_cfi:
                         type: str
-                        description: Deprecated, please rename it to tgt_cfi. Tcam mask target cfi.
+                        description: Tcam mask target cfi.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-prio:
+                    tgt_prio:
                         type: int
-                        description: Deprecated, please rename it to tgt_prio. Tcam mask target priority.
-                    tgt-updt:
+                        description: Tcam mask target priority.
+                    tgt_updt:
                         type: str
-                        description: Deprecated, please rename it to tgt_updt. Tcam mask target port update.
+                        description: Tcam mask target port update.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgt-v:
+                    tgt_v:
                         type: str
-                        description: Deprecated, please rename it to tgt_v. Tcam mask target valid.
+                        description: Tcam mask target valid.
                         choices:
                             - 'invalid'
                             - 'valid'
@@ -544,9 +544,9 @@ options:
                     vdid:
                         type: int
                         description: Tcam mask vdom id.
-            mir-act:
+            mir_act:
                 type: dict
-                description: Deprecated, please rename it to mir_act. Mir act.
+                description: Mir act.
                 suboptions:
                     vlif:
                         type: int
@@ -558,9 +558,9 @@ options:
             oid:
                 type: int
                 description: NPU TCAM OID.
-            pri-act:
+            pri_act:
                 type: dict
-                description: Deprecated, please rename it to pri_act. Pri act.
+                description: Pri act.
                 suboptions:
                     priority:
                         type: int
@@ -575,252 +575,252 @@ options:
                     act:
                         type: int
                         description: Tcam sact act.
-                    act-v:
+                    act_v:
                         type: str
-                        description: Deprecated, please rename it to act_v. Enable to set sact act.
+                        description: Enable to set sact act.
                         choices:
                             - 'disable'
                             - 'enable'
                     bmproc:
                         type: int
                         description: Tcam sact bmproc.
-                    bmproc-v:
+                    bmproc_v:
                         type: str
-                        description: Deprecated, please rename it to bmproc_v. Enable to set sact bmproc.
+                        description: Enable to set sact bmproc.
                         choices:
                             - 'disable'
                             - 'enable'
-                    df-lif:
+                    df_lif:
                         type: int
-                        description: Deprecated, please rename it to df_lif. Tcam sact df-lif.
-                    df-lif-v:
+                        description: Tcam sact df-lif.
+                    df_lif_v:
                         type: str
-                        description: Deprecated, please rename it to df_lif_v. Enable to set sact df-lif.
+                        description: Enable to set sact df-lif.
                         choices:
                             - 'disable'
                             - 'enable'
                     dfr:
                         type: int
                         description: Tcam sact dfr.
-                    dfr-v:
+                    dfr_v:
                         type: str
-                        description: Deprecated, please rename it to dfr_v. Enable to set sact dfr.
+                        description: Enable to set sact dfr.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dmac-skip:
+                    dmac_skip:
                         type: int
-                        description: Deprecated, please rename it to dmac_skip. Tcam sact dmac-skip.
-                    dmac-skip-v:
+                        description: Tcam sact dmac-skip.
+                    dmac_skip_v:
                         type: str
-                        description: Deprecated, please rename it to dmac_skip_v. Enable to set sact dmac-skip.
+                        description: Enable to set sact dmac-skip.
                         choices:
                             - 'disable'
                             - 'enable'
                     dosen:
                         type: int
                         description: Tcam sact dosen.
-                    dosen-v:
+                    dosen_v:
                         type: str
-                        description: Deprecated, please rename it to dosen_v. Enable to set sact dosen.
+                        description: Enable to set sact dosen.
                         choices:
                             - 'disable'
                             - 'enable'
-                    espff-proc:
+                    espff_proc:
                         type: int
-                        description: Deprecated, please rename it to espff_proc. Tcam sact espff-proc.
-                    espff-proc-v:
+                        description: Tcam sact espff-proc.
+                    espff_proc_v:
                         type: str
-                        description: Deprecated, please rename it to espff_proc_v. Enable to set sact espff-proc.
+                        description: Enable to set sact espff-proc.
                         choices:
                             - 'disable'
                             - 'enable'
-                    etype-pid:
+                    etype_pid:
                         type: int
-                        description: Deprecated, please rename it to etype_pid. Tcam sact etype-pid.
-                    etype-pid-v:
+                        description: Tcam sact etype-pid.
+                    etype_pid_v:
                         type: str
-                        description: Deprecated, please rename it to etype_pid_v. Enable to set sact etype-pid.
+                        description: Enable to set sact etype-pid.
                         choices:
                             - 'disable'
                             - 'enable'
-                    frag-proc:
+                    frag_proc:
                         type: int
-                        description: Deprecated, please rename it to frag_proc. Tcam sact frag-proc.
-                    frag-proc-v:
+                        description: Tcam sact frag-proc.
+                    frag_proc_v:
                         type: str
-                        description: Deprecated, please rename it to frag_proc_v. Enable to set sact frag-proc.
+                        description: Enable to set sact frag-proc.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwd:
                         type: int
                         description: Tcam sact fwd.
-                    fwd-lif:
+                    fwd_lif:
                         type: int
-                        description: Deprecated, please rename it to fwd_lif. Tcam sact fwd-lif.
-                    fwd-lif-v:
+                        description: Tcam sact fwd-lif.
+                    fwd_lif_v:
                         type: str
-                        description: Deprecated, please rename it to fwd_lif_v. Enable to set sact fwd-lif.
+                        description: Enable to set sact fwd-lif.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwd-tvid:
+                    fwd_tvid:
                         type: int
-                        description: Deprecated, please rename it to fwd_tvid. Tcam sact fwd-tvid.
-                    fwd-tvid-v:
+                        description: Tcam sact fwd-tvid.
+                    fwd_tvid_v:
                         type: str
-                        description: Deprecated, please rename it to fwd_tvid_v. Enable to set sact fwd-vid.
+                        description: Enable to set sact fwd-vid.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwd-v:
+                    fwd_v:
                         type: str
-                        description: Deprecated, please rename it to fwd_v. Enable to set sact fwd.
+                        description: Enable to set sact fwd.
                         choices:
                             - 'disable'
                             - 'enable'
                     icpen:
                         type: int
                         description: Tcam sact icpen.
-                    icpen-v:
+                    icpen_v:
                         type: str
-                        description: Deprecated, please rename it to icpen_v. Enable to set sact icpen.
+                        description: Enable to set sact icpen.
                         choices:
                             - 'disable'
                             - 'enable'
-                    igmp-mld-snp:
+                    igmp_mld_snp:
                         type: int
-                        description: Deprecated, please rename it to igmp_mld_snp. Tcam sact igmp-mld-snp.
-                    igmp-mld-snp-v:
+                        description: Tcam sact igmp-mld-snp.
+                    igmp_mld_snp_v:
                         type: str
-                        description: Deprecated, please rename it to igmp_mld_snp_v. Enable to set sact igmp-mld-snp.
+                        description: Enable to set sact igmp-mld-snp.
                         choices:
                             - 'disable'
                             - 'enable'
                     learn:
                         type: int
                         description: Tcam sact learn.
-                    learn-v:
+                    learn_v:
                         type: str
-                        description: Deprecated, please rename it to learn_v. Enable to set sact learn.
+                        description: Enable to set sact learn.
                         choices:
                             - 'disable'
                             - 'enable'
-                    m-srh-ctrl:
+                    m_srh_ctrl:
                         type: int
-                        description: Deprecated, please rename it to m_srh_ctrl. Tcam sact m-srh-ctrl.
-                    m-srh-ctrl-v:
+                        description: Tcam sact m-srh-ctrl.
+                    m_srh_ctrl_v:
                         type: str
-                        description: Deprecated, please rename it to m_srh_ctrl_v. Enable to set sact m-srh-ctrl.
+                        description: Enable to set sact m-srh-ctrl.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-id:
+                    mac_id:
                         type: int
-                        description: Deprecated, please rename it to mac_id. Tcam sact mac-id.
-                    mac-id-v:
+                        description: Tcam sact mac-id.
+                    mac_id_v:
                         type: str
-                        description: Deprecated, please rename it to mac_id_v. Enable to set sact mac-id.
+                        description: Enable to set sact mac-id.
                         choices:
                             - 'disable'
                             - 'enable'
                     mss:
                         type: int
                         description: Tcam sact mss.
-                    mss-v:
+                    mss_v:
                         type: str
-                        description: Deprecated, please rename it to mss_v. Enable to set sact mss.
+                        description: Enable to set sact mss.
                         choices:
                             - 'disable'
                             - 'enable'
                     pleen:
                         type: int
                         description: Tcam sact pleen.
-                    pleen-v:
+                    pleen_v:
                         type: str
-                        description: Deprecated, please rename it to pleen_v. Enable to set sact pleen.
+                        description: Enable to set sact pleen.
                         choices:
                             - 'disable'
                             - 'enable'
-                    prio-pid:
+                    prio_pid:
                         type: int
-                        description: Deprecated, please rename it to prio_pid. Tcam sact prio-pid.
-                    prio-pid-v:
+                        description: Tcam sact prio-pid.
+                    prio_pid_v:
                         type: str
-                        description: Deprecated, please rename it to prio_pid_v. Enable to set sact prio-pid.
+                        description: Enable to set sact prio-pid.
                         choices:
                             - 'disable'
                             - 'enable'
                     promis:
                         type: int
                         description: Tcam sact promis.
-                    promis-v:
+                    promis_v:
                         type: str
-                        description: Deprecated, please rename it to promis_v. Enable to set sact promis.
+                        description: Enable to set sact promis.
                         choices:
                             - 'disable'
                             - 'enable'
                     rfsh:
                         type: int
                         description: Tcam sact rfsh.
-                    rfsh-v:
+                    rfsh_v:
                         type: str
-                        description: Deprecated, please rename it to rfsh_v. Enable to set sact rfsh.
+                        description: Enable to set sact rfsh.
                         choices:
                             - 'disable'
                             - 'enable'
-                    smac-skip:
+                    smac_skip:
                         type: int
-                        description: Deprecated, please rename it to smac_skip. Tcam sact smac-skip.
-                    smac-skip-v:
+                        description: Tcam sact smac-skip.
+                    smac_skip_v:
                         type: str
-                        description: Deprecated, please rename it to smac_skip_v. Enable to set sact smac-skip.
+                        description: Enable to set sact smac-skip.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tp-smchk-v:
+                    tp_smchk_v:
                         type: str
-                        description: Deprecated, please rename it to tp_smchk_v. Enable to set sact tp mode.
+                        description: Enable to set sact tp mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     tp_smchk:
                         type: int
                         description: Tcam sact tp mode.
-                    tpe-id:
+                    tpe_id:
                         type: int
-                        description: Deprecated, please rename it to tpe_id. Tcam sact tpe-id.
-                    tpe-id-v:
+                        description: Tcam sact tpe-id.
+                    tpe_id_v:
                         type: str
-                        description: Deprecated, please rename it to tpe_id_v. Enable to set sact tpe-id.
+                        description: Enable to set sact tpe-id.
                         choices:
                             - 'disable'
                             - 'enable'
                     vdm:
                         type: int
                         description: Tcam sact vdm.
-                    vdm-v:
+                    vdm_v:
                         type: str
-                        description: Deprecated, please rename it to vdm_v. Enable to set sact vdm.
+                        description: Enable to set sact vdm.
                         choices:
                             - 'disable'
                             - 'enable'
-                    vdom-id:
+                    vdom_id:
                         type: int
-                        description: Deprecated, please rename it to vdom_id. Tcam sact vdom-id.
-                    vdom-id-v:
+                        description: Tcam sact vdom-id.
+                    vdom_id_v:
                         type: str
-                        description: Deprecated, please rename it to vdom_id_v. Enable to set sact vdom-id.
+                        description: Enable to set sact vdom-id.
                         choices:
                             - 'disable'
                             - 'enable'
-                    x-mode:
+                    x_mode:
                         type: int
-                        description: Deprecated, please rename it to x_mode. Tcam sact x-mode.
-                    x-mode-v:
+                        description: Tcam sact x-mode.
+                    x_mode_v:
                         type: str
-                        description: Deprecated, please rename it to x_mode_v. Enable to set sact x-mode.
+                        description: Enable to set sact x-mode.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -831,162 +831,162 @@ options:
                     act:
                         type: int
                         description: Tcam tact act.
-                    act-v:
+                    act_v:
                         type: str
-                        description: Deprecated, please rename it to act_v. Enable to set tact act.
+                        description: Enable to set tact act.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fmtuv4-s:
+                    fmtuv4_s:
                         type: int
-                        description: Deprecated, please rename it to fmtuv4_s. Tcam tact fmtuv4-s.
-                    fmtuv4-s-v:
+                        description: Tcam tact fmtuv4-s.
+                    fmtuv4_s_v:
                         type: str
-                        description: Deprecated, please rename it to fmtuv4_s_v. Enable to set tact fmtuv4-s.
+                        description: Enable to set tact fmtuv4-s.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fmtuv6-s:
+                    fmtuv6_s:
                         type: int
-                        description: Deprecated, please rename it to fmtuv6_s. Tcam tact fmtuv6-s.
-                    fmtuv6-s-v:
+                        description: Tcam tact fmtuv6-s.
+                    fmtuv6_s_v:
                         type: str
-                        description: Deprecated, please rename it to fmtuv6_s_v. Enable to set tact fmtuv6-s.
+                        description: Enable to set tact fmtuv6-s.
                         choices:
                             - 'disable'
                             - 'enable'
                     lnkid:
                         type: int
                         description: Tcam tact lnkid.
-                    lnkid-v:
+                    lnkid_v:
                         type: str
-                        description: Deprecated, please rename it to lnkid_v. Enable to set tact lnkid.
+                        description: Enable to set tact lnkid.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-id:
+                    mac_id:
                         type: int
-                        description: Deprecated, please rename it to mac_id. Tcam tact mac-id.
-                    mac-id-v:
+                        description: Tcam tact mac-id.
+                    mac_id_v:
                         type: str
-                        description: Deprecated, please rename it to mac_id_v. Enable to set tact mac-id.
+                        description: Enable to set tact mac-id.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mss-t:
+                    mss_t:
                         type: int
-                        description: Deprecated, please rename it to mss_t. Tcam tact mss.
-                    mss-t-v:
+                        description: Tcam tact mss.
+                    mss_t_v:
                         type: str
-                        description: Deprecated, please rename it to mss_t_v. Enable to set tact mss.
+                        description: Enable to set tact mss.
                         choices:
                             - 'disable'
                             - 'enable'
                     mtuv4:
                         type: int
                         description: Tcam tact mtuv4.
-                    mtuv4-v:
+                    mtuv4_v:
                         type: str
-                        description: Deprecated, please rename it to mtuv4_v. Enable to set tact mtuv4.
+                        description: Enable to set tact mtuv4.
                         choices:
                             - 'disable'
                             - 'enable'
                     mtuv6:
                         type: int
                         description: Tcam tact mtuv6.
-                    mtuv6-v:
+                    mtuv6_v:
                         type: str
-                        description: Deprecated, please rename it to mtuv6_v. Enable to set tact mtuv6.
+                        description: Enable to set tact mtuv6.
                         choices:
                             - 'disable'
                             - 'enable'
-                    slif-act:
+                    slif_act:
                         type: int
-                        description: Deprecated, please rename it to slif_act. Tcam tact slif-act.
-                    slif-act-v:
+                        description: Tcam tact slif-act.
+                    slif_act_v:
                         type: str
-                        description: Deprecated, please rename it to slif_act_v. Enable to set tact slif-act.
+                        description: Enable to set tact slif-act.
                         choices:
                             - 'disable'
                             - 'enable'
                     sublnkid:
                         type: int
                         description: Tcam tact sublnkid.
-                    sublnkid-v:
+                    sublnkid_v:
                         type: str
-                        description: Deprecated, please rename it to sublnkid_v. Enable to set tact sublnkid.
+                        description: Enable to set tact sublnkid.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tgtv-act:
+                    tgtv_act:
                         type: int
-                        description: Deprecated, please rename it to tgtv_act. Tcam tact tgtv-act.
-                    tgtv-act-v:
+                        description: Tcam tact tgtv-act.
+                    tgtv_act_v:
                         type: str
-                        description: Deprecated, please rename it to tgtv_act_v. Enable to set tact tgtv-act.
+                        description: Enable to set tact tgtv-act.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tlif-act:
+                    tlif_act:
                         type: int
-                        description: Deprecated, please rename it to tlif_act. Tcam tact tlif-act.
-                    tlif-act-v:
+                        description: Tcam tact tlif-act.
+                    tlif_act_v:
                         type: str
-                        description: Deprecated, please rename it to tlif_act_v. Enable to set tact tlif-act.
+                        description: Enable to set tact tlif-act.
                         choices:
                             - 'disable'
                             - 'enable'
                     tpeid:
                         type: int
                         description: Tcam tact tpeid.
-                    tpeid-v:
+                    tpeid_v:
                         type: str
-                        description: Deprecated, please rename it to tpeid_v. Enable to set tact tpeid.
+                        description: Enable to set tact tpeid.
                         choices:
                             - 'disable'
                             - 'enable'
                     v6fe:
                         type: int
                         description: Tcam tact v6fe.
-                    v6fe-v:
+                    v6fe_v:
                         type: str
-                        description: Deprecated, please rename it to v6fe_v. Enable to set tact v6fe.
+                        description: Enable to set tact v6fe.
                         choices:
                             - 'disable'
                             - 'enable'
-                    vep-en-v:
+                    vep_en_v:
                         type: str
-                        description: Deprecated, please rename it to vep_en_v. Enable to set tact vep-en.
+                        description: Enable to set tact vep-en.
                         choices:
                             - 'disable'
                             - 'enable'
-                    vep-slid:
+                    vep_slid:
                         type: int
-                        description: Deprecated, please rename it to vep_slid. Tcam tact vep_slid.
-                    vep-slid-v:
+                        description: Tcam tact vep_slid.
+                    vep_slid_v:
                         type: str
-                        description: Deprecated, please rename it to vep_slid_v. Enable to set tact vep-slid.
+                        description: Enable to set tact vep-slid.
                         choices:
                             - 'disable'
                             - 'enable'
                     vep_en:
                         type: int
                         description: Tcam tact vep_en.
-                    xlt-lif:
+                    xlt_lif:
                         type: int
-                        description: Deprecated, please rename it to xlt_lif. Tcam tact xlt-lif.
-                    xlt-lif-v:
+                        description: Tcam tact xlt-lif.
+                    xlt_lif_v:
                         type: str
-                        description: Deprecated, please rename it to xlt_lif_v. Enable to set tact xlt-lif.
+                        description: Enable to set tact xlt-lif.
                         choices:
                             - 'disable'
                             - 'enable'
-                    xlt-vid:
+                    xlt_vid:
                         type: int
-                        description: Deprecated, please rename it to xlt_vid. Tcam tact xlt-vid.
-                    xlt-vid-v:
+                        description: Tcam tact xlt-vid.
+                    xlt_vid_v:
                         type: str
-                        description: Deprecated, please rename it to xlt_vid_v. Enable to set tact xlt-vid.
+                        description: Enable to set tact xlt-vid.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1293,23 +1293,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam',
         '/pm/config/global/obj/system/npu/npu-tcam'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}',
-        '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1562,7 +1554,6 @@ def main():
                 },
                 'vid': {'v_range': [['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -1576,9 +1567,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

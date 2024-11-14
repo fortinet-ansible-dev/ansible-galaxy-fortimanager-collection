@@ -111,9 +111,9 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    ldap-server:
+                    ldap_server:
                         type: str
-                        description: Deprecated, please rename it to ldap_server. Ldap server.
+                        description: Ldap server.
                     password:
                         type: raw
                         description: (list) Password.
@@ -159,21 +159,21 @@ options:
                     server5:
                         type: str
                         description: Server5.
-                    source-ip:
+                    source_ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source ip.
-                    source-ip6:
+                        description: Source ip.
+                    source_ip6:
                         type: str
-                        description: Deprecated, please rename it to source_ip6. Source ip6.
+                        description: Source ip6.
                     ssl:
                         type: str
                         description: Ssl.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ssl-trusted-cert:
+                    ssl_trusted_cert:
                         type: str
-                        description: Deprecated, please rename it to ssl_trusted_cert. Ssl trusted cert.
+                        description: Ssl trusted cert.
                     type:
                         type: str
                         description: Type.
@@ -182,49 +182,49 @@ options:
                             - 'fortiems'
                             - 'fortinac'
                             - 'fortiems-cloud'
-                    user-info-server:
+                    user_info_server:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to user_info_server. User info server.
-                    ldap-poll:
+                        description: (list or str) User info server.
+                    ldap_poll:
                         type: str
-                        description: Deprecated, please rename it to ldap_poll. Ldap poll.
+                        description: Ldap poll.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ldap-poll-filter:
+                    ldap_poll_filter:
                         type: str
-                        description: Deprecated, please rename it to ldap_poll_filter. Ldap poll filter.
-                    ldap-poll-interval:
+                        description: Ldap poll filter.
+                    ldap_poll_interval:
                         type: int
-                        description: Deprecated, please rename it to ldap_poll_interval. Ldap poll interval.
-                    group-poll-interval:
+                        description: Ldap poll interval.
+                    group_poll_interval:
                         type: int
-                        description: Deprecated, please rename it to group_poll_interval. Group poll interval.
+                        description: Group poll interval.
                     interface:
                         type: str
                         description: Interface.
-                    interface-select-method:
+                    interface_select_method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Interface select method.
+                        description: Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
-                    logon-timeout:
+                    logon_timeout:
                         type: int
-                        description: Deprecated, please rename it to logon_timeout. Interval in minutes to keep logons after FSSO server down.
+                        description: Interval in minutes to keep logons after FSSO server down.
                     sni:
                         type: str
                         description: Server Name Indication.
-                    ssl-server-host-ip-check:
+                    ssl_server_host_ip_check:
                         type: str
-                        description: Deprecated, please rename it to ssl_server_host_ip_check. Enable/disable server host/IP verification.
+                        description: Enable/disable server host/IP verification.
                         choices:
                             - 'disable'
                             - 'enable'
-            ldap-server:
+            ldap_server:
                 type: str
-                description: Deprecated, please rename it to ldap_server. LDAP server to get group information.
+                description: LDAP server to get group information.
             name:
                 type: str
                 description: Name.
@@ -274,33 +274,33 @@ options:
             server5:
                 type: str
                 description: Domain name or IP address of the fifth FSSO collector agent.
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IP for communications to FSSO agent.
-            source-ip6:
+                description: Source IP for communications to FSSO agent.
+            source_ip6:
                 type: str
-                description: Deprecated, please rename it to source_ip6. IPv6 source for communications to FSSO agent.
-            ldap-poll:
+                description: IPv6 source for communications to FSSO agent.
+            ldap_poll:
                 type: str
-                description: Deprecated, please rename it to ldap_poll. Enable/disable automatic fetching of groups from LDAP server.
+                description: Enable/disable automatic fetching of groups from LDAP server.
                 choices:
                     - 'disable'
                     - 'enable'
-            ldap-poll-filter:
+            ldap_poll_filter:
                 type: str
-                description: Deprecated, please rename it to ldap_poll_filter. Filter used to fetch groups.
-            ldap-poll-interval:
+                description: Filter used to fetch groups.
+            ldap_poll_interval:
                 type: int
-                description: Deprecated, please rename it to ldap_poll_interval. Interval in minutes within to fetch groups from LDAP server.
+                description: Interval in minutes within to fetch groups from LDAP server.
             ssl:
                 type: str
                 description: Enable/disable use of SSL.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-trusted-cert:
+            ssl_trusted_cert:
                 type: str
-                description: Deprecated, please rename it to ssl_trusted_cert. Trusted server certificate or CA certificate.
+                description: Trusted server certificate or CA certificate.
             type:
                 type: str
                 description: Server type.
@@ -309,31 +309,31 @@ options:
                     - 'fortiems'
                     - 'fortinac'
                     - 'fortiems-cloud'
-            user-info-server:
+            user_info_server:
                 type: str
-                description: Deprecated, please rename it to user_info_server. LDAP server to get user information.
-            group-poll-interval:
+                description: LDAP server to get user information.
+            group_poll_interval:
                 type: int
-                description: Deprecated, please rename it to group_poll_interval. Interval in minutes within to fetch groups from FSSO server, or unset...
+                description: Interval in minutes within to fetch groups from FSSO server, or unset to disable.
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
-            logon-timeout:
+            logon_timeout:
                 type: int
-                description: Deprecated, please rename it to logon_timeout. Interval in minutes to keep logons after FSSO server down.
+                description: Interval in minutes to keep logons after FSSO server down.
             sni:
                 type: str
                 description: Server Name Indication.
-            ssl-server-host-ip-check:
+            ssl_server_host_ip_check:
                 type: str
-                description: Deprecated, please rename it to ssl_server_host_ip_check. Enable/disable server host/IP verification.
+                description: Enable/disable server host/IP verification.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -418,23 +418,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/fsso',
         '/pm/config/global/obj/user/fsso'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/fsso/{fsso}',
-        '/pm/config/global/obj/user/fsso/{fsso}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -475,13 +467,13 @@ def main():
                         'ldap-poll-filter': {'v_range': [['6.2.1', '']], 'type': 'str'},
                         'ldap-poll-interval': {'v_range': [['6.2.1', '']], 'type': 'int'},
                         'group-poll-interval': {'v_range': [['6.2.2', '']], 'type': 'int'},
-                        'interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
+                        'interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
                         'interface-select-method': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
                         },
-                        'logon-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                        'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
@@ -514,13 +506,12 @@ def main():
                 'type': {'v_range': [['6.2.0', '']], 'choices': ['default', 'fortiems', 'fortinac', 'fortiems-cloud'], 'type': 'str'},
                 'user-info-server': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'group-poll-interval': {'v_range': [['6.2.2', '']], 'type': 'int'},
-                'interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'logon-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -534,9 +525,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

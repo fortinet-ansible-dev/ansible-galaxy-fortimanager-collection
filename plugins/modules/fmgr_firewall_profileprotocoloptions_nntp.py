@@ -86,9 +86,9 @@ options:
         required: false
         type: dict
         suboptions:
-            inspect-all:
+            inspect_all:
                 type: str
-                description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
+                description: Enable/disable the inspection of all ports for the protocol.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -100,15 +100,15 @@ options:
                     - 'oversize'
                     - 'no-content-summary'
                     - 'splice'
-            oversize-limit:
+            oversize_limit:
                 type: int
-                description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
+                description: Maximum in-memory file size that can be scanned
             ports:
                 type: raw
                 description: (list) Ports to scan for content
-            scan-bzip2:
+            scan_bzip2:
                 type: str
-                description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
+                description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -118,15 +118,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            uncompressed-nest-limit:
+            uncompressed_nest_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompressed and...
-            uncompressed-oversize-limit:
+                description: Maximum nested levels of compression that can be uncompressed and scanned
+            uncompressed_oversize_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be scanned
-            proxy-after-tcp-handshake:
+                description: Maximum in-memory uncompressed file size that can be scanned
+            proxy_after_tcp_handshake:
                 type: str
-                description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been established
+                description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:
                     - 'disable'
                     - 'enable'
@@ -153,9 +153,9 @@ EXAMPLES = '''
         firewall_profileprotocoloptions_nntp:
           inspect_all: <value in [disable, enable]>
           options:
-            - oversize
-            - no-content-summary
-            - splice
+            - "oversize"
+            - "no-content-summary"
+            - "splice"
           oversize_limit: <integer>
           ports: <list or integer>
           scan_bzip2: <value in [disable, enable]>
@@ -206,23 +206,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp',
         '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp/{nntp}',
-        '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/nntp/{nntp}'
-    ]
-
     url_params = ['adom', 'profile-protocol-options']
     module_primary_key = None
     module_arg_spec = {
@@ -243,7 +235,6 @@ def main():
                 'uncompressed-oversize-limit': {'type': 'int'},
                 'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -257,9 +248,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

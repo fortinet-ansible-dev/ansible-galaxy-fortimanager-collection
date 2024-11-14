@@ -84,36 +84,36 @@ options:
         required: false
         type: dict
         suboptions:
-            block-mcast:
+            block_mcast:
                 type: str
-                description: Deprecated, please rename it to block_mcast. Enable/disable block multicast RTP connections.
+                description: Enable/disable block multicast RTP connections.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-call-summary:
+            log_call_summary:
                 type: str
-                description: Deprecated, please rename it to log_call_summary. Enable/disable log summary of SCCP calls.
+                description: Enable/disable log summary of SCCP calls.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-violations:
+            log_violations:
                 type: str
-                description: Deprecated, please rename it to log_violations. Enable/disable logging of SCCP violations.
+                description: Enable/disable logging of SCCP violations.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-calls:
+            max_calls:
                 type: int
-                description: Deprecated, please rename it to max_calls. Maximum calls per minute per SCCP client
+                description: Maximum calls per minute per SCCP client
             status:
                 type: str
                 description: Enable/disable SCCP.
                 choices:
                     - 'disable'
                     - 'enable'
-            verify-header:
+            verify_header:
                 type: str
-                description: Deprecated, please rename it to verify_header. Enable/disable verify SCCP header content.
+                description: Enable/disable verify SCCP header content.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -187,23 +187,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sccp',
         '/pm/config/global/obj/voip/profile/{profile}/sccp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sccp/{sccp}',
-        '/pm/config/global/obj/voip/profile/{profile}/sccp/{sccp}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -220,7 +212,6 @@ def main():
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'verify-header': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -234,9 +225,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

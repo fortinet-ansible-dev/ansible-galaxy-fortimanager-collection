@@ -90,24 +90,24 @@ options:
                 elements: dict
                 description: Adom.
                 suboptions:
-                    adom-name:
+                    adom_name:
                         type: str
-                        description: Deprecated, please rename it to adom_name. Admin domain names.
-            adom-attr:
+                        description: Admin domain names.
+            adom_attr:
                 type: str
-                description: Deprecated, please rename it to adom_attr. Attribute used to retrieve adom
+                description: Attribute used to retrieve adom
             attributes:
                 type: str
                 description: Attributes used for group searching.
-            ca-cert:
+            ca_cert:
                 type: str
-                description: Deprecated, please rename it to ca_cert. CA certificate name.
+                description: CA certificate name.
             cnid:
                 type: str
                 description: Common Name Identifier
-            connect-timeout:
+            connect_timeout:
                 type: int
-                description: Deprecated, please rename it to connect_timeout. LDAP connection timeout
+                description: LDAP connection timeout
             dn:
                 type: str
                 description: Distinguished Name.
@@ -117,9 +117,9 @@ options:
             group:
                 type: str
                 description: Full base DN used for group searching.
-            memberof-attr:
+            memberof_attr:
                 type: str
-                description: Deprecated, please rename it to memberof_attr. Attribute used to retrieve memeberof.
+                description: Attribute used to retrieve memeberof.
             name:
                 type: str
                 description: LDAP server entry name.
@@ -130,12 +130,12 @@ options:
             port:
                 type: int
                 description: Port number of LDAP server
-            profile-attr:
+            profile_attr:
                 type: str
-                description: Deprecated, please rename it to profile_attr. Attribute used to retrieve admin profile.
-            secondary-server:
+                description: Attribute used to retrieve admin profile.
+            secondary_server:
                 type: str
-                description: Deprecated, please rename it to secondary_server. No description
+                description: No description
             secure:
                 type: str
                 description:
@@ -150,9 +150,9 @@ options:
             server:
                 type: str
                 description: No description
-            tertiary-server:
+            tertiary_server:
                 type: str
-                description: Deprecated, please rename it to tertiary_server. No description
+                description: No description
             type:
                 type: str
                 description:
@@ -167,16 +167,32 @@ options:
             username:
                 type: str
                 description: Username
-            adom-access:
+            adom_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_access.
                     - set all or specify adom access type.
                     - all - All ADOMs access.
                     - specify - Specify ADOMs access.
                 choices:
                     - 'all'
                     - 'specify'
+            ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for connection to ldap server.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -260,21 +276,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/admin/ldap'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/admin/ldap/{ldap}'
-    ]
-
     url_params = []
     module_primary_key = 'name'
     module_arg_spec = {
@@ -302,9 +311,13 @@ def main():
                 'tertiary-server': {'type': 'str'},
                 'type': {'choices': ['simple', 'anonymous', 'regular'], 'type': 'str'},
                 'username': {'type': 'str'},
-                'adom-access': {'v_range': [['7.0.3', '']], 'choices': ['all', 'specify'], 'type': 'str'}
+                'adom-access': {'v_range': [['7.0.3', '']], 'choices': ['all', 'specify'], 'type': 'str'},
+                'ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -318,9 +331,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -92,83 +92,83 @@ options:
             comment:
                 type: str
                 description: Comment.
-            darrp-optimize:
+            darrp_optimize:
                 type: int
-                description: Deprecated, please rename it to darrp_optimize. Time for running Dynamic Automatic Radio Resource Provisioning
-            darrp-optimize-schedules:
+                description: Time for running Dynamic Automatic Radio Resource Provisioning
+            darrp_optimize_schedules:
                 type: raw
-                description: (list) Deprecated, please rename it to darrp_optimize_schedules. Firewall schedules for DARRP running time.
-            include-dfs-channel:
+                description: (list) Firewall schedules for DARRP running time.
+            include_dfs_channel:
                 type: str
-                description: Deprecated, please rename it to include_dfs_channel. Enable/disable use of DFS channel in DARRP channel selection phase 1
+                description: Enable/disable use of DFS channel in DARRP channel selection phase 1
                 choices:
                     - 'no'
                     - 'disable'
                     - 'yes'
                     - 'enable'
-            include-weather-channel:
+            include_weather_channel:
                 type: str
-                description: Deprecated, please rename it to include_weather_channel. Enable/disable use of weather channel in DARRP channel selection ...
+                description: Enable/disable use of weather channel in DARRP channel selection phase 1
                 choices:
                     - 'no'
                     - 'disable'
                     - 'yes'
                     - 'enable'
-            monitor-period:
+            monitor_period:
                 type: int
-                description: Deprecated, please rename it to monitor_period. Period in seconds to measure average transmit retries and receive errors
+                description: Period in seconds to measure average transmit retries and receive errors
             name:
                 type: str
                 description: WiFi ARRP profile name.
                 required: true
-            override-darrp-optimize:
+            override_darrp_optimize:
                 type: str
-                description: Deprecated, please rename it to override_darrp_optimize. Enable to override setting darrp-optimize and darrp-optimize-sche...
+                description: Enable to override setting darrp-optimize and darrp-optimize-schedules
                 choices:
                     - 'disable'
                     - 'enable'
-            selection-period:
+            selection_period:
                 type: int
-                description: Deprecated, please rename it to selection_period. Period in seconds to measure average channel load, noise floor, spectral...
-            threshold-ap:
+                description: Period in seconds to measure average channel load, noise floor, spectral RSSI
+            threshold_ap:
                 type: int
-                description: Deprecated, please rename it to threshold_ap. Threshold to reject channel in DARRP channel selection phase 1 due to surrou...
-            threshold-channel-load:
+                description: Threshold to reject channel in DARRP channel selection phase 1 due to surrounding APs
+            threshold_channel_load:
                 type: int
-                description: Deprecated, please rename it to threshold_channel_load. Threshold in percentage to reject channel in DARRP channel selecti...
-            threshold-noise-floor:
+                description: Threshold in percentage to reject channel in DARRP channel selection phase 1 due to channel load
+            threshold_noise_floor:
                 type: str
-                description: Deprecated, please rename it to threshold_noise_floor. Threshold in dBm to reject channel in DARRP channel selection phase...
-            threshold-rx-errors:
+                description: Threshold in dBm to reject channel in DARRP channel selection phase 1 due to noise floor
+            threshold_rx_errors:
                 type: int
-                description: Deprecated, please rename it to threshold_rx_errors. Threshold in percentage for receive errors to trigger channel reselec...
-            threshold-spectral-rssi:
+                description: Threshold in percentage for receive errors to trigger channel reselection in DARRP monitor stage
+            threshold_spectral_rssi:
                 type: str
-                description: Deprecated, please rename it to threshold_spectral_rssi. Threshold in dBm to reject channel in DARRP channel selection pha...
-            threshold-tx-retries:
+                description: Threshold in dBm to reject channel in DARRP channel selection phase 1 due to spectral RSSI
+            threshold_tx_retries:
                 type: int
-                description: Deprecated, please rename it to threshold_tx_retries. Threshold in percentage for transmit retries to trigger channel rese...
-            weight-channel-load:
+                description: Threshold in percentage for transmit retries to trigger channel reselection in DARRP monitor stage
+            weight_channel_load:
                 type: int
-                description: Deprecated, please rename it to weight_channel_load. Weight in DARRP channel score calculation for channel load
-            weight-dfs-channel:
+                description: Weight in DARRP channel score calculation for channel load
+            weight_dfs_channel:
                 type: int
-                description: Deprecated, please rename it to weight_dfs_channel. Weight in DARRP channel score calculation for DFS channel
-            weight-managed-ap:
+                description: Weight in DARRP channel score calculation for DFS channel
+            weight_managed_ap:
                 type: int
-                description: Deprecated, please rename it to weight_managed_ap. Weight in DARRP channel score calculation for managed APs
-            weight-noise-floor:
+                description: Weight in DARRP channel score calculation for managed APs
+            weight_noise_floor:
                 type: int
-                description: Deprecated, please rename it to weight_noise_floor. Weight in DARRP channel score calculation for noise floor
-            weight-rogue-ap:
+                description: Weight in DARRP channel score calculation for noise floor
+            weight_rogue_ap:
                 type: int
-                description: Deprecated, please rename it to weight_rogue_ap. Weight in DARRP channel score calculation for rogue APs
-            weight-spectral-rssi:
+                description: Weight in DARRP channel score calculation for rogue APs
+            weight_spectral_rssi:
                 type: int
-                description: Deprecated, please rename it to weight_spectral_rssi. Weight in DARRP channel score calculation for spectral RSSI
-            weight-weather-channel:
+                description: Weight in DARRP channel score calculation for spectral RSSI
+            weight_weather_channel:
                 type: int
-                description: Deprecated, please rename it to weight_weather_channel. Weight in DARRP channel score calculation for weather channel
+                description: Weight in DARRP channel score calculation for weather channel
 '''
 
 EXAMPLES = '''
@@ -255,23 +255,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile',
         '/pm/config/global/obj/wireless-controller/arrp-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/arrp-profile/{arrp-profile}',
-        '/pm/config/global/obj/wireless-controller/arrp-profile/{arrp-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -303,7 +295,6 @@ def main():
                 'weight-spectral-rssi': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'weight-weather-channel': {'v_range': [['7.0.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -317,9 +308,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

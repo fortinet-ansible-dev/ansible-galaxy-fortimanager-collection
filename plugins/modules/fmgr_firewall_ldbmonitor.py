@@ -89,15 +89,15 @@ options:
         required: false
         type: dict
         suboptions:
-            http-get:
+            http_get:
                 type: str
-                description: Deprecated, please rename it to http_get. URL used to send a GET request to check the health of an HTTP server.
-            http-match:
+                description: URL used to send a GET request to check the health of an HTTP server.
+            http_match:
                 type: str
-                description: Deprecated, please rename it to http_match. String to match the value expected in response to an HTTP-GET request.
-            http-max-redirects:
+                description: String to match the value expected in response to an HTTP-GET request.
+            http_max_redirects:
                 type: int
-                description: Deprecated, please rename it to http_max_redirects. The maximum number of HTTP redirects to be allowed
+                description: The maximum number of HTTP redirects to be allowed
             interval:
                 type: int
                 description: Time between health checks
@@ -124,21 +124,21 @@ options:
                     - 'passive-sip'
                     - 'https'
                     - 'dns'
-            src-ip:
+            src_ip:
                 type: str
-                description: Deprecated, please rename it to src_ip. Source IP for ldb-monitor.
-            dns-match-ip:
+                description: Source IP for ldb-monitor.
+            dns_match_ip:
                 type: str
-                description: Deprecated, please rename it to dns_match_ip. Response IP expected from DNS server.
-            dns-protocol:
+                description: Response IP expected from DNS server.
+            dns_protocol:
                 type: str
-                description: Deprecated, please rename it to dns_protocol. Select the protocol used by the DNS health check monitor to check the health...
+                description: Select the protocol used by the DNS health check monitor to check the health of the server
                 choices:
                     - 'udp'
                     - 'tcp'
-            dns-request-domain:
+            dns_request_domain:
                 type: str
-                description: Deprecated, please rename it to dns_request_domain. Fully qualified domain name to resolve for the DNS probe.
+                description: Fully qualified domain name to resolve for the DNS probe.
 '''
 
 EXAMPLES = '''
@@ -219,23 +219,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ldb-monitor',
         '/pm/config/global/obj/firewall/ldb-monitor'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ldb-monitor/{ldb-monitor}',
-        '/pm/config/global/obj/firewall/ldb-monitor/{ldb-monitor}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -258,7 +250,6 @@ def main():
                 'dns-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
                 'dns-request-domain': {'v_range': [['7.0.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -272,9 +263,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

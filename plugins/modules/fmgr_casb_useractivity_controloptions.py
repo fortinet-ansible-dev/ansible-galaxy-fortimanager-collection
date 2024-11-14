@@ -114,9 +114,9 @@ options:
                             - 'new'
                             - 'new-on-not-found'
                             - 'delete'
-                    case-sensitive:
+                    case_sensitive:
                         type: str
-                        description: Deprecated, please rename it to case_sensitive. CASB operation search case sensitive.
+                        description: CASB operation search case sensitive.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -125,18 +125,18 @@ options:
                         description: CASB operation direction.
                         choices:
                             - 'request'
-                    header-name:
+                    header_name:
                         type: str
-                        description: Deprecated, please rename it to header_name. CASB operation header name to search.
+                        description: CASB operation header name to search.
                     name:
                         type: str
                         description: CASB control option operation name.
-                    search-key:
+                    search_key:
                         type: str
-                        description: Deprecated, please rename it to search_key. CASB operation key to search.
-                    search-pattern:
+                        description: CASB operation key to search.
+                    search_pattern:
                         type: str
-                        description: Deprecated, please rename it to search_pattern. CASB operation search pattern.
+                        description: CASB operation search pattern.
                         choices:
                             - 'simple'
                             - 'substr'
@@ -147,9 +147,9 @@ options:
                         choices:
                             - 'header'
                             - 'path'
-                    value-from-input:
+                    value_from_input:
                         type: str
-                        description: Deprecated, please rename it to value_from_input. Enable/disable value from user input.
+                        description: Enable/disable value from user input.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -242,23 +242,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options',
         '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/control-options/{control-options}',
-        '/pm/config/global/obj/casb/user-activity/{user-activity}/control-options/{control-options}'
-    ]
-
     url_params = ['adom', 'user-activity']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -293,7 +285,6 @@ def main():
                 },
                 'status': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -307,9 +298,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

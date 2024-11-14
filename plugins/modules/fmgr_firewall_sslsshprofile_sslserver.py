@@ -95,16 +95,16 @@ options:
         required: false
         type: dict
         suboptions:
-            ftps-client-cert-request:
+            ftps_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to ftps_client_cert_request. Action based on client certificate request during the FTPS hands...
+                description: Action based on client certificate request during the FTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            https-client-cert-request:
+            https_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to https_client_cert_request. Action based on client certificate request during the HTTPS han...
+                description: Action based on client certificate request during the HTTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
@@ -113,9 +113,9 @@ options:
                 type: int
                 description: SSL server ID.
                 required: true
-            imaps-client-cert-request:
+            imaps_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to imaps_client_cert_request. Action based on client certificate request during the IMAPS han...
+                description: Action based on client certificate request during the IMAPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
@@ -123,65 +123,65 @@ options:
             ip:
                 type: str
                 description: IPv4 address of the SSL server.
-            pop3s-client-cert-request:
+            pop3s_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to pop3s_client_cert_request. Action based on client certificate request during the POP3S han...
+                description: Action based on client certificate request during the POP3S handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            smtps-client-cert-request:
+            smtps_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to smtps_client_cert_request. Action based on client certificate request during the SMTPS han...
+                description: Action based on client certificate request during the SMTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            ssl-other-client-cert-request:
+            ssl_other_client_cert_request:
                 type: str
-                description: Deprecated, please rename it to ssl_other_client_cert_request. Action based on client certificate request during an SSL pr...
+                description: Action based on client certificate request during an SSL protocol handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            ftps-client-certificate:
+            ftps_client_certificate:
                 type: str
-                description: Deprecated, please rename it to ftps_client_certificate. Action based on received client certificate during the FTPS hands...
+                description: Action based on received client certificate during the FTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            https-client-certificate:
+            https_client_certificate:
                 type: str
-                description: Deprecated, please rename it to https_client_certificate. Action based on received client certificate during the HTTPS han...
+                description: Action based on received client certificate during the HTTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            imaps-client-certificate:
+            imaps_client_certificate:
                 type: str
-                description: Deprecated, please rename it to imaps_client_certificate. Action based on received client certificate during the IMAPS han...
+                description: Action based on received client certificate during the IMAPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            pop3s-client-certificate:
+            pop3s_client_certificate:
                 type: str
-                description: Deprecated, please rename it to pop3s_client_certificate. Action based on received client certificate during the POP3S han...
+                description: Action based on received client certificate during the POP3S handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            smtps-client-certificate:
+            smtps_client_certificate:
                 type: str
-                description: Deprecated, please rename it to smtps_client_certificate. Action based on received client certificate during the SMTPS han...
+                description: Action based on received client certificate during the SMTPS handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
-            ssl-other-client-certificate:
+            ssl_other_client_certificate:
                 type: str
-                description: Deprecated, please rename it to ssl_other_client_certificate. Action based on received client certificate during an SSL pr...
+                description: Action based on received client certificate during an SSL protocol handshake.
                 choices:
                     - 'bypass'
                     - 'inspect'
@@ -269,23 +269,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server',
         '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server/{ssl-server}',
-        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssl-server/{ssl-server}'
-    ]
-
     url_params = ['adom', 'ssl-ssh-profile']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -311,7 +303,6 @@ def main():
                 'smtps-client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'ssl-other-client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'}
             }
-
         }
     }
 
@@ -325,9 +316,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

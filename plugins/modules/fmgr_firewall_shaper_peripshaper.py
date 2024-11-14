@@ -89,47 +89,47 @@ options:
         required: false
         type: dict
         suboptions:
-            bandwidth-unit:
+            bandwidth_unit:
                 type: str
-                description: Deprecated, please rename it to bandwidth_unit. Unit of measurement for maximum bandwidth for this shaper
+                description: Unit of measurement for maximum bandwidth for this shaper
                 choices:
                     - 'kbps'
                     - 'mbps'
                     - 'gbps'
-            diffserv-forward:
+            diffserv_forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward. Enable/disable changing the Forward
+                description: Enable/disable changing the Forward
                 choices:
                     - 'disable'
                     - 'enable'
-            diffserv-reverse:
+            diffserv_reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse. Enable/disable changing the Reverse
+                description: Enable/disable changing the Reverse
                 choices:
                     - 'disable'
                     - 'enable'
-            diffservcode-forward:
+            diffservcode_forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward. Forward
-            diffservcode-rev:
+                description: Forward
+            diffservcode_rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev. Reverse
-            max-bandwidth:
+                description: Reverse
+            max_bandwidth:
                 type: int
-                description: Deprecated, please rename it to max_bandwidth. Upper bandwidth limit enforced by this shaper
-            max-concurrent-session:
+                description: Upper bandwidth limit enforced by this shaper
+            max_concurrent_session:
                 type: int
-                description: Deprecated, please rename it to max_concurrent_session. Maximum number of concurrent sessions allowed by this shaper
+                description: Maximum number of concurrent sessions allowed by this shaper
             name:
                 type: str
                 description: Traffic shaper name.
                 required: true
-            max-concurrent-tcp-session:
+            max_concurrent_tcp_session:
                 type: int
-                description: Deprecated, please rename it to max_concurrent_tcp_session. Maximum number of concurrent TCP sessions allowed by this shaper
-            max-concurrent-udp-session:
+                description: Maximum number of concurrent TCP sessions allowed by this shaper
+            max_concurrent_udp_session:
                 type: int
-                description: Deprecated, please rename it to max_concurrent_udp_session. Maximum number of concurrent UDP sessions allowed by this shaper
+                description: Maximum number of concurrent UDP sessions allowed by this shaper
 '''
 
 EXAMPLES = '''
@@ -211,23 +211,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/shaper/per-ip-shaper',
         '/pm/config/global/obj/firewall/shaper/per-ip-shaper'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/shaper/per-ip-shaper/{per-ip-shaper}',
-        '/pm/config/global/obj/firewall/shaper/per-ip-shaper/{per-ip-shaper}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -247,7 +239,6 @@ def main():
                 'max-concurrent-tcp-session': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'max-concurrent-udp-session': {'v_range': [['7.0.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -261,9 +252,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

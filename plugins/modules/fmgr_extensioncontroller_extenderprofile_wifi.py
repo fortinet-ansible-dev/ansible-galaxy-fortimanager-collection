@@ -292,13 +292,13 @@ options:
                     - 'YT'
                     - 'BL'
                     - '--'
-            radio-1:
+            radio_1:
                 type: dict
-                description: Deprecated, please rename it to radio_1. Radio 1.
+                description: Radio 1.
                 suboptions:
-                    80211d:
+                    d80211d:
                         type: str
-                        description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                        description: Enable/disable Wi-Fi 802.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -315,15 +315,15 @@ options:
                             - '20MHz'
                             - '40MHz'
                             - '80MHz'
-                    beacon-interval:
+                    beacon_interval:
                         type: int
-                        description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
-                    bss-color:
+                        description: Wi-Fi beacon interval in miliseconds
+                    bss_color:
                         type: int
-                        description: Deprecated, please rename it to bss_color. Wi-Fi 802.
-                    bss-color-mode:
+                        description: Wi-Fi 802.
+                    bss_color_mode:
                         type: str
-                        description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                        description: Wi-Fi 802.
                         choices:
                             - 'auto'
                             - 'static'
@@ -343,40 +343,40 @@ options:
                             - 'CH9'
                             - 'CH10'
                             - 'CH11'
-                    extension-channel:
+                    extension_channel:
                         type: str
-                        description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                        description: Wi-Fi extension channel.
                         choices:
                             - 'auto'
                             - 'higher'
                             - 'lower'
-                    guard-interval:
+                    guard_interval:
                         type: str
-                        description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                        description: Wi-Fi guard interval.
                         choices:
                             - 'auto'
                             - '400ns'
                             - '800ns'
-                    lan-ext-vap:
+                    lan_ext_vap:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
-                    local-vaps:
+                        description: Wi-Fi LAN-Extention VAP.
+                    local_vaps:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
-                    max-clients:
+                        description: Wi-Fi local VAP.
+                    max_clients:
                         type: int
-                        description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                        description: Maximum number of Wi-Fi radio clients
                     mode:
                         type: str
                         description: Wi-Fi radio mode AP
                         choices:
                             - 'AP'
                             - 'Client'
-                    operating-standard:
+                    operating_standard:
                         type: str
-                        description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                        description: Wi-Fi operating standard.
                         choices:
                             - 'auto'
                             - '11A-N-AC-AX'
@@ -397,25 +397,25 @@ options:
                             - '11G-N'
                             - '11N'
                             - '11G'
-                    power-level:
+                    power_level:
                         type: int
-                        description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
-                    radio-id:
+                        description: Wi-Fi power level in percent
+                    radio_id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio ID.
+                        description: Radio ID.
                     status:
                         type: str
                         description: Enable/disable Wi-Fi radio.
                         choices:
                             - 'disable'
                             - 'enable'
-            radio-2:
+            radio_2:
                 type: dict
-                description: Deprecated, please rename it to radio_2. Radio 2.
+                description: Radio 2.
                 suboptions:
-                    80211d:
+                    d80211d:
                         type: str
-                        description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                        description: Enable/disable Wi-Fi 802.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -432,15 +432,15 @@ options:
                             - '20MHz'
                             - '40MHz'
                             - '80MHz'
-                    beacon-interval:
+                    beacon_interval:
                         type: int
-                        description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
-                    bss-color:
+                        description: Wi-Fi beacon interval in miliseconds
+                    bss_color:
                         type: int
-                        description: Deprecated, please rename it to bss_color. Wi-Fi 802.
-                    bss-color-mode:
+                        description: Wi-Fi 802.
+                    bss_color_mode:
                         type: str
-                        description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                        description: Wi-Fi 802.
                         choices:
                             - 'auto'
                             - 'static'
@@ -474,40 +474,40 @@ options:
                             - 'CH157'
                             - 'CH161'
                             - 'CH165'
-                    extension-channel:
+                    extension_channel:
                         type: str
-                        description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                        description: Wi-Fi extension channel.
                         choices:
                             - 'auto'
                             - 'higher'
                             - 'lower'
-                    guard-interval:
+                    guard_interval:
                         type: str
-                        description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                        description: Wi-Fi guard interval.
                         choices:
                             - 'auto'
                             - '400ns'
                             - '800ns'
-                    lan-ext-vap:
+                    lan_ext_vap:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
-                    local-vaps:
+                        description: Wi-Fi LAN-Extention VAP.
+                    local_vaps:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
-                    max-clients:
+                        description: Wi-Fi local VAP.
+                    max_clients:
                         type: int
-                        description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                        description: Maximum number of Wi-Fi radio clients
                     mode:
                         type: str
                         description: Wi-Fi radio mode AP
                         choices:
                             - 'AP'
                             - 'Client'
-                    operating-standard:
+                    operating_standard:
                         type: str
-                        description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                        description: Wi-Fi operating standard.
                         choices:
                             - 'auto'
                             - '11A-N-AC-AX'
@@ -528,12 +528,12 @@ options:
                             - '11G-N'
                             - '11N'
                             - '11G'
-                    power-level:
+                    power_level:
                         type: int
-                        description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
-                    radio-id:
+                        description: Wi-Fi power level in percent
+                    radio_id:
                         type: int
-                        description: Deprecated, please rename it to radio_id. Radio ID.
+                        description: Radio ID.
                     status:
                         type: str
                         description: Enable/disable Wi-Fi radio.
@@ -571,17 +571,17 @@ EXAMPLES = '''
             bss_color: <integer>
             bss_color_mode: <value in [auto, static]>
             channel:
-              - CH1
-              - CH2
-              - CH3
-              - CH4
-              - CH5
-              - CH6
-              - CH7
-              - CH8
-              - CH9
-              - CH10
-              - CH11
+              - "CH1"
+              - "CH2"
+              - "CH3"
+              - "CH4"
+              - "CH5"
+              - "CH6"
+              - "CH7"
+              - "CH8"
+              - "CH9"
+              - "CH10"
+              - "CH11"
             extension_channel: <value in [auto, higher, lower]>
             guard_interval: <value in [auto, 400ns, 800ns]>
             lan_ext_vap: <list or string>
@@ -600,31 +600,31 @@ EXAMPLES = '''
             bss_color: <integer>
             bss_color_mode: <value in [auto, static]>
             channel:
-              - CH36
-              - CH40
-              - CH44
-              - CH48
-              - CH52
-              - CH56
-              - CH60
-              - CH64
-              - CH100
-              - CH104
-              - CH108
-              - CH112
-              - CH116
-              - CH120
-              - CH124
-              - CH128
-              - CH132
-              - CH136
-              - CH140
-              - CH144
-              - CH149
-              - CH153
-              - CH157
-              - CH161
-              - CH165
+              - "CH36"
+              - "CH40"
+              - "CH44"
+              - "CH48"
+              - "CH52"
+              - "CH56"
+              - "CH60"
+              - "CH64"
+              - "CH100"
+              - "CH104"
+              - "CH108"
+              - "CH112"
+              - "CH116"
+              - "CH120"
+              - "CH124"
+              - "CH128"
+              - "CH132"
+              - "CH136"
+              - "CH140"
+              - "CH144"
+              - "CH149"
+              - "CH153"
+              - "CH157"
+              - "CH161"
+              - "CH165"
             extension_channel: <value in [auto, higher, lower]>
             guard_interval: <value in [auto, 400ns, 800ns]>
             lan_ext_vap: <list or string>
@@ -678,23 +678,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/wifi',
         '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/wifi'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/wifi/{wifi}',
-        '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/wifi/{wifi}'
-    ]
-
     url_params = ['adom', 'extender-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -796,7 +788,6 @@ def main():
                     }
                 }
             }
-
         }
     }
 
@@ -810,9 +801,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

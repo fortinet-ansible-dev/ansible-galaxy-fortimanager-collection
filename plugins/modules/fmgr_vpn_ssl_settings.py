@@ -92,19 +92,19 @@ options:
                     - 'high'
                     - 'low'
                     - 'medium'
-            auth-session-check-source-ip:
+            auth_session_check_source_ip:
                 type: str
-                description: Deprecated, please rename it to auth_session_check_source_ip. Enable/disable checking of source IP for authentication session.
+                description: Enable/disable checking of source IP for authentication session.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-timeout:
+            auth_timeout:
                 type: int
-                description: Deprecated, please rename it to auth_timeout. SSL VPN authentication timeout
-            authentication-rule:
+                description: SSL VPN authentication timeout
+            authentication_rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to authentication_rule. Authentication rule.
+                description: Authentication rule.
                 suboptions:
                     auth:
                         type: str
@@ -123,9 +123,9 @@ options:
                             - 'any'
                             - 'high'
                             - 'medium'
-                    client-cert:
+                    client_cert:
                         type: str
-                        description: Deprecated, please rename it to client_cert. Enable/disable SSL VPN client certificate restrictive.
+                        description: Enable/disable SSL VPN client certificate restrictive.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -141,43 +141,43 @@ options:
                     realm:
                         type: str
                         description: SSL VPN realm.
-                    source-address:
+                    source_address:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to source_address. Source address of incoming traffic.
-                    source-address-negate:
+                        description: (list or str) Source address of incoming traffic.
+                    source_address_negate:
                         type: str
-                        description: Deprecated, please rename it to source_address_negate. Enable/disable negated source address match.
+                        description: Enable/disable negated source address match.
                         choices:
                             - 'disable'
                             - 'enable'
-                    source-address6:
+                    source_address6:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to source_address6. IPv6 source address of incoming traffic.
-                    source-address6-negate:
+                        description: (list or str) IPv6 source address of incoming traffic.
+                    source_address6_negate:
                         type: str
-                        description: Deprecated, please rename it to source_address6_negate. Enable/disable negated source IPv6 address match.
+                        description: Enable/disable negated source IPv6 address match.
                         choices:
                             - 'disable'
                             - 'enable'
-                    source-interface:
+                    source_interface:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to source_interface. SSL VPN source interface of incoming traffic.
-                    user-peer:
+                        description: (list or str) SSL VPN source interface of incoming traffic.
+                    user_peer:
                         type: str
-                        description: Deprecated, please rename it to user_peer. Name of user peer.
+                        description: Name of user peer.
                     users:
                         type: raw
                         description: (list or str) User name.
-            auto-tunnel-static-route:
+            auto_tunnel_static_route:
                 type: str
-                description: Deprecated, please rename it to auto_tunnel_static_route. Enable/disable to auto-create static routes for the SSL VPN tunn...
+                description: Enable/disable to auto-create static routes for the SSL VPN tunnel IP addresses.
                 choices:
                     - 'disable'
                     - 'enable'
-            banned-cipher:
+            banned_cipher:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to banned_cipher. Select one or more cipher technologies that cannot be used in SSL VPN negot...
+                description: Select one or more cipher technologies that cannot be used in SSL VPN negotiations.
                 choices:
                     - 'RSA'
                     - 'DH'
@@ -197,136 +197,136 @@ options:
                     - 'CHACHA20'
                     - 'ARIA'
                     - 'AESCCM'
-            check-referer:
+            check_referer:
                 type: str
-                description: Deprecated, please rename it to check_referer. Enable/disable verification of referer field in HTTP request header.
+                description: Enable/disable verification of referer field in HTTP request header.
                 choices:
                     - 'disable'
                     - 'enable'
-            default-portal:
+            default_portal:
                 type: str
-                description: Deprecated, please rename it to default_portal. Default SSL VPN portal.
-            deflate-compression-level:
+                description: Default SSL VPN portal.
+            deflate_compression_level:
                 type: int
-                description: Deprecated, please rename it to deflate_compression_level. Compression level
-            deflate-min-data-size:
+                description: Compression level
+            deflate_min_data_size:
                 type: int
-                description: Deprecated, please rename it to deflate_min_data_size. Minimum amount of data that triggers compression
-            dns-server1:
+                description: Minimum amount of data that triggers compression
+            dns_server1:
                 type: str
-                description: Deprecated, please rename it to dns_server1. DNS server 1.
-            dns-server2:
+                description: DNS server 1.
+            dns_server2:
                 type: str
-                description: Deprecated, please rename it to dns_server2. DNS server 2.
-            dns-suffix:
+                description: DNS server 2.
+            dns_suffix:
                 type: str
-                description: Deprecated, please rename it to dns_suffix. DNS suffix used for SSL VPN clients.
-            dtls-hello-timeout:
+                description: DNS suffix used for SSL VPN clients.
+            dtls_hello_timeout:
                 type: int
-                description: Deprecated, please rename it to dtls_hello_timeout. SSLVPN maximum DTLS hello timeout
-            dtls-max-proto-ver:
+                description: SSLVPN maximum DTLS hello timeout
+            dtls_max_proto_ver:
                 type: str
-                description: Deprecated, please rename it to dtls_max_proto_ver. DTLS maximum protocol version.
+                description: DTLS maximum protocol version.
                 choices:
                     - 'dtls1-0'
                     - 'dtls1-2'
-            dtls-min-proto-ver:
+            dtls_min_proto_ver:
                 type: str
-                description: Deprecated, please rename it to dtls_min_proto_ver. DTLS minimum protocol version.
+                description: DTLS minimum protocol version.
                 choices:
                     - 'dtls1-0'
                     - 'dtls1-2'
-            dtls-tunnel:
+            dtls_tunnel:
                 type: str
-                description: Deprecated, please rename it to dtls_tunnel. Enable/disable DTLS to prevent eavesdropping, tampering, or message forgery.
+                description: Enable/disable DTLS to prevent eavesdropping, tampering, or message forgery.
                 choices:
                     - 'disable'
                     - 'enable'
-            encode-2f-sequence:
+            encode_2f_sequence:
                 type: str
-                description: Deprecated, please rename it to encode_2f_sequence. Encode 2F sequence to forward slash in URLs.
+                description: Encode 2F sequence to forward slash in URLs.
                 choices:
                     - 'disable'
                     - 'enable'
-            encrypt-and-store-password:
+            encrypt_and_store_password:
                 type: str
-                description: Deprecated, please rename it to encrypt_and_store_password. Encrypt and store user passwords for SSL VPN web sessions.
+                description: Encrypt and store user passwords for SSL VPN web sessions.
                 choices:
                     - 'disable'
                     - 'enable'
-            force-two-factor-auth:
+            force_two_factor_auth:
                 type: str
-                description: Deprecated, please rename it to force_two_factor_auth. Enable/disable only PKI users with two-factor authentication for SS...
+                description: Enable/disable only PKI users with two-factor authentication for SSL VPNs.
                 choices:
                     - 'disable'
                     - 'enable'
-            header-x-forwarded-for:
+            header_x_forwarded_for:
                 type: str
-                description: Deprecated, please rename it to header_x_forwarded_for. Forward the same, add, or remove HTTP header.
+                description: Forward the same, add, or remove HTTP header.
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            hsts-include-subdomains:
+            hsts_include_subdomains:
                 type: str
-                description: Deprecated, please rename it to hsts_include_subdomains. Add HSTS includeSubDomains response header.
+                description: Add HSTS includeSubDomains response header.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-compression:
+            http_compression:
                 type: str
-                description: Deprecated, please rename it to http_compression. Enable/disable to allow HTTP compression over SSL VPN tunnels.
+                description: Enable/disable to allow HTTP compression over SSL VPN tunnels.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-only-cookie:
+            http_only_cookie:
                 type: str
-                description: Deprecated, please rename it to http_only_cookie. Enable/disable SSL VPN support for HttpOnly cookies.
+                description: Enable/disable SSL VPN support for HttpOnly cookies.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-request-body-timeout:
+            http_request_body_timeout:
                 type: int
-                description: Deprecated, please rename it to http_request_body_timeout. SSL VPN session is disconnected if an HTTP request body is not ...
-            http-request-header-timeout:
+                description: SSL VPN session is disconnected if an HTTP request body is not received within this time
+            http_request_header_timeout:
                 type: int
-                description: Deprecated, please rename it to http_request_header_timeout. SSL VPN session is disconnected if an HTTP request header is ...
-            https-redirect:
+                description: SSL VPN session is disconnected if an HTTP request header is not received within this time
+            https_redirect:
                 type: str
-                description: Deprecated, please rename it to https_redirect. Enable/disable redirect of port 80 to SSL VPN port.
+                description: Enable/disable redirect of port 80 to SSL VPN port.
                 choices:
                     - 'disable'
                     - 'enable'
-            idle-timeout:
+            idle_timeout:
                 type: int
-                description: Deprecated, please rename it to idle_timeout. SSL VPN disconnects if idle for specified time in seconds.
-            ipv6-dns-server1:
+                description: SSL VPN disconnects if idle for specified time in seconds.
+            ipv6_dns_server1:
                 type: str
-                description: Deprecated, please rename it to ipv6_dns_server1. IPv6 DNS server 1.
-            ipv6-dns-server2:
+                description: IPv6 DNS server 1.
+            ipv6_dns_server2:
                 type: str
-                description: Deprecated, please rename it to ipv6_dns_server2. IPv6 DNS server 2.
-            ipv6-wins-server1:
+                description: IPv6 DNS server 2.
+            ipv6_wins_server1:
                 type: str
-                description: Deprecated, please rename it to ipv6_wins_server1. IPv6 WINS server 1.
-            ipv6-wins-server2:
+                description: IPv6 WINS server 1.
+            ipv6_wins_server2:
                 type: str
-                description: Deprecated, please rename it to ipv6_wins_server2. IPv6 WINS server 2.
-            login-attempt-limit:
+                description: IPv6 WINS server 2.
+            login_attempt_limit:
                 type: int
-                description: Deprecated, please rename it to login_attempt_limit. SSL VPN maximum login attempt times before block
-            login-block-time:
+                description: SSL VPN maximum login attempt times before block
+            login_block_time:
                 type: int
-                description: Deprecated, please rename it to login_block_time. Time for which a user is blocked from logging in after too many failed l...
-            login-timeout:
+                description: Time for which a user is blocked from logging in after too many failed login attempts
+            login_timeout:
                 type: int
-                description: Deprecated, please rename it to login_timeout. SSLVPN maximum login timeout
+                description: SSLVPN maximum login timeout
             port:
                 type: int
                 description: SSL VPN access port
-            port-precedence:
+            port_precedence:
                 type: str
-                description: Deprecated, please rename it to port_precedence. Enable/disable, Enable means that if SSL VPN connections are allowed on a...
+                description: Enable/disable, Enable means that if SSL VPN connections are allowed on an interface admin GUI connections are blocked on ...
                 choices:
                     - 'disable'
                     - 'enable'
@@ -336,133 +336,133 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            route-source-interface:
+            route_source_interface:
                 type: str
-                description: Deprecated, please rename it to route_source_interface. Enable/disable to allow SSL VPN sessions to bypass routing and bin...
+                description: Enable/disable to allow SSL VPN sessions to bypass routing and bind to the incoming interface.
                 choices:
                     - 'disable'
                     - 'enable'
             servercert:
                 type: str
                 description: Name of the server certificate to be used for SSL VPNs.
-            source-address:
+            source_address:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_address. Source address of incoming traffic.
-            source-address-negate:
+                description: (list or str) Source address of incoming traffic.
+            source_address_negate:
                 type: str
-                description: Deprecated, please rename it to source_address_negate. Enable/disable negated source address match.
+                description: Enable/disable negated source address match.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-address6:
+            source_address6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_address6. IPv6 source address of incoming traffic.
-            source-address6-negate:
+                description: (list or str) IPv6 source address of incoming traffic.
+            source_address6_negate:
                 type: str
-                description: Deprecated, please rename it to source_address6_negate. Enable/disable negated source IPv6 address match.
+                description: Enable/disable negated source IPv6 address match.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-interface:
+            source_interface:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_interface. SSL VPN source interface of incoming traffic.
-            ssl-client-renegotiation:
+                description: (list or str) SSL VPN source interface of incoming traffic.
+            ssl_client_renegotiation:
                 type: str
-                description: Deprecated, please rename it to ssl_client_renegotiation. Enable/disable to allow client renegotiation by the server if th...
+                description: Enable/disable to allow client renegotiation by the server if the tunnel goes down.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-insert-empty-fragment:
+            ssl_insert_empty_fragment:
                 type: str
-                description: Deprecated, please rename it to ssl_insert_empty_fragment. Enable/disable insertion of empty fragment.
+                description: Enable/disable insertion of empty fragment.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-max-proto-ver:
+            ssl_max_proto_ver:
                 type: str
-                description: Deprecated, please rename it to ssl_max_proto_ver. SSL maximum protocol version.
+                description: SSL maximum protocol version.
                 choices:
                     - 'tls1-0'
                     - 'tls1-1'
                     - 'tls1-2'
                     - 'tls1-3'
-            ssl-min-proto-ver:
+            ssl_min_proto_ver:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_ver. SSL minimum protocol version.
+                description: SSL minimum protocol version.
                 choices:
                     - 'tls1-0'
                     - 'tls1-1'
                     - 'tls1-2'
                     - 'tls1-3'
-            tlsv1-0:
+            tlsv1_0:
                 type: str
-                description: Deprecated, please rename it to tlsv1_0. Enable/disable TLSv1.
+                description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
-            tlsv1-1:
+            tlsv1_1:
                 type: str
-                description: Deprecated, please rename it to tlsv1_1. Enable/disable TLSv1.
+                description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
-            tlsv1-2:
+            tlsv1_2:
                 type: str
-                description: Deprecated, please rename it to tlsv1_2. Enable/disable TLSv1.
+                description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
-            tlsv1-3:
+            tlsv1_3:
                 type: str
-                description: Deprecated, please rename it to tlsv1_3. Tlsv1 3.
+                description: Tlsv1 3.
                 choices:
                     - 'disable'
                     - 'enable'
-            transform-backward-slashes:
+            transform_backward_slashes:
                 type: str
-                description: Deprecated, please rename it to transform_backward_slashes. Transform backward slashes to forward slashes in URLs.
+                description: Transform backward slashes to forward slashes in URLs.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-connect-without-reauth:
+            tunnel_connect_without_reauth:
                 type: str
-                description: Deprecated, please rename it to tunnel_connect_without_reauth. Enable/disable tunnel connection without re-authorization i...
+                description: Enable/disable tunnel connection without re-authorization if previous connection dropped.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-ip-pools:
+            tunnel_ip_pools:
                 type: raw
-                description: (list or str) Deprecated, please rename it to tunnel_ip_pools. Names of the IPv4 IP Pool firewall objects that define the ...
-            tunnel-ipv6-pools:
+                description: (list or str) Names of the IPv4 IP Pool firewall objects that define the IP addresses reserved for remote clients.
+            tunnel_ipv6_pools:
                 type: raw
-                description: (list or str) Deprecated, please rename it to tunnel_ipv6_pools. Names of the IPv6 IP Pool firewall objects that define th...
-            tunnel-user-session-timeout:
+                description: (list or str) Names of the IPv6 IP Pool firewall objects that define the IP addresses reserved for remote clients.
+            tunnel_user_session_timeout:
                 type: int
-                description: Deprecated, please rename it to tunnel_user_session_timeout. Time out value to clean up user session after tunnel connecti...
-            unsafe-legacy-renegotiation:
+                description: Time out value to clean up user session after tunnel connection is dropped
+            unsafe_legacy_renegotiation:
                 type: str
-                description: Deprecated, please rename it to unsafe_legacy_renegotiation. Enable/disable unsafe legacy re-negotiation.
+                description: Enable/disable unsafe legacy re-negotiation.
                 choices:
                     - 'disable'
                     - 'enable'
-            url-obscuration:
+            url_obscuration:
                 type: str
-                description: Deprecated, please rename it to url_obscuration. Enable/disable to obscure the host name of the URL of the web browser dis...
+                description: Enable/disable to obscure the host name of the URL of the web browser display.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-peer:
+            user_peer:
                 type: str
-                description: Deprecated, please rename it to user_peer. Name of user peer.
-            wins-server1:
+                description: Name of user peer.
+            wins_server1:
                 type: str
-                description: Deprecated, please rename it to wins_server1. WINS server 1.
-            wins-server2:
+                description: WINS server 1.
+            wins_server2:
                 type: str
-                description: Deprecated, please rename it to wins_server2. WINS server 2.
-            x-content-type-options:
+                description: WINS server 2.
+            x_content_type_options:
                 type: str
-                description: Deprecated, please rename it to x_content_type_options. Add HTTP X-Content-Type-Options header.
+                description: Add HTTP X-Content-Type-Options header.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -472,15 +472,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-big-buffer:
+            ssl_big_buffer:
                 type: str
-                description: Deprecated, please rename it to ssl_big_buffer. Disable using the big SSLv3 buffer feature to save memory and force higher...
+                description: Disable using the big SSLv3 buffer feature to save memory and force higher security.
                 choices:
                     - 'disable'
                     - 'enable'
-            client-sigalgs:
+            client_sigalgs:
                 type: str
-                description: Deprecated, please rename it to client_sigalgs. Set signature algorithms related to client authentication.
+                description: Set signature algorithms related to client authentication.
                 choices:
                     - 'no-rsa-pss'
                     - 'all'
@@ -494,57 +494,57 @@ options:
                     - 'TLS-CHACHA20-POLY1305-SHA256'
                     - 'TLS-AES-128-CCM-SHA256'
                     - 'TLS-AES-128-CCM-8-SHA256'
-            dual-stack-mode:
+            dual_stack_mode:
                 type: str
-                description: Deprecated, please rename it to dual_stack_mode. Tunnel mode
+                description: Tunnel mode
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-addr-assigned-method:
+            tunnel_addr_assigned_method:
                 type: str
-                description: Deprecated, please rename it to tunnel_addr_assigned_method. Method used for assigning address for tunnel.
+                description: Method used for assigning address for tunnel.
                 choices:
                     - 'first-available'
                     - 'round-robin'
-            browser-language-detection:
+            browser_language_detection:
                 type: str
-                description: Deprecated, please rename it to browser_language_detection. Enable/disable overriding the configured system language based...
+                description: Enable/disable overriding the configured system language based on the preferred language of the browser.
                 choices:
                     - 'disable'
                     - 'enable'
-            saml-redirect-port:
+            saml_redirect_port:
                 type: int
-                description: Deprecated, please rename it to saml_redirect_port. SAML local redirect port in the machine running FortiClient
+                description: SAML local redirect port in the machine running FortiClient
             status:
                 type: str
                 description: Enable/disable SSL-VPN.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-mode-snat:
+            web_mode_snat:
                 type: str
-                description: Deprecated, please rename it to web_mode_snat. Enable/disable use of IP pools defined in firewall policy while using web-mode.
+                description: Enable/disable use of IP pools defined in firewall policy while using web-mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            ztna-trusted-client:
+            ztna_trusted_client:
                 type: str
-                description: Deprecated, please rename it to ztna_trusted_client. Enable/disable verification of device certificate for SSLVPN ZTNA ses...
+                description: Enable/disable verification of device certificate for SSLVPN ZTNA session.
                 choices:
                     - 'disable'
                     - 'enable'
-            dtls-heartbeat-fail-count:
+            dtls_heartbeat_fail_count:
                 type: int
-                description: Deprecated, please rename it to dtls_heartbeat_fail_count. Number of missing heartbeats before the connection is considere...
-            dtls-heartbeat-idle-timeout:
+                description: Number of missing heartbeats before the connection is considered dropped.
+            dtls_heartbeat_idle_timeout:
                 type: int
-                description: Deprecated, please rename it to dtls_heartbeat_idle_timeout. Idle timeout before DTLS heartbeat is sent.
-            dtls-heartbeat-interval:
+                description: Idle timeout before DTLS heartbeat is sent.
+            dtls_heartbeat_interval:
                 type: int
-                description: Deprecated, please rename it to dtls_heartbeat_interval. Interval between DTLS heartbeat.
-            server-hostname:
+                description: Interval between DTLS heartbeat.
+            server_hostname:
                 type: str
-                description: Deprecated, please rename it to server_hostname. Server hostname for HTTPS.
+                description: Server hostname for HTTPS.
 '''
 
 EXAMPLES = '''
@@ -587,24 +587,24 @@ EXAMPLES = '''
               users: <list or string>
           auto_tunnel_static_route: <value in [disable, enable]>
           banned_cipher:
-            - RSA
-            - DH
-            - DHE
-            - ECDH
-            - ECDHE
-            - DSS
-            - ECDSA
-            - AES
-            - AESGCM
-            - CAMELLIA
-            - 3DES
-            - SHA1
-            - SHA256
-            - SHA384
-            - STATIC
-            - CHACHA20
-            - ARIA
-            - AESCCM
+            - "RSA"
+            - "DH"
+            - "DHE"
+            - "ECDH"
+            - "ECDHE"
+            - "DSS"
+            - "ECDSA"
+            - "AES"
+            - "AESGCM"
+            - "CAMELLIA"
+            - "3DES"
+            - "SHA1"
+            - "SHA256"
+            - "SHA384"
+            - "STATIC"
+            - "CHACHA20"
+            - "ARIA"
+            - "AESCCM"
           check_referer: <value in [disable, enable]>
           default_portal: <string>
           deflate_compression_level: <integer>
@@ -667,11 +667,11 @@ EXAMPLES = '''
           ssl_big_buffer: <value in [disable, enable]>
           client_sigalgs: <value in [no-rsa-pss, all]>
           ciphersuite:
-            - TLS-AES-128-GCM-SHA256
-            - TLS-AES-256-GCM-SHA384
-            - TLS-CHACHA20-POLY1305-SHA256
-            - TLS-AES-128-CCM-SHA256
-            - TLS-AES-128-CCM-8-SHA256
+            - "TLS-AES-128-GCM-SHA256"
+            - "TLS-AES-256-GCM-SHA384"
+            - "TLS-CHACHA20-POLY1305-SHA256"
+            - "TLS-AES-128-CCM-SHA256"
+            - "TLS-AES-128-CCM-8-SHA256"
           dual_stack_mode: <value in [disable, enable]>
           tunnel_addr_assigned_method: <value in [first-available, round-robin]>
           browser_language_detection: <value in [disable, enable]>
@@ -726,21 +726,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/{settings}'
-    ]
-
     url_params = ['device', 'vdom']
     module_primary_key = None
     module_arg_spec = {
@@ -748,43 +741,43 @@ def main():
         'vdom': {'required': True, 'type': 'str'},
         'vpn_ssl_settings': {
             'type': 'dict',
-            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
             'options': {
                 'algorithm': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'choices': ['default', 'high', 'low', 'medium'],
                     'type': 'str'
                 },
-                'auth-session-check-source-ip': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auth-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
+                'auth-session-check-source-ip': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auth-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
                 'authentication-rule': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
                     'type': 'list',
                     'options': {
                         'auth': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
                             'choices': ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer'],
                             'type': 'str'
                         },
-                        'cipher': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['any', 'high', 'medium'], 'type': 'str'},
-                        'client-cert': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'groups': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                        'id': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                        'portal': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                        'realm': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                        'source-address': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                        'source-address-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'source-address6': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                        'source-address6-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'source-interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                        'user-peer': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                        'users': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'}
+                        'cipher': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['any', 'high', 'medium'], 'type': 'str'},
+                        'client-cert': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'groups': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                        'id': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                        'portal': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                        'realm': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                        'source-address': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                        'source-address-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'source-address6': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                        'source-address6-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'source-interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                        'user-peer': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                        'users': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
-                'auto-tunnel-static-route': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-tunnel-static-route': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'banned-cipher': {
-                    'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'RSA', 'DH', 'DHE', 'ECDH', 'ECDHE', 'DSS', 'ECDSA', 'AES', 'AESGCM', 'CAMELLIA', '3DES', 'SHA1', 'SHA256', 'SHA384', 'STATIC',
@@ -792,66 +785,66 @@ def main():
                     ],
                     'elements': 'str'
                 },
-                'check-referer': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'default-portal': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'deflate-compression-level': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'deflate-min-data-size': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'dns-server1': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'dns-server2': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'dns-suffix': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'dtls-hello-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'dtls-max-proto-ver': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['dtls1-0', 'dtls1-2'], 'type': 'str'},
-                'dtls-min-proto-ver': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['dtls1-0', 'dtls1-2'], 'type': 'str'},
-                'dtls-tunnel': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'encode-2f-sequence': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'check-referer': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'default-portal': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'deflate-compression-level': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'deflate-min-data-size': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'dns-server1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'dns-server2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'dns-suffix': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'dtls-hello-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'dtls-max-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['dtls1-0', 'dtls1-2'], 'type': 'str'},
+                'dtls-min-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['dtls1-0', 'dtls1-2'], 'type': 'str'},
+                'dtls-tunnel': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'encode-2f-sequence': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'encrypt-and-store-password': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'force-two-factor-auth': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'header-x-forwarded-for': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
-                'hsts-include-subdomains': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-compression': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-only-cookie': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-request-body-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'http-request-header-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'https-redirect': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'idle-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'ipv6-dns-server1': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'ipv6-dns-server2': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'ipv6-wins-server1': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'ipv6-wins-server2': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'login-attempt-limit': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'login-block-time': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'login-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'port': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'port-precedence': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'reqclientcert': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'route-source-interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'servercert': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'source-address': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'source-address-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-address6': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'source-address6-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'ssl-client-renegotiation': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-insert-empty-fragment': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-max-proto-ver': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
-                'ssl-min-proto-ver': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
-                'tlsv1-0': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tlsv1-1': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tlsv1-2': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tlsv1-3': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'force-two-factor-auth': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'header-x-forwarded-for': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
+                'hsts-include-subdomains': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-compression': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-only-cookie': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-request-body-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'http-request-header-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'https-redirect': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'idle-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'ipv6-dns-server1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'ipv6-dns-server2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'ipv6-wins-server1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'ipv6-wins-server2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'login-attempt-limit': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'login-block-time': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'login-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'port': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'port-precedence': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reqclientcert': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'route-source-interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'servercert': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'source-address': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'source-address-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-address6': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'source-address6-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'ssl-client-renegotiation': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-insert-empty-fragment': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-max-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
+                'ssl-min-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
+                'tlsv1-0': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-3': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'transform-backward-slashes': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-connect-without-reauth': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-ip-pools': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'tunnel-ipv6-pools': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'tunnel-user-session-timeout': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'unsafe-legacy-renegotiation': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-obscuration': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'user-peer': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'wins-server1': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'wins-server2': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'x-content-type-options': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sslv3': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-big-buffer': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tunnel-connect-without-reauth': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tunnel-ip-pools': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'tunnel-ipv6-pools': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'tunnel-user-session-timeout': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'unsafe-legacy-renegotiation': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'url-obscuration': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'user-peer': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'wins-server1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'wins-server2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'x-content-type-options': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sslv3': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-big-buffer': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'client-sigalgs': {'v_range': [['6.4.4', '']], 'choices': ['no-rsa-pss', 'all'], 'type': 'str'},
                 'ciphersuite': {
                     'v_range': [['6.4.8', '']],
@@ -866,15 +859,14 @@ def main():
                 'tunnel-addr-assigned-method': {'v_range': [['7.0.0', '']], 'choices': ['first-available', 'round-robin'], 'type': 'str'},
                 'browser-language-detection': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'saml-redirect-port': {'v_range': [['7.0.1', '']], 'type': 'int'},
-                'status': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'web-mode-snat': {'v_range': [['7.0.4', '7.2.3'], ['7.4.0', '7.4.1'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status': {'v_range': [['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'web-mode-snat': {'v_range': [['7.0.4', '7.2.3'], ['7.2.6', '7.4.1'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-trusted-client': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dtls-heartbeat-fail-count': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'dtls-heartbeat-idle-timeout': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'dtls-heartbeat-interval': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'server-hostname': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                'server-hostname': {'v_range': [['7.2.6', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -888,9 +880,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

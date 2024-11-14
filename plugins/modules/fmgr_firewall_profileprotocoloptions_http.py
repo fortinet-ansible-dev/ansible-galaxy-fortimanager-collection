@@ -86,33 +86,33 @@ options:
         required: false
         type: dict
         suboptions:
-            block-page-status-code:
+            block_page_status_code:
                 type: int
-                description: Deprecated, please rename it to block_page_status_code. Code number returned for blocked HTTP pages
-            comfort-amount:
+                description: Code number returned for blocked HTTP pages
+            comfort_amount:
                 type: int
-                description: Deprecated, please rename it to comfort_amount. Amount of data to send in a transmission for client comforting
-            comfort-interval:
+                description: Amount of data to send in a transmission for client comforting
+            comfort_interval:
                 type: int
-                description: Deprecated, please rename it to comfort_interval. Period of time between start, or last transmission, and the next client ...
-            fortinet-bar:
+                description: Period of time between start, or last transmission, and the next client comfort transmission of data
+            fortinet_bar:
                 type: str
-                description: Deprecated, please rename it to fortinet_bar. Enable/disable Fortinet bar on HTML content.
+                description: Enable/disable Fortinet bar on HTML content.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortinet-bar-port:
+            fortinet_bar_port:
                 type: int
-                description: Deprecated, please rename it to fortinet_bar_port. Port for use by Fortinet Bar
-            http-policy:
+                description: Port for use by Fortinet Bar
+            http_policy:
                 type: str
-                description: Deprecated, please rename it to http_policy. Enable/disable HTTP policy check.
+                description: Enable/disable HTTP policy check.
                 choices:
                     - 'disable'
                     - 'enable'
-            inspect-all:
+            inspect_all:
                 type: str
-                description: Deprecated, please rename it to inspect_all. Enable/disable the inspection of all ports for the protocol.
+                description: Enable/disable the inspection of all ports for the protocol.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -126,16 +126,16 @@ options:
                     - 'clientcomfort'
                     - 'no-content-summary'
                     - 'servercomfort'
-            oversize-limit:
+            oversize_limit:
                 type: int
-                description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
+                description: Maximum in-memory file size that can be scanned
             ports:
                 type: raw
                 description: (list) Ports to scan for content
-            post-lang:
+            post_lang:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to post_lang. ID codes for character sets to be used to convert to UTF-8 for banned words and...
+                description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
                 choices:
                     - 'jisx0201'
                     - 'jisx0208'
@@ -158,18 +158,18 @@ options:
                     - 'cp874'
                     - 'cp1252'
                     - 'cp1251'
-            range-block:
+            range_block:
                 type: str
-                description: Deprecated, please rename it to range_block. Enable/disable blocking of partial downloads.
+                description: Enable/disable blocking of partial downloads.
                 choices:
                     - 'disable'
                     - 'enable'
-            retry-count:
+            retry_count:
                 type: int
-                description: Deprecated, please rename it to retry_count. Number of attempts to retry HTTP connection
-            scan-bzip2:
+                description: Number of attempts to retry HTTP connection
+            scan_bzip2:
                 type: str
-                description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
+                description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -179,78 +179,78 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            streaming-content-bypass:
+            streaming_content_bypass:
                 type: str
-                description: Deprecated, please rename it to streaming_content_bypass. Enable/disable bypassing of streaming content from buffering.
+                description: Enable/disable bypassing of streaming content from buffering.
                 choices:
                     - 'disable'
                     - 'enable'
-            strip-x-forwarded-for:
+            strip_x_forwarded_for:
                 type: str
-                description: Deprecated, please rename it to strip_x_forwarded_for. Enable/disable stripping of HTTP X-Forwarded-For header.
+                description: Enable/disable stripping of HTTP X-Forwarded-For header.
                 choices:
                     - 'disable'
                     - 'enable'
-            switching-protocols:
+            switching_protocols:
                 type: str
-                description: Deprecated, please rename it to switching_protocols. Bypass from scanning, or block a connection that attempts to switch p...
+                description: Bypass from scanning, or block a connection that attempts to switch protocol.
                 choices:
                     - 'bypass'
                     - 'block'
-            uncompressed-nest-limit:
+            uncompressed_nest_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompressed and...
-            uncompressed-oversize-limit:
+                description: Maximum nested levels of compression that can be uncompressed and scanned
+            uncompressed_oversize_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be scanned
-            tcp-window-maximum:
+                description: Maximum in-memory uncompressed file size that can be scanned
+            tcp_window_maximum:
                 type: int
-                description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size
-            tcp-window-minimum:
+                description: Maximum dynamic TCP window size
+            tcp_window_minimum:
                 type: int
-                description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size
-            tcp-window-size:
+                description: Minimum dynamic TCP window size
+            tcp_window_size:
                 type: int
-                description: Deprecated, please rename it to tcp_window_size. Set TCP static window size
-            tcp-window-type:
+                description: Set TCP static window size
+            tcp_window_type:
                 type: str
-                description: Deprecated, please rename it to tcp_window_type. Specify type of TCP window to use for this protocol.
+                description: Specify type of TCP window to use for this protocol.
                 choices:
                     - 'system'
                     - 'static'
                     - 'dynamic'
                     - 'auto-tuning'
-            ssl-offloaded:
+            ssl_offloaded:
                 type: str
-                description: Deprecated, please rename it to ssl_offloaded. SSL decryption and encryption performed by an external device.
+                description: SSL decryption and encryption performed by an external device.
                 choices:
                     - 'no'
                     - 'yes'
-            stream-based-uncompressed-limit:
+            stream_based_uncompressed_limit:
                 type: int
-                description: Deprecated, please rename it to stream_based_uncompressed_limit. Maximum stream-based uncompressed data size that will be ...
-            proxy-after-tcp-handshake:
+                description: Maximum stream-based uncompressed data size that will be scanned
+            proxy_after_tcp_handshake:
                 type: str
-                description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been established
+                description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-non-http:
+            tunnel_non_http:
                 type: str
-                description: Deprecated, please rename it to tunnel_non_http. Configure how to process non-HTTP traffic when a profile configured for H...
+                description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
                 choices:
                     - 'disable'
                     - 'enable'
-            unknown-http-version:
+            unknown_http_version:
                 type: str
-                description: Deprecated, please rename it to unknown_http_version. How to handle HTTP sessions that do not comply with HTTP 0.
+                description: How to handle HTTP sessions that do not comply with HTTP 0.
                 choices:
                     - 'best-effort'
                     - 'reject'
                     - 'tunnel'
-            address-ip-rating:
+            address_ip_rating:
                 type: str
-                description: Deprecated, please rename it to address_ip_rating. Enable/disable IP based URL rating.
+                description: Enable/disable IP based URL rating.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -260,22 +260,22 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            verify-dns-for-policy-matching:
+            verify_dns_for_policy_matching:
                 type: str
-                description: Deprecated, please rename it to verify_dns_for_policy_matching. Enable/disable verification of DNS for policy matching.
+                description: Enable/disable verification of DNS for policy matching.
                 choices:
                     - 'disable'
                     - 'enable'
-            unknown-content-encoding:
+            unknown_content_encoding:
                 type: str
-                description: Deprecated, please rename it to unknown_content_encoding. Configure the action the FortiGate unit will take on unknown con...
+                description: Configure the action the FortiGate unit will take on unknown content-encoding.
                 choices:
                     - 'block'
                     - 'inspect'
                     - 'bypass'
-            domain-fronting:
+            domain_fronting:
                 type: str
-                description: Deprecated, please rename it to domain_fronting. Configure HTTP domain fronting
+                description: Configure HTTP domain fronting
                 choices:
                     - 'block'
                     - 'monitor'
@@ -309,35 +309,35 @@ EXAMPLES = '''
           http_policy: <value in [disable, enable]>
           inspect_all: <value in [disable, enable]>
           options:
-            - oversize
-            - chunkedbypass
-            - clientcomfort
-            - no-content-summary
-            - servercomfort
+            - "oversize"
+            - "chunkedbypass"
+            - "clientcomfort"
+            - "no-content-summary"
+            - "servercomfort"
           oversize_limit: <integer>
           ports: <list or integer>
           post_lang:
-            - jisx0201
-            - jisx0208
-            - jisx0212
-            - gb2312
-            - ksc5601-ex
-            - euc-jp
-            - sjis
-            - iso2022-jp
-            - iso2022-jp-1
-            - iso2022-jp-2
-            - euc-cn
-            - ces-gbk
-            - hz
-            - ces-big5
-            - euc-kr
-            - iso2022-jp-3
-            - iso8859-1
-            - tis620
-            - cp874
-            - cp1252
-            - cp1251
+            - "jisx0201"
+            - "jisx0208"
+            - "jisx0212"
+            - "gb2312"
+            - "ksc5601-ex"
+            - "euc-jp"
+            - "sjis"
+            - "iso2022-jp"
+            - "iso2022-jp-1"
+            - "iso2022-jp-2"
+            - "euc-cn"
+            - "ces-gbk"
+            - "hz"
+            - "ces-big5"
+            - "euc-kr"
+            - "iso2022-jp-3"
+            - "iso8859-1"
+            - "tis620"
+            - "cp874"
+            - "cp1252"
+            - "cp1251"
           range_block: <value in [disable, enable]>
           retry_count: <integer>
           scan_bzip2: <value in [disable, enable]>
@@ -404,23 +404,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/http',
         '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/http'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/http/{http}',
-        '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/http/{http}'
-    ]
-
     url_params = ['adom', 'profile-protocol-options']
     module_primary_key = None
     module_arg_spec = {
@@ -477,7 +469,6 @@ def main():
                 'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
                 'domain-fronting': {'v_range': [['7.6.0', '']], 'choices': ['block', 'monitor', 'allow'], 'type': 'str'}
             }
-
         }
     }
 
@@ -491,9 +482,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

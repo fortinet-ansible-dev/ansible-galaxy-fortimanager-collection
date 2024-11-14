@@ -84,125 +84,125 @@ options:
         required: false
         type: dict
         suboptions:
-            cover-page:
+            cover_page:
                 type: str
-                description: Deprecated, please rename it to cover_page. Enable/disable inserting a cover page into the disarmed document.
+                description: Enable/disable inserting a cover page into the disarmed document.
                 choices:
                     - 'disable'
                     - 'enable'
-            detect-only:
+            detect_only:
                 type: str
-                description: Deprecated, please rename it to detect_only. Enable/disable only detect disarmable files, do not alter content.
+                description: Enable/disable only detect disarmable files, do not alter content.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-embed:
+            office_embed:
                 type: str
-                description: Deprecated, please rename it to office_embed. Enable/disable stripping of embedded objects in Microsoft Office documents.
+                description: Enable/disable stripping of embedded objects in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-hylink:
+            office_hylink:
                 type: str
-                description: Deprecated, please rename it to office_hylink. Enable/disable stripping of hyperlinks in Microsoft Office documents.
+                description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-linked:
+            office_linked:
                 type: str
-                description: Deprecated, please rename it to office_linked. Enable/disable stripping of linked objects in Microsoft Office documents.
+                description: Enable/disable stripping of linked objects in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-macro:
+            office_macro:
                 type: str
-                description: Deprecated, please rename it to office_macro. Enable/disable stripping of macros in Microsoft Office documents.
+                description: Enable/disable stripping of macros in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            original-file-destination:
+            original_file_destination:
                 type: str
-                description: Deprecated, please rename it to original_file_destination. Destination to send original file if active content is removed.
+                description: Destination to send original file if active content is removed.
                 choices:
                     - 'fortisandbox'
                     - 'quarantine'
                     - 'discard'
-            pdf-act-form:
+            pdf_act_form:
                 type: str
-                description: Deprecated, please rename it to pdf_act_form. Enable/disable stripping of actions that submit data to other targets in PDF...
+                description: Enable/disable stripping of actions that submit data to other targets in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-act-gotor:
+            pdf_act_gotor:
                 type: str
-                description: Deprecated, please rename it to pdf_act_gotor. Enable/disable stripping of links to other PDFs in PDF documents.
+                description: Enable/disable stripping of links to other PDFs in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-act-java:
+            pdf_act_java:
                 type: str
-                description: Deprecated, please rename it to pdf_act_java. Enable/disable stripping of actions that execute JavaScript code in PDF docu...
+                description: Enable/disable stripping of actions that execute JavaScript code in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-act-launch:
+            pdf_act_launch:
                 type: str
-                description: Deprecated, please rename it to pdf_act_launch. Enable/disable stripping of links to external applications in PDF documents.
+                description: Enable/disable stripping of links to external applications in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-act-movie:
+            pdf_act_movie:
                 type: str
-                description: Deprecated, please rename it to pdf_act_movie. Enable/disable stripping of embedded movies in PDF documents.
+                description: Enable/disable stripping of embedded movies in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-act-sound:
+            pdf_act_sound:
                 type: str
-                description: Deprecated, please rename it to pdf_act_sound. Enable/disable stripping of embedded sound files in PDF documents.
+                description: Enable/disable stripping of embedded sound files in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-embedfile:
+            pdf_embedfile:
                 type: str
-                description: Deprecated, please rename it to pdf_embedfile. Enable/disable stripping of embedded files in PDF documents.
+                description: Enable/disable stripping of embedded files in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-hyperlink:
+            pdf_hyperlink:
                 type: str
-                description: Deprecated, please rename it to pdf_hyperlink. Enable/disable stripping of hyperlinks from PDF documents.
+                description: Enable/disable stripping of hyperlinks from PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            pdf-javacode:
+            pdf_javacode:
                 type: str
-                description: Deprecated, please rename it to pdf_javacode. Enable/disable stripping of JavaScript code in PDF documents.
+                description: Enable/disable stripping of JavaScript code in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-action:
+            office_action:
                 type: str
-                description: Deprecated, please rename it to office_action. Enable/disable stripping of PowerPoint action events in Microsoft Office do...
+                description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            office-dde:
+            office_dde:
                 type: str
-                description: Deprecated, please rename it to office_dde. Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office d...
+                description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
-            error-action:
+            error_action:
                 type: str
-                description: Deprecated, please rename it to error_action. Action to be taken if CDR engine encounters an unrecoverable error.
+                description: Action to be taken if CDR engine encounters an unrecoverable error.
                 choices:
                     - 'block'
                     - 'log-only'
                     - 'ignore'
-            analytics-suspicious:
+            analytics_suspicious:
                 type: str
-                description: Deprecated, please rename it to analytics_suspicious. Enable/disable using CDR as a secondary method for determining suspi...
+                description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -290,23 +290,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/content-disarm',
         '/pm/config/global/obj/antivirus/profile/{profile}/content-disarm'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/content-disarm/{content-disarm}',
-        '/pm/config/global/obj/antivirus/profile/{profile}/content-disarm/{content-disarm}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -337,7 +329,6 @@ def main():
                 'error-action': {'v_range': [['6.4.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
                 'analytics-suspicious': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -351,9 +342,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

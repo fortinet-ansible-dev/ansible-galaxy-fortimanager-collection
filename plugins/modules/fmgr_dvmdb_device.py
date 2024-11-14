@@ -161,18 +161,18 @@ options:
             fap_cnt:
                 type: int
                 description: Fap cnt.
-            faz.full_act:
+            faz_full_act:
                 type: int
-                description: Deprecated, please rename it to faz_full_act. Faz.
-            faz.perm:
+                description: Faz.
+            faz_perm:
                 type: int
-                description: Deprecated, please rename it to faz_perm. Faz.
-            faz.quota:
+                description: Faz.
+            faz_quota:
                 type: int
-                description: Deprecated, please rename it to faz_quota. Faz.
-            faz.used:
+                description: Faz.
+            faz_used:
                 type: int
-                description: Deprecated, please rename it to faz_used. Faz.
+                description: Faz.
             fex_cnt:
                 type: int
                 description: Fex cnt.
@@ -346,9 +346,9 @@ options:
             maxvdom:
                 type: int
                 description: Maxvdom.
-            meta fields:
+            meta_fields:
                 type: dict
-                description: Deprecated, please rename it to meta_fields. Default metafields
+                description: Default metafields
             mgmt_id:
                 type: int
                 description: Mgmt id.
@@ -460,9 +460,9 @@ options:
                     vpn_id:
                         type: int
                         description: Vpn id.
-                    meta fields:
+                    meta_fields:
                         type: dict
-                        description: Deprecated, please rename it to meta_fields. Meta fields.
+                        description: Meta fields.
                     vdom_type:
                         type: str
                         description: Vdom type.
@@ -539,12 +539,15 @@ options:
             cluster_worker:
                 type: str
                 description: Cluster worker.
-            ha.vsn:
+            ha_vsn:
                 type: str
-                description: Deprecated, please rename it to ha_vsn. Ha.
+                description: Ha.
             ha_upgrade_mode:
                 type: int
                 description: Ha upgrade mode.
+            vm_payg_status:
+                type: int
+                description: Vm payg status.
 '''
 
 EXAMPLES = '''
@@ -637,23 +640,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/dvmdb/adom/{adom}/device/{device}',
         '/dvmdb/device/{device}'
     ]
-
-    perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}/device/{device}',
-        '/dvmdb/device/{device}'
-    ]
-
     url_params = ['adom', 'device']
     module_primary_key = None
     module_arg_spec = {
@@ -718,7 +713,7 @@ def main():
                         'role': {'choices': ['slave', 'master'], 'type': 'str'},
                         'sn': {'type': 'str'},
                         'status': {'type': 'int'},
-                        'conf_status': {'v_range': [['7.0.10', '7.0.12'], ['7.2.1', '']], 'type': 'int'}
+                        'conf_status': {'v_range': [['7.0.10', '7.0.13'], ['7.2.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -782,21 +777,21 @@ def main():
                 'prefer_img_ver': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'prio': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'role': {'v_range': [['6.4.1', '']], 'choices': ['master', 'ha-slave', 'autoscale-slave'], 'type': 'str'},
-                'hyperscale': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
+                'hyperscale': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
                 'nsxt_service_name': {'v_range': [['6.4.4', '']], 'type': 'str'},
-                'private_key': {'v_range': [['6.2.7', '6.2.12'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
-                'private_key_status': {'v_range': [['6.2.7', '6.2.12'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
-                'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.14'], ['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'int'},
-                'first_tunnel_up': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
+                'private_key': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
+                'private_key_status': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
+                'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.13'], ['7.2.3', '']], 'type': 'int'},
+                'first_tunnel_up': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
                 'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'hw_generation': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                'hw_generation': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
                 'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'},
                 'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'ha.vsn': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'ha_upgrade_mode': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'ha.vsn': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '']], 'type': 'str'},
+                'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
+                'vm_payg_status': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'}
             }
-
         }
     }
 
@@ -810,9 +805,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

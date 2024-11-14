@@ -92,18 +92,18 @@ options:
             _private_key:
                 type: str
                 description: Private key.
-            auto-update-days:
+            auto_update_days:
                 type: int
-                description: Deprecated, please rename it to auto_update_days. Number of days to wait before requesting an updated CA certificate
-            auto-update-days-warning:
+                description: Number of days to wait before requesting an updated CA certificate
+            auto_update_days_warning:
                 type: int
-                description: Deprecated, please rename it to auto_update_days_warning. Number of days before an expiry-warning message is generated
+                description: Number of days before an expiry-warning message is generated
             ca:
                 type: str
                 description: CA certificate as a PEM file.
-            last-updated:
+            last_updated:
                 type: int
-                description: Deprecated, please rename it to last_updated. Time at which CA was last updated.
+                description: Time at which CA was last updated.
             name:
                 type: str
                 description: Name.
@@ -114,9 +114,9 @@ options:
                 choices:
                     - 'global'
                     - 'vdom'
-            scep-url:
+            scep_url:
                 type: str
-                description: Deprecated, please rename it to scep_url. URL of the SCEP server.
+                description: URL of the SCEP server.
             source:
                 type: str
                 description: CA certificate source type.
@@ -125,42 +125,42 @@ options:
                     - 'user'
                     - 'bundle'
                     - 'fortiguard'
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IP address for communications to the SCEP server.
+                description: Source IP address for communications to the SCEP server.
             trusted:
                 type: str
                 description: Enable/disable as a trusted CA.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-inspection-trusted:
+            ssl_inspection_trusted:
                 type: str
-                description: Deprecated, please rename it to ssl_inspection_trusted. Enable/disable this CA as a trusted CA for SSL inspection.
+                description: Enable/disable this CA as a trusted CA for SSL inspection.
                 choices:
                     - 'disable'
                     - 'enable'
-            ca-identifier:
+            ca_identifier:
                 type: str
-                description: Deprecated, please rename it to ca_identifier. CA identifier of the SCEP server.
+                description: CA identifier of the SCEP server.
             obsolete:
                 type: str
                 description: Enable/disable this CA as obsoleted.
                 choices:
                     - 'disable'
                     - 'enable'
-            est-url:
+            est_url:
                 type: str
-                description: Deprecated, please rename it to est_url. URL of the EST server.
-            fabric-ca:
+                description: URL of the EST server.
+            fabric_ca:
                 type: str
-                description: Deprecated, please rename it to fabric_ca. Enable/disable synchronization of CA across Security Fabric.
+                description: Enable/disable synchronization of CA across Security Fabric.
                 choices:
                     - 'disable'
                     - 'enable'
-            non-fabric-name:
+            non_fabric_name:
                 type: str
-                description: Deprecated, please rename it to non_fabric_name. Name used prior to becoming a Security Fabric synchronized CA.
+                description: Name used prior to becoming a Security Fabric synchronized CA.
 '''
 
 EXAMPLES = '''
@@ -242,23 +242,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/certificate/ca',
         '/pm/config/global/obj/vpn/certificate/ca'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/certificate/ca/{ca}',
-        '/pm/config/global/obj/vpn/certificate/ca/{ca}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -285,7 +277,6 @@ def main():
                 'fabric-ca': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'non-fabric-name': {'v_range': [['7.4.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -299,9 +290,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

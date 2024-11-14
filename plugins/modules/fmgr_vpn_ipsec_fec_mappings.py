@@ -93,24 +93,24 @@ options:
         required: false
         type: dict
         suboptions:
-            bandwidth-bi-threshold:
+            bandwidth_bi_threshold:
                 type: int
-                description: Deprecated, please rename it to bandwidth_bi_threshold. Apply FEC parameters when available bi-bandwidth is >= threshold
-            bandwidth-down-threshold:
+                description: Apply FEC parameters when available bi-bandwidth is >= threshold
+            bandwidth_down_threshold:
                 type: int
-                description: Deprecated, please rename it to bandwidth_down_threshold. Apply FEC parameters when available down bandwidth is >= threshold
-            bandwidth-up-threshold:
+                description: Apply FEC parameters when available down bandwidth is >= threshold
+            bandwidth_up_threshold:
                 type: int
-                description: Deprecated, please rename it to bandwidth_up_threshold. Apply FEC parameters when available up bandwidth is >= threshold
+                description: Apply FEC parameters when available up bandwidth is >= threshold
             base:
                 type: int
                 description: Number of base FEC packets
-            latency-threshold:
+            latency_threshold:
                 type: int
-                description: Deprecated, please rename it to latency_threshold. Apply FEC parameters when latency is
-            packet-loss-threshold:
+                description: Apply FEC parameters when latency is
+            packet_loss_threshold:
                 type: int
-                description: Deprecated, please rename it to packet_loss_threshold. Apply FEC parameters when packet loss is >= threshold
+                description: Apply FEC parameters when packet loss is >= threshold
             redundant:
                 type: int
                 description: Number of redundant FEC packets
@@ -190,23 +190,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings',
         '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}',
-        '/pm/config/global/obj/vpn/ipsec/fec/{fec}/mappings/{mappings}'
-    ]
-
     url_params = ['adom', 'fec']
     module_primary_key = None
     module_arg_spec = {
@@ -225,7 +217,6 @@ def main():
                 'redundant': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'seqno': {'v_range': [['7.2.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -239,9 +230,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

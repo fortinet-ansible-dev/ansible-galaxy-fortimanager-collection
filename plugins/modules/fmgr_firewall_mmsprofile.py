@@ -95,21 +95,21 @@ options:
             bwordtable:
                 type: str
                 description: MMS banned word table ID.
-            carrier-endpoint-prefix:
+            carrier_endpoint_prefix:
                 type: str
-                description: Deprecated, please rename it to carrier_endpoint_prefix. Enable/disable prefixing of end point values.
+                description: Enable/disable prefixing of end point values.
                 choices:
                     - 'disable'
                     - 'enable'
-            carrier-endpoint-prefix-range-max:
+            carrier_endpoint_prefix_range_max:
                 type: int
-                description: Deprecated, please rename it to carrier_endpoint_prefix_range_max. Maximum length of end point value that can be prefixed
-            carrier-endpoint-prefix-range-min:
+                description: Maximum length of end point value that can be prefixed
+            carrier_endpoint_prefix_range_min:
                 type: int
-                description: Deprecated, please rename it to carrier_endpoint_prefix_range_min. Minimum end point length to be prefixed
-            carrier-endpoint-prefix-string:
+                description: Minimum end point length to be prefixed
+            carrier_endpoint_prefix_string:
                 type: str
-                description: Deprecated, please rename it to carrier_endpoint_prefix_string. String with which to prefix End point values.
+                description: String with which to prefix End point values.
             carrierendpointbwltable:
                 type: str
                 description: Carrier end point filter table ID.
@@ -138,37 +138,37 @@ options:
                     - 'servercomfort'
                     - 'strict-file'
                     - 'mms-checksum'
-            mm1-addr-hdr:
+            mm1_addr_hdr:
                 type: str
-                description: Deprecated, please rename it to mm1_addr_hdr. HTTP header field
-            mm1-addr-source:
+                description: HTTP header field
+            mm1_addr_source:
                 type: str
-                description: Deprecated, please rename it to mm1_addr_source. Source for MM1 user address.
+                description: Source for MM1 user address.
                 choices:
                     - 'http-header'
                     - 'cookie'
-            mm1-convert-hex:
+            mm1_convert_hex:
                 type: str
-                description: Deprecated, please rename it to mm1_convert_hex. Enable/disable converting user address from HEX string for MM1.
+                description: Enable/disable converting user address from HEX string for MM1.
                 choices:
                     - 'disable'
                     - 'enable'
-            mm1-outbreak-prevention:
+            mm1_outbreak_prevention:
                 type: str
-                description: Deprecated, please rename it to mm1_outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disabled'
                     - 'files'
                     - 'full-archive'
-            mm1-retr-dupe:
+            mm1_retr_dupe:
                 type: str
-                description: Deprecated, please rename it to mm1_retr_dupe. Enable/disable duplicate scanning of MM1 retr.
+                description: Enable/disable duplicate scanning of MM1 retr.
                 choices:
                     - 'disable'
                     - 'enable'
-            mm1-retrieve-scan:
+            mm1_retrieve_scan:
                 type: str
-                description: Deprecated, please rename it to mm1_retrieve_scan. Enable/disable scanning on MM1 retrieve configuration messages.
+                description: Enable/disable scanning on MM1 retrieve configuration messages.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -201,9 +201,9 @@ options:
                     - 'fragmail'
                     - 'splice'
                     - 'mms-checksum'
-            mm3-outbreak-prevention:
+            mm3_outbreak_prevention:
                 type: str
-                description: Deprecated, please rename it to mm3_outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disabled'
                     - 'files'
@@ -231,9 +231,9 @@ options:
                     - 'fragmail'
                     - 'splice'
                     - 'mms-checksum'
-            mm4-outbreak-prevention:
+            mm4_outbreak_prevention:
                 type: str
-                description: Deprecated, please rename it to mm4_outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disabled'
                     - 'files'
@@ -263,24 +263,24 @@ options:
                     - 'servercomfort'
                     - 'strict-file'
                     - 'mms-checksum'
-            mm7-addr-hdr:
+            mm7_addr_hdr:
                 type: str
-                description: Deprecated, please rename it to mm7_addr_hdr. HTTP header field
-            mm7-addr-source:
+                description: HTTP header field
+            mm7_addr_source:
                 type: str
-                description: Deprecated, please rename it to mm7_addr_source. Source for MM7 user address.
+                description: Source for MM7 user address.
                 choices:
                     - 'http-header'
                     - 'cookie'
-            mm7-convert-hex:
+            mm7_convert_hex:
                 type: str
-                description: Deprecated, please rename it to mm7_convert_hex. Enable/disable conversion of user address from HEX string for MM7.
+                description: Enable/disable conversion of user address from HEX string for MM7.
                 choices:
                     - 'disable'
                     - 'enable'
-            mm7-outbreak-prevention:
+            mm7_outbreak_prevention:
                 type: str
-                description: Deprecated, please rename it to mm7_outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disabled'
                     - 'files'
@@ -294,54 +294,54 @@ options:
             mm7oversizelimit:
                 type: int
                 description: Maximum file size to scan
-            mms-antispam-mass-log:
+            mms_antispam_mass_log:
                 type: str
-                description: Deprecated, please rename it to mms_antispam_mass_log. Enable/disable logging for MMS antispam mass.
+                description: Enable/disable logging for MMS antispam mass.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-av-block-log:
+            mms_av_block_log:
                 type: str
-                description: Deprecated, please rename it to mms_av_block_log. Enable/disable logging for MMS antivirus file blocking.
+                description: Enable/disable logging for MMS antivirus file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-av-oversize-log:
+            mms_av_oversize_log:
                 type: str
-                description: Deprecated, please rename it to mms_av_oversize_log. Enable/disable logging for MMS antivirus oversize file blocking.
+                description: Enable/disable logging for MMS antivirus oversize file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-av-virus-log:
+            mms_av_virus_log:
                 type: str
-                description: Deprecated, please rename it to mms_av_virus_log. Enable/disable logging for MMS antivirus scanning.
+                description: Enable/disable logging for MMS antivirus scanning.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-carrier-endpoint-filter-log:
+            mms_carrier_endpoint_filter_log:
                 type: str
-                description: Deprecated, please rename it to mms_carrier_endpoint_filter_log. Enable/disable logging for MMS end point filter blocking.
+                description: Enable/disable logging for MMS end point filter blocking.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-checksum-log:
+            mms_checksum_log:
                 type: str
-                description: Deprecated, please rename it to mms_checksum_log. Enable/disable MMS content checksum logging.
+                description: Enable/disable MMS content checksum logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-checksum-table:
+            mms_checksum_table:
                 type: str
-                description: Deprecated, please rename it to mms_checksum_table. MMS content checksum table ID.
-            mms-notification-log:
+                description: MMS content checksum table ID.
+            mms_notification_log:
                 type: str
-                description: Deprecated, please rename it to mms_notification_log. Enable/disable logging for MMS notification messages.
+                description: Enable/disable logging for MMS notification messages.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-web-content-log:
+            mms_web_content_log:
                 type: str
-                description: Deprecated, please rename it to mms_web_content_log. Enable/disable logging for MMS web content blocking.
+                description: Enable/disable logging for MMS web content blocking.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -352,10 +352,10 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            notif-msisdn:
+            notif_msisdn:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to notif_msisdn. Notif msisdn.
+                description: Notif msisdn.
                 suboptions:
                     msisdn:
                         type: str
@@ -371,15 +371,15 @@ options:
                             - 'dupe-thresh-1'
                             - 'dupe-thresh-2'
                             - 'dupe-thresh-3'
-            remove-blocked-const-length:
+            remove_blocked_const_length:
                 type: str
-                description: Deprecated, please rename it to remove_blocked_const_length. Enable/disable MMS replacement of blocked file constant length.
+                description: Enable/disable MMS replacement of blocked file constant length.
                 choices:
                     - 'disable'
                     - 'enable'
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group.
+                description: Replacement message group.
             dupe:
                 type: dict
                 description: Dupe.
@@ -417,15 +417,15 @@ options:
                             - 'block'
                             - 'archive-first'
                             - 'alert-notif'
-                    block-time1:
+                    block_time1:
                         type: int
-                        description: Deprecated, please rename it to block_time1. Duration for which action takes effect
-                    block-time2:
+                        description: Duration for which action takes effect
+                    block_time2:
                         type: int
-                        description: Deprecated, please rename it to block_time2. Duration for which action takes effect
-                    block-time3:
+                        description: Duration for which action takes effect
+                    block_time3:
                         type: int
-                        description: Deprecated, please rename it to block_time3. Duration action takes effect
+                        description: Duration action takes effect
                     limit1:
                         type: int
                         description: Maximum number of messages allowed.
@@ -502,15 +502,15 @@ options:
                             - 'block'
                             - 'archive-first'
                             - 'alert-notif'
-                    block-time1:
+                    block_time1:
                         type: int
-                        description: Deprecated, please rename it to block_time1. Duration for which action takes effect
-                    block-time2:
+                        description: Duration for which action takes effect
+                    block_time2:
                         type: int
-                        description: Deprecated, please rename it to block_time2. Duration for which action takes effect
-                    block-time3:
+                        description: Duration for which action takes effect
+                    block_time3:
                         type: int
-                        description: Deprecated, please rename it to block_time3. Duration action takes effect
+                        description: Duration action takes effect
                     limit1:
                         type: int
                         description: Maximum number of messages allowed.
@@ -554,58 +554,58 @@ options:
                 type: dict
                 description: Notification.
                 suboptions:
-                    alert-int:
+                    alert_int:
                         type: int
-                        description: Deprecated, please rename it to alert_int. Alert notification send interval.
-                    alert-int-mode:
+                        description: Alert notification send interval.
+                    alert_int_mode:
                         type: str
-                        description: Deprecated, please rename it to alert_int_mode. Alert notification interval mode.
+                        description: Alert notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    alert-src-msisdn:
+                    alert_src_msisdn:
                         type: str
-                        description: Deprecated, please rename it to alert_src_msisdn. Specify from address for alert messages.
-                    alert-status:
+                        description: Specify from address for alert messages.
+                    alert_status:
                         type: str
-                        description: Deprecated, please rename it to alert_status. Alert notification status.
+                        description: Alert notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    bword-int:
+                    bword_int:
                         type: int
-                        description: Deprecated, please rename it to bword_int. Banned word notification send interval.
-                    bword-int-mode:
+                        description: Banned word notification send interval.
+                    bword_int_mode:
                         type: str
-                        description: Deprecated, please rename it to bword_int_mode. Banned word notification interval mode.
+                        description: Banned word notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    bword-status:
+                    bword_status:
                         type: str
-                        description: Deprecated, please rename it to bword_status. Banned word notification status.
+                        description: Banned word notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    carrier-endpoint-bwl-int:
+                    carrier_endpoint_bwl_int:
                         type: int
-                        description: Deprecated, please rename it to carrier_endpoint_bwl_int. Carrier end point black/white list notification send int...
-                    carrier-endpoint-bwl-int-mode:
+                        description: Carrier end point black/white list notification send interval.
+                    carrier_endpoint_bwl_int_mode:
                         type: str
-                        description: Deprecated, please rename it to carrier_endpoint_bwl_int_mode. Carrier end point black/white list notification int...
+                        description: Carrier end point black/white list notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    carrier-endpoint-bwl-status:
+                    carrier_endpoint_bwl_status:
                         type: str
-                        description: Deprecated, please rename it to carrier_endpoint_bwl_status. Carrier end point black/white list notification status.
+                        description: Carrier end point black/white list notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    days-allowed:
+                    days_allowed:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to days_allowed. Weekdays on which notification messages may be sent.
+                        description: Weekdays on which notification messages may be sent.
                         choices:
                             - 'sunday'
                             - 'monday'
@@ -614,159 +614,159 @@ options:
                             - 'thursday'
                             - 'friday'
                             - 'saturday'
-                    detect-server:
+                    detect_server:
                         type: str
-                        description: Deprecated, please rename it to detect_server. Enable/disable automatic server address determination.
+                        description: Enable/disable automatic server address determination.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dupe-int:
+                    dupe_int:
                         type: int
-                        description: Deprecated, please rename it to dupe_int. Duplicate notification send interval.
-                    dupe-int-mode:
+                        description: Duplicate notification send interval.
+                    dupe_int_mode:
                         type: str
-                        description: Deprecated, please rename it to dupe_int_mode. Duplicate notification interval mode.
+                        description: Duplicate notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    dupe-status:
+                    dupe_status:
                         type: str
-                        description: Deprecated, please rename it to dupe_status. Duplicate notification status.
+                        description: Duplicate notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    file-block-int:
+                    file_block_int:
                         type: int
-                        description: Deprecated, please rename it to file_block_int. File block notification send interval.
-                    file-block-int-mode:
+                        description: File block notification send interval.
+                    file_block_int_mode:
                         type: str
-                        description: Deprecated, please rename it to file_block_int_mode. File block notification interval mode.
+                        description: File block notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    file-block-status:
+                    file_block_status:
                         type: str
-                        description: Deprecated, please rename it to file_block_status. File block notification status.
+                        description: File block notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    flood-int:
+                    flood_int:
                         type: int
-                        description: Deprecated, please rename it to flood_int. Flood notification send interval.
-                    flood-int-mode:
+                        description: Flood notification send interval.
+                    flood_int_mode:
                         type: str
-                        description: Deprecated, please rename it to flood_int_mode. Flood notification interval mode.
+                        description: Flood notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    flood-status:
+                    flood_status:
                         type: str
-                        description: Deprecated, please rename it to flood_status. Flood notification status.
+                        description: Flood notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    from-in-header:
+                    from_in_header:
                         type: str
-                        description: Deprecated, please rename it to from_in_header. Enable/disable insertion of from address in HTTP header.
+                        description: Enable/disable insertion of from address in HTTP header.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mms-checksum-int:
+                    mms_checksum_int:
                         type: int
-                        description: Deprecated, please rename it to mms_checksum_int. MMS checksum notification send interval.
-                    mms-checksum-int-mode:
+                        description: MMS checksum notification send interval.
+                    mms_checksum_int_mode:
                         type: str
-                        description: Deprecated, please rename it to mms_checksum_int_mode. MMS checksum notification interval mode.
+                        description: MMS checksum notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    mms-checksum-status:
+                    mms_checksum_status:
                         type: str
-                        description: Deprecated, please rename it to mms_checksum_status. MMS checksum notification status.
+                        description: MMS checksum notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mmsc-hostname:
+                    mmsc_hostname:
                         type: str
-                        description: Deprecated, please rename it to mmsc_hostname. Host name or IP address of the MMSC.
-                    mmsc-password:
+                        description: Host name or IP address of the MMSC.
+                    mmsc_password:
                         type: raw
-                        description: (list) Deprecated, please rename it to mmsc_password. Password required for authentication with the MMSC.
-                    mmsc-port:
+                        description: (list) Password required for authentication with the MMSC.
+                    mmsc_port:
                         type: int
-                        description: Deprecated, please rename it to mmsc_port. Port used on the MMSC for sending MMS messages
-                    mmsc-url:
+                        description: Port used on the MMSC for sending MMS messages
+                    mmsc_url:
                         type: str
-                        description: Deprecated, please rename it to mmsc_url. URL used on the MMSC for sending MMS messages.
-                    mmsc-username:
+                        description: URL used on the MMSC for sending MMS messages.
+                    mmsc_username:
                         type: str
-                        description: Deprecated, please rename it to mmsc_username. User name required for authentication with the MMSC.
-                    msg-protocol:
+                        description: User name required for authentication with the MMSC.
+                    msg_protocol:
                         type: str
-                        description: Deprecated, please rename it to msg_protocol. Protocol to use for sending notification messages.
+                        description: Protocol to use for sending notification messages.
                         choices:
                             - 'mm1'
                             - 'mm3'
                             - 'mm4'
                             - 'mm7'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. MM7 message type.
+                        description: MM7 message type.
                         choices:
                             - 'submit-req'
                             - 'deliver-req'
                     protocol:
                         type: str
                         description: Protocol.
-                    rate-limit:
+                    rate_limit:
                         type: int
-                        description: Deprecated, please rename it to rate_limit. Rate limit for sending notification messages
-                    tod-window-duration:
+                        description: Rate limit for sending notification messages
+                    tod_window_duration:
                         type: str
-                        description: Deprecated, please rename it to tod_window_duration. Time of day window duration.
-                    tod-window-end:
+                        description: Time of day window duration.
+                    tod_window_end:
                         type: str
-                        description: Deprecated, please rename it to tod_window_end. Obsolete.
-                    tod-window-start:
+                        description: Obsolete.
+                    tod_window_start:
                         type: str
-                        description: Deprecated, please rename it to tod_window_start. Time of day window start.
-                    user-domain:
+                        description: Time of day window start.
+                    user_domain:
                         type: str
-                        description: Deprecated, please rename it to user_domain. Domain name to which the user addresses belong.
-                    vas-id:
+                        description: Domain name to which the user addresses belong.
+                    vas_id:
                         type: str
-                        description: Deprecated, please rename it to vas_id. VAS identifier.
-                    vasp-id:
+                        description: VAS identifier.
+                    vasp_id:
                         type: str
-                        description: Deprecated, please rename it to vasp_id. VASP identifier.
-                    virus-int:
+                        description: VASP identifier.
+                    virus_int:
                         type: int
-                        description: Deprecated, please rename it to virus_int. Virus notification send interval.
-                    virus-int-mode:
+                        description: Virus notification send interval.
+                    virus_int_mode:
                         type: str
-                        description: Deprecated, please rename it to virus_int_mode. Virus notification interval mode.
+                        description: Virus notification interval mode.
                         choices:
                             - 'hours'
                             - 'minutes'
-                    virus-status:
+                    virus_status:
                         type: str
-                        description: Deprecated, please rename it to virus_status. Virus notification status.
+                        description: Virus notification status.
                         choices:
                             - 'disable'
                             - 'enable'
-            outbreak-prevention:
+            outbreak_prevention:
                 type: dict
-                description: Deprecated, please rename it to outbreak_prevention. Outbreak prevention.
+                description: Outbreak prevention.
                 suboptions:
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable/disable external malware blocklist.
+                        description: Enable/disable external malware blocklist.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ftgd-service:
+                    ftgd_service:
                         type: str
-                        description: Deprecated, please rename it to ftgd_service. Enable/disable FortiGuard Virus outbreak prevention service.
+                        description: Enable/disable FortiGuard Virus outbreak prevention service.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -918,23 +918,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/mms-profile',
         '/pm/config/global/obj/firewall/mms-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}',
-        '/pm/config/global/obj/firewall/mms-profile/{mms-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1031,143 +1023,142 @@ def main():
                 'remove-blocked-const-length': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'replacemsg-group': {'type': 'str'},
                 'dupe': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'action1': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
                         'action2': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
                         'action3': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
-                        'block-time1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'block-time2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'block-time3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'protocol': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'status1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'window1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'window2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'window3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'block-time1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'block-time2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'block-time3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'protocol': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'status1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'window1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'window2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'window3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'flood': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'action1': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
                         'action2': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
                         'action3': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
                             'elements': 'str'
                         },
-                        'block-time1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'block-time2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'block-time3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'limit3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'protocol': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'status1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'window1': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'window2': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'window3': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                        'block-time1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'block-time2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'block-time3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'limit3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'protocol': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'status1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'window1': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'window2': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'window3': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                     }
                 },
                 'notification': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'alert-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'alert-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'alert-src-msisdn': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'alert-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'bword-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'bword-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'bword-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'carrier-endpoint-bwl-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'carrier-endpoint-bwl-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'carrier-endpoint-bwl-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'alert-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'alert-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'alert-src-msisdn': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'alert-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'bword-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'bword-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'bword-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'carrier-endpoint-bwl-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'carrier-endpoint-bwl-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'carrier-endpoint-bwl-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'days-allowed': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
                             'elements': 'str'
                         },
-                        'detect-server': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dupe-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'dupe-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'dupe-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'file-block-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'file-block-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'file-block-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'flood-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'flood-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'flood-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'from-in-header': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'mms-checksum-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mms-checksum-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'mms-checksum-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'mmsc-hostname': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'mmsc-password': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'no_log': True, 'type': 'raw'},
-                        'mmsc-port': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'mmsc-url': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'mmsc-username': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'msg-protocol': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['mm1', 'mm3', 'mm4', 'mm7'], 'type': 'str'},
-                        'msg-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['submit-req', 'deliver-req'], 'type': 'str'},
-                        'protocol': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'rate-limit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'tod-window-duration': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'tod-window-end': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.0']], 'type': 'str'},
-                        'tod-window-start': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'user-domain': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'vas-id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'vasp-id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'virus-int': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'virus-int-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
-                        'virus-status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'detect-server': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dupe-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'dupe-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'dupe-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'file-block-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'file-block-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'file-block-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'flood-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'flood-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'flood-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'from-in-header': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mms-checksum-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mms-checksum-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'mms-checksum-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mmsc-hostname': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'mmsc-password': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'no_log': True, 'type': 'raw'},
+                        'mmsc-port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'mmsc-url': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'mmsc-username': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'msg-protocol': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['mm1', 'mm3', 'mm4', 'mm7'], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['submit-req', 'deliver-req'], 'type': 'str'},
+                        'protocol': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'rate-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'tod-window-duration': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'tod-window-end': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.0']], 'type': 'str'},
+                        'tod-window-start': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'user-domain': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'vas-id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'vasp-id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'virus-int': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'virus-int-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['hours', 'minutes'], 'type': 'str'},
+                        'virus-status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'outbreak-prevention': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'external-blocklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ftgd-service': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'external-blocklist': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ftgd-service': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }
-
         }
     }
 
@@ -1181,9 +1172,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

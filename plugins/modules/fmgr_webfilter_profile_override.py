@@ -84,39 +84,39 @@ options:
         required: false
         type: dict
         suboptions:
-            ovrd-cookie:
+            ovrd_cookie:
                 type: str
-                description: Deprecated, please rename it to ovrd_cookie. Allow/deny browser-based
+                description: Allow/deny browser-based
                 choices:
                     - 'deny'
                     - 'allow'
-            ovrd-dur:
+            ovrd_dur:
                 type: str
-                description: Deprecated, please rename it to ovrd_dur. Override duration.
-            ovrd-dur-mode:
+                description: Override duration.
+            ovrd_dur_mode:
                 type: str
-                description: Deprecated, please rename it to ovrd_dur_mode. Override duration mode.
+                description: Override duration mode.
                 choices:
                     - 'constant'
                     - 'ask'
-            ovrd-scope:
+            ovrd_scope:
                 type: str
-                description: Deprecated, please rename it to ovrd_scope. Override scope.
+                description: Override scope.
                 choices:
                     - 'user'
                     - 'user-group'
                     - 'ip'
                     - 'ask'
                     - 'browser'
-            ovrd-user-group:
+            ovrd_user_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ovrd_user_group. User groups with permission to use the override.
+                description: (list or str) User groups with permission to use the override.
             profile:
                 type: raw
                 description: (list or str) Web filter profile with permission to create overrides.
-            profile-attribute:
+            profile_attribute:
                 type: str
-                description: Deprecated, please rename it to profile_attribute. Profile attribute to retrieve from the RADIUS server.
+                description: Profile attribute to retrieve from the RADIUS server.
                 choices:
                     - 'User-Name'
                     - 'User-Password'
@@ -171,9 +171,9 @@ options:
                     - 'NAS-Port-Type'
                     - 'Port-Limit'
                     - 'Login-LAT-Port'
-            profile-type:
+            profile_type:
                 type: str
-                description: Deprecated, please rename it to profile_type. Override profile type.
+                description: Override profile type.
                 choices:
                     - 'list'
                     - 'radius'
@@ -249,23 +249,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/override',
         '/pm/config/global/obj/webfilter/profile/{profile}/override'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/override/{override}',
-        '/pm/config/global/obj/webfilter/profile/{profile}/override/{override}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -297,7 +289,6 @@ def main():
                 },
                 'profile-type': {'choices': ['list', 'radius'], 'type': 'str'}
             }
-
         }
     }
 
@@ -311,9 +302,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

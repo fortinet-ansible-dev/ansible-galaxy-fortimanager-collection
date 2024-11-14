@@ -95,12 +95,12 @@ options:
         required: false
         type: dict
         suboptions:
-            802-1x:
+            802_1x:
                 type: str
-                description: Deprecated, please rename it to 802_1x. '802.'
-            bounce-port-link:
+                description: '802.'
+            bounce_port_link:
                 type: str
-                description: Deprecated, please rename it to bounce_port_link. Enable/disable bouncing
+                description: Enable/disable bouncing
                 choices:
                     - 'disable'
                     - 'enable'
@@ -119,15 +119,15 @@ options:
             host:
                 type: str
                 description: Match policy based on host.
-            hw-vendor:
+            hw_vendor:
                 type: str
-                description: Deprecated, please rename it to hw_vendor. Match policy based on hardware vendor.
-            interface-tags:
+                description: Match policy based on hardware vendor.
+            interface_tags:
                 type: raw
-                description: (list) Deprecated, please rename it to interface_tags. Match policy based on the FortiSwitch interface object tags.
-            lldp-profile:
+                description: (list) Match policy based on the FortiSwitch interface object tags.
+            lldp_profile:
                 type: str
-                description: Deprecated, please rename it to lldp_profile. LLDP profile to be applied when using this policy.
+                description: LLDP profile to be applied when using this policy.
             mac:
                 type: str
                 description: Match policy based on MAC address.
@@ -135,9 +135,9 @@ options:
                 type: str
                 description: Policy name.
                 required: true
-            qos-policy:
+            qos_policy:
                 type: str
-                description: Deprecated, please rename it to qos_policy. QoS policy to be applied when using this policy.
+                description: QoS policy to be applied when using this policy.
             status:
                 type: str
                 description: Enable/disable policy.
@@ -147,15 +147,15 @@ options:
             type:
                 type: str
                 description: Match policy based on type.
-            vlan-policy:
+            vlan_policy:
                 type: str
-                description: Deprecated, please rename it to vlan_policy. VLAN policy to be applied when using this policy.
-            match-period:
+                description: VLAN policy to be applied when using this policy.
+            match_period:
                 type: int
-                description: Deprecated, please rename it to match_period. Number of days the matched devices will be retained
-            match-type:
+                description: Number of days the matched devices will be retained
+            match_type:
                 type: str
-                description: Deprecated, please rename it to match_type. Match and retain the devices based on the type.
+                description: Match and retain the devices based on the type.
                 choices:
                     - 'dynamic'
                     - 'override'
@@ -241,23 +241,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy',
         '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}',
-        '/pm/config/global/obj/switch-controller/dynamic-port-policy/{dynamic-port-policy}/policy/{policy}'
-    ]
-
     url_params = ['adom', 'dynamic-port-policy']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -286,7 +278,6 @@ def main():
                 'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'}
             }
-
         }
     }
 
@@ -300,9 +291,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

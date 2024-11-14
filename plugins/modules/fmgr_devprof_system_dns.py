@@ -84,36 +84,36 @@ options:
         required: false
         type: dict
         suboptions:
-            cache-notfound-responses:
+            cache_notfound_responses:
                 type: str
-                description: Deprecated, please rename it to cache_notfound_responses. Enable/disable response from the DNS server when a record is not...
+                description: Enable/disable response from the DNS server when a record is not in cache.
                 choices:
                     - 'disable'
                     - 'enable'
-            dns-cache-limit:
+            dns_cache_limit:
                 type: int
-                description: Deprecated, please rename it to dns_cache_limit. Maximum number of records in the DNS cache.
-            dns-cache-ttl:
+                description: Maximum number of records in the DNS cache.
+            dns_cache_ttl:
                 type: int
-                description: Deprecated, please rename it to dns_cache_ttl. Duration in seconds that the DNS cache retains information.
+                description: Duration in seconds that the DNS cache retains information.
             domain:
                 type: raw
                 description: (list or str) Domain name suffix for the IP addresses of the DNS server.
-            ip6-primary:
+            ip6_primary:
                 type: str
-                description: Deprecated, please rename it to ip6_primary. Primary DNS server IPv6 address.
-            ip6-secondary:
+                description: Primary DNS server IPv6 address.
+            ip6_secondary:
                 type: str
-                description: Deprecated, please rename it to ip6_secondary. Secondary DNS server IPv6 address.
+                description: Secondary DNS server IPv6 address.
             primary:
                 type: str
                 description: Primary DNS server IP address.
             secondary:
                 type: str
                 description: Secondary DNS server IP address.
-            dns-over-tls:
+            dns_over_tls:
                 type: str
-                description: Deprecated, please rename it to dns_over_tls. Enable/disable/enforce DNS over TLS.
+                description: Enable/disable/enforce DNS over TLS.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -121,21 +121,21 @@ options:
             retry:
                 type: int
                 description: Number of times to retry
-            server-hostname:
+            server_hostname:
                 type: raw
-                description: (list) Deprecated, please rename it to server_hostname. DNS server host name list.
-            ssl-certificate:
+                description: (list) DNS server host name list.
+            ssl_certificate:
                 type: str
-                description: Deprecated, please rename it to ssl_certificate. Name of local certificate for SSL connections.
+                description: Name of local certificate for SSL connections.
             timeout:
                 type: int
                 description: DNS query timeout interval in seconds
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -219,21 +219,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/dns'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/system/dns/{dns}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -256,14 +249,13 @@ def main():
                 'server-hostname': {'v_range': [['6.2.1', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'raw'},
                 'ssl-certificate': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
                 'timeout': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'int'},
-                'interface': {'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.12'], ['6.4.1', '6.4.1']], 'type': 'str'},
+                'interface': {'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1']], 'type': 'str'},
                 'interface-select-method': {
-                    'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.12'], ['6.4.1', '6.4.1']],
+                    'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1']],
                     'choices': ['auto', 'sdwan', 'specify'],
                     'type': 'str'
                 }
             }
-
         }
     }
 
@@ -277,9 +269,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

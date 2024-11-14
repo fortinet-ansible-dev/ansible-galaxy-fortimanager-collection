@@ -89,42 +89,42 @@ options:
         required: false
         type: dict
         suboptions:
-            auth-fail-vlan:
+            auth_fail_vlan:
                 type: str
-                description: Deprecated, please rename it to auth_fail_vlan. Enable to allow limited access to clients that cannot authenticate.
+                description: Enable to allow limited access to clients that cannot authenticate.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-fail-vlan-id:
+            auth_fail_vlan_id:
                 type: str
-                description: Deprecated, please rename it to auth_fail_vlan_id. VLAN ID on which authentication failed.
-            auth-fail-vlanid:
+                description: VLAN ID on which authentication failed.
+            auth_fail_vlanid:
                 type: int
-                description: Deprecated, please rename it to auth_fail_vlanid. VLAN ID on which authentication failed.
-            eap-passthru:
+                description: VLAN ID on which authentication failed.
+            eap_passthru:
                 type: str
-                description: Deprecated, please rename it to eap_passthru. Enable/disable EAP pass-through mode, allowing protocols
+                description: Enable/disable EAP pass-through mode, allowing protocols
                 choices:
                     - 'disable'
                     - 'enable'
-            guest-auth-delay:
+            guest_auth_delay:
                 type: int
-                description: Deprecated, please rename it to guest_auth_delay. Guest authentication delay
-            guest-vlan:
+                description: Guest authentication delay
+            guest_vlan:
                 type: str
-                description: Deprecated, please rename it to guest_vlan. Enable the guest VLAN feature to allow limited access to non-802.
+                description: Enable the guest VLAN feature to allow limited access to non-802.
                 choices:
                     - 'disable'
                     - 'enable'
-            guest-vlan-id:
+            guest_vlan_id:
                 type: str
-                description: Deprecated, please rename it to guest_vlan_id. Guest VLAN name.
-            guest-vlanid:
+                description: Guest VLAN name.
+            guest_vlanid:
                 type: int
-                description: Deprecated, please rename it to guest_vlanid. Guest VLAN ID.
-            mac-auth-bypass:
+                description: Guest VLAN ID.
+            mac_auth_bypass:
                 type: str
-                description: Deprecated, please rename it to mac_auth_bypass. Enable/disable MAB for this policy.
+                description: Enable/disable MAB for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -132,82 +132,82 @@ options:
                 type: str
                 description: Policy name.
                 required: true
-            open-auth:
+            open_auth:
                 type: str
-                description: Deprecated, please rename it to open_auth. Enable/disable open authentication for this policy.
+                description: Enable/disable open authentication for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            policy-type:
+            policy_type:
                 type: str
-                description: Deprecated, please rename it to policy_type. Policy type.
+                description: Policy type.
                 choices:
                     - '802.1X'
-            radius-timeout-overwrite:
+            radius_timeout_overwrite:
                 type: str
-                description: Deprecated, please rename it to radius_timeout_overwrite. Enable to override the global RADIUS session timeout.
+                description: Enable to override the global RADIUS session timeout.
                 choices:
                     - 'disable'
                     - 'enable'
-            security-mode:
+            security_mode:
                 type: str
-                description: Deprecated, please rename it to security_mode. Port or MAC based 802.
+                description: Port or MAC based 802.
                 choices:
                     - '802.1X'
                     - '802.1X-mac-based'
-            user-group:
+            user_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to user_group. Name of user-group to assign to this MAC Authentication Bypass
-            framevid-apply:
+                description: (list or str) Name of user-group to assign to this MAC Authentication Bypass
+            framevid_apply:
                 type: str
-                description: Deprecated, please rename it to framevid_apply. Enable/disable the capability to apply the EAP/MAB frame VLAN to the port ...
+                description: Enable/disable the capability to apply the EAP/MAB frame VLAN to the port native VLAN.
                 choices:
                     - 'disable'
                     - 'enable'
-            eap-auto-untagged-vlans:
+            eap_auto_untagged_vlans:
                 type: str
-                description: Deprecated, please rename it to eap_auto_untagged_vlans. Enable/disable automatic inclusion of untagged VLANs.
+                description: Enable/disable automatic inclusion of untagged VLANs.
                 choices:
                     - 'disable'
                     - 'enable'
-            authserver-timeout-period:
+            authserver_timeout_period:
                 type: int
-                description: Deprecated, please rename it to authserver_timeout_period. Authentication server timeout period
-            authserver-timeout-vlan:
+                description: Authentication server timeout period
+            authserver_timeout_vlan:
                 type: str
-                description: Deprecated, please rename it to authserver_timeout_vlan. Enable/disable the authentication server timeout VLAN to allow li...
+                description: Enable/disable the authentication server timeout VLAN to allow limited access when RADIUS is unavailable.
                 choices:
                     - 'disable'
                     - 'enable'
-            authserver-timeout-vlanid:
+            authserver_timeout_vlanid:
                 type: str
-                description: Deprecated, please rename it to authserver_timeout_vlanid. Authentication server timeout VLAN name.
-            authserver-timeout-tagged:
+                description: Authentication server timeout VLAN name.
+            authserver_timeout_tagged:
                 type: str
-                description: Deprecated, please rename it to authserver_timeout_tagged. Configure timeout option for the tagged VLAN which allows limit...
+                description: Configure timeout option for the tagged VLAN which allows limited access when the authentication server is unavailable.
                 choices:
                     - 'static'
                     - 'disable'
                     - 'lldp-voice'
-            authserver-timeout-tagged-vlanid:
+            authserver_timeout_tagged_vlanid:
                 type: raw
-                description: (list) Deprecated, please rename it to authserver_timeout_tagged_vlanid. Tagged VLAN name for which the timeout option is ...
+                description: (list) Tagged VLAN name for which the timeout option is applied to
             dacl:
                 type: str
                 description: Enable/disable dynamic access control list on this interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-order:
+            auth_order:
                 type: str
-                description: Deprecated, please rename it to auth_order. Configure authentication order.
+                description: Configure authentication order.
                 choices:
                     - 'dot1x-mab'
                     - 'mab-dot1x'
                     - 'mab'
-            auth-priority:
+            auth_priority:
                 type: str
-                description: Deprecated, please rename it to auth_priority. Configure authentication priority.
+                description: Configure authentication priority.
                 choices:
                     - 'dot1x-mab'
                     - 'mab-dot1x'
@@ -301,23 +301,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X',
         '/pm/config/global/obj/switch-controller/security-policy/802-1X'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/security-policy/802-1X/{802-1X}',
-        '/pm/config/global/obj/switch-controller/security-policy/802-1X/{802-1X}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -346,13 +338,16 @@ def main():
                 'authserver-timeout-period': {'v_range': [['6.4.3', '']], 'type': 'int'},
                 'authserver-timeout-vlan': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'authserver-timeout-vlanid': {'v_range': [['6.4.3', '']], 'type': 'str'},
-                'authserver-timeout-tagged': {'v_range': [['7.4.3', '']], 'choices': ['static', 'disable', 'lldp-voice'], 'type': 'str'},
-                'authserver-timeout-tagged-vlanid': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'authserver-timeout-tagged': {
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['static', 'disable', 'lldp-voice'],
+                    'type': 'str'
+                },
+                'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-order': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'mab'], 'type': 'str'},
                 'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'}
             }
-
         }
     }
 
@@ -366,9 +361,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

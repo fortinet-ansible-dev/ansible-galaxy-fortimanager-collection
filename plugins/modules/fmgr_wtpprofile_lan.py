@@ -86,116 +86,116 @@ options:
         required: false
         type: dict
         suboptions:
-            port-mode:
+            port_mode:
                 type: str
-                description: Deprecated, please rename it to port_mode. LAN port mode.
+                description: LAN port mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port-ssid:
+            port_ssid:
                 type: str
-                description: Deprecated, please rename it to port_ssid. Bridge LAN port to SSID.
-            port1-mode:
+                description: Bridge LAN port to SSID.
+            port1_mode:
                 type: str
-                description: Deprecated, please rename it to port1_mode. LAN port 1 mode.
+                description: LAN port 1 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port1-ssid:
+            port1_ssid:
                 type: str
-                description: Deprecated, please rename it to port1_ssid. Bridge LAN port 1 to SSID.
-            port2-mode:
+                description: Bridge LAN port 1 to SSID.
+            port2_mode:
                 type: str
-                description: Deprecated, please rename it to port2_mode. LAN port 2 mode.
+                description: LAN port 2 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port2-ssid:
+            port2_ssid:
                 type: str
-                description: Deprecated, please rename it to port2_ssid. Bridge LAN port 2 to SSID.
-            port3-mode:
+                description: Bridge LAN port 2 to SSID.
+            port3_mode:
                 type: str
-                description: Deprecated, please rename it to port3_mode. LAN port 3 mode.
+                description: LAN port 3 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port3-ssid:
+            port3_ssid:
                 type: str
-                description: Deprecated, please rename it to port3_ssid. Bridge LAN port 3 to SSID.
-            port4-mode:
+                description: Bridge LAN port 3 to SSID.
+            port4_mode:
                 type: str
-                description: Deprecated, please rename it to port4_mode. LAN port 4 mode.
+                description: LAN port 4 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port4-ssid:
+            port4_ssid:
                 type: str
-                description: Deprecated, please rename it to port4_ssid. Bridge LAN port 4 to SSID.
-            port5-mode:
+                description: Bridge LAN port 4 to SSID.
+            port5_mode:
                 type: str
-                description: Deprecated, please rename it to port5_mode. LAN port 5 mode.
+                description: LAN port 5 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port5-ssid:
+            port5_ssid:
                 type: str
-                description: Deprecated, please rename it to port5_ssid. Bridge LAN port 5 to SSID.
-            port6-mode:
+                description: Bridge LAN port 5 to SSID.
+            port6_mode:
                 type: str
-                description: Deprecated, please rename it to port6_mode. LAN port 6 mode.
+                description: LAN port 6 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port6-ssid:
+            port6_ssid:
                 type: str
-                description: Deprecated, please rename it to port6_ssid. Bridge LAN port 6 to SSID.
-            port7-mode:
+                description: Bridge LAN port 6 to SSID.
+            port7_mode:
                 type: str
-                description: Deprecated, please rename it to port7_mode. LAN port 7 mode.
+                description: LAN port 7 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port7-ssid:
+            port7_ssid:
                 type: str
-                description: Deprecated, please rename it to port7_ssid. Bridge LAN port 7 to SSID.
-            port8-mode:
+                description: Bridge LAN port 7 to SSID.
+            port8_mode:
                 type: str
-                description: Deprecated, please rename it to port8_mode. LAN port 8 mode.
+                description: LAN port 8 mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port8-ssid:
+            port8_ssid:
                 type: str
-                description: Deprecated, please rename it to port8_ssid. Bridge LAN port 8 to SSID.
-            port-esl-mode:
+                description: Bridge LAN port 8 to SSID.
+            port_esl_mode:
                 type: str
-                description: Deprecated, please rename it to port_esl_mode. ESL port mode.
+                description: ESL port mode.
                 choices:
                     - 'offline'
                     - 'bridge-to-wan'
                     - 'bridge-to-ssid'
                     - 'nat-to-wan'
-            port-esl-ssid:
+            port_esl_ssid:
                 type: str
-                description: Deprecated, please rename it to port_esl_ssid. Bridge ESL port to SSID.
+                description: Bridge ESL port to SSID.
 '''
 
 EXAMPLES = '''
@@ -280,23 +280,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lan',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lan'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lan/{lan}',
-        '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lan/{lan}'
-    ]
-
     url_params = ['adom', 'wtp-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -328,7 +320,6 @@ def main():
                 'port-esl-mode': {'v_range': [['6.4.2', '']], 'choices': ['offline', 'bridge-to-wan', 'bridge-to-ssid', 'nat-to-wan'], 'type': 'str'},
                 'port-esl-ssid': {'v_range': [['6.4.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -342,9 +333,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

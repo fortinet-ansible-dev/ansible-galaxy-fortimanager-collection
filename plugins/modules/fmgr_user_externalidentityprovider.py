@@ -89,16 +89,16 @@ options:
         required: false
         type: dict
         suboptions:
-            group-attr-name:
+            group_attr_name:
                 type: str
-                description: Deprecated, please rename it to group_attr_name. Group attribute name in authentication query.
+                description: Group attribute name in authentication query.
             interface:
                 type: list
                 elements: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -110,15 +110,15 @@ options:
             port:
                 type: int
                 description: External identity provider service port number
-            server-identity-check:
+            server_identity_check:
                 type: str
-                description: Deprecated, please rename it to server_identity_check. Enable/disable servers identity check against its certificate and s...
+                description: Enable/disable servers identity check against its certificate and subject alternative name
                 choices:
                     - 'disable'
                     - 'enable'
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Use this IPv4/v6 address to connect to the external identity provider.
+                description: Use this IPv4/v6 address to connect to the external identity provider.
             timeout:
                 type: int
                 description: Connection timeout value in seconds
@@ -130,9 +130,9 @@ options:
             url:
                 type: str
                 description: Url.
-            user-attr-name:
+            user_attr_name:
                 type: str
-                description: Deprecated, please rename it to user_attr_name. User attribute name in authentication query.
+                description: User attribute name in authentication query.
             version:
                 type: str
                 description: External identity API version.
@@ -215,45 +215,36 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/external-identity-provider',
         '/pm/config/global/obj/user/external-identity-provider'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
-        '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'user_externalidentityprovider': {
             'type': 'dict',
-            'v_range': [['7.4.3', '']],
+            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
             'options': {
-                'group-attr-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'interface': {'v_range': [['7.4.3', '']], 'type': 'list', 'elements': 'str'},
-                'interface-select-method': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'name': {'v_range': [['7.4.3', '']], 'required': True, 'type': 'str'},
-                'port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'server-identity-check': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'timeout': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'type': {'v_range': [['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
-                'url': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'user-attr-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'version': {'v_range': [['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'}
+                'group-attr-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'interface': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'list', 'elements': 'str'},
+                'interface-select-method': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'required': True, 'type': 'str'},
+                'port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'server-identity-check': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'timeout': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
+                'url': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'user-attr-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'version': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'}
             }
-
         }
     }
 
@@ -267,9 +258,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

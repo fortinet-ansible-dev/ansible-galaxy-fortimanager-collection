@@ -92,28 +92,28 @@ options:
             comment:
                 type: str
                 description: Comment.
-            dlp-log:
+            dlp_log:
                 type: str
-                description: Deprecated, please rename it to dlp_log. Enable/disable DLP logging.
+                description: Enable/disable DLP logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging for data leak prevention.
+                description: Enable/disable extended logging for data leak prevention.
                 choices:
                     - 'disable'
                     - 'enable'
-            feature-set:
+            feature_set:
                 type: str
-                description: Deprecated, please rename it to feature_set. Flow/proxy feature set.
+                description: Flow/proxy feature set.
                 choices:
                     - 'flow'
                     - 'proxy'
-            full-archive-proto:
+            full_archive_proto:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to full_archive_proto. Protocols to always content archive.
+                description: Protocols to always content archive.
                 choices:
                     - 'smtp'
                     - 'pop3'
@@ -125,9 +125,9 @@ options:
                     - 'mapi'
                     - 'ssh'
                     - 'cifs'
-            nac-quar-log:
+            nac_quar_log:
                 type: str
-                description: Deprecated, please rename it to nac_quar_log. Enable/disable NAC quarantine logging.
+                description: Enable/disable NAC quarantine logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -135,9 +135,9 @@ options:
                 type: str
                 description: Name of the DLP profile.
                 required: true
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group used by this DLP profile.
+                description: Replacement message group used by this DLP profile.
             rule:
                 type: list
                 elements: dict
@@ -160,15 +160,15 @@ options:
                     expiry:
                         type: str
                         description: Quarantine duration in days, hours, minutes
-                    file-size:
+                    file_size:
                         type: int
-                        description: Deprecated, please rename it to file_size. Match files this size or larger
-                    file-type:
+                        description: Match files this size or larger
+                    file_type:
                         type: str
-                        description: Deprecated, please rename it to file_type. Select the number of a DLP file pattern table to match.
-                    filter-by:
+                        description: Select the number of a DLP file pattern table to match.
+                    filter_by:
                         type: str
-                        description: Deprecated, please rename it to filter_by. Select the type of content to match.
+                        description: Select the type of content to match.
                         choices:
                             - 'fingerprint'
                             - 'sensor'
@@ -181,9 +181,9 @@ options:
                     label:
                         type: str
                         description: MIP label dictionary.
-                    match-percentage:
+                    match_percentage:
                         type: int
-                        description: Deprecated, please rename it to match_percentage. Percentage of fingerprints in the fingerprint databases designat...
+                        description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
                     name:
                         type: str
                         description: Filter name.
@@ -223,10 +223,10 @@ options:
                         choices:
                             - 'file'
                             - 'message'
-            summary-proto:
+            summary_proto:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to summary_proto. Protocols to always log summary.
+                description: Protocols to always log summary.
                 choices:
                     - 'smtp'
                     - 'pop3'
@@ -264,16 +264,16 @@ EXAMPLES = '''
           extended_log: <value in [disable, enable]>
           feature_set: <value in [flow, proxy]>
           full_archive_proto:
-            - smtp
-            - pop3
-            - imap
-            - http-post
-            - http-get
-            - ftp
-            - nntp
-            - mapi
-            - ssh
-            - cifs
+            - "smtp"
+            - "pop3"
+            - "imap"
+            - "http-post"
+            - "http-get"
+            - "ftp"
+            - "nntp"
+            - "mapi"
+            - "ssh"
+            - "cifs"
           nac_quar_log: <value in [disable, enable]>
           name: <string>
           replacemsg_group: <string>
@@ -290,31 +290,31 @@ EXAMPLES = '''
               match_percentage: <integer>
               name: <string>
               proto:
-                - smtp
-                - pop3
-                - imap
-                - http-post
-                - http-get
-                - ftp
-                - nntp
-                - mapi
-                - ssh
-                - cifs
+                - "smtp"
+                - "pop3"
+                - "imap"
+                - "http-post"
+                - "http-get"
+                - "ftp"
+                - "nntp"
+                - "mapi"
+                - "ssh"
+                - "cifs"
               sensitivity: <list or string>
               sensor: <list or string>
               severity: <value in [info, low, medium, ...]>
               type: <value in [file, message]>
           summary_proto:
-            - smtp
-            - pop3
-            - imap
-            - http-post
-            - http-get
-            - ftp
-            - nntp
-            - mapi
-            - ssh
-            - cifs
+            - "smtp"
+            - "pop3"
+            - "imap"
+            - "http-post"
+            - "http-get"
+            - "ftp"
+            - "nntp"
+            - "mapi"
+            - "ssh"
+            - "cifs"
 '''
 
 RETURN = '''
@@ -358,23 +358,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/profile',
         '/pm/config/global/obj/dlp/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/profile/{profile}',
-        '/pm/config/global/obj/dlp/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -430,7 +422,6 @@ def main():
                     'elements': 'str'
                 }
             }
-
         }
     }
 
@@ -444,9 +435,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

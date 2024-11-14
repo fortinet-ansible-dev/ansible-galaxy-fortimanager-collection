@@ -93,54 +93,54 @@ options:
         required: false
         type: dict
         suboptions:
-            addr-mode:
+            addr_mode:
                 type: str
-                description: Deprecated, please rename it to addr_mode. Address mode
+                description: Address mode
                 choices:
                     - 'ipv4'
                     - 'ipv6'
-            bandwidth-weight:
+            bandwidth_weight:
                 type: int
-                description: Deprecated, please rename it to bandwidth_weight. Coefficient of reciprocal of available bidirectional bandwidth in the fo...
+                description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
             default:
                 type: str
                 description: Enable/disable use of SD-WAN as default service.
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-forward:
+            dscp_forward:
                 type: str
-                description: Deprecated, please rename it to dscp_forward. Enable/disable forward traffic DSCP tag.
+                description: Enable/disable forward traffic DSCP tag.
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-forward-tag:
+            dscp_forward_tag:
                 type: str
-                description: Deprecated, please rename it to dscp_forward_tag. Forward traffic DSCP tag.
-            dscp-reverse:
+                description: Forward traffic DSCP tag.
+            dscp_reverse:
                 type: str
-                description: Deprecated, please rename it to dscp_reverse. Enable/disable reverse traffic DSCP tag.
+                description: Enable/disable reverse traffic DSCP tag.
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-reverse-tag:
+            dscp_reverse_tag:
                 type: str
-                description: Deprecated, please rename it to dscp_reverse_tag. Reverse traffic DSCP tag.
+                description: Reverse traffic DSCP tag.
             dst:
                 type: raw
                 description: (list or str) Destination address name.
-            dst-negate:
+            dst_negate:
                 type: str
-                description: Deprecated, please rename it to dst_negate. Enable/disable negation of destination address match.
+                description: Enable/disable negation of destination address match.
                 choices:
                     - 'disable'
                     - 'enable'
             dst6:
                 type: raw
                 description: (list or str) Destination address6 name.
-            end-port:
+            end_port:
                 type: int
-                description: Deprecated, please rename it to end_port. End destination port number.
+                description: End destination port number.
             gateway:
                 type: str
                 description: Enable/disable SD-WAN service gateway.
@@ -150,49 +150,49 @@ options:
             groups:
                 type: raw
                 description: (list or str) User groups.
-            health-check:
+            health_check:
                 type: str
-                description: Deprecated, please rename it to health_check. Health check.
-            hold-down-time:
+                description: Health check.
+            hold_down_time:
                 type: int
-                description: Deprecated, please rename it to hold_down_time. Waiting period in seconds when switching from the back-up member to the pr...
+                description: Waiting period in seconds when switching from the back-up member to the primary member
             id:
                 type: int
                 description: Priority rule ID
                 required: true
-            internet-service:
+            internet_service:
                 type: str
-                description: Deprecated, please rename it to internet_service. Enable/disable use of Internet service for application-based load balancing.
+                description: Enable/disable use of Internet service for application-based load balancing.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-ctrl:
+            internet_service_ctrl:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_ctrl. Control-based Internet Service ID list.
-            internet-service-ctrl-group:
+                description: (list) Control-based Internet Service ID list.
+            internet_service_ctrl_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_ctrl_group. Control-based Internet Service group list.
-            internet-service-custom:
+                description: (list or str) Control-based Internet Service group list.
+            internet_service_custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom. Custom Internet service name list.
-            internet-service-custom-group:
+                description: (list or str) Custom Internet service name list.
+            internet_service_custom_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom_group. Custom Internet Service group list.
-            internet-service-group:
+                description: (list or str) Custom Internet Service group list.
+            internet_service_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_group. Internet Service group list.
-            internet-service-id:
+                description: (list or str) Internet Service group list.
+            internet_service_id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_id. Internet service ID list.
-            jitter-weight:
+                description: (list or str) Internet service ID list.
+            jitter_weight:
                 type: int
-                description: Deprecated, please rename it to jitter_weight. Coefficient of jitter in the formula of custom-profile-1.
-            latency-weight:
+                description: Coefficient of jitter in the formula of custom-profile-1.
+            latency_weight:
                 type: int
-                description: Deprecated, please rename it to latency_weight. Coefficient of latency in the formula of custom-profile-1.
-            link-cost-factor:
+                description: Coefficient of latency in the formula of custom-profile-1.
+            link_cost_factor:
                 type: str
-                description: Deprecated, please rename it to link_cost_factor. Link cost factor.
+                description: Link cost factor.
                 choices:
                     - 'latency'
                     - 'jitter'
@@ -201,9 +201,9 @@ options:
                     - 'outbandwidth'
                     - 'bibandwidth'
                     - 'custom-profile-1'
-            link-cost-threshold:
+            link_cost_threshold:
                 type: int
-                description: Deprecated, please rename it to link_cost_threshold. Percentage threshold change of link cost values that will result in p...
+                description: Percentage threshold change of link cost values that will result in policy route regeneration
             member:
                 type: str
                 description: Member sequence number.
@@ -219,47 +219,47 @@ options:
             name:
                 type: str
                 description: Priority rule name.
-            packet-loss-weight:
+            packet_loss_weight:
                 type: int
-                description: Deprecated, please rename it to packet_loss_weight. Coefficient of packet-loss in the formula of custom-profile-1.
-            priority-members:
+                description: Coefficient of packet-loss in the formula of custom-profile-1.
+            priority_members:
                 type: raw
-                description: (list or str) Deprecated, please rename it to priority_members. Member sequence number list.
+                description: (list or str) Member sequence number list.
             protocol:
                 type: int
                 description: Protocol number.
-            quality-link:
+            quality_link:
                 type: int
-                description: Deprecated, please rename it to quality_link. Quality grade.
-            route-tag:
+                description: Quality grade.
+            route_tag:
                 type: int
-                description: Deprecated, please rename it to route_tag. IPv4 route map route-tag.
+                description: IPv4 route map route-tag.
             sla:
                 type: list
                 elements: dict
                 description: Sla.
                 suboptions:
-                    health-check:
+                    health_check:
                         type: str
-                        description: Deprecated, please rename it to health_check. Virtual WAN Link health-check.
+                        description: Virtual WAN Link health-check.
                     id:
                         type: int
                         description: SLA ID.
             src:
                 type: raw
                 description: (list or str) Source address name.
-            src-negate:
+            src_negate:
                 type: str
-                description: Deprecated, please rename it to src_negate. Enable/disable negation of source address match.
+                description: Enable/disable negation of source address match.
                 choices:
                     - 'disable'
                     - 'enable'
             src6:
                 type: raw
                 description: (list or str) Source address6 name.
-            start-port:
+            start_port:
                 type: int
-                description: Deprecated, please rename it to start_port. Start destination port number.
+                description: Start destination port number.
             status:
                 type: str
                 description: Enable/disable SD-WAN service.
@@ -269,18 +269,18 @@ options:
             tos:
                 type: str
                 description: Type of service bit pattern.
-            tos-mask:
+            tos_mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask. Type of service evaluated bits.
+                description: Type of service evaluated bits.
             users:
                 type: raw
                 description: (list or str) User name.
-            internet-service-app-ctrl:
+            internet_service_app_ctrl:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_app_ctrl. Application control based Internet Service ID list.
-            internet-service-app-ctrl-group:
+                description: (list) Application control based Internet Service ID list.
+            internet_service_app_ctrl_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_app_ctrl_group. Application control based Internet Service ...
+                description: (list or str) Application control based Internet Service group list.
             role:
                 type: str
                 description: Service role to work with neighbor.
@@ -288,27 +288,27 @@ options:
                     - 'primary'
                     - 'secondary'
                     - 'standalone'
-            sla-compare-method:
+            sla_compare_method:
                 type: str
-                description: Deprecated, please rename it to sla_compare_method. Method to compare SLA value for sla and load balance mode.
+                description: Method to compare SLA value for sla and load balance mode.
                 choices:
                     - 'order'
                     - 'number'
-            standalone-action:
+            standalone_action:
                 type: str
-                description: Deprecated, please rename it to standalone_action. Enable/disable service when selected neighbor role is standalone while ...
+                description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
                 choices:
                     - 'disable'
                     - 'enable'
-            input-device:
+            input_device:
                 type: raw
-                description: (list or str) Deprecated, please rename it to input_device. Source interface name.
-            internet-service-name:
+                description: (list or str) Source interface name.
+            internet_service_name:
                 type: str
-                description: Deprecated, please rename it to internet_service_name. Internet service name list.
-            input-device-negate:
+                description: Internet service name list.
+            input_device_negate:
                 type: str
-                description: Deprecated, please rename it to input_device_negate. Enable/disable negation of input device match.
+                description: Enable/disable negation of input device match.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -432,21 +432,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -512,7 +505,6 @@ def main():
                 'internet-service-name': {'v_range': [['6.4.0', '6.4.0']], 'type': 'str'},
                 'input-device-negate': {'v_range': [['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -526,9 +518,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

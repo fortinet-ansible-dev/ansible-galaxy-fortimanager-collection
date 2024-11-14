@@ -89,22 +89,22 @@ options:
         required: false
         type: dict
         suboptions:
-            city-id:
+            city_id:
                 type: int
-                description: Deprecated, please rename it to city_id. City ID.
-            country-id:
+                description: City ID.
+            country_id:
                 type: int
-                description: Deprecated, please rename it to country_id. Country or Area ID.
-            internet-service-id:
+                description: Country or Area ID.
+            internet_service_id:
                 type: str
-                description: Deprecated, please rename it to internet_service_id. Internet Service ID.
+                description: Internet Service ID.
             name:
                 type: str
                 description: Internet Service name.
                 required: true
-            region-id:
+            region_id:
                 type: int
-                description: Deprecated, please rename it to region_id. Region ID.
+                description: Region ID.
             type:
                 type: str
                 description: Internet Service name type.
@@ -181,23 +181,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/internet-service-name',
         '/pm/config/global/obj/firewall/internet-service-name'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/internet-service-name/{internet-service-name}',
-        '/pm/config/global/obj/firewall/internet-service-name/{internet-service-name}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -213,7 +205,6 @@ def main():
                 'region-id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'location'], 'type': 'str'}
             }
-
         }
     }
 
@@ -227,9 +218,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

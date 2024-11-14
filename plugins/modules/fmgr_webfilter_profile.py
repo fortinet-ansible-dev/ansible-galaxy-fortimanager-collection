@@ -92,28 +92,28 @@ options:
             comment:
                 type: str
                 description: Optional comments.
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging for web filtering.
+                description: Enable/disable extended logging for web filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            https-replacemsg:
+            https_replacemsg:
                 type: str
-                description: Deprecated, please rename it to https_replacemsg. Enable replacement messages for HTTPS.
+                description: Enable replacement messages for HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
-            inspection-mode:
+            inspection_mode:
                 type: str
-                description: Deprecated, please rename it to inspection_mode. Web filtering inspection mode.
+                description: Web filtering inspection mode.
                 choices:
                     - 'proxy'
                     - 'flow-based'
                     - 'dns'
-            log-all-url:
+            log_all_url:
                 type: str
-                description: Deprecated, please rename it to log_all_url. Enable/disable logging all URLs visited.
+                description: Enable/disable logging all URLs visited.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -143,118 +143,118 @@ options:
                     - 'rangeblock'
                     - 'contenttype-check'
                     - 'per-user-bal'
-            ovrd-perm:
+            ovrd_perm:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ovrd_perm. Permitted override types.
+                description: Permitted override types.
                 choices:
                     - 'bannedword-override'
                     - 'urlfilter-override'
                     - 'fortiguard-wf-override'
                     - 'contenttype-check-override'
-            post-action:
+            post_action:
                 type: str
-                description: Deprecated, please rename it to post_action. Action taken for HTTP POST traffic.
+                description: Action taken for HTTP POST traffic.
                 choices:
                     - 'normal'
                     - 'comfort'
                     - 'block'
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group.
-            web-content-log:
+                description: Replacement message group.
+            web_content_log:
                 type: str
-                description: Deprecated, please rename it to web_content_log. Enable/disable logging logging blocked web content.
+                description: Enable/disable logging logging blocked web content.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-extended-all-action-log:
+            web_extended_all_action_log:
                 type: str
-                description: Deprecated, please rename it to web_extended_all_action_log. Enable/disable extended any filter action logging for web fil...
+                description: Enable/disable extended any filter action logging for web filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-activex-log:
+            web_filter_activex_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_activex_log. Enable/disable logging ActiveX.
+                description: Enable/disable logging ActiveX.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-applet-log:
+            web_filter_applet_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_applet_log. Enable/disable logging Java applets.
+                description: Enable/disable logging Java applets.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-command-block-log:
+            web_filter_command_block_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_command_block_log. Enable/disable logging blocked commands.
+                description: Enable/disable logging blocked commands.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-cookie-log:
+            web_filter_cookie_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_cookie_log. Enable/disable logging cookie filtering.
+                description: Enable/disable logging cookie filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-cookie-removal-log:
+            web_filter_cookie_removal_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_cookie_removal_log. Enable/disable logging blocked cookies.
+                description: Enable/disable logging blocked cookies.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-js-log:
+            web_filter_js_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_js_log. Enable/disable logging Java scripts.
+                description: Enable/disable logging Java scripts.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-jscript-log:
+            web_filter_jscript_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_jscript_log. Enable/disable logging JScripts.
+                description: Enable/disable logging JScripts.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-referer-log:
+            web_filter_referer_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_referer_log. Enable/disable logging referrers.
+                description: Enable/disable logging referrers.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-unknown-log:
+            web_filter_unknown_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_unknown_log. Enable/disable logging unknown scripts.
+                description: Enable/disable logging unknown scripts.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-filter-vbs-log:
+            web_filter_vbs_log:
                 type: str
-                description: Deprecated, please rename it to web_filter_vbs_log. Enable/disable logging VBS scripts.
+                description: Enable/disable logging VBS scripts.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-ftgd-err-log:
+            web_ftgd_err_log:
                 type: str
-                description: Deprecated, please rename it to web_ftgd_err_log. Enable/disable logging rating errors.
+                description: Enable/disable logging rating errors.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-ftgd-quota-usage:
+            web_ftgd_quota_usage:
                 type: str
-                description: Deprecated, please rename it to web_ftgd_quota_usage. Enable/disable logging daily quota usage.
+                description: Enable/disable logging daily quota usage.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-invalid-domain-log:
+            web_invalid_domain_log:
                 type: str
-                description: Deprecated, please rename it to web_invalid_domain_log. Enable/disable logging invalid domain names.
+                description: Enable/disable logging invalid domain names.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-url-log:
+            web_url_log:
                 type: str
-                description: Deprecated, please rename it to web_url_log. Enable/disable logging URL filtering.
+                description: Enable/disable logging URL filtering.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -264,46 +264,46 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            wisp-algorithm:
+            wisp_algorithm:
                 type: str
-                description: Deprecated, please rename it to wisp_algorithm. WISP server selection algorithm.
+                description: WISP server selection algorithm.
                 choices:
                     - 'auto-learning'
                     - 'primary-secondary'
                     - 'round-robin'
-            wisp-servers:
+            wisp_servers:
                 type: raw
-                description: (list or str) Deprecated, please rename it to wisp_servers. WISP servers.
-            youtube-channel-filter:
+                description: (list or str) WISP servers.
+            youtube_channel_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to youtube_channel_filter. Youtube channel filter.
+                description: Youtube channel filter.
                 suboptions:
-                    channel-id:
+                    channel_id:
                         type: str
-                        description: Deprecated, please rename it to channel_id. YouTube channel ID to be filtered.
+                        description: YouTube channel ID to be filtered.
                     comment:
                         type: str
                         description: Comment.
                     id:
                         type: int
                         description: ID.
-            youtube-channel-status:
+            youtube_channel_status:
                 type: str
-                description: Deprecated, please rename it to youtube_channel_status. YouTube channel filter status.
+                description: YouTube channel filter status.
                 choices:
                     - 'disable'
                     - 'blacklist'
                     - 'whitelist'
-            feature-set:
+            feature_set:
                 type: str
-                description: Deprecated, please rename it to feature_set. Flow/proxy feature set.
+                description: Flow/proxy feature set.
                 choices:
                     - 'proxy'
                     - 'flow'
-            web-antiphishing-log:
+            web_antiphishing_log:
                 type: str
-                description: Deprecated, please rename it to web_antiphishing_log. Enable/disable logging of AntiPhishing checks.
+                description: Enable/disable logging of AntiPhishing checks.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -311,28 +311,28 @@ options:
                 type: dict
                 description: Antiphish.
                 suboptions:
-                    check-basic-auth:
+                    check_basic_auth:
                         type: str
-                        description: Deprecated, please rename it to check_basic_auth. Enable/disable checking of HTTP Basic Auth field for known crede...
+                        description: Enable/disable checking of HTTP Basic Auth field for known credentials.
                         choices:
                             - 'disable'
                             - 'enable'
-                    check-uri:
+                    check_uri:
                         type: str
-                        description: Deprecated, please rename it to check_uri. Enable/disable checking of GET URI parameters for known credentials.
+                        description: Enable/disable checking of GET URI parameters for known credentials.
                         choices:
                             - 'disable'
                             - 'enable'
-                    check-username-only:
+                    check_username_only:
                         type: str
-                        description: Deprecated, please rename it to check_username_only. Enable/disable acting only on valid username credentials.
+                        description: Enable/disable acting only on valid username credentials.
                         choices:
                             - 'disable'
                             - 'enable'
-                    custom-patterns:
+                    custom_patterns:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to custom_patterns. Custom patterns.
+                        description: Custom patterns.
                         suboptions:
                             category:
                                 type: str
@@ -349,20 +349,20 @@ options:
                                 choices:
                                     - 'regex'
                                     - 'literal'
-                    default-action:
+                    default_action:
                         type: str
-                        description: Deprecated, please rename it to default_action. Action to be taken when there is no matching rule.
+                        description: Action to be taken when there is no matching rule.
                         choices:
                             - 'log'
                             - 'block'
                             - 'exempt'
-                    domain-controller:
+                    domain_controller:
                         type: str
-                        description: Deprecated, please rename it to domain_controller. Domain for which to verify received credentials against.
-                    inspection-entries:
+                        description: Domain for which to verify received credentials against.
+                    inspection_entries:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to inspection_entries. Inspection entries.
+                        description: Inspection entries.
                         suboptions:
                             action:
                                 type: str
@@ -371,15 +371,15 @@ options:
                                     - 'log'
                                     - 'block'
                                     - 'exempt'
-                            fortiguard-category:
+                            fortiguard_category:
                                 type: raw
-                                description: (list) Deprecated, please rename it to fortiguard_category. FortiGuard category to match.
+                                description: (list) FortiGuard category to match.
                             name:
                                 type: str
                                 description: Inspection target name.
-                    max-body-len:
+                    max_body_len:
                         type: int
-                        description: Deprecated, please rename it to max_body_len. Maximum size of a POST body to check for credentials.
+                        description: Maximum size of a POST body to check for credentials.
                     status:
                         type: str
                         description: Toggle AntiPhishing functionality.
@@ -395,13 +395,13 @@ options:
                     ldap:
                         type: str
                         description: LDAP server for which to verify received credentials against.
-            ftgd-wf:
+            ftgd_wf:
                 type: dict
-                description: Deprecated, please rename it to ftgd_wf. Ftgd wf.
+                description: Ftgd wf.
                 suboptions:
-                    exempt-quota:
+                    exempt_quota:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to exempt_quota. Do not stop quota for these categories.
+                        description: (list or str) Do not stop quota for these categories.
                     filters:
                         type: list
                         elements: dict
@@ -415,9 +415,9 @@ options:
                                     - 'monitor'
                                     - 'warning'
                                     - 'authenticate'
-                            auth-usr-grp:
+                            auth_usr_grp:
                                 type: raw
-                                description: (list or str) Deprecated, please rename it to auth_usr_grp. Groups with permission to authenticate.
+                                description: (list or str) Groups with permission to authenticate.
                             category:
                                 type: str
                                 description: Categories and groups the filter examines.
@@ -430,27 +430,27 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            override-replacemsg:
+                            override_replacemsg:
                                 type: str
-                                description: Deprecated, please rename it to override_replacemsg. Override replacement message.
-                            warn-duration:
+                                description: Override replacement message.
+                            warn_duration:
                                 type: str
-                                description: Deprecated, please rename it to warn_duration. Duration of warnings.
-                            warning-duration-type:
+                                description: Duration of warnings.
+                            warning_duration_type:
                                 type: str
-                                description: Deprecated, please rename it to warning_duration_type. Re-display warning after closing browser or after a...
+                                description: Re-display warning after closing browser or after a timeout.
                                 choices:
                                     - 'session'
                                     - 'timeout'
-                            warning-prompt:
+                            warning_prompt:
                                 type: str
-                                description: Deprecated, please rename it to warning_prompt. Warning prompts in each category or each domain.
+                                description: Warning prompts in each category or each domain.
                                 choices:
                                     - 'per-domain'
                                     - 'per-category'
-                    max-quota-timeout:
+                    max_quota_timeout:
                         type: int
-                        description: Deprecated, please rename it to max_quota_timeout. Maximum FortiGuard quota used by single page view in seconds
+                        description: Maximum FortiGuard quota used by single page view in seconds
                     options:
                         type: list
                         elements: str
@@ -482,9 +482,9 @@ options:
                             id:
                                 type: int
                                 description: ID number.
-                            override-replacemsg:
+                            override_replacemsg:
                                 type: str
-                                description: Deprecated, please rename it to override_replacemsg. Override replacement message.
+                                description: Override replacement message.
                             type:
                                 type: str
                                 description: Quota type.
@@ -502,70 +502,70 @@ options:
                             value:
                                 type: int
                                 description: Traffic quota value.
-                    rate-crl-urls:
+                    rate_crl_urls:
                         type: str
-                        description: Deprecated, please rename it to rate_crl_urls. Enable/disable rating CRL by URL.
+                        description: Enable/disable rating CRL by URL.
                         choices:
                             - 'disable'
                             - 'enable'
-                    rate-css-urls:
+                    rate_css_urls:
                         type: str
-                        description: Deprecated, please rename it to rate_css_urls. Enable/disable rating CSS by URL.
+                        description: Enable/disable rating CSS by URL.
                         choices:
                             - 'disable'
                             - 'enable'
-                    rate-image-urls:
+                    rate_image_urls:
                         type: str
-                        description: Deprecated, please rename it to rate_image_urls. Enable/disable rating images by URL.
+                        description: Enable/disable rating images by URL.
                         choices:
                             - 'disable'
                             - 'enable'
-                    rate-javascript-urls:
+                    rate_javascript_urls:
                         type: str
-                        description: Deprecated, please rename it to rate_javascript_urls. Enable/disable rating JavaScript by URL.
+                        description: Enable/disable rating JavaScript by URL.
                         choices:
                             - 'disable'
                             - 'enable'
-                    category-override:
+                    category_override:
                         type: str
-                        description: Deprecated, please rename it to category_override. Local categories take precedence over FortiGuard categories.
+                        description: Local categories take precedence over FortiGuard categories.
             override:
                 type: dict
                 description: Override.
                 suboptions:
-                    ovrd-cookie:
+                    ovrd_cookie:
                         type: str
-                        description: Deprecated, please rename it to ovrd_cookie. Allow/deny browser-based
+                        description: Allow/deny browser-based
                         choices:
                             - 'deny'
                             - 'allow'
-                    ovrd-dur:
+                    ovrd_dur:
                         type: str
-                        description: Deprecated, please rename it to ovrd_dur. Override duration.
-                    ovrd-dur-mode:
+                        description: Override duration.
+                    ovrd_dur_mode:
                         type: str
-                        description: Deprecated, please rename it to ovrd_dur_mode. Override duration mode.
+                        description: Override duration mode.
                         choices:
                             - 'constant'
                             - 'ask'
-                    ovrd-scope:
+                    ovrd_scope:
                         type: str
-                        description: Deprecated, please rename it to ovrd_scope. Override scope.
+                        description: Override scope.
                         choices:
                             - 'user'
                             - 'user-group'
                             - 'ip'
                             - 'ask'
                             - 'browser'
-                    ovrd-user-group:
+                    ovrd_user_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to ovrd_user_group. User groups with permission to use the override.
+                        description: (list or str) User groups with permission to use the override.
                     profile:
                         type: raw
                         description: (list or str) Web filter profile with permission to create overrides.
-                    profile-attribute:
+                    profile_attribute:
                         type: str
-                        description: Deprecated, please rename it to profile_attribute. Profile attribute to retrieve from the RADIUS server.
+                        description: Profile attribute to retrieve from the RADIUS server.
                         choices:
                             - 'User-Name'
                             - 'User-Password'
@@ -620,31 +620,31 @@ options:
                             - 'NAS-Port-Type'
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
-                    profile-type:
+                    profile_type:
                         type: str
-                        description: Deprecated, please rename it to profile_type. Override profile type.
+                        description: Override profile type.
                         choices:
                             - 'list'
                             - 'radius'
-            url-extraction:
+            url_extraction:
                 type: dict
-                description: Deprecated, please rename it to url_extraction. Url extraction.
+                description: Url extraction.
                 suboptions:
-                    redirect-header:
+                    redirect_header:
                         type: str
-                        description: Deprecated, please rename it to redirect_header. HTTP header name to use for client redirect on blocked requests
-                    redirect-no-content:
+                        description: HTTP header name to use for client redirect on blocked requests
+                    redirect_no_content:
                         type: str
-                        description: Deprecated, please rename it to redirect_no_content. Enable / Disable empty message-body entity in HTTP response
+                        description: Enable / Disable empty message-body entity in HTTP response
                         choices:
                             - 'disable'
                             - 'enable'
-                    redirect-url:
+                    redirect_url:
                         type: str
-                        description: Deprecated, please rename it to redirect_url. HTTP header value to use for client redirect on blocked requests
-                    server-fqdn:
+                        description: HTTP header value to use for client redirect on blocked requests
+                    server_fqdn:
                         type: str
-                        description: Deprecated, please rename it to server_fqdn. URL extraction server FQDN
+                        description: URL extraction server FQDN
                     status:
                         type: str
                         description: Enable URL Extraction
@@ -661,37 +661,37 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    bword-table:
+                    bword_table:
                         type: str
-                        description: Deprecated, please rename it to bword_table. Banned word table ID.
-                    bword-threshold:
+                        description: Banned word table ID.
+                    bword_threshold:
                         type: int
-                        description: Deprecated, please rename it to bword_threshold. Banned word score threshold.
-                    content-header-list:
+                        description: Banned word score threshold.
+                    content_header_list:
                         type: str
-                        description: Deprecated, please rename it to content_header_list. Content header list.
-                    keyword-match:
+                        description: Content header list.
+                    keyword_match:
                         type: raw
-                        description: (list) Deprecated, please rename it to keyword_match. Search keywords to log when match is found.
-                    log-search:
+                        description: (list) Search keywords to log when match is found.
+                    log_search:
                         type: str
-                        description: Deprecated, please rename it to log_search. Enable/disable logging all search phrases.
+                        description: Enable/disable logging all search phrases.
                         choices:
                             - 'disable'
                             - 'enable'
-                    safe-search:
+                    safe_search:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to safe_search. Safe search type.
+                        description: Safe search type.
                         choices:
                             - 'google'
                             - 'yahoo'
                             - 'bing'
                             - 'url'
                             - 'header'
-                    urlfilter-table:
+                    urlfilter_table:
                         type: str
-                        description: Deprecated, please rename it to urlfilter_table. URL filter table ID.
+                        description: URL filter table ID.
                     whitelist:
                         type: list
                         elements: str
@@ -703,9 +703,9 @@ options:
                             - 'exempt-dlp'
                             - 'exempt-rangeblock'
                             - 'extended-log-others'
-                    youtube-restrict:
+                    youtube_restrict:
                         type: str
-                        description: Deprecated, please rename it to youtube_restrict. YouTube EDU filter level.
+                        description: YouTube EDU filter level.
                         choices:
                             - 'strict'
                             - 'none'
@@ -727,12 +727,12 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    vimeo-restrict:
+                    vimeo_restrict:
                         type: str
-                        description: Deprecated, please rename it to vimeo_restrict. Set Vimeo-restrict
-            file-filter:
+                        description: Set Vimeo-restrict
+            file_filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter. File filter.
+                description: File filter.
                 suboptions:
                     entries:
                         type: list
@@ -761,15 +761,15 @@ options:
                                 choices:
                                     - 'any'
                                     - 'yes'
-                            file-type:
+                            file_type:
                                 type: raw
-                                description: (list) Deprecated, please rename it to file_type. Select file type.
+                                description: (list) Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
-                            password-protected:
+                            password_protected:
                                 type: str
-                                description: Deprecated, please rename it to password_protected. Match password-protected files.
+                                description: Match password-protected files.
                                 choices:
                                     - 'any'
                                     - 'yes'
@@ -786,9 +786,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    scan-archive-contents:
+                    scan_archive_contents:
                         type: str
-                        description: Deprecated, please rename it to scan_archive_contents. Enable/disable file filter archive contents scan.
+                        description: Enable/disable file filter archive contents scan.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -798,9 +798,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            web-flow-log-encoding:
+            web_flow_log_encoding:
                 type: str
-                description: Deprecated, please rename it to web_flow_log_encoding. Log encoding in flow mode.
+                description: Log encoding in flow mode.
                 choices:
                     - 'utf-8'
                     - 'punycode'
@@ -832,28 +832,28 @@ EXAMPLES = '''
           log_all_url: <value in [disable, enable]>
           name: <string>
           options:
-            - block-invalid-url
-            - jscript
-            - js
-            - vbs
-            - unknown
-            - wf-referer
-            - https-scan
-            - intrinsic
-            - wf-cookie
-            - per-user-bwl
-            - activexfilter
-            - cookiefilter
-            - https-url-scan
-            - javafilter
-            - rangeblock
-            - contenttype-check
-            - per-user-bal
+            - "block-invalid-url"
+            - "jscript"
+            - "js"
+            - "vbs"
+            - "unknown"
+            - "wf-referer"
+            - "https-scan"
+            - "intrinsic"
+            - "wf-cookie"
+            - "per-user-bwl"
+            - "activexfilter"
+            - "cookiefilter"
+            - "https-url-scan"
+            - "javafilter"
+            - "rangeblock"
+            - "contenttype-check"
+            - "per-user-bal"
           ovrd_perm:
-            - bannedword-override
-            - urlfilter-override
-            - fortiguard-wf-override
-            - contenttype-check-override
+            - "bannedword-override"
+            - "urlfilter-override"
+            - "fortiguard-wf-override"
+            - "contenttype-check-override"
           post_action: <value in [normal, comfort, block]>
           replacemsg_group: <string>
           web_content_log: <value in [disable, enable]>
@@ -918,15 +918,15 @@ EXAMPLES = '''
                 warning_prompt: <value in [per-domain, per-category]>
             max_quota_timeout: <integer>
             options:
-              - error-allow
-              - http-err-detail
-              - rate-image-urls
-              - strict-blocking
-              - rate-server-ip
-              - redir-block
-              - connect-request-bypass
-              - log-all-url
-              - ftgd-disable
+              - "error-allow"
+              - "http-err-detail"
+              - "rate-image-urls"
+              - "strict-blocking"
+              - "rate-server-ip"
+              - "redir-block"
+              - "connect-request-bypass"
+              - "log-all-url"
+              - "ftgd-disable"
             ovrd: <list or string>
             quota:
               -
@@ -965,27 +965,27 @@ EXAMPLES = '''
             keyword_match: <list or string>
             log_search: <value in [disable, enable]>
             safe_search:
-              - google
-              - yahoo
-              - bing
-              - url
-              - header
+              - "google"
+              - "yahoo"
+              - "bing"
+              - "url"
+              - "header"
             urlfilter_table: <string>
             whitelist:
-              - exempt-av
-              - exempt-webcontent
-              - exempt-activex-java-cookie
-              - exempt-dlp
-              - exempt-rangeblock
-              - extended-log-others
+              - "exempt-av"
+              - "exempt-webcontent"
+              - "exempt-activex-java-cookie"
+              - "exempt-dlp"
+              - "exempt-rangeblock"
+              - "extended-log-others"
             youtube_restrict: <value in [strict, none, moderate]>
             allowlist:
-              - exempt-av
-              - exempt-webcontent
-              - exempt-activex-java-cookie
-              - exempt-dlp
-              - exempt-rangeblock
-              - extended-log-others
+              - "exempt-av"
+              - "exempt-webcontent"
+              - "exempt-activex-java-cookie"
+              - "exempt-dlp"
+              - "exempt-rangeblock"
+              - "extended-log-others"
             blocklist: <value in [disable, enable]>
             vimeo_restrict: <string>
           file_filter:
@@ -999,8 +999,8 @@ EXAMPLES = '''
                 filter: <string>
                 password_protected: <value in [any, yes]>
                 protocol:
-                  - http
-                  - ftp
+                  - "http"
+                  - "ftp"
             log: <value in [disable, enable]>
             scan_archive_contents: <value in [disable, enable]>
             status: <value in [disable, enable]>
@@ -1048,23 +1048,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/profile',
         '/pm/config/global/obj/webfilter/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}',
-        '/pm/config/global/obj/webfilter/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1157,41 +1149,41 @@ def main():
                     }
                 },
                 'ftgd-wf': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'exempt-quota': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'exempt-quota': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'filters': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
                                 'action': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'choices': ['block', 'monitor', 'warning', 'authenticate'],
                                     'type': 'str'
                                 },
-                                'auth-usr-grp': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                                'category': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'override-replacemsg': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'warn-duration': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
+                                'auth-usr-grp': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                                'category': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'override-replacemsg': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'warn-duration': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                 'warning-duration-type': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'choices': ['session', 'timeout'],
                                     'type': 'str'
                                 },
                                 'warning-prompt': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'choices': ['per-domain', 'per-category'],
                                     'type': 'str'
                                 }
                             },
                             'elements': 'dict'
                         },
-                        'max-quota-timeout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'max-quota-timeout': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'error-allow', 'http-err-detail', 'rate-image-urls', 'strict-blocking', 'rate-server-ip', 'redir-block',
@@ -1199,44 +1191,44 @@ def main():
                             ],
                             'elements': 'str'
                         },
-                        'ovrd': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ovrd': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'quota': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'category': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                                'duration': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'override-replacemsg': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['time', 'traffic'], 'type': 'str'},
-                                'unit': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
-                                'value': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'}
+                                'category': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                                'duration': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'override-replacemsg': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['time', 'traffic'], 'type': 'str'},
+                                'unit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
+                                'value': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
-                        'rate-crl-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate-css-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate-image-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'rate-javascript-urls': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'category-override': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']], 'type': 'str'}
+                        'rate-crl-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate-css-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate-image-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'rate-javascript-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'category-override': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '6.4.15']], 'type': 'str'}
                     }
                 },
                 'override': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'ovrd-cookie': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['deny', 'allow'], 'type': 'str'},
-                        'ovrd-dur': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'ovrd-dur-mode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['constant', 'ask'], 'type': 'str'},
+                        'ovrd-cookie': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['deny', 'allow'], 'type': 'str'},
+                        'ovrd-dur': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'ovrd-dur-mode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['constant', 'ask'], 'type': 'str'},
                         'ovrd-scope': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['user', 'user-group', 'ip', 'ask', 'browser'],
                             'type': 'str'
                         },
-                        'ovrd-user-group': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                        'profile': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ovrd-user-group': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                        'profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'profile-attribute': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': [
                                 'User-Name', 'User-Password', 'CHAP-Password', 'NAS-IP-Address', 'NAS-Port', 'Service-Type', 'Framed-Protocol',
                                 'Framed-IP-Address', 'Framed-IP-Netmask', 'Framed-Routing', 'Filter-Id', 'Framed-MTU', 'Framed-Compression',
@@ -1250,46 +1242,46 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'profile-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['list', 'radius'], 'type': 'str'}
+                        'profile-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['list', 'radius'], 'type': 'str'}
                     }
                 },
                 'url-extraction': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'redirect-header': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'redirect-no-content': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'redirect-url': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'server-fqdn': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'redirect-header': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'redirect-no-content': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'redirect-url': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'server-fqdn': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'web': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'blacklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'bword-table': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'bword-threshold': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                        'content-header-list': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'keyword-match': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'no_log': True, 'type': 'raw'},
-                        'log-search': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'blacklist': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'bword-table': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'bword-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'content-header-list': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'keyword-match': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'no_log': True, 'type': 'raw'},
+                        'log-search': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'safe-search': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['google', 'yahoo', 'bing', 'url', 'header'],
                             'elements': 'str'
                         },
-                        'urlfilter-table': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
+                        'urlfilter-table': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'whitelist': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'exempt-av', 'exempt-webcontent', 'exempt-activex-java-cookie', 'exempt-dlp', 'exempt-rangeblock', 'extended-log-others'
                             ],
                             'elements': 'str'
                         },
-                        'youtube-restrict': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'},
+                        'youtube-restrict': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'},
                         'allowlist': {
                             'v_range': [['7.0.0', '']],
                             'type': 'list',
@@ -1303,22 +1295,22 @@ def main():
                     }
                 },
                 'file-filter': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'entries': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['log', 'block'], 'type': 'str'},
-                                'comment': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'direction': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
-                                'encryption': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.0']], 'choices': ['any', 'yes'], 'type': 'str'},
-                                'file-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                                'filter': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'password-protected': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['any', 'yes'], 'type': 'str'},
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['log', 'block'], 'type': 'str'},
+                                'comment': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'direction': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
+                                'encryption': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.0']], 'choices': ['any', 'yes'], 'type': 'str'},
+                                'file-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                                'filter': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'password-protected': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['any', 'yes'], 'type': 'str'},
                                 'protocol': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'type': 'list',
                                     'choices': ['http', 'ftp'],
                                     'elements': 'str'
@@ -1326,14 +1318,13 @@ def main():
                             },
                             'elements': 'dict'
                         },
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'scan-archive-contents': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scan-archive-contents': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'web-flow-log-encoding': {'v_range': [['7.4.2', '']], 'choices': ['utf-8', 'punycode'], 'type': 'str'}
             }
-
         }
     }
 
@@ -1347,9 +1338,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

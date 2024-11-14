@@ -86,13 +86,13 @@ options:
         required: false
         type: dict
         suboptions:
-            auth-ca:
+            auth_ca:
                 type: str
-                description: Deprecated, please rename it to auth_ca. Name of the SSH server public key authentication CA.
-            cert-extension:
+                description: Name of the SSH server public key authentication CA.
+            cert_extension:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to cert_extension. Cert extension.
+                description: Cert extension.
                 suboptions:
                     critical:
                         type: str
@@ -112,39 +112,39 @@ options:
                         choices:
                             - 'fixed'
                             - 'user'
-            permit-agent-forwarding:
+            permit_agent_forwarding:
                 type: str
-                description: Deprecated, please rename it to permit_agent_forwarding. Enable/disable appending permit-agent-forwarding certificate exte...
+                description: Enable/disable appending permit-agent-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
-            permit-port-forwarding:
+            permit_port_forwarding:
                 type: str
-                description: Deprecated, please rename it to permit_port_forwarding. Enable/disable appending permit-port-forwarding certificate extension.
+                description: Enable/disable appending permit-port-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
-            permit-pty:
+            permit_pty:
                 type: str
-                description: Deprecated, please rename it to permit_pty. Enable/disable appending permit-pty certificate extension.
+                description: Enable/disable appending permit-pty certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
-            permit-user-rc:
+            permit_user_rc:
                 type: str
-                description: Deprecated, please rename it to permit_user_rc. Enable/disable appending permit-user-rc certificate extension.
+                description: Enable/disable appending permit-user-rc certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
-            permit-x11-forwarding:
+            permit_x11_forwarding:
                 type: str
-                description: Deprecated, please rename it to permit_x11_forwarding. Enable/disable appending permit-x11-forwarding certificate extension.
+                description: Enable/disable appending permit-x11-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-address:
+            source_address:
                 type: str
-                description: Deprecated, please rename it to source_address. Enable/disable appending source-address certificate critical option.
+                description: Enable/disable appending source-address certificate critical option.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -225,23 +225,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings',
         '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/{server-pubkey-auth-settings}',
-        '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/server-pubkey-auth-settings/{server-pubkey-auth-settings}'
-    ]
-
     url_params = ['adom', 'access-proxy']
     module_primary_key = None
     module_arg_spec = {
@@ -271,7 +263,6 @@ def main():
                 'permit-x11-forwarding': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-address': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -285,9 +276,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -89,18 +89,18 @@ options:
         required: false
         type: dict
         suboptions:
-            allow-routing:
+            allow_routing:
                 type: str
-                description: Deprecated, please rename it to allow_routing. Enable/disable use of this address in the static route configuration.
+                description: Enable/disable use of this address in the static route configuration.
                 choices:
                     - 'disable'
                     - 'enable'
-            associated-interface:
+            associated_interface:
                 type: str
-                description: Deprecated, please rename it to associated_interface. Network interface associated with address.
-            cache-ttl:
+                description: Network interface associated with address.
+            cache_ttl:
                 type: int
-                description: Deprecated, please rename it to cache_ttl. Defines the minimal TTL of individual IP addresses in FQDN cache measured in se...
+                description: Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds.
             color:
                 type: int
                 description: Color of icon on the GUI.
@@ -126,18 +126,18 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    allow-routing:
+                    allow_routing:
                         type: str
-                        description: Deprecated, please rename it to allow_routing. Allow routing.
+                        description: Allow routing.
                         choices:
                             - 'disable'
                             - 'enable'
-                    associated-interface:
+                    associated_interface:
                         type: str
-                        description: Deprecated, please rename it to associated_interface. Associated interface.
-                    cache-ttl:
+                        description: Associated interface.
+                    cache_ttl:
                         type: int
-                        description: Deprecated, please rename it to cache_ttl. Cache ttl.
+                        description: Cache ttl.
                     color:
                         type: int
                         description: Color.
@@ -147,15 +147,15 @@ options:
                     country:
                         type: str
                         description: Country.
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End ip.
-                    end-mac:
+                        description: End ip.
+                    end_mac:
                         type: str
-                        description: Deprecated, please rename it to end_mac. End mac.
-                    epg-name:
+                        description: End mac.
+                    epg_name:
                         type: str
-                        description: Deprecated, please rename it to epg_name. Epg name.
+                        description: Epg name.
                     filter:
                         type: str
                         description: Filter.
@@ -165,15 +165,15 @@ options:
                     interface:
                         type: str
                         description: Interface.
-                    obj-id:
+                    obj_id:
                         type: str
-                        description: Deprecated, please rename it to obj_id. Obj id.
+                        description: Obj id.
                     organization:
                         type: str
                         description: Organization.
-                    policy-group:
+                    policy_group:
                         type: str
-                        description: Deprecated, please rename it to policy_group. Policy group.
+                        description: Policy group.
                     sdn:
                         type: str
                         description: Sdn.
@@ -186,28 +186,28 @@ options:
                             - 'gcp'
                             - 'oci'
                             - 'openstack'
-                    sdn-addr-type:
+                    sdn_addr_type:
                         type: str
-                        description: Deprecated, please rename it to sdn_addr_type. Sdn addr type.
+                        description: Sdn addr type.
                         choices:
                             - 'private'
                             - 'public'
                             - 'all'
-                    sdn-tag:
+                    sdn_tag:
                         type: str
-                        description: Deprecated, please rename it to sdn_tag. Sdn tag.
-                    start-ip:
+                        description: Sdn tag.
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start ip.
-                    start-mac:
+                        description: Start ip.
+                    start_mac:
                         type: str
-                        description: Deprecated, please rename it to start_mac. Start mac.
+                        description: Start mac.
                     subnet:
                         type: str
                         description: Subnet.
-                    subnet-name:
+                    subnet_name:
                         type: str
-                        description: Deprecated, please rename it to subnet_name. Subnet name.
+                        description: Subnet name.
                     tags:
                         type: raw
                         description: (list or str) Tags.
@@ -247,15 +247,15 @@ options:
                     wildcard:
                         type: str
                         description: Wildcard.
-                    wildcard-fqdn:
+                    wildcard_fqdn:
                         type: str
-                        description: Deprecated, please rename it to wildcard_fqdn. Wildcard fqdn.
-                    _image-base64:
+                        description: Wildcard fqdn.
+                    _image_base64:
                         type: str
-                        description: Deprecated, please rename it to _image_base64. Image base64.
-                    clearpass-spt:
+                        description: Image base64.
+                    clearpass_spt:
                         type: str
-                        description: Deprecated, please rename it to clearpass_spt. Clearpass spt.
+                        description: Clearpass spt.
                         choices:
                             - 'unknown'
                             - 'healthy'
@@ -264,12 +264,12 @@ options:
                             - 'transition'
                             - 'infected'
                             - 'transient'
-                    fsso-group:
+                    fsso_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to fsso_group. Fsso group.
-                    sub-type:
+                        description: (list or str) Fsso group.
+                    sub_type:
                         type: str
-                        description: Deprecated, please rename it to sub_type. Sub type.
+                        description: Sub type.
                         choices:
                             - 'sdn'
                             - 'clearpass-spt'
@@ -280,30 +280,30 @@ options:
                             - 'fortinac-tag'
                             - 'fortipolicy-tag'
                             - 'device-identification'
-                    global-object:
+                    global_object:
                         type: int
-                        description: Deprecated, please rename it to global_object. Global object.
-                    obj-tag:
+                        description: Global object.
+                    obj_tag:
                         type: str
-                        description: Deprecated, please rename it to obj_tag. Obj tag.
-                    obj-type:
+                        description: Obj tag.
+                    obj_type:
                         type: str
-                        description: Deprecated, please rename it to obj_type. Obj type.
+                        description: Obj type.
                         choices:
                             - 'ip'
                             - 'mac'
-                    fabric-object:
+                    fabric_object:
                         type: str
-                        description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                        description: Security Fabric global object setting.
                         choices:
                             - 'disable'
                             - 'enable'
                     macaddr:
                         type: raw
                         description: (list) Multiple MAC address ranges.
-                    node-ip-only:
+                    node_ip_only:
                         type: str
-                        description: Deprecated, please rename it to node_ip_only. Enable/disable collection of node addresses only in Kubernetes.
+                        description: Enable/disable collection of node addresses only in Kubernetes.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -313,39 +313,39 @@ options:
                         choices:
                             - 'dirty'
                             - 'clean'
-                    pattern-end:
+                    pattern_end:
                         type: int
-                        description: Deprecated, please rename it to pattern_end. Pattern end.
-                    pattern-start:
+                        description: Pattern end.
+                    pattern_start:
                         type: int
-                        description: Deprecated, please rename it to pattern_start. Pattern start.
-                    tag-detection-level:
+                        description: Pattern start.
+                    tag_detection_level:
                         type: str
-                        description: Deprecated, please rename it to tag_detection_level. Tag detection level of dynamic address object.
-                    tag-type:
+                        description: Tag detection level of dynamic address object.
+                    tag_type:
                         type: str
-                        description: Deprecated, please rename it to tag_type. Tag type of dynamic address object.
-                    hw-model:
+                        description: Tag type of dynamic address object.
+                    hw_model:
                         type: str
-                        description: Deprecated, please rename it to hw_model. Dynamic address matching hardware model.
-                    hw-vendor:
+                        description: Dynamic address matching hardware model.
+                    hw_vendor:
                         type: str
-                        description: Deprecated, please rename it to hw_vendor. Dynamic address matching hardware vendor.
+                        description: Dynamic address matching hardware vendor.
                     os:
                         type: str
                         description: Dynamic address matching operating system.
-                    route-tag:
+                    route_tag:
                         type: int
-                        description: Deprecated, please rename it to route_tag. Route-tag address.
-                    sw-version:
+                        description: Route-tag address.
+                    sw_version:
                         type: str
-                        description: Deprecated, please rename it to sw_version. Dynamic address matching software version.
-            end-ip:
+                        description: Dynamic address matching software version.
+            end_ip:
                 type: str
-                description: Deprecated, please rename it to end_ip. Final IP address
-            epg-name:
+                description: Final IP address
+            epg_name:
                 type: str
-                description: Deprecated, please rename it to epg_name. Endpoint group name.
+                description: Endpoint group name.
             filter:
                 type: str
                 description: Match criteria filter.
@@ -360,25 +360,25 @@ options:
                     ip:
                         type: str
                         description: IP.
-                    net-id:
+                    net_id:
                         type: str
-                        description: Deprecated, please rename it to net_id. Network ID.
-                    obj-id:
+                        description: Network ID.
+                    obj_id:
                         type: str
-                        description: Deprecated, please rename it to obj_id. Object ID.
+                        description: Object ID.
             name:
                 type: str
                 description: Address name.
                 required: true
-            obj-id:
+            obj_id:
                 type: str
-                description: Deprecated, please rename it to obj_id. Object ID for NSX.
+                description: Object ID for NSX.
             organization:
                 type: str
                 description: Organization domain name
-            policy-group:
+            policy_group:
                 type: str
-                description: Deprecated, please rename it to policy_group. Policy group name.
+                description: Policy group name.
             sdn:
                 type: str
                 description: SDN.
@@ -391,18 +391,18 @@ options:
                     - 'gcp'
                     - 'oci'
                     - 'openstack'
-            sdn-tag:
+            sdn_tag:
                 type: str
-                description: Deprecated, please rename it to sdn_tag. SDN Tag.
-            start-ip:
+                description: SDN Tag.
+            start_ip:
                 type: str
-                description: Deprecated, please rename it to start_ip. First IP address
+                description: First IP address
             subnet:
                 type: str
                 description: IP address and subnet mask of address.
-            subnet-name:
+            subnet_name:
                 type: str
-                description: Deprecated, please rename it to subnet_name. Subnet name.
+                description: Subnet name.
             tagging:
                 type: list
                 elements: dict
@@ -450,42 +450,42 @@ options:
             wildcard:
                 type: str
                 description: IP address and wildcard netmask.
-            wildcard-fqdn:
+            wildcard_fqdn:
                 type: str
-                description: Deprecated, please rename it to wildcard_fqdn. Fully Qualified Domain Name with wildcard characters.
-            end-mac:
+                description: Fully Qualified Domain Name with wildcard characters.
+            end_mac:
                 type: str
-                description: Deprecated, please rename it to end_mac. Last MAC address in the range.
+                description: Last MAC address in the range.
             interface:
                 type: str
                 description: Name of interface whose IP address is to be used.
-            sdn-addr-type:
+            sdn_addr_type:
                 type: str
-                description: Deprecated, please rename it to sdn_addr_type. Type of addresses to collect.
+                description: Type of addresses to collect.
                 choices:
                     - 'private'
                     - 'public'
                     - 'all'
-            start-mac:
+            start_mac:
                 type: str
-                description: Deprecated, please rename it to start_mac. First MAC address in the range.
+                description: First MAC address in the range.
             tags:
                 type: str
                 description: Names of object-tags applied to address.
-            profile-list:
+            profile_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to profile_list. Profile list.
+                description: Profile list.
                 suboptions:
-                    profile-id:
+                    profile_id:
                         type: int
-                        description: Deprecated, please rename it to profile_id. NSX service profile ID.
-            _image-base64:
+                        description: NSX service profile ID.
+            _image_base64:
                 type: str
-                description: Deprecated, please rename it to _image_base64. Image base64.
-            clearpass-spt:
+                description: Image base64.
+            clearpass_spt:
                 type: str
-                description: Deprecated, please rename it to clearpass_spt. SPT
+                description: SPT
                 choices:
                     - 'unknown'
                     - 'healthy'
@@ -494,12 +494,12 @@ options:
                     - 'transition'
                     - 'infected'
                     - 'transient'
-            fsso-group:
+            fsso_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to fsso_group. FSSO group
-            sub-type:
+                description: (list or str) FSSO group
+            sub_type:
                 type: str
-                description: Deprecated, please rename it to sub_type. Sub-type of address.
+                description: Sub-type of address.
                 choices:
                     - 'sdn'
                     - 'clearpass-spt'
@@ -510,30 +510,30 @@ options:
                     - 'fortinac-tag'
                     - 'fortipolicy-tag'
                     - 'device-identification'
-            global-object:
+            global_object:
                 type: int
-                description: Deprecated, please rename it to global_object. Global Object.
-            obj-tag:
+                description: Global Object.
+            obj_tag:
                 type: str
-                description: Deprecated, please rename it to obj_tag. Tag of dynamic address object.
-            obj-type:
+                description: Tag of dynamic address object.
+            obj_type:
                 type: str
-                description: Deprecated, please rename it to obj_type. Object type.
+                description: Object type.
                 choices:
                     - 'ip'
                     - 'mac'
-            fabric-object:
+            fabric_object:
                 type: str
-                description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
             macaddr:
                 type: raw
                 description: (list) Multiple MAC address ranges.
-            node-ip-only:
+            node_ip_only:
                 type: str
-                description: Deprecated, please rename it to node_ip_only. Enable/disable collection of node addresses only in Kubernetes.
+                description: Enable/disable collection of node addresses only in Kubernetes.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -543,27 +543,27 @@ options:
                 choices:
                     - 'dirty'
                     - 'clean'
-            tag-detection-level:
+            tag_detection_level:
                 type: str
-                description: Deprecated, please rename it to tag_detection_level. Tag detection level of dynamic address object.
-            tag-type:
+                description: Tag detection level of dynamic address object.
+            tag_type:
                 type: str
-                description: Deprecated, please rename it to tag_type. Tag type of dynamic address object.
-            hw-model:
+                description: Tag type of dynamic address object.
+            hw_model:
                 type: str
-                description: Deprecated, please rename it to hw_model. Dynamic address matching hardware model.
-            hw-vendor:
+                description: Dynamic address matching hardware model.
+            hw_vendor:
                 type: str
-                description: Deprecated, please rename it to hw_vendor. Dynamic address matching hardware vendor.
+                description: Dynamic address matching hardware vendor.
             os:
                 type: str
                 description: Dynamic address matching operating system.
-            route-tag:
+            route_tag:
                 type: int
-                description: Deprecated, please rename it to route_tag. Route-tag address.
-            sw-version:
+                description: Route-tag address.
+            sw_version:
                 type: str
-                description: Deprecated, please rename it to sw_version. Dynamic address matching software version.
+                description: Dynamic address matching software version.
 '''
 
 EXAMPLES = '''
@@ -716,23 +716,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/address',
         '/pm/config/global/obj/firewall/address'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/address/{address}',
-        '/pm/config/global/obj/firewall/address/{address}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -864,11 +856,11 @@ def main():
                 'interface': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'sdn-addr-type': {'v_range': [['6.2.0', '']], 'choices': ['private', 'public', 'all'], 'type': 'str'},
                 'start-mac': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'profile-list': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
-                    'options': {'profile-id': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'}},
+                    'options': {'profile-id': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'}},
                     'elements': 'dict'
                 },
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
@@ -901,7 +893,6 @@ def main():
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -915,9 +906,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

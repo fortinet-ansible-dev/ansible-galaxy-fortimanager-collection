@@ -89,42 +89,42 @@ options:
         required: false
         type: dict
         suboptions:
-            802.1-tlvs:
+            802_1_tlvs:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to 802_1_tlvs. Transmitted IEEE 802.
+                description: Transmitted IEEE 802.
                 choices:
                     - 'port-vlan-id'
-            802.3-tlvs:
+            802_3_tlvs:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to 802_3_tlvs. Transmitted IEEE 802.
+                description: Transmitted IEEE 802.
                 choices:
                     - 'max-frame-size'
                     - 'power-negotiation'
-            auto-isl:
+            auto_isl:
                 type: str
-                description: Deprecated, please rename it to auto_isl. Enable/disable auto inter-switch LAG.
+                description: Enable/disable auto inter-switch LAG.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-isl-hello-timer:
+            auto_isl_hello_timer:
                 type: int
-                description: Deprecated, please rename it to auto_isl_hello_timer. Auto inter-switch LAG hello timer duration
-            auto-isl-port-group:
+                description: Auto inter-switch LAG hello timer duration
+            auto_isl_port_group:
                 type: int
-                description: Deprecated, please rename it to auto_isl_port_group. Auto inter-switch LAG port group ID
-            auto-isl-receive-timeout:
+                description: Auto inter-switch LAG port group ID
+            auto_isl_receive_timeout:
                 type: int
-                description: Deprecated, please rename it to auto_isl_receive_timeout. Auto inter-switch LAG timeout if no response is received
-            custom-tlvs:
+                description: Auto inter-switch LAG timeout if no response is received
+            custom_tlvs:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_tlvs. Custom tlvs.
+                description: Custom tlvs.
                 suboptions:
-                    information-string:
+                    information_string:
                         type: str
-                        description: Deprecated, please rename it to information_string. Organizationally defined information string
+                        description: Organizationally defined information string
                     name:
                         type: str
                         description: TLV name
@@ -134,10 +134,10 @@ options:
                     subtype:
                         type: int
                         description: Organizationally defined subtype
-            med-network-policy:
+            med_network_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to med_network_policy. Med network policy.
+                description: Med network policy.
                 suboptions:
                     dscp:
                         type: int
@@ -157,19 +157,19 @@ options:
                     vlan:
                         type: int
                         description: ID of VLAN to advertise, if configured on port
-                    vlan-intf:
+                    vlan_intf:
                         type: str
-                        description: Deprecated, please rename it to vlan_intf. VLAN interface to advertise; if configured on port.
-                    assign-vlan:
+                        description: VLAN interface to advertise; if configured on port.
+                    assign_vlan:
                         type: str
-                        description: Deprecated, please rename it to assign_vlan. Enable/disable VLAN assignment when this profile is applied on manage...
+                        description: Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.
                         choices:
                             - 'disable'
                             - 'enable'
-            med-tlvs:
+            med_tlvs:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to med_tlvs. Transmitted LLDP-MED TLVs
+                description: Transmitted LLDP-MED TLVs
                 choices:
                     - 'inventory-management'
                     - 'network-policy'
@@ -179,10 +179,10 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            med-location-service:
+            med_location_service:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to med_location_service. Med location service.
+                description: Med location service.
                 suboptions:
                     name:
                         type: str
@@ -193,41 +193,41 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    sys-location-id:
+                    sys_location_id:
                         type: str
-                        description: Deprecated, please rename it to sys_location_id. Location service ID.
-            auto-mclag-icl:
+                        description: Location service ID.
+            auto_mclag_icl:
                 type: str
-                description: Deprecated, please rename it to auto_mclag_icl. Enable/disable MCLAG inter chassis link.
+                description: Enable/disable MCLAG inter chassis link.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-isl-auth:
+            auto_isl_auth:
                 type: str
-                description: Deprecated, please rename it to auto_isl_auth. Auto inter-switch LAG authentication mode.
+                description: Auto inter-switch LAG authentication mode.
                 choices:
                     - 'legacy'
                     - 'strict'
                     - 'relax'
-            auto-isl-auth-encrypt:
+            auto_isl_auth_encrypt:
                 type: str
-                description: Deprecated, please rename it to auto_isl_auth_encrypt. Auto inter-switch LAG encryption mode.
+                description: Auto inter-switch LAG encryption mode.
                 choices:
                     - 'none'
                     - 'mixed'
                     - 'must'
-            auto-isl-auth-identity:
+            auto_isl_auth_identity:
                 type: str
-                description: Deprecated, please rename it to auto_isl_auth_identity. Auto inter-switch LAG authentication identity.
-            auto-isl-auth-macsec-profile:
+                description: Auto inter-switch LAG authentication identity.
+            auto_isl_auth_macsec_profile:
                 type: str
-                description: Deprecated, please rename it to auto_isl_auth_macsec_profile. Auto inter-switch LAG macsec profile for encryption.
-            auto-isl-auth-reauth:
+                description: Auto inter-switch LAG macsec profile for encryption.
+            auto_isl_auth_reauth:
                 type: int
-                description: Deprecated, please rename it to auto_isl_auth_reauth. Auto inter-switch LAG authentication reauth period in seconds
-            auto-isl-auth-user:
+                description: Auto inter-switch LAG authentication reauth period in seconds
+            auto_isl_auth_user:
                 type: str
-                description: Deprecated, please rename it to auto_isl_auth_user. Auto inter-switch LAG authentication user certificate.
+                description: Auto inter-switch LAG authentication user certificate.
 '''
 
 EXAMPLES = '''
@@ -250,10 +250,10 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         switchcontroller_lldpprofile:
           802_1_tlvs:
-            - port-vlan-id
+            - "port-vlan-id"
           802_3_tlvs:
-            - max-frame-size
-            - power-negotiation
+            - "max-frame-size"
+            - "power-negotiation"
           auto_isl: <value in [disable, enable]>
           auto_isl_hello_timer: <integer>
           auto_isl_port_group: <integer>
@@ -274,10 +274,10 @@ EXAMPLES = '''
               vlan_intf: <string>
               assign_vlan: <value in [disable, enable]>
           med_tlvs:
-            - inventory-management
-            - network-policy
-            - power-management
-            - location-identification
+            - "inventory-management"
+            - "network-policy"
+            - "power-management"
+            - "location-identification"
           name: <string>
           med_location_service:
             -
@@ -334,23 +334,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile',
         '/pm/config/global/obj/switch-controller/lldp-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/lldp-profile/{lldp-profile}',
-        '/pm/config/global/obj/switch-controller/lldp-profile/{lldp-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -407,7 +399,6 @@ def main():
                 'auto-isl-auth-reauth': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'auto-isl-auth-user': {'v_range': [['7.4.1', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -421,9 +412,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

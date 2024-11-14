@@ -93,39 +93,39 @@ options:
         required: false
         type: dict
         suboptions:
-            address-type:
+            address_type:
                 type: str
-                description: Deprecated, please rename it to address_type. Address type.
+                description: Address type.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
-            application-list:
+            application_list:
                 type: str
-                description: Deprecated, please rename it to application_list. Application list name.
-            application-list-status:
+                description: Application list name.
+            application_list_status:
                 type: str
-                description: Deprecated, please rename it to application_list_status. Enable/disable application control.
+                description: Enable/disable application control.
                 choices:
                     - 'disable'
                     - 'enable'
-            av-profile:
+            av_profile:
                 type: str
-                description: Deprecated, please rename it to av_profile. Antivirus profile.
-            av-profile-status:
+                description: Antivirus profile.
+            av_profile_status:
                 type: str
-                description: Deprecated, please rename it to av_profile_status. Enable/disable antivirus.
+                description: Enable/disable antivirus.
                 choices:
                     - 'disable'
                     - 'enable'
             comments:
                 type: str
                 description: Comments.
-            dlp-sensor:
+            dlp_sensor:
                 type: str
-                description: Deprecated, please rename it to dlp_sensor. DLP sensor name.
-            dlp-sensor-status:
+                description: DLP sensor name.
+            dlp_sensor_status:
                 type: str
-                description: Deprecated, please rename it to dlp_sensor_status. Enable/disable DLP.
+                description: Enable/disable DLP.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -141,12 +141,12 @@ options:
             interface:
                 type: str
                 description: Monitored interface name from available interfaces.
-            ips-sensor:
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. IPS sensor name.
-            ips-sensor-status:
+                description: IPS sensor name.
+            ips_sensor_status:
                 type: str
-                description: Deprecated, please rename it to ips_sensor_status. Enable/disable IPS.
+                description: Enable/disable IPS.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -164,9 +164,9 @@ options:
                 type: int
                 description: Policy ID.
                 required: true
-            scan-botnet-connections:
+            scan_botnet_connections:
                 type: str
-                description: Deprecated, please rename it to scan_botnet_connections. Enable/disable scanning for connections to Botnet servers.
+                description: Enable/disable scanning for connections to Botnet servers.
                 choices:
                     - 'disable'
                     - 'block'
@@ -174,12 +174,12 @@ options:
             service:
                 type: raw
                 description: (list or str) Service object from available options.
-            spamfilter-profile:
+            spamfilter_profile:
                 type: str
-                description: Deprecated, please rename it to spamfilter_profile. Antispam profile.
-            spamfilter-profile-status:
+                description: Antispam profile.
+            spamfilter_profile_status:
                 type: str
-                description: Deprecated, please rename it to spamfilter_profile_status. Enable/disable antispam.
+                description: Enable/disable antispam.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -192,51 +192,51 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-profile:
+            webfilter_profile:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile. Web filter profile.
-            webfilter-profile-status:
+                description: Web filter profile.
+            webfilter_profile_status:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile_status. Enable/disable web filtering.
+                description: Enable/disable web filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            emailfilter-profile:
+            emailfilter_profile:
                 type: str
-                description: Deprecated, please rename it to emailfilter_profile. Email filter profile.
-            emailfilter-profile-status:
+                description: Email filter profile.
+            emailfilter_profile_status:
                 type: str
-                description: Deprecated, please rename it to emailfilter_profile_status. Enable/disable email filter.
+                description: Enable/disable email filter.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            casi-profile:
+            casi_profile:
                 type: str
-                description: Deprecated, please rename it to casi_profile. CASI profile name.
-            casi-profile-status:
+                description: CASI profile name.
+            casi_profile_status:
                 type: str
-                description: Deprecated, please rename it to casi_profile_status. Enable/disable CASI.
+                description: Enable/disable CASI.
                 choices:
                     - 'disable'
                     - 'enable'
-            dlp-profile:
+            dlp_profile:
                 type: str
-                description: Deprecated, please rename it to dlp_profile. DLP profile name.
-            dlp-profile-status:
+                description: DLP profile name.
+            dlp_profile_status:
                 type: str
-                description: Deprecated, please rename it to dlp_profile_status. Enable/disable DLP.
+                description: Enable/disable DLP.
                 choices:
                     - 'disable'
                     - 'enable'
-            casb-profile:
+            casb_profile:
                 type: raw
-                description: (list) Deprecated, please rename it to casb_profile. CASB profile.
-            casb-profile-status:
+                description: (list) CASB profile.
+            casb_profile_status:
                 type: str
-                description: Deprecated, please rename it to casb_profile_status. Enable/disable CASB.
+                description: Enable/disable CASB.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -324,21 +324,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -346,43 +339,58 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_interfacepolicy': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']],
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
             'options': {
-                'address-type': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'application-list': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'application-list-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'av-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'av-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'comments': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'dlp-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dsri': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
-                'interface': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'ips-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'ips-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'label': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'logtraffic': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                'policyid': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'address-type': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'application-list': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'application-list-status': {
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'av-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'av-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'comments': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dsri': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'interface': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'label': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'logtraffic': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                'policyid': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'required': True, 'type': 'int'},
                 'scan-botnet-connections': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                'service': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
+                'service': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'spamfilter-profile-status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'raw'},
-                'status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'webfilter-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.4.3', '']], 'type': 'str'},
-                'emailfilter-profile-status': {'v_range': [['6.2.0', '7.2.2'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['6.2.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'casi-profile-status': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
-                'dlp-profile-status': {'v_range': [['7.2.0', '7.2.1'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'webfilter-profile-status': {
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'emailfilter-profile-status': {
+                    'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'uuid': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'casi-profile-status': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-profile-status': {
+                    'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'casb-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'casb-profile-status': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -396,9 +404,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

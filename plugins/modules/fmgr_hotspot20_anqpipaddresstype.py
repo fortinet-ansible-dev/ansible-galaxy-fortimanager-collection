@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            ipv4-address-type:
+            ipv4_address_type:
                 type: str
-                description: Deprecated, please rename it to ipv4_address_type. IPv4 address type.
+                description: IPv4 address type.
                 choices:
                     - 'not-available'
                     - 'not-known'
@@ -101,9 +101,9 @@ options:
                     - 'double-NATed-private'
                     - 'port-restricted-and-single-NATed'
                     - 'port-restricted-and-double-NATed'
-            ipv6-address-type:
+            ipv6_address_type:
                 type: str
-                description: Deprecated, please rename it to ipv6_address_type. IPv6 address type.
+                description: IPv6 address type.
                 choices:
                     - 'not-available'
                     - 'available'
@@ -179,23 +179,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-ip-address-type',
         '/pm/config/global/obj/wireless-controller/hotspot20/anqp-ip-address-type'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/anqp-ip-address-type/{anqp-ip-address-type}',
-        '/pm/config/global/obj/wireless-controller/hotspot20/anqp-ip-address-type/{anqp-ip-address-type}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -214,7 +206,6 @@ def main():
                 'ipv6-address-type': {'choices': ['not-available', 'available', 'not-known'], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -228,9 +219,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

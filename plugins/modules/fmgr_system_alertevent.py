@@ -85,23 +85,23 @@ options:
         required: false
         type: dict
         suboptions:
-            alert-destination:
+            alert_destination:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to alert_destination. Alert destination.
+                description: Alert destination.
                 suboptions:
                     from:
                         type: str
                         description: Sender email address to use in alert emails.
-                    smtp-name:
+                    smtp_name:
                         type: str
-                        description: Deprecated, please rename it to smtp_name. SMTP server name.
-                    snmp-name:
+                        description: SMTP server name.
+                    snmp_name:
                         type: str
-                        description: Deprecated, please rename it to snmp_name. SNMP trap name.
-                    syslog-name:
+                        description: SNMP trap name.
+                    syslog_name:
                         type: str
-                        description: Deprecated, please rename it to syslog_name. Syslog server name.
+                        description: Syslog server name.
                     to:
                         type: str
                         description: Recipient email address to use in alert emails.
@@ -116,32 +116,29 @@ options:
                             - 'mail'
                             - 'snmp'
                             - 'syslog'
-            enable-generic-text:
+            enable_generic_text:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to enable_generic_text.
                     - Enable/disable generic text match.
                     - enable - Enable setting.
                     - disable - Disable setting.
                 choices:
                     - 'enable'
                     - 'disable'
-            enable-severity-filter:
+            enable_severity_filter:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to enable_severity_filter.
                     - Enable/disable alert severity filter.
                     - enable - Enable setting.
                     - disable - Disable setting.
                 choices:
                     - 'enable'
                     - 'disable'
-            event-time-period:
+            event_time_period:
                 type: str
                 description:
-                    - Deprecated, please rename it to event_time_period.
                     - Time period
                     - '0.'
                     - 1 - 1 hour.
@@ -160,17 +157,16 @@ options:
                     - '24'
                     - '72'
                     - '168'
-            generic-text:
+            generic_text:
                 type: str
-                description: Deprecated, please rename it to generic_text. Text that must be contained in a log to trigger alert.
+                description: Text that must be contained in a log to trigger alert.
             name:
                 type: str
                 description: Alert name.
                 required: true
-            num-events:
+            num_events:
                 type: str
                 description:
-                    - Deprecated, please rename it to num_events.
                     - Minimum number of events required within time period.
                     - 1 - 1 event.
                     - 5 - 5 events.
@@ -183,10 +179,9 @@ options:
                     - '10'
                     - '50'
                     - '100'
-            severity-filter:
+            severity_filter:
                 type: str
                 description:
-                    - Deprecated, please rename it to severity_filter.
                     - Required log severity to trigger alert.
                     - high - High level alert.
                     - medium-high - Medium-high level alert.
@@ -199,19 +194,18 @@ options:
                     - 'medium'
                     - 'medium-low'
                     - 'low'
-            severity-level-comp:
+            severity_level_comp:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to severity_level_comp. Log severity threshold comparison criterion.
+                description: Log severity threshold comparison criterion.
                 choices:
                     - '>='
                     - '='
                     - '<='
-            severity-level-logs:
+            severity_level_logs:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to severity_level_logs.
                     - Log severity threshold level.
                     - no-check - Do not check severity level for this log type.
                     - information - Information level.
@@ -326,21 +320,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/alert-event'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/alert-event/{alert-event}'
-    ]
-
     url_params = []
     module_primary_key = 'name'
     module_arg_spec = {
@@ -374,7 +361,6 @@ def main():
                     'elements': 'str'
                 }
             }
-
         }
     }
 
@@ -388,9 +374,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -89,15 +89,15 @@ options:
         required: false
         type: dict
         suboptions:
-            addr-type:
+            addr_type:
                 type: str
-                description: Deprecated, please rename it to addr_type. Indicate whether the server IP-address is IPv4 or IPv6.
+                description: Indicate whether the server IP-address is IPv4 or IPv6.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
-            auth-level:
+            auth_level:
                 type: str
-                description: Deprecated, please rename it to auth_level. Authentication security level used for the RPC protocol layer.
+                description: Authentication security level used for the RPC protocol layer.
                 choices:
                     - 'low'
                     - 'medium'
@@ -108,26 +108,26 @@ options:
                     - 'packet'
                     - 'integrity'
                     - 'privacy'
-            auth-type:
+            auth_type:
                 type: str
-                description: Deprecated, please rename it to auth_type. Authentication security type used for the RPC protocol layer.
+                description: Authentication security type used for the RPC protocol layer.
                 choices:
                     - 'spnego'
                     - 'ntlm'
                     - 'kerberos'
-            connect-protocol:
+            connect_protocol:
                 type: str
-                description: Deprecated, please rename it to connect_protocol. Connection protocol used to connect to MS Exchange service.
+                description: Connection protocol used to connect to MS Exchange service.
                 choices:
                     - 'rpc-over-tcp'
                     - 'rpc-over-http'
                     - 'rpc-over-https'
-            domain-name:
+            domain_name:
                 type: str
-                description: Deprecated, please rename it to domain_name. MS Exchange server fully qualified domain name.
-            http-auth-type:
+                description: MS Exchange server fully qualified domain name.
+            http_auth_type:
                 type: str
-                description: Deprecated, please rename it to http_auth_type. Authentication security type used for the HTTP transport.
+                description: Authentication security type used for the HTTP transport.
                 choices:
                     - 'ntlm'
                     - 'basic'
@@ -137,9 +137,9 @@ options:
             ip6:
                 type: str
                 description: Server IPv6 address.
-            kdc-ip:
+            kdc_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to kdc_ip. KDC IPv4 addresses for Kerberos authentication.
+                description: (list) KDC IPv4 addresses for Kerberos authentication.
             name:
                 type: str
                 description: MS Exchange server entry name.
@@ -147,12 +147,12 @@ options:
             password:
                 type: raw
                 description: (list) Password for the specified username.
-            server-name:
+            server_name:
                 type: str
-                description: Deprecated, please rename it to server_name. MS Exchange server hostname.
-            ssl-min-proto-version:
+                description: MS Exchange server hostname.
+            ssl_min_proto_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_version. Minimum SSL/TLS protocol version for HTTPS transport
+                description: Minimum SSL/TLS protocol version for HTTPS transport
                 choices:
                     - 'default'
                     - 'TLSv1-1'
@@ -163,9 +163,9 @@ options:
             username:
                 type: str
                 description: User name used to sign in to the server.
-            auto-discover-kdc:
+            auto_discover_kdc:
                 type: str
-                description: Deprecated, please rename it to auto_discover_kdc. Enable/disable automatic discovery of KDC IP addresses.
+                description: Enable/disable automatic discovery of KDC IP addresses.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -248,23 +248,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/exchange',
         '/pm/config/global/obj/user/exchange'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/exchange/{exchange}',
-        '/pm/config/global/obj/user/exchange/{exchange}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -297,7 +289,6 @@ def main():
                 'username': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'auto-discover-kdc': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -311,9 +302,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

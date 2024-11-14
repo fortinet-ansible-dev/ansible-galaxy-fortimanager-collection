@@ -86,34 +86,34 @@ options:
         required: false
         type: dict
         suboptions:
-            apc-addr-type:
+            apc_addr_type:
                 type: str
-                description: Deprecated, please rename it to apc_addr_type. ESL SES-imagotag APC address type
+                description: ESL SES-imagotag APC address type
                 choices:
                     - 'fqdn'
                     - 'ip'
-            apc-fqdn:
+            apc_fqdn:
                 type: str
-                description: Deprecated, please rename it to apc_fqdn. FQDN of ESL SES-imagotag Access Point Controller
-            apc-ip:
+                description: FQDN of ESL SES-imagotag Access Point Controller
+            apc_ip:
                 type: str
-                description: Deprecated, please rename it to apc_ip. IP address of ESL SES-imagotag Access Point Controller
-            apc-port:
+                description: IP address of ESL SES-imagotag Access Point Controller
+            apc_port:
                 type: int
-                description: Deprecated, please rename it to apc_port. Port of ESL SES-imagotag Access Point Controller
-            coex-level:
+                description: Port of ESL SES-imagotag Access Point Controller
+            coex_level:
                 type: str
-                description: Deprecated, please rename it to coex_level. ESL SES-imagotag dongle coexistence level
+                description: ESL SES-imagotag dongle coexistence level
                 choices:
                     - 'none'
-            compliance-level:
+            compliance_level:
                 type: str
-                description: Deprecated, please rename it to compliance_level. Compliance levels for the ESL solution integration
+                description: Compliance levels for the ESL solution integration
                 choices:
                     - 'compliance-level-2'
-            esl-channel:
+            esl_channel:
                 type: str
-                description: Deprecated, please rename it to esl_channel. ESL SES-imagotag dongle channel
+                description: ESL SES-imagotag dongle channel
                 choices:
                     - '0'
                     - '1'
@@ -128,9 +128,9 @@ options:
                     - '10'
                     - '127'
                     - '-1'
-            output-power:
+            output_power:
                 type: str
-                description: Deprecated, please rename it to output_power. ESL SES-imagotag dongle output power
+                description: ESL SES-imagotag dongle output power
                 choices:
                     - 'a'
                     - 'b'
@@ -140,21 +140,21 @@ options:
                     - 'f'
                     - 'g'
                     - 'h'
-            scd-enable:
+            scd_enable:
                 type: str
-                description: Deprecated, please rename it to scd_enable. Enable/disable ESL SES-imagotag Serial Communication Daemon
+                description: Enable/disable ESL SES-imagotag Serial Communication Daemon
                 choices:
                     - 'disable'
                     - 'enable'
-            tls-cert-verification:
+            tls_cert_verification:
                 type: str
-                description: Deprecated, please rename it to tls_cert_verification. Enable/disable TLS certificate verification
+                description: Enable/disable TLS certificate verification
                 choices:
                     - 'disable'
                     - 'enable'
-            tls-fqdn-verification:
+            tls_fqdn_verification:
                 type: str
-                description: Deprecated, please rename it to tls_fqdn_verification. Enable/disable TLS certificate verification
+                description: Enable/disable TLS certificate verification
                 choices:
                     - 'disable'
                     - 'enable'
@@ -233,23 +233,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle/{esl-ses-dongle}',
-        '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/esl-ses-dongle/{esl-ses-dongle}'
-    ]
-
     url_params = ['adom', 'wtp-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -276,7 +268,6 @@ def main():
                 'tls-cert-verification': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tls-fqdn-verification': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -290,9 +281,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

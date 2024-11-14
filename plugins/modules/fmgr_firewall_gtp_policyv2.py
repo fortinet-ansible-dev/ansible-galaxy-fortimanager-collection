@@ -99,10 +99,10 @@ options:
                 choices:
                     - 'deny'
                     - 'allow'
-            apn-sel-mode:
+            apn_sel_mode:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to apn_sel_mode. APN selection mode.
+                description: APN selection mode.
                 choices:
                     - 'ms'
                     - 'net'
@@ -114,12 +114,12 @@ options:
                 type: int
                 description: ID.
                 required: true
-            imsi-prefix:
+            imsi_prefix:
                 type: str
-                description: Deprecated, please rename it to imsi_prefix. IMSI prefix.
-            max-apn-restriction:
+                description: IMSI prefix.
+            max_apn_restriction:
                 type: str
-                description: Deprecated, please rename it to max_apn_restriction. Maximum APN restriction value.
+                description: Maximum APN restriction value.
                 choices:
                     - 'all'
                     - 'public-1'
@@ -138,13 +138,13 @@ options:
                     - 'create-ses-res'
                     - 'modify-bearer-req'
                     - 'modify-bearer-res'
-            msisdn-prefix:
+            msisdn_prefix:
                 type: str
-                description: Deprecated, please rename it to msisdn_prefix. MSISDN prefix.
-            rat-type:
+                description: MSISDN prefix.
+            rat_type:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rat_type. RAT Type.
+                description: RAT Type.
                 choices:
                     - 'any'
                     - 'utran'
@@ -184,32 +184,32 @@ EXAMPLES = '''
         firewall_gtp_policyv2:
           action: <value in [deny, allow]>
           apn_sel_mode:
-            - ms
-            - net
-            - vrf
+            - "ms"
+            - "net"
+            - "vrf"
           apnmember: <list or string>
           id: <integer>
           imsi_prefix: <string>
           max_apn_restriction: <value in [all, public-1, public-2, ...]>
           mei: <string>
           messages:
-            - create-ses-req
-            - create-ses-res
-            - modify-bearer-req
-            - modify-bearer-res
+            - "create-ses-req"
+            - "create-ses-res"
+            - "modify-bearer-req"
+            - "modify-bearer-res"
           msisdn_prefix: <string>
           rat_type:
-            - any
-            - utran
-            - geran
-            - wlan
-            - gan
-            - hspa
-            - eutran
-            - virtual
-            - nbiot
-            - ltem
-            - nr
+            - "any"
+            - "utran"
+            - "geran"
+            - "wlan"
+            - "gan"
+            - "hspa"
+            - "eutran"
+            - "virtual"
+            - "nbiot"
+            - "ltem"
+            - "nr"
           uli: <list or string>
 '''
 
@@ -254,23 +254,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2',
         '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}',
-        '/pm/config/global/obj/firewall/gtp/{gtp}/policy-v2/{policy-v2}'
-    ]
-
     url_params = ['adom', 'gtp']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -302,7 +294,6 @@ def main():
                 },
                 'uli': {'v_range': [['6.2.1', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -316,9 +307,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -95,12 +95,12 @@ options:
             port:
                 type: int
                 description: Syslog server port.
-            local-cert:
+            local_cert:
                 type: str
-                description: Deprecated, please rename it to local_cert. Select local certificate used for secure connection.
-            peer-cert-cn:
+                description: Select local certificate used for secure connection.
+            peer_cert_cn:
                 type: str
-                description: Deprecated, please rename it to peer_cert_cn. Certificate common name of syslog server.
+                description: Certificate common name of syslog server.
             reliable:
                 type: str
                 description:
@@ -110,16 +110,32 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            secure-connection:
+            secure_connection:
                 type: str
                 description:
-                    - Deprecated, please rename it to secure_connection.
                     - Enable/disable connection secured by TLS/SSL.
                     - disable - Disable SSL connection.
                     - enable - Enable SSL connection.
                 choices:
                     - 'disable'
                     - 'enable'
+            ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for connection to syslog server.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -147,6 +163,7 @@ EXAMPLES = '''
           peer_cert_cn: <string>
           reliable: <value in [disable, enable]>
           secure_connection: <value in [disable, enable]>
+          ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
 '''
 
 RETURN = '''
@@ -190,21 +207,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/syslog'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/syslog/{syslog}'
-    ]
-
     url_params = []
     module_primary_key = 'name'
     module_arg_spec = {
@@ -215,12 +225,16 @@ def main():
                 'ip': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'port': {'type': 'int'},
-                'local-cert': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
-                'peer-cert-cn': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
-                'reliable': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'secure-connection': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'local-cert': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
+                'peer-cert-cn': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
+                'reliable': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'secure-connection': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -234,9 +248,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

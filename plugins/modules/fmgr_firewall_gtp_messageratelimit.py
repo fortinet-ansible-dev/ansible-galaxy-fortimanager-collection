@@ -84,183 +84,183 @@ options:
         required: false
         type: dict
         suboptions:
-            create-aa-pdp-request:
+            create_aa_pdp_request:
                 type: int
-                description: Deprecated, please rename it to create_aa_pdp_request. Rate limit for create AA PDP context request
-            create-aa-pdp-response:
+                description: Rate limit for create AA PDP context request
+            create_aa_pdp_response:
                 type: int
-                description: Deprecated, please rename it to create_aa_pdp_response. Rate limit for create AA PDP context response
-            create-mbms-request:
+                description: Rate limit for create AA PDP context response
+            create_mbms_request:
                 type: int
-                description: Deprecated, please rename it to create_mbms_request. Rate limit for create MBMS context request
-            create-mbms-response:
+                description: Rate limit for create MBMS context request
+            create_mbms_response:
                 type: int
-                description: Deprecated, please rename it to create_mbms_response. Rate limit for create MBMS context response
-            create-pdp-request:
+                description: Rate limit for create MBMS context response
+            create_pdp_request:
                 type: int
-                description: Deprecated, please rename it to create_pdp_request. Rate limit for create PDP context request
-            create-pdp-response:
+                description: Rate limit for create PDP context request
+            create_pdp_response:
                 type: int
-                description: Deprecated, please rename it to create_pdp_response. Rate limit for create PDP context response
-            delete-aa-pdp-request:
+                description: Rate limit for create PDP context response
+            delete_aa_pdp_request:
                 type: int
-                description: Deprecated, please rename it to delete_aa_pdp_request. Rate limit for delete AA PDP context request
-            delete-aa-pdp-response:
+                description: Rate limit for delete AA PDP context request
+            delete_aa_pdp_response:
                 type: int
-                description: Deprecated, please rename it to delete_aa_pdp_response. Rate limit for delete AA PDP context response
-            delete-mbms-request:
+                description: Rate limit for delete AA PDP context response
+            delete_mbms_request:
                 type: int
-                description: Deprecated, please rename it to delete_mbms_request. Rate limit for delete MBMS context request
-            delete-mbms-response:
+                description: Rate limit for delete MBMS context request
+            delete_mbms_response:
                 type: int
-                description: Deprecated, please rename it to delete_mbms_response. Rate limit for delete MBMS context response
-            delete-pdp-request:
+                description: Rate limit for delete MBMS context response
+            delete_pdp_request:
                 type: int
-                description: Deprecated, please rename it to delete_pdp_request. Rate limit for delete PDP context request
-            delete-pdp-response:
+                description: Rate limit for delete PDP context request
+            delete_pdp_response:
                 type: int
-                description: Deprecated, please rename it to delete_pdp_response. Rate limit for delete PDP context response
-            echo-reponse:
+                description: Rate limit for delete PDP context response
+            echo_reponse:
                 type: int
-                description: Deprecated, please rename it to echo_reponse. Rate limit for echo response
-            echo-request:
+                description: Rate limit for echo response
+            echo_request:
                 type: int
-                description: Deprecated, please rename it to echo_request. Rate limit for echo requests
-            error-indication:
+                description: Rate limit for echo requests
+            error_indication:
                 type: int
-                description: Deprecated, please rename it to error_indication. Rate limit for error indication
-            failure-report-request:
+                description: Rate limit for error indication
+            failure_report_request:
                 type: int
-                description: Deprecated, please rename it to failure_report_request. Rate limit for failure report request
-            failure-report-response:
+                description: Rate limit for failure report request
+            failure_report_response:
                 type: int
-                description: Deprecated, please rename it to failure_report_response. Rate limit for failure report response
-            fwd-reloc-complete-ack:
+                description: Rate limit for failure report response
+            fwd_reloc_complete_ack:
                 type: int
-                description: Deprecated, please rename it to fwd_reloc_complete_ack. Rate limit for forward relocation complete acknowledge
-            fwd-relocation-complete:
+                description: Rate limit for forward relocation complete acknowledge
+            fwd_relocation_complete:
                 type: int
-                description: Deprecated, please rename it to fwd_relocation_complete. Rate limit for forward relocation complete
-            fwd-relocation-request:
+                description: Rate limit for forward relocation complete
+            fwd_relocation_request:
                 type: int
-                description: Deprecated, please rename it to fwd_relocation_request. Rate limit for forward relocation request
-            fwd-relocation-response:
+                description: Rate limit for forward relocation request
+            fwd_relocation_response:
                 type: int
-                description: Deprecated, please rename it to fwd_relocation_response. Rate limit for forward relocation response
-            fwd-srns-context:
+                description: Rate limit for forward relocation response
+            fwd_srns_context:
                 type: int
-                description: Deprecated, please rename it to fwd_srns_context. Rate limit for forward SRNS context
-            fwd-srns-context-ack:
+                description: Rate limit for forward SRNS context
+            fwd_srns_context_ack:
                 type: int
-                description: Deprecated, please rename it to fwd_srns_context_ack. Rate limit for forward SRNS context acknowledge
-            g-pdu:
+                description: Rate limit for forward SRNS context acknowledge
+            g_pdu:
                 type: int
-                description: Deprecated, please rename it to g_pdu. Rate limit for G-PDU
-            identification-request:
+                description: Rate limit for G-PDU
+            identification_request:
                 type: int
-                description: Deprecated, please rename it to identification_request. Rate limit for identification request
-            identification-response:
+                description: Rate limit for identification request
+            identification_response:
                 type: int
-                description: Deprecated, please rename it to identification_response. Rate limit for identification response
-            mbms-de-reg-request:
+                description: Rate limit for identification response
+            mbms_de_reg_request:
                 type: int
-                description: Deprecated, please rename it to mbms_de_reg_request. Rate limit for MBMS de-registration request
-            mbms-de-reg-response:
+                description: Rate limit for MBMS de-registration request
+            mbms_de_reg_response:
                 type: int
-                description: Deprecated, please rename it to mbms_de_reg_response. Rate limit for MBMS de-registration response
-            mbms-notify-rej-request:
+                description: Rate limit for MBMS de-registration response
+            mbms_notify_rej_request:
                 type: int
-                description: Deprecated, please rename it to mbms_notify_rej_request. Rate limit for MBMS notification reject request
-            mbms-notify-rej-response:
+                description: Rate limit for MBMS notification reject request
+            mbms_notify_rej_response:
                 type: int
-                description: Deprecated, please rename it to mbms_notify_rej_response. Rate limit for MBMS notification reject response
-            mbms-notify-request:
+                description: Rate limit for MBMS notification reject response
+            mbms_notify_request:
                 type: int
-                description: Deprecated, please rename it to mbms_notify_request. Rate limit for MBMS notification request
-            mbms-notify-response:
+                description: Rate limit for MBMS notification request
+            mbms_notify_response:
                 type: int
-                description: Deprecated, please rename it to mbms_notify_response. Rate limit for MBMS notification response
-            mbms-reg-request:
+                description: Rate limit for MBMS notification response
+            mbms_reg_request:
                 type: int
-                description: Deprecated, please rename it to mbms_reg_request. Rate limit for MBMS registration request
-            mbms-reg-response:
+                description: Rate limit for MBMS registration request
+            mbms_reg_response:
                 type: int
-                description: Deprecated, please rename it to mbms_reg_response. Rate limit for MBMS registration response
-            mbms-ses-start-request:
+                description: Rate limit for MBMS registration response
+            mbms_ses_start_request:
                 type: int
-                description: Deprecated, please rename it to mbms_ses_start_request. Rate limit for MBMS session start request
-            mbms-ses-start-response:
+                description: Rate limit for MBMS session start request
+            mbms_ses_start_response:
                 type: int
-                description: Deprecated, please rename it to mbms_ses_start_response. Rate limit for MBMS session start response
-            mbms-ses-stop-request:
+                description: Rate limit for MBMS session start response
+            mbms_ses_stop_request:
                 type: int
-                description: Deprecated, please rename it to mbms_ses_stop_request. Rate limit for MBMS session stop request
-            mbms-ses-stop-response:
+                description: Rate limit for MBMS session stop request
+            mbms_ses_stop_response:
                 type: int
-                description: Deprecated, please rename it to mbms_ses_stop_response. Rate limit for MBMS session stop response
-            note-ms-request:
+                description: Rate limit for MBMS session stop response
+            note_ms_request:
                 type: int
-                description: Deprecated, please rename it to note_ms_request. Rate limit for note MS GPRS present request
-            note-ms-response:
+                description: Rate limit for note MS GPRS present request
+            note_ms_response:
                 type: int
-                description: Deprecated, please rename it to note_ms_response. Rate limit for note MS GPRS present response
-            pdu-notify-rej-request:
+                description: Rate limit for note MS GPRS present response
+            pdu_notify_rej_request:
                 type: int
-                description: Deprecated, please rename it to pdu_notify_rej_request. Rate limit for PDU notify reject request
-            pdu-notify-rej-response:
+                description: Rate limit for PDU notify reject request
+            pdu_notify_rej_response:
                 type: int
-                description: Deprecated, please rename it to pdu_notify_rej_response. Rate limit for PDU notify reject response
-            pdu-notify-request:
+                description: Rate limit for PDU notify reject response
+            pdu_notify_request:
                 type: int
-                description: Deprecated, please rename it to pdu_notify_request. Rate limit for PDU notify request
-            pdu-notify-response:
+                description: Rate limit for PDU notify request
+            pdu_notify_response:
                 type: int
-                description: Deprecated, please rename it to pdu_notify_response. Rate limit for PDU notify response
-            ran-info:
+                description: Rate limit for PDU notify response
+            ran_info:
                 type: int
-                description: Deprecated, please rename it to ran_info. Rate limit for RAN information relay
-            relocation-cancel-request:
+                description: Rate limit for RAN information relay
+            relocation_cancel_request:
                 type: int
-                description: Deprecated, please rename it to relocation_cancel_request. Rate limit for relocation cancel request
-            relocation-cancel-response:
+                description: Rate limit for relocation cancel request
+            relocation_cancel_response:
                 type: int
-                description: Deprecated, please rename it to relocation_cancel_response. Rate limit for relocation cancel response
-            send-route-request:
+                description: Rate limit for relocation cancel response
+            send_route_request:
                 type: int
-                description: Deprecated, please rename it to send_route_request. Rate limit for send routing information for GPRS request
-            send-route-response:
+                description: Rate limit for send routing information for GPRS request
+            send_route_response:
                 type: int
-                description: Deprecated, please rename it to send_route_response. Rate limit for send routing information for GPRS response
-            sgsn-context-ack:
+                description: Rate limit for send routing information for GPRS response
+            sgsn_context_ack:
                 type: int
-                description: Deprecated, please rename it to sgsn_context_ack. Rate limit for SGSN context acknowledgement
-            sgsn-context-request:
+                description: Rate limit for SGSN context acknowledgement
+            sgsn_context_request:
                 type: int
-                description: Deprecated, please rename it to sgsn_context_request. Rate limit for SGSN context request
-            sgsn-context-response:
+                description: Rate limit for SGSN context request
+            sgsn_context_response:
                 type: int
-                description: Deprecated, please rename it to sgsn_context_response. Rate limit for SGSN context response
-            support-ext-hdr-notify:
+                description: Rate limit for SGSN context response
+            support_ext_hdr_notify:
                 type: int
-                description: Deprecated, please rename it to support_ext_hdr_notify. Rate limit for support extension headers notification
-            update-mbms-request:
+                description: Rate limit for support extension headers notification
+            update_mbms_request:
                 type: int
-                description: Deprecated, please rename it to update_mbms_request. Rate limit for update MBMS context request
-            update-mbms-response:
+                description: Rate limit for update MBMS context request
+            update_mbms_response:
                 type: int
-                description: Deprecated, please rename it to update_mbms_response. Rate limit for update MBMS context response
-            update-pdp-request:
+                description: Rate limit for update MBMS context response
+            update_pdp_request:
                 type: int
-                description: Deprecated, please rename it to update_pdp_request. Rate limit for update PDP context request
-            update-pdp-response:
+                description: Rate limit for update PDP context request
+            update_pdp_response:
                 type: int
-                description: Deprecated, please rename it to update_pdp_response. Rate limit for update PDP context response
-            version-not-support:
+                description: Rate limit for update PDP context response
+            version_not_support:
                 type: int
-                description: Deprecated, please rename it to version_not_support. Rate limit for version not supported
-            echo-response:
+                description: Rate limit for version not supported
+            echo_response:
                 type: int
-                description: Deprecated, please rename it to echo_response. Rate limit for echo response
+                description: Rate limit for echo response
 '''
 
 EXAMPLES = '''
@@ -384,23 +384,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit',
         '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-rate-limit/{message-rate-limit}',
-        '/pm/config/global/obj/firewall/gtp/{gtp}/message-rate-limit/{message-rate-limit}'
-    ]
-
     url_params = ['adom', 'gtp']
     module_primary_key = None
     module_arg_spec = {
@@ -470,7 +462,6 @@ def main():
                 'version-not-support': {'type': 'int'},
                 'echo-response': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -484,9 +475,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

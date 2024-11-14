@@ -92,9 +92,9 @@ options:
             addresses:
                 type: raw
                 description: (list or str) Manually selected group of addresses.
-            default-policy:
+            default_policy:
                 type: str
-                description: Deprecated, please rename it to default_policy. Allow or block the clients with MAC addresses that are not in the group.
+                description: Allow or block the clients with MAC addresses that are not in the group.
                 choices:
                     - 'deny'
                     - 'allow'
@@ -169,23 +169,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp',
         '/pm/config/global/obj/wireless-controller/addrgrp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/addrgrp/{addrgrp}',
-        '/pm/config/global/obj/wireless-controller/addrgrp/{addrgrp}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -198,7 +190,6 @@ def main():
                 'default-policy': {'v_range': [['7.0.1', '']], 'choices': ['deny', 'allow'], 'type': 'str'},
                 'id': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -212,9 +203,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

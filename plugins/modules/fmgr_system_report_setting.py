@@ -76,36 +76,33 @@ options:
         required: false
         type: dict
         suboptions:
-            aggregate-report:
+            aggregate_report:
                 type: str
                 description:
-                    - Deprecated, please rename it to aggregate_report.
                     - Enable/disable including a group report along with the per-device reports.
                     - disable - Exclude a group report along with the per-device reports.
                     - enable - Include a group report along with the per-device reports.
                 choices:
                     - 'disable'
                     - 'enable'
-            hcache-lossless:
+            hcache_lossless:
                 type: str
                 description:
-                    - Deprecated, please rename it to hcache_lossless.
                     - Usableness of ready-with-loss hcaches.
                     - disable - Use ready-with-loss hcaches.
                     - enable - Do not use ready-with-loss hcaches.
                 choices:
                     - 'disable'
                     - 'enable'
-            ldap-cache-timeout:
+            ldap_cache_timeout:
                 type: int
-                description: Deprecated, please rename it to ldap_cache_timeout. LDAP cache timeout in minutes, default 60, 0 means not use cache.
-            max-table-rows:
+                description: LDAP cache timeout in minutes, default 60, 0 means not use cache.
+            max_table_rows:
                 type: int
-                description: Deprecated, please rename it to max_table_rows. Maximum number of rows can be generated in a single table.
-            report-priority:
+                description: Maximum number of rows can be generated in a single table.
+            report_priority:
                 type: str
                 description:
-                    - Deprecated, please rename it to report_priority.
                     - Priority of sql report.
                     - high - High
                     - low - Low
@@ -114,36 +111,33 @@ options:
                     - 'high'
                     - 'low'
                     - 'auto'
-            template-auto-install:
+            template_auto_install:
                 type: str
                 description:
-                    - Deprecated, please rename it to template_auto_install.
                     - The language used for new ADOMs
                     - default - Default.
                     - english - English.
                 choices:
                     - 'default'
                     - 'english'
-            week-start:
+            week_start:
                 type: str
                 description:
-                    - Deprecated, please rename it to week_start.
                     - Day of the week on which the week starts.
                     - sun - Sunday.
                     - mon - Monday.
                 choices:
                     - 'sun'
                     - 'mon'
-            capwap-port:
+            capwap_port:
                 type: int
-                description: Deprecated, please rename it to capwap_port. Exclude capwap traffic by port.
-            capwap-service:
+                description: Exclude capwap traffic by port.
+            capwap_service:
                 type: str
-                description: Deprecated, please rename it to capwap_service. Exclude capwap traffic by service.
-            exclude-capwap:
+                description: Exclude capwap traffic by service.
+            exclude_capwap:
                 type: str
                 description:
-                    - Deprecated, please rename it to exclude_capwap.
                     - Exclude capwap traffic.
                     - disable - Disable.
                     - by-port - By port.
@@ -152,9 +146,9 @@ options:
                     - 'disable'
                     - 'by-port'
                     - 'by-service'
-            max-rpt-pdf-rows:
+            max_rpt_pdf_rows:
                 type: int
-                description: Deprecated, please rename it to max_rpt_pdf_rows. Maximum number of rows can be generated in a single pdf.
+                description: Maximum number of rows can be generated in a single pdf.
 '''
 
 EXAMPLES = '''
@@ -228,21 +222,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/report/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/report/setting/{setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -262,7 +249,6 @@ def main():
                 'exclude-capwap': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'by-port', 'by-service'], 'type': 'str'},
                 'max-rpt-pdf-rows': {'v_range': [['7.0.4', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -276,9 +262,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

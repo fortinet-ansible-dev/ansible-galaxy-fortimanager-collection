@@ -91,18 +91,18 @@ options:
                     - 'allow'
                     - 'check-up-to-date'
                     - 'deny'
-            latest-patch-level:
+            latest_patch_level:
                 type: str
-                description: Deprecated, please rename it to latest_patch_level. Latest OS patch level.
+                description: Latest OS patch level.
             name:
                 type: str
                 description: Name.
             tolerance:
                 type: int
                 description: OS patch level tolerance.
-            minor-version:
+            minor_version:
                 type: int
-                description: Deprecated, please rename it to minor_version. Minor version number.
+                description: Minor version number.
 '''
 
 EXAMPLES = '''
@@ -172,23 +172,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/os-check-list',
         '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/os-check-list'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/os-check-list/{os-check-list}',
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/os-check-list/{os-check-list}'
-    ]
-
     url_params = ['adom', 'portal']
     module_primary_key = None
     module_arg_spec = {
@@ -204,7 +196,6 @@ def main():
                 'tolerance': {'type': 'int'},
                 'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -218,9 +209,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -95,9 +95,9 @@ options:
         required: false
         type: dict
         suboptions:
-            cos-queue:
+            cos_queue:
                 type: int
-                description: Deprecated, please rename it to cos_queue. COS queue number.
+                description: COS queue number.
             diffserv:
                 type: list
                 elements: str
@@ -124,10 +124,10 @@ options:
                     - 'EF'
                     - 'CS6'
                     - 'CS7'
-            ip-precedence:
+            ip_precedence:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ip_precedence. IP Precedence.
+                description: IP Precedence.
                 choices:
                     - 'network-control'
                     - 'internetwork-control'
@@ -168,36 +168,36 @@ EXAMPLES = '''
         switchcontroller_qos_ipdscpmap_map:
           cos_queue: <integer>
           diffserv:
-            - CS0
-            - CS1
-            - AF11
-            - AF12
-            - AF13
-            - CS2
-            - AF21
-            - AF22
-            - AF23
-            - CS3
-            - AF31
-            - AF32
-            - AF33
-            - CS4
-            - AF41
-            - AF42
-            - AF43
-            - CS5
-            - EF
-            - CS6
-            - CS7
+            - "CS0"
+            - "CS1"
+            - "AF11"
+            - "AF12"
+            - "AF13"
+            - "CS2"
+            - "AF21"
+            - "AF22"
+            - "AF23"
+            - "CS3"
+            - "AF31"
+            - "AF32"
+            - "AF33"
+            - "CS4"
+            - "AF41"
+            - "AF42"
+            - "AF43"
+            - "CS5"
+            - "EF"
+            - "CS6"
+            - "CS7"
           ip_precedence:
-            - network-control
-            - internetwork-control
-            - critic-ecp
-            - flashoverride
-            - flash
-            - immediate
-            - priority
-            - routine
+            - "network-control"
+            - "internetwork-control"
+            - "critic-ecp"
+            - "flashoverride"
+            - "flash"
+            - "immediate"
+            - "priority"
+            - "routine"
           name: <string>
           value: <string>
 '''
@@ -243,23 +243,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map',
         '/pm/config/global/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map/{map}',
-        '/pm/config/global/obj/switch-controller/qos/ip-dscp-map/{ip-dscp-map}/map/{map}'
-    ]
-
     url_params = ['adom', 'ip-dscp-map']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -287,7 +279,6 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'value': {'type': 'str'}
             }
-
         }
     }
 
@@ -301,9 +292,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

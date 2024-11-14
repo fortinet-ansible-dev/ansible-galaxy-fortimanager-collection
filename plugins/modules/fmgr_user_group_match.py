@@ -96,16 +96,16 @@ options:
             _gui_meta:
                 type: str
                 description: Gui meta.
-            group-name:
+            group_name:
                 type: str
-                description: Deprecated, please rename it to group_name. Name of matching group on remote authentication server.
+                description: Name of matching group on remote authentication server.
             id:
                 type: int
                 description: ID.
                 required: true
-            server-name:
+            server_name:
                 type: str
-                description: Deprecated, please rename it to server_name. Name of remote auth server.
+                description: Name of remote auth server.
 '''
 
 EXAMPLES = '''
@@ -175,23 +175,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/group/{group}/match',
         '/pm/config/global/obj/user/group/{group}/match'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/group/{group}/match/{match}',
-        '/pm/config/global/obj/user/group/{group}/match/{match}'
-    ]
-
     url_params = ['adom', 'group']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -206,7 +198,6 @@ def main():
                 'id': {'required': True, 'type': 'int'},
                 'server-name': {'type': 'str'}
             }
-
         }
     }
 
@@ -220,9 +211,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

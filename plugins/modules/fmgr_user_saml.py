@@ -92,52 +92,52 @@ options:
             cert:
                 type: str
                 description: Certificate to sign SAML messages.
-            entity-id:
+            entity_id:
                 type: str
-                description: Deprecated, please rename it to entity_id. SP entity ID.
-            group-name:
+                description: SP entity ID.
+            group_name:
                 type: str
-                description: Deprecated, please rename it to group_name. Group name in assertion statement.
-            idp-cert:
+                description: Group name in assertion statement.
+            idp_cert:
                 type: str
-                description: Deprecated, please rename it to idp_cert. IDP Certificate name.
-            idp-entity-id:
+                description: IDP Certificate name.
+            idp_entity_id:
                 type: str
-                description: Deprecated, please rename it to idp_entity_id. IDP entity ID.
-            idp-single-logout-url:
+                description: IDP entity ID.
+            idp_single_logout_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-            idp-single-sign-on-url:
+                description: IDP single logout url.
+            idp_single_sign_on_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
+                description: IDP single sign-on URL.
             name:
                 type: str
                 description: SAML server entry name.
                 required: true
-            single-logout-url:
+            single_logout_url:
                 type: str
-                description: Deprecated, please rename it to single_logout_url. SP single logout URL.
-            single-sign-on-url:
+                description: SP single logout URL.
+            single_sign_on_url:
                 type: str
-                description: Deprecated, please rename it to single_sign_on_url. SP single sign-on URL.
-            user-name:
+                description: SP single sign-on URL.
+            user_name:
                 type: str
-                description: Deprecated, please rename it to user_name. User name in assertion statement.
-            adfs-claim:
+                description: User name in assertion statement.
+            adfs_claim:
                 type: str
-                description: Deprecated, please rename it to adfs_claim. Enable/disable ADFS Claim for user/group attribute in assertion statement
+                description: Enable/disable ADFS Claim for user/group attribute in assertion statement
                 choices:
                     - 'disable'
                     - 'enable'
-            digest-method:
+            digest_method:
                 type: str
-                description: Deprecated, please rename it to digest_method. Digest Method Algorithm.
+                description: Digest Method Algorithm.
                 choices:
                     - 'sha1'
                     - 'sha256'
-            group-claim-type:
+            group_claim_type:
                 type: str
-                description: Deprecated, please rename it to group_claim_type. Group claim in assertion statement.
+                description: Group claim in assertion statement.
                 choices:
                     - 'email'
                     - 'given-name'
@@ -159,15 +159,15 @@ options:
                     - 'primary-group-sid'
                     - 'primary-sid'
                     - 'windows-account-name'
-            limit-relaystate:
+            limit_relaystate:
                 type: str
-                description: Deprecated, please rename it to limit_relaystate. Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
+                description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-claim-type:
+            user_claim_type:
                 type: str
-                description: Deprecated, please rename it to user_claim_type. User name claim in assertion statement.
+                description: User name claim in assertion statement.
                 choices:
                     - 'email'
                     - 'given-name'
@@ -189,9 +189,9 @@ options:
                     - 'primary-group-sid'
                     - 'primary-sid'
                     - 'windows-account-name'
-            clock-tolerance:
+            clock_tolerance:
                 type: int
-                description: Deprecated, please rename it to clock_tolerance. Clock skew tolerance in seconds
+                description: Clock skew tolerance in seconds
             dynamic_mapping:
                 type: list
                 elements: dict
@@ -208,30 +208,30 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    adfs-claim:
+                    adfs_claim:
                         type: str
-                        description: Deprecated, please rename it to adfs_claim. Enable/disable ADFS Claim for user/group attribute in assertion statement
+                        description: Enable/disable ADFS Claim for user/group attribute in assertion statement
                         choices:
                             - 'disable'
                             - 'enable'
                     cert:
                         type: str
                         description: Certificate to sign SAML messages.
-                    clock-tolerance:
+                    clock_tolerance:
                         type: int
-                        description: Deprecated, please rename it to clock_tolerance. Clock skew tolerance in seconds
-                    digest-method:
+                        description: Clock skew tolerance in seconds
+                    digest_method:
                         type: str
-                        description: Deprecated, please rename it to digest_method. Digest method algorithm
+                        description: Digest method algorithm
                         choices:
                             - 'sha1'
                             - 'sha256'
-                    entity-id:
+                    entity_id:
                         type: str
-                        description: Deprecated, please rename it to entity_id. SP entity ID.
-                    group-claim-type:
+                        description: SP entity ID.
+                    group_claim_type:
                         type: str
-                        description: Deprecated, please rename it to group_claim_type. Group claim in assertion statement.
+                        description: Group claim in assertion statement.
                         choices:
                             - 'email'
                             - 'given-name'
@@ -253,36 +253,36 @@ options:
                             - 'primary-group-sid'
                             - 'primary-sid'
                             - 'windows-account-name'
-                    group-name:
+                    group_name:
                         type: str
-                        description: Deprecated, please rename it to group_name. Group name in assertion statement.
-                    idp-cert:
+                        description: Group name in assertion statement.
+                    idp_cert:
                         type: str
-                        description: Deprecated, please rename it to idp_cert. IDP Certificate name.
-                    idp-entity-id:
+                        description: IDP Certificate name.
+                    idp_entity_id:
                         type: str
-                        description: Deprecated, please rename it to idp_entity_id. IDP entity ID.
-                    idp-single-logout-url:
+                        description: IDP entity ID.
+                    idp_single_logout_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-                    idp-single-sign-on-url:
+                        description: IDP single logout url.
+                    idp_single_sign_on_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
-                    limit-relaystate:
+                        description: IDP single sign-on URL.
+                    limit_relaystate:
                         type: str
-                        description: Deprecated, please rename it to limit_relaystate. Enable/disable limiting of relay-state parameter when it exceeds...
+                        description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
                         choices:
                             - 'disable'
                             - 'enable'
-                    single-logout-url:
+                    single_logout_url:
                         type: str
-                        description: Deprecated, please rename it to single_logout_url. SP single logout URL.
-                    single-sign-on-url:
+                        description: SP single logout URL.
+                    single_sign_on_url:
                         type: str
-                        description: Deprecated, please rename it to single_sign_on_url. SP single sign-on URL.
-                    user-claim-type:
+                        description: SP single sign-on URL.
+                    user_claim_type:
                         type: str
-                        description: Deprecated, please rename it to user_claim_type. User name claim in assertion statement.
+                        description: User name claim in assertion statement.
                         choices:
                             - 'email'
                             - 'given-name'
@@ -304,33 +304,33 @@ options:
                             - 'primary-group-sid'
                             - 'primary-sid'
                             - 'windows-account-name'
-                    user-name:
+                    user_name:
                         type: str
-                        description: Deprecated, please rename it to user_name. User name in assertion statement.
-                    auth-url:
+                        description: User name in assertion statement.
+                    auth_url:
                         type: str
-                        description: Deprecated, please rename it to auth_url. URL to verify authentication.
+                        description: URL to verify authentication.
                     reauth:
                         type: str
                         description: Enable/disable signalling of IDP to force user re-authentication
                         choices:
                             - 'disable'
                             - 'enable'
-                    scim-client:
+                    scim_client:
                         type: raw
-                        description: (list) Deprecated, please rename it to scim_client. SCIM client name.
-            auth-url:
+                        description: (list) SCIM client name.
+            auth_url:
                 type: str
-                description: Deprecated, please rename it to auth_url. URL to verify authentication.
+                description: URL to verify authentication.
             reauth:
                 type: str
                 description: Enable/disable signalling of IDP to force user re-authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            scim-client:
+            scim_client:
                 type: raw
-                description: (list) Deprecated, please rename it to scim_client. SCIM client name.
+                description: (list) SCIM client name.
 '''
 
 EXAMPLES = '''
@@ -440,23 +440,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/saml',
         '/pm/config/global/obj/user/saml'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/saml/{saml}',
-        '/pm/config/global/obj/user/saml/{saml}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -499,25 +491,25 @@ def main():
                 },
                 'clock-tolerance': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'dynamic_mapping': {
-                    'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
                         '_scope': {
-                            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                                'vdom': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
+                                'name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                                'vdom': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'adfs-claim': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'cert': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'clock-tolerance': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                        'digest-method': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
-                        'entity-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'adfs-claim': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cert': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'clock-tolerance': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                        'digest-method': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
+                        'entity-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                         'group-claim-type': {
-                            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                             'choices': [
                                 'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                                 'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
@@ -525,16 +517,16 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'group-name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-cert': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-entity-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'limit-relaystate': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'single-logout-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'single-sign-on-url': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'group-name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-cert': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-entity-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'limit-relaystate': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'single-logout-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'single-sign-on-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                         'user-claim-type': {
-                            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                             'choices': [
                                 'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                                 'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
@@ -542,7 +534,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'user-name': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'user-name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                         'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'}
@@ -553,7 +545,6 @@ def main():
                 'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -567,9 +558,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

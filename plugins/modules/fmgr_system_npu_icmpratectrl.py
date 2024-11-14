@@ -80,18 +80,18 @@ options:
         required: false
         type: dict
         suboptions:
-            icmp-v4-bucket-size:
+            icmp_v4_bucket_size:
                 type: int
-                description: Deprecated, please rename it to icmp_v4_bucket_size. Bucket size used in the token bucket algorithm for controlling the fl...
-            icmp-v4-rate:
+                description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 packets
+            icmp_v4_rate:
                 type: int
-                description: Deprecated, please rename it to icmp_v4_rate. Average rate of ICMPv4 packets that allowed to be generated per second
-            icmp-v6-bucket-size:
+                description: Average rate of ICMPv4 packets that allowed to be generated per second
+            icmp_v6_bucket_size:
                 type: int
-                description: Deprecated, please rename it to icmp_v6_bucket_size. Bucket size used in the token bucket algorithm for controlling the fl...
-            icmp-v6-rate:
+                description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 packets
+            icmp_v6_rate:
                 type: int
-                description: Deprecated, please rename it to icmp_v6_rate. Average rate of ICMPv6 packets that allowed to be generated per second
+                description: Average rate of ICMPv6 packets that allowed to be generated per second
 '''
 
 EXAMPLES = '''
@@ -159,23 +159,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/icmp-rate-ctrl',
         '/pm/config/global/obj/system/npu/icmp-rate-ctrl'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/icmp-rate-ctrl/{icmp-rate-ctrl}',
-        '/pm/config/global/obj/system/npu/icmp-rate-ctrl/{icmp-rate-ctrl}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -189,7 +181,6 @@ def main():
                 'icmp-v6-bucket-size': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'icmp-v6-rate': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -203,9 +194,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

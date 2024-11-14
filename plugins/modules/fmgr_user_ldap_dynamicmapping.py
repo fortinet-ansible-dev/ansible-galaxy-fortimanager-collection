@@ -104,21 +104,21 @@ options:
                     vdom:
                         type: str
                         description: Vdom.
-            account-key-filter:
+            account_key_filter:
                 type: str
-                description: Deprecated, please rename it to account_key_filter. Account key filter.
-            account-key-name:
+                description: Account key filter.
+            account_key_name:
                 type: str
-                description: Deprecated, please rename it to account_key_name. Account key name.
-            account-key-processing:
+                description: Account key name.
+            account_key_processing:
                 type: str
-                description: Deprecated, please rename it to account_key_processing. Account key processing.
+                description: Account key processing.
                 choices:
                     - 'same'
                     - 'strip'
-            ca-cert:
+            ca_cert:
                 type: str
-                description: Deprecated, please rename it to ca_cert. Ca cert.
+                description: Ca cert.
             cnid:
                 type: str
                 description: Cnid.
@@ -131,65 +131,65 @@ options:
             group:
                 type: str
                 description: Group.
-            group-filter:
+            group_filter:
                 type: str
-                description: Deprecated, please rename it to group_filter. Group filter.
-            group-member-check:
+                description: Group filter.
+            group_member_check:
                 type: str
-                description: Deprecated, please rename it to group_member_check. Group member check.
+                description: Group member check.
                 choices:
                     - 'user-attr'
                     - 'group-object'
                     - 'posix-group-object'
-            group-object-filter:
+            group_object_filter:
                 type: str
-                description: Deprecated, please rename it to group_object_filter. Group object filter.
-            group-object-search-base:
+                description: Group object filter.
+            group_object_search_base:
                 type: str
-                description: Deprecated, please rename it to group_object_search_base. Group object search base.
-            group-search-base:
+                description: Group object search base.
+            group_search_base:
                 type: str
-                description: Deprecated, please rename it to group_search_base. Group search base.
-            member-attr:
+                description: Group search base.
+            member_attr:
                 type: str
-                description: Deprecated, please rename it to member_attr. Member attr.
-            obtain-user-info:
+                description: Member attr.
+            obtain_user_info:
                 type: str
-                description: Deprecated, please rename it to obtain_user_info. Obtain user info.
+                description: Obtain user info.
                 choices:
                     - 'disable'
                     - 'enable'
             password:
                 type: raw
                 description: (list) Password.
-            password-expiry-warning:
+            password_expiry_warning:
                 type: str
-                description: Deprecated, please rename it to password_expiry_warning. Password expiry warning.
+                description: Password expiry warning.
                 choices:
                     - 'disable'
                     - 'enable'
-            password-renewal:
+            password_renewal:
                 type: str
-                description: Deprecated, please rename it to password_renewal. Password renewal.
+                description: Password renewal.
                 choices:
                     - 'disable'
                     - 'enable'
             port:
                 type: int
                 description: Port.
-            retrieve-protection-profile:
+            retrieve_protection_profile:
                 type: str
-                description: Deprecated, please rename it to retrieve_protection_profile. Retrieve protection profile.
-            search-type:
+                description: Retrieve protection profile.
+            search_type:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to search_type. Search type.
+                description: Search type.
                 choices:
                     - 'nested'
                     - 'recursive'
-            secondary-server:
+            secondary_server:
                 type: str
-                description: Deprecated, please rename it to secondary_server. Secondary server.
+                description: Secondary server.
             secure:
                 type: str
                 description: Secure.
@@ -200,18 +200,18 @@ options:
             server:
                 type: str
                 description: Server.
-            server-identity-check:
+            server_identity_check:
                 type: str
-                description: Deprecated, please rename it to server_identity_check. Server identity check.
+                description: Server identity check.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source ip.
-            ssl-min-proto-version:
+                description: Source ip.
+            ssl_min_proto_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_proto_version. Ssl min proto version.
+                description: Ssl min proto version.
                 choices:
                     - 'default'
                     - 'TLSv1'
@@ -219,9 +219,9 @@ options:
                     - 'TLSv1-2'
                     - 'SSLv3'
                     - 'TLSv1-3'
-            tertiary-server:
+            tertiary_server:
                 type: str
-                description: Deprecated, please rename it to tertiary_server. Tertiary server.
+                description: Tertiary server.
             type:
                 type: str
                 description: Type.
@@ -229,38 +229,38 @@ options:
                     - 'simple'
                     - 'anonymous'
                     - 'regular'
-            user-info-exchange-server:
+            user_info_exchange_server:
                 type: str
-                description: Deprecated, please rename it to user_info_exchange_server. User info exchange server.
+                description: User info exchange server.
             username:
                 type: str
                 description: Username.
-            two-factor:
+            two_factor:
                 type: str
-                description: Deprecated, please rename it to two_factor. Two factor.
+                description: Two factor.
                 choices:
                     - 'disable'
                     - 'fortitoken-cloud'
             interface:
                 type: str
                 description: Interface.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Interface select method.
+                description: Interface select method.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
-            two-factor-authentication:
+            two_factor_authentication:
                 type: str
-                description: Deprecated, please rename it to two_factor_authentication. Two factor authentication.
+                description: Two factor authentication.
                 choices:
                     - 'fortitoken'
                     - 'email'
                     - 'sms'
-            two-factor-notification:
+            two_factor_notification:
                 type: str
-                description: Deprecated, please rename it to two_factor_notification. Two factor notification.
+                description: Two factor notification.
                 choices:
                     - 'email'
                     - 'sms'
@@ -270,48 +270,57 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            password-attr:
+            password_attr:
                 type: str
-                description: Deprecated, please rename it to password_attr. Name of attribute to get password hash.
-            source-port:
+                description: Name of attribute to get password hash.
+            source_port:
                 type: int
-                description: Deprecated, please rename it to source_port. Source port to be used for communication with the LDAP server.
-            client-cert:
+                description: Source port to be used for communication with the LDAP server.
+            client_cert:
                 type: str
-                description: Deprecated, please rename it to client_cert. Client certificate name.
-            client-cert-auth:
+                description: Client certificate name.
+            client_cert_auth:
                 type: str
-                description: Deprecated, please rename it to client_cert_auth. Enable/disable using client certificate for TLS authentication.
+                description: Enable/disable using client certificate for TLS authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-connections:
+            max_connections:
                 type: int
-                description: Deprecated, please rename it to max_connections. Max connections.
-            two-factor-filter:
+                description: Max connections.
+            two_factor_filter:
                 type: str
-                description: Deprecated, please rename it to two_factor_filter. Filter used to synchronize users to FortiToken Cloud.
-            account-key-upn-san:
+                description: Filter used to synchronize users to FortiToken Cloud.
+            account_key_upn_san:
                 type: str
-                description: Deprecated, please rename it to account_key_upn_san. Define SAN in certificate for user principle name matching.
+                description: Define SAN in certificate for user principle name matching.
                 choices:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
-            account-key-cert-field:
+            account_key_cert_field:
                 type: str
-                description: Deprecated, please rename it to account_key_cert_field. Define subject identity field in certificate for user access right...
+                description: Define subject identity field in certificate for user access right checking.
                 choices:
                     - 'othername'
                     - 'rfc822name'
                     - 'dnsname'
                     - 'cn'
-            status-ttl:
+            status_ttl:
                 type: int
-                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
-            source-ip-interface:
+                description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
+            source_ip_interface:
                 type: raw
-                description: (list) Deprecated, please rename it to source_ip_interface. Source interface for communication with the LDAP server.
+                description: (list) Source interface for communication with the LDAP server.
+            ssl_max_proto_version:
+                type: str
+                description: Ssl max proto version.
+                choices:
+                    - 'TLSv1-1'
+                    - 'TLSv1-2'
+                    - 'SSLv3'
+                    - 'TLSv1'
+                    - 'TLSv1-3'
 '''
 
 EXAMPLES = '''
@@ -399,23 +408,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping',
         '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}',
-        '/pm/config/global/obj/user/ldap/{ldap}/dynamic_mapping/{dynamic_mapping}'
-    ]
-
     url_params = ['adom', 'ldap']
     module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
     module_arg_spec = {
@@ -458,8 +459,8 @@ def main():
                 'user-info-exchange-server': {'type': 'str'},
                 'username': {'type': 'str'},
                 'two-factor': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'fortitoken-cloud'], 'type': 'str'},
-                'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'two-factor-authentication': {'v_range': [['6.2.5', '']], 'choices': ['fortitoken', 'email', 'sms'], 'type': 'str'},
                 'two-factor-notification': {'v_range': [['6.2.5', '']], 'choices': ['email', 'sms'], 'type': 'str'},
                 'antiphish': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -467,14 +468,14 @@ def main():
                 'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'client-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'max-connections': {'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'},
+                'max-connections': {'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'ssl-max-proto-version': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3'], 'type': 'str'}
             }
-
         }
     }
 
@@ -488,9 +489,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

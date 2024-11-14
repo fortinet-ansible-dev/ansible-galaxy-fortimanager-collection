@@ -104,10 +104,9 @@ options:
             port:
                 type: int
                 description: SMTP server port.
-            secure-option:
+            secure_option:
                 type: str
                 description:
-                    - Deprecated, please rename it to secure_option.
                     - Communication secure option.
                     - default - Try STARTTLS, proceed as plain text communication otherwise.
                     - none - Communication will be in plain text format.
@@ -124,22 +123,38 @@ options:
             user:
                 type: str
                 description: SMTP account username.
-            auth-type:
+            auth_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to auth_type.
                     - SMTP authentication type.
                     - psk - Use username and password to authenticate.
                     - certificate - Use local certificate to authenticate.
                 choices:
                     - 'psk'
                     - 'certificate'
-            local-cert:
+            local_cert:
                 type: str
-                description: Deprecated, please rename it to local_cert. SMTP local certificate.
+                description: SMTP local certificate.
             from:
                 type: str
                 description: Username for MAIL FROM.
+            ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for connection to mail server.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -222,21 +237,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/mail'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/mail/{mail}'
-    ]
-
     url_params = []
     module_primary_key = 'id'
     module_arg_spec = {
@@ -253,9 +261,13 @@ def main():
                 'user': {'type': 'str'},
                 'auth-type': {'v_range': [['6.4.6', '']], 'choices': ['psk', 'certificate'], 'type': 'str'},
                 'local-cert': {'v_range': [['6.4.6', '']], 'type': 'str'},
-                'from': {'v_range': [['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'str'}
+                'from': {'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'str'},
+                'ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -269,9 +281,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

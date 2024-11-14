@@ -89,30 +89,30 @@ options:
         required: false
         type: dict
         suboptions:
-            auth-concurrent-override:
+            auth_concurrent_override:
                 type: str
-                description: Deprecated, please rename it to auth_concurrent_override. Enable/disable overriding the policy-auth-concurrent under confi...
+                description: Enable/disable overriding the policy-auth-concurrent under config system global.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-concurrent-value:
+            auth_concurrent_value:
                 type: int
-                description: Deprecated, please rename it to auth_concurrent_value. Maximum number of concurrent logins permitted from the same user.
+                description: Maximum number of concurrent logins permitted from the same user.
             authtimeout:
                 type: int
                 description: Time in minutes before the authentication timeout for a user is reached.
-            email-to:
+            email_to:
                 type: str
-                description: Deprecated, please rename it to email_to. Two-factor recipients email address.
+                description: Two-factor recipients email address.
             fortitoken:
                 type: str
                 description: Two-factor recipients FortiToken serial number.
             id:
                 type: int
                 description: User ID.
-            ldap-server:
+            ldap_server:
                 type: str
-                description: Deprecated, please rename it to ldap_server. Name of LDAP server with which the user must authenticate.
+                description: Name of LDAP server with which the user must authenticate.
             name:
                 type: str
                 description: User name.
@@ -120,27 +120,27 @@ options:
             passwd:
                 type: raw
                 description: (list) Users password.
-            passwd-policy:
+            passwd_policy:
                 type: str
-                description: Deprecated, please rename it to passwd_policy. Password policy to apply to this user, as defined in config user password-p...
-            ppk-identity:
+                description: Password policy to apply to this user, as defined in config user password-policy.
+            ppk_identity:
                 type: str
-                description: Deprecated, please rename it to ppk_identity. IKEv2 Postquantum Preshared Key Identity.
-            ppk-secret:
+                description: IKEv2 Postquantum Preshared Key Identity.
+            ppk_secret:
                 type: raw
-                description: (list) Deprecated, please rename it to ppk_secret. IKEv2 Postquantum Preshared Key
-            radius-server:
+                description: (list) IKEv2 Postquantum Preshared Key
+            radius_server:
                 type: str
-                description: Deprecated, please rename it to radius_server. Name of RADIUS server with which the user must authenticate.
-            sms-custom-server:
+                description: Name of RADIUS server with which the user must authenticate.
+            sms_custom_server:
                 type: str
-                description: Deprecated, please rename it to sms_custom_server. Two-factor recipients SMS server.
-            sms-phone:
+                description: Two-factor recipients SMS server.
+            sms_phone:
                 type: str
-                description: Deprecated, please rename it to sms_phone. Two-factor recipients mobile phone number.
-            sms-server:
+                description: Two-factor recipients mobile phone number.
+            sms_server:
                 type: str
-                description: Deprecated, please rename it to sms_server. Send SMS through FortiGuard or other external server.
+                description: Send SMS through FortiGuard or other external server.
                 choices:
                     - 'fortiguard'
                     - 'custom'
@@ -150,12 +150,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            tacacs+-server:
+            tacacs__server:
                 type: str
-                description: Deprecated, please rename it to tacacs__server. Name of TACACS+ server with which the user must authenticate.
-            two-factor:
+                description: Name of TACACS+ server with which the user must authenticate.
+            two_factor:
                 type: str
-                description: Deprecated, please rename it to two_factor. Enable/disable two-factor authentication.
+                description: Enable/disable two-factor authentication.
                 choices:
                     - 'disable'
                     - 'fortitoken'
@@ -173,34 +173,34 @@ options:
             workstation:
                 type: str
                 description: Name of the remote user workstation, if you want to limit the user to authenticate only from a particular workstation.
-            two-factor-authentication:
+            two_factor_authentication:
                 type: str
-                description: Deprecated, please rename it to two_factor_authentication. Authentication method by FortiToken Cloud.
+                description: Authentication method by FortiToken Cloud.
                 choices:
                     - 'fortitoken'
                     - 'email'
                     - 'sms'
-            two-factor-notification:
+            two_factor_notification:
                 type: str
-                description: Deprecated, please rename it to two_factor_notification. Notification method for user activation by FortiToken Cloud.
+                description: Notification method for user activation by FortiToken Cloud.
                 choices:
                     - 'email'
                     - 'sms'
-            username-case-sensitivity:
+            username_case_sensitivity:
                 type: str
-                description: Deprecated, please rename it to username_case_sensitivity. Enable/disable case sensitivity when performing username matching
+                description: Enable/disable case sensitivity when performing username matching
                 choices:
                     - 'disable'
                     - 'enable'
-            username-case-insensitivity:
+            username_case_insensitivity:
                 type: str
-                description: Deprecated, please rename it to username_case_insensitivity. Enable/disable case sensitivity when performing username matching
+                description: Enable/disable case sensitivity when performing username matching
                 choices:
                     - 'disable'
                     - 'enable'
-            username-sensitivity:
+            username_sensitivity:
                 type: str
-                description: Deprecated, please rename it to username_sensitivity. Enable/disable case and accent sensitivity when performing username ...
+                description: Enable/disable case and accent sensitivity when performing username matching
                 choices:
                     - 'disable'
                     - 'enable'
@@ -210,9 +210,9 @@ options:
             history1:
                 type: raw
                 description: (list) History1.
-            qkd-profile:
+            qkd_profile:
                 type: str
-                description: Deprecated, please rename it to qkd_profile. Quantum Key Distribution
+                description: Quantum Key Distribution
 '''
 
 EXAMPLES = '''
@@ -294,23 +294,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/local',
         '/pm/config/global/obj/user/local'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/local/{local}',
-        '/pm/config/global/obj/user/local/{local}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -342,10 +334,10 @@ def main():
                 'workstation': {'type': 'str'},
                 'two-factor-authentication': {'v_range': [['6.2.5', '']], 'choices': ['fortitoken', 'email', 'sms'], 'type': 'str'},
                 'two-factor-notification': {'v_range': [['6.2.5', '']], 'choices': ['email', 'sms'], 'type': 'str'},
-                'username-case-sensitivity': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'username-case-sensitivity': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'username-case-insensitivity': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'username-sensitivity': {
-                    'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.2.9', '6.2.13'], ['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -353,7 +345,6 @@ def main():
                 'history1': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'qkd-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -367,9 +358,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

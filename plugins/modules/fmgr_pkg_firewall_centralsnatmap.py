@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            dst-addr:
+            dst_addr:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dst_addr. Destination address name from available addresses.
+                description: (list or str) Destination address name from available addresses.
             dstintf:
                 type: raw
                 description: (list or str) Destination interface name from available interfaces.
@@ -105,18 +105,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            nat-ippool:
+            nat_ippool:
                 type: raw
-                description: (list or str) Deprecated, please rename it to nat_ippool. Name of the IP pools to be used to translate addresses from avai...
-            nat-port:
+                description: (list or str) Name of the IP pools to be used to translate addresses from available IP Pools.
+            nat_port:
                 type: str
-                description: Deprecated, please rename it to nat_port. Translated port or port range
-            orig-addr:
+                description: Translated port or port range
+            orig_addr:
                 type: raw
-                description: (list or str) Deprecated, please rename it to orig_addr. Original address.
-            orig-port:
+                description: (list or str) Original address.
+            orig_port:
                 type: raw
-                description: (int or str) Deprecated, please rename it to orig_port. Original TCP port
+                description: (int or str) Original TCP port
             policyid:
                 type: int
                 description: Policy ID.
@@ -136,15 +136,15 @@ options:
             comments:
                 type: str
                 description: Comment.
-            dst-addr6:
+            dst_addr6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dst_addr6. IPv6 Destination address.
-            nat-ippool6:
+                description: (list or str) IPv6 Destination address.
+            nat_ippool6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to nat_ippool6. IPv6 pools to be used for source NAT.
-            orig-addr6:
+                description: (list or str) IPv6 pools to be used for source NAT.
+            orig_addr6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to orig_addr6. IPv6 Original address.
+                description: (list or str) IPv6 Original address.
             type:
                 type: str
                 description: IPv4/IPv6 source NAT.
@@ -166,12 +166,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            dst-port:
+            dst_port:
                 type: str
-                description: Deprecated, please rename it to dst_port. Destination port or port range
-            port-preserve:
+                description: Destination port or port range
+            port_preserve:
                 type: str
-                description: Deprecated, please rename it to port_preserve. Enable/disable preservation of the original source port from source NAT if ...
+                description: Enable/disable preservation of the original source port from source NAT if it has not been used.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -259,21 +259,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/central-snat-map'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/central-snat-map/{central-snat-map}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -302,10 +295,9 @@ def main():
                 'uuid': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dst-port': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'dst-port': {'v_range': [['7.2.6', '']], 'type': 'str'},
                 'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -319,9 +311,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

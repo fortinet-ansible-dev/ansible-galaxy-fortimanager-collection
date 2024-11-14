@@ -85,24 +85,23 @@ options:
         required: false
         type: dict
         suboptions:
-            client-adom:
+            client_adom:
                 type: str
-                description: Deprecated, please rename it to client_adom. Log-fetch client sides adom name.
-            data-range:
+                description: Log-fetch client sides adom name.
+            data_range:
                 type: str
                 description:
-                    - Deprecated, please rename it to data_range.
                     - Data-range for fetched logs.
                     - custom - Specify some other date and time range.
                 choices:
                     - 'custom'
-            data-range-value:
+            data_range_value:
                 type: int
-                description: Deprecated, please rename it to data_range_value. Last n days or hours.
-            device-filter:
+                description: Last n days or hours.
+            device_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to device_filter. Device filter.
+                description: Device filter.
                 suboptions:
                     adom:
                         type: str
@@ -116,27 +115,26 @@ options:
                     vdom:
                         type: str
                         description: Vdom filters.
-            end-time:
+            end_time:
                 type: raw
-                description: (list) Deprecated, please rename it to end_time. End date and time of the data-range
+                description: (list) End date and time of the data-range
             id:
                 type: int
                 description: Log-fetch client profile ID.
                 required: true
-            index-fetch-logs:
+            index_fetch_logs:
                 type: str
                 description:
-                    - Deprecated, please rename it to index_fetch_logs.
                     - Enable/Disable indexing logs automatically after fetching logs.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-filter:
+            log_filter:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to log_filter. Log filter.
+                description: Log filter.
                 suboptions:
                     field:
                         type: str
@@ -166,20 +164,18 @@ options:
                     value:
                         type: str
                         description: Field filter operand or free-text matching expression.
-            log-filter-logic:
+            log_filter_logic:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_filter_logic.
                     - And/Or logic for log-filters.
                     - and - Logic And.
                     - or - Logic Or.
                 choices:
                     - 'and'
                     - 'or'
-            log-filter-status:
+            log_filter_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_filter_status.
                     - Enable/Disable log-filter.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
@@ -192,29 +188,27 @@ options:
             password:
                 type: raw
                 description: (list) Log-fetch server login password.
-            secure-connection:
+            secure_connection:
                 type: str
                 description:
-                    - Deprecated, please rename it to secure_connection.
                     - Enable/Disable protecting log-fetch connection with TLS/SSL.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-adom:
+            server_adom:
                 type: str
-                description: Deprecated, please rename it to server_adom. Log-fetch server sides adom name.
-            server-ip:
+                description: Log-fetch server sides adom name.
+            server_ip:
                 type: str
-                description: Deprecated, please rename it to server_ip. Log-fetch server IP address.
-            start-time:
+                description: Log-fetch server IP address.
+            start_time:
                 type: raw
-                description: (list) Deprecated, please rename it to start_time. Start date and time of the data-range
-            sync-adom-config:
+                description: (list) Start date and time of the data-range
+            sync_adom_config:
                 type: str
                 description:
-                    - Deprecated, please rename it to sync_adom_config.
                     - Enable/Disable sync adom related config.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
@@ -224,9 +218,9 @@ options:
             user:
                 type: str
                 description: Log-fetch server login username.
-            peer-cert-cn:
+            peer_cert_cn:
                 type: str
-                description: Deprecated, please rename it to peer_cert_cn. Certificate common name of log-fetch server.
+                description: Certificate common name of log-fetch server.
 '''
 
 EXAMPLES = '''
@@ -310,21 +304,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/log-fetch/client-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/log-fetch/client-profile/{client-profile}'
-    ]
-
     url_params = []
     module_primary_key = 'id'
     module_arg_spec = {
@@ -376,7 +363,6 @@ def main():
                 'user': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'peer-cert-cn': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'}
             }
-
         }
     }
 
@@ -390,9 +376,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

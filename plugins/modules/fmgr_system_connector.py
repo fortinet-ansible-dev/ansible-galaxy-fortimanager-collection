@@ -76,30 +76,47 @@ options:
         required: false
         type: dict
         suboptions:
-            fsso-refresh-interval:
+            fsso_refresh_interval:
                 type: int
-                description: Deprecated, please rename it to fsso_refresh_interval. FSSO refresh interval
-            fsso-sess-timeout:
+                description: FSSO refresh interval
+            fsso_sess_timeout:
                 type: int
-                description: Deprecated, please rename it to fsso_sess_timeout. FSSO session timeout
-            px-refresh-interval:
+                description: FSSO session timeout
+            px_refresh_interval:
                 type: int
-                description: Deprecated, please rename it to px_refresh_interval. PxGrid refresh interval
-            px-svr-timeout:
+                description: PxGrid refresh interval
+            px_svr_timeout:
                 type: int
-                description: Deprecated, please rename it to px_svr_timeout. PxGrid server timeout
-            conn-refresh-interval:
+                description: PxGrid server timeout
+            conn_refresh_interval:
                 type: int
-                description: Deprecated, please rename it to conn_refresh_interval. Connector refresh interval
-            cloud-orchest-refresh-interval:
+                description: Connector refresh interval
+            cloud_orchest_refresh_interval:
                 type: int
-                description: Deprecated, please rename it to cloud_orchest_refresh_interval. Cloud Orchestration refresh interval
-            faznotify-msg-queue-max:
+                description: Cloud Orchestration refresh interval
+            faznotify_msg_queue_max:
                 type: int
-                description: Deprecated, please rename it to faznotify_msg_queue_max. Faznotify max queued message per connector
-            faznotify-msg-timeout:
+                description: Faznotify max queued message per connector
+            faznotify_msg_timeout:
                 type: int
-                description: Deprecated, please rename it to faznotify_msg_timeout. Faznotify message timeout
+                description: Faznotify message timeout
+            conn_ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for connector.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -127,6 +144,7 @@ EXAMPLES = '''
           cloud_orchest_refresh_interval: <integer>
           faznotify_msg_queue_max: <integer>
           faznotify_msg_timeout: <integer>
+          conn_ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
 '''
 
 RETURN = '''
@@ -170,21 +188,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/connector'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/connector/{connector}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -199,9 +210,13 @@ def main():
                 'conn-refresh-interval': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'cloud-orchest-refresh-interval': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'faznotify-msg-queue-max': {'v_range': [['7.4.2', '']], 'type': 'int'},
-                'faznotify-msg-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                'faznotify-msg-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'},
+                'conn-ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -215,9 +230,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

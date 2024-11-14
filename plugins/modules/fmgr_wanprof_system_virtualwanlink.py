@@ -84,38 +84,38 @@ options:
         required: false
         type: dict
         suboptions:
-            fail-detect:
+            fail_detect:
                 type: str
-                description: Deprecated, please rename it to fail_detect. Enable/disable SD-WAN Internet connection status checking
+                description: Enable/disable SD-WAN Internet connection status checking
                 choices:
                     - 'disable'
                     - 'enable'
-            health-check:
+            health_check:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to health_check. Health check.
+                description: Health check.
                 suboptions:
-                    _dynamic-server:
+                    _dynamic_server:
                         type: str
-                        description: Deprecated, please rename it to _dynamic_server. Dynamic server.
-                    addr-mode:
+                        description: Dynamic server.
+                    addr_mode:
                         type: str
-                        description: Deprecated, please rename it to addr_mode. Address mode
+                        description: Address mode
                         choices:
                             - 'ipv4'
                             - 'ipv6'
                     failtime:
                         type: int
                         description: Number of failures before server is considered lost
-                    http-agent:
+                    http_agent:
                         type: str
-                        description: Deprecated, please rename it to http_agent. String in the http-agent field in the HTTP header.
-                    http-get:
+                        description: String in the http-agent field in the HTTP header.
+                    http_get:
                         type: str
-                        description: Deprecated, please rename it to http_get. URL used to communicate with the server if the protocol if the protocol ...
-                    http-match:
+                        description: URL used to communicate with the server if the protocol if the protocol is HTTP.
+                    http_match:
                         type: str
-                        description: Deprecated, please rename it to http_match. Response string expected from the server if the protocol is HTTP.
+                        description: Response string expected from the server if the protocol is HTTP.
                     interval:
                         type: int
                         description: Status check interval, or the time between attempting to connect to the server
@@ -125,9 +125,9 @@ options:
                     name:
                         type: str
                         description: Status check or health check name.
-                    packet-size:
+                    packet_size:
                         type: int
-                        description: Deprecated, please rename it to packet_size. Packet size of a twamp test session,
+                        description: Packet size of a twamp test session,
                     password:
                         type: raw
                         description: (list) Twamp controller password in authentication mode
@@ -148,9 +148,9 @@ options:
                     recoverytime:
                         type: int
                         description: Number of successful responses received before server is considered recovered
-                    security-mode:
+                    security_mode:
                         type: str
-                        description: Deprecated, please rename it to security_mode. Twamp controller security mode.
+                        description: Twamp controller security mode.
                         choices:
                             - 'none'
                             - 'authentication'
@@ -165,95 +165,95 @@ options:
                             id:
                                 type: int
                                 description: SLA ID.
-                            jitter-threshold:
+                            jitter_threshold:
                                 type: int
-                                description: Deprecated, please rename it to jitter_threshold. Jitter for SLA to make decision in milliseconds.
-                            latency-threshold:
+                                description: Jitter for SLA to make decision in milliseconds.
+                            latency_threshold:
                                 type: int
-                                description: Deprecated, please rename it to latency_threshold. Latency for SLA to make decision in milliseconds.
-                            link-cost-factor:
+                                description: Latency for SLA to make decision in milliseconds.
+                            link_cost_factor:
                                 type: list
                                 elements: str
-                                description: Deprecated, please rename it to link_cost_factor. Criteria on which to base link selection.
+                                description: Criteria on which to base link selection.
                                 choices:
                                     - 'latency'
                                     - 'jitter'
                                     - 'packet-loss'
-                            packetloss-threshold:
+                            packetloss_threshold:
                                 type: int
-                                description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
-                    threshold-alert-jitter:
+                                description: Packet loss for SLA to make decision in percentage.
+                    threshold_alert_jitter:
                         type: int
-                        description: Deprecated, please rename it to threshold_alert_jitter. Alert threshold for jitter
-                    threshold-alert-latency:
+                        description: Alert threshold for jitter
+                    threshold_alert_latency:
                         type: int
-                        description: Deprecated, please rename it to threshold_alert_latency. Alert threshold for latency
-                    threshold-alert-packetloss:
+                        description: Alert threshold for latency
+                    threshold_alert_packetloss:
                         type: int
-                        description: Deprecated, please rename it to threshold_alert_packetloss. Alert threshold for packet loss
-                    threshold-warning-jitter:
+                        description: Alert threshold for packet loss
+                    threshold_warning_jitter:
                         type: int
-                        description: Deprecated, please rename it to threshold_warning_jitter. Warning threshold for jitter
-                    threshold-warning-latency:
+                        description: Warning threshold for jitter
+                    threshold_warning_latency:
                         type: int
-                        description: Deprecated, please rename it to threshold_warning_latency. Warning threshold for latency
-                    threshold-warning-packetloss:
+                        description: Warning threshold for latency
+                    threshold_warning_packetloss:
                         type: int
-                        description: Deprecated, please rename it to threshold_warning_packetloss. Warning threshold for packet loss
-                    update-cascade-interface:
+                        description: Warning threshold for packet loss
+                    update_cascade_interface:
                         type: str
-                        description: Deprecated, please rename it to update_cascade_interface. Enable/disable update cascade interface.
+                        description: Enable/disable update cascade interface.
                         choices:
                             - 'disable'
                             - 'enable'
-                    update-static-route:
+                    update_static_route:
                         type: str
-                        description: Deprecated, please rename it to update_static_route. Enable/disable updating the static route.
+                        description: Enable/disable updating the static route.
                         choices:
                             - 'disable'
                             - 'enable'
-                    internet-service-id:
+                    internet_service_id:
                         type: str
-                        description: Deprecated, please rename it to internet_service_id. Internet service ID.
-                    probe-packets:
+                        description: Internet service ID.
+                    probe_packets:
                         type: str
-                        description: Deprecated, please rename it to probe_packets. Enable/disable transmission of probe packets.
+                        description: Enable/disable transmission of probe packets.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sla-fail-log-period:
+                    sla_fail_log_period:
                         type: int
-                        description: Deprecated, please rename it to sla_fail_log_period. Time interval in seconds that SLA fail log messages will be g...
-                    sla-pass-log-period:
+                        description: Time interval in seconds that SLA fail log messages will be generated
+                    sla_pass_log_period:
                         type: int
-                        description: Deprecated, please rename it to sla_pass_log_period. Time interval in seconds that SLA pass log messages will be g...
+                        description: Time interval in seconds that SLA pass log messages will be generated
                     timeout:
                         type: int
                         description: How long to wait before not receiving a reply from the server to consider the connetion attempt a failure
-                    ha-priority:
+                    ha_priority:
                         type: int
-                        description: Deprecated, please rename it to ha_priority. HA election priority
+                        description: HA election priority
                     diffservcode:
                         type: str
                         description: Differentiated services code point
-                    probe-timeout:
+                    probe_timeout:
                         type: int
-                        description: Deprecated, please rename it to probe_timeout. Time to wait before a probe packet is considered lost
-                    dns-request-domain:
+                        description: Time to wait before a probe packet is considered lost
+                    dns_request_domain:
                         type: str
-                        description: Deprecated, please rename it to dns_request_domain. Fully qualified domain name to resolve for the DNS probe.
-                    probe-count:
+                        description: Fully qualified domain name to resolve for the DNS probe.
+                    probe_count:
                         type: int
-                        description: Deprecated, please rename it to probe_count. Number of most recent probes that should be used to calculate latency...
-                    system-dns:
+                        description: Number of most recent probes that should be used to calculate latency and jitter
+                    system_dns:
                         type: str
-                        description: Deprecated, please rename it to system_dns. Enable/disable system DNS as the probe server.
+                        description: Enable/disable system DNS as the probe server.
                         choices:
                             - 'disable'
                             - 'enable'
-            load-balance-mode:
+            load_balance_mode:
                 type: str
-                description: Deprecated, please rename it to load_balance_mode. Algorithm or mode to use for load balancing Internet traffic to SD-WAN ...
+                description: Algorithm or mode to use for load balancing Internet traffic to SD-WAN members.
                 choices:
                     - 'source-ip-based'
                     - 'weight-based'
@@ -265,9 +265,9 @@ options:
                 elements: dict
                 description: Members.
                 suboptions:
-                    _dynamic-member:
+                    _dynamic_member:
                         type: str
-                        description: Deprecated, please rename it to _dynamic_member. Dynamic member.
+                        description: Dynamic member.
                     comment:
                         type: str
                         description: Comments.
@@ -277,36 +277,36 @@ options:
                     gateway6:
                         type: str
                         description: IPv6 gateway.
-                    ingress-spillover-threshold:
+                    ingress_spillover_threshold:
                         type: int
-                        description: Deprecated, please rename it to ingress_spillover_threshold. Ingress spillover threshold for this interface
+                        description: Ingress spillover threshold for this interface
                     interface:
                         type: str
                         description: Interface name.
                     priority:
                         type: int
                         description: Priority of the interface
-                    seq-num:
+                    seq_num:
                         type: int
-                        description: Deprecated, please rename it to seq_num. Sequence number
+                        description: Sequence number
                     source:
                         type: str
                         description: Source IP address used in the health-check packet to the server.
                     source6:
                         type: str
                         description: Source IPv6 address used in the health-check packet to the server.
-                    spillover-threshold:
+                    spillover_threshold:
                         type: int
-                        description: Deprecated, please rename it to spillover_threshold. Egress spillover threshold for this interface
+                        description: Egress spillover threshold for this interface
                     status:
                         type: str
                         description: Enable/disable this interface in the SD-WAN.
                         choices:
                             - 'disable'
                             - 'enable'
-                    volume-ratio:
+                    volume_ratio:
                         type: int
-                        description: Deprecated, please rename it to volume_ratio. Measured volume ratio
+                        description: Measured volume ratio
                     weight:
                         type: int
                         description: Weight of this interface for weighted load balancing.
@@ -318,54 +318,54 @@ options:
                 elements: dict
                 description: Service.
                 suboptions:
-                    addr-mode:
+                    addr_mode:
                         type: str
-                        description: Deprecated, please rename it to addr_mode. Address mode
+                        description: Address mode
                         choices:
                             - 'ipv4'
                             - 'ipv6'
-                    bandwidth-weight:
+                    bandwidth_weight:
                         type: int
-                        description: Deprecated, please rename it to bandwidth_weight. Coefficient of reciprocal of available bidirectional bandwidth i...
+                        description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
                     default:
                         type: str
                         description: Enable/disable use of SD-WAN as default service.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dscp-forward:
+                    dscp_forward:
                         type: str
-                        description: Deprecated, please rename it to dscp_forward. Enable/disable forward traffic DSCP tag.
+                        description: Enable/disable forward traffic DSCP tag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dscp-forward-tag:
+                    dscp_forward_tag:
                         type: str
-                        description: Deprecated, please rename it to dscp_forward_tag. Forward traffic DSCP tag.
-                    dscp-reverse:
+                        description: Forward traffic DSCP tag.
+                    dscp_reverse:
                         type: str
-                        description: Deprecated, please rename it to dscp_reverse. Enable/disable reverse traffic DSCP tag.
+                        description: Enable/disable reverse traffic DSCP tag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dscp-reverse-tag:
+                    dscp_reverse_tag:
                         type: str
-                        description: Deprecated, please rename it to dscp_reverse_tag. Reverse traffic DSCP tag.
+                        description: Reverse traffic DSCP tag.
                     dst:
                         type: raw
                         description: (list or str) Destination address name.
-                    dst-negate:
+                    dst_negate:
                         type: str
-                        description: Deprecated, please rename it to dst_negate. Enable/disable negation of destination address match.
+                        description: Enable/disable negation of destination address match.
                         choices:
                             - 'disable'
                             - 'enable'
                     dst6:
                         type: raw
                         description: (list or str) Destination address6 name.
-                    end-port:
+                    end_port:
                         type: int
-                        description: Deprecated, please rename it to end_port. End destination port number.
+                        description: End destination port number.
                     gateway:
                         type: str
                         description: Enable/disable SD-WAN service gateway.
@@ -375,48 +375,48 @@ options:
                     groups:
                         type: raw
                         description: (list or str) User groups.
-                    health-check:
+                    health_check:
                         type: str
-                        description: Deprecated, please rename it to health_check. Health check.
-                    hold-down-time:
+                        description: Health check.
+                    hold_down_time:
                         type: int
-                        description: Deprecated, please rename it to hold_down_time. Waiting period in seconds when switching from the back-up member t...
+                        description: Waiting period in seconds when switching from the back-up member to the primary member
                     id:
                         type: int
                         description: Priority rule ID
-                    internet-service:
+                    internet_service:
                         type: str
-                        description: Deprecated, please rename it to internet_service. Enable/disable use of Internet service for application-based loa...
+                        description: Enable/disable use of Internet service for application-based load balancing.
                         choices:
                             - 'disable'
                             - 'enable'
-                    internet-service-ctrl:
+                    internet_service_ctrl:
                         type: raw
-                        description: (list) Deprecated, please rename it to internet_service_ctrl. Control-based Internet Service ID list.
-                    internet-service-ctrl-group:
+                        description: (list) Control-based Internet Service ID list.
+                    internet_service_ctrl_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_ctrl_group. Control-based Internet Service group list.
-                    internet-service-custom:
+                        description: (list or str) Control-based Internet Service group list.
+                    internet_service_custom:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_custom. Custom Internet service name list.
-                    internet-service-custom-group:
+                        description: (list or str) Custom Internet service name list.
+                    internet_service_custom_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_custom_group. Custom Internet Service group list.
-                    internet-service-group:
+                        description: (list or str) Custom Internet Service group list.
+                    internet_service_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_group. Internet Service group list.
-                    internet-service-id:
+                        description: (list or str) Internet Service group list.
+                    internet_service_id:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_id. Internet service ID list.
-                    jitter-weight:
+                        description: (list or str) Internet service ID list.
+                    jitter_weight:
                         type: int
-                        description: Deprecated, please rename it to jitter_weight. Coefficient of jitter in the formula of custom-profile-1.
-                    latency-weight:
+                        description: Coefficient of jitter in the formula of custom-profile-1.
+                    latency_weight:
                         type: int
-                        description: Deprecated, please rename it to latency_weight. Coefficient of latency in the formula of custom-profile-1.
-                    link-cost-factor:
+                        description: Coefficient of latency in the formula of custom-profile-1.
+                    link_cost_factor:
                         type: str
-                        description: Deprecated, please rename it to link_cost_factor. Link cost factor.
+                        description: Link cost factor.
                         choices:
                             - 'latency'
                             - 'jitter'
@@ -425,9 +425,9 @@ options:
                             - 'outbandwidth'
                             - 'bibandwidth'
                             - 'custom-profile-1'
-                    link-cost-threshold:
+                    link_cost_threshold:
                         type: int
-                        description: Deprecated, please rename it to link_cost_threshold. Percentage threshold change of link cost values that will res...
+                        description: Percentage threshold change of link cost values that will result in policy route regeneration
                     member:
                         type: str
                         description: Member sequence number.
@@ -443,47 +443,47 @@ options:
                     name:
                         type: str
                         description: Priority rule name.
-                    packet-loss-weight:
+                    packet_loss_weight:
                         type: int
-                        description: Deprecated, please rename it to packet_loss_weight. Coefficient of packet-loss in the formula of custom-profile-1.
-                    priority-members:
+                        description: Coefficient of packet-loss in the formula of custom-profile-1.
+                    priority_members:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to priority_members. Member sequence number list.
+                        description: (list or str) Member sequence number list.
                     protocol:
                         type: int
                         description: Protocol number.
-                    quality-link:
+                    quality_link:
                         type: int
-                        description: Deprecated, please rename it to quality_link. Quality grade.
-                    route-tag:
+                        description: Quality grade.
+                    route_tag:
                         type: int
-                        description: Deprecated, please rename it to route_tag. IPv4 route map route-tag.
+                        description: IPv4 route map route-tag.
                     sla:
                         type: list
                         elements: dict
                         description: Sla.
                         suboptions:
-                            health-check:
+                            health_check:
                                 type: str
-                                description: Deprecated, please rename it to health_check. Virtual WAN Link health-check.
+                                description: Virtual WAN Link health-check.
                             id:
                                 type: int
                                 description: SLA ID.
                     src:
                         type: raw
                         description: (list or str) Source address name.
-                    src-negate:
+                    src_negate:
                         type: str
-                        description: Deprecated, please rename it to src_negate. Enable/disable negation of source address match.
+                        description: Enable/disable negation of source address match.
                         choices:
                             - 'disable'
                             - 'enable'
                     src6:
                         type: raw
                         description: (list or str) Source address6 name.
-                    start-port:
+                    start_port:
                         type: int
-                        description: Deprecated, please rename it to start_port. Start destination port number.
+                        description: Start destination port number.
                     status:
                         type: str
                         description: Enable/disable SD-WAN service.
@@ -493,18 +493,18 @@ options:
                     tos:
                         type: str
                         description: Type of service bit pattern.
-                    tos-mask:
+                    tos_mask:
                         type: str
-                        description: Deprecated, please rename it to tos_mask. Type of service evaluated bits.
+                        description: Type of service evaluated bits.
                     users:
                         type: raw
                         description: (list or str) User name.
-                    internet-service-app-ctrl:
+                    internet_service_app_ctrl:
                         type: raw
-                        description: (list) Deprecated, please rename it to internet_service_app_ctrl. Application control based Internet Service ID list.
-                    internet-service-app-ctrl-group:
+                        description: (list) Application control based Internet Service ID list.
+                    internet_service_app_ctrl_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to internet_service_app_ctrl_group. Application control based Internet ...
+                        description: (list or str) Application control based Internet Service group list.
                     role:
                         type: str
                         description: Service role to work with neighbor.
@@ -512,27 +512,27 @@ options:
                             - 'primary'
                             - 'secondary'
                             - 'standalone'
-                    sla-compare-method:
+                    sla_compare_method:
                         type: str
-                        description: Deprecated, please rename it to sla_compare_method. Method to compare SLA value for sla and load balance mode.
+                        description: Method to compare SLA value for sla and load balance mode.
                         choices:
                             - 'order'
                             - 'number'
-                    standalone-action:
+                    standalone_action:
                         type: str
-                        description: Deprecated, please rename it to standalone_action. Enable/disable service when selected neighbor role is standalon...
+                        description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
                         choices:
                             - 'disable'
                             - 'enable'
-                    input-device:
+                    input_device:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to input_device. Source interface name.
-                    internet-service-name:
+                        description: (list or str) Source interface name.
+                    internet_service_name:
                         type: str
-                        description: Deprecated, please rename it to internet_service_name. Internet service name list.
-                    input-device-negate:
+                        description: Internet service name list.
+                    input_device_negate:
                         type: str
-                        description: Deprecated, please rename it to input_device_negate. Enable/disable negation of input device match.
+                        description: Enable/disable negation of input device match.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -547,9 +547,9 @@ options:
                 elements: dict
                 description: Neighbor.
                 suboptions:
-                    health-check:
+                    health_check:
                         type: str
-                        description: Deprecated, please rename it to health_check. SD-WAN health-check name.
+                        description: SD-WAN health-check name.
                     ip:
                         type: str
                         description: IP address of neighbor.
@@ -563,24 +563,24 @@ options:
                             - 'primary'
                             - 'secondary'
                             - 'standalone'
-                    sla-id:
+                    sla_id:
                         type: int
-                        description: Deprecated, please rename it to sla_id. SLA ID.
-            neighbor-hold-boot-time:
+                        description: SLA ID.
+            neighbor_hold_boot_time:
                 type: int
-                description: Deprecated, please rename it to neighbor_hold_boot_time. Waiting period in seconds when switching from the primary neighbo...
-            neighbor-hold-down:
+                description: Waiting period in seconds when switching from the primary neighbor to the secondary neighbor from the neighbor start.
+            neighbor_hold_down:
                 type: str
-                description: Deprecated, please rename it to neighbor_hold_down. Enable/disable hold switching from the secondary neighbor to the prima...
+                description: Enable/disable hold switching from the secondary neighbor to the primary neighbor.
                 choices:
                     - 'disable'
                     - 'enable'
-            neighbor-hold-down-time:
+            neighbor_hold_down_time:
                 type: int
-                description: Deprecated, please rename it to neighbor_hold_down_time. Waiting period in seconds when switching from the secondary neigh...
-            fail-alert-interfaces:
+                description: Waiting period in seconds when switching from the secondary neighbor to the primary neighbor when hold-down is disabled.
+            fail_alert_interfaces:
                 type: raw
-                description: (list) Deprecated, please rename it to fail_alert_interfaces. Physical interfaces that will be alerted.
+                description: (list) Physical interfaces that will be alerted.
 '''
 
 EXAMPLES = '''
@@ -627,9 +627,9 @@ EXAMPLES = '''
                   jitter_threshold: <integer>
                   latency_threshold: <integer>
                   link_cost_factor:
-                    - latency
-                    - jitter
-                    - packet-loss
+                    - "latency"
+                    - "jitter"
+                    - "packet-loss"
                   packetloss_threshold: <integer>
               threshold_alert_jitter: <integer>
               threshold_alert_latency: <integer>
@@ -780,21 +780,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/{virtual-wan-link}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = None
     module_arg_spec = {
@@ -808,7 +801,7 @@ def main():
                 'health-check': {
                     'type': 'list',
                     'options': {
-                        '_dynamic-server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                        '_dynamic-server': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                         'addr-mode': {'choices': ['ipv4', 'ipv6'], 'type': 'str'},
                         'failtime': {'type': 'int'},
                         'http-agent': {'type': 'str'},
@@ -847,7 +840,7 @@ def main():
                         'probe-packets': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sla-fail-log-period': {'v_range': [['6.2.0', '']], 'type': 'int'},
                         'sla-pass-log-period': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'int'},
-                        'timeout': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
+                        'timeout': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
                         'ha-priority': {'v_range': [['6.2.2', '']], 'type': 'int'},
                         'diffservcode': {'v_range': [['6.2.5', '']], 'type': 'str'},
                         'probe-timeout': {'v_range': [['6.2.5', '']], 'type': 'int'},
@@ -864,7 +857,7 @@ def main():
                 'members': {
                     'type': 'list',
                     'options': {
-                        '_dynamic-member': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                        '_dynamic-member': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                         'comment': {'type': 'str'},
                         'gateway': {'type': 'str'},
                         'gateway6': {'type': 'str'},
@@ -961,7 +954,6 @@ def main():
                 'neighbor-hold-down-time': {'v_range': [['6.2.1', '']], 'type': 'int'},
                 'fail-alert-interfaces': {'v_range': [['7.2.3', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -975,9 +967,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

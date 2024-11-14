@@ -121,9 +121,9 @@ options:
             log_file_retention_hours:
                 type: int
                 description: Log file retention hours.
-            meta fields:
+            meta_fields:
                 type: dict
-                description: Deprecated, please rename it to meta_fields. Default metafields
+                description: Default metafields
             mig_mr:
                 type: int
                 description: Mig mr.
@@ -278,19 +278,19 @@ EXAMPLES = '''
         dvmdb_adom:
           desc: <string>
           flags:
-            - migration
-            - db_export
-            - no_vpn_console
-            - backup
-            - other_devices
-            - central_sdwan
-            - is_autosync
-            - per_device_wtp
-            - policy_check_on_install
-            - install_on_policy_check_fail
-            - auto_push_cfg
-            - per_device_fsw
-            - install_deselect_all
+            - "migration"
+            - "db_export"
+            - "no_vpn_console"
+            - "backup"
+            - "other_devices"
+            - "central_sdwan"
+            - "is_autosync"
+            - "per_device_wtp"
+            - "policy_check_on_install"
+            - "install_on_policy_check_fail"
+            - "auto_push_cfg"
+            - "per_device_fsw"
+            - "install_deselect_all"
           log_db_retention_hours: <integer>
           log_disk_quota: <integer>
           log_disk_quota_alert_thres: <integer>
@@ -304,37 +304,37 @@ EXAMPLES = '''
           name: <string>
           os_ver: <value in [unknown, 0.0, 1.0, ...]>
           restricted_prds: # <list or string>
-            - fos
-            - foc
-            - fml
-            - fch
-            - fwb
-            - log
-            - fct
-            - faz
-            - fsa
-            - fsw
-            - fmg
-            - fdd
-            - fac
-            - fpx
-            - fna
-            - fdc
-            - ffw
-            - fsr
-            - fad
-            - fap
-            - fxt
-            - fts
-            - fai
-            - fwc
-            - fis
-            - fed
-            - fabric
-            - fpa
-            - fca
-            - ftc
-            - fss
+            - "fos"
+            - "foc"
+            - "fml"
+            - "fch"
+            - "fwb"
+            - "log"
+            - "fct"
+            - "faz"
+            - "fsa"
+            - "fsw"
+            - "fmg"
+            - "fdd"
+            - "fac"
+            - "fpx"
+            - "fna"
+            - "fdc"
+            - "ffw"
+            - "fsr"
+            - "fad"
+            - "fap"
+            - "fxt"
+            - "fts"
+            - "fai"
+            - "fwc"
+            - "fis"
+            - "fed"
+            - "fabric"
+            - "fpa"
+            - "fca"
+            - "ftc"
+            - "fss"
           state: <integer>
           uuid: <string>
           create_time: <integer>
@@ -394,21 +394,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/dvmdb/adom'
     ]
-
-    perobject_jrpc_urls = [
-        '/dvmdb/adom/{adom}'
-    ]
-
     url_params = []
     module_primary_key = 'name'
     module_arg_spec = {
@@ -461,7 +454,6 @@ def main():
                 'secondary_dns_ip6_3': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'secondary_dns_ip6_4': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -475,9 +467,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

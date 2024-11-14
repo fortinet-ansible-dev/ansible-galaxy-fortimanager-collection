@@ -104,22 +104,22 @@ options:
             comment:
                 type: str
                 description: Comment.
-            concurrent-client-limit-type:
+            concurrent_client_limit_type:
                 type: str
-                description: Deprecated, please rename it to concurrent_client_limit_type. MPSK client limit type options.
+                description: MPSK client limit type options.
                 choices:
                     - 'default'
                     - 'unlimited'
                     - 'specified'
-            concurrent-clients:
+            concurrent_clients:
                 type: int
-                description: Deprecated, please rename it to concurrent_clients. Number of clients that can connect using this pre-shared key
+                description: Number of clients that can connect using this pre-shared key
             mac:
                 type: str
                 description: MAC address.
-            mpsk-schedules:
+            mpsk_schedules:
                 type: raw
-                description: (list or str) Deprecated, please rename it to mpsk_schedules. Firewall schedule for MPSK passphrase.
+                description: (list or str) Firewall schedule for MPSK passphrase.
             name:
                 type: str
                 description: Pre-shared key name.
@@ -130,24 +130,24 @@ options:
             pmk:
                 type: raw
                 description: (list) WPA PMK.
-            key-type:
+            key_type:
                 type: str
-                description: Deprecated, please rename it to key_type. Select the type of the key.
+                description: Select the type of the key.
                 choices:
                     - 'wpa2-personal'
                     - 'wpa3-sae'
-            sae-password:
+            sae_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sae_password. WPA3 SAE password.
-            sae-pk:
+                description: (list) WPA3 SAE password.
+            sae_pk:
                 type: str
-                description: Deprecated, please rename it to sae_pk. Enable/disable WPA3 SAE-PK
+                description: Enable/disable WPA3 SAE-PK
                 choices:
                     - 'disable'
                     - 'enable'
-            sae-private-key:
+            sae_private_key:
                 type: str
-                description: Deprecated, please rename it to sae_private_key. Private key used for WPA3 SAE-PK authentication.
+                description: Private key used for WPA3 SAE-PK authentication.
 '''
 
 EXAMPLES = '''
@@ -226,23 +226,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key',
         '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}',
-        '/pm/config/global/obj/wireless-controller/mpsk-profile/{mpsk-profile}/mpsk-group/{mpsk-group}/mpsk-key/{mpsk-key}'
-    ]
-
     url_params = ['adom', 'mpsk-profile', 'mpsk-group']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -269,7 +261,6 @@ def main():
                 'sae-pk': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sae-private-key': {'v_range': [['7.4.3', '']], 'no_log': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -283,9 +274,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

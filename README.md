@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.7.0 - configuring FortiManager
+# fortinet.fortimanager:2.8.0 - configuring FortiManager
 
 ## Description
 
@@ -38,10 +38,10 @@ To upgrade the collection to the latest available version, run the following com
 ansible-galaxy collection install fortinet.fortimanager --upgrade
 ```
 
-You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 1.0.0:
+You can also install a specific version of the collection, for example, if you need to downgrade when something is broken in the latest version (please report an issue in this repository). Use the following syntax to install version 2.0.0:
 
 ```
-ansible-galaxy collection install fortinet.fortimanager:==2.6.0
+ansible-galaxy collection install fortinet.fortimanager:==2.0.0
 ```
 
 See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guide/collections_using.html) for more details.
@@ -689,6 +689,7 @@ The collection provides the following modules:
 * `fmgr_pkg_header_policy6`  Configure IPv6 policies.
 * `fmgr_pkg_header_shapingpolicy`  Configure shaping policies.
 * `fmgr_pkg_user_nacpolicy`  Configure NAC policy matching pattern to identify matching NAC devices.
+* `fmgr_pkg_videofilter_youtubekey`  Configure YouTube API keys.
 * `fmgr_pm_config_meta_reference`  Meta reference.
 * `fmgr_pm_config_metafields_firewall_address`  Meta fields firewall address.
 * `fmgr_pm_config_metafields_firewall_addrgrp`  Meta fields firewall addrgrp.

@@ -95,9 +95,9 @@ options:
             description:
                 type: str
                 description: Description.
-            dev-group:
+            dev_group:
                 type: raw
-                description: (list) Deprecated, please rename it to dev_group. Dev group.
+                description: (list) Dev group.
             folder:
                 type: str
                 description: Folder.
@@ -111,67 +111,67 @@ options:
             platform:
                 type: str
                 description: Platform.
-            prefer-img-ver:
+            prefer_img_ver:
                 type: str
-                description: Deprecated, please rename it to prefer_img_ver. Prefer img ver.
-            prerun-cliprof:
+                description: Prefer img ver.
+            prerun_cliprof:
                 type: raw
-                description: (list) Deprecated, please rename it to prerun_cliprof. Prerun cliprof.
-            prov-type:
+                description: (list) Prerun cliprof.
+            prov_type:
                 type: str
-                description: Deprecated, please rename it to prov_type. Prov type.
+                description: Prov type.
                 choices:
                     - 'none'
                     - 'templates'
                     - 'template-group'
-            template-group:
+            template_group:
                 type: str
-                description: Deprecated, please rename it to template_group. Template group.
+                description: Template group.
             templates:
                 type: raw
                 description: (list) Templates.
-            enforce-device-config:
+            enforce_device_config:
                 type: str
-                description: Deprecated, please rename it to enforce_device_config. Enforce device config.
+                description: Enforce device config.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-template:
+            auth_template:
                 type: raw
-                description: (list) Deprecated, please rename it to auth_template. Auth template.
-            ha-config:
+                description: (list) Auth template.
+            ha_config:
                 type: str
-                description: Deprecated, please rename it to ha_config. Ha config.
+                description: Ha config.
                 choices:
                     - 'disable'
                     - 'enable'
-            ha-hbdev:
+            ha_hbdev:
                 type: str
-                description: Deprecated, please rename it to ha_hbdev. Ha hbdev.
-            ha-monitor:
+                description: Ha hbdev.
+            ha_monitor:
                 type: raw
-                description: (list) Deprecated, please rename it to ha_monitor. Ha monitor.
-            ha-password:
+                description: (list) Ha monitor.
+            ha_password:
                 type: raw
-                description: (list) Deprecated, please rename it to ha_password. Ha password.
-            linked-to-model:
+                description: (list) Ha password.
+            linked_to_model:
                 type: str
-                description: Deprecated, please rename it to linked_to_model. Linked to model.
+                description: Linked to model.
                 choices:
                     - 'disable'
                     - 'enable'
-            port-provisioning:
+            port_provisioning:
                 type: int
-                description: Deprecated, please rename it to port_provisioning. Port provisioning.
-            sdwan-management:
+                description: Port provisioning.
+            sdwan_management:
                 type: str
-                description: Deprecated, please rename it to sdwan_management. Sdwan management.
+                description: Sdwan management.
                 choices:
                     - 'disable'
                     - 'enable'
-            split-switch-port:
+            split_switch_port:
                 type: str
-                description: Deprecated, please rename it to split_switch_port. Split switch port.
+                description: Split switch port.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -261,23 +261,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fmg/device/blueprint',
         '/pm/config/global/obj/fmg/device/blueprint'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fmg/device/blueprint/{blueprint}',
-        '/pm/config/global/obj/fmg/device/blueprint/{blueprint}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -298,18 +290,17 @@ def main():
                 'prov-type': {'v_range': [['7.2.0', '']], 'choices': ['none', 'templates', 'template-group'], 'type': 'str'},
                 'template-group': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'templates': {'v_range': [['7.2.0', '']], 'type': 'raw'},
-                'enforce-device-config': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'enforce-device-config': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-template': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-config': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'ha-monitor': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'port-provisioning': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'port-provisioning': {'v_range': [['7.4.4', '']], 'type': 'int'},
                 'sdwan-management': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'split-switch-port': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'split-switch-port': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -323,9 +314,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

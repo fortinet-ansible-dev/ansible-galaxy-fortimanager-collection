@@ -104,69 +104,69 @@ options:
                     - 'accept'
                     - 'ipsec'
                     - 'ssl-vpn'
-            anti-replay:
+            anti_replay:
                 type: str
-                description: Deprecated, please rename it to anti_replay. Enable/disable anti-replay check.
+                description: Enable/disable anti-replay check.
                 choices:
                     - 'disable'
                     - 'enable'
-            app-category:
+            app_category:
                 type: raw
-                description: (list) Deprecated, please rename it to app_category. Application category ID list.
-            app-group:
+                description: (list) Application category ID list.
+            app_group:
                 type: raw
-                description: (list) Deprecated, please rename it to app_group. Application group names.
+                description: (list) Application group names.
             application:
                 type: raw
                 description: (list) Application ID list.
-            application-list:
+            application_list:
                 type: str
-                description: Deprecated, please rename it to application_list. Name of an existing Application list.
-            auto-asic-offload:
+                description: Name of an existing Application list.
+            auto_asic_offload:
                 type: str
-                description: Deprecated, please rename it to auto_asic_offload. Enable/disable policy traffic ASIC offloading.
+                description: Enable/disable policy traffic ASIC offloading.
                 choices:
                     - 'disable'
                     - 'enable'
-            av-profile:
+            av_profile:
                 type: str
-                description: Deprecated, please rename it to av_profile. Name of an existing Antivirus profile.
-            cgn-log-server-grp:
+                description: Name of an existing Antivirus profile.
+            cgn_log_server_grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp. Cgn log server grp.
-            cifs-profile:
+                description: Cgn log server grp.
+            cifs_profile:
                 type: str
-                description: Deprecated, please rename it to cifs_profile. Name of an existing CIFS profile.
+                description: Name of an existing CIFS profile.
             comments:
                 type: str
                 description: Comment.
-            custom-log-fields:
+            custom_log_fields:
                 type: raw
-                description: (list) Deprecated, please rename it to custom_log_fields. Log field index numbers to append custom log fields to log messa...
-            diffserv-forward:
+                description: (list) Log field index numbers to append custom log fields to log messages for this policy.
+            diffserv_forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward. Enable to change packets DiffServ values to the specified diffservcode-f...
+                description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffserv-reverse:
+            diffserv_reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse. Enable to change packets reverse
+                description: Enable to change packets reverse
                 choices:
                     - 'disable'
                     - 'enable'
-            diffservcode-forward:
+            diffservcode_forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward. Change packets DiffServ to this value.
-            diffservcode-rev:
+                description: Change packets DiffServ to this value.
+            diffservcode_rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev. Change packets reverse
-            dlp-sensor:
+                description: Change packets reverse
+            dlp_sensor:
                 type: str
-                description: Deprecated, please rename it to dlp_sensor. Name of an existing DLP sensor.
-            dnsfilter-profile:
+                description: Name of an existing DLP sensor.
+            dnsfilter_profile:
                 type: str
-                description: Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
+                description: Name of an existing DNS filter profile.
             dsri:
                 type: str
                 description: Enable DSRI to ignore HTTP server responses.
@@ -176,21 +176,21 @@ options:
             dstaddr:
                 type: raw
                 description: (list) Destination address and address group names.
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr specifies what the destination address must NOT be.
+                description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             dstintf:
                 type: raw
                 description: (list) Outgoing
-            emailfilter-profile:
+            emailfilter_profile:
                 type: str
-                description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
-            firewall-session-dirty:
+                description: Name of an existing email filter profile.
+            firewall_session_dirty:
                 type: str
-                description: Deprecated, please rename it to firewall_session_dirty. How to handle sessions if the configuration of this firewall polic...
+                description: How to handle sessions if the configuration of this firewall policy changes.
                 choices:
                     - 'check-all'
                     - 'check-new'
@@ -200,33 +200,33 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            fsso-groups:
+            fsso_groups:
                 type: raw
-                description: (list) Deprecated, please rename it to fsso_groups. Names of FSSO groups.
-            global-label:
+                description: (list) Names of FSSO groups.
+            global_label:
                 type: str
-                description: Deprecated, please rename it to global_label. Label for the policy that appears when the GUI is in Global View mode.
+                description: Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
                 description: (list) Names of user groups that can authenticate with this policy.
-            http-policy-redirect:
+            http_policy_redirect:
                 type: str
-                description: Deprecated, please rename it to http_policy_redirect. Redirect HTTP
+                description: Redirect HTTP
                 choices:
                     - 'disable'
                     - 'enable'
-            icap-profile:
+            icap_profile:
                 type: str
-                description: Deprecated, please rename it to icap_profile. Name of an existing ICAP profile.
+                description: Name of an existing ICAP profile.
             inbound:
                 type: str
                 description: Policy-based IPsec VPN
                 choices:
                     - 'disable'
                     - 'enable'
-            inspection-mode:
+            inspection_mode:
                 type: str
-                description: Deprecated, please rename it to inspection_mode. Policy inspection mode
+                description: Policy inspection mode
                 choices:
                     - 'proxy'
                     - 'flow'
@@ -236,9 +236,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ips-sensor:
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. Name of an existing IPS sensor.
+                description: Name of an existing IPS sensor.
             label:
                 type: str
                 description: Label for the policy that appears when the GUI is in Section View mode.
@@ -250,15 +250,15 @@ options:
                     - 'enable'
                     - 'all'
                     - 'utm'
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Record logs when a session starts.
+                description: Record logs when a session starts.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-profile:
+            mms_profile:
                 type: str
-                description: Deprecated, please rename it to mms_profile. Name of an existing MMS profile.
+                description: Name of an existing MMS profile.
             name:
                 type: str
                 description: Policy name.
@@ -280,9 +280,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            np-acceleration:
+            np_acceleration:
                 type: str
-                description: Deprecated, please rename it to np_acceleration. Enable/disable UTM Network Processor acceleration.
+                description: Enable/disable UTM Network Processor acceleration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -292,12 +292,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper. Per-IP traffic shaper.
-            policy-offload:
+                description: Per-IP traffic shaper.
+            policy_offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload. Policy offload.
+                description: Policy offload.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -308,21 +308,21 @@ options:
             poolname:
                 type: raw
                 description: (list) IP Pool names.
-            profile-group:
+            profile_group:
                 type: str
-                description: Deprecated, please rename it to profile_group. Name of profile group.
-            profile-protocol-options:
+                description: Name of profile group.
+            profile_protocol_options:
                 type: str
-                description: Deprecated, please rename it to profile_protocol_options. Name of an existing Protocol options profile.
-            profile-type:
+                description: Name of an existing Protocol options profile.
+            profile_type:
                 type: str
-                description: Deprecated, please rename it to profile_type. Determine whether the firewall policy allows security profile groups or sing...
+                description: Determine whether the firewall policy allows security profile groups or single profiles only.
                 choices:
                     - 'single'
                     - 'group'
-            replacemsg-override-group:
+            replacemsg_override_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_override_group. Override the default replacement message group for this policy.
+                description: Override the default replacement message group for this policy.
             rsso:
                 type: str
                 description: Enable/disable RADIUS single sign-on
@@ -332,172 +332,172 @@ options:
             schedule:
                 type: str
                 description: Schedule name.
-            send-deny-packet:
+            send_deny_packet:
                 type: str
-                description: Deprecated, please rename it to send_deny_packet. Enable/disable return of deny-packet.
+                description: Enable/disable return of deny-packet.
                 choices:
                     - 'disable'
                     - 'enable'
             service:
                 type: raw
                 description: (list) Service and service group names.
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
+                description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
-            session-ttl:
+            session_ttl:
                 type: str
-                description: Deprecated, please rename it to session_ttl. Session TTL in seconds for sessions accepted by this policy.
+                description: Session TTL in seconds for sessions accepted by this policy.
             srcaddr:
                 type: raw
                 description: (list) Source address and address group names.
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr specifies what the source address must NOT be.
+                description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcintf:
                 type: raw
                 description: (list) Incoming
-            ssh-filter-profile:
+            ssh_filter_profile:
                 type: str
-                description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
-            ssh-policy-redirect:
+                description: Name of an existing SSH filter profile.
+            ssh_policy_redirect:
                 type: str
-                description: Deprecated, please rename it to ssh_policy_redirect. Redirect SSH traffic to matching transparent proxy policy.
+                description: Redirect SSH traffic to matching transparent proxy policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-mirror:
+            ssl_mirror:
                 type: str
-                description: Deprecated, please rename it to ssl_mirror. Enable to copy decrypted SSL traffic to a FortiGate interface
+                description: Enable to copy decrypted SSL traffic to a FortiGate interface
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-mirror-intf:
+            ssl_mirror_intf:
                 type: raw
-                description: (list) Deprecated, please rename it to ssl_mirror_intf. SSL mirror interface name.
-            ssl-ssh-profile:
+                description: (list) SSL mirror interface name.
+            ssl_ssh_profile:
                 type: str
-                description: Deprecated, please rename it to ssl_ssh_profile. Name of an existing SSL SSH profile.
+                description: Name of an existing SSL SSH profile.
             status:
                 type: str
                 description: Enable or disable this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-mss-receiver:
+            tcp_mss_receiver:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_receiver. Receiver TCP maximum segment size
-            tcp-mss-sender:
+                description: Receiver TCP maximum segment size
+            tcp_mss_sender:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_sender. Sender TCP maximum segment size
-            tcp-session-without-syn:
+                description: Sender TCP maximum segment size
+            tcp_session_without_syn:
                 type: str
-                description: Deprecated, please rename it to tcp_session_without_syn. Enable/disable creation of TCP session without SYN flag.
+                description: Enable/disable creation of TCP session without SYN flag.
                 choices:
                     - 'all'
                     - 'data-only'
                     - 'disable'
-            timeout-send-rst:
+            timeout_send_rst:
                 type: str
-                description: Deprecated, please rename it to timeout_send_rst. Enable/disable sending RST packets when TCP sessions expire.
+                description: Enable/disable sending RST packets when TCP sessions expire.
                 choices:
                     - 'disable'
                     - 'enable'
             tos:
                 type: str
                 description: ToS
-            tos-mask:
+            tos_mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask. Non-zero bit positions are used for comparison while zero bit positions are ignored.
-            tos-negate:
+                description: Non-zero bit positions are used for comparison while zero bit positions are ignored.
+            tos_negate:
                 type: str
-                description: Deprecated, please rename it to tos_negate. Enable negated TOS match.
+                description: Enable negated TOS match.
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-shaper:
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Reverse traffic shaper.
-            traffic-shaper-reverse:
+                description: Reverse traffic shaper.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Reverse traffic shaper.
-            url-category:
+                description: Reverse traffic shaper.
+            url_category:
                 type: raw
-                description: (list) Deprecated, please rename it to url_category. URL category ID list.
+                description: (list) URL category ID list.
             users:
                 type: raw
                 description: (list) Names of individual users that can authenticate with this policy.
-            utm-status:
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Enable AV/web/ips protection profile.
+                description: Enable AV/web/ips protection profile.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            vlan-cos-fwd:
+            vlan_cos_fwd:
                 type: int
-                description: Deprecated, please rename it to vlan_cos_fwd. VLAN forward direction user priority
-            vlan-cos-rev:
+                description: VLAN forward direction user priority
+            vlan_cos_rev:
                 type: int
-                description: Deprecated, please rename it to vlan_cos_rev. VLAN reverse direction user priority
-            vlan-filter:
+                description: VLAN reverse direction user priority
+            vlan_filter:
                 type: str
-                description: Deprecated, please rename it to vlan_filter. Set VLAN filters.
-            voip-profile:
+                description: Set VLAN filters.
+            voip_profile:
                 type: str
-                description: Deprecated, please rename it to voip_profile. Name of an existing VoIP profile.
+                description: Name of an existing VoIP profile.
             vpntunnel:
                 type: str
                 description: Policy-based IPsec VPN
-            waf-profile:
+            waf_profile:
                 type: str
-                description: Deprecated, please rename it to waf_profile. Name of an existing Web application firewall profile.
+                description: Name of an existing Web application firewall profile.
             webcache:
                 type: str
                 description: Enable/disable web cache.
                 choices:
                     - 'disable'
                     - 'enable'
-            webcache-https:
+            webcache_https:
                 type: str
-                description: Deprecated, please rename it to webcache_https. Enable/disable web cache for HTTPS.
+                description: Enable/disable web cache for HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-profile:
+            webfilter_profile:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile. Name of an existing Web filter profile.
-            webproxy-forward-server:
+                description: Name of an existing Web filter profile.
+            webproxy_forward_server:
                 type: str
-                description: Deprecated, please rename it to webproxy_forward_server. Web proxy forward server name.
-            webproxy-profile:
+                description: Web proxy forward server name.
+            webproxy_profile:
                 type: str
-                description: Deprecated, please rename it to webproxy_profile. Webproxy profile name.
-            dscp-negate:
+                description: Webproxy profile name.
+            dscp_negate:
                 type: str
-                description: Deprecated, please rename it to dscp_negate. Enable negated DSCP match.
+                description: Enable negated DSCP match.
                 choices:
                     - 'disable'
                     - 'enable'
             devices:
                 type: raw
                 description: (list) Names of devices or device groups that can be matched by the policy.
-            dscp-value:
+            dscp_value:
                 type: str
-                description: Deprecated, please rename it to dscp_value. DSCP value.
-            spamfilter-profile:
+                description: DSCP value.
+            spamfilter_profile:
                 type: str
-                description: Deprecated, please rename it to spamfilter_profile. Name of an existing Spam filter profile.
-            dscp-match:
+                description: Name of an existing Spam filter profile.
+            dscp_match:
                 type: str
-                description: Deprecated, please rename it to dscp_match. Enable DSCP check.
+                description: Enable DSCP check.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -663,21 +663,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6/{policy6}'
-    ]
-
     url_params = ['adom', 'pblock']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -694,7 +687,7 @@ def main():
                 'app-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'application-list': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cgn-log-server-grp': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cifs-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
@@ -725,19 +718,19 @@ def main():
                 'label': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'logtraffic': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'nat': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natoutbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-acceleration': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-acceleration': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'outbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'per-ip-shaper': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'policy-offload': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policyid': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
                 'poolname': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'profile-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'profile-type': {'v_range': [['7.0.3', '']], 'choices': ['single', 'group'], 'type': 'str'},
                 'replacemsg-override-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'rsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -749,11 +742,11 @@ def main():
                 'srcaddr': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'srcaddr-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror-intf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.4.3', '']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-mss-receiver': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'tcp-mss-sender': {'v_range': [['7.0.3', '']], 'type': 'int'},
@@ -774,8 +767,8 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'waf-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['7.0.3', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webproxy-forward-server': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webproxy-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
@@ -785,7 +778,6 @@ def main():
                 'spamfilter-profile': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
                 'dscp-match': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -799,9 +791,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -89,44 +89,44 @@ options:
         required: false
         type: dict
         suboptions:
-            esp-port:
+            esp_port:
                 type: str
-                description: Deprecated, please rename it to esp_port. Set ESP port service
+                description: Set ESP port service
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            ftp-port:
+            ftp_port:
                 type: str
-                description: Deprecated, please rename it to ftp_port. Set FTP port service status.
+                description: Set FTP port service status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            http-port:
+            http_port:
                 type: str
-                description: Deprecated, please rename it to http_port. Set HTTP port service status.
+                description: Set HTTP port service status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            icmp-port:
+            icmp_port:
                 type: str
-                description: Deprecated, please rename it to icmp_port. Set ICMP port service status.
+                description: Set ICMP port service status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            ikev2-port:
+            ikev2_port:
                 type: str
-                description: Deprecated, please rename it to ikev2_port. Set IKEv2 port service for IPsec VPN status.
+                description: Set IKEv2 port service for IPsec VPN status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            ikev2-xx-port:
+            ikev2_xx_port:
                 type: str
-                description: Deprecated, please rename it to ikev2_xx_port. Set UDP port 4500
+                description: Set UDP port 4500
                 choices:
                     - 'closed'
                     - 'open'
@@ -135,37 +135,37 @@ options:
                 type: str
                 description: Connection capability name.
                 required: true
-            pptp-vpn-port:
+            pptp_vpn_port:
                 type: str
-                description: Deprecated, please rename it to pptp_vpn_port. Set Point to Point Tunneling Protocol
+                description: Set Point to Point Tunneling Protocol
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            ssh-port:
+            ssh_port:
                 type: str
-                description: Deprecated, please rename it to ssh_port. Set SSH port service status.
+                description: Set SSH port service status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            tls-port:
+            tls_port:
                 type: str
-                description: Deprecated, please rename it to tls_port. Set TLS VPN
+                description: Set TLS VPN
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            voip-tcp-port:
+            voip_tcp_port:
                 type: str
-                description: Deprecated, please rename it to voip_tcp_port. Set VoIP TCP port service status.
+                description: Set VoIP TCP port service status.
                 choices:
                     - 'closed'
                     - 'open'
                     - 'unknown'
-            voip-udp-port:
+            voip_udp_port:
                 type: str
-                description: Deprecated, please rename it to voip_udp_port. Set VoIP UDP port service status.
+                description: Set VoIP UDP port service status.
                 choices:
                     - 'closed'
                     - 'open'
@@ -246,23 +246,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-conn-capability',
         '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-conn-capability'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-conn-capability/{h2qp-conn-capability}',
-        '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-conn-capability/{h2qp-conn-capability}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -284,7 +276,6 @@ def main():
                 'voip-tcp-port': {'choices': ['closed', 'open', 'unknown'], 'type': 'str'},
                 'voip-udp-port': {'choices': ['closed', 'open', 'unknown'], 'type': 'str'}
             }
-
         }
     }
 
@@ -298,9 +289,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

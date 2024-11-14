@@ -89,18 +89,18 @@ options:
         required: false
         type: dict
         suboptions:
-            app-replacemsg:
+            app_replacemsg:
                 type: str
-                description: Deprecated, please rename it to app_replacemsg. Enable/disable replacement messages for blocked applications.
+                description: Enable/disable replacement messages for blocked applications.
                 choices:
                     - 'disable'
                     - 'enable'
             comment:
                 type: str
                 description: Comments
-            deep-app-inspection:
+            deep_app_inspection:
                 type: str
-                description: Deprecated, please rename it to deep_app_inspection. Enable/disable deep application inspection.
+                description: Enable/disable deep application inspection.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -134,9 +134,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    log-packet:
+                    log_packet:
                         type: str
-                        description: Deprecated, please rename it to log_packet. Enable/disable packet logging.
+                        description: Enable/disable packet logging.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -165,9 +165,9 @@ options:
                                     value:
                                         type: str
                                         description: Parameter value.
-                    per-ip-shaper:
+                    per_ip_shaper:
                         type: str
-                        description: Deprecated, please rename it to per_ip_shaper. Per-IP traffic shaper.
+                        description: Per-IP traffic shaper.
                     popularity:
                         type: list
                         elements: str
@@ -187,30 +187,30 @@ options:
                         choices:
                             - 'none'
                             - 'attacker'
-                    quarantine-expiry:
+                    quarantine_expiry:
                         type: str
-                        description: Deprecated, please rename it to quarantine_expiry. Duration of quarantine.
-                    quarantine-log:
+                        description: Duration of quarantine.
+                    quarantine_log:
                         type: str
-                        description: Deprecated, please rename it to quarantine_log. Enable/disable quarantine logging.
+                        description: Enable/disable quarantine logging.
                         choices:
                             - 'disable'
                             - 'enable'
-                    rate-count:
+                    rate_count:
                         type: int
-                        description: Deprecated, please rename it to rate_count. Count of the rate.
-                    rate-duration:
+                        description: Count of the rate.
+                    rate_duration:
                         type: int
-                        description: Deprecated, please rename it to rate_duration. Duration
-                    rate-mode:
+                        description: Duration
+                    rate_mode:
                         type: str
-                        description: Deprecated, please rename it to rate_mode. Rate limit mode.
+                        description: Rate limit mode.
                         choices:
                             - 'periodical'
                             - 'continuous'
-                    rate-track:
+                    rate_track:
                         type: str
-                        description: Deprecated, please rename it to rate_track. Track the packet protocol field.
+                        description: Track the packet protocol field.
                         choices:
                             - 'none'
                             - 'src-ip'
@@ -220,18 +220,18 @@ options:
                     risk:
                         type: raw
                         description: (list) Risk, or impact, of allowing traffic from this application to occur
-                    session-ttl:
+                    session_ttl:
                         type: int
-                        description: Deprecated, please rename it to session_ttl. Session TTL
+                        description: Session TTL
                     shaper:
                         type: str
                         description: Traffic shaper.
-                    shaper-reverse:
+                    shaper_reverse:
                         type: str
-                        description: Deprecated, please rename it to shaper_reverse. Reverse traffic shaper.
-                    sub-category:
+                        description: Reverse traffic shaper.
+                    sub_category:
                         type: raw
-                        description: (list) Deprecated, please rename it to sub_category. Application Sub-category ID list.
+                        description: (list) Application Sub-category ID list.
                     technology:
                         type: raw
                         description: (list) Application technology filter.
@@ -244,9 +244,9 @@ options:
                     exclusion:
                         type: raw
                         description: (list) ID of excluded applications.
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging.
+                description: Enable/disable extended logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -264,51 +264,51 @@ options:
                     - 'allow-http'
                     - 'allow-ssl'
                     - 'allow-quic'
-            other-application-action:
+            other_application_action:
                 type: str
-                description: Deprecated, please rename it to other_application_action. Action for other applications.
+                description: Action for other applications.
                 choices:
                     - 'pass'
                     - 'block'
-            other-application-log:
+            other_application_log:
                 type: str
-                description: Deprecated, please rename it to other_application_log. Enable/disable logging for other applications.
+                description: Enable/disable logging for other applications.
                 choices:
                     - 'disable'
                     - 'enable'
-            p2p-black-list:
+            p2p_black_list:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to p2p_black_list. P2P applications to be black listed.
+                description: P2P applications to be black listed.
                 choices:
                     - 'skype'
                     - 'edonkey'
                     - 'bittorrent'
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group.
-            unknown-application-action:
+                description: Replacement message group.
+            unknown_application_action:
                 type: str
-                description: Deprecated, please rename it to unknown_application_action. Pass or block traffic from unknown applications.
+                description: Pass or block traffic from unknown applications.
                 choices:
                     - 'pass'
                     - 'block'
-            unknown-application-log:
+            unknown_application_log:
                 type: str
-                description: Deprecated, please rename it to unknown_application_log. Enable/disable logging for unknown applications.
+                description: Enable/disable logging for unknown applications.
                 choices:
                     - 'disable'
                     - 'enable'
-            control-default-network-services:
+            control_default_network_services:
                 type: str
-                description: Deprecated, please rename it to control_default_network_services. Enable/disable enforcement of protocols over selected ports.
+                description: Enable/disable enforcement of protocols over selected ports.
                 choices:
                     - 'disable'
                     - 'enable'
-            default-network-services:
+            default_network_services:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to default_network_services. Default network services.
+                description: Default network services.
                 suboptions:
                     id:
                         type: int
@@ -332,29 +332,29 @@ options:
                             - 'snmp'
                             - 'nntp'
                             - 'https'
-                    violation-action:
+                    violation_action:
                         type: str
-                        description: Deprecated, please rename it to violation_action. Action for protocols not white listed under selected port.
+                        description: Action for protocols not white listed under selected port.
                         choices:
                             - 'block'
                             - 'monitor'
                             - 'pass'
-            enforce-default-app-port:
+            enforce_default_app_port:
                 type: str
-                description: Deprecated, please rename it to enforce_default_app_port. Enable/disable default application port enforcement for allowed ...
+                description: Enable/disable default application port enforcement for allowed applications.
                 choices:
                     - 'disable'
                     - 'enable'
-            force-inclusion-ssl-di-sigs:
+            force_inclusion_ssl_di_sigs:
                 type: str
-                description: Deprecated, please rename it to force_inclusion_ssl_di_sigs. Enable/disable forced inclusion of SSL deep inspection signat...
+                description: Enable/disable forced inclusion of SSL deep inspection signatures.
                 choices:
                     - 'disable'
                     - 'enable'
-            p2p-block-list:
+            p2p_block_list:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to p2p_block_list. P2P applications to be blocklisted.
+                description: P2P applications to be blocklisted.
                 choices:
                     - 'skype'
                     - 'edonkey'
@@ -444,23 +444,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/application/list',
         '/pm/config/global/obj/application/list'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/application/list/{list}',
-        '/pm/config/global/obj/application/list/{list}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -517,8 +509,8 @@ def main():
                         'sub-category': {'type': 'raw'},
                         'technology': {'type': 'raw'},
                         'vendor': {'type': 'raw'},
-                        'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
-                        'exclusion': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'raw'}
+                        'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                        'exclusion': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -552,7 +544,6 @@ def main():
                 'force-inclusion-ssl-di-sigs': {'v_range': [['6.2.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'p2p-block-list': {'v_range': [['7.0.0', '']], 'type': 'list', 'choices': ['skype', 'edonkey', 'bittorrent'], 'elements': 'str'}
             }
-
         }
     }
 
@@ -566,9 +557,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

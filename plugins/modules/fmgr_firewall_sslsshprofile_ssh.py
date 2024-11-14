@@ -86,30 +86,30 @@ options:
         required: false
         type: dict
         suboptions:
-            inspect-all:
+            inspect_all:
                 type: str
-                description: Deprecated, please rename it to inspect_all. Level of SSL inspection.
+                description: Level of SSL inspection.
                 choices:
                     - 'disable'
                     - 'deep-inspection'
             ports:
                 type: raw
                 description: (list) Ports to use for scanning
-            ssh-algorithm:
+            ssh_algorithm:
                 type: str
-                description: Deprecated, please rename it to ssh_algorithm. Relative strength of encryption algorithms accepted during negotiation.
+                description: Relative strength of encryption algorithms accepted during negotiation.
                 choices:
                     - 'compatible'
                     - 'high-encryption'
-            ssh-policy-check:
+            ssh_policy_check:
                 type: str
-                description: Deprecated, please rename it to ssh_policy_check. Enable/disable SSH policy check.
+                description: Enable/disable SSH policy check.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssh-tun-policy-check:
+            ssh_tun_policy_check:
                 type: str
-                description: Deprecated, please rename it to ssh_tun_policy_check. Enable/disable SSH tunnel policy check.
+                description: Enable/disable SSH tunnel policy check.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -119,9 +119,9 @@ options:
                 choices:
                     - 'disable'
                     - 'deep-inspection'
-            unsupported-version:
+            unsupported_version:
                 type: str
-                description: Deprecated, please rename it to unsupported_version. Action based on SSH version being unsupported.
+                description: Action based on SSH version being unsupported.
                 choices:
                     - 'block'
                     - 'bypass'
@@ -143,9 +143,9 @@ options:
                     - 'ssh-shell'
                     - 'exec'
                     - 'port-forward'
-            proxy-after-tcp-handshake:
+            proxy_after_tcp_handshake:
                 type: str
-                description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been established
+                description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:
                     - 'disable'
                     - 'enable'
@@ -178,15 +178,15 @@ EXAMPLES = '''
           status: <value in [disable, deep-inspection]>
           unsupported_version: <value in [block, bypass]>
           block:
-            - x11-filter
-            - ssh-shell
-            - exec
-            - port-forward
+            - "x11-filter"
+            - "ssh-shell"
+            - "exec"
+            - "port-forward"
           log:
-            - x11-filter
-            - ssh-shell
-            - exec
-            - port-forward
+            - "x11-filter"
+            - "ssh-shell"
+            - "exec"
+            - "port-forward"
           proxy_after_tcp_handshake: <value in [disable, enable]>
 '''
 
@@ -231,23 +231,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh',
         '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh/{ssh}',
-        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}/ssh/{ssh}'
-    ]
-
     url_params = ['adom', 'ssl-ssh-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -266,20 +258,19 @@ def main():
                 'status': {'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                 'unsupported-version': {'choices': ['block', 'bypass'], 'type': 'str'},
                 'block': {
-                    'v_range': [['6.2.0', '6.4.14']],
+                    'v_range': [['6.2.0', '6.4.15']],
                     'type': 'list',
                     'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                     'elements': 'str'
                 },
                 'log': {
-                    'v_range': [['6.2.0', '6.4.14']],
+                    'v_range': [['6.2.0', '6.4.15']],
                     'type': 'list',
                     'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                     'elements': 'str'
                 },
                 'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -293,9 +284,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

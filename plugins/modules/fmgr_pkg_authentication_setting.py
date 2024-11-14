@@ -84,87 +84,87 @@ options:
         required: false
         type: dict
         suboptions:
-            active-auth-scheme:
+            active_auth_scheme:
                 type: str
-                description: Deprecated, please rename it to active_auth_scheme. Active authentication method
-            auth-https:
+                description: Active authentication method
+            auth_https:
                 type: str
-                description: Deprecated, please rename it to auth_https. Enable/disable redirecting HTTP user authentication to HTTPS.
+                description: Enable/disable redirecting HTTP user authentication to HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
-            captive-portal:
+            captive_portal:
                 type: str
-                description: Deprecated, please rename it to captive_portal. Captive portal host name.
-            captive-portal-ip:
+                description: Captive portal host name.
+            captive_portal_ip:
                 type: str
-                description: Deprecated, please rename it to captive_portal_ip. Captive portal IP address.
-            captive-portal-ip6:
+                description: Captive portal IP address.
+            captive_portal_ip6:
                 type: str
-                description: Deprecated, please rename it to captive_portal_ip6. Captive portal IPv6 address.
-            captive-portal-port:
+                description: Captive portal IPv6 address.
+            captive_portal_port:
                 type: int
-                description: Deprecated, please rename it to captive_portal_port. Captive portal port number
-            captive-portal-ssl-port:
+                description: Captive portal port number
+            captive_portal_ssl_port:
                 type: int
-                description: Deprecated, please rename it to captive_portal_ssl_port. Captive portal SSL port number
-            captive-portal-type:
+                description: Captive portal SSL port number
+            captive_portal_type:
                 type: str
-                description: Deprecated, please rename it to captive_portal_type. Captive portal type.
+                description: Captive portal type.
                 choices:
                     - 'fqdn'
                     - 'ip'
-            captive-portal6:
+            captive_portal6:
                 type: str
-                description: Deprecated, please rename it to captive_portal6. IPv6 captive portal host name.
-            rewrite-https-port:
+                description: IPv6 captive portal host name.
+            rewrite_https_port:
                 type: int
-                description: Deprecated, please rename it to rewrite_https_port. Rewrite to HTTPS port
-            sso-auth-scheme:
+                description: Rewrite to HTTPS port
+            sso_auth_scheme:
                 type: str
-                description: Deprecated, please rename it to sso_auth_scheme. Single-Sign-On authentication method
-            dev-range:
+                description: Single-Sign-On authentication method
+            dev_range:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dev_range. Address range for the IP based device query.
-            user-cert-ca:
+                description: (list or str) Address range for the IP based device query.
+            user_cert_ca:
                 type: raw
-                description: (list or str) Deprecated, please rename it to user_cert_ca. CA certificate used for client certificate verification.
-            cert-auth:
+                description: (list or str) CA certificate used for client certificate verification.
+            cert_auth:
                 type: str
-                description: Deprecated, please rename it to cert_auth. Enable/disable redirecting certificate authentication to HTTPS portal.
+                description: Enable/disable redirecting certificate authentication to HTTPS portal.
                 choices:
                     - 'disable'
                     - 'enable'
-            cert-captive-portal:
+            cert_captive_portal:
                 type: str
-                description: Deprecated, please rename it to cert_captive_portal. Certificate captive portal host name.
-            cert-captive-portal-ip:
+                description: Certificate captive portal host name.
+            cert_captive_portal_ip:
                 type: str
-                description: Deprecated, please rename it to cert_captive_portal_ip. Certificate captive portal IP address.
-            cert-captive-portal-port:
+                description: Certificate captive portal IP address.
+            cert_captive_portal_port:
                 type: int
-                description: Deprecated, please rename it to cert_captive_portal_port. Certificate captive portal port number
-            cookie-max-age:
+                description: Certificate captive portal port number
+            cookie_max_age:
                 type: int
-                description: Deprecated, please rename it to cookie_max_age. Persistent web portal cookie maximum age in minutes
-            cookie-refresh-div:
+                description: Persistent web portal cookie maximum age in minutes
+            cookie_refresh_div:
                 type: int
-                description: Deprecated, please rename it to cookie_refresh_div. Refresh rate divider of persistent web portal cookie
-            ip-auth-cookie:
+                description: Refresh rate divider of persistent web portal cookie
+            ip_auth_cookie:
                 type: str
-                description: Deprecated, please rename it to ip_auth_cookie. Enable/disable persistent cookie on IP based web portal authentication
+                description: Enable/disable persistent cookie on IP based web portal authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            persistent-cookie:
+            persistent_cookie:
                 type: str
-                description: Deprecated, please rename it to persistent_cookie. Enable/disable persistent cookie on web portal authentication
+                description: Enable/disable persistent cookie on web portal authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            update-time:
+            update_time:
                 type: str
-                description: Deprecated, please rename it to update_time. Time of the last update.
+                description: Time of the last update.
 '''
 
 EXAMPLES = '''
@@ -251,21 +251,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/authentication/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/authentication/setting/{setting}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = None
     module_arg_spec = {
@@ -298,7 +291,6 @@ def main():
                 'persistent-cookie': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'update-time': {'v_range': [['7.2.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -312,9 +304,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

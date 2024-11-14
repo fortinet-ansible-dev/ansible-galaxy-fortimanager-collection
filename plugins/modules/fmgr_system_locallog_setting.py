@@ -76,31 +76,30 @@ options:
         required: false
         type: dict
         suboptions:
-            log-interval-dev-no-logging:
+            log_interval_dev_no_logging:
                 type: int
-                description: Deprecated, please rename it to log_interval_dev_no_logging. Interval in minute for logging the event of no logs received ...
-            log-interval-disk-full:
+                description: Interval in minute for logging the event of no logs received from a device.
+            log_interval_disk_full:
                 type: int
-                description: Deprecated, please rename it to log_interval_disk_full. Interval in minute for logging the event of disk full.
-            log-interval-gbday-exceeded:
+                description: Interval in minute for logging the event of disk full.
+            log_interval_gbday_exceeded:
                 type: int
-                description: Deprecated, please rename it to log_interval_gbday_exceeded. Interval in minute for logging the event of the GB/Day licens...
-            log-daemon-crash:
+                description: Interval in minute for logging the event of the GB/Day license exceeded.
+            log_daemon_crash:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_daemon_crash.
                     - Send a logmsg when a daemon crashes.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            no-log-detection-threshold:
+            no_log_detection_threshold:
                 type: int
-                description: Deprecated, please rename it to no_log_detection_threshold. Time interval in minutes to trigger a local event message if n...
-            log-interval-adom-perf-stats:
+                description: Time interval in minutes to trigger a local event message if no log data is received.
+            log_interval_adom_perf_stats:
                 type: int
-                description: Deprecated, please rename it to log_interval_adom_perf_stats. Interval in minute for logging the event of adom perf stats.
+                description: Interval in minute for logging the event of adom perf stats.
 '''
 
 EXAMPLES = '''
@@ -169,21 +168,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/locallog/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/locallog/setting/{setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -195,10 +187,9 @@ def main():
                 'log-interval-disk-full': {'type': 'int'},
                 'log-interval-gbday-exceeded': {'type': 'int'},
                 'log-daemon-crash': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
+                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
                 'log-interval-adom-perf-stats': {'v_range': [['7.4.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -212,9 +203,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

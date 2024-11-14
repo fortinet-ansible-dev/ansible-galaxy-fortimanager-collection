@@ -80,18 +80,18 @@ options:
         required: false
         type: dict
         suboptions:
-            capwap-offload:
+            capwap_offload:
                 type: str
-                description: Deprecated, please rename it to capwap_offload. Enable/disable offloading managed FortiAP and FortiLink CAPWAP sessions.
+                description: Enable/disable offloading managed FortiAP and FortiLink CAPWAP sessions.
                 choices:
                     - 'disable'
                     - 'enable'
-            dedicated-management-affinity:
+            dedicated_management_affinity:
                 type: str
-                description: Deprecated, please rename it to dedicated_management_affinity. Affinity setting for management deamons
-            dedicated-management-cpu:
+                description: Affinity setting for management deamons
+            dedicated_management_cpu:
                 type: str
-                description: Deprecated, please rename it to dedicated_management_cpu. Enable to dedicate one CPU for GUI and CLI connections when NPs ...
+                description: Enable to dedicate one CPU for GUI and CLI connections when NPs are busy.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -101,460 +101,460 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            fp-anomaly:
+            fp_anomaly:
                 type: dict
-                description: Deprecated, please rename it to fp_anomaly. Fp anomaly.
+                description: Fp anomaly.
                 suboptions:
-                    esp-minlen-err:
+                    esp_minlen_err:
                         type: str
-                        description: Deprecated, please rename it to esp_minlen_err. Invalid IPv4 ESP short packet anomalies.
+                        description: Invalid IPv4 ESP short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    icmp-csum-err:
+                    icmp_csum_err:
                         type: str
-                        description: Deprecated, please rename it to icmp_csum_err. Invalid IPv4 ICMP packet checksum anomalies.
+                        description: Invalid IPv4 ICMP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    icmp-minlen-err:
+                    icmp_minlen_err:
                         type: str
-                        description: Deprecated, please rename it to icmp_minlen_err. Invalid IPv4 ICMP short packet anomalies.
+                        description: Invalid IPv4 ICMP short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-csum-err:
+                    ipv4_csum_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_csum_err. Invalid IPv4 packet checksum anomalies.
+                        description: Invalid IPv4 packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-ihl-err:
+                    ipv4_ihl_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_ihl_err. Invalid IPv4 header length anomalies.
+                        description: Invalid IPv4 header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-len-err:
+                    ipv4_len_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_len_err. Invalid IPv4 packet length anomalies.
+                        description: Invalid IPv4 packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-opt-err:
+                    ipv4_opt_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_opt_err. Invalid IPv4 option parsing anomalies.
+                        description: Invalid IPv4 option parsing anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-ttlzero-err:
+                    ipv4_ttlzero_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_ttlzero_err. Invalid IPv4 TTL field zero anomalies.
+                        description: Invalid IPv4 TTL field zero anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-ver-err:
+                    ipv4_ver_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_ver_err. Invalid IPv4 header version anomalies.
+                        description: Invalid IPv4 header version anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-exthdr-len-err:
+                    ipv6_exthdr_len_err:
                         type: str
-                        description: Deprecated, please rename it to ipv6_exthdr_len_err. Invalid IPv6 packet chain extension header total length anoma...
+                        description: Invalid IPv6 packet chain extension header total length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-exthdr-order-err:
+                    ipv6_exthdr_order_err:
                         type: str
-                        description: Deprecated, please rename it to ipv6_exthdr_order_err. Invalid IPv6 packet extension header ordering anomalies.
+                        description: Invalid IPv6 packet extension header ordering anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-ihl-err:
+                    ipv6_ihl_err:
                         type: str
-                        description: Deprecated, please rename it to ipv6_ihl_err. Invalid IPv6 packet length anomalies.
+                        description: Invalid IPv6 packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-plen-zero:
+                    ipv6_plen_zero:
                         type: str
-                        description: Deprecated, please rename it to ipv6_plen_zero. Invalid IPv6 packet payload length zero anomalies.
+                        description: Invalid IPv6 packet payload length zero anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-ver-err:
+                    ipv6_ver_err:
                         type: str
-                        description: Deprecated, please rename it to ipv6_ver_err. Invalid IPv6 packet version anomalies.
+                        description: Invalid IPv6 packet version anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-csum-err:
+                    tcp_csum_err:
                         type: str
-                        description: Deprecated, please rename it to tcp_csum_err. Invalid IPv4 TCP packet checksum anomalies.
+                        description: Invalid IPv4 TCP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-hlen-err:
+                    tcp_hlen_err:
                         type: str
-                        description: Deprecated, please rename it to tcp_hlen_err. Invalid IPv4 TCP header length anomalies.
+                        description: Invalid IPv4 TCP header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-plen-err:
+                    tcp_plen_err:
                         type: str
-                        description: Deprecated, please rename it to tcp_plen_err. Invalid IPv4 TCP packet length anomalies.
+                        description: Invalid IPv4 TCP packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udp-csum-err:
+                    udp_csum_err:
                         type: str
-                        description: Deprecated, please rename it to udp_csum_err. Invalid IPv4 UDP packet checksum anomalies.
+                        description: Invalid IPv4 UDP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udp-hlen-err:
+                    udp_hlen_err:
                         type: str
-                        description: Deprecated, please rename it to udp_hlen_err. Invalid IPv4 UDP packet header length anomalies.
+                        description: Invalid IPv4 UDP packet header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udp-len-err:
+                    udp_len_err:
                         type: str
-                        description: Deprecated, please rename it to udp_len_err. Invalid IPv4 UDP packet length anomalies.
+                        description: Invalid IPv4 UDP packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udp-plen-err:
+                    udp_plen_err:
                         type: str
-                        description: Deprecated, please rename it to udp_plen_err. Invalid IPv4 UDP packet minimum length anomalies.
+                        description: Invalid IPv4 UDP packet minimum length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udplite-cover-err:
+                    udplite_cover_err:
                         type: str
-                        description: Deprecated, please rename it to udplite_cover_err. Invalid IPv4 UDP-Lite packet coverage anomalies.
+                        description: Invalid IPv4 UDP-Lite packet coverage anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    udplite-csum-err:
+                    udplite_csum_err:
                         type: str
-                        description: Deprecated, please rename it to udplite_csum_err. Invalid IPv4 UDP-Lite packet checksum anomalies.
+                        description: Invalid IPv4 UDP-Lite packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    unknproto-minlen-err:
+                    unknproto_minlen_err:
                         type: str
-                        description: Deprecated, please rename it to unknproto_minlen_err. Invalid IPv4 L4 unknown protocol short packet anomalies.
+                        description: Invalid IPv4 L4 unknown protocol short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-fin-only:
+                    tcp_fin_only:
                         type: str
-                        description: Deprecated, please rename it to tcp_fin_only. TCP SYN flood with only FIN flag set anomalies.
-                        choices:
-                            - 'allow'
-                            - 'drop'
-                            - 'trap-to-host'
-                    ipv4-optsecurity:
-                        type: str
-                        description: Deprecated, please rename it to ipv4_optsecurity. Security option anomalies.
+                        description: TCP SYN flood with only FIN flag set anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-optralert:
+                    ipv4_optsecurity:
                         type: str
-                        description: Deprecated, please rename it to ipv6_optralert. Router alert option anomalies.
+                        description: Security option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-syn-fin:
+                    ipv6_optralert:
                         type: str
-                        description: Deprecated, please rename it to tcp_syn_fin. TCP SYN flood SYN/FIN flag set anomalies.
+                        description: Router alert option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-proto-err:
+                    tcp_syn_fin:
                         type: str
-                        description: Deprecated, please rename it to ipv4_proto_err. Invalid layer 4 protocol anomalies.
+                        description: TCP SYN flood SYN/FIN flag set anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-saddr-err:
+                    ipv4_proto_err:
                         type: str
-                        description: Deprecated, please rename it to ipv6_saddr_err. Source address as multicast anomalies.
+                        description: Invalid layer 4 protocol anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    icmp-frag:
+                    ipv6_saddr_err:
                         type: str
-                        description: Deprecated, please rename it to icmp_frag. Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
+                        description: Source address as multicast anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-optssrr:
+                    icmp_frag:
                         type: str
-                        description: Deprecated, please rename it to ipv4_optssrr. Strict source record route option anomalies.
+                        description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-opthomeaddr:
+                    ipv4_optssrr:
                         type: str
-                        description: Deprecated, please rename it to ipv6_opthomeaddr. Home address option anomalies.
+                        description: Strict source record route option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    udp-land:
+                    ipv6_opthomeaddr:
                         type: str
-                        description: Deprecated, please rename it to udp_land. UDP land anomalies.
+                        description: Home address option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-optinvld:
+                    udp_land:
                         type: str
-                        description: Deprecated, please rename it to ipv6_optinvld. Invalid option anomalies.
+                        description: UDP land anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-fin-noack:
+                    ipv6_optinvld:
                         type: str
-                        description: Deprecated, please rename it to tcp_fin_noack. TCP SYN flood with FIN flag set without ACK setting anomalies.
+                        description: Invalid option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-proto-err:
+                    tcp_fin_noack:
                         type: str
-                        description: Deprecated, please rename it to ipv6_proto_err. Layer 4 invalid protocol anomalies.
+                        description: TCP SYN flood with FIN flag set without ACK setting anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-land:
+                    ipv6_proto_err:
                         type: str
-                        description: Deprecated, please rename it to tcp_land. TCP land anomalies.
+                        description: Layer 4 invalid protocol anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-unknopt:
+                    tcp_land:
                         type: str
-                        description: Deprecated, please rename it to ipv4_unknopt. Unknown option anomalies.
+                        description: TCP land anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-optstream:
+                    ipv4_unknopt:
                         type: str
-                        description: Deprecated, please rename it to ipv4_optstream. Stream option anomalies.
+                        description: Unknown option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-optjumbo:
+                    ipv4_optstream:
                         type: str
-                        description: Deprecated, please rename it to ipv6_optjumbo. Jumbo options anomalies.
+                        description: Stream option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    icmp-land:
+                    ipv6_optjumbo:
                         type: str
-                        description: Deprecated, please rename it to icmp_land. ICMP land anomalies.
+                        description: Jumbo options anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-winnuke:
+                    icmp_land:
                         type: str
-                        description: Deprecated, please rename it to tcp_winnuke. TCP WinNuke anomalies.
+                        description: ICMP land anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-daddr-err:
+                    tcp_winnuke:
                         type: str
-                        description: Deprecated, please rename it to ipv6_daddr_err. Destination address as unspecified or loopback address anomalies.
+                        description: TCP WinNuke anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-land:
+                    ipv6_daddr_err:
                         type: str
-                        description: Deprecated, please rename it to ipv4_land. Land anomalies.
+                        description: Destination address as unspecified or loopback address anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-opttunnel:
+                    ipv4_land:
                         type: str
-                        description: Deprecated, please rename it to ipv6_opttunnel. Tunnel encapsulation limit option anomalies.
+                        description: Land anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-no-flag:
+                    ipv6_opttunnel:
                         type: str
-                        description: Deprecated, please rename it to tcp_no_flag. TCP SYN flood with no flag set anomalies.
+                        description: Tunnel encapsulation limit option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-land:
+                    tcp_no_flag:
                         type: str
-                        description: Deprecated, please rename it to ipv6_land. Land anomalies.
+                        description: TCP SYN flood with no flag set anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-optlsrr:
+                    ipv6_land:
                         type: str
-                        description: Deprecated, please rename it to ipv4_optlsrr. Loose source record route option anomalies.
+                        description: Land anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-opttimestamp:
+                    ipv4_optlsrr:
                         type: str
-                        description: Deprecated, please rename it to ipv4_opttimestamp. Timestamp option anomalies.
+                        description: Loose source record route option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv4-optrr:
+                    ipv4_opttimestamp:
                         type: str
-                        description: Deprecated, please rename it to ipv4_optrr. Record route option anomalies.
+                        description: Timestamp option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-optnsap:
+                    ipv4_optrr:
                         type: str
-                        description: Deprecated, please rename it to ipv6_optnsap. Network service access point address option anomalies.
+                        description: Record route option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-unknopt:
+                    ipv6_optnsap:
                         type: str
-                        description: Deprecated, please rename it to ipv6_unknopt. Unknown option anomalies.
+                        description: Network service access point address option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    tcp-syn-data:
+                    ipv6_unknopt:
                         type: str
-                        description: Deprecated, please rename it to tcp_syn_data. TCP SYN flood packets with data anomalies.
+                        description: Unknown option anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    ipv6-optendpid:
+                    tcp_syn_data:
                         type: str
-                        description: Deprecated, please rename it to ipv6_optendpid. End point identification anomalies.
+                        description: TCP SYN flood packets with data anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-                    gtpu-plen-err:
+                    ipv6_optendpid:
                         type: str
-                        description: Deprecated, please rename it to gtpu_plen_err. Gtpu plen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    vxlan-minlen-err:
-                        type: str
-                        description: Deprecated, please rename it to vxlan_minlen_err. Vxlan minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    capwap-minlen-err:
-                        type: str
-                        description: Deprecated, please rename it to capwap_minlen_err. Capwap minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    gre-csum-err:
-                        type: str
-                        description: Deprecated, please rename it to gre_csum_err. Gre csum err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    nvgre-minlen-err:
-                        type: str
-                        description: Deprecated, please rename it to nvgre_minlen_err. Nvgre minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    sctp-l4len-err:
-                        type: str
-                        description: Deprecated, please rename it to sctp_l4len_err. Sctp l4len err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    tcp-hlenvsl4len-err:
-                        type: str
-                        description: Deprecated, please rename it to tcp_hlenvsl4len_err. Tcp hlenvsl4len err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    sctp-crc-err:
-                        type: str
-                        description: Deprecated, please rename it to sctp_crc_err. Sctp crc err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    sctp-clen-err:
-                        type: str
-                        description: Deprecated, please rename it to sctp_clen_err. Sctp clen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    uesp-minlen-err:
-                        type: str
-                        description: Deprecated, please rename it to uesp_minlen_err. Uesp minlen err.
-                        choices:
-                            - 'drop'
-                            - 'trap-to-host'
-                    sctp-csum-err:
-                        type: str
-                        description: Deprecated, please rename it to sctp_csum_err. Invalid IPv4 SCTP checksum anomalies.
+                        description: End point identification anomalies.
                         choices:
                             - 'allow'
                             - 'drop'
                             - 'trap-to-host'
-            gtp-enhanced-cpu-range:
+                    gtpu_plen_err:
+                        type: str
+                        description: Gtpu plen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    vxlan_minlen_err:
+                        type: str
+                        description: Vxlan minlen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    capwap_minlen_err:
+                        type: str
+                        description: Capwap minlen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    gre_csum_err:
+                        type: str
+                        description: Gre csum err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    nvgre_minlen_err:
+                        type: str
+                        description: Nvgre minlen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    sctp_l4len_err:
+                        type: str
+                        description: Sctp l4len err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    tcp_hlenvsl4len_err:
+                        type: str
+                        description: Tcp hlenvsl4len err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    sctp_crc_err:
+                        type: str
+                        description: Sctp crc err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    sctp_clen_err:
+                        type: str
+                        description: Sctp clen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    uesp_minlen_err:
+                        type: str
+                        description: Uesp minlen err.
+                        choices:
+                            - 'drop'
+                            - 'trap-to-host'
+                    sctp_csum_err:
+                        type: str
+                        description: Invalid IPv4 SCTP checksum anomalies.
+                        choices:
+                            - 'allow'
+                            - 'drop'
+                            - 'trap-to-host'
+            gtp_enhanced_cpu_range:
                 type: str
-                description: Deprecated, please rename it to gtp_enhanced_cpu_range. GTP enhanced CPU range option.
+                description: GTP enhanced CPU range option.
                 choices:
                     - '0'
                     - '1'
                     - '2'
-            gtp-enhanced-mode:
+            gtp_enhanced_mode:
                 type: str
-                description: Deprecated, please rename it to gtp_enhanced_mode. Enable/disable GTP enhanced mode.
+                description: Enable/disable GTP enhanced mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            host-shortcut-mode:
+            host_shortcut_mode:
                 type: str
-                description: Deprecated, please rename it to host_shortcut_mode. Set np6 host shortcut mode.
+                description: Set np6 host shortcut mode.
                 choices:
                     - 'bi-directional'
                     - 'host-shortcut'
-            htx-gtse-quota:
+            htx_gtse_quota:
                 type: str
-                description: Deprecated, please rename it to htx_gtse_quota. Configure HTX GTSE quota.
+                description: Configure HTX GTSE quota.
                 choices:
                     - '100Mbps'
                     - '200Mbps'
@@ -570,45 +570,45 @@ options:
                     - '4Gbps'
                     - '8Gbps'
                     - '10Gbps'
-            intf-shaping-offload:
+            intf_shaping_offload:
                 type: str
-                description: Deprecated, please rename it to intf_shaping_offload. Enable/disable NPU offload when doing interface-based traffic shapin...
+                description: Enable/disable NPU offload when doing interface-based traffic shaping according to the egress-shaping-profile.
                 choices:
                     - 'disable'
                     - 'enable'
-            iph-rsvd-re-cksum:
+            iph_rsvd_re_cksum:
                 type: str
-                description: Deprecated, please rename it to iph_rsvd_re_cksum. Enable/disable IP checksum re-calculation for packets with iph.
+                description: Enable/disable IP checksum re-calculation for packets with iph.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipsec-dec-subengine-mask:
+            ipsec_dec_subengine_mask:
                 type: str
-                description: Deprecated, please rename it to ipsec_dec_subengine_mask. IPsec decryption subengine mask
-            ipsec-enc-subengine-mask:
+                description: IPsec decryption subengine mask
+            ipsec_enc_subengine_mask:
                 type: str
-                description: Deprecated, please rename it to ipsec_enc_subengine_mask. IPsec encryption subengine mask
-            ipsec-inbound-cache:
+                description: IPsec encryption subengine mask
+            ipsec_inbound_cache:
                 type: str
-                description: Deprecated, please rename it to ipsec_inbound_cache. Enable/disable IPsec inbound cache for anti-replay.
+                description: Enable/disable IPsec inbound cache for anti-replay.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipsec-mtu-override:
+            ipsec_mtu_override:
                 type: str
-                description: Deprecated, please rename it to ipsec_mtu_override. Enable/disable NP6 IPsec MTU override.
+                description: Enable/disable NP6 IPsec MTU override.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipsec-over-vlink:
+            ipsec_over_vlink:
                 type: str
-                description: Deprecated, please rename it to ipsec_over_vlink. Enable/disable IPSEC over vlink.
+                description: Enable/disable IPSEC over vlink.
                 choices:
                     - 'disable'
                     - 'enable'
-            isf-np-queues:
+            isf_np_queues:
                 type: dict
-                description: Deprecated, please rename it to isf_np_queues. Isf np queues.
+                description: Isf np queues.
                 suboptions:
                     cos0:
                         type: str
@@ -634,59 +634,59 @@ options:
                     cos7:
                         type: str
                         description: CoS profile name for CoS 7.
-            lag-out-port-select:
+            lag_out_port_select:
                 type: str
-                description: Deprecated, please rename it to lag_out_port_select. Enable/disable LAG outgoing port selection based on incoming traffic ...
+                description: Enable/disable LAG outgoing port selection based on incoming traffic port.
                 choices:
                     - 'disable'
                     - 'enable'
-            mcast-session-accounting:
+            mcast_session_accounting:
                 type: str
-                description: Deprecated, please rename it to mcast_session_accounting. Enable/disable traffic accounting for each multicast session thr...
+                description: Enable/disable traffic accounting for each multicast session through TAE counter.
                 choices:
                     - 'disable'
                     - 'session-based'
                     - 'tpe-based'
-            np6-cps-optimization-mode:
+            np6_cps_optimization_mode:
                 type: str
-                description: Deprecated, please rename it to np6_cps_optimization_mode. Enable/disable NP6 connection per second
+                description: Enable/disable NP6 connection per second
                 choices:
                     - 'disable'
                     - 'enable'
-            per-session-accounting:
+            per_session_accounting:
                 type: str
-                description: Deprecated, please rename it to per_session_accounting. Enable/disable per-session accounting.
+                description: Enable/disable per-session accounting.
                 choices:
                     - 'enable'
                     - 'disable'
                     - 'enable-by-log'
                     - 'all-enable'
                     - 'traffic-log-only'
-            port-cpu-map:
+            port_cpu_map:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to port_cpu_map. Port cpu map.
+                description: Port cpu map.
                 suboptions:
-                    cpu-core:
+                    cpu_core:
                         type: str
-                        description: Deprecated, please rename it to cpu_core. The CPU core to map to an interface.
+                        description: The CPU core to map to an interface.
                     interface:
                         type: str
                         description: The interface to map to a CPU core.
-            port-npu-map:
+            port_npu_map:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to port_npu_map. Port npu map.
+                description: Port npu map.
                 suboptions:
                     interface:
                         type: str
                         description: Set npu interface port to NPU group map.
-                    npu-group-index:
+                    npu_group_index:
                         type: int
-                        description: Deprecated, please rename it to npu_group_index. Mapping NPU group index.
-            priority-protocol:
+                        description: Mapping NPU group index.
+            priority_protocol:
                 type: dict
-                description: Deprecated, please rename it to priority_protocol. Priority protocol.
+                description: Priority protocol.
                 suboptions:
                     bfd:
                         type: str
@@ -706,52 +706,52 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            qos-mode:
+            qos_mode:
                 type: str
-                description: Deprecated, please rename it to qos_mode. QoS mode on switch and NP.
+                description: QoS mode on switch and NP.
                 choices:
                     - 'disable'
                     - 'priority'
                     - 'round-robin'
-            rdp-offload:
+            rdp_offload:
                 type: str
-                description: Deprecated, please rename it to rdp_offload. Enable/disable rdp offload.
+                description: Enable/disable rdp offload.
                 choices:
                     - 'disable'
                     - 'enable'
-            recover-np6-link:
+            recover_np6_link:
                 type: str
-                description: Deprecated, please rename it to recover_np6_link. Enable/disable internal link failure check and recovery after boot up.
+                description: Enable/disable internal link failure check and recovery after boot up.
                 choices:
                     - 'disable'
                     - 'enable'
-            session-denied-offload:
+            session_denied_offload:
                 type: str
-                description: Deprecated, please rename it to session_denied_offload. Enable/disable offloading of denied sessions.
+                description: Enable/disable offloading of denied sessions.
                 choices:
                     - 'disable'
                     - 'enable'
-            sse-backpressure:
+            sse_backpressure:
                 type: str
-                description: Deprecated, please rename it to sse_backpressure. Enable/disable sse backpressure.
+                description: Enable/disable sse backpressure.
                 choices:
                     - 'disable'
                     - 'enable'
-            strip-clear-text-padding:
+            strip_clear_text_padding:
                 type: str
-                description: Deprecated, please rename it to strip_clear_text_padding. Enable/disable stripping clear text padding.
+                description: Enable/disable stripping clear text padding.
                 choices:
                     - 'disable'
                     - 'enable'
-            strip-esp-padding:
+            strip_esp_padding:
                 type: str
-                description: Deprecated, please rename it to strip_esp_padding. Enable/disable stripping ESP padding.
+                description: Enable/disable stripping ESP padding.
                 choices:
                     - 'disable'
                     - 'enable'
-            sw-eh-hash:
+            sw_eh_hash:
                 type: dict
-                description: Deprecated, please rename it to sw_eh_hash. Sw eh hash.
+                description: Sw eh hash.
                 suboptions:
                     computation:
                         type: str
@@ -761,54 +761,54 @@ options:
                             - 'xor8'
                             - 'xor4'
                             - 'crc16'
-                    destination-ip-lower-16:
+                    destination_ip_lower_16:
                         type: str
-                        description: Deprecated, please rename it to destination_ip_lower_16. Include/exclude destination IP address lower 16 bits.
+                        description: Include/exclude destination IP address lower 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
-                    destination-ip-upper-16:
+                    destination_ip_upper_16:
                         type: str
-                        description: Deprecated, please rename it to destination_ip_upper_16. Include/exclude destination IP address upper 16 bits.
+                        description: Include/exclude destination IP address upper 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
-                    destination-port:
+                    destination_port:
                         type: str
-                        description: Deprecated, please rename it to destination_port. Include/exclude destination port if TCP/UDP.
+                        description: Include/exclude destination port if TCP/UDP.
                         choices:
                             - 'include'
                             - 'exclude'
-                    ip-protocol:
+                    ip_protocol:
                         type: str
-                        description: Deprecated, please rename it to ip_protocol. Include/exclude IP protocol.
+                        description: Include/exclude IP protocol.
                         choices:
                             - 'include'
                             - 'exclude'
-                    netmask-length:
+                    netmask_length:
                         type: int
-                        description: Deprecated, please rename it to netmask_length. Network mask length.
-                    source-ip-lower-16:
+                        description: Network mask length.
+                    source_ip_lower_16:
                         type: str
-                        description: Deprecated, please rename it to source_ip_lower_16. Include/exclude source IP address lower 16 bits.
+                        description: Include/exclude source IP address lower 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
-                    source-ip-upper-16:
+                    source_ip_upper_16:
                         type: str
-                        description: Deprecated, please rename it to source_ip_upper_16. Include/exclude source IP address upper 16 bits.
+                        description: Include/exclude source IP address upper 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
-                    source-port:
+                    source_port:
                         type: str
-                        description: Deprecated, please rename it to source_port. Include/exclude source port if TCP/UDP.
+                        description: Include/exclude source port if TCP/UDP.
                         choices:
                             - 'include'
                             - 'exclude'
-            sw-np-bandwidth:
+            sw_np_bandwidth:
                 type: str
-                description: Deprecated, please rename it to sw_np_bandwidth. Bandwidth from switch to NP.
+                description: Bandwidth from switch to NP.
                 choices:
                     - '0G'
                     - '2G'
@@ -818,27 +818,27 @@ options:
                     - '7G'
                     - '8G'
                     - '9G'
-            switch-np-hash:
+            switch_np_hash:
                 type: str
-                description: Deprecated, please rename it to switch_np_hash. Switch-NP trunk port selection Criteria.
+                description: Switch-NP trunk port selection Criteria.
                 choices:
                     - 'src-ip'
                     - 'dst-ip'
                     - 'src-dst-ip'
-            uesp-offload:
+            uesp_offload:
                 type: str
-                description: Deprecated, please rename it to uesp_offload. Enable/disable UDP-encapsulated ESP offload
+                description: Enable/disable UDP-encapsulated ESP offload
                 choices:
                     - 'disable'
                     - 'enable'
-            np-queues:
+            np_queues:
                 type: dict
-                description: Deprecated, please rename it to np_queues. Np queues.
+                description: Np queues.
                 suboptions:
-                    ethernet-type:
+                    ethernet_type:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ethernet_type. Ethernet type.
+                        description: Ethernet type.
                         suboptions:
                             name:
                                 type: str
@@ -852,10 +852,10 @@ options:
                             weight:
                                 type: int
                                 description: Class Weight.
-                    ip-protocol:
+                    ip_protocol:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_protocol. Ip protocol.
+                        description: Ip protocol.
                         suboptions:
                             name:
                                 type: str
@@ -869,10 +869,10 @@ options:
                             weight:
                                 type: int
                                 description: Class Weight.
-                    ip-service:
+                    ip_service:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to ip_service. Ip service.
+                        description: Ip service.
                         suboptions:
                             dport:
                                 type: int
@@ -1788,159 +1788,159 @@ options:
                             name:
                                 type: str
                                 description: Scheduler name.
-            udp-timeout-profile:
+            udp_timeout_profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to udp_timeout_profile. Udp timeout profile.
+                description: Udp timeout profile.
                 suboptions:
                     id:
                         type: int
                         description: Timeout profile ID
-                    udp-idle:
+                    udp_idle:
                         type: int
-                        description: Deprecated, please rename it to udp_idle. Set UDP idle timeout
-            qtm-buf-mode:
+                        description: Set UDP idle timeout
+            qtm_buf_mode:
                 type: str
-                description: Deprecated, please rename it to qtm_buf_mode. QTM channel configuration for packet buffer.
+                description: QTM channel configuration for packet buffer.
                 choices:
                     - '6ch'
                     - '4ch'
-            default-qos-type:
+            default_qos_type:
                 type: str
-                description: Deprecated, please rename it to default_qos_type. Set default QoS type.
+                description: Set default QoS type.
                 choices:
                     - 'policing'
                     - 'shaping'
                     - 'policing-enhanced'
-            tcp-rst-timeout:
+            tcp_rst_timeout:
                 type: int
-                description: Deprecated, please rename it to tcp_rst_timeout. TCP RST timeout in seconds
-            ipsec-local-uesp-port:
+                description: TCP RST timeout in seconds
+            ipsec_local_uesp_port:
                 type: int
-                description: Deprecated, please rename it to ipsec_local_uesp_port. Ipsec local uesp port.
-            htab-dedi-queue-nr:
+                description: Ipsec local uesp port.
+            htab_dedi_queue_nr:
                 type: int
-                description: Deprecated, please rename it to htab_dedi_queue_nr. Set the number of dedicate queue for hash table messages.
-            double-level-mcast-offload:
+                description: Set the number of dedicate queue for hash table messages.
+            double_level_mcast_offload:
                 type: str
-                description: Deprecated, please rename it to double_level_mcast_offload. Enable double level mcast offload.
+                description: Enable double level mcast offload.
                 choices:
                     - 'disable'
                     - 'enable'
-            dse-timeout:
+            dse_timeout:
                 type: int
-                description: Deprecated, please rename it to dse_timeout. DSE timeout in seconds
-            ippool-overload-low:
+                description: DSE timeout in seconds
+            ippool_overload_low:
                 type: int
-                description: Deprecated, please rename it to ippool_overload_low. Low threshold for overload ippool port reuse
-            pba-eim:
+                description: Low threshold for overload ippool port reuse
+            pba_eim:
                 type: str
-                description: Deprecated, please rename it to pba_eim. Configure option for PBA
+                description: Configure option for PBA
                 choices:
                     - 'disallow'
                     - 'allow'
-            policy-offload-level:
+            policy_offload_level:
                 type: str
-                description: Deprecated, please rename it to policy_offload_level. Configure firewall policy offload level
+                description: Configure firewall policy offload level
                 choices:
                     - 'disable'
                     - 'dos-offload'
                     - 'full-offload'
-            max-session-timeout:
+            max_session_timeout:
                 type: int
-                description: Deprecated, please rename it to max_session_timeout. Maximum time interval for refreshing NPU-offloaded sessions
-            port-path-option:
+                description: Maximum time interval for refreshing NPU-offloaded sessions
+            port_path_option:
                 type: dict
-                description: Deprecated, please rename it to port_path_option. Port path option.
+                description: Port path option.
                 suboptions:
-                    ports-using-npu:
+                    ports_using_npu:
                         type: raw
-                        description: (list) Deprecated, please rename it to ports_using_npu. Set ha/aux ports to handle traffic with NPU
-            vlan-lookup-cache:
+                        description: (list) Set ha/aux ports to handle traffic with NPU
+            vlan_lookup_cache:
                 type: str
-                description: Deprecated, please rename it to vlan_lookup_cache. Enable/disable vlan lookup cache
+                description: Enable/disable vlan lookup cache
                 choices:
                     - 'disable'
                     - 'enable'
-            dos-options:
+            dos_options:
                 type: dict
-                description: Deprecated, please rename it to dos_options. Dos options.
+                description: Dos options.
                 suboptions:
-                    npu-dos-meter-mode:
+                    npu_dos_meter_mode:
                         type: str
-                        description: Deprecated, please rename it to npu_dos_meter_mode. Set DoS meter NPU offloading mode.
+                        description: Set DoS meter NPU offloading mode.
                         choices:
                             - 'local'
                             - 'global'
-                    npu-dos-synproxy-mode:
+                    npu_dos_synproxy_mode:
                         type: str
-                        description: Deprecated, please rename it to npu_dos_synproxy_mode. Set NPU DoS SYNPROXY mode.
+                        description: Set NPU DoS SYNPROXY mode.
                         choices:
                             - 'synack2ack'
                             - 'pass-synack'
-                    npu-dos-tpe-mode:
+                    npu_dos_tpe_mode:
                         type: str
-                        description: Deprecated, please rename it to npu_dos_tpe_mode. Enable/disable insertion of DoS meter ID to session table.
+                        description: Enable/disable insertion of DoS meter ID to session table.
                         choices:
                             - 'disable'
                             - 'enable'
-            hash-tbl-spread:
+            hash_tbl_spread:
                 type: str
-                description: Deprecated, please rename it to hash_tbl_spread. Enable/disable hash table entry spread
+                description: Enable/disable hash table entry spread
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-timeout-profile:
+            tcp_timeout_profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to tcp_timeout_profile. Tcp timeout profile.
+                description: Tcp timeout profile.
                 suboptions:
-                    close-wait:
+                    close_wait:
                         type: int
-                        description: Deprecated, please rename it to close_wait. Set close-wait timeout
-                    fin-wait:
+                        description: Set close-wait timeout
+                    fin_wait:
                         type: int
-                        description: Deprecated, please rename it to fin_wait. Set fin-wait timeout
+                        description: Set fin-wait timeout
                     id:
                         type: int
                         description: Timeout profile ID
-                    syn-sent:
+                    syn_sent:
                         type: int
-                        description: Deprecated, please rename it to syn_sent. Set syn-sent timeout
-                    syn-wait:
+                        description: Set syn-sent timeout
+                    syn_wait:
                         type: int
-                        description: Deprecated, please rename it to syn_wait. Set syn-wait timeout
-                    tcp-idle:
+                        description: Set syn-wait timeout
+                    tcp_idle:
                         type: int
-                        description: Deprecated, please rename it to tcp_idle. Set TCP establish timeout
-                    time-wait:
+                        description: Set TCP establish timeout
+                    time_wait:
                         type: int
-                        description: Deprecated, please rename it to time_wait. Set time-wait timeout
-            ip-reassembly:
+                        description: Set time-wait timeout
+            ip_reassembly:
                 type: dict
-                description: Deprecated, please rename it to ip_reassembly. Ip reassembly.
+                description: Ip reassembly.
                 suboptions:
-                    max-timeout:
+                    max_timeout:
                         type: int
-                        description: Deprecated, please rename it to max_timeout. Maximum timeout value for IP reassembly
-                    min-timeout:
+                        description: Maximum timeout value for IP reassembly
+                    min_timeout:
                         type: int
-                        description: Deprecated, please rename it to min_timeout. Minimum timeout value for IP reassembly
+                        description: Minimum timeout value for IP reassembly
                     status:
                         type: str
                         description: Set IP reassembly processing status.
                         choices:
                             - 'disable'
                             - 'enable'
-            gtp-support:
+            gtp_support:
                 type: str
-                description: Deprecated, please rename it to gtp_support. Enable/Disable NP7 GTP support
+                description: Enable/Disable NP7 GTP support
                 choices:
                     - 'disable'
                     - 'enable'
-            htx-icmp-csum-chk:
+            htx_icmp_csum_chk:
                 type: str
-                description: Deprecated, please rename it to htx_icmp_csum_chk. Set HTX icmp csum checking mode.
+                description: Set HTX icmp csum checking mode.
                 choices:
                     - 'pass'
                     - 'drop'
@@ -1948,79 +1948,79 @@ options:
                 type: dict
                 description: Hpe.
                 suboptions:
-                    all-protocol:
+                    all_protocol:
                         type: int
-                        description: Deprecated, please rename it to all_protocol. Maximum packet rate of each host queue except high priority traffic
-                    arp-max:
+                        description: Maximum packet rate of each host queue except high priority traffic
+                    arp_max:
                         type: int
-                        description: Deprecated, please rename it to arp_max. Maximum ARP packet rate
-                    enable-shaper:
+                        description: Maximum ARP packet rate
+                    enable_shaper:
                         type: str
-                        description: Deprecated, please rename it to enable_shaper. Enable/Disable NPU Host Protection Engine
+                        description: Enable/Disable NPU Host Protection Engine
                         choices:
                             - 'disable'
                             - 'enable'
-                    esp-max:
+                    esp_max:
                         type: int
-                        description: Deprecated, please rename it to esp_max. Maximum ESP packet rate
-                    high-priority:
+                        description: Maximum ESP packet rate
+                    high_priority:
                         type: int
-                        description: Deprecated, please rename it to high_priority. Maximum packet rate for high priority traffic packets
-                    icmp-max:
+                        description: Maximum packet rate for high priority traffic packets
+                    icmp_max:
                         type: int
-                        description: Deprecated, please rename it to icmp_max. Maximum ICMP packet rate
-                    ip-frag-max:
+                        description: Maximum ICMP packet rate
+                    ip_frag_max:
                         type: int
-                        description: Deprecated, please rename it to ip_frag_max. Maximum fragmented IP packet rate
-                    ip-others-max:
+                        description: Maximum fragmented IP packet rate
+                    ip_others_max:
                         type: int
-                        description: Deprecated, please rename it to ip_others_max. Maximum IP packet rate for other packets
-                    l2-others-max:
+                        description: Maximum IP packet rate for other packets
+                    l2_others_max:
                         type: int
-                        description: Deprecated, please rename it to l2_others_max. Maximum L2 packet rate for L2 packets that are not ARP packets
-                    pri-type-max:
+                        description: Maximum L2 packet rate for L2 packets that are not ARP packets
+                    pri_type_max:
                         type: int
-                        description: Deprecated, please rename it to pri_type_max. Maximum overflow rate of priority type traffic
-                    sctp-max:
+                        description: Maximum overflow rate of priority type traffic
+                    sctp_max:
                         type: int
-                        description: Deprecated, please rename it to sctp_max. Maximum SCTP packet rate
-                    tcp-max:
+                        description: Maximum SCTP packet rate
+                    tcp_max:
                         type: int
-                        description: Deprecated, please rename it to tcp_max. Maximum TCP packet rate
-                    tcpfin-rst-max:
+                        description: Maximum TCP packet rate
+                    tcpfin_rst_max:
                         type: int
-                        description: Deprecated, please rename it to tcpfin_rst_max. Maximum TCP carries FIN or RST flags packet rate
-                    tcpsyn-ack-max:
+                        description: Maximum TCP carries FIN or RST flags packet rate
+                    tcpsyn_ack_max:
                         type: int
-                        description: Deprecated, please rename it to tcpsyn_ack_max. Maximum TCP carries SYN and ACK flags packet rate
-                    tcpsyn-max:
+                        description: Maximum TCP carries SYN and ACK flags packet rate
+                    tcpsyn_max:
                         type: int
-                        description: Deprecated, please rename it to tcpsyn_max. Maximum TCP SYN packet rate
-                    udp-max:
+                        description: Maximum TCP SYN packet rate
+                    udp_max:
                         type: int
-                        description: Deprecated, please rename it to udp_max. Maximum UDP packet rate
-                    enable-queue-shaper:
+                        description: Maximum UDP packet rate
+                    enable_queue_shaper:
                         type: str
-                        description: Deprecated, please rename it to enable_queue_shaper. Enable/Disable NPU host protection engine
+                        description: Enable/Disable NPU host protection engine
                         choices:
                             - 'disable'
                             - 'enable'
-                    exception-code:
+                    exception_code:
                         type: int
-                        description: Deprecated, please rename it to exception_code. Maximum exception code rate of traffic
-                    fragment-with-sess:
+                        description: Maximum exception code rate of traffic
+                    fragment_with_sess:
                         type: int
-                        description: Deprecated, please rename it to fragment_with_sess. Maximum fragment with session rate of traffic
-                    fragment-without-session:
+                        description: Maximum fragment with session rate of traffic
+                    fragment_without_session:
                         type: int
-                        description: Deprecated, please rename it to fragment_without_session. Maximum fragment without session rate of traffic
-                    queue-shaper-max:
+                        description: Maximum fragment without session rate of traffic
+                    queue_shaper_max:
                         type: int
-                        description: Deprecated, please rename it to queue_shaper_max. Maximum per queue byte rate of traffic
-            dsw-dts-profile:
+                        description: Maximum per queue byte rate of traffic
+            dsw_dts_profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dsw_dts_profile. Dsw dts profile.
+                description: Dsw dts profile.
                 suboptions:
                     action:
                         type: str
@@ -2033,36 +2033,36 @@ options:
                             - 'enque'
                             - 'enque_0'
                             - 'enque_1'
-                    min-limit:
+                    min_limit:
                         type: int
-                        description: Deprecated, please rename it to min_limit. Set NPU DSW DTS profile min-limt.
-                    profile-id:
+                        description: Set NPU DSW DTS profile min-limt.
+                    profile_id:
                         type: int
-                        description: Deprecated, please rename it to profile_id. Set NPU DSW DTS profile profile id.
+                        description: Set NPU DSW DTS profile profile id.
                     step:
                         type: int
                         description: Set NPU DSW DTS profile step.
-            hash-config:
+            hash_config:
                 type: str
-                description: Deprecated, please rename it to hash_config. Configure NPU trunk hash.
+                description: Configure NPU trunk hash.
                 choices:
                     - '5-tuple'
                     - 'src-ip'
                     - 'src-dst-ip'
-            ipsec-ob-np-sel:
+            ipsec_ob_np_sel:
                 type: str
-                description: Deprecated, please rename it to ipsec_ob_np_sel. IPsec NP selection for OB SA offloading.
+                description: IPsec NP selection for OB SA offloading.
                 choices:
                     - 'RR'
                     - 'rr'
                     - 'Packet'
                     - 'Hash'
-            napi-break-interval:
+            napi_break_interval:
                 type: int
-                description: Deprecated, please rename it to napi_break_interval. NAPI break interval
-            background-sse-scan:
+                description: NAPI break interval
+            background_sse_scan:
                 type: dict
-                description: Deprecated, please rename it to background_sse_scan. Background sse scan.
+                description: Background sse scan.
                 suboptions:
                     scan:
                         type: str
@@ -2070,47 +2070,47 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    stats-update-interval:
+                    stats_update_interval:
                         type: int
-                        description: Deprecated, please rename it to stats_update_interval. Stats update interval
-                    udp-keepalive-interval:
+                        description: Stats update interval
+                    udp_keepalive_interval:
                         type: int
-                        description: Deprecated, please rename it to udp_keepalive_interval. UDP keepalive interval
-                    scan-stale:
+                        description: UDP keepalive interval
+                    scan_stale:
                         type: int
-                        description: Deprecated, please rename it to scan_stale. Configure scanning of active or stale sessions
-                    scan-vt:
+                        description: Configure scanning of active or stale sessions
+                    scan_vt:
                         type: int
-                        description: Deprecated, please rename it to scan_vt. Select version/type to scan
-                    stats-qual-access:
+                        description: Select version/type to scan
+                    stats_qual_access:
                         type: int
-                        description: Deprecated, please rename it to stats_qual_access. Statistics update access qualification in seconds
-                    stats-qual-duration:
+                        description: Statistics update access qualification in seconds
+                    stats_qual_duration:
                         type: int
-                        description: Deprecated, please rename it to stats_qual_duration. Statistics update duration qualification in seconds
-                    udp-qual-access:
+                        description: Statistics update duration qualification in seconds
+                    udp_qual_access:
                         type: int
-                        description: Deprecated, please rename it to udp_qual_access. UDP keepalive access qualification in seconds
-                    udp-qual-duration:
+                        description: UDP keepalive access qualification in seconds
+                    udp_qual_duration:
                         type: int
-                        description: Deprecated, please rename it to udp_qual_duration. UDP keepalive duration qualification in seconds
-            inbound-dscp-copy-port:
+                        description: UDP keepalive duration qualification in seconds
+            inbound_dscp_copy_port:
                 type: raw
-                description: (list) Deprecated, please rename it to inbound_dscp_copy_port. Physical interfaces that support inbound-dscp-copy.
-            session-acct-interval:
+                description: (list) Physical interfaces that support inbound-dscp-copy.
+            session_acct_interval:
                 type: int
-                description: Deprecated, please rename it to session_acct_interval. Session accounting update interval
-            htab-msg-queue:
+                description: Session accounting update interval
+            htab_msg_queue:
                 type: str
-                description: Deprecated, please rename it to htab_msg_queue. Set hash table message queue mode.
+                description: Set hash table message queue mode.
                 choices:
                     - 'idle'
                     - 'data'
                     - 'dedicated'
-            dsw-queue-dts-profile:
+            dsw_queue_dts_profile:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dsw_queue_dts_profile. Dsw queue dts profile.
+                description: Dsw queue dts profile.
                 suboptions:
                     iport:
                         type: str
@@ -2250,129 +2250,129 @@ options:
                             - 'QTM'
                             - 'qtm'
                             - 'l2tO'
-                    profile-id:
+                    profile_id:
                         type: int
-                        description: Deprecated, please rename it to profile_id. Set NPU DSW DTS profile ID.
-                    queue-select:
+                        description: Set NPU DSW DTS profile ID.
+                    queue_select:
                         type: int
-                        description: Deprecated, please rename it to queue_select. Set NPU DSW DTS queue ID select
-            hw-ha-scan-interval:
+                        description: Set NPU DSW DTS queue ID select
+            hw_ha_scan_interval:
                 type: int
-                description: Deprecated, please rename it to hw_ha_scan_interval. HW HA periodical scan interval in seconds
-            ippool-overload-high:
+                description: HW HA periodical scan interval in seconds
+            ippool_overload_high:
                 type: int
-                description: Deprecated, please rename it to ippool_overload_high. High threshold for overload ippool port reuse
-            nat46-force-ipv4-packet-forwarding:
+                description: High threshold for overload ippool port reuse
+            nat46_force_ipv4_packet_forwarding:
                 type: str
-                description: Deprecated, please rename it to nat46_force_ipv4_packet_forwarding. Enable/disable mandatory IPv4 packet forwarding in nat46.
+                description: Enable/disable mandatory IPv4 packet forwarding in nat46.
                 choices:
                     - 'disable'
                     - 'enable'
-            prp-port-out:
+            prp_port_out:
                 type: raw
-                description: (list or str) Deprecated, please rename it to prp_port_out. Egress port configured to allow the PRP trailer not be strippe...
-            isf-np-rx-tr-distr:
+                description: (list or str) Egress port configured to allow the PRP trailer not be stripped off when the PRP packets go out.
+            isf_np_rx_tr_distr:
                 type: str
-                description: Deprecated, please rename it to isf_np_rx_tr_distr. Select ISF NP Rx trunk distribution
+                description: Select ISF NP Rx trunk distribution
                 choices:
                     - 'port-flow'
                     - 'round-robin'
                     - 'randomized'
-            mcast-session-counting6:
+            mcast_session_counting6:
                 type: str
-                description: Deprecated, please rename it to mcast_session_counting6. Enable/disable traffic accounting for each multicast session6 thr...
+                description: Enable/disable traffic accounting for each multicast session6 through TAE counter.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'session-based'
                     - 'tpe-based'
-            prp-port-in:
+            prp_port_in:
                 type: raw
-                description: (list or str) Deprecated, please rename it to prp_port_in. Ingress port configured to allow the PRP trailer not be strippe...
-            rps-mode:
+                description: (list or str) Ingress port configured to allow the PRP trailer not be stripped off when the PRP packets come in.
+            rps_mode:
                 type: str
-                description: Deprecated, please rename it to rps_mode. Enable/disable receive packet steering
+                description: Enable/disable receive packet steering
                 choices:
                     - 'disable'
                     - 'enable'
-            per-policy-accounting:
+            per_policy_accounting:
                 type: str
-                description: Deprecated, please rename it to per_policy_accounting. Set per-policy accounting.
+                description: Set per-policy accounting.
                 choices:
                     - 'disable'
                     - 'enable'
-            mcast-session-counting:
+            mcast_session_counting:
                 type: str
-                description: Deprecated, please rename it to mcast_session_counting. Mcast session counting.
+                description: Mcast session counting.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'session-based'
                     - 'tpe-based'
-            inbound-dscp-copy:
+            inbound_dscp_copy:
                 type: str
-                description: Deprecated, please rename it to inbound_dscp_copy. Enable/disable copying the DSCP field from outer IP header to inner IP ...
+                description: Enable/disable copying the DSCP field from outer IP header to inner IP Header.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipsec-host-dfclr:
+            ipsec_host_dfclr:
                 type: str
-                description: Deprecated, please rename it to ipsec_host_dfclr. Enable/disable DF clearing of NP4lite host IPsec offload.
+                description: Enable/disable DF clearing of NP4lite host IPsec offload.
                 choices:
                     - 'disable'
                     - 'enable'
-            process-icmp-by-host:
+            process_icmp_by_host:
                 type: str
-                description: Deprecated, please rename it to process_icmp_by_host. Enable/disable process ICMP by host when received from IPsec tunnel ...
+                description: Enable/disable process ICMP by host when received from IPsec tunnel and payload size
                 choices:
                     - 'disable'
                     - 'enable'
-            dedicated-tx-npu:
+            dedicated_tx_npu:
                 type: str
-                description: Deprecated, please rename it to dedicated_tx_npu. Enable/disable dedication of 3rd NPU for slow path TX.
+                description: Enable/disable dedication of 3rd NPU for slow path TX.
                 choices:
                     - 'disable'
                     - 'enable'
-            ull-port-mode:
+            ull_port_mode:
                 type: str
-                description: Deprecated, please rename it to ull_port_mode. Set ULL ports speed to 10G/25G
+                description: Set ULL ports speed to 10G/25G
                 choices:
                     - '10G'
                     - '25G'
-            sse-ha-scan:
+            sse_ha_scan:
                 type: dict
-                description: Deprecated, please rename it to sse_ha_scan. Sse ha scan.
+                description: Sse ha scan.
                 suboptions:
                     gap:
                         type: int
                         description: Scanning message gap
-                    max-session-cnt:
+                    max_session_cnt:
                         type: int
-                        description: Deprecated, please rename it to max_session_cnt. If the session count
-                    min-duration:
+                        description: If the session count
+                    min_duration:
                         type: int
-                        description: Deprecated, please rename it to min_duration. Scanning filter for minimum duration of the session.
-            hash-ipv6-sel:
+                        description: Scanning filter for minimum duration of the session.
+            hash_ipv6_sel:
                 type: int
-                description: Deprecated, please rename it to hash_ipv6_sel. Select which 4bytes of the IPv6 address are used for traffic hash
-            ip-fragment-offload:
+                description: Select which 4bytes of the IPv6 address are used for traffic hash
+            ip_fragment_offload:
                 type: str
-                description: Deprecated, please rename it to ip_fragment_offload. Enable/disable NP7 NPU IP fragment offload.
+                description: Enable/disable NP7 NPU IP fragment offload.
                 choices:
                     - 'disable'
                     - 'enable'
-            ple-non-syn-tcp-action:
+            ple_non_syn_tcp_action:
                 type: str
-                description: Deprecated, please rename it to ple_non_syn_tcp_action. Configure action for the PLE to take on TCP packets that have the ...
+                description: Configure action for the PLE to take on TCP packets that have the SYN field unset.
                 choices:
                     - 'forward'
                     - 'drop'
-            npu-group-effective-scope:
+            npu_group_effective_scope:
                 type: int
-                description: Deprecated, please rename it to npu_group_effective_scope. Npu-group-effective-scope defines under which npu-group cmds su...
-            ipsec-STS-timeout:
+                description: Npu-group-effective-scope defines under which npu-group cmds such as list/purge will be excecuted.
+            ipsec_STS_timeout:
                 type: str
-                description: Deprecated, please rename it to ipsec_STS_timeout. Set NP7Lite IPsec STS msg timeout.
+                description: Set NP7Lite IPsec STS msg timeout.
                 choices:
                     - '1'
                     - '2'
@@ -2384,9 +2384,9 @@ options:
                     - '8'
                     - '9'
                     - '10'
-            ipsec-throughput-msg-frequency:
+            ipsec_throughput_msg_frequency:
                 type: str
-                description: Deprecated, please rename it to ipsec_throughput_msg_frequency. Set NP7Lite IPsec throughput msg frequency
+                description: Set NP7Lite IPsec throughput msg frequency
                 choices:
                     - 'disable'
                     - '32KB'
@@ -2405,9 +2405,9 @@ options:
                     - '256MB'
                     - '512MB'
                     - '1GB'
-            ipt-STS-timeout:
+            ipt_STS_timeout:
                 type: str
-                description: Deprecated, please rename it to ipt_STS_timeout. Set NP7Lite IPT STS msg timeout.
+                description: Set NP7Lite IPT STS msg timeout.
                 choices:
                     - '1'
                     - '2'
@@ -2419,9 +2419,9 @@ options:
                     - '8'
                     - '9'
                     - '10'
-            ipt-throughput-msg-frequency:
+            ipt_throughput_msg_frequency:
                 type: str
-                description: Deprecated, please rename it to ipt_throughput_msg_frequency. Set NP7Lite IPT throughput msg frequency
+                description: Set NP7Lite IPT throughput msg frequency
                 choices:
                     - 'disable'
                     - '32KB'
@@ -2440,43 +2440,43 @@ options:
                     - '256MB'
                     - '512MB'
                     - '1GB'
-            default-tcp-refresh-dir:
+            default_tcp_refresh_dir:
                 type: str
-                description: Deprecated, please rename it to default_tcp_refresh_dir. Default SSE timeout TCP refresh direction.
+                description: Default SSE timeout TCP refresh direction.
                 choices:
                     - 'both'
                     - 'outgoing'
                     - 'incoming'
-            default-udp-refresh-dir:
+            default_udp_refresh_dir:
                 type: str
-                description: Deprecated, please rename it to default_udp_refresh_dir. Default SSE timeout UDP refresh direction.
+                description: Default SSE timeout UDP refresh direction.
                 choices:
                     - 'both'
                     - 'outgoing'
                     - 'incoming'
-            nss-threads-option:
+            nss_threads_option:
                 type: str
-                description: Deprecated, please rename it to nss_threads_option. Configure thread options for the NP7s NSS module.
+                description: Configure thread options for the NP7s NSS module.
                 choices:
                     - '4t-eif'
                     - '4t-noeif'
                     - '2t'
-            prp-session-clear-mode:
+            prp_session_clear_mode:
                 type: str
-                description: Deprecated, please rename it to prp_session_clear_mode. PRP session clear mode for excluded ip sessions.
+                description: PRP session clear mode for excluded ip sessions.
                 choices:
                     - 'blocking'
                     - 'non-blocking'
                     - 'do-not-clear'
-            shaping-stats:
+            shaping_stats:
                 type: str
-                description: Deprecated, please rename it to shaping_stats. Enable/disable NP7 traffic shaping statistics
+                description: Enable/disable NP7 traffic shaping statistics
                 choices:
                     - 'disable'
                     - 'enable'
-            sw-tr-hash:
+            sw_tr_hash:
                 type: dict
-                description: Deprecated, please rename it to sw_tr_hash. Sw tr hash.
+                description: Sw tr hash.
                 suboptions:
                     draco15:
                         type: str
@@ -2484,43 +2484,43 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    tcp-udp-port:
+                    tcp_udp_port:
                         type: str
-                        description: Deprecated, please rename it to tcp_udp_port. Include/exclude TCP/UDP source and destination port for unicast trun...
+                        description: Include/exclude TCP/UDP source and destination port for unicast trunk traffic.
                         choices:
                             - 'include'
                             - 'exclude'
-            pba-port-select-mode:
+            pba_port_select_mode:
                 type: str
-                description: Deprecated, please rename it to pba_port_select_mode. Port selection mode for PBA IP pool.
+                description: Port selection mode for PBA IP pool.
                 choices:
                     - 'random'
                     - 'direct'
-            spa-port-select-mode:
+            spa_port_select_mode:
                 type: str
-                description: Deprecated, please rename it to spa_port_select_mode. Port selection mode for SPA IP pool.
+                description: Port selection mode for SPA IP pool.
                 choices:
                     - 'random'
                     - 'direct'
-            split-ipsec-engines:
+            split_ipsec_engines:
                 type: str
-                description: Deprecated, please rename it to split_ipsec_engines. Enable/disable Split IPsec Engines.
+                description: Enable/disable Split IPsec Engines.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-over-vlink:
+            tunnel_over_vlink:
                 type: str
-                description: Deprecated, please rename it to tunnel_over_vlink. Enable/disable selection of which NP6 chip the tunnel uses
+                description: Enable/disable selection of which NP6 chip the tunnel uses
                 choices:
                     - 'disable'
                     - 'enable'
-            max-receive-unit:
+            max_receive_unit:
                 type: int
-                description: Deprecated, please rename it to max_receive_unit. Set the maximum packet size for receive, larger packets will be silently...
-            npu-tcam:
+                description: Set the maximum packet size for receive, larger packets will be silently dropped.
+            npu_tcam:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to npu_tcam. Npu tcam.
+                description: Npu tcam.
                 suboptions:
                     data:
                         type: dict
@@ -2547,72 +2547,72 @@ options:
                             ethertype:
                                 type: str
                                 description: Tcam data ethertype.
-                            ext-tag:
+                            ext_tag:
                                 type: str
-                                description: Deprecated, please rename it to ext_tag. Tcam data extension tag.
+                                description: Tcam data extension tag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            frag-off:
+                            frag_off:
                                 type: int
-                                description: Deprecated, please rename it to frag_off. Tcam data ip flag fragment offset.
-                            gen-buf-cnt:
+                                description: Tcam data ip flag fragment offset.
+                            gen_buf_cnt:
                                 type: int
-                                description: Deprecated, please rename it to gen_buf_cnt. Tcam data gen info buffer count.
-                            gen-iv:
+                                description: Tcam data gen info buffer count.
+                            gen_iv:
                                 type: str
-                                description: Deprecated, please rename it to gen_iv. Tcam data gen info iv.
+                                description: Tcam data gen info iv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
-                            gen-l3-flags:
+                            gen_l3_flags:
                                 type: int
-                                description: Deprecated, please rename it to gen_l3_flags. Tcam data gen info L3 flags.
-                            gen-l4-flags:
+                                description: Tcam data gen info L3 flags.
+                            gen_l4_flags:
                                 type: int
-                                description: Deprecated, please rename it to gen_l4_flags. Tcam data gen info L4 flags.
-                            gen-pkt-ctrl:
+                                description: Tcam data gen info L4 flags.
+                            gen_pkt_ctrl:
                                 type: int
-                                description: Deprecated, please rename it to gen_pkt_ctrl. Tcam data gen info packet control.
-                            gen-pri:
+                                description: Tcam data gen info packet control.
+                            gen_pri:
                                 type: int
-                                description: Deprecated, please rename it to gen_pri. Tcam data gen info priority.
-                            gen-pri-v:
+                                description: Tcam data gen info priority.
+                            gen_pri_v:
                                 type: str
-                                description: Deprecated, please rename it to gen_pri_v. Tcam data gen info priority valid.
+                                description: Tcam data gen info priority valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
-                            gen-tv:
+                            gen_tv:
                                 type: str
-                                description: Deprecated, please rename it to gen_tv. Tcam data gen info tv.
+                                description: Tcam data gen info tv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             ihl:
                                 type: int
                                 description: Tcam data ipv4 IHL.
-                            ip4-id:
+                            ip4_id:
                                 type: int
-                                description: Deprecated, please rename it to ip4_id. Tcam data ipv4 id.
-                            ip6-fl:
+                                description: Tcam data ipv4 id.
+                            ip6_fl:
                                 type: int
-                                description: Deprecated, please rename it to ip6_fl. Tcam data ipv6 flow label.
+                                description: Tcam data ipv6 flow label.
                             ipver:
                                 type: int
                                 description: Tcam data ip header version.
-                            l4-wd10:
+                            l4_wd10:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd10. Tcam data L4 word10.
-                            l4-wd11:
+                                description: Tcam data L4 word10.
+                            l4_wd11:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd11. Tcam data L4 word11.
-                            l4-wd8:
+                                description: Tcam data L4 word11.
+                            l4_wd8:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd8. Tcam data L4 word8.
-                            l4-wd9:
+                                description: Tcam data L4 word8.
+                            l4_wd9:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd9. Tcam data L4 word9.
+                                description: Tcam data L4 word9.
                             mf:
                                 type: str
                                 description: Tcam data ip flag mf.
@@ -2625,27 +2625,27 @@ options:
                             slink:
                                 type: int
                                 description: Tcam data sublink.
-                            smac-change:
+                            smac_change:
                                 type: str
-                                description: Deprecated, please rename it to smac_change. Tcam data source MAC change.
+                                description: Tcam data source MAC change.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sp:
                                 type: int
                                 description: Tcam data source port.
-                            src-cfi:
+                            src_cfi:
                                 type: str
-                                description: Deprecated, please rename it to src_cfi. Tcam data source cfi.
+                                description: Tcam data source cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            src-prio:
+                            src_prio:
                                 type: int
-                                description: Deprecated, please rename it to src_prio. Tcam data source priority.
-                            src-updt:
+                                description: Tcam data source priority.
+                            src_updt:
                                 type: str
-                                description: Deprecated, please rename it to src_updt. Tcam data source update.
+                                description: Tcam data source update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -2664,72 +2664,72 @@ options:
                             svid:
                                 type: int
                                 description: Tcam data source vid.
-                            tcp-ack:
+                            tcp_ack:
                                 type: str
-                                description: Deprecated, please rename it to tcp_ack. Tcam data tcp flag ack.
+                                description: Tcam data tcp flag ack.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-cwr:
+                            tcp_cwr:
                                 type: str
-                                description: Deprecated, please rename it to tcp_cwr. Tcam data tcp flag cwr.
+                                description: Tcam data tcp flag cwr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-ece:
+                            tcp_ece:
                                 type: str
-                                description: Deprecated, please rename it to tcp_ece. Tcam data tcp flag ece.
+                                description: Tcam data tcp flag ece.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-fin:
+                            tcp_fin:
                                 type: str
-                                description: Deprecated, please rename it to tcp_fin. Tcam data tcp flag fin.
+                                description: Tcam data tcp flag fin.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-push:
+                            tcp_push:
                                 type: str
-                                description: Deprecated, please rename it to tcp_push. Tcam data tcp flag push.
+                                description: Tcam data tcp flag push.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-rst:
+                            tcp_rst:
                                 type: str
-                                description: Deprecated, please rename it to tcp_rst. Tcam data tcp flag rst.
+                                description: Tcam data tcp flag rst.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-syn:
+                            tcp_syn:
                                 type: str
-                                description: Deprecated, please rename it to tcp_syn. Tcam data tcp flag syn.
+                                description: Tcam data tcp flag syn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-urg:
+                            tcp_urg:
                                 type: str
-                                description: Deprecated, please rename it to tcp_urg. Tcam data tcp flag urg.
+                                description: Tcam data tcp flag urg.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-cfi:
+                            tgt_cfi:
                                 type: str
-                                description: Deprecated, please rename it to tgt_cfi. Tcam data target cfi.
+                                description: Tcam data target cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-prio:
+                            tgt_prio:
                                 type: int
-                                description: Deprecated, please rename it to tgt_prio. Tcam data target priority.
-                            tgt-updt:
+                                description: Tcam data target priority.
+                            tgt_updt:
                                 type: str
-                                description: Deprecated, please rename it to tgt_updt. Tcam data target port update.
+                                description: Tcam data target port update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-v:
+                            tgt_v:
                                 type: str
-                                description: Deprecated, please rename it to tgt_v. Tcam data target valid.
+                                description: Tcam data target valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
@@ -2748,9 +2748,9 @@ options:
                             vdid:
                                 type: int
                                 description: Tcam data vdom id.
-                    dbg-dump:
+                    dbg_dump:
                         type: int
-                        description: Deprecated, please rename it to dbg_dump. Debug driver dump data/mask pdq.
+                        description: Debug driver dump data/mask pdq.
                     mask:
                         type: dict
                         description: Mask.
@@ -2776,72 +2776,72 @@ options:
                             ethertype:
                                 type: str
                                 description: Tcam mask ethertype.
-                            ext-tag:
+                            ext_tag:
                                 type: str
-                                description: Deprecated, please rename it to ext_tag. Tcam mask extension tag.
+                                description: Tcam mask extension tag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            frag-off:
+                            frag_off:
                                 type: int
-                                description: Deprecated, please rename it to frag_off. Tcam data ip flag fragment offset.
-                            gen-buf-cnt:
+                                description: Tcam data ip flag fragment offset.
+                            gen_buf_cnt:
                                 type: int
-                                description: Deprecated, please rename it to gen_buf_cnt. Tcam mask gen info buffer count.
-                            gen-iv:
+                                description: Tcam mask gen info buffer count.
+                            gen_iv:
                                 type: str
-                                description: Deprecated, please rename it to gen_iv. Tcam mask gen info iv.
+                                description: Tcam mask gen info iv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
-                            gen-l3-flags:
+                            gen_l3_flags:
                                 type: int
-                                description: Deprecated, please rename it to gen_l3_flags. Tcam mask gen info L3 flags.
-                            gen-l4-flags:
+                                description: Tcam mask gen info L3 flags.
+                            gen_l4_flags:
                                 type: int
-                                description: Deprecated, please rename it to gen_l4_flags. Tcam mask gen info L4 flags.
-                            gen-pkt-ctrl:
+                                description: Tcam mask gen info L4 flags.
+                            gen_pkt_ctrl:
                                 type: int
-                                description: Deprecated, please rename it to gen_pkt_ctrl. Tcam mask gen info packet control.
-                            gen-pri:
+                                description: Tcam mask gen info packet control.
+                            gen_pri:
                                 type: int
-                                description: Deprecated, please rename it to gen_pri. Tcam mask gen info priority.
-                            gen-pri-v:
+                                description: Tcam mask gen info priority.
+                            gen_pri_v:
                                 type: str
-                                description: Deprecated, please rename it to gen_pri_v. Tcam mask gen info priority valid.
+                                description: Tcam mask gen info priority valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
-                            gen-tv:
+                            gen_tv:
                                 type: str
-                                description: Deprecated, please rename it to gen_tv. Tcam mask gen info tv.
+                                description: Tcam mask gen info tv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             ihl:
                                 type: int
                                 description: Tcam mask ipv4 IHL.
-                            ip4-id:
+                            ip4_id:
                                 type: int
-                                description: Deprecated, please rename it to ip4_id. Tcam mask ipv4 id.
-                            ip6-fl:
+                                description: Tcam mask ipv4 id.
+                            ip6_fl:
                                 type: int
-                                description: Deprecated, please rename it to ip6_fl. Tcam mask ipv6 flow label.
+                                description: Tcam mask ipv6 flow label.
                             ipver:
                                 type: int
                                 description: Tcam mask ip header version.
-                            l4-wd10:
+                            l4_wd10:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd10. Tcam mask L4 word10.
-                            l4-wd11:
+                                description: Tcam mask L4 word10.
+                            l4_wd11:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd11. Tcam mask L4 word11.
-                            l4-wd8:
+                                description: Tcam mask L4 word11.
+                            l4_wd8:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd8. Tcam mask L4 word8.
-                            l4-wd9:
+                                description: Tcam mask L4 word8.
+                            l4_wd9:
                                 type: int
-                                description: Deprecated, please rename it to l4_wd9. Tcam mask L4 word9.
+                                description: Tcam mask L4 word9.
                             mf:
                                 type: str
                                 description: Tcam mask ip flag mf.
@@ -2854,27 +2854,27 @@ options:
                             slink:
                                 type: int
                                 description: Tcam mask sublink.
-                            smac-change:
+                            smac_change:
                                 type: str
-                                description: Deprecated, please rename it to smac_change. Tcam mask source MAC change.
+                                description: Tcam mask source MAC change.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sp:
                                 type: int
                                 description: Tcam mask source port.
-                            src-cfi:
+                            src_cfi:
                                 type: str
-                                description: Deprecated, please rename it to src_cfi. Tcam mask source cfi.
+                                description: Tcam mask source cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            src-prio:
+                            src_prio:
                                 type: int
-                                description: Deprecated, please rename it to src_prio. Tcam mask source priority.
-                            src-updt:
+                                description: Tcam mask source priority.
+                            src_updt:
                                 type: str
-                                description: Deprecated, please rename it to src_updt. Tcam mask source update.
+                                description: Tcam mask source update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -2893,72 +2893,72 @@ options:
                             svid:
                                 type: int
                                 description: Tcam mask source vid.
-                            tcp-ack:
+                            tcp_ack:
                                 type: str
-                                description: Deprecated, please rename it to tcp_ack. Tcam mask tcp flag ack.
+                                description: Tcam mask tcp flag ack.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-cwr:
+                            tcp_cwr:
                                 type: str
-                                description: Deprecated, please rename it to tcp_cwr. Tcam mask tcp flag cwr.
+                                description: Tcam mask tcp flag cwr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-ece:
+                            tcp_ece:
                                 type: str
-                                description: Deprecated, please rename it to tcp_ece. Tcam mask tcp flag ece.
+                                description: Tcam mask tcp flag ece.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-fin:
+                            tcp_fin:
                                 type: str
-                                description: Deprecated, please rename it to tcp_fin. Tcam mask tcp flag fin.
+                                description: Tcam mask tcp flag fin.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-push:
+                            tcp_push:
                                 type: str
-                                description: Deprecated, please rename it to tcp_push. Tcam mask tcp flag push.
+                                description: Tcam mask tcp flag push.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-rst:
+                            tcp_rst:
                                 type: str
-                                description: Deprecated, please rename it to tcp_rst. Tcam mask tcp flag rst.
+                                description: Tcam mask tcp flag rst.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-syn:
+                            tcp_syn:
                                 type: str
-                                description: Deprecated, please rename it to tcp_syn. Tcam mask tcp flag syn.
+                                description: Tcam mask tcp flag syn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tcp-urg:
+                            tcp_urg:
                                 type: str
-                                description: Deprecated, please rename it to tcp_urg. Tcam mask tcp flag urg.
+                                description: Tcam mask tcp flag urg.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-cfi:
+                            tgt_cfi:
                                 type: str
-                                description: Deprecated, please rename it to tgt_cfi. Tcam mask target cfi.
+                                description: Tcam mask target cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-prio:
+                            tgt_prio:
                                 type: int
-                                description: Deprecated, please rename it to tgt_prio. Tcam mask target priority.
-                            tgt-updt:
+                                description: Tcam mask target priority.
+                            tgt_updt:
                                 type: str
-                                description: Deprecated, please rename it to tgt_updt. Tcam mask target port update.
+                                description: Tcam mask target port update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgt-v:
+                            tgt_v:
                                 type: str
-                                description: Deprecated, please rename it to tgt_v. Tcam mask target valid.
+                                description: Tcam mask target valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
@@ -2977,9 +2977,9 @@ options:
                             vdid:
                                 type: int
                                 description: Tcam mask vdom id.
-                    mir-act:
+                    mir_act:
                         type: dict
-                        description: Deprecated, please rename it to mir_act. Mir act.
+                        description: Mir act.
                         suboptions:
                             vlif:
                                 type: int
@@ -2990,9 +2990,9 @@ options:
                     oid:
                         type: int
                         description: NPU TCAM OID.
-                    pri-act:
+                    pri_act:
                         type: dict
-                        description: Deprecated, please rename it to pri_act. Pri act.
+                        description: Pri act.
                         suboptions:
                             priority:
                                 type: int
@@ -3007,252 +3007,252 @@ options:
                             act:
                                 type: int
                                 description: Tcam sact act.
-                            act-v:
+                            act_v:
                                 type: str
-                                description: Deprecated, please rename it to act_v. Enable to set sact act.
+                                description: Enable to set sact act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             bmproc:
                                 type: int
                                 description: Tcam sact bmproc.
-                            bmproc-v:
+                            bmproc_v:
                                 type: str
-                                description: Deprecated, please rename it to bmproc_v. Enable to set sact bmproc.
+                                description: Enable to set sact bmproc.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            df-lif:
+                            df_lif:
                                 type: int
-                                description: Deprecated, please rename it to df_lif. Tcam sact df-lif.
-                            df-lif-v:
+                                description: Tcam sact df-lif.
+                            df_lif_v:
                                 type: str
-                                description: Deprecated, please rename it to df_lif_v. Enable to set sact df-lif.
+                                description: Enable to set sact df-lif.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dfr:
                                 type: int
                                 description: Tcam sact dfr.
-                            dfr-v:
+                            dfr_v:
                                 type: str
-                                description: Deprecated, please rename it to dfr_v. Enable to set sact dfr.
+                                description: Enable to set sact dfr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            dmac-skip:
+                            dmac_skip:
                                 type: int
-                                description: Deprecated, please rename it to dmac_skip. Tcam sact dmac-skip.
-                            dmac-skip-v:
+                                description: Tcam sact dmac-skip.
+                            dmac_skip_v:
                                 type: str
-                                description: Deprecated, please rename it to dmac_skip_v. Enable to set sact dmac-skip.
+                                description: Enable to set sact dmac-skip.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dosen:
                                 type: int
                                 description: Tcam sact dosen.
-                            dosen-v:
+                            dosen_v:
                                 type: str
-                                description: Deprecated, please rename it to dosen_v. Enable to set sact dosen.
+                                description: Enable to set sact dosen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            espff-proc:
+                            espff_proc:
                                 type: int
-                                description: Deprecated, please rename it to espff_proc. Tcam sact espff-proc.
-                            espff-proc-v:
+                                description: Tcam sact espff-proc.
+                            espff_proc_v:
                                 type: str
-                                description: Deprecated, please rename it to espff_proc_v. Enable to set sact espff-proc.
+                                description: Enable to set sact espff-proc.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            etype-pid:
+                            etype_pid:
                                 type: int
-                                description: Deprecated, please rename it to etype_pid. Tcam sact etype-pid.
-                            etype-pid-v:
+                                description: Tcam sact etype-pid.
+                            etype_pid_v:
                                 type: str
-                                description: Deprecated, please rename it to etype_pid_v. Enable to set sact etype-pid.
+                                description: Enable to set sact etype-pid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            frag-proc:
+                            frag_proc:
                                 type: int
-                                description: Deprecated, please rename it to frag_proc. Tcam sact frag-proc.
-                            frag-proc-v:
+                                description: Tcam sact frag-proc.
+                            frag_proc_v:
                                 type: str
-                                description: Deprecated, please rename it to frag_proc_v. Enable to set sact frag-proc.
+                                description: Enable to set sact frag-proc.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             fwd:
                                 type: int
                                 description: Tcam sact fwd.
-                            fwd-lif:
+                            fwd_lif:
                                 type: int
-                                description: Deprecated, please rename it to fwd_lif. Tcam sact fwd-lif.
-                            fwd-lif-v:
+                                description: Tcam sact fwd-lif.
+                            fwd_lif_v:
                                 type: str
-                                description: Deprecated, please rename it to fwd_lif_v. Enable to set sact fwd-lif.
+                                description: Enable to set sact fwd-lif.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            fwd-tvid:
+                            fwd_tvid:
                                 type: int
-                                description: Deprecated, please rename it to fwd_tvid. Tcam sact fwd-tvid.
-                            fwd-tvid-v:
+                                description: Tcam sact fwd-tvid.
+                            fwd_tvid_v:
                                 type: str
-                                description: Deprecated, please rename it to fwd_tvid_v. Enable to set sact fwd-vid.
+                                description: Enable to set sact fwd-vid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            fwd-v:
+                            fwd_v:
                                 type: str
-                                description: Deprecated, please rename it to fwd_v. Enable to set sact fwd.
+                                description: Enable to set sact fwd.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             icpen:
                                 type: int
                                 description: Tcam sact icpen.
-                            icpen-v:
+                            icpen_v:
                                 type: str
-                                description: Deprecated, please rename it to icpen_v. Enable to set sact icpen.
+                                description: Enable to set sact icpen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            igmp-mld-snp:
+                            igmp_mld_snp:
                                 type: int
-                                description: Deprecated, please rename it to igmp_mld_snp. Tcam sact igmp-mld-snp.
-                            igmp-mld-snp-v:
+                                description: Tcam sact igmp-mld-snp.
+                            igmp_mld_snp_v:
                                 type: str
-                                description: Deprecated, please rename it to igmp_mld_snp_v. Enable to set sact igmp-mld-snp.
+                                description: Enable to set sact igmp-mld-snp.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             learn:
                                 type: int
                                 description: Tcam sact learn.
-                            learn-v:
+                            learn_v:
                                 type: str
-                                description: Deprecated, please rename it to learn_v. Enable to set sact learn.
+                                description: Enable to set sact learn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            m-srh-ctrl:
+                            m_srh_ctrl:
                                 type: int
-                                description: Deprecated, please rename it to m_srh_ctrl. Tcam sact m-srh-ctrl.
-                            m-srh-ctrl-v:
+                                description: Tcam sact m-srh-ctrl.
+                            m_srh_ctrl_v:
                                 type: str
-                                description: Deprecated, please rename it to m_srh_ctrl_v. Enable to set sact m-srh-ctrl.
+                                description: Enable to set sact m-srh-ctrl.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            mac-id:
+                            mac_id:
                                 type: int
-                                description: Deprecated, please rename it to mac_id. Tcam sact mac-id.
-                            mac-id-v:
+                                description: Tcam sact mac-id.
+                            mac_id_v:
                                 type: str
-                                description: Deprecated, please rename it to mac_id_v. Enable to set sact mac-id.
+                                description: Enable to set sact mac-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mss:
                                 type: int
                                 description: Tcam sact mss.
-                            mss-v:
+                            mss_v:
                                 type: str
-                                description: Deprecated, please rename it to mss_v. Enable to set sact mss.
+                                description: Enable to set sact mss.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             pleen:
                                 type: int
                                 description: Tcam sact pleen.
-                            pleen-v:
+                            pleen_v:
                                 type: str
-                                description: Deprecated, please rename it to pleen_v. Enable to set sact pleen.
+                                description: Enable to set sact pleen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            prio-pid:
+                            prio_pid:
                                 type: int
-                                description: Deprecated, please rename it to prio_pid. Tcam sact prio-pid.
-                            prio-pid-v:
+                                description: Tcam sact prio-pid.
+                            prio_pid_v:
                                 type: str
-                                description: Deprecated, please rename it to prio_pid_v. Enable to set sact prio-pid.
+                                description: Enable to set sact prio-pid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             promis:
                                 type: int
                                 description: Tcam sact promis.
-                            promis-v:
+                            promis_v:
                                 type: str
-                                description: Deprecated, please rename it to promis_v. Enable to set sact promis.
+                                description: Enable to set sact promis.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             rfsh:
                                 type: int
                                 description: Tcam sact rfsh.
-                            rfsh-v:
+                            rfsh_v:
                                 type: str
-                                description: Deprecated, please rename it to rfsh_v. Enable to set sact rfsh.
+                                description: Enable to set sact rfsh.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            smac-skip:
+                            smac_skip:
                                 type: int
-                                description: Deprecated, please rename it to smac_skip. Tcam sact smac-skip.
-                            smac-skip-v:
+                                description: Tcam sact smac-skip.
+                            smac_skip_v:
                                 type: str
-                                description: Deprecated, please rename it to smac_skip_v. Enable to set sact smac-skip.
+                                description: Enable to set sact smac-skip.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tp-smchk-v:
+                            tp_smchk_v:
                                 type: str
-                                description: Deprecated, please rename it to tp_smchk_v. Enable to set sact tp mode.
+                                description: Enable to set sact tp mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tp_smchk:
                                 type: int
                                 description: Tcam sact tp mode.
-                            tpe-id:
+                            tpe_id:
                                 type: int
-                                description: Deprecated, please rename it to tpe_id. Tcam sact tpe-id.
-                            tpe-id-v:
+                                description: Tcam sact tpe-id.
+                            tpe_id_v:
                                 type: str
-                                description: Deprecated, please rename it to tpe_id_v. Enable to set sact tpe-id.
+                                description: Enable to set sact tpe-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vdm:
                                 type: int
                                 description: Tcam sact vdm.
-                            vdm-v:
+                            vdm_v:
                                 type: str
-                                description: Deprecated, please rename it to vdm_v. Enable to set sact vdm.
+                                description: Enable to set sact vdm.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            vdom-id:
+                            vdom_id:
                                 type: int
-                                description: Deprecated, please rename it to vdom_id. Tcam sact vdom-id.
-                            vdom-id-v:
+                                description: Tcam sact vdom-id.
+                            vdom_id_v:
                                 type: str
-                                description: Deprecated, please rename it to vdom_id_v. Enable to set sact vdom-id.
+                                description: Enable to set sact vdom-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            x-mode:
+                            x_mode:
                                 type: int
-                                description: Deprecated, please rename it to x_mode. Tcam sact x-mode.
-                            x-mode-v:
+                                description: Tcam sact x-mode.
+                            x_mode_v:
                                 type: str
-                                description: Deprecated, please rename it to x_mode_v. Enable to set sact x-mode.
+                                description: Enable to set sact x-mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -3263,162 +3263,162 @@ options:
                             act:
                                 type: int
                                 description: Tcam tact act.
-                            act-v:
+                            act_v:
                                 type: str
-                                description: Deprecated, please rename it to act_v. Enable to set tact act.
+                                description: Enable to set tact act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            fmtuv4-s:
+                            fmtuv4_s:
                                 type: int
-                                description: Deprecated, please rename it to fmtuv4_s. Tcam tact fmtuv4-s.
-                            fmtuv4-s-v:
+                                description: Tcam tact fmtuv4-s.
+                            fmtuv4_s_v:
                                 type: str
-                                description: Deprecated, please rename it to fmtuv4_s_v. Enable to set tact fmtuv4-s.
+                                description: Enable to set tact fmtuv4-s.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            fmtuv6-s:
+                            fmtuv6_s:
                                 type: int
-                                description: Deprecated, please rename it to fmtuv6_s. Tcam tact fmtuv6-s.
-                            fmtuv6-s-v:
+                                description: Tcam tact fmtuv6-s.
+                            fmtuv6_s_v:
                                 type: str
-                                description: Deprecated, please rename it to fmtuv6_s_v. Enable to set tact fmtuv6-s.
+                                description: Enable to set tact fmtuv6-s.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             lnkid:
                                 type: int
                                 description: Tcam tact lnkid.
-                            lnkid-v:
+                            lnkid_v:
                                 type: str
-                                description: Deprecated, please rename it to lnkid_v. Enable to set tact lnkid.
+                                description: Enable to set tact lnkid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            mac-id:
+                            mac_id:
                                 type: int
-                                description: Deprecated, please rename it to mac_id. Tcam tact mac-id.
-                            mac-id-v:
+                                description: Tcam tact mac-id.
+                            mac_id_v:
                                 type: str
-                                description: Deprecated, please rename it to mac_id_v. Enable to set tact mac-id.
+                                description: Enable to set tact mac-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            mss-t:
+                            mss_t:
                                 type: int
-                                description: Deprecated, please rename it to mss_t. Tcam tact mss.
-                            mss-t-v:
+                                description: Tcam tact mss.
+                            mss_t_v:
                                 type: str
-                                description: Deprecated, please rename it to mss_t_v. Enable to set tact mss.
+                                description: Enable to set tact mss.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mtuv4:
                                 type: int
                                 description: Tcam tact mtuv4.
-                            mtuv4-v:
+                            mtuv4_v:
                                 type: str
-                                description: Deprecated, please rename it to mtuv4_v. Enable to set tact mtuv4.
+                                description: Enable to set tact mtuv4.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mtuv6:
                                 type: int
                                 description: Tcam tact mtuv6.
-                            mtuv6-v:
+                            mtuv6_v:
                                 type: str
-                                description: Deprecated, please rename it to mtuv6_v. Enable to set tact mtuv6.
+                                description: Enable to set tact mtuv6.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            slif-act:
+                            slif_act:
                                 type: int
-                                description: Deprecated, please rename it to slif_act. Tcam tact slif-act.
-                            slif-act-v:
+                                description: Tcam tact slif-act.
+                            slif_act_v:
                                 type: str
-                                description: Deprecated, please rename it to slif_act_v. Enable to set tact slif-act.
+                                description: Enable to set tact slif-act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sublnkid:
                                 type: int
                                 description: Tcam tact sublnkid.
-                            sublnkid-v:
+                            sublnkid_v:
                                 type: str
-                                description: Deprecated, please rename it to sublnkid_v. Enable to set tact sublnkid.
+                                description: Enable to set tact sublnkid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tgtv-act:
+                            tgtv_act:
                                 type: int
-                                description: Deprecated, please rename it to tgtv_act. Tcam tact tgtv-act.
-                            tgtv-act-v:
+                                description: Tcam tact tgtv-act.
+                            tgtv_act_v:
                                 type: str
-                                description: Deprecated, please rename it to tgtv_act_v. Enable to set tact tgtv-act.
+                                description: Enable to set tact tgtv-act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            tlif-act:
+                            tlif_act:
                                 type: int
-                                description: Deprecated, please rename it to tlif_act. Tcam tact tlif-act.
-                            tlif-act-v:
+                                description: Tcam tact tlif-act.
+                            tlif_act_v:
                                 type: str
-                                description: Deprecated, please rename it to tlif_act_v. Enable to set tact tlif-act.
+                                description: Enable to set tact tlif-act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tpeid:
                                 type: int
                                 description: Tcam tact tpeid.
-                            tpeid-v:
+                            tpeid_v:
                                 type: str
-                                description: Deprecated, please rename it to tpeid_v. Enable to set tact tpeid.
+                                description: Enable to set tact tpeid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             v6fe:
                                 type: int
                                 description: Tcam tact v6fe.
-                            v6fe-v:
+                            v6fe_v:
                                 type: str
-                                description: Deprecated, please rename it to v6fe_v. Enable to set tact v6fe.
+                                description: Enable to set tact v6fe.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            vep-en-v:
+                            vep_en_v:
                                 type: str
-                                description: Deprecated, please rename it to vep_en_v. Enable to set tact vep-en.
+                                description: Enable to set tact vep-en.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            vep-slid:
+                            vep_slid:
                                 type: int
-                                description: Deprecated, please rename it to vep_slid. Tcam tact vep_slid.
-                            vep-slid-v:
+                                description: Tcam tact vep_slid.
+                            vep_slid_v:
                                 type: str
-                                description: Deprecated, please rename it to vep_slid_v. Enable to set tact vep-slid.
+                                description: Enable to set tact vep-slid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vep_en:
                                 type: int
                                 description: Tcam tact vep_en.
-                            xlt-lif:
+                            xlt_lif:
                                 type: int
-                                description: Deprecated, please rename it to xlt_lif. Tcam tact xlt-lif.
-                            xlt-lif-v:
+                                description: Tcam tact xlt-lif.
+                            xlt_lif_v:
                                 type: str
-                                description: Deprecated, please rename it to xlt_lif_v. Enable to set tact xlt-lif.
+                                description: Enable to set tact xlt-lif.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            xlt-vid:
+                            xlt_vid:
                                 type: int
-                                description: Deprecated, please rename it to xlt_vid. Tcam tact xlt-vid.
-                            xlt-vid-v:
+                                description: Tcam tact xlt-vid.
+                            xlt_vid_v:
                                 type: str
-                                description: Deprecated, please rename it to xlt_vid_v. Enable to set tact xlt-vid.
+                                description: Enable to set tact xlt-vid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -3447,80 +3447,86 @@ options:
                     vid:
                         type: int
                         description: NPU TCAM VID.
-            icmp-rate-ctrl:
+            icmp_rate_ctrl:
                 type: dict
-                description: Deprecated, please rename it to icmp_rate_ctrl. Icmp rate ctrl.
+                description: Icmp rate ctrl.
                 suboptions:
-                    icmp-v4-bucket-size:
+                    icmp_v4_bucket_size:
                         type: int
-                        description: Deprecated, please rename it to icmp_v4_bucket_size. Bucket size used in the token bucket algorithm for controllin...
-                    icmp-v4-rate:
+                        description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 packets
+                    icmp_v4_rate:
                         type: int
-                        description: Deprecated, please rename it to icmp_v4_rate. Average rate of ICMPv4 packets that allowed to be generated per second
-                    icmp-v6-bucket-size:
+                        description: Average rate of ICMPv4 packets that allowed to be generated per second
+                    icmp_v6_bucket_size:
                         type: int
-                        description: Deprecated, please rename it to icmp_v6_bucket_size. Bucket size used in the token bucket algorithm for controllin...
-                    icmp-v6-rate:
+                        description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 packets
+                    icmp_v6_rate:
                         type: int
-                        description: Deprecated, please rename it to icmp_v6_rate. Average rate of ICMPv6 packets that allowed to be generated per second
-            vxlan-offload:
+                        description: Average rate of ICMPv6 packets that allowed to be generated per second
+            vxlan_offload:
                 type: str
-                description: Deprecated, please rename it to vxlan_offload. Enable/disable offloading vxlan.
+                description: Enable/disable offloading vxlan.
                 choices:
                     - 'disable'
                     - 'enable'
-            icmp-error-rate-ctrl:
+            icmp_error_rate_ctrl:
                 type: dict
-                description: Deprecated, please rename it to icmp_error_rate_ctrl. Icmp error rate ctrl.
+                description: Icmp error rate ctrl.
                 suboptions:
-                    icmpv4-error-bucket-size:
+                    icmpv4_error_bucket_size:
                         type: int
-                        description: Deprecated, please rename it to icmpv4_error_bucket_size. Bucket size used in the token bucket algorithm for contr...
-                    icmpv4-error-rate:
+                        description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 error packets
+                    icmpv4_error_rate:
                         type: int
-                        description: Deprecated, please rename it to icmpv4_error_rate. Average rate of ICMPv4 error packets that allowed to be generat...
-                    icmpv4-error-rate-limit:
+                        description: Average rate of ICMPv4 error packets that allowed to be generated per second
+                    icmpv4_error_rate_limit:
                         type: str
-                        description: Deprecated, please rename it to icmpv4_error_rate_limit. Enable to limit the ICMPv4 error packets generated by thi...
+                        description: Enable to limit the ICMPv4 error packets generated by this FortiGate.
                         choices:
                             - 'disable'
                             - 'enable'
-                    icmpv6-error-bucket-size:
+                    icmpv6_error_bucket_size:
                         type: int
-                        description: Deprecated, please rename it to icmpv6_error_bucket_size. Bucket size used in the token bucket algorithm for contr...
-                    icmpv6-error-rate:
+                        description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 error packets
+                    icmpv6_error_rate:
                         type: int
-                        description: Deprecated, please rename it to icmpv6_error_rate. Average rate of ICMPv6 error packets that allowed to be generat...
-                    icmpv6-error-rate-limit:
+                        description: Average rate of ICMPv6 error packets that allowed to be generated per second
+                    icmpv6_error_rate_limit:
                         type: str
-                        description: Deprecated, please rename it to icmpv6_error_rate_limit. Enable to limit the ICMPv6 error packets generated by thi...
+                        description: Enable to limit the ICMPv6 error packets generated by this FortiGate.
                         choices:
                             - 'disable'
                             - 'enable'
-            ipv4-session-quota:
+            ipv4_session_quota:
                 type: str
-                description: Deprecated, please rename it to ipv4_session_quota. Enable/Disable NoNAT IPv4 session quota for hyperscale VDOMs.
+                description: Enable/Disable NoNAT IPv4 session quota for hyperscale VDOMs.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv4-session-quota-high:
+            ipv4_session_quota_high:
                 type: int
-                description: Deprecated, please rename it to ipv4_session_quota_high. Configure NoNAT IPv4 session quota high threshold.
-            ipv4-session-quota-low:
+                description: Configure NoNAT IPv4 session quota high threshold.
+            ipv4_session_quota_low:
                 type: int
-                description: Deprecated, please rename it to ipv4_session_quota_low. Configure NoNAT IPv4 session quota low threshold.
-            ipv6-prefix-session-quota:
+                description: Configure NoNAT IPv4 session quota low threshold.
+            ipv6_prefix_session_quota:
                 type: str
-                description: Deprecated, please rename it to ipv6_prefix_session_quota. Enable/Disable hardware IPv6 /64 prefix session quota for hyper...
+                description: Enable/Disable hardware IPv6 /64 prefix session quota for hyperscale VDOMs.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-prefix-session-quota-high:
+            ipv6_prefix_session_quota_high:
                 type: int
-                description: Deprecated, please rename it to ipv6_prefix_session_quota_high. Configure IPv6 prefix session quota high threshold.
-            ipv6-prefix-session-quota-low:
+                description: Configure IPv6 prefix session quota high threshold.
+            ipv6_prefix_session_quota_low:
                 type: int
-                description: Deprecated, please rename it to ipv6_prefix_session_quota_low. Configure IPv6 prefix session quota low threshold.
+                description: Configure IPv6 prefix session quota low threshold.
+            dedicated_lacp_queue:
+                type: str
+                description: Enable to dedicate one HIF queue for LACP.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -4134,6 +4140,7 @@ EXAMPLES = '''
           ipv6_prefix_session_quota: <value in [disable, enable]>
           ipv6_prefix_session_quota_high: <integer>
           ipv6_prefix_session_quota_low: <integer>
+          dedicated_lacp_queue: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -4177,189 +4184,181 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu',
         '/pm/config/global/obj/system/npu'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/{npu}',
-        '/pm/config/global/obj/system/npu/{npu}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'capwap-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'capwap-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dedicated-management-affinity': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'dedicated-management-cpu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fastpath': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dedicated-management-cpu': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fastpath': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fp-anomaly': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'esp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'icmp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'icmp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-ihl-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-opt-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-ttlzero-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-ver-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-exthdr-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-exthdr-order-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-ihl-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-plen-zero': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-ver-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-hlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udp-hlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udp-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udp-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udplite-cover-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udplite-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-fin-only': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-optralert': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-syn-fin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-proto-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-saddr-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'icmp-frag': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-optssrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-opthomeaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'udp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-optinvld': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-fin-noack': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-proto-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-unknopt': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-optstream': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-optjumbo': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'icmp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-winnuke': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-daddr-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-opttunnel': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-no-flag': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv4-optlsrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'esp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'icmp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'icmp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-opt-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-ttlzero-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-ver-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-exthdr-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-exthdr-order-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-plen-zero': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-ver-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udp-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udplite-cover-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-fin-only': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-optralert': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-syn-fin': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-proto-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-saddr-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'icmp-frag': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-optssrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-opthomeaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'udp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-optinvld': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-fin-noack': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-proto-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-optstream': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-optjumbo': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'icmp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-winnuke': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-daddr-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-opttunnel': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-no-flag': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv4-optlsrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                         'ipv4-opttimestamp': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': ['allow', 'drop', 'trap-to-host'],
                             'type': 'str'
                         },
-                        'ipv4-optrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-optnsap': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-syn-data': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'gre-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-crc-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-clen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                        'ipv4-optrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-optnsap': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-syn-data': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                        'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
                     }
                 },
-                'gtp-enhanced-cpu-range': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['0', '1', '2'], 'type': 'str'},
-                'gtp-enhanced-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'host-shortcut-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['bi-directional', 'host-shortcut'], 'type': 'str'},
+                'gtp-enhanced-cpu-range': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['0', '1', '2'], 'type': 'str'},
+                'gtp-enhanced-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'host-shortcut-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['bi-directional', 'host-shortcut'], 'type': 'str'},
                 'htx-gtse-quota': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': [
                         '100Mbps', '200Mbps', '300Mbps', '400Mbps', '500Mbps', '600Mbps', '700Mbps', '800Mbps', '900Mbps', '1Gbps', '2Gbps', '4Gbps',
                         '8Gbps', '10Gbps'
                     ],
                     'type': 'str'
                 },
-                'intf-shaping-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'iph-rsvd-re-cksum': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ipsec-dec-subengine-mask': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                'ipsec-enc-subengine-mask': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                'ipsec-inbound-cache': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ipsec-mtu-override': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ipsec-over-vlink': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'intf-shaping-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'iph-rsvd-re-cksum': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ipsec-dec-subengine-mask': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                'ipsec-enc-subengine-mask': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                'ipsec-inbound-cache': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ipsec-mtu-override': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ipsec-over-vlink': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'isf-np-queues': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'cos0': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos1': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos2': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos3': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos4': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos5': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos6': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'cos7': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
+                        'cos0': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos1': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos2': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos3': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos4': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos5': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos6': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'cos7': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                     }
                 },
-                'lag-out-port-select': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'lag-out-port-select': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mcast-session-accounting': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['disable', 'session-based', 'tpe-based'],
                     'type': 'str'
                 },
-                'np6-cps-optimization-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np6-cps-optimization-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'per-session-accounting': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['enable', 'disable', 'enable-by-log', 'all-enable', 'traffic-log-only'],
                     'type': 'str'
                 },
                 'port-cpu-map': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'cpu-core': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'interface': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
+                        'cpu-core': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'interface': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'port-npu-map': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'interface': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'npu-group-index': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                        'interface': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'npu-group-index': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'priority-protocol': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'bfd': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'bgp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'slbc': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'bfd': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'bgp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'slbc': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
-                'qos-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'priority', 'round-robin'], 'type': 'str'},
-                'rdp-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'recover-np6-link': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'qos-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'priority', 'round-robin'], 'type': 'str'},
+                'rdp-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'recover-np6-link': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'session-denied-offload': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sse-backpressure': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'strip-clear-text-padding': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'strip-esp-padding': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sse-backpressure': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'strip-clear-text-padding': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'strip-esp-padding': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sw-eh-hash': {
                     'v_range': [['7.0.1', '']],
                     'type': 'dict',
@@ -4376,578 +4375,578 @@ def main():
                     }
                 },
                 'sw-np-bandwidth': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['0G', '2G', '4G', '5G', '6G', '7G', '8G', '9G'],
                     'type': 'str'
                 },
-                'switch-np-hash': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['src-ip', 'dst-ip', 'src-dst-ip'], 'type': 'str'},
-                'uesp-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-np-hash': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['src-ip', 'dst-ip', 'src-dst-ip'], 'type': 'str'},
+                'uesp-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'np-queues': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
                         'ethernet-type': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                                'queue': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'type': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'weight': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                                'queue': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'type': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'weight': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
                         'ip-protocol': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                                'protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'queue': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'weight': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                                'protocol': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'queue': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'weight': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
                         'ip-service': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'type': 'list',
                             'options': {
-                                'dport': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                                'protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'queue': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'sport': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'weight': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                                'dport': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                                'protocol': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'queue': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'sport': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'weight': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
                         'profile': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'type': 'list',
                             'options': {
                                 'cos0': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos1': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos2': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos3': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos4': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos5': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos6': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'cos7': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp0': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp1': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp10': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp11': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp12': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp13': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp14': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp15': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp16': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp17': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp18': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp19': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp2': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp20': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp21': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp22': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp23': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp24': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp25': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp26': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp27': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp28': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp29': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp3': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp30': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp31': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp32': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp33': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp34': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp35': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp36': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp37': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp38': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp39': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp4': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp40': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp41': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp42': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp43': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp44': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp45': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp46': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp47': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp48': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp49': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp5': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp50': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp51': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp52': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp53': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp54': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp55': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp56': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp57': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp58': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp59': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp6': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp60': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp61': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp62': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp63': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp7': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp8': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
                                 'dscp9': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['queue0', 'queue1', 'queue2', 'queue3', 'queue4', 'queue5', 'queue6', 'queue7'],
                                     'type': 'str'
                                 },
-                                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                                'type': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['cos', 'dscp'], 'type': 'str'},
-                                'weight': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                                'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                                'type': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['cos', 'dscp'], 'type': 'str'},
+                                'weight': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
                         'scheduler': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'type': 'list',
                             'options': {
-                                'mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['none', 'priority', 'round-robin'], 'type': 'str'},
-                                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
+                                'mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['none', 'priority', 'round-robin'], 'type': 'str'},
+                                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         }
                     }
                 },
                 'udp-timeout-profile': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'udp-idle': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'udp-idle': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'qtm-buf-mode': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['6ch', '4ch'], 'type': 'str'},
+                'qtm-buf-mode': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['6ch', '4ch'], 'type': 'str'},
                 'default-qos-type': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['policing', 'shaping', 'policing-enhanced'],
                     'type': 'str'
                 },
-                'tcp-rst-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'tcp-rst-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
                 'ipsec-local-uesp-port': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                'htab-dedi-queue-nr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
-                'double-level-mcast-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dse-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'ippool-overload-low': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'pba-eim': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disallow', 'allow'], 'type': 'str'},
+                'htab-dedi-queue-nr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
+                'double-level-mcast-offload': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dse-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'ippool-overload-low': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'pba-eim': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disallow', 'allow'], 'type': 'str'},
                 'policy-offload-level': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['disable', 'dos-offload', 'full-offload'],
                     'type': 'str'
                 },
-                'max-session-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'max-session-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'port-path-option': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
-                    'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'}}
+                    'options': {'ports-using-npu': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'raw'}}
                 },
-                'vlan-lookup-cache': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vlan-lookup-cache': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dos-options': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'npu-dos-meter-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['local', 'global'], 'type': 'str'},
+                        'npu-dos-meter-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['local', 'global'], 'type': 'str'},
                         'npu-dos-synproxy-mode': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': ['synack2ack', 'pass-synack'],
                             'type': 'str'
                         },
-                        'npu-dos-tpe-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'npu-dos-tpe-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
-                'hash-tbl-spread': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'hash-tbl-spread': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-timeout-profile': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'close-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'fin-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'syn-sent': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'syn-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'tcp-idle': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'time-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                        'close-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'fin-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'syn-sent': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'syn-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'tcp-idle': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'time-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'ip-reassembly': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'max-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'min-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'status': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'max-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'min-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'status': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
-                'gtp-support': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'htx-icmp-csum-chk': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'},
+                'gtp-support': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'htx-icmp-csum-chk': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['pass', 'drop'], 'type': 'str'},
                 'hpe': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'all-protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'arp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'enable-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'esp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'high-priority': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'icmp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'ip-frag-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'ip-others-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'l2-others-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'pri-type-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'sctp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'tcp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'tcpfin-rst-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'tcpsyn-ack-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'tcpsyn-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'udp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                        'all-protocol': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'arp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'enable-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'esp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'high-priority': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'icmp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'ip-frag-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'ip-others-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'l2-others-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'pri-type-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'sctp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'tcp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'tcpfin-rst-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'tcpsyn-ack-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'tcpsyn-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'udp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'enable-queue-shaper': {
-                            'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                            'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'exception-code': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                        'fragment-with-sess': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                        'fragment-without-session': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                        'queue-shaper-max': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'}
+                        'exception-code': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                        'fragment-with-sess': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                        'fragment-without-session': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                        'queue-shaper-max': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'}
                     }
                 },
                 'dsw-dts-profile': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
                         'action': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': ['wait', 'drop', 'drop_tmr_0', 'drop_tmr_1', 'enque', 'enque_0', 'enque_1'],
                             'type': 'str'
                         },
-                        'min-limit': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'profile-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'step': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                        'min-limit': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'profile-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'step': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'hash-config': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['5-tuple', 'src-ip', 'src-dst-ip'], 'type': 'str'},
-                'ipsec-ob-np-sel': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['RR', 'rr', 'Packet', 'Hash'], 'type': 'str'},
-                'napi-break-interval': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'hash-config': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['5-tuple', 'src-ip', 'src-dst-ip'], 'type': 'str'},
+                'ipsec-ob-np-sel': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['RR', 'rr', 'Packet', 'Hash'], 'type': 'str'},
+                'napi-break-interval': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
                 'background-sse-scan': {
-                    'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
+                    'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']],
                     'type': 'dict',
                     'options': {
-                        'scan': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'stats-update-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
-                        'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
-                        'scan-stale': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                        'scan-vt': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                        'stats-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                        'stats-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                        'udp-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                        'udp-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'}
+                        'scan': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'stats-update-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                        'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                        'scan-stale': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                        'scan-vt': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                        'stats-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                        'stats-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                        'udp-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                        'udp-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'}
                     }
                 },
-                'inbound-dscp-copy-port': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'},
-                'session-acct-interval': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'htab-msg-queue': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['idle', 'data', 'dedicated'], 'type': 'str'},
+                'inbound-dscp-copy-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'raw'},
+                'session-acct-interval': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'htab-msg-queue': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['idle', 'data', 'dedicated'], 'type': 'str'},
                 'dsw-queue-dts-profile': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
                         'iport': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': [
                                 'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7',
                                 'eif7', 'HTX0', 'htx0', 'HTX1', 'htx1', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt',
@@ -4957,9 +4956,9 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                        'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
                         'oport': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': [
                                 'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7',
                                 'eif7', 'HRX', 'hrx', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr',
@@ -4969,58 +4968,58 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'profile-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                        'queue-select': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                        'profile-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                        'queue-select': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'hw-ha-scan-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
-                'ippool-overload-high': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'nat46-force-ipv4-packet-forwarding': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'prp-port-out': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'},
+                'hw-ha-scan-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                'ippool-overload-high': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'nat46-force-ipv4-packet-forwarding': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'prp-port-out': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'raw'},
                 'isf-np-rx-tr-distr': {
-                    'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']],
+                    'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']],
                     'choices': ['port-flow', 'round-robin', 'randomized'],
                     'type': 'str'
                 },
                 'mcast-session-counting6': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['disable', 'enable', 'session-based', 'tpe-based'],
                     'type': 'str'
                 },
-                'prp-port-in': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'raw'},
-                'rps-mode': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'per-policy-accounting': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'prp-port-in': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'raw'},
+                'rps-mode': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'per-policy-accounting': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mcast-session-counting': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': ['disable', 'enable', 'session-based', 'tpe-based'],
                     'type': 'str'
                 },
-                'inbound-dscp-copy': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ipsec-host-dfclr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'process-icmp-by-host': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dedicated-tx-npu': {'v_range': [['6.4.7', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ull-port-mode': {'v_range': [['6.4.9', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['10G', '25G'], 'type': 'str'},
+                'inbound-dscp-copy': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ipsec-host-dfclr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'process-icmp-by-host': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dedicated-tx-npu': {'v_range': [['6.4.7', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ull-port-mode': {'v_range': [['6.4.9', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['10G', '25G'], 'type': 'str'},
                 'sse-ha-scan': {
-                    'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']],
+                    'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']],
                     'type': 'dict',
                     'options': {
-                        'gap': {'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                        'max-session-cnt': {'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                        'min-duration': {'v_range': [['6.4.10', '6.4.14'], ['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'}
+                        'gap': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                        'max-session-cnt': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                        'min-duration': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'}
                     }
                 },
-                'hash-ipv6-sel': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                'ip-fragment-offload': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ple-non-syn-tcp-action': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['forward', 'drop'], 'type': 'str'},
-                'npu-group-effective-scope': {'v_range': [['7.0.6', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
+                'hash-ipv6-sel': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                'ip-fragment-offload': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ple-non-syn-tcp-action': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['forward', 'drop'], 'type': 'str'},
+                'npu-group-effective-scope': {'v_range': [['7.0.6', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
                 'ipsec-STS-timeout': {
-                    'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                     'choices': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
                     'type': 'str'
                 },
                 'ipsec-throughput-msg-frequency': {
-                    'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                     'choices': [
                         'disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB', '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB',
                         '512MB', '1GB'
@@ -5028,21 +5027,33 @@ def main():
                     'type': 'str'
                 },
                 'ipt-STS-timeout': {
-                    'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                     'choices': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
                     'type': 'str'
                 },
                 'ipt-throughput-msg-frequency': {
-                    'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                     'choices': [
                         'disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB', '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB',
                         '512MB', '1GB'
                     ],
                     'type': 'str'
                 },
-                'default-tcp-refresh-dir': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'choices': ['both', 'outgoing', 'incoming'], 'type': 'str'},
-                'default-udp-refresh-dir': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'choices': ['both', 'outgoing', 'incoming'], 'type': 'str'},
-                'nss-threads-option': {'v_range': [['7.0.12', '7.0.12'], ['7.4.2', '']], 'choices': ['4t-eif', '4t-noeif', '2t'], 'type': 'str'},
+                'default-tcp-refresh-dir': {
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']],
+                    'choices': ['both', 'outgoing', 'incoming'],
+                    'type': 'str'
+                },
+                'default-udp-refresh-dir': {
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']],
+                    'choices': ['both', 'outgoing', 'incoming'],
+                    'type': 'str'
+                },
+                'nss-threads-option': {
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.2', '']],
+                    'choices': ['4t-eif', '4t-noeif', '2t'],
+                    'type': 'str'
+                },
                 'prp-session-clear-mode': {'v_range': [['7.2.2', '']], 'choices': ['blocking', 'non-blocking', 'do-not-clear'], 'type': 'str'},
                 'shaping-stats': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sw-tr-hash': {
@@ -5053,10 +5064,10 @@ def main():
                         'tcp-udp-port': {'v_range': [['7.2.4', '']], 'choices': ['include', 'exclude'], 'type': 'str'}
                     }
                 },
-                'pba-port-select-mode': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
-                'spa-port-select-mode': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
-                'split-ipsec-engines': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pba-port-select-mode': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
+                'spa-port-select-mode': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
+                'split-ipsec-engines': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-receive-unit': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'npu-tcam': {
                     'v_range': [['7.4.2', '']],
@@ -5320,15 +5331,15 @@ def main():
                 },
                 'vxlan-offload': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'icmp-error-rate-ctrl': {
-                    'v_range': [['7.6.0', '']],
+                    'v_range': [['7.4.4', '']],
                     'type': 'dict',
                     'options': {
-                        'icmpv4-error-bucket-size': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                        'icmpv4-error-rate': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                        'icmpv4-error-rate-limit': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'icmpv6-error-bucket-size': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                        'icmpv6-error-rate': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                        'icmpv6-error-rate-limit': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'icmpv4-error-bucket-size': {'v_range': [['7.4.4', '']], 'type': 'int'},
+                        'icmpv4-error-rate': {'v_range': [['7.4.4', '']], 'type': 'int'},
+                        'icmpv4-error-rate-limit': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'icmpv6-error-bucket-size': {'v_range': [['7.4.4', '']], 'type': 'int'},
+                        'icmpv6-error-rate': {'v_range': [['7.4.4', '']], 'type': 'int'},
+                        'icmpv6-error-rate-limit': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'ipv4-session-quota': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5336,9 +5347,9 @@ def main():
                 'ipv4-session-quota-low': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'ipv6-prefix-session-quota': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipv6-prefix-session-quota-high': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'ipv6-prefix-session-quota-low': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'ipv6-prefix-session-quota-low': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'dedicated-lacp-queue': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -5352,9 +5363,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

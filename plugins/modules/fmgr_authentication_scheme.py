@@ -89,21 +89,21 @@ options:
         required: false
         type: dict
         suboptions:
-            domain-controller:
+            domain_controller:
                 type: str
-                description: Deprecated, please rename it to domain_controller. Domain controller setting.
-            fsso-agent-for-ntlm:
+                description: Domain controller setting.
+            fsso_agent_for_ntlm:
                 type: str
-                description: Deprecated, please rename it to fsso_agent_for_ntlm. FSSO agent to use for NTLM authentication.
-            fsso-guest:
+                description: FSSO agent to use for NTLM authentication.
+            fsso_guest:
                 type: str
-                description: Deprecated, please rename it to fsso_guest. Enable/disable user fsso-guest authentication
+                description: Enable/disable user fsso-guest authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            kerberos-keytab:
+            kerberos_keytab:
                 type: str
-                description: Deprecated, please rename it to kerberos_keytab. Kerberos keytab setting.
+                description: Kerberos keytab setting.
             method:
                 type: list
                 elements: str
@@ -125,39 +125,39 @@ options:
                 type: str
                 description: Authentication scheme name.
                 required: true
-            negotiate-ntlm:
+            negotiate_ntlm:
                 type: str
-                description: Deprecated, please rename it to negotiate_ntlm. Enable/disable negotiate authentication for NTLM
+                description: Enable/disable negotiate authentication for NTLM
                 choices:
                     - 'disable'
                     - 'enable'
-            require-tfa:
+            require_tfa:
                 type: str
-                description: Deprecated, please rename it to require_tfa. Enable/disable two-factor authentication
+                description: Enable/disable two-factor authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            ssh-ca:
+            ssh_ca:
                 type: str
-                description: Deprecated, please rename it to ssh_ca. SSH CA name.
-            user-database:
+                description: SSH CA name.
+            user_database:
                 type: raw
-                description: (list or str) Deprecated, please rename it to user_database. Authentication server to contain user information; local
-            ems-device-owner:
+                description: (list or str) Authentication server to contain user information; local
+            ems_device_owner:
                 type: str
-                description: Deprecated, please rename it to ems_device_owner. Enable/disable SSH public-key authentication with device owner
+                description: Enable/disable SSH public-key authentication with device owner
                 choices:
                     - 'disable'
                     - 'enable'
-            saml-server:
+            saml_server:
                 type: str
-                description: Deprecated, please rename it to saml_server. SAML configuration.
-            saml-timeout:
+                description: SAML configuration.
+            saml_timeout:
                 type: int
-                description: Deprecated, please rename it to saml_timeout. SAML authentication timeout in seconds.
-            user-cert:
+                description: SAML authentication timeout in seconds.
+            user_cert:
                 type: str
-                description: Deprecated, please rename it to user_cert. Enable/disable authentication with user certificate
+                description: Enable/disable authentication with user certificate
                 choices:
                     - 'disable'
                     - 'enable'
@@ -187,18 +187,18 @@ EXAMPLES = '''
           fsso_guest: <value in [disable, enable]>
           kerberos_keytab: <string>
           method:
-            - ntlm
-            - basic
-            - digest
-            - form
-            - negotiate
-            - fsso
-            - rsso
-            - ssh-publickey
-            - saml
-            - cert
-            - x-auth-user
-            - saml-sp
+            - "ntlm"
+            - "basic"
+            - "digest"
+            - "form"
+            - "negotiate"
+            - "fsso"
+            - "rsso"
+            - "ssh-publickey"
+            - "saml"
+            - "cert"
+            - "x-auth-user"
+            - "saml-sp"
           name: <string>
           negotiate_ntlm: <value in [disable, enable]>
           require_tfa: <value in [disable, enable]>
@@ -251,23 +251,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/authentication/scheme',
         '/pm/config/global/obj/authentication/scheme'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/authentication/scheme/{scheme}',
-        '/pm/config/global/obj/authentication/scheme/{scheme}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -296,7 +288,6 @@ def main():
                 'saml-timeout': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'user-cert': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -310,9 +301,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

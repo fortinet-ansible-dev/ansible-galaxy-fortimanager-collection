@@ -95,18 +95,18 @@ options:
         required: false
         type: dict
         suboptions:
-            allowed-vlans:
+            allowed_vlans:
                 type: raw
-                description: (list or str) Deprecated, please rename it to allowed_vlans. Configure switch port tagged vlans
-            allowed-vlans-all:
+                description: (list or str) Configure switch port tagged vlans
+            allowed_vlans_all:
                 type: str
-                description: Deprecated, please rename it to allowed_vlans_all. Enable/disable all defined vlans on this port.
+                description: Enable/disable all defined vlans on this port.
                 choices:
                     - 'disable'
                     - 'enable'
-            arp-inspection-trust:
+            arp_inspection_trust:
                 type: str
-                description: Deprecated, please rename it to arp_inspection_trust. Trusted or untrusted dynamic ARP inspection.
+                description: Trusted or untrusted dynamic ARP inspection.
                 choices:
                     - 'untrusted'
                     - 'trusted'
@@ -119,99 +119,99 @@ options:
             description:
                 type: str
                 description: Description for port.
-            dhcp-snoop-option82-trust:
+            dhcp_snoop_option82_trust:
                 type: str
-                description: Deprecated, please rename it to dhcp_snoop_option82_trust. Enable/disable allowance of DHCP with option-82 on untrusted in...
+                description: Enable/disable allowance of DHCP with option-82 on untrusted interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-snooping:
+            dhcp_snooping:
                 type: str
-                description: Deprecated, please rename it to dhcp_snooping. Trusted or untrusted DHCP-snooping interface.
+                description: Trusted or untrusted DHCP-snooping interface.
                 choices:
                     - 'trusted'
                     - 'untrusted'
-            discard-mode:
+            discard_mode:
                 type: str
-                description: Deprecated, please rename it to discard_mode. Configure discard mode for port.
+                description: Configure discard mode for port.
                 choices:
                     - 'none'
                     - 'all-untagged'
                     - 'all-tagged'
-            edge-port:
+            edge_port:
                 type: str
-                description: Deprecated, please rename it to edge_port. Enable/disable this interface as an edge port, bridging connections between wor...
+                description: Enable/disable this interface as an edge port, bridging connections between workstations and/or computers.
                 choices:
                     - 'disable'
                     - 'enable'
-            igmp-snooping:
+            igmp_snooping:
                 type: str
-                description: Deprecated, please rename it to igmp_snooping. Set IGMP snooping mode for the physical port interface.
+                description: Set IGMP snooping mode for the physical port interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            igmps-flood-reports:
+            igmps_flood_reports:
                 type: str
-                description: Deprecated, please rename it to igmps_flood_reports. Enable/disable flooding of IGMP reports to this interface when igmp-s...
+                description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                 choices:
                     - 'disable'
                     - 'enable'
-            igmps-flood-traffic:
+            igmps_flood_traffic:
                 type: str
-                description: Deprecated, please rename it to igmps_flood_traffic. Enable/disable flooding of IGMP snooping traffic to this interface.
+                description: Enable/disable flooding of IGMP snooping traffic to this interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            lacp-speed:
+            lacp_speed:
                 type: str
-                description: Deprecated, please rename it to lacp_speed. End Link Aggregation Control Protocol
+                description: End Link Aggregation Control Protocol
                 choices:
                     - 'slow'
                     - 'fast'
-            learning-limit:
+            learning_limit:
                 type: int
-                description: Deprecated, please rename it to learning_limit. Limit the number of dynamic MAC addresses on this Port
-            lldp-profile:
+                description: Limit the number of dynamic MAC addresses on this Port
+            lldp_profile:
                 type: str
-                description: Deprecated, please rename it to lldp_profile. LLDP port TLV profile.
-            lldp-status:
+                description: LLDP port TLV profile.
+            lldp_status:
                 type: str
-                description: Deprecated, please rename it to lldp_status. LLDP transmit and receive status.
+                description: LLDP transmit and receive status.
                 choices:
                     - 'disable'
                     - 'rx-only'
                     - 'tx-only'
                     - 'tx-rx'
-            loop-guard:
+            loop_guard:
                 type: str
-                description: Deprecated, please rename it to loop_guard. Enable/disable loop-guard on this interface, an STP optimization used to preve...
+                description: Enable/disable loop-guard on this interface, an STP optimization used to prevent network loops.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            loop-guard-timeout:
+            loop_guard_timeout:
                 type: int
-                description: Deprecated, please rename it to loop_guard_timeout. Loop-guard timeout
-            max-bundle:
+                description: Loop-guard timeout
+            max_bundle:
                 type: int
-                description: Deprecated, please rename it to max_bundle. Maximum size of LAG bundle
+                description: Maximum size of LAG bundle
             mclag:
                 type: str
                 description: Enable/disable multi-chassis link aggregation
                 choices:
                     - 'disable'
                     - 'enable'
-            member-withdrawal-behavior:
+            member_withdrawal_behavior:
                 type: str
-                description: Deprecated, please rename it to member_withdrawal_behavior. Port behavior after it withdraws because of loss of control pa...
+                description: Port behavior after it withdraws because of loss of control packets.
                 choices:
                     - 'forward'
                     - 'block'
             members:
                 type: raw
                 description: (list) Aggregated LAG bundle interfaces.
-            min-bundle:
+            min_bundle:
                 type: int
-                description: Deprecated, please rename it to min_bundle. Minimum size of LAG bundle
+                description: Minimum size of LAG bundle
             mode:
                 type: str
                 description: LACP mode
@@ -219,31 +219,31 @@ options:
                     - 'static'
                     - 'lacp-passive'
                     - 'lacp-active'
-            poe-pre-standard-detection:
+            poe_pre_standard_detection:
                 type: str
-                description: Deprecated, please rename it to poe_pre_standard_detection. Enable/disable PoE pre-standard detection.
+                description: Enable/disable PoE pre-standard detection.
                 choices:
                     - 'disable'
                     - 'enable'
-            poe-status:
+            poe_status:
                 type: str
-                description: Deprecated, please rename it to poe_status. Enable/disable PoE status.
+                description: Enable/disable PoE status.
                 choices:
                     - 'disable'
                     - 'enable'
-            port-name:
+            port_name:
                 type: str
-                description: Deprecated, please rename it to port_name. Switch port name.
+                description: Switch port name.
                 required: true
-            port-owner:
+            port_owner:
                 type: str
-                description: Deprecated, please rename it to port_owner. Switch port name.
-            port-security-policy:
+                description: Switch port name.
+            port_security_policy:
                 type: str
-                description: Deprecated, please rename it to port_security_policy. Switch controller authentication policy to apply to this managed swi...
-            port-selection-criteria:
+                description: Switch controller authentication policy to apply to this managed switch from available options.
+            port_selection_criteria:
                 type: str
-                description: Deprecated, please rename it to port_selection_criteria. Algorithm for aggregate port selection.
+                description: Algorithm for aggregate port selection.
                 choices:
                     - 'src-mac'
                     - 'dst-mac'
@@ -251,46 +251,46 @@ options:
                     - 'src-ip'
                     - 'dst-ip'
                     - 'src-dst-ip'
-            qos-policy:
+            qos_policy:
                 type: str
-                description: Deprecated, please rename it to qos_policy. Switch controller QoS policy from available options.
-            sample-direction:
+                description: Switch controller QoS policy from available options.
+            sample_direction:
                 type: str
-                description: Deprecated, please rename it to sample_direction. SFlow sample direction.
+                description: SFlow sample direction.
                 choices:
                     - 'rx'
                     - 'tx'
                     - 'both'
-            sflow-counter-interval:
+            sflow_counter_interval:
                 type: int
-                description: Deprecated, please rename it to sflow_counter_interval. SFlow sampler counter polling interval
-            sflow-sample-rate:
+                description: SFlow sampler counter polling interval
+            sflow_sample_rate:
                 type: int
-                description: Deprecated, please rename it to sflow_sample_rate. SFlow sampler sample rate
-            sflow-sampler:
+                description: SFlow sampler sample rate
+            sflow_sampler:
                 type: str
-                description: Deprecated, please rename it to sflow_sampler. Enable/disable sFlow protocol on this interface.
+                description: Enable/disable sFlow protocol on this interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            stp-bpdu-guard:
+            stp_bpdu_guard:
                 type: str
-                description: Deprecated, please rename it to stp_bpdu_guard. Enable/disable STP BPDU guard on this interface.
+                description: Enable/disable STP BPDU guard on this interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            stp-bpdu-guard-timeout:
+            stp_bpdu_guard_timeout:
                 type: int
-                description: Deprecated, please rename it to stp_bpdu_guard_timeout. BPDU Guard disabling protection
-            stp-root-guard:
+                description: BPDU Guard disabling protection
+            stp_root_guard:
                 type: str
-                description: Deprecated, please rename it to stp_root_guard. Enable/disable STP root guard on this interface.
+                description: Enable/disable STP root guard on this interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            stp-state:
+            stp_state:
                 type: str
-                description: Deprecated, please rename it to stp_state. Enable/disable Spanning Tree Protocol
+                description: Enable/disable Spanning Tree Protocol
                 choices:
                     - 'disabled'
                     - 'enabled'
@@ -300,286 +300,286 @@ options:
                 choices:
                     - 'physical'
                     - 'trunk'
-            untagged-vlans:
+            untagged_vlans:
                 type: raw
-                description: (list or str) Deprecated, please rename it to untagged_vlans. Configure switch port untagged vlans
+                description: (list or str) Configure switch port untagged vlans
             vlan:
                 type: str
                 description: Assign switch ports to a VLAN.
-            export-to-pool-flag:
+            export_to_pool_flag:
                 type: int
-                description: Deprecated, please rename it to export_to_pool_flag. Switch controller export port to pool-list.
-            mac-addr:
+                description: Switch controller export port to pool-list.
+            mac_addr:
                 type: str
-                description: Deprecated, please rename it to mac_addr. Port/Trunk MAC.
-            packet-sample-rate:
+                description: Port/Trunk MAC.
+            packet_sample_rate:
                 type: int
-                description: Deprecated, please rename it to packet_sample_rate. Packet sampling rate
-            packet-sampler:
+                description: Packet sampling rate
+            packet_sampler:
                 type: str
-                description: Deprecated, please rename it to packet_sampler. Enable/disable packet sampling on this interface.
+                description: Enable/disable packet sampling on this interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            sticky-mac:
+            sticky_mac:
                 type: str
-                description: Deprecated, please rename it to sticky_mac. Enable or disable sticky-mac on the interface.
+                description: Enable or disable sticky-mac on the interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            storm-control-policy:
+            storm_control_policy:
                 type: str
-                description: Deprecated, please rename it to storm_control_policy. Switch controller storm control policy from available options.
-            dot1x-enable:
+                description: Switch controller storm control policy from available options.
+            dot1x_enable:
                 type: str
-                description: Deprecated, please rename it to dot1x_enable. Dot1x enable.
+                description: Dot1x enable.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-miss-heartbeats:
+            max_miss_heartbeats:
                 type: int
-                description: Deprecated, please rename it to max_miss_heartbeats. Maximum tolerant missed heartbeats.
-            access-mode:
+                description: Maximum tolerant missed heartbeats.
+            access_mode:
                 type: str
-                description: Deprecated, please rename it to access_mode. Access mode of the port.
+                description: Access mode of the port.
                 choices:
                     - 'normal'
                     - 'nac'
                     - 'dynamic'
                     - 'static'
-            ip-source-guard:
+            ip_source_guard:
                 type: str
-                description: Deprecated, please rename it to ip_source_guard. Enable/disable IP source guard.
+                description: Enable/disable IP source guard.
                 choices:
                     - 'disable'
                     - 'enable'
-            mclag-icl-port:
+            mclag_icl_port:
                 type: int
-                description: Deprecated, please rename it to mclag_icl_port. Mclag icl port.
-            p2p-port:
+                description: Mclag icl port.
+            p2p_port:
                 type: int
-                description: Deprecated, please rename it to p2p_port. P2p port.
-            aggregator-mode:
+                description: P2p port.
+            aggregator_mode:
                 type: str
-                description: Deprecated, please rename it to aggregator_mode. LACP member select mode.
+                description: LACP member select mode.
                 choices:
                     - 'bandwidth'
                     - 'count'
-            rpvst-port:
+            rpvst_port:
                 type: str
-                description: Deprecated, please rename it to rpvst_port. Enable/disable inter-operability with rapid PVST on this interface.
+                description: Enable/disable inter-operability with rapid PVST on this interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            flow-control:
+            flow_control:
                 type: str
-                description: Deprecated, please rename it to flow_control. Flow control direction.
+                description: Flow control direction.
                 choices:
                     - 'disable'
                     - 'tx'
                     - 'rx'
                     - 'both'
-            media-type:
+            media_type:
                 type: str
-                description: Deprecated, please rename it to media_type. Media type.
-            pause-meter:
+                description: Media type.
+            pause_meter:
                 type: int
-                description: Deprecated, please rename it to pause_meter. Configure ingress pause metering rate, in kbps
-            pause-meter-resume:
+                description: Configure ingress pause metering rate, in kbps
+            pause_meter_resume:
                 type: str
-                description: Deprecated, please rename it to pause_meter_resume. Resume threshold for resuming traffic on ingress port.
+                description: Resume threshold for resuming traffic on ingress port.
                 choices:
                     - '25%'
                     - '50%'
                     - '75%'
-            trunk-member:
+            trunk_member:
                 type: int
-                description: Deprecated, please rename it to trunk_member. Trunk member.
-            fec-capable:
+                description: Trunk member.
+            fec_capable:
                 type: int
-                description: Deprecated, please rename it to fec_capable. FEC capable.
-            fec-state:
+                description: FEC capable.
+            fec_state:
                 type: str
-                description: Deprecated, please rename it to fec_state. State of forward error correction.
+                description: State of forward error correction.
                 choices:
                     - 'disabled'
                     - 'cl74'
                     - 'cl91'
                     - 'detect-by-module'
-            matched-dpp-intf-tags:
+            matched_dpp_intf_tags:
                 type: str
-                description: Deprecated, please rename it to matched_dpp_intf_tags. Matched interface tags in the dynamic port policy.
-            matched-dpp-policy:
+                description: Matched interface tags in the dynamic port policy.
+            matched_dpp_policy:
                 type: str
-                description: Deprecated, please rename it to matched_dpp_policy. Matched child policy in the dynamic port policy.
-            port-policy:
+                description: Matched child policy in the dynamic port policy.
+            port_policy:
                 type: str
-                description: Deprecated, please rename it to port_policy. Switch controller dynamic port policy from available options.
+                description: Switch controller dynamic port policy from available options.
             status:
                 type: str
                 description: Switch port admin status
                 choices:
                     - 'down'
                     - 'up'
-            dsl-profile:
+            dsl_profile:
                 type: str
-                description: Deprecated, please rename it to dsl_profile. DSL policy configuration.
-            flap-duration:
+                description: DSL policy configuration.
+            flap_duration:
                 type: int
-                description: Deprecated, please rename it to flap_duration. Period over which flap events are calculated
-            flap-rate:
+                description: Period over which flap events are calculated
+            flap_rate:
                 type: int
-                description: Deprecated, please rename it to flap_rate. Number of stage change events needed within flap-duration.
-            flap-timeout:
+                description: Number of stage change events needed within flap-duration.
+            flap_timeout:
                 type: int
-                description: Deprecated, please rename it to flap_timeout. Flap guard disabling protection
+                description: Flap guard disabling protection
             flapguard:
                 type: str
                 description: Enable/disable flap guard.
                 choices:
                     - 'disable'
                     - 'enable'
-            interface-tags:
+            interface_tags:
                 type: raw
-                description: (list or str) Deprecated, please rename it to interface_tags. Tag
-            poe-max-power:
+                description: (list or str) Tag
+            poe_max_power:
                 type: str
-                description: Deprecated, please rename it to poe_max_power. Poe max power.
-            poe-standard:
+                description: Poe max power.
+            poe_standard:
                 type: str
-                description: Deprecated, please rename it to poe_standard. Poe standard.
-            igmp-snooping-flood-reports:
+                description: Poe standard.
+            igmp_snooping_flood_reports:
                 type: str
-                description: Deprecated, please rename it to igmp_snooping_flood_reports. Enable/disable flooding of IGMP reports to this interface whe...
+                description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                 choices:
                     - 'disable'
                     - 'enable'
-            mcast-snooping-flood-traffic:
+            mcast_snooping_flood_traffic:
                 type: str
-                description: Deprecated, please rename it to mcast_snooping_flood_traffic. Enable/disable flooding of IGMP snooping traffic to this int...
+                description: Enable/disable flooding of IGMP snooping traffic to this interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            link-status:
+            link_status:
                 type: str
-                description: Deprecated, please rename it to link_status. Link status.
+                description: Link status.
                 choices:
                     - 'down'
                     - 'up'
-            poe-mode-bt-cabable:
+            poe_mode_bt_cabable:
                 type: int
-                description: Deprecated, please rename it to poe_mode_bt_cabable. PoE mode IEEE 802.
-            poe-port-mode:
+                description: PoE mode IEEE 802.
+            poe_port_mode:
                 type: str
-                description: Deprecated, please rename it to poe_port_mode. Configure PoE port mode.
+                description: Configure PoE port mode.
                 choices:
                     - 'ieee802-3af'
                     - 'ieee802-3at'
                     - 'ieee802-3bt'
-            poe-port-power:
+            poe_port_power:
                 type: str
-                description: Deprecated, please rename it to poe_port_power. Configure PoE port power.
+                description: Configure PoE port power.
                 choices:
                     - 'normal'
                     - 'perpetual'
                     - 'perpetual-fast'
-            poe-port-priority:
+            poe_port_priority:
                 type: str
-                description: Deprecated, please rename it to poe_port_priority. Configure PoE port priority.
+                description: Configure PoE port priority.
                 choices:
                     - 'critical-priority'
                     - 'high-priority'
                     - 'low-priority'
                     - 'medium-priority'
-            acl-group:
+            acl_group:
                 type: raw
-                description: (list) Deprecated, please rename it to acl_group. ACL groups on this port.
-            dhcp-snoop-option82-override:
+                description: (list) ACL groups on this port.
+            dhcp_snoop_option82_override:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to dhcp_snoop_option82_override. Dhcp snoop option82 override.
+                description: Dhcp snoop option82 override.
                 suboptions:
-                    circuit-id:
+                    circuit_id:
                         type: str
-                        description: Deprecated, please rename it to circuit_id. Circuit ID string.
-                    remote-id:
+                        description: Circuit ID string.
+                    remote_id:
                         type: str
-                        description: Deprecated, please rename it to remote_id. Remote ID string.
-                    vlan-name:
+                        description: Remote ID string.
+                    vlan_name:
                         type: str
-                        description: Deprecated, please rename it to vlan_name. DHCP snooping option 82 VLAN.
-            fortiswitch-acls:
+                        description: DHCP snooping option 82 VLAN.
+            fortiswitch_acls:
                 type: raw
-                description: (list) Deprecated, please rename it to fortiswitch_acls. ACLs on this port.
-            isl-peer-device-sn:
+                description: (list) ACLs on this port.
+            isl_peer_device_sn:
                 type: str
-                description: Deprecated, please rename it to isl_peer_device_sn. Isl peer device sn.
-            authenticated-port:
+                description: Isl peer device sn.
+            authenticated_port:
                 type: int
-                description: Deprecated, please rename it to authenticated_port. Authenticated port.
-            encrypted-port:
+                description: Authenticated port.
+            encrypted_port:
                 type: int
-                description: Deprecated, please rename it to encrypted_port. Encrypted port.
-            ptp-status:
+                description: Encrypted port.
+            ptp_status:
                 type: str
-                description: Deprecated, please rename it to ptp_status. Enable/disable PTP policy on this FortiSwitch port.
+                description: Enable/disable PTP policy on this FortiSwitch port.
                 choices:
                     - 'disable'
                     - 'enable'
-            restricted-auth-port:
+            restricted_auth_port:
                 type: int
-                description: Deprecated, please rename it to restricted_auth_port. Restricted auth port.
-            allow-arp-monitor:
+                description: Restricted auth port.
+            allow_arp_monitor:
                 type: str
-                description: Deprecated, please rename it to allow_arp_monitor. Enable/Disable allow ARP monitor.
+                description: Enable/Disable allow ARP monitor.
                 choices:
                     - 'disable'
                     - 'enable'
-            export-to:
+            export_to:
                 type: raw
-                description: (list) Deprecated, please rename it to export_to. Export managed-switch port to a tenant VDOM.
-            export-to-pool:
+                description: (list) Export managed-switch port to a tenant VDOM.
+            export_to_pool:
                 type: raw
-                description: (list) Deprecated, please rename it to export_to_pool. Switch controller export port to pool-list.
-            fallback-port:
+                description: (list) Switch controller export port to pool-list.
+            fallback_port:
                 type: str
-                description: Deprecated, please rename it to fallback_port. LACP fallback port.
-            fgt-peer-device-name:
+                description: LACP fallback port.
+            fgt_peer_device_name:
                 type: str
-                description: Deprecated, please rename it to fgt_peer_device_name. Fgt peer device name.
-            fgt-peer-port-name:
+                description: Fgt peer device name.
+            fgt_peer_port_name:
                 type: str
-                description: Deprecated, please rename it to fgt_peer_port_name. Fgt peer port name.
-            fiber-port:
+                description: Fgt peer port name.
+            fiber_port:
                 type: int
-                description: Deprecated, please rename it to fiber_port. Fiber port.
+                description: Fiber port.
             flags:
                 type: int
                 description: Flags.
-            fortilink-port:
+            fortilink_port:
                 type: int
-                description: Deprecated, please rename it to fortilink_port. Fortilink port.
-            isl-local-trunk-name:
+                description: Fortilink port.
+            isl_local_trunk_name:
                 type: str
-                description: Deprecated, please rename it to isl_local_trunk_name. Isl local trunk name.
-            isl-peer-device-name:
+                description: Isl local trunk name.
+            isl_peer_device_name:
                 type: str
-                description: Deprecated, please rename it to isl_peer_device_name. Isl peer device name.
-            isl-peer-port-name:
+                description: Isl peer device name.
+            isl_peer_port_name:
                 type: str
-                description: Deprecated, please rename it to isl_peer_port_name. Isl peer port name.
-            poe-capable:
+                description: Isl peer port name.
+            poe_capable:
                 type: int
-                description: Deprecated, please rename it to poe_capable. PoE capable.
-            port-number:
+                description: PoE capable.
+            port_number:
                 type: int
-                description: Deprecated, please rename it to port_number. Port number.
-            port-prefix-type:
+                description: Port number.
+            port_prefix_type:
                 type: int
-                description: Deprecated, please rename it to port_prefix_type. Port prefix type.
-            ptp-policy:
+                description: Port prefix type.
+            ptp_policy:
                 type: raw
-                description: (list) Deprecated, please rename it to ptp_policy. PTP policy configuration.
+                description: (list) PTP policy configuration.
             speed:
                 type: str
                 description: Switch port speed; default and available settings depend on hardware.
@@ -620,30 +620,30 @@ options:
                     - '25000sr'
                     - '50000cr'
                     - '50000sr'
-            speed-mask:
+            speed_mask:
                 type: int
-                description: Deprecated, please rename it to speed_mask. Switch port speed mask.
-            stacking-port:
+                description: Switch port speed mask.
+            stacking_port:
                 type: int
-                description: Deprecated, please rename it to stacking_port. Stacking port.
-            switch-id:
+                description: Stacking port.
+            switch_id:
                 type: str
-                description: Deprecated, please rename it to switch_id. Switch id.
-            virtual-port:
+                description: Switch id.
+            virtual_port:
                 type: int
-                description: Deprecated, please rename it to virtual_port. Virtualized switch port.
-            export-tags:
+                description: Virtualized switch port.
+            export_tags:
                 type: raw
-                description: (list) Deprecated, please rename it to export_tags. Configure export tag
-            log-mac-event:
+                description: (list) Configure export tag
+            log_mac_event:
                 type: str
-                description: Deprecated, please rename it to log_mac_event. Enable/disable logging for dynamic MAC address events.
+                description: Enable/disable logging for dynamic MAC address events.
                 choices:
                     - 'disable'
                     - 'enable'
-            pd-capable:
+            pd_capable:
                 type: int
-                description: Deprecated, please rename it to pd_capable. Powered device capable.
+                description: Powered device capable.
             qnq:
                 type: raw
                 description: (list) '802.'
@@ -831,23 +831,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports',
         '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}',
-        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/ports/{ports}'
-    ]
-
     url_params = ['adom', 'managed-switch']
     module_primary_key = 'port-name'
     module_arg_spec = {
@@ -900,14 +892,14 @@ def main():
                 'type': {'choices': ['physical', 'trunk'], 'type': 'str'},
                 'untagged-vlans': {'type': 'raw'},
                 'vlan': {'type': 'str'},
-                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.4.3', '']], 'type': 'int'},
-                'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.4.3', '']], 'type': 'str'},
+                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'packet-sample-rate': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'packet-sampler': {'v_range': [['6.2.0', '']], 'choices': ['disabled', 'enabled'], 'type': 'str'},
                 'sticky-mac': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.4.3', '']], 'type': 'str'},
-                'dot1x-enable': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'},
+                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dot1x-enable': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'},
                 'access-mode': {'v_range': [['6.4.0', '']], 'choices': ['normal', 'nac', 'dynamic', 'static'], 'type': 'str'},
                 'ip-source-guard': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mclag-icl-port': {'v_range': [['6.4.0', '']], 'type': 'int'},
@@ -918,7 +910,7 @@ def main():
                 'media-type': {'v_range': [['6.4.3', '']], 'type': 'str'},
                 'pause-meter': {'v_range': [['6.4.3', '']], 'type': 'int'},
                 'pause-meter-resume': {'v_range': [['6.4.3', '']], 'choices': ['25%', '50%', '75%'], 'type': 'str'},
-                'trunk-member': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
+                'trunk-member': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
                 'fec-capable': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'fec-state': {'v_range': [['7.0.0', '']], 'choices': ['disabled', 'cl74', 'cl91', 'detect-by-module'], 'type': 'str'},
                 'matched-dpp-intf-tags': {'v_range': [['7.0.0', '']], 'type': 'str'},
@@ -962,23 +954,23 @@ def main():
                 'ptp-status': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'restricted-auth-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'allow-arp-monitor': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'export-to': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'export-to-pool': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'export-to': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'export-to-pool': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'fallback-port': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fgt-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fgt-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fiber-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'flags': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'fortilink-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'isl-local-trunk-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'isl-peer-device-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'isl-peer-port-name': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'poe-capable': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'port-number': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'port-prefix-type': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'ptp-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'fgt-peer-device-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'fgt-peer-port-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'fiber-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'flags': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'fortilink-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'isl-local-trunk-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'isl-peer-device-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'isl-peer-port-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'poe-capable': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'port-number': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'port-prefix-type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'ptp-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'speed': {
-                    'v_range': [['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'choices': [
                         'auto', '10full', '10half', '100full', '100half', '1000full', '10000full', '1000auto', '40000full', '1000fiber', '10000',
                         '40000', 'auto-module', '100FX-half', '100FX-full', '100000full', '2500full', '25000full', '50000full', '40000auto', '10000cr',
@@ -987,16 +979,15 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'speed-mask': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'stacking-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'switch-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'virtual-port': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'export-tags': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'speed-mask': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'stacking-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'switch-id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'virtual-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'export-tags': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'log-mac-event': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pd-capable': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'pd-capable': {'v_range': [['7.4.4', '']], 'type': 'int'},
                 'qnq': {'v_range': [['7.6.0', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -1010,9 +1001,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

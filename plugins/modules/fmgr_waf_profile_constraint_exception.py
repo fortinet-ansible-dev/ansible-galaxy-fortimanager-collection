@@ -96,15 +96,15 @@ options:
             address:
                 type: str
                 description: Host address.
-            content-length:
+            content_length:
                 type: str
-                description: Deprecated, please rename it to content_length. HTTP content length in request.
+                description: HTTP content length in request.
                 choices:
                     - 'disable'
                     - 'enable'
-            header-length:
+            header_length:
                 type: str
-                description: Deprecated, please rename it to header_length. HTTP header length in request.
+                description: HTTP header length in request.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -118,9 +118,9 @@ options:
                 type: int
                 description: Exception ID.
                 required: true
-            line-length:
+            line_length:
                 type: str
-                description: Deprecated, please rename it to line_length. HTTP line length in request.
+                description: HTTP line length in request.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -130,27 +130,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            max-cookie:
+            max_cookie:
                 type: str
-                description: Deprecated, please rename it to max_cookie. Maximum number of cookies in HTTP request.
+                description: Maximum number of cookies in HTTP request.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-header-line:
+            max_header_line:
                 type: str
-                description: Deprecated, please rename it to max_header_line. Maximum number of HTTP header line.
+                description: Maximum number of HTTP header line.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-range-segment:
+            max_range_segment:
                 type: str
-                description: Deprecated, please rename it to max_range_segment. Maximum number of range segments in HTTP range line.
+                description: Maximum number of range segments in HTTP range line.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-url-param:
+            max_url_param:
                 type: str
-                description: Deprecated, please rename it to max_url_param. Maximum number of parameters in URL.
+                description: Maximum number of parameters in URL.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -160,9 +160,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            param-length:
+            param_length:
                 type: str
-                description: Deprecated, please rename it to param_length. Maximum length of parameter in URL, HTTP POST request or HTTP body.
+                description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -175,9 +175,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            url-param-length:
+            url_param_length:
                 type: str
-                description: Deprecated, please rename it to url_param_length. Maximum length of parameter in URL.
+                description: Maximum length of parameter in URL.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -269,23 +269,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/exception',
         '/pm/config/global/obj/waf/profile/{profile}/constraint/exception'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/waf/profile/{profile}/constraint/exception/{exception}',
-        '/pm/config/global/obj/waf/profile/{profile}/constraint/exception/{exception}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -313,7 +305,6 @@ def main():
                 'url-param-length': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'version': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -327,9 +318,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

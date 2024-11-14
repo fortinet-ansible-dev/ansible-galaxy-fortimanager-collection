@@ -103,34 +103,34 @@ options:
                 type: int
                 description: SLA ID.
                 required: true
-            jitter-threshold:
+            jitter_threshold:
                 type: int
-                description: Deprecated, please rename it to jitter_threshold. Jitter for SLA to make decision in milliseconds.
-            latency-threshold:
+                description: Jitter for SLA to make decision in milliseconds.
+            latency_threshold:
                 type: int
-                description: Deprecated, please rename it to latency_threshold. Latency for SLA to make decision in milliseconds.
-            link-cost-factor:
+                description: Latency for SLA to make decision in milliseconds.
+            link_cost_factor:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to link_cost_factor. Criteria on which to base link selection.
+                description: Criteria on which to base link selection.
                 choices:
                     - 'latency'
                     - 'jitter'
                     - 'packet-loss'
                     - 'mos'
                     - 'remote'
-            packetloss-threshold:
+            packetloss_threshold:
                 type: int
-                description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
-            mos-threshold:
+                description: Packet loss for SLA to make decision in percentage.
+            mos_threshold:
                 type: str
-                description: Deprecated, please rename it to mos_threshold. Minimum Mean Opinion Score for SLA to be marked as pass.
-            priority-in-sla:
+                description: Minimum Mean Opinion Score for SLA to be marked as pass.
+            priority_in_sla:
                 type: int
-                description: Deprecated, please rename it to priority_in_sla. Value to be distributed into routing table when in-sla
-            priority-out-sla:
+                description: Value to be distributed into routing table when in-sla
+            priority_out_sla:
                 type: int
-                description: Deprecated, please rename it to priority_out_sla. Value to be distributed into routing table when out-sla
+                description: Value to be distributed into routing table when out-sla
 '''
 
 EXAMPLES = '''
@@ -158,11 +158,11 @@ EXAMPLES = '''
           jitter_threshold: <integer>
           latency_threshold: <integer>
           link_cost_factor:
-            - latency
-            - jitter
-            - packet-loss
-            - mos
-            - remote
+            - "latency"
+            - "jitter"
+            - "packet-loss"
+            - "mos"
+            - "remote"
           packetloss_threshold: <integer>
           mos_threshold: <string>
           priority_in_sla: <integer>
@@ -210,21 +210,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/health-check/{health-check}/sla/{sla}'
-    ]
-
     url_params = ['adom', 'wanprof', 'health-check']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -250,7 +243,6 @@ def main():
                 'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -264,9 +256,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

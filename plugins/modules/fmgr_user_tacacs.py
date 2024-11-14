@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            authen-type:
+            authen_type:
                 type: str
-                description: Deprecated, please rename it to authen_type. Allowed authentication protocols/methods.
+                description: Allowed authentication protocols/methods.
                 choices:
                     - 'auto'
                     - 'ascii'
@@ -120,9 +120,9 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    authen-type:
+                    authen_type:
                         type: str
-                        description: Deprecated, please rename it to authen_type. Authen type.
+                        description: Authen type.
                         choices:
                             - 'auto'
                             - 'ascii'
@@ -141,37 +141,37 @@ options:
                     port:
                         type: int
                         description: Port.
-                    secondary-key:
+                    secondary_key:
                         type: raw
-                        description: (list) Deprecated, please rename it to secondary_key. Secondary key.
-                    secondary-server:
+                        description: (list) Secondary key.
+                    secondary_server:
                         type: str
-                        description: Deprecated, please rename it to secondary_server. Secondary server.
+                        description: Secondary server.
                     server:
                         type: str
                         description: Server.
-                    source-ip:
+                    source_ip:
                         type: str
-                        description: Deprecated, please rename it to source_ip. Source ip.
-                    tertiary-key:
+                        description: Source ip.
+                    tertiary_key:
                         type: raw
-                        description: (list) Deprecated, please rename it to tertiary_key. Tertiary key.
-                    tertiary-server:
+                        description: (list) Tertiary key.
+                    tertiary_server:
                         type: str
-                        description: Deprecated, please rename it to tertiary_server. Tertiary server.
+                        description: Tertiary server.
                     interface:
                         type: str
                         description: Interface.
-                    interface-select-method:
+                    interface_select_method:
                         type: str
-                        description: Deprecated, please rename it to interface_select_method. Interface select method.
+                        description: Interface select method.
                         choices:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
-                    status-ttl:
+                    status_ttl:
                         type: int
-                        description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is ...
+                        description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at l...
             key:
                 type: raw
                 description: (list) Key to access the primary server.
@@ -182,37 +182,37 @@ options:
             port:
                 type: int
                 description: Port number of the TACACS+ server.
-            secondary-key:
+            secondary_key:
                 type: raw
-                description: (list) Deprecated, please rename it to secondary_key. Key to access the secondary server.
-            secondary-server:
+                description: (list) Key to access the secondary server.
+            secondary_server:
                 type: str
-                description: Deprecated, please rename it to secondary_server. Secondary TACACS+ server CN domain name or IP address.
+                description: Secondary TACACS+ server CN domain name or IP address.
             server:
                 type: str
                 description: Primary TACACS+ server CN domain name or IP address.
-            source-ip:
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IP for communications to TACACS+ server.
-            tertiary-key:
+                description: Source IP for communications to TACACS+ server.
+            tertiary_key:
                 type: raw
-                description: (list) Deprecated, please rename it to tertiary_key. Key to access the tertiary server.
-            tertiary-server:
+                description: (list) Key to access the tertiary server.
+            tertiary_server:
                 type: str
-                description: Deprecated, please rename it to tertiary_server. Tertiary TACACS+ server CN domain name or IP address.
+                description: Tertiary TACACS+ server CN domain name or IP address.
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
-            status-ttl:
+            status_ttl:
                 type: int
-                description: Deprecated, please rename it to status_ttl. Time for which server reachability is cached so that when a server is unreacha...
+                description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
 '''
 
 EXAMPLES = '''
@@ -310,23 +310,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/tacacs+',
         '/pm/config/global/obj/user/tacacs+'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/tacacs+/{tacacs+}',
-        '/pm/config/global/obj/user/tacacs+/{tacacs+}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -351,9 +343,9 @@ def main():
                         'source-ip': {'type': 'str'},
                         'tertiary-key': {'no_log': True, 'type': 'raw'},
                         'tertiary-server': {'type': 'str'},
-                        'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
+                        'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
                         'interface-select-method': {
-                            'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']],
+                            'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']],
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
                         },
@@ -370,11 +362,10 @@ def main():
                 'source-ip': {'type': 'str'},
                 'tertiary-key': {'no_log': True, 'type': 'raw'},
                 'tertiary-server': {'type': 'str'},
-                'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -388,9 +379,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

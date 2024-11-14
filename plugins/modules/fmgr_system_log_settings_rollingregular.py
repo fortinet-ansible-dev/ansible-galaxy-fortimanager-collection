@@ -96,10 +96,9 @@ options:
                     - 'thu'
                     - 'fri'
                     - 'sat'
-            del-files:
+            del_files:
                 type: str
                 description:
-                    - Deprecated, please rename it to del_files.
                     - Enable/disable log file deletion after uploading.
                     - disable - Disable log file deletion.
                     - enable - Enable log file deletion.
@@ -109,13 +108,12 @@ options:
             directory:
                 type: str
                 description: Upload server directory, for Unix server, use absolute
-            file-size:
+            file_size:
                 type: int
-                description: Deprecated, please rename it to file_size. Roll log files when they reach this size
-            gzip-format:
+                description: Roll log files when they reach this size
+            gzip_format:
                 type: str
                 description:
-                    - Deprecated, please rename it to gzip_format.
                     - Enable/disable compression of uploaded log files.
                     - disable - Disable compression.
                     - enable - Enable compression.
@@ -134,10 +132,9 @@ options:
             ip3:
                 type: str
                 description: Upload server IP3 address.
-            log-format:
+            log_format:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_format.
                     - Format of uploaded log files.
                     - native - Native format
                     - text - Text format
@@ -158,10 +155,9 @@ options:
             password3:
                 type: raw
                 description: (list) Upload server login password3.
-            server-type:
+            server_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to server_type.
                     - Upload server type.
                     - ftp - Upload via FTP.
                     - sftp - Upload via SFTP.
@@ -179,23 +175,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            upload-hour:
+            upload_hour:
                 type: int
-                description: Deprecated, please rename it to upload_hour. Log files upload schedule
-            upload-mode:
+                description: Log files upload schedule
+            upload_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to upload_mode.
                     - Upload mode with multiple servers.
                     - backup - Servers are attempted and used one after the other upon failure to connect.
                     - mirror - All configured servers are attempted and used.
                 choices:
                     - 'backup'
                     - 'mirror'
-            upload-trigger:
+            upload_trigger:
                 type: str
                 description:
-                    - Deprecated, please rename it to upload_trigger.
                     - Event triggering log files upload.
                     - on-roll - Upload log files after they are rolled.
                     - on-schedule - Upload log files daily.
@@ -231,9 +225,9 @@ options:
             port3:
                 type: int
                 description: Upload server IP3 port number.
-            rolling-upgrade-status:
+            rolling_upgrade_status:
                 type: int
-                description: Deprecated, please rename it to rolling_upgrade_status. Rolling upgrade status
+                description: Rolling upgrade status
             server:
                 type: str
                 description: Upload server FQDN/IP.
@@ -263,13 +257,13 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         system_log_settings_rollingregular:
           days:
-            - sun
-            - mon
-            - tue
-            - wed
-            - thu
-            - fri
-            - sat
+            - "sun"
+            - "mon"
+            - "tue"
+            - "wed"
+            - "thu"
+            - "fri"
+            - "sat"
           del_files: <value in [disable, enable]>
           directory: <string>
           file_size: <integer>
@@ -342,21 +336,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/log/settings/rolling-regular'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/log/settings/rolling-regular/{rolling-regular}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -370,9 +357,9 @@ def main():
                 'file-size': {'type': 'int'},
                 'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'hour': {'type': 'int'},
-                'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
                 'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                 'min': {'type': 'int'},
                 'password': {'no_log': True, 'type': 'raw'},
@@ -395,7 +382,6 @@ def main():
                 'server2': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'server3': {'v_range': [['7.2.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -409,9 +395,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

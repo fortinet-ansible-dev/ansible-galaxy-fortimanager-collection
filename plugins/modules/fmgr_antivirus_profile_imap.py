@@ -84,10 +84,10 @@ options:
         required: false
         type: dict
         suboptions:
-            archive-block:
+            archive_block:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                description: Select the archive types to block.
                 choices:
                     - 'encrypted'
                     - 'corrupted'
@@ -98,10 +98,10 @@ options:
                     - 'partiallycorrupted'
                     - 'fileslimit'
                     - 'timeout'
-            archive-log:
+            archive_log:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                description: Select the archive types to log.
                 choices:
                     - 'encrypted'
                     - 'corrupted'
@@ -112,9 +112,9 @@ options:
                     - 'partiallycorrupted'
                     - 'fileslimit'
                     - 'timeout'
-            content-disarm:
+            content_disarm:
                 type: str
-                description: Deprecated, please rename it to content_disarm. Enable Content Disarm and Reconstruction for this protocol.
+                description: Enable Content Disarm and Reconstruction for this protocol.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -140,9 +140,9 @@ options:
                     - 'quarantine'
                     - 'avquery'
                     - 'avmonitor'
-            outbreak-prevention:
+            outbreak_prevention:
                 type: str
-                description: Deprecated, please rename it to outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disabled'
                     - 'files'
@@ -150,16 +150,16 @@ options:
                     - 'disable'
                     - 'block'
                     - 'monitor'
-            av-scan:
+            av_scan:
                 type: str
-                description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                description: Enable AntiVirus scan service.
                 choices:
                     - 'disable'
                     - 'monitor'
                     - 'block'
-            external-blocklist:
+            external_blocklist:
                 type: str
-                description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                description: Enable external-blocklist.
                 choices:
                     - 'disable'
                     - 'monitor'
@@ -213,34 +213,34 @@ EXAMPLES = '''
         profile: <your own value>
         antivirus_profile_imap:
           archive_block:
-            - encrypted
-            - corrupted
-            - multipart
-            - nested
-            - mailbomb
-            - unhandled
-            - partiallycorrupted
-            - fileslimit
-            - timeout
+            - "encrypted"
+            - "corrupted"
+            - "multipart"
+            - "nested"
+            - "mailbomb"
+            - "unhandled"
+            - "partiallycorrupted"
+            - "fileslimit"
+            - "timeout"
           archive_log:
-            - encrypted
-            - corrupted
-            - multipart
-            - nested
-            - mailbomb
-            - unhandled
-            - partiallycorrupted
-            - fileslimit
-            - timeout
+            - "encrypted"
+            - "corrupted"
+            - "multipart"
+            - "nested"
+            - "mailbomb"
+            - "unhandled"
+            - "partiallycorrupted"
+            - "fileslimit"
+            - "timeout"
           content_disarm: <value in [disable, enable]>
           emulator: <value in [disable, enable]>
           executables: <value in [default, virus]>
           options:
-            - scan
-            - file-filter
-            - quarantine
-            - avquery
-            - avmonitor
+            - "scan"
+            - "file-filter"
+            - "quarantine"
+            - "avquery"
+            - "avmonitor"
           outbreak_prevention: <value in [disabled, files, full-archive, ...]>
           av_scan: <value in [disable, monitor, block]>
           external_blocklist: <value in [disable, monitor, block]>
@@ -291,23 +291,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/imap',
         '/pm/config/global/obj/antivirus/profile/{profile}/imap'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}/imap/{imap}',
-        '/pm/config/global/obj/antivirus/profile/{profile}/imap/{imap}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -339,7 +331,6 @@ def main():
                 'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
             }
-
         }
     }
 
@@ -353,9 +344,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

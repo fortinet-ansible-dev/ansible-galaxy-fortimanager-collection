@@ -120,12 +120,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper. Per IP traffic shaper.
-            permit-any-host:
+                description: Per IP traffic shaper.
+            permit_any_host:
                 type: str
-                description: Deprecated, please rename it to permit_any_host. Enable/disable allowing any host.
+                description: Enable/disable allowing any host.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -154,18 +154,18 @@ options:
             tags:
                 type: str
                 description: Applied object tags.
-            tcp-mss-receiver:
+            tcp_mss_receiver:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_receiver. TCP Maximum Segment Size value of receiver
-            tcp-mss-sender:
+                description: TCP Maximum Segment Size value of receiver
+            tcp_mss_sender:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_sender. TCP Maximum Segment Size value of sender
-            traffic-shaper:
+                description: TCP Maximum Segment Size value of sender
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Traffic shaper.
-            traffic-shaper-reverse:
+                description: Traffic shaper.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Reverse traffic shaper.
+                description: Reverse traffic shaper.
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -175,9 +175,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Record logs when a session starts and ends.
+                description: Record logs when a session starts and ends.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -187,12 +187,12 @@ options:
             name:
                 type: str
                 description: Policy name.
-            cgn-log-server-grp:
+            cgn_log_server_grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp. NP log server group name
-            policy-offload:
+                description: NP log server group name
+            policy_offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload. Enable/disable hardware session setup for CGNAT.
+                description: Enable/disable hardware session setup for CGNAT.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -285,21 +285,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy46'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy46/{policy46}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -323,7 +316,7 @@ def main():
                 'srcaddr': {'type': 'raw'},
                 'srcintf': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                 'tcp-mss-receiver': {'type': 'int'},
                 'tcp-mss-sender': {'type': 'int'},
                 'traffic-shaper': {'type': 'str'},
@@ -333,10 +326,9 @@ def main():
                 'logtraffic-start': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'poolname': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'name': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
+                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -350,9 +342,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -95,9 +95,9 @@ options:
             end:
                 type: str
                 description: Schedule end date and time, format hh
-            expiration-days:
+            expiration_days:
                 type: int
-                description: Deprecated, please rename it to expiration_days. Write an event log message this many days before the schedule expires.
+                description: Write an event log message this many days before the schedule expires.
             name:
                 type: str
                 description: Onetime schedule name.
@@ -105,21 +105,21 @@ options:
             start:
                 type: str
                 description: Schedule start date and time, format hh
-            global-object:
+            global_object:
                 type: int
-                description: Deprecated, please rename it to global_object. Global Object.
-            fabric-object:
+                description: Global Object.
+            fabric_object:
                 type: str
-                description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            end-utc:
+            end_utc:
                 type: str
-                description: Deprecated, please rename it to end_utc. Schedule end date and time, in epoch format.
-            start-utc:
+                description: Schedule end date and time, in epoch format.
+            start_utc:
                 type: str
-                description: Deprecated, please rename it to start_utc. Schedule start date and time, in epoch format.
+                description: Schedule start date and time, in epoch format.
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -204,23 +204,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/schedule/onetime',
         '/pm/config/global/obj/firewall/schedule/onetime'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/schedule/onetime/{onetime}',
-        '/pm/config/global/obj/firewall/schedule/onetime/{onetime}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -240,7 +232,6 @@ def main():
                 'start-utc': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -254,9 +245,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

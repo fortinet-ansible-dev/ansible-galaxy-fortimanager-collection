@@ -105,21 +105,21 @@ options:
             description:
                 type: str
                 description: Description for the NAC policy matching pattern.
-            ems-tag:
+            ems_tag:
                 type: str
-                description: Deprecated, please rename it to ems_tag. NAC policy matching EMS tag.
+                description: NAC policy matching EMS tag.
             family:
                 type: str
                 description: NAC policy matching family.
             host:
                 type: str
                 description: NAC policy matching host.
-            hw-vendor:
+            hw_vendor:
                 type: str
-                description: Deprecated, please rename it to hw_vendor. NAC policy matching hardware vendor.
-            hw-version:
+                description: NAC policy matching hardware vendor.
+            hw_version:
                 type: str
-                description: Deprecated, please rename it to hw_version. NAC policy matching hardware version.
+                description: NAC policy matching hardware version.
             mac:
                 type: str
                 description: NAC policy matching MAC address.
@@ -133,71 +133,69 @@ options:
             src:
                 type: str
                 description: NAC policy matching source.
-            ssid-policy:
+            ssid_policy:
                 type: str
-                description: Deprecated, please rename it to ssid_policy. SSID policy to be applied on the matched NAC policy.
+                description: SSID policy to be applied on the matched NAC policy.
             status:
                 type: str
                 description: Enable/disable NAC policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            sw-version:
+            sw_version:
                 type: str
-                description: Deprecated, please rename it to sw_version. NAC policy matching software version.
+                description: NAC policy matching software version.
             type:
                 type: str
                 description: NAC policy matching type.
             user:
                 type: str
                 description: NAC policy matching user.
-            user-group:
+            user_group:
                 type: str
-                description: Deprecated, please rename it to user_group. NAC policy matching user group.
+                description: NAC policy matching user group.
             severity:
                 type: raw
                 description: (list) NAC policy matching devices vulnerability severity lists.
-            firewall-address:
+            firewall_address:
                 type: raw
-                description: (list) Deprecated, please rename it to firewall_address. Dynamic firewall address to associate MAC which match this policy.
-            fortivoice-tag:
+                description: (list) Dynamic firewall address to associate MAC which match this policy.
+            fortivoice_tag:
                 type: raw
-                description: (list) Deprecated, please rename it to fortivoice_tag. NAC policy matching FortiVoice tag.
-            match-period:
+                description: (list) NAC policy matching FortiVoice tag.
+            match_period:
                 type: int
-                description: Deprecated, please rename it to match_period. Number of days the matched devices will be retained
-            match-type:
+                description: Number of days the matched devices will be retained
+            match_type:
                 type: str
-                description: Deprecated, please rename it to match_type. Match and retain the devices based on the type.
+                description: Match and retain the devices based on the type.
                 choices:
                     - 'dynamic'
                     - 'override'
-            switch-fortilink:
+            switch_fortilink:
                 type: raw
                 description:
                     - (list)
-                    - Deprecated, please rename it to switch_fortilink.
                     - Support meta variable
                     - FortiLink interface for which this NAC policy belongs to.
-            switch-group:
+            switch_group:
                 type: raw
                 description:
                     - (list)
-                    - Deprecated, please rename it to switch_group.
                     - Support meta variable
                     - List of managed FortiSwitch groups on which NAC policy can be applied.
-            switch-mac-policy:
+            switch_mac_policy:
                 type: raw
-                description: (list) Deprecated, please rename it to switch_mac_policy. Switch MAC policy action to be applied on the matched NAC policy.
-            switch-scope:
+                description: (list) Switch MAC policy action to be applied on the matched NAC policy.
+            switch_scope:
                 type: raw
-                description: (list) Deprecated, please rename it to switch_scope. List of managed FortiSwitches on which NAC policy can be applied.
-            switch-port-policy:
+                description: (list) List of managed FortiSwitches on which NAC policy can be applied.
+            switch_port_policy:
                 type: raw
-                description: (list) Deprecated, please rename it to switch_port_policy. Switch-port-policy to be applied on the matched NAC policy.
-            switch-auto-auth:
+                description: (list) Switch-port-policy to be applied on the matched NAC policy.
+            switch_auto_auth:
                 type: str
-                description: Deprecated, please rename it to switch_auto_auth. NAC device auto authorization when discovered and nac-policy matched.
+                description: NAC device auto authorization when discovered and nac-policy matched.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -295,21 +293,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/user/nac-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/user/nac-policy/{nac-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -341,18 +332,17 @@ def main():
                 'user': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'user-group': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'severity': {'v_range': [['7.4.0', '']], 'type': 'raw'},
-                'firewall-address': {'v_range': [['7.4.3', '']], 'type': 'raw'},
+                'firewall-address': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
                 'fortivoice-tag': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
-                'switch-fortilink': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'switch-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'switch-mac-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'switch-scope': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'switch-port-policy': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'switch-auto-auth': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
+                'switch-fortilink': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-group': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-mac-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-scope': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-port-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
             }
-
         }
     }
 
@@ -366,9 +356,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

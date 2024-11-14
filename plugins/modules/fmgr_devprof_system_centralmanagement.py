@@ -84,20 +84,20 @@ options:
         required: false
         type: dict
         suboptions:
-            include-default-servers:
+            include_default_servers:
                 type: str
-                description: Deprecated, please rename it to include_default_servers. Enable/disable inclusion of public FortiGuard servers in the over...
+                description: Enable/disable inclusion of public FortiGuard servers in the override server list.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-list:
+            server_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to server_list. Server list.
+                description: Server list.
                 suboptions:
-                    addr-type:
+                    addr_type:
                         type: str
-                        description: Deprecated, please rename it to addr_type. Indicate whether the FortiGate communicates with the override server us...
+                        description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
                         choices:
                             - 'fqdn'
                             - 'ipv4'
@@ -108,46 +108,46 @@ options:
                     id:
                         type: int
                         description: ID.
-                    server-address:
+                    server_address:
                         type: str
-                        description: Deprecated, please rename it to server_address. IPv4 address of override server.
-                    server-address6:
+                        description: IPv4 address of override server.
+                    server_address6:
                         type: str
-                        description: Deprecated, please rename it to server_address6. IPv6 address of override server.
-                    server-type:
+                        description: IPv6 address of override server.
+                    server_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to server_type. FortiGuard service type.
+                        description: FortiGuard service type.
                         choices:
                             - 'update'
                             - 'rating'
                             - 'iot-query'
                             - 'iot-collect'
                             - 'vpatch-query'
-            ltefw-upgrade-time:
+            ltefw_upgrade_time:
                 type: str
-                description: Deprecated, please rename it to ltefw_upgrade_time. Schedule next LTE firmware upgrade time
+                description: Schedule next LTE firmware upgrade time
             vdom:
                 type: raw
                 description: (list) Virtual domain
-            allow-remote-firmware-upgrade:
+            allow_remote_firmware_upgrade:
                 type: str
-                description: Deprecated, please rename it to allow_remote_firmware_upgrade. Enable/disable remotely upgrading the firmware on this Fort...
+                description: Enable/disable remotely upgrading the firmware on this FortiGate from the central management server.
                 choices:
                     - 'disable'
                     - 'enable'
-            local-cert:
+            local_cert:
                 type: str
-                description: Deprecated, please rename it to local_cert. Certificate to be used by FGFM protocol.
-            allow-push-firmware:
+                description: Certificate to be used by FGFM protocol.
+            allow_push_firmware:
                 type: str
-                description: Deprecated, please rename it to allow_push_firmware. Enable/disable allowing the central management server to push firmwar...
+                description: Enable/disable allowing the central management server to push firmware updates to this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
-            ltefw-upgrade-frequency:
+            ltefw_upgrade_frequency:
                 type: str
-                description: Deprecated, please rename it to ltefw_upgrade_frequency. Set LTE firmware auto pushdown frequency.
+                description: Set LTE firmware auto pushdown frequency.
                 choices:
                     - 'everyHour'
                     - 'every12hour'
@@ -159,63 +159,63 @@ options:
                 choices:
                     - 'normal'
                     - 'backup'
-            serial-number:
+            serial_number:
                 type: raw
-                description: (list) Deprecated, please rename it to serial_number. Serial number.
-            fmg-source-ip6:
+                description: (list) Serial number.
+            fmg_source_ip6:
                 type: str
-                description: Deprecated, please rename it to fmg_source_ip6. IPv6 source address that this FortiGate uses when communicating with Forti...
-            allow-monitor:
+                description: IPv6 source address that this FortiGate uses when communicating with FortiManager.
+            allow_monitor:
                 type: str
-                description: Deprecated, please rename it to allow_monitor. Enable/disable allowing the central management server to remotely monitor t...
+                description: Enable/disable allowing the central management server to remotely monitor this FortiGate unit.
                 choices:
                     - 'disable'
                     - 'enable'
-            allow-push-configuration:
+            allow_push_configuration:
                 type: str
-                description: Deprecated, please rename it to allow_push_configuration. Enable/disable allowing the central management server to push co...
+                description: Enable/disable allowing the central management server to push configuration changes to this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
-            ca-cert:
+            ca_cert:
                 type: str
-                description: Deprecated, please rename it to ca_cert. CA certificate to be used by FGFM protocol.
-            fmg-update-port:
+                description: CA certificate to be used by FGFM protocol.
+            fmg_update_port:
                 type: str
-                description: Deprecated, please rename it to fmg_update_port. Port used to communicate with FortiManager that is acting as a FortiGuard...
+                description: Port used to communicate with FortiManager that is acting as a FortiGuard update server.
                 choices:
                     - '443'
                     - '8890'
-            use-elbc-vdom:
+            use_elbc_vdom:
                 type: str
-                description: Deprecated, please rename it to use_elbc_vdom. Enable/disable use of special ELBC config sync VDOM to connect to FortiManager.
+                description: Enable/disable use of special ELBC config sync VDOM to connect to FortiManager.
                 choices:
                     - 'disable'
                     - 'enable'
-            allow-remote-lte-firmware-upgrade:
+            allow_remote_lte_firmware_upgrade:
                 type: str
-                description: Deprecated, please rename it to allow_remote_lte_firmware_upgrade. Enable/disable remotely upgrading the lte firmware on t...
+                description: Enable/disable remotely upgrading the lte firmware on this FortiGate from the central management server.
                 choices:
                     - 'disable'
                     - 'enable'
             interface:
                 type: raw
                 description: (list) Specify outgoing interface to reach server.
-            schedule-script-restore:
+            schedule_script_restore:
                 type: str
-                description: Deprecated, please rename it to schedule_script_restore. Enable/disable allowing the central management server to restore ...
+                description: Enable/disable allowing the central management server to restore the scripts stored on this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
-            schedule-config-restore:
+            schedule_config_restore:
                 type: str
-                description: Deprecated, please rename it to schedule_config_restore. Enable/disable allowing the central management server to restore ...
+                description: Enable/disable allowing the central management server to restore the configuration of this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -227,39 +227,39 @@ options:
                     - 'fortimanager'
                     - 'fortiguard'
                     - 'none'
-            fmg-source-ip:
+            fmg_source_ip:
                 type: str
-                description: Deprecated, please rename it to fmg_source_ip. IPv4 source address that this FortiGate uses when communicating with FortiM...
-            fortigate-cloud-sso-default-profile:
+                description: IPv4 source address that this FortiGate uses when communicating with FortiManager.
+            fortigate_cloud_sso_default_profile:
                 type: raw
-                description: (list) Deprecated, please rename it to fortigate_cloud_sso_default_profile. Override access profile.
+                description: (list) Override access profile.
             fmg:
                 type: raw
                 description: (list) IP address or FQDN of the FortiManager.
-            enc-algorithm:
+            enc_algorithm:
                 type: str
-                description: Deprecated, please rename it to enc_algorithm. Encryption strength for communications between the FortiGate and central ma...
+                description: Encryption strength for communications between the FortiGate and central management.
                 choices:
                     - 'default'
                     - 'high'
                     - 'low'
-            allow-remote-modem-firmware-upgrade:
+            allow_remote_modem_firmware_upgrade:
                 type: str
-                description: Deprecated, please rename it to allow_remote_modem_firmware_upgrade. Enable/disable remotely upgrading the internal cellul...
+                description: Enable/disable remotely upgrading the internal cellular modem firmware on this FortiGate from the central management server.
                 choices:
                     - 'disable'
                     - 'enable'
-            modem-upgrade-frequency:
+            modem_upgrade_frequency:
                 type: str
-                description: Deprecated, please rename it to modem_upgrade_frequency. Set internal cellular modem firmware auto pushdown frequency.
+                description: Set internal cellular modem firmware auto pushdown frequency.
                 choices:
                     - 'everyHour'
                     - 'every12hour'
                     - 'everyDay'
                     - 'everyWeek'
-            modem-upgrade-time:
+            modem_upgrade_time:
                 type: str
-                description: Deprecated, please rename it to modem_upgrade_time. Schedule next internal cellular modem firmware upgrade time
+                description: Schedule next internal cellular modem firmware upgrade time
 '''
 
 EXAMPLES = '''
@@ -290,11 +290,11 @@ EXAMPLES = '''
               server_address: <string>
               server_address6: <string>
               server_type:
-                - update
-                - rating
-                - iot-query
-                - iot-collect
-                - vpatch-query
+                - "update"
+                - "rating"
+                - "iot-query"
+                - "iot-collect"
+                - "vpatch-query"
           ltefw_upgrade_time: <string>
           vdom: <list or string>
           allow_remote_firmware_upgrade: <value in [disable, enable]>
@@ -365,21 +365,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/system/central-management/{central-management}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -416,35 +409,42 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'ltefw-upgrade-time': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'vdom': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'allow-remote-firmware-upgrade': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-cert': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'allow-push-firmware': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ltefw-upgrade-frequency': {'v_range': [['7.4.3', '']], 'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'], 'type': 'str'},
-                'mode': {'v_range': [['7.4.3', '']], 'choices': ['normal', 'backup'], 'type': 'str'},
-                'serial-number': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'fmg-source-ip6': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'allow-monitor': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'allow-push-configuration': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ca-cert': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fmg-update-port': {'v_range': [['7.4.3', '']], 'choices': ['443', '8890'], 'type': 'str'},
-                'use-elbc-vdom': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'allow-remote-lte-firmware-upgrade': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'interface': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'schedule-script-restore': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'schedule-config-restore': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'interface-select-method': {'v_range': [['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'type': {'v_range': [['7.4.3', '']], 'choices': ['fortimanager', 'fortiguard', 'none'], 'type': 'str'},
-                'fmg-source-ip': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fortigate-cloud-sso-default-profile': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'fmg': {'v_range': [['7.4.3', '']], 'type': 'raw'},
-                'enc-algorithm': {'v_range': [['7.4.3', '']], 'choices': ['default', 'high', 'low'], 'type': 'str'},
-                'allow-remote-modem-firmware-upgrade': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'modem-upgrade-frequency': {'v_range': [['7.4.3', '']], 'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'], 'type': 'str'},
-                'modem-upgrade-time': {'v_range': [['7.4.3', '']], 'type': 'str'}
+                'ltefw-upgrade-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'vdom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'allow-remote-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-cert': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'allow-push-firmware': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ltefw-upgrade-frequency': {
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'],
+                    'type': 'str'
+                },
+                'mode': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['normal', 'backup'], 'type': 'str'},
+                'serial-number': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'fmg-source-ip6': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'allow-monitor': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'allow-push-configuration': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ca-cert': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'fmg-update-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['443', '8890'], 'type': 'str'},
+                'use-elbc-vdom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'allow-remote-lte-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'schedule-script-restore': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'schedule-config-restore': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface-select-method': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['fortimanager', 'fortiguard', 'none'], 'type': 'str'},
+                'fmg-source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'fortigate-cloud-sso-default-profile': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'fmg': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'enc-algorithm': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['default', 'high', 'low'], 'type': 'str'},
+                'allow-remote-modem-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'modem-upgrade-frequency': {
+                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'],
+                    'type': 'str'
+                },
+                'modem-upgrade-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -458,9 +458,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

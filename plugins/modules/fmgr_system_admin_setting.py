@@ -76,29 +76,27 @@ options:
         required: false
         type: dict
         suboptions:
-            access-banner:
+            access_banner:
                 type: str
                 description:
-                    - Deprecated, please rename it to access_banner.
                     - Enable/disable access banner.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            admin-https-redirect:
+            admin_https_redirect:
                 type: str
                 description:
-                    - Deprecated, please rename it to admin_https_redirect.
                     - Enable/disable redirection of HTTP admin traffic to HTTPS.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            admin-login-max:
+            admin_login_max:
                 type: int
-                description: Deprecated, please rename it to admin_login_max. Maximum number admin users logged in at one time
+                description: Maximum number admin users logged in at one time
             admin_server_cert:
                 type: str
                 description: HTTPS & Web Service server certificate.
@@ -111,32 +109,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-update:
+            auto_update:
                 type: str
                 description:
-                    - Deprecated, please rename it to auto_update.
                     - Enable/disable FortiGate automatic update.
                     - disable - Disable device automatic update.
                     - enable - Enable device automatic update.
                 choices:
                     - 'disable'
                     - 'enable'
-            banner-message:
+            banner_message:
                 type: str
-                description: Deprecated, please rename it to banner_message. Banner message.
-            chassis-mgmt:
+                description: Banner message.
+            chassis_mgmt:
                 type: str
                 description:
-                    - Deprecated, please rename it to chassis_mgmt.
                     - Enable or disable chassis management.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            chassis-update-interval:
+            chassis_update_interval:
                 type: int
-                description: Deprecated, please rename it to chassis_update_interval. Chassis background update interval
+                description: Chassis background update interval
             device_sync_status:
                 type: str
                 description:
@@ -146,10 +142,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            gui-theme:
+            gui_theme:
                 type: str
                 description:
-                    - Deprecated, please rename it to gui_theme.
                     - Color scheme to use for the administration GUI.
                     - blue - Blueberry
                     - green - Kiwi
@@ -224,26 +219,24 @@ options:
             idle_timeout:
                 type: int
                 description: Idle timeout
-            install-ifpolicy-only:
+            install_ifpolicy_only:
                 type: str
                 description:
-                    - Deprecated, please rename it to install_ifpolicy_only.
                     - Allow install interface policy only.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            mgmt-addr:
+            mgmt_addr:
                 type: str
-                description: Deprecated, please rename it to mgmt_addr. IP of FortiManager used by FGFM.
-            mgmt-fqdn:
+                description: IP of FortiManager used by FGFM.
+            mgmt_fqdn:
                 type: str
-                description: Deprecated, please rename it to mgmt_fqdn. FQDN of FortiManager used by FGFM.
-            objects-force-deletion:
+                description: FQDN of FortiManager used by FGFM.
+            objects_force_deletion:
                 type: str
                 description:
-                    - Deprecated, please rename it to objects_force_deletion.
                     - Enable/disable used objects force deletion.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -262,73 +255,66 @@ options:
             register_passwd:
                 type: raw
                 description: (list) Password for register a device.
-            sdwan-monitor-history:
+            sdwan_monitor_history:
                 type: str
                 description:
-                    - Deprecated, please rename it to sdwan_monitor_history.
                     - Enable/disable hostname display in the GUI login page.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            shell-access:
+            shell_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to shell_access.
                     - Enable/disable shell access.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            shell-password:
+            shell_password:
                 type: raw
-                description: (list) Deprecated, please rename it to shell_password. Password for shell access.
-            show-add-multiple:
+                description: (list) Password for shell access.
+            show_add_multiple:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_add_multiple.
                     - Show add multiple button.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            show-adom-devman:
+            show_adom_devman:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_adom_devman.
                     - Show ADOM device manager tools on GUI.
                     - disable - Hide device manager tools on GUI.
                     - enable - Show device manager tools on GUI.
                 choices:
                     - 'disable'
                     - 'enable'
-            show-checkbox-in-table:
+            show_checkbox_in_table:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_checkbox_in_table.
                     - Show checkboxs in tables on GUI.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            show-device-import-export:
+            show_device_import_export:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_device_import_export.
                     - Enable/disable import/export of ADOM, device, and group lists.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            show-hostname:
+            show_hostname:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_hostname.
                     - Enable/disable hostname display in the GUI login page.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -402,42 +388,39 @@ options:
                     - 'korean'
                     - 'spanish'
                     - 'french'
-            show-fct-manager:
+            show_fct_manager:
                 type: str
                 description:
-                    - Deprecated, please rename it to show_fct_manager.
                     - Enable/disable FCT manager.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            sdwan-skip-unmapped-input-device:
+            sdwan_skip_unmapped_input_device:
                 type: str
                 description:
-                    - Deprecated, please rename it to sdwan_skip_unmapped_input_device.
                     - Skip unmapped interface for sdwan/rule/input-device instead of report mapping error.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-addr:
+            auth_addr:
                 type: str
-                description: Deprecated, please rename it to auth_addr. IP which is used by FGT to authorize FMG.
-            auth-port:
+                description: IP which is used by FGT to authorize FMG.
+            auth_port:
                 type: int
-                description: Deprecated, please rename it to auth_port. Port which is used by FGT to authorize FMG.
+                description: Port which is used by FGT to authorize FMG.
             idle_timeout_api:
                 type: int
                 description: Idle timeout for API sessions
             idle_timeout_gui:
                 type: int
                 description: Idle timeout for GUI sessions
-            central-ftgd-local-cat-id:
+            central_ftgd_local_cat_id:
                 type: str
                 description:
-                    - Deprecated, please rename it to central_ftgd_local_cat_id.
                     - Central FortiGuard local category id management, and do not auto assign id during installation.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -447,58 +430,54 @@ options:
             idle_timeout_sso:
                 type: int
                 description: Idle timeout for SSO sessions
-            preferred-fgfm-intf:
+            preferred_fgfm_intf:
                 type: str
-                description: Deprecated, please rename it to preferred_fgfm_intf. Preferred interface for FGFM connection.
-            traffic-shaping-history:
+                description: Preferred interface for FGFM connection.
+            traffic_shaping_history:
                 type: str
                 description:
-                    - Deprecated, please rename it to traffic_shaping_history.
                     - Enable/disable traffic-shaping-history.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fsw-ignore-platform-check:
+            fsw_ignore_platform_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to fsw_ignore_platform_check.
                     - Enable/disable FortiSwitch Manager switch platform support check.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            rtm-max-monitor-by-days:
+            rtm_max_monitor_by_days:
                 type: int
-                description: Deprecated, please rename it to rtm_max_monitor_by_days. Maximum rtm monitor
-            rtm-temp-file-limit:
+                description: Maximum rtm monitor
+            rtm_temp_file_limit:
                 type: int
-                description: Deprecated, please rename it to rtm_temp_file_limit. Set rtm monitor temp file limit by hours.
-            firmware-upgrade-check:
+                description: Set rtm monitor temp file limit by hours.
+            firmware_upgrade_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to firmware_upgrade_check.
                     - Enable/disable firmware upgrade check.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fgt-gui-proxy:
+            fgt_gui_proxy:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgt_gui_proxy.
                     - Enable/disable FortiGate GUI proxy.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fgt-gui-proxy-port:
+            fgt_gui_proxy_port:
                 type: int
-                description: Deprecated, please rename it to fgt_gui_proxy_port. FortiGate GUI proxy port.
+                description: FortiGate GUI proxy port.
 '''
 
 EXAMPLES = '''
@@ -611,21 +590,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/admin/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/admin/setting/{setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -662,8 +634,8 @@ def main():
                 'offline_mode': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'register_passwd': {'no_log': True, 'type': 'raw'},
                 'sdwan-monitor-history': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'shell-access': {'v_range': [['6.0.0', '7.4.3']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'shell-password': {'v_range': [['6.0.0', '7.4.3']], 'no_log': True, 'type': 'raw'},
+                'shell-access': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.3']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'shell-password': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.3']], 'no_log': True, 'type': 'raw'},
                 'show-add-multiple': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'show-adom-devman': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'show-checkbox-in-table': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -684,18 +656,17 @@ def main():
                 'auth-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'idle_timeout_api': {'v_range': [['6.4.6', '']], 'type': 'int'},
                 'idle_timeout_gui': {'v_range': [['6.4.6', '']], 'type': 'int'},
-                'central-ftgd-local-cat-id': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'central-ftgd-local-cat-id': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'idle_timeout_sso': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'preferred-fgfm-intf': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'traffic-shaping-history': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rtm-max-monitor-by-days': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'rtm-temp-file-limit': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'firmware-upgrade-check': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fgt-gui-proxy-port': {'v_range': [['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -709,9 +680,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

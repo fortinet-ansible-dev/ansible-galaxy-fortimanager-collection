@@ -102,10 +102,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            exclude-list:
+            exclude_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exclude_list. Exclude list.
+                description: Exclude list.
                 suboptions:
                     category:
                         type: str
@@ -143,16 +143,16 @@ options:
                     id:
                         type: int
                         description: Id.
-            forward-traffic:
+            forward_traffic:
                 type: str
-                description: Deprecated, please rename it to forward_traffic. Enable/disable forward traffic logging.
+                description: Enable/disable forward traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            free-style:
+            free_style:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to free_style. Free style.
+                description: Free style.
                 suboptions:
                     category:
                         type: str
@@ -180,9 +180,9 @@ options:
                     filter:
                         type: str
                         description: Free style filter string.
-                    filter-type:
+                    filter_type:
                         type: str
-                        description: Deprecated, please rename it to filter_type. Include/exclude logs that match the filter.
+                        description: Include/exclude logs that match the filter.
                         choices:
                             - 'include'
                             - 'exclude'
@@ -195,21 +195,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            local-traffic:
+            local_traffic:
                 type: str
-                description: Deprecated, please rename it to local_traffic. Enable/disable local in or out traffic logging.
+                description: Enable/disable local in or out traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            multicast-traffic:
+            multicast_traffic:
                 type: str
-                description: Deprecated, please rename it to multicast_traffic. Enable/disable multicast traffic logging.
+                description: Enable/disable multicast traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            sniffer-traffic:
+            sniffer_traffic:
                 type: str
-                description: Deprecated, please rename it to sniffer_traffic. Enable/disable sniffer traffic logging.
+                description: Enable/disable sniffer traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -219,15 +219,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ztna-traffic:
+            ztna_traffic:
                 type: str
-                description: Deprecated, please rename it to ztna_traffic. Enable/disable ztna traffic logging.
+                description: Enable/disable ztna traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            filter-type:
+            filter_type:
                 type: str
-                description: Deprecated, please rename it to filter_type. Include/exclude logs that match the filter.
+                description: Include/exclude logs that match the filter.
                 choices:
                     - 'include'
                     - 'exclude'
@@ -258,27 +258,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            netscan-discovery:
+            netscan_discovery:
                 type: str
-                description: Deprecated, please rename it to netscan_discovery. Enable/disable netscan discovery event logging.
+                description: Enable/disable netscan discovery event logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            netscan-vulnerability:
+            netscan_vulnerability:
                 type: str
-                description: Deprecated, please rename it to netscan_vulnerability. Enable/disable netscan vulnerability event logging.
+                description: Enable/disable netscan vulnerability event logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            forti-switch:
+            forti_switch:
                 type: str
-                description: Deprecated, please rename it to forti_switch. Enable/disable Forti-Switch logging.
+                description: Enable/disable Forti-Switch logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-transaction:
+            http_transaction:
                 type: str
-                description: Deprecated, please rename it to http_transaction. Enable/disable log HTTP transaction messages.
+                description: Enable/disable log HTTP transaction messages.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -380,21 +380,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/{filter}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -409,69 +402,68 @@ def main():
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warning', 'notification', 'information', 'debug'],
                     'type': 'str'
                 },
-                'anomaly': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'anomaly': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-list': {
-                    'v_range': [['7.0.4', '7.0.12']],
+                    'v_range': [['7.0.4', '7.0.13']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.0.4', '7.0.12']],
+                            'v_range': [['7.0.4', '7.0.13']],
                             'choices': [
                                 'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'netscan', 'spam', 'anomaly', 'waf'
                             ],
                             'type': 'str'
                         },
                         'fields': {
-                            'v_range': [['7.0.4', '7.0.12']],
+                            'v_range': [['7.0.4', '7.0.13']],
                             'type': 'list',
                             'options': {
-                                'args': {'v_range': [['7.0.4', '7.0.12']], 'type': 'raw'},
-                                'field': {'v_range': [['7.0.4', '7.0.12']], 'type': 'str'},
-                                'negate': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'args': {'v_range': [['7.0.4', '7.0.13']], 'type': 'raw'},
+                                'field': {'v_range': [['7.0.4', '7.0.13']], 'type': 'str'},
+                                'negate': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'id': {'v_range': [['7.0.4', '7.0.12']], 'type': 'int'}
+                        'id': {'v_range': [['7.0.4', '7.0.13']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'forward-traffic': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'forward-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'free-style': {
-                    'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']],
+                            'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
                             'choices': [
                                 'traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns',
                                 'ssh', 'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch'
                             ],
                             'type': 'str'
                         },
-                        'filter': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                        'filter-type': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'int'}
+                        'filter': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                        'filter-type': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'gtp': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-traffic': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'multicast-traffic': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sniffer-traffic': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'voip': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ztna-traffic': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'filter-type': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                'filter': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
-                'cifs': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dns': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'netscan-discovery': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gtp': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'multicast-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sniffer-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'voip': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'filter-type': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                'filter': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'cifs': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dns': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netscan-discovery': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -485,9 +477,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

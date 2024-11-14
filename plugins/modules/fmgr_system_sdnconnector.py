@@ -92,44 +92,44 @@ options:
             _local_cert:
                 type: str
                 description: Local cert.
-            access-key:
+            access_key:
                 type: str
-                description: Deprecated, please rename it to access_key. AWS access key ID.
-            azure-region:
+                description: AWS access key ID.
+            azure_region:
                 type: str
-                description: Deprecated, please rename it to azure_region. Azure server region.
+                description: Azure server region.
                 choices:
                     - 'global'
                     - 'china'
                     - 'germany'
                     - 'usgov'
                     - 'local'
-            client-id:
+            client_id:
                 type: str
-                description: Deprecated, please rename it to client_id. Azure client ID
-            client-secret:
+                description: Azure client ID
+            client_secret:
                 type: raw
-                description: (list) Deprecated, please rename it to client_secret. Azure client secret
-            compartment-id:
+                description: (list) Azure client secret
+            compartment_id:
                 type: str
-                description: Deprecated, please rename it to compartment_id. Compartment ID.
-            external-ip:
+                description: Compartment ID.
+            external_ip:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to external_ip. External ip.
+                description: External ip.
                 suboptions:
                     name:
                         type: str
                         description: External IP name.
-            gcp-project:
+            gcp_project:
                 type: str
-                description: Deprecated, please rename it to gcp_project. GCP project name.
-            key-passwd:
+                description: GCP project name.
+            key_passwd:
                 type: raw
-                description: (list) Deprecated, please rename it to key_passwd. Private key password.
-            login-endpoint:
+                description: (list) Private key password.
+            login_endpoint:
                 type: str
-                description: Deprecated, please rename it to login_endpoint. Azure Stack login enpoint.
+                description: Azure Stack login enpoint.
             name:
                 type: str
                 description: SDN connector name.
@@ -147,27 +147,33 @@ options:
                             name:
                                 type: str
                                 description: IP configuration name.
-                            public-ip:
+                            public_ip:
                                 type: str
-                                description: Deprecated, please rename it to public_ip. Public IP name.
-                            resource-group:
+                                description: Public IP name.
+                            resource_group:
                                 type: str
-                                description: Deprecated, please rename it to resource_group. Resource group of Azure public IP.
+                                description: Resource group of Azure public IP.
+                            private_ip:
+                                type: str
+                                description: Private IP address.
                     name:
                         type: str
                         description: Network interface name.
-            nsx-cert-fingerprint:
+                    peer_nic:
+                        type: str
+                        description: Peer network interface name.
+            nsx_cert_fingerprint:
                 type: str
-                description: Deprecated, please rename it to nsx_cert_fingerprint. NSX certificate fingerprint.
-            oci-cert:
+                description: NSX certificate fingerprint.
+            oci_cert:
                 type: str
-                description: Deprecated, please rename it to oci_cert. OCI certificate.
-            oci-fingerprint:
+                description: OCI certificate.
+            oci_fingerprint:
                 type: str
-                description: Deprecated, please rename it to oci_fingerprint. Oci fingerprint.
-            oci-region:
+                description: Oci fingerprint.
+            oci_region:
                 type: str
-                description: Deprecated, please rename it to oci_region. OCI server region.
+                description: OCI server region.
                 choices:
                     - 'phoenix'
                     - 'ashburn'
@@ -177,33 +183,33 @@ options:
             password:
                 type: raw
                 description: (list) Password of the remote SDN connector as login credentials.
-            private-key:
+            private_key:
                 type: str
-                description: Deprecated, please rename it to private_key. Private key of GCP service account.
+                description: Private key of GCP service account.
             region:
                 type: str
                 description: AWS region name.
-            resource-group:
+            resource_group:
                 type: str
-                description: Deprecated, please rename it to resource_group. Azure resource group.
-            resource-url:
+                description: Azure resource group.
+            resource_url:
                 type: str
-                description: Deprecated, please rename it to resource_url. Azure Stack resource URL.
-            rest-interface:
+                description: Azure Stack resource URL.
+            rest_interface:
                 type: str
-                description: Deprecated, please rename it to rest_interface. Interface name for REST service to listen on.
+                description: Interface name for REST service to listen on.
                 choices:
                     - 'mgmt'
                     - 'sync'
-            rest-password:
+            rest_password:
                 type: raw
-                description: (list) Deprecated, please rename it to rest_password. Password for REST service.
-            rest-sport:
+                description: (list) Password for REST service.
+            rest_sport:
                 type: int
-                description: Deprecated, please rename it to rest_sport. REST service access port
-            rest-ssl:
+                description: REST service access port
+            rest_ssl:
                 type: str
-                description: Deprecated, please rename it to rest_ssl. Rest ssl.
+                description: Rest ssl.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -215,10 +221,10 @@ options:
                     name:
                         type: str
                         description: Route name.
-            route-table:
+            route_table:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to route_table. Route table.
+                description: Route table.
                 suboptions:
                     name:
                         type: str
@@ -231,39 +237,39 @@ options:
                             name:
                                 type: str
                                 description: Route name.
-                            next-hop:
+                            next_hop:
                                 type: str
-                                description: Deprecated, please rename it to next_hop. Next hop address.
-                    resource-group:
+                                description: Next hop address.
+                    resource_group:
                         type: str
-                        description: Deprecated, please rename it to resource_group. Resource group of Azure route table.
-                    subscription-id:
+                        description: Resource group of Azure route table.
+                    subscription_id:
                         type: str
-                        description: Deprecated, please rename it to subscription_id. Subscription ID of Azure route table.
-            secret-key:
+                        description: Subscription ID of Azure route table.
+            secret_key:
                 type: raw
-                description: (list) Deprecated, please rename it to secret_key. AWS secret access key.
+                description: (list) AWS secret access key.
             server:
                 type: str
                 description: Server address of the remote SDN connector.
-            server-port:
+            server_port:
                 type: int
-                description: Deprecated, please rename it to server_port. Port number of the remote SDN connector.
-            service-account:
+                description: Port number of the remote SDN connector.
+            service_account:
                 type: str
-                description: Deprecated, please rename it to service_account. GCP service account email.
+                description: GCP service account email.
             status:
                 type: str
                 description: Enable/disable connection to the remote SDN connector.
                 choices:
                     - 'disable'
                     - 'enable'
-            subscription-id:
+            subscription_id:
                 type: str
-                description: Deprecated, please rename it to subscription_id. Azure subscription ID.
-            tenant-id:
+                description: Azure subscription ID.
+            tenant_id:
                 type: str
-                description: Deprecated, please rename it to tenant_id. Tenant ID
+                description: Tenant ID
             type:
                 type: str
                 description: Type of SDN connector.
@@ -285,69 +291,69 @@ options:
                     - 'ibm'
                     - 'nutanix'
                     - 'sap'
-            update-interval:
+            update_interval:
                 type: int
-                description: Deprecated, please rename it to update_interval. Dynamic object update interval
-            use-metadata-iam:
+                description: Dynamic object update interval
+            use_metadata_iam:
                 type: str
-                description: Deprecated, please rename it to use_metadata_iam. Enable/disable using IAM role from metadata to call API.
+                description: Enable/disable using IAM role from metadata to call API.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-id:
+            user_id:
                 type: str
-                description: Deprecated, please rename it to user_id. User ID.
+                description: User ID.
             username:
                 type: str
                 description: Username of the remote SDN connector as login credentials.
-            vmx-image-url:
+            vmx_image_url:
                 type: str
-                description: Deprecated, please rename it to vmx_image_url. URL of web-hosted VMX image.
-            vmx-service-name:
+                description: URL of web-hosted VMX image.
+            vmx_service_name:
                 type: str
-                description: Deprecated, please rename it to vmx_service_name. VMX Service name.
-            vpc-id:
+                description: VMX Service name.
+            vpc_id:
                 type: str
-                description: Deprecated, please rename it to vpc_id. AWS VPC ID.
+                description: AWS VPC ID.
             domain:
                 type: str
                 description: Openstack domain.
-            ha-status:
+            ha_status:
                 type: str
-                description: Deprecated, please rename it to ha_status. Enable/disable use for FortiGate HA service.
+                description: Enable/disable use for FortiGate HA service.
                 choices:
                     - 'disable'
                     - 'enable'
-            last-update:
+            last_update:
                 type: int
-                description: Deprecated, please rename it to last_update. Last update.
-            oci-region-type:
+                description: Last update.
+            oci_region_type:
                 type: str
-                description: Deprecated, please rename it to oci_region_type. OCI region type.
+                description: OCI region type.
                 choices:
                     - 'commercial'
                     - 'government'
-            secret-token:
+            secret_token:
                 type: str
-                description: Deprecated, please rename it to secret_token. Secret token of Kubernetes service account.
+                description: Secret token of Kubernetes service account.
             updating:
                 type: int
                 description: Updating.
-            server-ip:
+            server_ip:
                 type: str
-                description: Deprecated, please rename it to server_ip. IP address of the remote SDN connector.
-            group-name:
+                description: IP address of the remote SDN connector.
+            group_name:
                 type: str
-                description: Deprecated, please rename it to group_name. Group name of computers.
-            api-key:
+                description: Group name of computers.
+            api_key:
                 type: raw
-                description: (list) Deprecated, please rename it to api_key. IBM cloud API key or service ID API key.
-            compute-generation:
+                description: (list) IBM cloud API key or service ID API key.
+            compute_generation:
                 type: int
-                description: Deprecated, please rename it to compute_generation. Compute generation for IBM cloud infrastructure.
-            ibm-region:
+                description: Compute generation for IBM cloud infrastructure.
+            ibm_region:
                 type: str
-                description: Deprecated, please rename it to ibm_region. IBM cloud region name.
+                description: IBM cloud region name.
                 choices:
                     - 'us-south'
                     - 'us-east'
@@ -373,9 +379,9 @@ options:
                     - 'osaka-private'
                     - 'toronto-private'
                     - 'sao-paulo-private'
-            ibm-region-gen1:
+            ibm_region_gen1:
                 type: str
-                description: Deprecated, please rename it to ibm_region_gen1. Ibm region gen1.
+                description: Ibm region gen1.
                 choices:
                     - 'us-south'
                     - 'us-east'
@@ -383,91 +389,91 @@ options:
                     - 'great-britain'
                     - 'japan'
                     - 'australia'
-            ibm-region-gen2:
+            ibm_region_gen2:
                 type: str
-                description: Deprecated, please rename it to ibm_region_gen2. Ibm region gen2.
+                description: Ibm region gen2.
                 choices:
                     - 'us-south'
                     - 'us-east'
                     - 'great-britain'
-            vcenter-password:
+            vcenter_password:
                 type: raw
-                description: (list) Deprecated, please rename it to vcenter_password. VCenter server password for NSX quarantine.
-            vcenter-server:
+                description: (list) VCenter server password for NSX quarantine.
+            vcenter_server:
                 type: str
-                description: Deprecated, please rename it to vcenter_server. VCenter server address for NSX quarantine.
-            vcenter-username:
+                description: VCenter server address for NSX quarantine.
+            vcenter_username:
                 type: str
-                description: Deprecated, please rename it to vcenter_username. VCenter server username for NSX quarantine.
-            server-list:
+                description: VCenter server username for NSX quarantine.
+            server_list:
                 type: raw
-                description: (list) Deprecated, please rename it to server_list. Server address list of the remote SDN connector.
-            external-account-list:
+                description: (list) Server address list of the remote SDN connector.
+            external_account_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to external_account_list. External account list.
+                description: External account list.
                 suboptions:
-                    region-list:
+                    region_list:
                         type: raw
-                        description: (list) Deprecated, please rename it to region_list. AWS region name list.
-                    role-arn:
+                        description: (list) AWS region name list.
+                    role_arn:
                         type: str
-                        description: Deprecated, please rename it to role_arn. AWS role ARN to assume.
-                    external-id:
+                        description: AWS role ARN to assume.
+                    external_id:
                         type: str
-                        description: Deprecated, please rename it to external_id. AWS external ID.
-            forwarding-rule:
+                        description: AWS external ID.
+            forwarding_rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to forwarding_rule. Forwarding rule.
+                description: Forwarding rule.
                 suboptions:
-                    rule-name:
+                    rule_name:
                         type: str
-                        description: Deprecated, please rename it to rule_name. Forwarding rule name.
+                        description: Forwarding rule name.
                     target:
                         type: str
                         description: Target instance name.
-            gcp-project-list:
+            gcp_project_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to gcp_project_list. Gcp project list.
+                description: Gcp project list.
                 suboptions:
-                    gcp-zone-list:
+                    gcp_zone_list:
                         type: raw
-                        description: (list) Deprecated, please rename it to gcp_zone_list. Configure GCP zone list.
+                        description: (list) Configure GCP zone list.
                     id:
                         type: str
                         description: GCP project ID.
-            verify-certificate:
+            verify_certificate:
                 type: str
-                description: Deprecated, please rename it to verify_certificate. Enable/disable server certificate verification.
+                description: Enable/disable server certificate verification.
                 choices:
                     - 'disable'
                     - 'enable'
-            alt-resource-ip:
+            alt_resource_ip:
                 type: str
-                description: Deprecated, please rename it to alt_resource_ip. Enable/disable AWS alternative resource IP.
+                description: Enable/disable AWS alternative resource IP.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-ca-cert:
+            server_ca_cert:
                 type: str
-                description: Deprecated, please rename it to server_ca_cert. Trust only those servers whose certificate is directly/indirectly signed b...
-            server-cert:
+                description: Trust only those servers whose certificate is directly/indirectly signed by this certificate.
+            server_cert:
                 type: str
-                description: Deprecated, please rename it to server_cert. Trust servers that contain this certificate only.
-            compartment-list:
+                description: Trust servers that contain this certificate only.
+            compartment_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to compartment_list. Compartment list.
+                description: Compartment list.
                 suboptions:
-                    compartment-id:
+                    compartment_id:
                         type: str
-                        description: Deprecated, please rename it to compartment_id. OCI compartment ID.
-            oci-region-list:
+                        description: OCI compartment ID.
+            oci_region_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to oci_region_list. Oci region list.
+                description: Oci region list.
                 suboptions:
                     region:
                         type: str
@@ -559,23 +565,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/sdn-connector',
         '/pm/config/global/obj/system/sdn-connector'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}',
-        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -603,11 +601,13 @@ def main():
                             'options': {
                                 'name': {'type': 'str'},
                                 'public-ip': {'type': 'str'},
-                                'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'}
+                                'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
+                                'private-ip': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'name': {'type': 'str'}
+                        'name': {'type': 'str'},
+                        'peer-nic': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -631,7 +631,7 @@ def main():
                         'name': {'type': 'str'},
                         'route': {'type': 'list', 'options': {'name': {'type': 'str'}, 'next-hop': {'type': 'str'}}, 'elements': 'dict'},
                         'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                        'subscription-id': {'v_range': [['6.2.6', '6.2.12'], ['6.4.1', '']], 'type': 'str'}
+                        'subscription-id': {'v_range': [['6.2.6', '6.2.13'], ['6.4.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -662,7 +662,7 @@ def main():
                 'oci-region-type': {'v_range': [['6.2.1', '']], 'choices': ['commercial', 'government'], 'type': 'str'},
                 'secret-token': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
                 'updating': {'v_range': [['6.2.1', '7.2.0']], 'type': 'int'},
-                'server-ip': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
+                'server-ip': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'group-name': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'api-key': {'v_range': [['6.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'compute-generation': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -691,7 +691,7 @@ def main():
                     'options': {
                         'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'external-id': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'}
+                        'external-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -702,15 +702,15 @@ def main():
                     'elements': 'dict'
                 },
                 'gcp-project-list': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']],
                     'type': 'list',
                     'options': {
-                        'gcp-zone-list': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'raw'},
-                        'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'str'}
+                        'gcp-zone-list': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'raw'},
+                        'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'verify-certificate': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'verify-certificate': {'v_range': [['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'alt-resource-ip': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'server-ca-cert': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'server-cert': {'v_range': [['7.2.2', '']], 'type': 'str'},
@@ -728,7 +728,6 @@ def main():
                 },
                 'proxy': {'v_range': [['7.4.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -742,9 +741,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

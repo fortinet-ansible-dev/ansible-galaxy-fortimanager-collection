@@ -112,9 +112,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             alertmail:
                 type: list
                 elements: dict
@@ -138,9 +138,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     id:
                         type: int
                         description: Id.
@@ -167,16 +167,16 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             comment:
                 type: str
                 description: Comment.
-            custom-message:
+            custom_message:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_message. Custom message.
+                description: Custom message.
                 suboptions:
                     buffer:
                         type: str
@@ -196,13 +196,13 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
-            device-detection-portal:
+                        description: Message type.
+            device_detection_portal:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to device_detection_portal. Device detection portal.
+                description: Device detection portal.
                 suboptions:
                     buffer:
                         type: str
@@ -222,9 +222,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             ec:
                 type: list
                 elements: dict
@@ -248,13 +248,13 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
-            fortiguard-wf:
+                        description: Message type.
+            fortiguard_wf:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to fortiguard_wf. Fortiguard wf.
+                description: Fortiguard wf.
                 suboptions:
                     buffer:
                         type: str
@@ -274,9 +274,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             ftp:
                 type: list
                 elements: dict
@@ -300,12 +300,12 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
-            group-type:
+                        description: Message type.
+            group_type:
                 type: str
-                description: Deprecated, please rename it to group_type. Group type.
+                description: Group type.
                 choices:
                     - 'default'
                     - 'utm'
@@ -335,9 +335,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             icap:
                 type: list
                 elements: dict
@@ -361,9 +361,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             mail:
                 type: list
                 elements: dict
@@ -387,17 +387,17 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             mm1:
                 type: list
                 elements: dict
                 description: Mm1.
                 suboptions:
-                    add-smil:
+                    add_smil:
                         type: str
-                        description: Deprecated, please rename it to add_smil. Add message encapsulation
+                        description: Add message encapsulation
                         choices:
                             - 'disable'
                             - 'enable'
@@ -427,9 +427,9 @@ options:
                     from:
                         type: str
                         description: From address
-                    from-sender:
+                    from_sender:
                         type: str
-                        description: Deprecated, please rename it to from_sender. Notification message sent from recipient
+                        description: Notification message sent from recipient
                         choices:
                             - 'disable'
                             - 'enable'
@@ -446,9 +446,9 @@ options:
                     fmgr_message:
                         type: str
                         description: Message text
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     priority:
                         type: str
                         description: Message priority
@@ -457,9 +457,9 @@ options:
                             - 'normal'
                             - 'high'
                             - 'not-included'
-                    rsp-status:
+                    rsp_status:
                         type: str
-                        description: Deprecated, please rename it to rsp_status. Response status code
+                        description: Response status code
                         choices:
                             - 'ok'
                             - 'err-unspecified'
@@ -470,19 +470,19 @@ options:
                             - 'err-net-prob'
                             - 'err-content-not-accept'
                             - 'err-unsupp-msg'
-                    rsp-text:
+                    rsp_text:
                         type: str
-                        description: Deprecated, please rename it to rsp_text. Response text
-                    sender-visibility:
+                        description: Response text
+                    sender_visibility:
                         type: str
-                        description: Deprecated, please rename it to sender_visibility. Sender visibility
+                        description: Sender visibility
                         choices:
                             - 'hide'
                             - 'show'
                             - 'not-specified'
-                    smil-part:
+                    smil_part:
                         type: str
-                        description: Deprecated, please rename it to smil_part. Message encapsulation text
+                        description: Message encapsulation text
                     subject:
                         type: str
                         description: Subject text string
@@ -491,9 +491,9 @@ options:
                 elements: dict
                 description: Mm3.
                 suboptions:
-                    add-html:
+                    add_html:
                         type: str
-                        description: Deprecated, please rename it to add_html. Add message encapsulation
+                        description: Add message encapsulation
                         choices:
                             - 'disable'
                             - 'enable'
@@ -514,9 +514,9 @@ options:
                     from:
                         type: str
                         description: From address
-                    from-sender:
+                    from_sender:
                         type: str
-                        description: Deprecated, please rename it to from_sender. Notification message sent from recipient
+                        description: Notification message sent from recipient
                         choices:
                             - 'disable'
                             - 'enable'
@@ -527,18 +527,18 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    html-part:
+                    html_part:
                         type: str
-                        description: Deprecated, please rename it to html_part. Message encapsulation text
+                        description: Message encapsulation text
                     image:
                         type: str
                         description: Message string.
                     fmgr_message:
                         type: str
                         description: Message text
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     priority:
                         type: str
                         description: Message priority
@@ -555,9 +555,9 @@ options:
                 elements: dict
                 description: Mm4.
                 suboptions:
-                    add-smil:
+                    add_smil:
                         type: str
-                        description: Deprecated, please rename it to add_smil. Add message encapsulation
+                        description: Add message encapsulation
                         choices:
                             - 'disable'
                             - 'enable'
@@ -590,9 +590,9 @@ options:
                     from:
                         type: str
                         description: From address
-                    from-sender:
+                    from_sender:
                         type: str
-                        description: Deprecated, please rename it to from_sender. Notification message sent from recipient
+                        description: Notification message sent from recipient
                         choices:
                             - 'disable'
                             - 'enable'
@@ -609,9 +609,9 @@ options:
                     fmgr_message:
                         type: str
                         description: Message text
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     priority:
                         type: str
                         description: Message priority
@@ -620,9 +620,9 @@ options:
                             - 'normal'
                             - 'high'
                             - 'not-included'
-                    rsp-status:
+                    rsp_status:
                         type: str
-                        description: Deprecated, please rename it to rsp_status. Response status
+                        description: Response status
                         choices:
                             - 'ok'
                             - 'err-unspecified'
@@ -632,9 +632,9 @@ options:
                             - 'err-net-prob'
                             - 'err-content-not-accept'
                             - 'err-unsupp-msg'
-                    smil-part:
+                    smil_part:
                         type: str
-                        description: Deprecated, please rename it to smil_part. Message encapsulation text
+                        description: Message encapsulation text
                     subject:
                         type: str
                         description: Subject text string
@@ -643,22 +643,22 @@ options:
                 elements: dict
                 description: Mm7.
                 suboptions:
-                    add-smil:
+                    add_smil:
                         type: str
-                        description: Deprecated, please rename it to add_smil. Add message encapsulation
+                        description: Add message encapsulation
                         choices:
                             - 'disable'
                             - 'enable'
-                    addr-type:
+                    addr_type:
                         type: str
-                        description: Deprecated, please rename it to addr_type. From address type
+                        description: From address type
                         choices:
                             - 'rfc2822-addr'
                             - 'number'
                             - 'short-code'
-                    allow-content-adaptation:
+                    allow_content_adaptation:
                         type: str
-                        description: Deprecated, please rename it to allow_content_adaptation. Allow content adaptations
+                        description: Allow content adaptations
                         choices:
                             - 'disable'
                             - 'enable'
@@ -688,9 +688,9 @@ options:
                     from:
                         type: str
                         description: From address
-                    from-sender:
+                    from_sender:
                         type: str
-                        description: Deprecated, please rename it to from_sender. Notification message sent from recipient
+                        description: Notification message sent from recipient
                         choices:
                             - 'disable'
                             - 'enable'
@@ -707,9 +707,9 @@ options:
                     fmgr_message:
                         type: str
                         description: Message text
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     priority:
                         type: str
                         description: Message priority
@@ -718,9 +718,9 @@ options:
                             - 'normal'
                             - 'high'
                             - 'not-included'
-                    rsp-status:
+                    rsp_status:
                         type: str
-                        description: Deprecated, please rename it to rsp_status. Response status
+                        description: Response status
                         choices:
                             - 'success'
                             - 'partial-success'
@@ -748,9 +748,9 @@ options:
                             - 'service-unavail'
                             - 'service-denied'
                             - 'app-denied'
-                    smil-part:
+                    smil_part:
                         type: str
-                        description: Deprecated, please rename it to smil_part. Message encapsulation text
+                        description: Message encapsulation text
                     subject:
                         type: str
                         description: Subject text string
@@ -786,13 +786,13 @@ options:
                     image:
                         type: str
                         description: Message string.
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
-            nac-quar:
+                        description: Message type.
+            nac_quar:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to nac_quar. Nac quar.
+                description: Nac quar.
                 suboptions:
                     buffer:
                         type: str
@@ -812,9 +812,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
                     id:
                         type: int
                         description: Id.
@@ -845,9 +845,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             spam:
                 type: list
                 elements: dict
@@ -871,9 +871,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             sslvpn:
                 type: list
                 elements: dict
@@ -897,13 +897,13 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
-            traffic-quota:
+                        description: Message type.
+            traffic_quota:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to traffic_quota. Traffic quota.
+                description: Traffic quota.
                 suboptions:
                     buffer:
                         type: str
@@ -923,9 +923,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             utm:
                 type: list
                 elements: dict
@@ -949,9 +949,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             webproxy:
                 type: list
                 elements: dict
@@ -975,9 +975,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
             automation:
                 type: list
                 elements: dict
@@ -1000,9 +1000,9 @@ options:
                             - 'none'
                             - 'http'
                             - '8bit'
-                    msg-type:
+                    msg_type:
                         type: str
-                        description: Deprecated, please rename it to msg_type. Message type.
+                        description: Message type.
 '''
 
 EXAMPLES = '''
@@ -1082,23 +1082,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/replacemsg-group',
         '/pm/config/global/obj/system/replacemsg-group'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/replacemsg-group/{replacemsg-group}',
-        '/pm/config/global/obj/system/replacemsg-group/{replacemsg-group}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1124,7 +1116,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.14'], ['7.0.6', '7.0.12'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.13'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1343,7 +1335,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.14'], ['7.0.6', '7.0.12'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.13'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1420,7 +1412,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -1434,9 +1425,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

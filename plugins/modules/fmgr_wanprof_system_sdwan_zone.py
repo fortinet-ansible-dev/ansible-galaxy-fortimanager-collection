@@ -97,22 +97,22 @@ options:
                 type: str
                 description: Zone name.
                 required: true
-            service-sla-tie-break:
+            service_sla_tie_break:
                 type: str
-                description: Deprecated, please rename it to service_sla_tie_break. Method of selecting member if more than one meets the SLA.
+                description: Method of selecting member if more than one meets the SLA.
                 choices:
                     - 'cfg-order'
                     - 'fib-best-match'
                     - 'input-device'
-            minimum-sla-meet-members:
+            minimum_sla_meet_members:
                 type: int
-                description: Deprecated, please rename it to minimum_sla_meet_members. Minimum number of members which meet SLA when the neighbor is pr...
-            advpn-health-check:
+                description: Minimum number of members which meet SLA when the neighbor is preferred.
+            advpn_health_check:
                 type: str
-                description: Deprecated, please rename it to advpn_health_check. Health check for ADVPN local overlay link quality.
-            advpn-select:
+                description: Health check for ADVPN local overlay link quality.
+            advpn_select:
                 type: str
-                description: Deprecated, please rename it to advpn_select. Enable/disable selection of ADVPN based on SDWAN information.
+                description: Enable/disable selection of ADVPN based on SDWAN information.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -186,21 +186,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/zone'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/zone/{zone}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -216,7 +209,6 @@ def main():
                 'advpn-health-check': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'advpn-select': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -230,9 +222,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -85,110 +85,99 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            query-antispam:
+            query_antispam:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_antispam.
                     - Enable/disable antispam service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-antivirus:
+            query_antivirus:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_antivirus.
                     - Enable/disable antivirus query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-filequery:
+            query_filequery:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_filequery.
                     - Enable/disable file query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-geoip:
+            query_geoip:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_geoip.
                     - Enable/disable geoip service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-outbreak-prevention:
+            query_outbreak_prevention:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_outbreak_prevention.
                     - Enable/disable  outbreak prevention query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-webfilter:
+            query_webfilter:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_webfilter.
                     - Enable/disable Web Filter service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-https-traversal:
+            webfilter_https_traversal:
                 type: str
                 description:
-                    - Deprecated, please rename it to webfilter_https_traversal.
                     - Enable/disable Web Filter HTTPS traversal
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-iot:
+            query_iot:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_iot.
                     - Enable/disable file query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-iot-collection:
+            query_iot_collection:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_iot_collection.
                     - Enable/disable IoT Collection Query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-iot-vulnerability:
+            query_iot_vulnerability:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_iot_vulnerability.
                     - Enable/disable IoT Vulnerability Query service
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-ioc:
+            query_ioc:
                 type: str
                 description:
-                    - Deprecated, please rename it to query_ioc.
                     - Enable/disable the built-in FortiGuard to provide IoC query
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -269,21 +258,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/fmupdate/service'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/fmupdate/service/{service}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -299,12 +281,11 @@ def main():
                 'query-outbreak-prevention': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-webfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-https-traversal': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'query-iot': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'query-iot': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-collection': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-iot-vulnerability': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-ioc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -318,9 +299,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

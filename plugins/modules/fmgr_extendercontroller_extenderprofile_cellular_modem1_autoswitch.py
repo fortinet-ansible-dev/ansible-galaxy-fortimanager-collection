@@ -98,31 +98,31 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            disconnect-period:
+            disconnect_period:
                 type: int
-                description: Deprecated, please rename it to disconnect_period. Automatically switch based on disconnect period.
-            disconnect-threshold:
+                description: Automatically switch based on disconnect period.
+            disconnect_threshold:
                 type: int
-                description: Deprecated, please rename it to disconnect_threshold. Automatically switch based on disconnect threshold.
+                description: Automatically switch based on disconnect threshold.
             signal:
                 type: str
                 description: Automatically switch based on signal strength.
                 choices:
                     - 'disable'
                     - 'enable'
-            switch-back:
+            switch_back:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
+                description: Auto switch with switch back multi-options.
                 choices:
                     - 'time'
                     - 'timer'
-            switch-back-time:
+            switch_back_time:
                 type: str
-                description: Deprecated, please rename it to switch_back_time. Automatically switch over to preferred SIM/carrier at a specified time i...
-            switch-back-timer:
+                description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
+            switch_back_timer:
                 type: int
-                description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carrier after the given time
+                description: Automatically switch over to preferred SIM/carrier after the given time
 '''
 
 EXAMPLES = '''
@@ -150,8 +150,8 @@ EXAMPLES = '''
           disconnect_threshold: <integer>
           signal: <value in [disable, enable]>
           switch_back:
-            - time
-            - timer
+            - "time"
+            - "timer"
           switch_back_time: <string>
           switch_back_timer: <integer>
 '''
@@ -197,23 +197,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch',
         '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch/{auto-switch}',
-        '/pm/config/global/obj/extender-controller/extender-profile/{extender-profile}/cellular/modem1/auto-switch/{auto-switch}'
-    ]
-
     url_params = ['adom', 'extender-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -233,7 +225,6 @@ def main():
                 'switch-back-time': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'switch-back-timer': {'v_range': [['7.0.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -247,9 +238,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

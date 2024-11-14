@@ -76,20 +76,18 @@ options:
         required: false
         type: dict
         suboptions:
-            ip-only-ep:
+            ip_only_ep:
                 type: str
                 description:
-                    - Deprecated, please rename it to ip_only_ep.
                     - Disable/Enable IP-only endpoint identification.
                     - disable - Disable IP-only endpoint identification.
                     - enable - Enable IP-only endpoint identification.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip-unique-scope:
+            ip_unique_scope:
                 type: str
                 description:
-                    - Deprecated, please rename it to ip_unique_scope.
                     - set ip-unique-scope.
                     - adom - set ip-unique-scope to adom.
                     - vdom - set ip-unique-scope to vdom.
@@ -160,21 +158,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/log/ueba'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/log/ueba/{ueba}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -185,7 +176,6 @@ def main():
                 'ip-only-ep': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip-unique-scope': {'v_range': [['7.4.3', '']], 'choices': ['adom', 'vdom'], 'type': 'str'}
             }
-
         }
     }
 
@@ -199,9 +189,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

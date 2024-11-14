@@ -100,9 +100,9 @@ options:
                 type: int
                 description: ID.
                 required: true
-            ignore-case:
+            ignore_case:
                 type: str
-                description: Deprecated, please rename it to ignore_case. Enable/disable ignore case.
+                description: Enable/disable ignore case.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -196,23 +196,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries',
         '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/dictionary/{dictionary}/entries/{entries}',
-        '/pm/config/global/obj/dlp/dictionary/{dictionary}/entries/{entries}'
-    ]
-
     url_params = ['adom', 'dictionary']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -230,7 +222,6 @@ def main():
                 'status': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {'v_range': [['7.2.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -244,9 +235,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

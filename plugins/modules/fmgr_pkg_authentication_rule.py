@@ -93,15 +93,15 @@ options:
         required: false
         type: dict
         suboptions:
-            active-auth-method:
+            active_auth_method:
                 type: str
-                description: Deprecated, please rename it to active_auth_method. Select an active authentication method.
+                description: Select an active authentication method.
             comments:
                 type: str
                 description: Comment.
-            ip-based:
+            ip_based:
                 type: str
-                description: Deprecated, please rename it to ip_based. Enable/disable IP-based authentication.
+                description: Enable/disable IP-based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -123,30 +123,30 @@ options:
             srcaddr6:
                 type: raw
                 description: (list or str) Select an IPv6 source address.
-            sso-auth-method:
+            sso_auth_method:
                 type: str
-                description: Deprecated, please rename it to sso_auth_method. Select a single-sign on
+                description: Select a single-sign on
             status:
                 type: str
                 description: Enable/disable this authentication rule.
                 choices:
                     - 'disable'
                     - 'enable'
-            transaction-based:
+            transaction_based:
                 type: str
-                description: Deprecated, please rename it to transaction_based. Enable/disable transaction based authentication
+                description: Enable/disable transaction based authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            web-auth-cookie:
+            web_auth_cookie:
                 type: str
-                description: Deprecated, please rename it to web_auth_cookie. Enable/disable Web authentication cookies
+                description: Enable/disable Web authentication cookies
                 choices:
                     - 'disable'
                     - 'enable'
-            web-portal:
+            web_portal:
                 type: str
-                description: Deprecated, please rename it to web_portal. Enable/disable web portal for proxy transparent policy
+                description: Enable/disable web portal for proxy transparent policy
                 choices:
                     - 'disable'
                     - 'enable'
@@ -159,18 +159,18 @@ options:
             srcintf:
                 type: raw
                 description: (list or str) Incoming
-            cors-depth:
+            cors_depth:
                 type: int
-                description: Deprecated, please rename it to cors_depth. Depth to allow CORS access
-            cors-stateful:
+                description: Depth to allow CORS access
+            cors_stateful:
                 type: str
-                description: Deprecated, please rename it to cors_stateful. Enable/disable allowance of CORS access
+                description: Enable/disable allowance of CORS access
                 choices:
                     - 'disable'
                     - 'enable'
-            cert-auth-cookie:
+            cert_auth_cookie:
                 type: str
-                description: Deprecated, please rename it to cert_auth_cookie. Enable/disable to use device certificate as authentication cookie
+                description: Enable/disable to use device certificate as authentication cookie
                 choices:
                     - 'disable'
                     - 'enable'
@@ -257,21 +257,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/authentication/rule'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/authentication/rule/{rule}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -300,7 +293,6 @@ def main():
                 'cors-stateful': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -314,9 +306,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

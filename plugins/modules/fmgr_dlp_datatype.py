@@ -92,12 +92,12 @@ options:
             comment:
                 type: str
                 description: Optional comments.
-            look-ahead:
+            look_ahead:
                 type: int
-                description: Deprecated, please rename it to look_ahead. Number of characters to obtain in advance for verification
-            look-back:
+                description: Number of characters to obtain in advance for verification
+            look_back:
                 type: int
-                description: Deprecated, please rename it to look_back. Number of characters required to save for verification
+                description: Number of characters required to save for verification
             name:
                 type: str
                 description: Name of table containing the data type.
@@ -111,27 +111,27 @@ options:
             verify:
                 type: str
                 description: Regular expression pattern string used to verify the data type.
-            verify-transformed-pattern:
+            verify_transformed_pattern:
                 type: str
-                description: Deprecated, please rename it to verify_transformed_pattern. Enable/disable verification for transformed pattern.
+                description: Enable/disable verification for transformed pattern.
                 choices:
                     - 'disable'
                     - 'enable'
-            match-around:
+            match_around:
                 type: str
-                description: Deprecated, please rename it to match_around. Dictionary to check whether it has a match around
-            match-ahead:
+                description: Dictionary to check whether it has a match around
+            match_ahead:
                 type: int
-                description: Deprecated, please rename it to match_ahead. Number of characters behind for match-around
-            match-back:
+                description: Number of characters behind for match-around
+            match_back:
                 type: int
-                description: Deprecated, please rename it to match_back. Number of characters in front for match-around
+                description: Number of characters in front for match-around
             verify2:
                 type: str
                 description: Extra regular expression pattern string used to verify the data type.
-            fgd-id:
+            fgd_id:
                 type: int
-                description: Deprecated, please rename it to fgd_id. ID of object in FortiGuard database.
+                description: ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -209,23 +209,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/data-type',
         '/pm/config/global/obj/dlp/data-type'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/data-type/{data-type}',
-        '/pm/config/global/obj/dlp/data-type/{data-type}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -248,7 +240,6 @@ def main():
                 'verify2': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -262,9 +253,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

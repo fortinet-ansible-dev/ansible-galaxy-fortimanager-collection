@@ -89,15 +89,15 @@ options:
         required: false
         type: dict
         suboptions:
-            default-mapping:
+            default_mapping:
                 type: str
-                description: Deprecated, please rename it to default_mapping. Default mapping.
+                description: Default mapping.
                 choices:
                     - 'disable'
                     - 'enable'
-            defmap-intf:
+            defmap_intf:
                 type: str
-                description: Deprecated, please rename it to defmap_intf. Defmap intf.
+                description: Defmap intf.
             description:
                 type: str
                 description: Description.
@@ -117,16 +117,16 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    local-intf:
+                    local_intf:
                         type: str
-                        description: Deprecated, please rename it to local_intf. Local intf.
+                        description: Local intf.
             name:
                 type: str
                 description: Name.
                 required: true
-            skip-unmapped:
+            skip_unmapped:
                 type: str
-                description: Deprecated, please rename it to skip_unmapped. Skip unmapped.
+                description: Skip unmapped.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -206,23 +206,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dynamic/input/interface',
         '/pm/config/global/obj/dynamic/input/interface'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dynamic/input/interface/{interface}',
-        '/pm/config/global/obj/dynamic/input/interface/{interface}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -254,7 +246,6 @@ def main():
                 'name': {'v_range': [['6.2.2', '6.4.0']], 'required': True, 'type': 'str'},
                 'skip-unmapped': {'v_range': [['6.2.2', '6.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -268,9 +259,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

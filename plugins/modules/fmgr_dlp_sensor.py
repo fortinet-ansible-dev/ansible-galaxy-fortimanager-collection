@@ -92,15 +92,15 @@ options:
             comment:
                 type: str
                 description: Comment.
-            dlp-log:
+            dlp_log:
                 type: str
-                description: Deprecated, please rename it to dlp_log. Enable/disable DLP logging.
+                description: Enable/disable DLP logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging for data leak prevention.
+                description: Enable/disable extended logging for data leak prevention.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -129,21 +129,21 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'summary-only'
-                    company-identifier:
+                    company_identifier:
                         type: str
-                        description: Deprecated, please rename it to company_identifier. Enter a company identifier watermark to match.
+                        description: Enter a company identifier watermark to match.
                     expiry:
                         type: str
                         description: Quarantine duration in days, hours, minutes format
-                    file-size:
+                    file_size:
                         type: int
-                        description: Deprecated, please rename it to file_size. Match files this size or larger
-                    file-type:
+                        description: Match files this size or larger
+                    file_type:
                         type: str
-                        description: Deprecated, please rename it to file_type. Select the number of a DLP file pattern table to match.
-                    filter-by:
+                        description: Select the number of a DLP file pattern table to match.
+                    filter_by:
                         type: str
-                        description: Deprecated, please rename it to filter_by. Select the type of content to match.
+                        description: Select the type of content to match.
                         choices:
                             - 'credit-card'
                             - 'ssn'
@@ -154,15 +154,15 @@ options:
                             - 'watermark'
                             - 'encrypted'
                             - 'file-type-and-size'
-                    fp-sensitivity:
+                    fp_sensitivity:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to fp_sensitivity. Select a DLP file pattern sensitivity to match.
+                        description: (list or str) Select a DLP file pattern sensitivity to match.
                     id:
                         type: int
                         description: ID.
-                    match-percentage:
+                    match_percentage:
                         type: int
-                        description: Deprecated, please rename it to match_percentage. Percentage of fingerprints in the fingerprint databases designat...
+                        description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
                     name:
                         type: str
                         description: Filter name.
@@ -210,16 +210,16 @@ options:
                     sensitivity:
                         type: raw
                         description: (list or str) Select a DLP file pattern sensitivity to match.
-            flow-based:
+            flow_based:
                 type: str
-                description: Deprecated, please rename it to flow_based. Enable/disable flow-based DLP.
+                description: Enable/disable flow-based DLP.
                 choices:
                     - 'disable'
                     - 'enable'
-            full-archive-proto:
+            full_archive_proto:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to full_archive_proto. Protocols to always content archive.
+                description: Protocols to always content archive.
                 choices:
                     - 'imap'
                     - 'smtp'
@@ -239,9 +239,9 @@ options:
                     - 'http-post'
                     - 'ssh'
                     - 'cifs'
-            nac-quar-log:
+            nac_quar_log:
                 type: str
-                description: Deprecated, please rename it to nac_quar_log. Enable/disable NAC quarantine logging.
+                description: Enable/disable NAC quarantine logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -254,13 +254,13 @@ options:
                 description: Configure DLP options.
                 choices:
                     - 'strict-file'
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group used by this DLP sensor.
-            summary-proto:
+                description: Replacement message group used by this DLP sensor.
+            summary_proto:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to summary_proto. Protocols to always log summary.
+                description: Protocols to always log summary.
                 choices:
                     - 'imap'
                     - 'smtp'
@@ -280,9 +280,9 @@ options:
                     - 'http-post'
                     - 'ssh'
                     - 'cifs'
-            feature-set:
+            feature_set:
                 type: str
-                description: Deprecated, please rename it to feature_set. Flow/proxy feature set.
+                description: Flow/proxy feature set.
                 choices:
                     - 'proxy'
                     - 'flow'
@@ -309,16 +309,16 @@ options:
             eval:
                 type: str
                 description: Expression to evaluate.
-            match-type:
+            match_type:
                 type: str
-                description: Deprecated, please rename it to match_type. Logical relation between entries
+                description: Logical relation between entries
                 choices:
                     - 'match-all'
                     - 'match-any'
                     - 'match-eval'
-            fgd-id:
+            fgd_id:
                 type: int
-                description: Deprecated, please rename it to fgd_id. ID of object in FortiGuard database.
+                description: ID of object in FortiGuard database.
 '''
 
 EXAMPLES = '''
@@ -357,71 +357,71 @@ EXAMPLES = '''
               match_percentage: <integer>
               name: <string>
               proto:
-                - imap
-                - smtp
-                - pop3
-                - ftp
-                - nntp
-                - mm1
-                - mm3
-                - mm4
-                - mm7
-                - mapi
-                - aim
-                - icq
-                - msn
-                - yahoo
-                - http-get
-                - http-post
-                - ssh
-                - cifs
+                - "imap"
+                - "smtp"
+                - "pop3"
+                - "ftp"
+                - "nntp"
+                - "mm1"
+                - "mm3"
+                - "mm4"
+                - "mm7"
+                - "mapi"
+                - "aim"
+                - "icq"
+                - "msn"
+                - "yahoo"
+                - "http-get"
+                - "http-post"
+                - "ssh"
+                - "cifs"
               regexp: <string>
               severity: <value in [info, low, medium, ...]>
               type: <value in [file, message]>
               sensitivity: <list or string>
           flow_based: <value in [disable, enable]>
           full_archive_proto:
-            - imap
-            - smtp
-            - pop3
-            - ftp
-            - nntp
-            - mm1
-            - mm3
-            - mm4
-            - mm7
-            - mapi
-            - aim
-            - icq
-            - msn
-            - yahoo
-            - http-get
-            - http-post
-            - ssh
-            - cifs
+            - "imap"
+            - "smtp"
+            - "pop3"
+            - "ftp"
+            - "nntp"
+            - "mm1"
+            - "mm3"
+            - "mm4"
+            - "mm7"
+            - "mapi"
+            - "aim"
+            - "icq"
+            - "msn"
+            - "yahoo"
+            - "http-get"
+            - "http-post"
+            - "ssh"
+            - "cifs"
           nac_quar_log: <value in [disable, enable]>
           name: <string>
           options: <value in [strict-file]>
           replacemsg_group: <string>
           summary_proto:
-            - imap
-            - smtp
-            - pop3
-            - ftp
-            - nntp
-            - mm1
-            - mm3
-            - mm4
-            - mm7
-            - mapi
-            - aim
-            - icq
-            - msn
-            - yahoo
-            - http-get
-            - http-post
-            - ssh
-            - cifs
+            - "imap"
+            - "smtp"
+            - "pop3"
+            - "ftp"
+            - "nntp"
+            - "mm1"
+            - "mm3"
+            - "mm4"
+            - "mm7"
+            - "mapi"
+            - "aim"
+            - "icq"
+            - "msn"
+            - "yahoo"
+            - "http-get"
+            - "http-post"
+            - "ssh"
+            - "cifs"
           feature_set: <value in [proxy, flow]>
           entries:
             -
@@ -475,23 +475,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/sensor',
         '/pm/config/global/obj/dlp/sensor'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}',
-        '/pm/config/global/obj/dlp/sensor/{sensor}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -577,7 +569,6 @@ def main():
                 'match-type': {'v_range': [['7.2.0', '']], 'choices': ['match-all', 'match-any', 'match-eval'], 'type': 'str'},
                 'fgd-id': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -591,9 +582,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

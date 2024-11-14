@@ -98,9 +98,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            image-type:
+            image_type:
                 type: str
-                description: Deprecated, please rename it to image_type. FortiAP region image type
+                description: FortiAP region image type
                 choices:
                     - 'gif'
                     - 'jpeg'
@@ -181,38 +181,29 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/region',
         '/pm/config/global/obj/wireless-controller/region'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/region/{region}',
-        '/pm/config/global/obj/wireless-controller/region/{region}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'region': {
             'type': 'dict',
-            'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']],
+            'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']],
             'options': {
-                'comments': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'type': 'str'},
-                'grayscale': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'image-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'choices': ['gif', 'jpeg', 'png'], 'type': 'str'},
-                'name': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'required': True, 'type': 'str'},
-                'opacity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'type': 'int'}
+                'comments': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'type': 'str'},
+                'grayscale': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'image-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'choices': ['gif', 'jpeg', 'png'], 'type': 'str'},
+                'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'required': True, 'type': 'str'},
+                'opacity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -226,9 +217,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

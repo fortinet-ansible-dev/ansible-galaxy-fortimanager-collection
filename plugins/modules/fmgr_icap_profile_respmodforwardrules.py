@@ -99,32 +99,32 @@ options:
                 choices:
                     - 'bypass'
                     - 'forward'
-            header-group:
+            header_group:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to header_group. Header group.
+                description: Header group.
                 suboptions:
-                    case-sensitivity:
+                    case_sensitivity:
                         type: str
-                        description: Deprecated, please rename it to case_sensitivity. Enable/disable case sensitivity when matching header.
+                        description: Enable/disable case sensitivity when matching header.
                         choices:
                             - 'disable'
                             - 'enable'
                     header:
                         type: str
                         description: HTTP header regular expression.
-                    header-name:
+                    header_name:
                         type: str
-                        description: Deprecated, please rename it to header_name. HTTP header.
+                        description: HTTP header.
                     id:
                         type: int
                         description: ID.
             host:
                 type: str
                 description: Address object for the host.
-            http-resp-status-code:
+            http_resp_status_code:
                 type: raw
-                description: (list) Deprecated, please rename it to http_resp_status_code. HTTP response status code.
+                description: (list) HTTP response status code.
             name:
                 type: str
                 description: Address name.
@@ -204,23 +204,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules',
         '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}',
-        '/pm/config/global/obj/icap/profile/{profile}/respmod-forward-rules/{respmod-forward-rules}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -246,7 +238,6 @@ def main():
                 'http-resp-status-code': {'v_range': [['6.4.0', '']], 'type': 'raw'},
                 'name': {'v_range': [['6.4.0', '']], 'required': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -260,9 +251,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -288,7 +288,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/application/casi/profile/{profile}/entries/{entries}',
                 '/pm/config/global/obj/application/casi/profile/{profile}/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '6.2.12']]
+            'v_range': [['6.2.0', '6.2.13']]
         },
         'application_list_defaultnetworkservices': {
             'params': ['adom', 'default-network-services', 'list'],
@@ -402,7 +402,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}',
                 '/pm/config/global/obj/dnsfilter/urlfilter/{urlfilter}/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '6.2.12']]
+            'v_range': [['6.2.0', '6.2.13']]
         },
         'emailfilter_blockallowlist_entries': {
             'params': ['adom', 'block-allow-list', 'entries'],
@@ -637,14 +637,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['acl6', 'adom', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'central-snat-map', 'pkg'],
@@ -676,56 +676,56 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}'
             ],
-            'v_range': [['6.2.0', '6.2.12']]
+            'v_range': [['6.2.0', '6.2.13']]
         },
         'pkg_firewall_explicitproxypolicy_identitybasedpolicy': {
             'params': ['adom', 'explicit-proxy-policy', 'identity-based-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}/identity-based-policy/{identity-based-policy}'
             ],
-            'v_range': [['6.2.0', '6.2.12']]
+            'v_range': [['6.2.0', '6.2.13']]
         },
         'pkg_firewall_hyperscalepolicy': {
             'params': ['adom', 'hyperscale-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'interface-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'local-in-policy', 'pkg'],
@@ -926,7 +926,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}',
                 '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/gcp-project-list/{gcp-project-list}'
             ],
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']]
         },
         'system_sdnconnector_nic': {
             'params': ['adom', 'nic', 'sdn-connector'],
@@ -1024,7 +1024,7 @@ def main():
             'urls': [
                 '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule/{authentication-rule}'
             ],
-            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']]
+            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']]
         },
         'vpnsslweb_portal_bookmarkgroup': {
             'params': ['adom', 'bookmark-group', 'portal'],
@@ -1160,8 +1160,8 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(None, None, None, None, module, connection)
-    fmgr.process_task(move_metadata, task_type="move")
+    fmgr = NAPIManager('move', move_metadata, None, None, None, module, connection)
+    fmgr.process_task()
     module.exit_json(meta=module.params)
 
 

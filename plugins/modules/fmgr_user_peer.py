@@ -95,33 +95,33 @@ options:
             cn:
                 type: str
                 description: Peer certificate common name.
-            cn-type:
+            cn_type:
                 type: str
-                description: Deprecated, please rename it to cn_type. Peer certificate common name type.
+                description: Peer certificate common name type.
                 choices:
                     - 'string'
                     - 'email'
                     - 'FQDN'
                     - 'ipv4'
                     - 'ipv6'
-            ldap-mode:
+            ldap_mode:
                 type: str
-                description: Deprecated, please rename it to ldap_mode. Mode for LDAP peer authentication.
+                description: Mode for LDAP peer authentication.
                 choices:
                     - 'password'
                     - 'principal-name'
-            ldap-password:
+            ldap_password:
                 type: raw
-                description: (list) Deprecated, please rename it to ldap_password. Password for LDAP server bind.
-            ldap-server:
+                description: (list) Password for LDAP server bind.
+            ldap_server:
                 type: str
-                description: Deprecated, please rename it to ldap_server. Name of an LDAP server defined under the user ldap command.
-            ldap-username:
+                description: Name of an LDAP server defined under the user ldap command.
+            ldap_username:
                 type: str
-                description: Deprecated, please rename it to ldap_username. Username for LDAP server bind.
-            mandatory-ca-verify:
+                description: Username for LDAP server bind.
+            mandatory_ca_verify:
                 type: str
-                description: Deprecated, please rename it to mandatory_ca_verify. Determine what happens to the peer if the CA certificate is not insta...
+                description: Determine what happens to the peer if the CA certificate is not installed.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -129,37 +129,37 @@ options:
                 type: str
                 description: Peer name.
                 required: true
-            ocsp-override-server:
+            ocsp_override_server:
                 type: str
-                description: Deprecated, please rename it to ocsp_override_server. Online Certificate Status Protocol
+                description: Online Certificate Status Protocol
             passwd:
                 type: raw
                 description: (list) Peers password used for two-factor authentication.
             subject:
                 type: str
                 description: Peer certificate name constraints.
-            two-factor:
+            two_factor:
                 type: str
-                description: Deprecated, please rename it to two_factor. Enable/disable two-factor authentication, applying certificate and password-ba...
+                description: Enable/disable two-factor authentication, applying certificate and password-based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            mfa-mode:
+            mfa_mode:
                 type: str
-                description: Deprecated, please rename it to mfa_mode. MFA mode for remote peer authentication/authorization.
+                description: MFA mode for remote peer authentication/authorization.
                 choices:
                     - 'none'
                     - 'password'
                     - 'subject-identity'
-            mfa-password:
+            mfa_password:
                 type: raw
-                description: (list) Deprecated, please rename it to mfa_password. Unified password for remote authentication.
-            mfa-server:
+                description: (list) Unified password for remote authentication.
+            mfa_server:
                 type: str
-                description: Deprecated, please rename it to mfa_server. Name of a remote authenticator.
-            mfa-username:
+                description: Name of a remote authenticator.
+            mfa_username:
                 type: str
-                description: Deprecated, please rename it to mfa_username. Unified username for remote authentication.
+                description: Unified username for remote authentication.
 '''
 
 EXAMPLES = '''
@@ -240,23 +240,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/peer',
         '/pm/config/global/obj/user/peer'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/peer/{peer}',
-        '/pm/config/global/obj/user/peer/{peer}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -283,7 +275,6 @@ def main():
                 'mfa-server': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'mfa-username': {'v_range': [['7.4.1', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -297,9 +288,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -134,9 +134,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ha-priority:
+            ha_priority:
                 type: int
-                description: Deprecated, please rename it to ha_priority. Ha priority.
+                description: Ha priority.
             id:
                 type: int
                 description: Id.
@@ -144,15 +144,15 @@ options:
             ip:
                 type: str
                 description: Ip.
-            ping-serv-status:
+            ping_serv_status:
                 type: int
-                description: Deprecated, please rename it to ping_serv_status. Ping serv status.
+                description: Ping serv status.
             seq:
                 type: int
                 description: Seq.
-            secip-relay-ip:
+            secip_relay_ip:
                 type: str
-                description: Deprecated, please rename it to secip_relay_ip. DHCP relay IP address.
+                description: DHCP relay IP address.
 '''
 
 EXAMPLES = '''
@@ -177,25 +177,25 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         fsp_vlan_dynamicmapping_interface_secondaryip:
           allowaccess:
-            - https
-            - ping
-            - ssh
-            - snmp
-            - http
-            - telnet
-            - fgfm
-            - auto-ipsec
-            - radius-acct
-            - probe-response
-            - capwap
-            - dnp
-            - ftm
-            - fabric
-            - speed-test
+            - "https"
+            - "ping"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "telnet"
+            - "fgfm"
+            - "auto-ipsec"
+            - "radius-acct"
+            - "probe-response"
+            - "capwap"
+            - "dnp"
+            - "ftm"
+            - "fabric"
+            - "speed-test"
           detectprotocol:
-            - ping
-            - tcp-echo
-            - udp-echo
+            - "ping"
+            - "tcp-echo"
+            - "udp-echo"
           detectserver: <string>
           gwdetect: <value in [disable, enable]>
           ha_priority: <integer>
@@ -247,23 +247,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}',
-        '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/secondaryip/{secondaryip}'
-    ]
-
     url_params = ['adom', 'vlan', 'dynamic_mapping']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -272,10 +264,10 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'fsp_vlan_dynamicmapping_interface_secondaryip': {
             'type': 'dict',
-            'v_range': [['6.2.3', '7.4.0']],
+            'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
                 'allowaccess': {
-                    'v_range': [['6.2.3', '7.4.0']],
+                    'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'choices': [
                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'auto-ipsec', 'radius-acct', 'probe-response', 'capwap', 'dnp', 'ftm',
@@ -287,13 +279,12 @@ def main():
                 'detectserver': {'v_range': [['6.2.3', '7.2.0']], 'type': 'str'},
                 'gwdetect': {'v_range': [['6.2.3', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ha-priority': {'v_range': [['6.2.3', '7.2.0']], 'type': 'int'},
-                'id': {'v_range': [['6.2.3', '7.4.0']], 'required': True, 'type': 'int'},
-                'ip': {'v_range': [['6.2.3', '7.4.0']], 'type': 'str'},
+                'id': {'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']], 'required': True, 'type': 'int'},
+                'ip': {'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
                 'ping-serv-status': {'v_range': [['6.2.3', '7.2.0']], 'type': 'int'},
-                'seq': {'v_range': [['6.2.3', '7.4.0']], 'type': 'int'},
+                'seq': {'v_range': [['6.2.3', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
                 'secip-relay-ip': {'v_range': [['7.4.0', '7.4.0']], 'type': 'str'}
             }
-
         }
     }
 
@@ -307,9 +298,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

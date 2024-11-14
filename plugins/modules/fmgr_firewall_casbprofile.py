@@ -93,15 +93,15 @@ options:
                 type: str
                 description: Name.
                 required: true
-            saas-application:
+            saas_application:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to saas_application. Saas application.
+                description: Saas application.
                 suboptions:
-                    access-rule:
+                    access_rule:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to access_rule. Access rule.
+                        description: Access rule.
                         suboptions:
                             action:
                                 type: str
@@ -123,10 +123,10 @@ options:
                             name:
                                 type: str
                                 description: Name.
-                    custom-control:
+                    custom_control:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to custom_control. Custom control.
+                        description: Custom control.
                         suboptions:
                             name:
                                 type: str
@@ -139,20 +139,20 @@ options:
                                     name:
                                         type: str
                                         description: Name.
-                                    user-input:
+                                    user_input:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to user_input. User input.
-                    domain-control:
+                                        description: User input.
+                    domain_control:
                         type: str
-                        description: Deprecated, please rename it to domain_control. Domain control.
+                        description: Domain control.
                         choices:
                             - 'disable'
                             - 'enable'
-                    domain-control-domains:
+                    domain_control_domains:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to domain_control_domains. Domain control domains.
+                        description: Domain control domains.
                     log:
                         type: str
                         description: Log.
@@ -162,26 +162,26 @@ options:
                     name:
                         type: str
                         description: Name.
-                    safe-search:
+                    safe_search:
                         type: str
-                        description: Deprecated, please rename it to safe_search. Safe search.
+                        description: Safe search.
                         choices:
                             - 'disable'
                             - 'enable'
-                    safe-search-control:
+                    safe_search_control:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to safe_search_control. Safe search control.
-                    tenant-control:
+                        description: Safe search control.
+                    tenant_control:
                         type: str
-                        description: Deprecated, please rename it to tenant_control. Tenant control.
+                        description: Tenant control.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tenant-control-tenants:
+                    tenant_control_tenants:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tenant_control_tenants. Tenant control tenants.
+                        description: Tenant control tenants.
 '''
 
 EXAMPLES = '''
@@ -210,11 +210,11 @@ EXAMPLES = '''
                 -
                   action: <value in [block, monitor, bypass]>
                   bypass:
-                    - av
-                    - dlp
-                    - web-filter
-                    - file-filter
-                    - video-filter
+                    - "av"
+                    - "dlp"
+                    - "web-filter"
+                    - "file-filter"
+                    - "video-filter"
                   name: <string>
               custom_control:
                 -
@@ -274,23 +274,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/casb-profile',
         '/pm/config/global/obj/firewall/casb-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/casb-profile/{casb-profile}',
-        '/pm/config/global/obj/firewall/casb-profile/{casb-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -348,7 +340,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -362,9 +353,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

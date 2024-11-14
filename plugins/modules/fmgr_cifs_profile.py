@@ -89,24 +89,24 @@ options:
         required: false
         type: dict
         suboptions:
-            domain-controller:
+            domain_controller:
                 type: str
-                description: Deprecated, please rename it to domain_controller. Domain for which to decrypt CIFS traffic.
+                description: Domain for which to decrypt CIFS traffic.
             name:
                 type: str
                 description: Profile name.
                 required: true
-            server-credential-type:
+            server_credential_type:
                 type: str
-                description: Deprecated, please rename it to server_credential_type. CIFS server credential type.
+                description: CIFS server credential type.
                 choices:
                     - 'none'
                     - 'credential-replication'
                     - 'credential-keytab'
-            server-keytab:
+            server_keytab:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to server_keytab. Server keytab.
+                description: Server keytab.
                 suboptions:
                     keytab:
                         type: str
@@ -117,9 +117,9 @@ options:
                     password:
                         type: raw
                         description: (list) Password for keytab.
-            file-filter:
+            file_filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter. File filter.
+                description: File filter.
                 suboptions:
                     entries:
                         type: list
@@ -142,9 +142,9 @@ options:
                                     - 'incoming'
                                     - 'outgoing'
                                     - 'any'
-                            file-type:
+                            file_type:
                                 type: raw
-                                description: (list or str) Deprecated, please rename it to file_type. Select file type.
+                                description: (list or str) Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
@@ -204,7 +204,7 @@ EXAMPLES = '''
                 file_type: <list or string>
                 filter: <string>
                 protocol:
-                  - cifs
+                  - "cifs"
             log: <value in [disable, enable]>
             status: <value in [disable, enable]>
 '''
@@ -250,23 +250,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/cifs/profile',
         '/pm/config/global/obj/cifs/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/cifs/profile/{profile}',
-        '/pm/config/global/obj/cifs/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -290,28 +282,27 @@ def main():
                     'elements': 'dict'
                 },
                 'file-filter': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'entries': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['block', 'log'], 'type': 'str'},
-                                'comment': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'direction': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['incoming', 'outgoing', 'any'], 'type': 'str'},
-                                'file-type': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                                'filter': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'protocol': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['block', 'log'], 'type': 'str'},
+                                'comment': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'direction': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['incoming', 'outgoing', 'any'], 'type': 'str'},
+                                'file-type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                                'filter': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'protocol': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }
-
         }
     }
 
@@ -325,9 +316,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

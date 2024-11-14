@@ -86,58 +86,58 @@ options:
         required: false
         type: dict
         suboptions:
-            alert-int:
+            alert_int:
                 type: int
-                description: Deprecated, please rename it to alert_int. Alert notification send interval.
-            alert-int-mode:
+                description: Alert notification send interval.
+            alert_int_mode:
                 type: str
-                description: Deprecated, please rename it to alert_int_mode. Alert notification interval mode.
+                description: Alert notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            alert-src-msisdn:
+            alert_src_msisdn:
                 type: str
-                description: Deprecated, please rename it to alert_src_msisdn. Specify from address for alert messages.
-            alert-status:
+                description: Specify from address for alert messages.
+            alert_status:
                 type: str
-                description: Deprecated, please rename it to alert_status. Alert notification status.
+                description: Alert notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            bword-int:
+            bword_int:
                 type: int
-                description: Deprecated, please rename it to bword_int. Banned word notification send interval.
-            bword-int-mode:
+                description: Banned word notification send interval.
+            bword_int_mode:
                 type: str
-                description: Deprecated, please rename it to bword_int_mode. Banned word notification interval mode.
+                description: Banned word notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            bword-status:
+            bword_status:
                 type: str
-                description: Deprecated, please rename it to bword_status. Banned word notification status.
+                description: Banned word notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            carrier-endpoint-bwl-int:
+            carrier_endpoint_bwl_int:
                 type: int
-                description: Deprecated, please rename it to carrier_endpoint_bwl_int. Carrier end point black/white list notification send interval.
-            carrier-endpoint-bwl-int-mode:
+                description: Carrier end point black/white list notification send interval.
+            carrier_endpoint_bwl_int_mode:
                 type: str
-                description: Deprecated, please rename it to carrier_endpoint_bwl_int_mode. Carrier end point black/white list notification interval mode.
+                description: Carrier end point black/white list notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            carrier-endpoint-bwl-status:
+            carrier_endpoint_bwl_status:
                 type: str
-                description: Deprecated, please rename it to carrier_endpoint_bwl_status. Carrier end point black/white list notification status.
+                description: Carrier end point black/white list notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            days-allowed:
+            days_allowed:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to days_allowed. Weekdays on which notification messages may be sent.
+                description: Weekdays on which notification messages may be sent.
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -146,143 +146,143 @@ options:
                     - 'thursday'
                     - 'friday'
                     - 'saturday'
-            detect-server:
+            detect_server:
                 type: str
-                description: Deprecated, please rename it to detect_server. Enable/disable automatic server address determination.
+                description: Enable/disable automatic server address determination.
                 choices:
                     - 'disable'
                     - 'enable'
-            dupe-int:
+            dupe_int:
                 type: int
-                description: Deprecated, please rename it to dupe_int. Duplicate notification send interval.
-            dupe-int-mode:
+                description: Duplicate notification send interval.
+            dupe_int_mode:
                 type: str
-                description: Deprecated, please rename it to dupe_int_mode. Duplicate notification interval mode.
+                description: Duplicate notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            dupe-status:
+            dupe_status:
                 type: str
-                description: Deprecated, please rename it to dupe_status. Duplicate notification status.
+                description: Duplicate notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            file-block-int:
+            file_block_int:
                 type: int
-                description: Deprecated, please rename it to file_block_int. File block notification send interval.
-            file-block-int-mode:
+                description: File block notification send interval.
+            file_block_int_mode:
                 type: str
-                description: Deprecated, please rename it to file_block_int_mode. File block notification interval mode.
+                description: File block notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            file-block-status:
+            file_block_status:
                 type: str
-                description: Deprecated, please rename it to file_block_status. File block notification status.
+                description: File block notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            flood-int:
+            flood_int:
                 type: int
-                description: Deprecated, please rename it to flood_int. Flood notification send interval.
-            flood-int-mode:
+                description: Flood notification send interval.
+            flood_int_mode:
                 type: str
-                description: Deprecated, please rename it to flood_int_mode. Flood notification interval mode.
+                description: Flood notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            flood-status:
+            flood_status:
                 type: str
-                description: Deprecated, please rename it to flood_status. Flood notification status.
+                description: Flood notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            from-in-header:
+            from_in_header:
                 type: str
-                description: Deprecated, please rename it to from_in_header. Enable/disable insertion of from address in HTTP header.
+                description: Enable/disable insertion of from address in HTTP header.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-checksum-int:
+            mms_checksum_int:
                 type: int
-                description: Deprecated, please rename it to mms_checksum_int. MMS checksum notification send interval.
-            mms-checksum-int-mode:
+                description: MMS checksum notification send interval.
+            mms_checksum_int_mode:
                 type: str
-                description: Deprecated, please rename it to mms_checksum_int_mode. MMS checksum notification interval mode.
+                description: MMS checksum notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            mms-checksum-status:
+            mms_checksum_status:
                 type: str
-                description: Deprecated, please rename it to mms_checksum_status. MMS checksum notification status.
+                description: MMS checksum notification status.
                 choices:
                     - 'disable'
                     - 'enable'
-            mmsc-hostname:
+            mmsc_hostname:
                 type: str
-                description: Deprecated, please rename it to mmsc_hostname. Host name or IP address of the MMSC.
-            mmsc-password:
+                description: Host name or IP address of the MMSC.
+            mmsc_password:
                 type: raw
-                description: (list) Deprecated, please rename it to mmsc_password. Password required for authentication with the MMSC.
-            mmsc-port:
+                description: (list) Password required for authentication with the MMSC.
+            mmsc_port:
                 type: int
-                description: Deprecated, please rename it to mmsc_port. Port used on the MMSC for sending MMS messages
-            mmsc-url:
+                description: Port used on the MMSC for sending MMS messages
+            mmsc_url:
                 type: str
-                description: Deprecated, please rename it to mmsc_url. URL used on the MMSC for sending MMS messages.
-            mmsc-username:
+                description: URL used on the MMSC for sending MMS messages.
+            mmsc_username:
                 type: str
-                description: Deprecated, please rename it to mmsc_username. User name required for authentication with the MMSC.
-            msg-protocol:
+                description: User name required for authentication with the MMSC.
+            msg_protocol:
                 type: str
-                description: Deprecated, please rename it to msg_protocol. Protocol to use for sending notification messages.
+                description: Protocol to use for sending notification messages.
                 choices:
                     - 'mm1'
                     - 'mm3'
                     - 'mm4'
                     - 'mm7'
-            msg-type:
+            msg_type:
                 type: str
-                description: Deprecated, please rename it to msg_type. MM7 message type.
+                description: MM7 message type.
                 choices:
                     - 'submit-req'
                     - 'deliver-req'
             protocol:
                 type: str
                 description: Protocol.
-            rate-limit:
+            rate_limit:
                 type: int
-                description: Deprecated, please rename it to rate_limit. Rate limit for sending notification messages
-            tod-window-duration:
+                description: Rate limit for sending notification messages
+            tod_window_duration:
                 type: str
-                description: Deprecated, please rename it to tod_window_duration. Time of day window duration.
-            tod-window-end:
+                description: Time of day window duration.
+            tod_window_end:
                 type: str
-                description: Deprecated, please rename it to tod_window_end. Obsolete.
-            tod-window-start:
+                description: Obsolete.
+            tod_window_start:
                 type: str
-                description: Deprecated, please rename it to tod_window_start. Time of day window start.
-            user-domain:
+                description: Time of day window start.
+            user_domain:
                 type: str
-                description: Deprecated, please rename it to user_domain. Domain name to which the user addresses belong.
-            vas-id:
+                description: Domain name to which the user addresses belong.
+            vas_id:
                 type: str
-                description: Deprecated, please rename it to vas_id. VAS identifier.
-            vasp-id:
+                description: VAS identifier.
+            vasp_id:
                 type: str
-                description: Deprecated, please rename it to vasp_id. VASP identifier.
-            virus-int:
+                description: VASP identifier.
+            virus_int:
                 type: int
-                description: Deprecated, please rename it to virus_int. Virus notification send interval.
-            virus-int-mode:
+                description: Virus notification send interval.
+            virus_int_mode:
                 type: str
-                description: Deprecated, please rename it to virus_int_mode. Virus notification interval mode.
+                description: Virus notification interval mode.
                 choices:
                     - 'hours'
                     - 'minutes'
-            virus-status:
+            virus_status:
                 type: str
-                description: Deprecated, please rename it to virus_status. Virus notification status.
+                description: Virus notification status.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -318,13 +318,13 @@ EXAMPLES = '''
           carrier_endpoint_bwl_int_mode: <value in [hours, minutes]>
           carrier_endpoint_bwl_status: <value in [disable, enable]>
           days_allowed:
-            - sunday
-            - monday
-            - tuesday
-            - wednesday
-            - thursday
-            - friday
-            - saturday
+            - "sunday"
+            - "monday"
+            - "tuesday"
+            - "wednesday"
+            - "thursday"
+            - "friday"
+            - "saturday"
           detect_server: <value in [disable, enable]>
           dupe_int: <integer>
           dupe_int_mode: <value in [hours, minutes]>
@@ -400,23 +400,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notification',
         '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/notification'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/notification/{notification}',
-        '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/notification/{notification}'
-    ]
-
     url_params = ['adom', 'mms-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -475,7 +467,6 @@ def main():
                 'virus-int-mode': {'choices': ['hours', 'minutes'], 'type': 'str'},
                 'virus-status': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -489,9 +480,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

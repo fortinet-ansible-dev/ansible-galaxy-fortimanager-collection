@@ -103,16 +103,22 @@ options:
                     name:
                         type: str
                         description: IP configuration name.
-                    public-ip:
+                    public_ip:
                         type: str
-                        description: Deprecated, please rename it to public_ip. Public IP name.
-                    resource-group:
+                        description: Public IP name.
+                    resource_group:
                         type: str
-                        description: Deprecated, please rename it to resource_group. Resource group of Azure public IP.
+                        description: Resource group of Azure public IP.
+                    private_ip:
+                        type: str
+                        description: Private IP address.
             name:
                 type: str
                 description: Network interface name.
                 required: true
+            peer_nic:
+                type: str
+                description: Peer network interface name.
 '''
 
 EXAMPLES = '''
@@ -193,23 +199,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic',
         '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/nic/{nic}',
-        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/nic/{nic}'
-    ]
-
     url_params = ['adom', 'sdn-connector']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -222,12 +220,17 @@ def main():
             'options': {
                 'ip': {
                     'type': 'list',
-                    'options': {'name': {'type': 'str'}, 'public-ip': {'type': 'str'}, 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'}},
+                    'options': {
+                        'name': {'type': 'str'},
+                        'public-ip': {'type': 'str'},
+                        'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
+                        'private-ip': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
+                    },
                     'elements': 'dict'
                 },
-                'name': {'required': True, 'type': 'str'}
+                'name': {'required': True, 'type': 'str'},
+                'peer-nic': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
             }
-
         }
     }
 
@@ -241,9 +244,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

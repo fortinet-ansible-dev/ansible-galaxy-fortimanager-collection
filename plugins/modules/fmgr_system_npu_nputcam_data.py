@@ -107,72 +107,72 @@ options:
             ethertype:
                 type: str
                 description: Tcam data ethertype.
-            ext-tag:
+            ext_tag:
                 type: str
-                description: Deprecated, please rename it to ext_tag. Tcam data extension tag.
+                description: Tcam data extension tag.
                 choices:
                     - 'disable'
                     - 'enable'
-            frag-off:
+            frag_off:
                 type: int
-                description: Deprecated, please rename it to frag_off. Tcam data ip flag fragment offset.
-            gen-buf-cnt:
+                description: Tcam data ip flag fragment offset.
+            gen_buf_cnt:
                 type: int
-                description: Deprecated, please rename it to gen_buf_cnt. Tcam data gen info buffer count.
-            gen-iv:
+                description: Tcam data gen info buffer count.
+            gen_iv:
                 type: str
-                description: Deprecated, please rename it to gen_iv. Tcam data gen info iv.
+                description: Tcam data gen info iv.
                 choices:
                     - 'invalid'
                     - 'valid'
-            gen-l3-flags:
+            gen_l3_flags:
                 type: int
-                description: Deprecated, please rename it to gen_l3_flags. Tcam data gen info L3 flags.
-            gen-l4-flags:
+                description: Tcam data gen info L3 flags.
+            gen_l4_flags:
                 type: int
-                description: Deprecated, please rename it to gen_l4_flags. Tcam data gen info L4 flags.
-            gen-pkt-ctrl:
+                description: Tcam data gen info L4 flags.
+            gen_pkt_ctrl:
                 type: int
-                description: Deprecated, please rename it to gen_pkt_ctrl. Tcam data gen info packet control.
-            gen-pri:
+                description: Tcam data gen info packet control.
+            gen_pri:
                 type: int
-                description: Deprecated, please rename it to gen_pri. Tcam data gen info priority.
-            gen-pri-v:
+                description: Tcam data gen info priority.
+            gen_pri_v:
                 type: str
-                description: Deprecated, please rename it to gen_pri_v. Tcam data gen info priority valid.
+                description: Tcam data gen info priority valid.
                 choices:
                     - 'invalid'
                     - 'valid'
-            gen-tv:
+            gen_tv:
                 type: str
-                description: Deprecated, please rename it to gen_tv. Tcam data gen info tv.
+                description: Tcam data gen info tv.
                 choices:
                     - 'invalid'
                     - 'valid'
             ihl:
                 type: int
                 description: Tcam data ipv4 IHL.
-            ip4-id:
+            ip4_id:
                 type: int
-                description: Deprecated, please rename it to ip4_id. Tcam data ipv4 id.
-            ip6-fl:
+                description: Tcam data ipv4 id.
+            ip6_fl:
                 type: int
-                description: Deprecated, please rename it to ip6_fl. Tcam data ipv6 flow label.
+                description: Tcam data ipv6 flow label.
             ipver:
                 type: int
                 description: Tcam data ip header version.
-            l4-wd10:
+            l4_wd10:
                 type: int
-                description: Deprecated, please rename it to l4_wd10. Tcam data L4 word10.
-            l4-wd11:
+                description: Tcam data L4 word10.
+            l4_wd11:
                 type: int
-                description: Deprecated, please rename it to l4_wd11. Tcam data L4 word11.
-            l4-wd8:
+                description: Tcam data L4 word11.
+            l4_wd8:
                 type: int
-                description: Deprecated, please rename it to l4_wd8. Tcam data L4 word8.
-            l4-wd9:
+                description: Tcam data L4 word8.
+            l4_wd9:
                 type: int
-                description: Deprecated, please rename it to l4_wd9. Tcam data L4 word9.
+                description: Tcam data L4 word9.
             mf:
                 type: str
                 description: Tcam data ip flag mf.
@@ -185,27 +185,27 @@ options:
             slink:
                 type: int
                 description: Tcam data sublink.
-            smac-change:
+            smac_change:
                 type: str
-                description: Deprecated, please rename it to smac_change. Tcam data source MAC change.
+                description: Tcam data source MAC change.
                 choices:
                     - 'disable'
                     - 'enable'
             sp:
                 type: int
                 description: Tcam data source port.
-            src-cfi:
+            src_cfi:
                 type: str
-                description: Deprecated, please rename it to src_cfi. Tcam data source cfi.
+                description: Tcam data source cfi.
                 choices:
                     - 'disable'
                     - 'enable'
-            src-prio:
+            src_prio:
                 type: int
-                description: Deprecated, please rename it to src_prio. Tcam data source priority.
-            src-updt:
+                description: Tcam data source priority.
+            src_updt:
                 type: str
-                description: Deprecated, please rename it to src_updt. Tcam data source update.
+                description: Tcam data source update.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -224,72 +224,72 @@ options:
             svid:
                 type: int
                 description: Tcam data source vid.
-            tcp-ack:
+            tcp_ack:
                 type: str
-                description: Deprecated, please rename it to tcp_ack. Tcam data tcp flag ack.
+                description: Tcam data tcp flag ack.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-cwr:
+            tcp_cwr:
                 type: str
-                description: Deprecated, please rename it to tcp_cwr. Tcam data tcp flag cwr.
+                description: Tcam data tcp flag cwr.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-ece:
+            tcp_ece:
                 type: str
-                description: Deprecated, please rename it to tcp_ece. Tcam data tcp flag ece.
+                description: Tcam data tcp flag ece.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-fin:
+            tcp_fin:
                 type: str
-                description: Deprecated, please rename it to tcp_fin. Tcam data tcp flag fin.
+                description: Tcam data tcp flag fin.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-push:
+            tcp_push:
                 type: str
-                description: Deprecated, please rename it to tcp_push. Tcam data tcp flag push.
+                description: Tcam data tcp flag push.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-rst:
+            tcp_rst:
                 type: str
-                description: Deprecated, please rename it to tcp_rst. Tcam data tcp flag rst.
+                description: Tcam data tcp flag rst.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-syn:
+            tcp_syn:
                 type: str
-                description: Deprecated, please rename it to tcp_syn. Tcam data tcp flag syn.
+                description: Tcam data tcp flag syn.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-urg:
+            tcp_urg:
                 type: str
-                description: Deprecated, please rename it to tcp_urg. Tcam data tcp flag urg.
+                description: Tcam data tcp flag urg.
                 choices:
                     - 'disable'
                     - 'enable'
-            tgt-cfi:
+            tgt_cfi:
                 type: str
-                description: Deprecated, please rename it to tgt_cfi. Tcam data target cfi.
+                description: Tcam data target cfi.
                 choices:
                     - 'disable'
                     - 'enable'
-            tgt-prio:
+            tgt_prio:
                 type: int
-                description: Deprecated, please rename it to tgt_prio. Tcam data target priority.
-            tgt-updt:
+                description: Tcam data target priority.
+            tgt_updt:
                 type: str
-                description: Deprecated, please rename it to tgt_updt. Tcam data target port update.
+                description: Tcam data target port update.
                 choices:
                     - 'disable'
                     - 'enable'
-            tgt-v:
+            tgt_v:
                 type: str
-                description: Deprecated, please rename it to tgt_v. Tcam data target valid.
+                description: Tcam data target valid.
                 choices:
                     - 'invalid'
                     - 'valid'
@@ -426,23 +426,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/data',
         '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/data'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/data/{data}',
-        '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/data/{data}'
-    ]
-
     url_params = ['adom', 'npu-tcam']
     module_primary_key = None
     module_arg_spec = {
@@ -508,7 +500,6 @@ def main():
                 'tvid': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'vdid': {'v_range': [['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -522,9 +513,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

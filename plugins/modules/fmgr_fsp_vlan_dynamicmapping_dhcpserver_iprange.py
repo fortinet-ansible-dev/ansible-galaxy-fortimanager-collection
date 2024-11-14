@@ -97,37 +97,37 @@ options:
         required: false
         type: dict
         suboptions:
-            end-ip:
+            end_ip:
                 type: str
-                description: Deprecated, please rename it to end_ip. End ip.
+                description: End ip.
             id:
                 type: int
                 description: Id.
                 required: true
-            start-ip:
+            start_ip:
                 type: str
-                description: Deprecated, please rename it to start_ip. Start ip.
-            vci-match:
+                description: Start ip.
+            vci_match:
                 type: str
-                description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
-            vci-string:
+            vci_string:
                 type: raw
-                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-            lease-time:
+                description: (list) One or more VCI strings in quotes separated by spaces.
+            lease_time:
                 type: int
-                description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
-            uci-match:
+                description: Lease time in seconds, 0 means default lease time.
+            uci_match:
                 type: str
-                description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
+                description: Enable/disable user class identifier
                 choices:
                     - 'disable'
                     - 'enable'
-            uci-string:
+            uci_string:
                 type: raw
-                description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
+                description: (list) One or more UCI strings in quotes separated by spaces.
 '''
 
 EXAMPLES = '''
@@ -202,23 +202,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}',
-        '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/dhcp-server/ip-range/{ip-range}'
-    ]
-
     url_params = ['adom', 'vlan', 'dynamic_mapping']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -227,18 +219,17 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'fsp_vlan_dynamicmapping_dhcpserver_iprange': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.4.0']],
+            'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
-                'end-ip': {'v_range': [['6.0.0', '7.4.0']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.4.0']], 'required': True, 'type': 'int'},
-                'start-ip': {'v_range': [['6.0.0', '7.4.0']], 'type': 'str'},
-                'vci-match': {'v_range': [['7.2.1', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vci-string': {'v_range': [['7.2.1', '7.4.0']], 'type': 'raw'},
-                'lease-time': {'v_range': [['7.2.2', '7.4.0']], 'type': 'int'},
-                'uci-match': {'v_range': [['7.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uci-string': {'v_range': [['7.2.2', '7.4.0']], 'type': 'raw'}
+                'end-ip': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'required': True, 'type': 'int'},
+                'start-ip': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'vci-match': {'v_range': [['7.2.1', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vci-string': {'v_range': [['7.2.1', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                'lease-time': {'v_range': [['7.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'uci-match': {'v_range': [['7.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uci-string': {'v_range': [['7.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -252,9 +243,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

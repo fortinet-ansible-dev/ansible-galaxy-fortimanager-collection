@@ -101,21 +101,21 @@ options:
                     id:
                         type: int
                         description: Entry ID.
-                    ip-number:
+                    ip_number:
                         type: int
-                        description: Deprecated, please rename it to ip_number. Total number of IP addresses.
-                    ip-range-number:
+                        description: Total number of IP addresses.
+                    ip_range_number:
                         type: int
-                        description: Deprecated, please rename it to ip_range_number. Total number of IP ranges.
+                        description: Total number of IP ranges.
                     port:
                         type: raw
                         description: (list) Integer value for the TCP/IP port
                     protocol:
                         type: int
                         description: Integer value for the protocol type as defined by IANA
-            icon-id:
+            icon_id:
                 type: int
-                description: Deprecated, please rename it to icon_id. Icon id.
+                description: Icon id.
             id:
                 type: int
                 description: Id.
@@ -128,30 +128,30 @@ options:
             reputation:
                 type: int
                 description: Reputation.
-            sld-id:
+            sld_id:
                 type: int
-                description: Deprecated, please rename it to sld_id. Sld id.
-            extra-ip-range-number:
+                description: Sld id.
+            extra_ip_range_number:
                 type: int
-                description: Deprecated, please rename it to extra_ip_range_number. Extra ip range number.
-            ip-number:
+                description: Extra ip range number.
+            ip_number:
                 type: int
-                description: Deprecated, please rename it to ip_number. Ip number.
-            ip-range-number:
+                description: Ip number.
+            ip_range_number:
                 type: int
-                description: Deprecated, please rename it to ip_range_number. Ip range number.
-            jitter-threshold:
+                description: Ip range number.
+            jitter_threshold:
                 type: int
-                description: Deprecated, please rename it to jitter_threshold. Jitter threshold.
-            latency-threshold:
+                description: Jitter threshold.
+            latency_threshold:
                 type: int
-                description: Deprecated, please rename it to latency_threshold. Latency threshold.
+                description: Latency threshold.
             obsolete:
                 type: int
                 description: Obsolete.
-            packetloss-threshold:
+            packetloss_threshold:
                 type: int
-                description: Deprecated, please rename it to packetloss_threshold. Packetloss threshold.
+                description: Packetloss threshold.
             singularity:
                 type: int
                 description: Singularity.
@@ -170,12 +170,12 @@ options:
             country6:
                 type: raw
                 description: (list) IPv6 Country sequence number list.
-            extra-ip6-range-number:
+            extra_ip6_range_number:
                 type: int
-                description: Deprecated, please rename it to extra_ip6_range_number. Extra ip6 range number.
-            ip6-range-number:
+                description: Extra ip6 range number.
+            ip6_range_number:
                 type: int
-                description: Deprecated, please rename it to ip6_range_number. Ip6 range number.
+                description: Ip6 range number.
             region6:
                 type: raw
                 description: (list) IPv6 Region sequence number list.
@@ -273,23 +273,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/internet-service',
         '/pm/config/global/obj/firewall/internet-service'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/internet-service/{internet-service}',
-        '/pm/config/global/obj/firewall/internet-service/{internet-service}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -326,16 +318,15 @@ def main():
                 'obsolete': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'packetloss-threshold': {'v_range': [['6.2.0', '7.2.0']], 'type': 'int'},
                 'singularity': {'v_range': [['6.2.0', '']], 'type': 'int'},
-                'city': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
-                'country': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
-                'region': {'v_range': [['6.4.0', '7.4.2']], 'type': 'raw'},
-                'city6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'},
-                'country6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'},
+                'city': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
+                'country': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
+                'region': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
+                'city6': {'v_range': [['7.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
+                'country6': {'v_range': [['7.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
                 'extra-ip6-range-number': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'ip6-range-number': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                'region6': {'v_range': [['7.2.1', '7.4.2']], 'type': 'raw'}
+                'region6': {'v_range': [['7.2.1', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -349,9 +340,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -84,45 +84,45 @@ options:
         required: false
         type: dict
         suboptions:
-            create-aa-pdp:
+            create_aa_pdp:
                 type: str
-                description: Deprecated, please rename it to create_aa_pdp. Create AA PDP.
+                description: Create AA PDP.
                 choices:
                     - 'allow'
                     - 'deny'
-            create-mbms:
+            create_mbms:
                 type: str
-                description: Deprecated, please rename it to create_mbms. Create MBMS.
+                description: Create MBMS.
                 choices:
                     - 'allow'
                     - 'deny'
-            create-pdp:
+            create_pdp:
                 type: str
-                description: Deprecated, please rename it to create_pdp. Create PDP.
+                description: Create PDP.
                 choices:
                     - 'allow'
                     - 'deny'
-            data-record:
+            data_record:
                 type: str
-                description: Deprecated, please rename it to data_record. Data record.
+                description: Data record.
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-aa-pdp:
+            delete_aa_pdp:
                 type: str
-                description: Deprecated, please rename it to delete_aa_pdp. Delete AA PDP.
+                description: Delete AA PDP.
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-mbms:
+            delete_mbms:
                 type: str
-                description: Deprecated, please rename it to delete_mbms. Delete MBMS.
+                description: Delete MBMS.
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-pdp:
+            delete_pdp:
                 type: str
-                description: Deprecated, please rename it to delete_pdp. Delete PDP.
+                description: Delete PDP.
                 choices:
                     - 'allow'
                     - 'deny'
@@ -132,33 +132,33 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            error-indication:
+            error_indication:
                 type: str
-                description: Deprecated, please rename it to error_indication. Error indication.
+                description: Error indication.
                 choices:
                     - 'allow'
                     - 'deny'
-            failure-report:
+            failure_report:
                 type: str
-                description: Deprecated, please rename it to failure_report. Failure report.
+                description: Failure report.
                 choices:
                     - 'allow'
                     - 'deny'
-            fwd-relocation:
+            fwd_relocation:
                 type: str
-                description: Deprecated, please rename it to fwd_relocation. Forward relocation.
+                description: Forward relocation.
                 choices:
                     - 'allow'
                     - 'deny'
-            fwd-srns-context:
+            fwd_srns_context:
                 type: str
-                description: Deprecated, please rename it to fwd_srns_context. Forward SRNS context.
+                description: Forward SRNS context.
                 choices:
                     - 'allow'
                     - 'deny'
-            gtp-pdu:
+            gtp_pdu:
                 type: str
-                description: Deprecated, please rename it to gtp_pdu. GTP PDU.
+                description: GTP PDU.
                 choices:
                     - 'allow'
                     - 'deny'
@@ -168,33 +168,33 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-notification:
+            mbms_notification:
                 type: str
-                description: Deprecated, please rename it to mbms_notification. MBMS notification.
+                description: MBMS notification.
                 choices:
                     - 'allow'
                     - 'deny'
-            node-alive:
+            node_alive:
                 type: str
-                description: Deprecated, please rename it to node_alive. Node alive.
+                description: Node alive.
                 choices:
                     - 'allow'
                     - 'deny'
-            note-ms-present:
+            note_ms_present:
                 type: str
-                description: Deprecated, please rename it to note_ms_present. Note MS present.
+                description: Note MS present.
                 choices:
                     - 'allow'
                     - 'deny'
-            pdu-notification:
+            pdu_notification:
                 type: str
-                description: Deprecated, please rename it to pdu_notification. PDU notification.
+                description: PDU notification.
                 choices:
                     - 'allow'
                     - 'deny'
-            ran-info:
+            ran_info:
                 type: str
-                description: Deprecated, please rename it to ran_info. Ran info.
+                description: Ran info.
                 choices:
                     - 'allow'
                     - 'deny'
@@ -204,51 +204,51 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            relocation-cancel:
+            relocation_cancel:
                 type: str
-                description: Deprecated, please rename it to relocation_cancel. Relocation cancel.
+                description: Relocation cancel.
                 choices:
                     - 'allow'
                     - 'deny'
-            send-route:
+            send_route:
                 type: str
-                description: Deprecated, please rename it to send_route. Send route.
+                description: Send route.
                 choices:
                     - 'allow'
                     - 'deny'
-            sgsn-context:
+            sgsn_context:
                 type: str
-                description: Deprecated, please rename it to sgsn_context. SGSN context.
+                description: SGSN context.
                 choices:
                     - 'allow'
                     - 'deny'
-            support-extension:
+            support_extension:
                 type: str
-                description: Deprecated, please rename it to support_extension. Support extension.
+                description: Support extension.
                 choices:
                     - 'allow'
                     - 'deny'
-            unknown-message-action:
+            unknown_message_action:
                 type: str
-                description: Deprecated, please rename it to unknown_message_action. Unknown message action.
+                description: Unknown message action.
                 choices:
                     - 'allow'
                     - 'deny'
-            update-mbms:
+            update_mbms:
                 type: str
-                description: Deprecated, please rename it to update_mbms. Update MBMS.
+                description: Update MBMS.
                 choices:
                     - 'allow'
                     - 'deny'
-            update-pdp:
+            update_pdp:
                 type: str
-                description: Deprecated, please rename it to update_pdp. Update PDP.
+                description: Update PDP.
                 choices:
                     - 'allow'
                     - 'deny'
-            version-not-support:
+            version_not_support:
                 type: str
-                description: Deprecated, please rename it to version_not_support. Version not supported.
+                description: Version not supported.
                 choices:
                     - 'allow'
                     - 'deny'
@@ -344,23 +344,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-filter',
         '/pm/config/global/obj/firewall/gtp/{gtp}/message-filter'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/message-filter/{message-filter}',
-        '/pm/config/global/obj/firewall/gtp/{gtp}/message-filter/{message-filter}'
-    ]
-
     url_params = ['adom', 'gtp']
     module_primary_key = None
     module_arg_spec = {
@@ -368,38 +360,37 @@ def main():
         'gtp': {'required': True, 'type': 'str'},
         'firewall_gtp_messagefilter': {
             'type': 'dict',
-            'v_range': [['6.2.0', '6.2.12']],
+            'v_range': [['6.2.0', '6.2.13']],
             'options': {
-                'create-aa-pdp': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'create-mbms': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'create-pdp': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'data-record': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'delete-aa-pdp': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'delete-mbms': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'delete-pdp': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'echo': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'error-indication': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'failure-report': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'fwd-relocation': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'fwd-srns-context': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'gtp-pdu': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'identification': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'mbms-notification': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'node-alive': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'note-ms-present': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'pdu-notification': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'ran-info': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'redirection': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'relocation-cancel': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'send-route': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'sgsn-context': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'support-extension': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'unknown-message-action': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'update-mbms': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'update-pdp': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'},
-                'version-not-support': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['allow', 'deny'], 'type': 'str'}
+                'create-aa-pdp': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'create-mbms': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'create-pdp': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'data-record': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'delete-aa-pdp': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'delete-mbms': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'delete-pdp': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'echo': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'error-indication': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'failure-report': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'fwd-relocation': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'fwd-srns-context': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'gtp-pdu': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'identification': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'mbms-notification': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'node-alive': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'note-ms-present': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'pdu-notification': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'ran-info': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'redirection': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'relocation-cancel': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'send-route': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'sgsn-context': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'support-extension': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'unknown-message-action': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'update-mbms': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'update-pdp': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'version-not-support': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
-
         }
     }
 
@@ -413,9 +404,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

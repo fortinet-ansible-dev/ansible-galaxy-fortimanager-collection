@@ -110,187 +110,187 @@ options:
                     id:
                         type: int
                         description: Rule ID.
-                    match-as-path:
+                    match_as_path:
                         type: str
-                        description: Deprecated, please rename it to match_as_path. Match BGP AS path list.
-                    match-community:
+                        description: Match BGP AS path list.
+                    match_community:
                         type: str
-                        description: Deprecated, please rename it to match_community. Match BGP community list.
-                    match-community-exact:
+                        description: Match BGP community list.
+                    match_community_exact:
                         type: str
-                        description: Deprecated, please rename it to match_community_exact. Enable/disable exact matching of communities.
+                        description: Enable/disable exact matching of communities.
                         choices:
                             - 'disable'
                             - 'enable'
-                    match-flags:
+                    match_flags:
                         type: int
-                        description: Deprecated, please rename it to match_flags. Match flags.
-                    match-interface:
+                        description: Match flags.
+                    match_interface:
                         type: str
-                        description: Deprecated, please rename it to match_interface. Match interface configuration.
-                    match-ip-address:
+                        description: Match interface configuration.
+                    match_ip_address:
                         type: str
-                        description: Deprecated, please rename it to match_ip_address. Match IP address permitted by access-list or prefix-list.
-                    match-ip-nexthop:
+                        description: Match IP address permitted by access-list or prefix-list.
+                    match_ip_nexthop:
                         type: str
-                        description: Deprecated, please rename it to match_ip_nexthop. Match next hop IP address passed by access-list or prefix-list.
-                    match-ip6-address:
+                        description: Match next hop IP address passed by access-list or prefix-list.
+                    match_ip6_address:
                         type: str
-                        description: Deprecated, please rename it to match_ip6_address. Match IPv6 address permitted by access-list6 or prefix-list6.
-                    match-ip6-nexthop:
+                        description: Match IPv6 address permitted by access-list6 or prefix-list6.
+                    match_ip6_nexthop:
                         type: str
-                        description: Deprecated, please rename it to match_ip6_nexthop. Match next hop IPv6 address passed by access-list6 or prefix-list6.
-                    match-metric:
+                        description: Match next hop IPv6 address passed by access-list6 or prefix-list6.
+                    match_metric:
                         type: str
-                        description: Deprecated, please rename it to match_metric. Match metric for redistribute routes.
-                    match-origin:
+                        description: Match metric for redistribute routes.
+                    match_origin:
                         type: str
-                        description: Deprecated, please rename it to match_origin. Match BGP origin code.
+                        description: Match BGP origin code.
                         choices:
                             - 'none'
                             - 'egp'
                             - 'igp'
                             - 'incomplete'
-                    match-route-type:
+                    match_route_type:
                         type: str
-                        description: Deprecated, please rename it to match_route_type. Match route type.
+                        description: Match route type.
                         choices:
                             - '1'
                             - '2'
                             - 'none'
                             - 'external-type1'
                             - 'external-type2'
-                    match-tag:
+                    match_tag:
                         type: str
-                        description: Deprecated, please rename it to match_tag. Match tag.
-                    match-vrf:
+                        description: Match tag.
+                    match_vrf:
                         type: int
-                        description: Deprecated, please rename it to match_vrf. Match VRF ID.
-                    set-aggregator-as:
+                        description: Match VRF ID.
+                    set_aggregator_as:
                         type: int
-                        description: Deprecated, please rename it to set_aggregator_as. BGP aggregator AS.
-                    set-aggregator-ip:
+                        description: BGP aggregator AS.
+                    set_aggregator_ip:
                         type: str
-                        description: Deprecated, please rename it to set_aggregator_ip. BGP aggregator IP.
-                    set-aspath:
+                        description: BGP aggregator IP.
+                    set_aspath:
                         type: raw
-                        description: (list) Deprecated, please rename it to set_aspath. Prepend BGP AS path attribute.
-                    set-aspath-action:
+                        description: (list) Prepend BGP AS path attribute.
+                    set_aspath_action:
                         type: str
-                        description: Deprecated, please rename it to set_aspath_action. Specify preferred action of set-aspath.
+                        description: Specify preferred action of set-aspath.
                         choices:
                             - 'prepend'
                             - 'replace'
-                    set-atomic-aggregate:
+                    set_atomic_aggregate:
                         type: str
-                        description: Deprecated, please rename it to set_atomic_aggregate. Enable/disable BGP atomic aggregate attribute.
+                        description: Enable/disable BGP atomic aggregate attribute.
                         choices:
                             - 'disable'
                             - 'enable'
-                    set-community:
+                    set_community:
                         type: raw
-                        description: (list) Deprecated, please rename it to set_community. BGP community attribute.
-                    set-community-additive:
+                        description: (list) BGP community attribute.
+                    set_community_additive:
                         type: str
-                        description: Deprecated, please rename it to set_community_additive. Enable/disable adding set-community to existing community.
+                        description: Enable/disable adding set-community to existing community.
                         choices:
                             - 'disable'
                             - 'enable'
-                    set-community-delete:
+                    set_community_delete:
                         type: str
-                        description: Deprecated, please rename it to set_community_delete. Delete communities matching community list.
-                    set-dampening-max-suppress:
+                        description: Delete communities matching community list.
+                    set_dampening_max_suppress:
                         type: int
-                        description: Deprecated, please rename it to set_dampening_max_suppress. Maximum duration to suppress a route
-                    set-dampening-reachability-half-life:
+                        description: Maximum duration to suppress a route
+                    set_dampening_reachability_half_life:
                         type: int
-                        description: Deprecated, please rename it to set_dampening_reachability_half_life. Reachability half-life time for the penalty
-                    set-dampening-reuse:
+                        description: Reachability half-life time for the penalty
+                    set_dampening_reuse:
                         type: int
-                        description: Deprecated, please rename it to set_dampening_reuse. Value to start reusing a route
-                    set-dampening-suppress:
+                        description: Value to start reusing a route
+                    set_dampening_suppress:
                         type: int
-                        description: Deprecated, please rename it to set_dampening_suppress. Value to start suppressing a route
-                    set-dampening-unreachability-half-life:
+                        description: Value to start suppressing a route
+                    set_dampening_unreachability_half_life:
                         type: int
-                        description: Deprecated, please rename it to set_dampening_unreachability_half_life. Unreachability Half-life time for the penalty
-                    set-extcommunity-rt:
+                        description: Unreachability Half-life time for the penalty
+                    set_extcommunity_rt:
                         type: raw
-                        description: (list) Deprecated, please rename it to set_extcommunity_rt. Route Target extended community.
-                    set-extcommunity-soo:
+                        description: (list) Route Target extended community.
+                    set_extcommunity_soo:
                         type: raw
-                        description: (list) Deprecated, please rename it to set_extcommunity_soo. Site-of-Origin extended community.
-                    set-flags:
+                        description: (list) Site-of-Origin extended community.
+                    set_flags:
                         type: int
-                        description: Deprecated, please rename it to set_flags. Set flags.
-                    set-ip-nexthop:
+                        description: Set flags.
+                    set_ip_nexthop:
                         type: str
-                        description: Deprecated, please rename it to set_ip_nexthop. IP address of next hop.
-                    set-ip6-nexthop:
+                        description: IP address of next hop.
+                    set_ip6_nexthop:
                         type: str
-                        description: Deprecated, please rename it to set_ip6_nexthop. IPv6 global address of next hop.
-                    set-ip6-nexthop-local:
+                        description: IPv6 global address of next hop.
+                    set_ip6_nexthop_local:
                         type: str
-                        description: Deprecated, please rename it to set_ip6_nexthop_local. IPv6 local address of next hop.
-                    set-local-preference:
+                        description: IPv6 local address of next hop.
+                    set_local_preference:
                         type: str
-                        description: Deprecated, please rename it to set_local_preference. BGP local preference path attribute.
-                    set-metric:
+                        description: BGP local preference path attribute.
+                    set_metric:
                         type: str
-                        description: Deprecated, please rename it to set_metric. Metric value.
-                    set-metric-type:
+                        description: Metric value.
+                    set_metric_type:
                         type: str
-                        description: Deprecated, please rename it to set_metric_type. Metric type.
+                        description: Metric type.
                         choices:
                             - '1'
                             - '2'
                             - 'none'
                             - 'external-type1'
                             - 'external-type2'
-                    set-origin:
+                    set_origin:
                         type: str
-                        description: Deprecated, please rename it to set_origin. BGP origin code.
+                        description: BGP origin code.
                         choices:
                             - 'none'
                             - 'egp'
                             - 'igp'
                             - 'incomplete'
-                    set-originator-id:
+                    set_originator_id:
                         type: str
-                        description: Deprecated, please rename it to set_originator_id. BGP originator ID attribute.
-                    set-priority:
+                        description: BGP originator ID attribute.
+                    set_priority:
                         type: int
-                        description: Deprecated, please rename it to set_priority. Priority for routing table.
-                    set-route-tag:
+                        description: Priority for routing table.
+                    set_route_tag:
                         type: str
-                        description: Deprecated, please rename it to set_route_tag. Route tag for routing table.
-                    set-tag:
+                        description: Route tag for routing table.
+                    set_tag:
                         type: str
-                        description: Deprecated, please rename it to set_tag. Tag value.
-                    set-weight:
+                        description: Tag value.
+                    set_weight:
                         type: str
-                        description: Deprecated, please rename it to set_weight. BGP weight for routing table.
-                    match-extcommunity:
+                        description: BGP weight for routing table.
+                    match_extcommunity:
                         type: str
-                        description: Deprecated, please rename it to match_extcommunity. Match BGP extended community list.
-                    match-extcommunity-exact:
+                        description: Match BGP extended community list.
+                    match_extcommunity_exact:
                         type: str
-                        description: Deprecated, please rename it to match_extcommunity_exact. Enable/disable exact matching of extended communities.
+                        description: Enable/disable exact matching of extended communities.
                         choices:
                             - 'disable'
                             - 'enable'
-                    set-ip-prefsrc:
+                    set_ip_prefsrc:
                         type: str
-                        description: Deprecated, please rename it to set_ip_prefsrc. IP address of preferred source.
-                    set-vpnv4-nexthop:
+                        description: IP address of preferred source.
+                    set_vpnv4_nexthop:
                         type: str
-                        description: Deprecated, please rename it to set_vpnv4_nexthop. IP address of VPNv4 next-hop.
-                    set-vpnv6-nexthop:
+                        description: IP address of VPNv4 next-hop.
+                    set_vpnv6_nexthop:
                         type: str
-                        description: Deprecated, please rename it to set_vpnv6_nexthop. IPv6 global address of VPNv6 next-hop.
-                    set-vpnv6-nexthop-local:
+                        description: IPv6 global address of VPNv6 next-hop.
+                    set_vpnv6_nexthop_local:
                         type: str
-                        description: Deprecated, please rename it to set_vpnv6_nexthop_local. IPv6 link-local address of VPNv6 next-hop.
+                        description: IPv6 link-local address of VPNv6 next-hop.
 '''
 
 EXAMPLES = '''
@@ -409,23 +409,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/router/route-map',
         '/pm/config/global/obj/router/route-map'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/router/route-map/{route-map}',
-        '/pm/config/global/obj/router/route-map/{route-map}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -494,7 +486,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -508,9 +499,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

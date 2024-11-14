@@ -89,51 +89,51 @@ options:
         required: false
         type: dict
         suboptions:
-            header-client-ip:
+            header_client_ip:
                 type: str
-                description: Deprecated, please rename it to header_client_ip. Action to take on the HTTP client-IP header in forwarded requests
+                description: Action to take on the HTTP client-IP header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-front-end-https:
+            header_front_end_https:
                 type: str
-                description: Deprecated, please rename it to header_front_end_https. Action to take on the HTTP front-end-HTTPS header in forwarded req...
+                description: Action to take on the HTTP front-end-HTTPS header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-via-request:
+            header_via_request:
                 type: str
-                description: Deprecated, please rename it to header_via_request. Action to take on the HTTP via header in forwarded requests
+                description: Action to take on the HTTP via header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-via-response:
+            header_via_response:
                 type: str
-                description: Deprecated, please rename it to header_via_response. Action to take on the HTTP via header in forwarded responses
+                description: Action to take on the HTTP via header in forwarded responses
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-x-authenticated-groups:
+            header_x_authenticated_groups:
                 type: str
-                description: Deprecated, please rename it to header_x_authenticated_groups. Action to take on the HTTP x-authenticated-groups header in...
+                description: Action to take on the HTTP x-authenticated-groups header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-x-authenticated-user:
+            header_x_authenticated_user:
                 type: str
-                description: Deprecated, please rename it to header_x_authenticated_user. Action to take on the HTTP x-authenticated-user header in for...
+                description: Action to take on the HTTP x-authenticated-user header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
                     - 'remove'
-            header-x-forwarded-for:
+            header_x_forwarded_for:
                 type: str
-                description: Deprecated, please rename it to header_x_forwarded_for. Action to take on the HTTP x-forwarded-for header in forwarded req...
+                description: Action to take on the HTTP x-forwarded-for header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
@@ -162,16 +162,16 @@ options:
                     name:
                         type: str
                         description: HTTP forwarded header name.
-                    add-option:
+                    add_option:
                         type: str
-                        description: Deprecated, please rename it to add_option. Configure options to append content to existing HTTP header or add new...
+                        description: Configure options to append content to existing HTTP header or add new HTTP header.
                         choices:
                             - 'append'
                             - 'new-on-not-found'
                             - 'new'
-                    base64-encoding:
+                    base64_encoding:
                         type: str
-                        description: Deprecated, please rename it to base64_encoding. Enable/disable use of base64 encoding of HTTP content.
+                        description: Enable/disable use of base64 encoding of HTTP content.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -188,9 +188,9 @@ options:
                         choices:
                             - 'https'
                             - 'http'
-            log-header-change:
+            log_header_change:
                 type: str
-                description: Deprecated, please rename it to log_header_change. Enable/disable logging HTTP header changes.
+                description: Enable/disable logging HTTP header changes.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -198,15 +198,15 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            strip-encoding:
+            strip_encoding:
                 type: str
-                description: Deprecated, please rename it to strip_encoding. Enable/disable stripping unsupported encoding from the request header.
+                description: Enable/disable stripping unsupported encoding from the request header.
                 choices:
                     - 'disable'
                     - 'enable'
-            header-x-forwarded-client-cert:
+            header_x_forwarded_client_cert:
                 type: str
-                description: Deprecated, please rename it to header_x_forwarded_client_cert. Action to take on the HTTP x-forwarded-client-cert header ...
+                description: Action to take on the HTTP x-forwarded-client-cert header in forwarded requests
                 choices:
                     - 'pass'
                     - 'add'
@@ -250,8 +250,8 @@ EXAMPLES = '''
               dstaddr: <list or string>
               dstaddr6: <list or string>
               protocol:
-                - https
-                - http
+                - "https"
+                - "http"
           log_header_change: <value in [disable, enable]>
           name: <string>
           strip_encoding: <value in [disable, enable]>
@@ -299,23 +299,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/web-proxy/profile',
         '/pm/config/global/obj/web-proxy/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/web-proxy/profile/{profile}',
-        '/pm/config/global/obj/web-proxy/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -357,7 +349,6 @@ def main():
                 'strip-encoding': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'header-x-forwarded-client-cert': {'v_range': [['7.0.1', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'}
             }
-
         }
     }
 
@@ -371,9 +362,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

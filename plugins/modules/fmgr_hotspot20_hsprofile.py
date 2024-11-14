@@ -89,30 +89,30 @@ options:
         required: false
         type: dict
         suboptions:
-            3gpp-plmn:
+            3gpp_plmn:
                 type: str
-                description: Deprecated, please rename it to 3gpp_plmn. 3GPP PLMN name.
-            access-network-asra:
+                description: 3GPP PLMN name.
+            access_network_asra:
                 type: str
-                description: Deprecated, please rename it to access_network_asra. Enable/disable additional step required for access
+                description: Enable/disable additional step required for access
                 choices:
                     - 'disable'
                     - 'enable'
-            access-network-esr:
+            access_network_esr:
                 type: str
-                description: Deprecated, please rename it to access_network_esr. Enable/disable emergency services reachable
+                description: Enable/disable emergency services reachable
                 choices:
                     - 'disable'
                     - 'enable'
-            access-network-internet:
+            access_network_internet:
                 type: str
-                description: Deprecated, please rename it to access_network_internet. Enable/disable connectivity to the Internet.
+                description: Enable/disable connectivity to the Internet.
                 choices:
                     - 'disable'
                     - 'enable'
-            access-network-type:
+            access_network_type:
                 type: str
-                description: Deprecated, please rename it to access_network_type. Access network type.
+                description: Access network type.
                 choices:
                     - 'private-network'
                     - 'private-network-with-guest-access'
@@ -122,94 +122,94 @@ options:
                     - 'emergency-services-only-network'
                     - 'test-or-experimental'
                     - 'wildcard'
-            access-network-uesa:
+            access_network_uesa:
                 type: str
-                description: Deprecated, please rename it to access_network_uesa. Enable/disable unauthenticated emergency service accessible
+                description: Enable/disable unauthenticated emergency service accessible
                 choices:
                     - 'disable'
                     - 'enable'
-            anqp-domain-id:
+            anqp_domain_id:
                 type: int
-                description: Deprecated, please rename it to anqp_domain_id. ANQP Domain ID
-            bss-transition:
+                description: ANQP Domain ID
+            bss_transition:
                 type: str
-                description: Deprecated, please rename it to bss_transition. Enable/disable basic service set
+                description: Enable/disable basic service set
                 choices:
                     - 'disable'
                     - 'enable'
-            conn-cap:
+            conn_cap:
                 type: str
-                description: Deprecated, please rename it to conn_cap. Connection capability name.
-            deauth-request-timeout:
+                description: Connection capability name.
+            deauth_request_timeout:
                 type: int
-                description: Deprecated, please rename it to deauth_request_timeout. Deauthentication request timeout
+                description: Deauthentication request timeout
             dgaf:
                 type: str
                 description: Enable/disable downstream group-addressed forwarding
                 choices:
                     - 'disable'
                     - 'enable'
-            domain-name:
+            domain_name:
                 type: str
-                description: Deprecated, please rename it to domain_name. Domain name.
-            gas-comeback-delay:
+                description: Domain name.
+            gas_comeback_delay:
                 type: int
-                description: Deprecated, please rename it to gas_comeback_delay. GAS comeback delay
-            gas-fragmentation-limit:
+                description: GAS comeback delay
+            gas_fragmentation_limit:
                 type: int
-                description: Deprecated, please rename it to gas_fragmentation_limit. GAS fragmentation limit
+                description: GAS fragmentation limit
             hessid:
                 type: str
                 description: Homogeneous extended service set identifier
-            ip-addr-type:
+            ip_addr_type:
                 type: str
-                description: Deprecated, please rename it to ip_addr_type. IP address type name.
+                description: IP address type name.
             l2tif:
                 type: str
                 description: Enable/disable Layer 2 traffic inspection and filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            nai-realm:
+            nai_realm:
                 type: str
-                description: Deprecated, please rename it to nai_realm. NAI realm list name.
+                description: NAI realm list name.
             name:
                 type: str
                 description: Hotspot profile name.
                 required: true
-            network-auth:
+            network_auth:
                 type: str
-                description: Deprecated, please rename it to network_auth. Network authentication name.
-            oper-friendly-name:
+                description: Network authentication name.
+            oper_friendly_name:
                 type: str
-                description: Deprecated, please rename it to oper_friendly_name. Operator friendly name.
-            osu-provider:
+                description: Operator friendly name.
+            osu_provider:
                 type: raw
-                description: (list or str) Deprecated, please rename it to osu_provider. Manually selected list of OSU provider
-            osu-ssid:
+                description: (list or str) Manually selected list of OSU provider
+            osu_ssid:
                 type: str
-                description: Deprecated, please rename it to osu_ssid. Online sign up
-            pame-bi:
+                description: Online sign up
+            pame_bi:
                 type: str
-                description: Deprecated, please rename it to pame_bi. Enable/disable Pre-Association Message Exchange BSSID Independent
+                description: Enable/disable Pre-Association Message Exchange BSSID Independent
                 choices:
                     - 'disable'
                     - 'enable'
-            proxy-arp:
+            proxy_arp:
                 type: str
-                description: Deprecated, please rename it to proxy_arp. Enable/disable Proxy ARP.
+                description: Enable/disable Proxy ARP.
                 choices:
                     - 'disable'
                     - 'enable'
-            qos-map:
+            qos_map:
                 type: str
-                description: Deprecated, please rename it to qos_map. QoS MAP set ID.
-            roaming-consortium:
+                description: QoS MAP set ID.
+            roaming_consortium:
                 type: str
-                description: Deprecated, please rename it to roaming_consortium. Roaming consortium list name.
-            venue-group:
+                description: Roaming consortium list name.
+            venue_group:
                 type: str
-                description: Deprecated, please rename it to venue_group. Venue group.
+                description: Venue group.
                 choices:
                     - 'unspecified'
                     - 'assembly'
@@ -223,12 +223,12 @@ options:
                     - 'utility'
                     - 'vehicular'
                     - 'outdoor'
-            venue-name:
+            venue_name:
                 type: str
-                description: Deprecated, please rename it to venue_name. Venue name.
-            venue-type:
+                description: Venue name.
+            venue_type:
                 type: str
-                description: Deprecated, please rename it to venue_type. Venue type.
+                description: Venue type.
                 choices:
                     - 'unspecified'
                     - 'arena'
@@ -285,48 +285,48 @@ options:
                     - 'traffic-control'
                     - 'bus-stop'
                     - 'kiosk'
-            wan-metrics:
+            wan_metrics:
                 type: str
-                description: Deprecated, please rename it to wan_metrics. WAN metric name.
-            wnm-sleep-mode:
+                description: WAN metric name.
+            wnm_sleep_mode:
                 type: str
-                description: Deprecated, please rename it to wnm_sleep_mode. Enable/disable wireless network management
+                description: Enable/disable wireless network management
                 choices:
                     - 'disable'
                     - 'enable'
-            advice-of-charge:
+            advice_of_charge:
                 type: str
-                description: Deprecated, please rename it to advice_of_charge. Advice of charge.
-            oper-icon:
+                description: Advice of charge.
+            oper_icon:
                 type: str
-                description: Deprecated, please rename it to oper_icon. Operator icon.
-            osu-provider-nai:
+                description: Operator icon.
+            osu_provider_nai:
                 type: str
-                description: Deprecated, please rename it to osu_provider_nai. OSU Provider NAI.
+                description: OSU Provider NAI.
             release:
                 type: int
                 description: Hotspot 2.
-            terms-and-conditions:
+            terms_and_conditions:
                 type: str
-                description: Deprecated, please rename it to terms_and_conditions. Terms and conditions.
-            venue-url:
+                description: Terms and conditions.
+            venue_url:
                 type: str
-                description: Deprecated, please rename it to venue_url. Venue name.
-            wba-charging-currency:
+                description: Venue name.
+            wba_charging_currency:
                 type: str
-                description: Deprecated, please rename it to wba_charging_currency. Three letter currency code.
-            wba-charging-rate:
+                description: Three letter currency code.
+            wba_charging_rate:
                 type: int
-                description: Deprecated, please rename it to wba_charging_rate. Number of currency units per kilobyte.
-            wba-data-clearing-provider:
+                description: Number of currency units per kilobyte.
+            wba_data_clearing_provider:
                 type: str
-                description: Deprecated, please rename it to wba_data_clearing_provider. WBA ID of data clearing provider.
-            wba-financial-clearing-provider:
+                description: WBA ID of data clearing provider.
+            wba_financial_clearing_provider:
                 type: str
-                description: Deprecated, please rename it to wba_financial_clearing_provider. WBA ID of financial clearing provider.
-            wba-open-roaming:
+                description: WBA ID of financial clearing provider.
+            wba_open_roaming:
                 type: str
-                description: Deprecated, please rename it to wba_open_roaming. Enable/disable WBA open roaming support.
+                description: Enable/disable WBA open roaming support.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -437,23 +437,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/hs-profile',
         '/pm/config/global/obj/wireless-controller/hotspot20/hs-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/hs-profile/{hs-profile}',
-        '/pm/config/global/obj/wireless-controller/hotspot20/hs-profile/{hs-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -530,7 +522,6 @@ def main():
                 'wba-financial-clearing-provider': {'v_range': [['7.6.0', '']], 'type': 'str'},
                 'wba-open-roaming': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -544,9 +535,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

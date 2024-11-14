@@ -89,37 +89,37 @@ options:
         required: false
         type: dict
         suboptions:
-            dest-port:
+            dest_port:
                 type: int
-                description: Deprecated, please rename it to dest_port. Set the dest port for the log packet
+                description: Set the dest port for the log packet
             id:
                 type: int
                 description: Server id.
                 required: true
-            ip-family:
+            ip_family:
                 type: str
-                description: Deprecated, please rename it to ip_family. Set the version the IP address
+                description: Set the version the IP address
                 choices:
                     - 'v4'
                     - 'v6'
-            ipv4-server:
+            ipv4_server:
                 type: str
-                description: Deprecated, please rename it to ipv4_server. Set the IPv4 address for the log server
-            ipv6-server:
+                description: Set the IPv4 address for the log server
+            ipv6_server:
                 type: str
-                description: Deprecated, please rename it to ipv6_server. Set the IPv6 address for the log server
-            source-port:
+                description: Set the IPv6 address for the log server
+            source_port:
                 type: int
-                description: Deprecated, please rename it to source_port. Set the source port for the log packet
-            template-tx-timeout:
+                description: Set the source port for the log packet
+            template_tx_timeout:
                 type: int
-                description: Deprecated, please rename it to template_tx_timeout. Set the template tx timeout
+                description: Set the template tx timeout
             vdom:
                 type: str
                 description: Interface connected to the log server is in this virtual domain
-            log-transport:
+            log_transport:
                 type: str
-                description: Deprecated, please rename it to log_transport. Set transport protocol
+                description: Set transport protocol
                 choices:
                     - 'udp'
                     - 'tcp'
@@ -196,42 +196,33 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/log/npu-server/server-info',
         '/pm/config/global/obj/log/npu-server/server-info'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/log/npu-server/server-info/{server-info}',
-        '/pm/config/global/obj/log/npu-server/server-info/{server-info}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'log_npuserver_serverinfo': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'dest-port': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'int'},
-                'ip-family': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
-                'ipv4-server': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                'ipv6-server': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                'source-port': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'vdom': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'dest-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'required': True, 'type': 'int'},
+                'ip-family': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
+                'ipv4-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
                 'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'}
             }
-
         }
     }
 
@@ -245,9 +236,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

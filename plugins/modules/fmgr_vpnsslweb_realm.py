@@ -89,36 +89,36 @@ options:
         required: false
         type: dict
         suboptions:
-            login-page:
+            login_page:
                 type: str
-                description: Deprecated, please rename it to login_page. Replacement HTML for SSL-VPN login page.
-            max-concurrent-user:
+                description: Replacement HTML for SSL-VPN login page.
+            max_concurrent_user:
                 type: int
-                description: Deprecated, please rename it to max_concurrent_user. Maximum concurrent users
-            url-path:
+                description: Maximum concurrent users
+            url_path:
                 type: str
-                description: Deprecated, please rename it to url_path. URL path to access SSL-VPN login page.
-            virtual-host:
+                description: URL path to access SSL-VPN login page.
+            virtual_host:
                 type: str
-                description: Deprecated, please rename it to virtual_host. Virtual host name for realm.
-            nas-ip:
+                description: Virtual host name for realm.
+            nas_ip:
                 type: str
-                description: Deprecated, please rename it to nas_ip. IP address used as a NAS-IP to communicate with the RADIUS server.
-            radius-server:
+                description: IP address used as a NAS-IP to communicate with the RADIUS server.
+            radius_server:
                 type: str
-                description: Deprecated, please rename it to radius_server. RADIUS server associated with realm.
-            radius-port:
+                description: RADIUS server associated with realm.
+            radius_port:
                 type: int
-                description: Deprecated, please rename it to radius_port. RADIUS service port number
-            virtual-host-only:
+                description: RADIUS service port number
+            virtual_host_only:
                 type: str
-                description: Deprecated, please rename it to virtual_host_only. Enable/disable enforcement of virtual host method for SSL-VPN client ac...
+                description: Enable/disable enforcement of virtual host method for SSL-VPN client access.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-host-server-cert:
+            virtual_host_server_cert:
                 type: str
-                description: Deprecated, please rename it to virtual_host_server_cert. Name of the server certificate to used for this realm.
+                description: Name of the server certificate to used for this realm.
 '''
 
 EXAMPLES = '''
@@ -192,23 +192,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/realm',
         '/pm/config/global/obj/vpn/ssl/web/realm'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/realm/{realm}',
-        '/pm/config/global/obj/vpn/ssl/web/realm/{realm}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -227,7 +219,6 @@ def main():
                 'virtual-host-only': {'v_range': [['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'virtual-host-server-cert': {'v_range': [['7.0.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -241,9 +232,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

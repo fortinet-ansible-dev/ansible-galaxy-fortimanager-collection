@@ -89,35 +89,35 @@ options:
         required: false
         type: dict
         suboptions:
-            domain-name:
+            domain_name:
                 type: str
-                description: Deprecated, please rename it to domain_name. Domain DNS name.
-            extra-server:
+                description: Domain DNS name.
+            extra_server:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to extra_server. Extra server.
+                description: Extra server.
                 suboptions:
                     id:
                         type: int
                         description: Server ID.
-                    ip-address:
+                    ip_address:
                         type: str
-                        description: Deprecated, please rename it to ip_address. Domain controller IP address.
+                        description: Domain controller IP address.
                     port:
                         type: int
                         description: Port to be used for communication with the domain controller
-                    source-ip-address:
+                    source_ip_address:
                         type: str
-                        description: Deprecated, please rename it to source_ip_address. FortiGate IPv4 address to be used for communication with the do...
-                    source-port:
+                        description: FortiGate IPv4 address to be used for communication with the domain controller.
+                    source_port:
                         type: int
-                        description: Deprecated, please rename it to source_port. Source port to be used for communication with the domain controller.
-            ip-address:
+                        description: Source port to be used for communication with the domain controller.
+            ip_address:
                 type: str
-                description: Deprecated, please rename it to ip_address. Domain controller IP address.
-            ldap-server:
+                description: Domain controller IP address.
+            ldap_server:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ldap_server. LDAP server name.
+                description: (list or str) LDAP server name.
             name:
                 type: str
                 description: Domain controller entry name.
@@ -125,28 +125,28 @@ options:
             port:
                 type: int
                 description: Port to be used for communication with the domain controller
-            ad-mode:
+            ad_mode:
                 type: str
-                description: Deprecated, please rename it to ad_mode. Set Active Directory mode.
+                description: Set Active Directory mode.
                 choices:
                     - 'none'
                     - 'ds'
                     - 'lds'
-            adlds-dn:
+            adlds_dn:
                 type: str
-                description: Deprecated, please rename it to adlds_dn. AD LDS distinguished name.
-            adlds-ip-address:
+                description: AD LDS distinguished name.
+            adlds_ip_address:
                 type: str
-                description: Deprecated, please rename it to adlds_ip_address. AD LDS IPv4 address.
-            adlds-ip6:
+                description: AD LDS IPv4 address.
+            adlds_ip6:
                 type: str
-                description: Deprecated, please rename it to adlds_ip6. AD LDS IPv6 address.
-            adlds-port:
+                description: AD LDS IPv6 address.
+            adlds_port:
                 type: int
-                description: Deprecated, please rename it to adlds_port. Port number of AD LDS service
-            dns-srv-lookup:
+                description: Port number of AD LDS service
+            dns_srv_lookup:
                 type: str
-                description: Deprecated, please rename it to dns_srv_lookup. Enable/disable DNS service lookup.
+                description: Enable/disable DNS service lookup.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -156,9 +156,9 @@ options:
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -169,30 +169,30 @@ options:
             password:
                 type: raw
                 description: (list) Password for specified username.
-            replication-port:
+            replication_port:
                 type: int
-                description: Deprecated, please rename it to replication_port. Port to be used for communication with the domain controller for replica...
-            source-ip-address:
+                description: Port to be used for communication with the domain controller for replication service.
+            source_ip_address:
                 type: str
-                description: Deprecated, please rename it to source_ip_address. FortiGate IPv4 address to be used for communication with the domain con...
-            source-ip6:
+                description: FortiGate IPv4 address to be used for communication with the domain controller.
+            source_ip6:
                 type: str
-                description: Deprecated, please rename it to source_ip6. FortiGate IPv6 address to be used for communication with the domain controller.
-            source-port:
+                description: FortiGate IPv6 address to be used for communication with the domain controller.
+            source_port:
                 type: int
-                description: Deprecated, please rename it to source_port. Source port to be used for communication with the domain controller.
+                description: Source port to be used for communication with the domain controller.
             username:
                 type: str
                 description: User name to sign in with.
-            change-detection:
+            change_detection:
                 type: str
-                description: Deprecated, please rename it to change_detection. Enable/disable detection of a configuration change in the Active Directo...
+                description: Enable/disable detection of a configuration change in the Active Directory server.
                 choices:
                     - 'disable'
                     - 'enable'
-            change-detection-period:
+            change_detection_period:
                 type: int
-                description: Deprecated, please rename it to change_detection_period. Minutes to detect a configuration change in the Active Directory ...
+                description: Minutes to detect a configuration change in the Active Directory server
 '''
 
 EXAMPLES = '''
@@ -287,23 +287,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/domain-controller',
         '/pm/config/global/obj/user/domain-controller'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/domain-controller/{domain-controller}',
-        '/pm/config/global/obj/user/domain-controller/{domain-controller}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -348,7 +340,6 @@ def main():
                 'change-detection': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'change-detection-period': {'v_range': [['7.2.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -362,9 +353,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

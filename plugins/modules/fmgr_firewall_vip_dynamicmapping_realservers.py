@@ -97,9 +97,9 @@ options:
         required: false
         type: dict
         suboptions:
-            client-ip:
+            client_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to client_ip. Client ip.
+                description: (list) Client ip.
             healthcheck:
                 type: str
                 description: Healthcheck.
@@ -107,18 +107,18 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'vip'
-            holddown-interval:
+            holddown_interval:
                 type: int
-                description: Deprecated, please rename it to holddown_interval. Holddown interval.
-            http-host:
+                description: Holddown interval.
+            http_host:
                 type: str
-                description: Deprecated, please rename it to http_host. Http host.
+                description: Http host.
             ip:
                 type: str
                 description: Ip.
-            max-connections:
+            max_connections:
                 type: int
-                description: Deprecated, please rename it to max_connections. Max connections.
+                description: Max connections.
             monitor:
                 type: raw
                 description: (list or str) Monitor.
@@ -151,15 +151,15 @@ options:
                 choices:
                     - 'ip'
                     - 'address'
-            translate-host:
+            translate_host:
                 type: str
-                description: Deprecated, please rename it to translate_host. Enable/disable translation of hostname/IP from virtual server to real server.
+                description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:
                     - 'disable'
                     - 'enable'
-            health-check-proto:
+            health_check_proto:
                 type: str
-                description: Deprecated, please rename it to health_check_proto. Health check proto.
+                description: Health check proto.
                 choices:
                     - 'ping'
                     - 'http'
@@ -245,23 +245,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers',
         '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}',
-        '/pm/config/global/obj/firewall/vip/{vip}/dynamic_mapping/{dynamic_mapping}/realservers/{realservers}'
-    ]
-
     url_params = ['adom', 'vip', 'dynamic_mapping']
     module_primary_key = 'seq'
     module_arg_spec = {
@@ -270,26 +262,25 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'firewall_vip_dynamicmapping_realservers': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.4.0']],
+            'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
-                'client-ip': {'v_range': [['6.0.0', '7.4.0']], 'type': 'raw'},
-                'healthcheck': {'v_range': [['6.0.0', '7.4.0']], 'choices': ['disable', 'enable', 'vip'], 'type': 'str'},
-                'holddown-interval': {'v_range': [['6.0.0', '7.4.0']], 'type': 'int'},
-                'http-host': {'v_range': [['6.0.0', '7.4.0']], 'type': 'str'},
-                'ip': {'v_range': [['6.0.0', '7.4.0']], 'type': 'str'},
-                'max-connections': {'v_range': [['6.0.0', '7.4.0']], 'type': 'int'},
-                'monitor': {'v_range': [['6.0.0', '7.4.0']], 'type': 'raw'},
-                'port': {'v_range': [['6.0.0', '7.4.0']], 'type': 'int'},
-                'seq': {'v_range': [['6.0.0', '7.4.0']], 'required': True, 'type': 'int'},
-                'status': {'v_range': [['6.0.0', '7.4.0']], 'choices': ['active', 'standby', 'disable'], 'type': 'str'},
-                'weight': {'v_range': [['6.0.0', '7.4.0']], 'type': 'int'},
-                'address': {'v_range': [['6.4.0', '7.4.0']], 'type': 'str'},
-                'id': {'v_range': [['6.4.0', '7.4.0']], 'type': 'int'},
-                'type': {'v_range': [['6.4.0', '7.4.0']], 'choices': ['ip', 'address'], 'type': 'str'},
-                'translate-host': {'v_range': [['7.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'health-check-proto': {'v_range': [['7.2.3', '7.4.0']], 'choices': ['ping', 'http'], 'type': 'str'}
+                'client-ip': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                'healthcheck': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable', 'vip'], 'type': 'str'},
+                'holddown-interval': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'http-host': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'ip': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'max-connections': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'monitor': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                'port': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'seq': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'required': True, 'type': 'int'},
+                'status': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['active', 'standby', 'disable'], 'type': 'str'},
+                'weight': {'v_range': [['6.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'address': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'id': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'type': {'v_range': [['6.4.0', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['ip', 'address'], 'type': 'str'},
+                'translate-host': {'v_range': [['7.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'health-check-proto': {'v_range': [['7.2.3', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['ping', 'http'], 'type': 'str'}
             }
-
         }
     }
 
@@ -303,9 +294,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

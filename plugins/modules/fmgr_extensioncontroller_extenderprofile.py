@@ -100,23 +100,23 @@ options:
                     - 'snmp'
                     - 'http'
                     - 'telnet'
-            bandwidth-limit:
+            bandwidth_limit:
                 type: int
-                description: Deprecated, please rename it to bandwidth_limit. FortiExtender LAN extension bandwidth limit
+                description: FortiExtender LAN extension bandwidth limit
             cellular:
                 type: dict
                 description: Cellular.
                 suboptions:
-                    controller-report:
+                    controller_report:
                         type: dict
-                        description: Deprecated, please rename it to controller_report. Controller report.
+                        description: Controller report.
                         suboptions:
                             interval:
                                 type: int
                                 description: Controller report interval.
-                            signal-threshold:
+                            signal_threshold:
                                 type: int
-                                description: Deprecated, please rename it to signal_threshold. Controller report signal threshold.
+                                description: Controller report signal threshold.
                             status:
                                 type: str
                                 description: FortiExtender controller report status.
@@ -130,9 +130,9 @@ options:
                         type: dict
                         description: Modem1.
                         suboptions:
-                            auto-switch:
+                            auto_switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch. Auto switch.
+                                description: Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -146,37 +146,37 @@ options:
                                         choices:
                                             - 'disable'
                                             - 'enable'
-                                    disconnect-period:
+                                    disconnect_period:
                                         type: int
-                                        description: Deprecated, please rename it to disconnect_period. Automatically switch based on disconnect period.
-                                    disconnect-threshold:
+                                        description: Automatically switch based on disconnect period.
+                                    disconnect_threshold:
                                         type: int
-                                        description: Deprecated, please rename it to disconnect_threshold. Automatically switch based on disconnect thr...
+                                        description: Automatically switch based on disconnect threshold.
                                     signal:
                                         type: str
                                         description: Automatically switch based on signal strength.
                                         choices:
                                             - 'disable'
                                             - 'enable'
-                                    switch-back:
+                                    switch_back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
+                                        description: Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
-                                    switch-back-time:
+                                    switch_back_time:
                                         type: str
-                                        description: Deprecated, please rename it to switch_back_time. Automatically switch over to preferred SIM/carri...
-                                    switch-back-timer:
+                                        description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
+                                    switch_back_timer:
                                         type: int
-                                        description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
-                            conn-status:
+                                        description: Automatically switch over to preferred SIM/carrier after the given time
+                            conn_status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status. Conn status.
-                            default-sim:
+                                description: Conn status.
+                            default_sim:
                                 type: str
-                                description: Deprecated, please rename it to default_sim. Default SIM selection.
+                                description: Default SIM selection.
                                 choices:
                                     - 'sim1'
                                     - 'sim2'
@@ -188,46 +188,46 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            modem-id:
+                            modem_id:
                                 type: int
-                                description: Deprecated, please rename it to modem_id. Modem ID.
-                            preferred-carrier:
+                                description: Modem ID.
+                            preferred_carrier:
                                 type: str
-                                description: Deprecated, please rename it to preferred_carrier. Preferred carrier.
-                            redundant-intf:
+                                description: Preferred carrier.
+                            redundant_intf:
                                 type: str
-                                description: Deprecated, please rename it to redundant_intf. Redundant interface.
-                            redundant-mode:
+                                description: Redundant interface.
+                            redundant_mode:
                                 type: str
-                                description: Deprecated, please rename it to redundant_mode. FortiExtender mode.
+                                description: FortiExtender mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim1-pin:
+                            sim1_pin:
                                 type: str
-                                description: Deprecated, please rename it to sim1_pin. SIM #1 PIN status.
+                                description: SIM #1 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim1-pin-code:
+                            sim1_pin_code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
-                            sim2-pin:
+                                description: (list) SIM #1 PIN password.
+                            sim2_pin:
                                 type: str
-                                description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
+                                description: SIM #2 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim2-pin-code:
+                            sim2_pin_code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
+                                description: (list) SIM #2 PIN password.
                     modem2:
                         type: dict
                         description: Modem2.
                         suboptions:
-                            auto-switch:
+                            auto_switch:
                                 type: dict
-                                description: Deprecated, please rename it to auto_switch. Auto switch.
+                                description: Auto switch.
                                 suboptions:
                                     dataplan:
                                         type: str
@@ -241,37 +241,37 @@ options:
                                         choices:
                                             - 'disable'
                                             - 'enable'
-                                    disconnect-period:
+                                    disconnect_period:
                                         type: int
-                                        description: Deprecated, please rename it to disconnect_period. Automatically switch based on disconnect period.
-                                    disconnect-threshold:
+                                        description: Automatically switch based on disconnect period.
+                                    disconnect_threshold:
                                         type: int
-                                        description: Deprecated, please rename it to disconnect_threshold. Automatically switch based on disconnect thr...
+                                        description: Automatically switch based on disconnect threshold.
                                     signal:
                                         type: str
                                         description: Automatically switch based on signal strength.
                                         choices:
                                             - 'disable'
                                             - 'enable'
-                                    switch-back:
+                                    switch_back:
                                         type: list
                                         elements: str
-                                        description: Deprecated, please rename it to switch_back. Auto switch with switch back multi-options.
+                                        description: Auto switch with switch back multi-options.
                                         choices:
                                             - 'time'
                                             - 'timer'
-                                    switch-back-time:
+                                    switch_back_time:
                                         type: str
-                                        description: Deprecated, please rename it to switch_back_time. Automatically switch over to preferred SIM/carri...
-                                    switch-back-timer:
+                                        description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
+                                    switch_back_timer:
                                         type: int
-                                        description: Deprecated, please rename it to switch_back_timer. Automatically switch over to preferred SIM/carr...
-                            conn-status:
+                                        description: Automatically switch over to preferred SIM/carrier after the given time
+                            conn_status:
                                 type: int
-                                description: Deprecated, please rename it to conn_status. Conn status.
-                            default-sim:
+                                description: Conn status.
+                            default_sim:
                                 type: str
-                                description: Deprecated, please rename it to default_sim. Default SIM selection.
+                                description: Default SIM selection.
                                 choices:
                                     - 'sim1'
                                     - 'sim2'
@@ -283,68 +283,68 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            modem-id:
+                            modem_id:
                                 type: int
-                                description: Deprecated, please rename it to modem_id. Modem ID.
-                            preferred-carrier:
+                                description: Modem ID.
+                            preferred_carrier:
                                 type: str
-                                description: Deprecated, please rename it to preferred_carrier. Preferred carrier.
-                            redundant-intf:
+                                description: Preferred carrier.
+                            redundant_intf:
                                 type: str
-                                description: Deprecated, please rename it to redundant_intf. Redundant interface.
-                            redundant-mode:
+                                description: Redundant interface.
+                            redundant_mode:
                                 type: str
-                                description: Deprecated, please rename it to redundant_mode. FortiExtender mode.
+                                description: FortiExtender mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim1-pin:
+                            sim1_pin:
                                 type: str
-                                description: Deprecated, please rename it to sim1_pin. SIM #1 PIN status.
+                                description: SIM #1 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim1-pin-code:
+                            sim1_pin_code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim1_pin_code. SIM #1 PIN password.
-                            sim2-pin:
+                                description: (list) SIM #1 PIN password.
+                            sim2_pin:
                                 type: str
-                                description: Deprecated, please rename it to sim2_pin. SIM #2 PIN status.
+                                description: SIM #2 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sim2-pin-code:
+                            sim2_pin_code:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sim2_pin_code. SIM #2 PIN password.
-                    sms-notification:
+                                description: (list) SIM #2 PIN password.
+                    sms_notification:
                         type: dict
-                        description: Deprecated, please rename it to sms_notification. Sms notification.
+                        description: Sms notification.
                         suboptions:
                             alert:
                                 type: dict
                                 description: Alert.
                                 suboptions:
-                                    data-exhausted:
+                                    data_exhausted:
                                         type: str
-                                        description: Deprecated, please rename it to data_exhausted. Display string when data exhausted.
-                                    fgt-backup-mode-switch:
+                                        description: Display string when data exhausted.
+                                    fgt_backup_mode_switch:
                                         type: str
-                                        description: Deprecated, please rename it to fgt_backup_mode_switch. Display string when FortiGate backup mode ...
-                                    low-signal-strength:
+                                        description: Display string when FortiGate backup mode switched.
+                                    low_signal_strength:
                                         type: str
-                                        description: Deprecated, please rename it to low_signal_strength. Display string when signal strength is low.
-                                    mode-switch:
+                                        description: Display string when signal strength is low.
+                                    mode_switch:
                                         type: str
-                                        description: Deprecated, please rename it to mode_switch. Display string when mode is switched.
-                                    os-image-fallback:
+                                        description: Display string when mode is switched.
+                                    os_image_fallback:
                                         type: str
-                                        description: Deprecated, please rename it to os_image_fallback. Display string when falling back to a previous ...
-                                    session-disconnect:
+                                        description: Display string when falling back to a previous OS image.
+                                    session_disconnect:
                                         type: str
-                                        description: Deprecated, please rename it to session_disconnect. Display string when session disconnected.
-                                    system-reboot:
+                                        description: Display string when session disconnected.
+                                    system_reboot:
                                         type: str
-                                        description: Deprecated, please rename it to system_reboot. Display string when system rebooted.
+                                        description: Display string when system rebooted.
                             receiver:
                                 type: list
                                 elements: dict
@@ -365,9 +365,9 @@ options:
                                     name:
                                         type: str
                                         description: FortiExtender SMS notification receiver name.
-                                    phone-number:
+                                    phone_number:
                                         type: str
-                                        description: Deprecated, please rename it to phone_number. Receiver phone number.
+                                        description: Receiver phone number.
                                     status:
                                         type: str
                                         description: SMS notification receiver status.
@@ -380,9 +380,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-            enforce-bandwidth:
+            enforce_bandwidth:
                 type: str
-                description: Deprecated, please rename it to enforce_bandwidth. Enable/disable enforcement of bandwidth on LAN extension interface.
+                description: Enable/disable enforcement of bandwidth on LAN extension interface.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -396,9 +396,9 @@ options:
                 type: int
                 description: ID.
                 required: true
-            lan-extension:
+            lan_extension:
                 type: dict
-                description: Deprecated, please rename it to lan_extension. Lan extension.
+                description: Lan extension.
                 suboptions:
                     backhaul:
                         type: list
@@ -430,18 +430,18 @@ options:
                             weight:
                                 type: int
                                 description: WRR weight parameter.
-                    backhaul-interface:
+                    backhaul_interface:
                         type: str
-                        description: Deprecated, please rename it to backhaul_interface. IPsec phase1 interface.
-                    backhaul-ip:
+                        description: IPsec phase1 interface.
+                    backhaul_ip:
                         type: str
-                        description: Deprecated, please rename it to backhaul_ip. IPsec phase1 IPv4/FQDN.
-                    ipsec-tunnel:
+                        description: IPsec phase1 IPv4/FQDN.
+                    ipsec_tunnel:
                         type: str
-                        description: Deprecated, please rename it to ipsec_tunnel. IPsec tunnel name.
-                    link-loadbalance:
+                        description: IPsec tunnel name.
+                    link_loadbalance:
                         type: str
-                        description: Deprecated, please rename it to link_loadbalance. LAN extension link load balance strategy.
+                        description: LAN extension link load balance strategy.
                         choices:
                             - 'activebackup'
                             - 'loadbalance'
@@ -476,12 +476,12 @@ options:
                             vap:
                                 type: raw
                                 description: (list) FortiExtender LAN extension downlink vap.
-            login-password:
+            login_password:
                 type: raw
-                description: (list) Deprecated, please rename it to login_password. Set the managed extenders administrator password.
-            login-password-change:
+                description: (list) Set the managed extenders administrator password.
+            login_password_change:
                 type: str
-                description: Deprecated, please rename it to login_password_change. Change or reset the administrator password of a managed extender
+                description: Change or reset the administrator password of a managed extender
                 choices:
                     - 'no'
                     - 'yes'
@@ -737,13 +737,13 @@ options:
                             - 'YT'
                             - 'BL'
                             - '--'
-                    radio-1:
+                    radio_1:
                         type: dict
-                        description: Deprecated, please rename it to radio_1. Radio 1.
+                        description: Radio 1.
                         suboptions:
-                            80211d:
+                            d80211d:
                                 type: str
-                                description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                                description: Enable/disable Wi-Fi 802.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -760,15 +760,15 @@ options:
                                     - '20MHz'
                                     - '40MHz'
                                     - '80MHz'
-                            beacon-interval:
+                            beacon_interval:
                                 type: int
-                                description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
-                            bss-color:
+                                description: Wi-Fi beacon interval in miliseconds
+                            bss_color:
                                 type: int
-                                description: Deprecated, please rename it to bss_color. Wi-Fi 802.
-                            bss-color-mode:
+                                description: Wi-Fi 802.
+                            bss_color_mode:
                                 type: str
-                                description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                                description: Wi-Fi 802.
                                 choices:
                                     - 'auto'
                                     - 'static'
@@ -788,38 +788,38 @@ options:
                                     - 'CH9'
                                     - 'CH10'
                                     - 'CH11'
-                            extension-channel:
+                            extension_channel:
                                 type: str
-                                description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                                description: Wi-Fi extension channel.
                                 choices:
                                     - 'auto'
                                     - 'higher'
                                     - 'lower'
-                            guard-interval:
+                            guard_interval:
                                 type: str
-                                description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                                description: Wi-Fi guard interval.
                                 choices:
                                     - 'auto'
                                     - '400ns'
                                     - '800ns'
-                            lan-ext-vap:
+                            lan_ext_vap:
                                 type: raw
-                                description: (list) Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
-                            local-vaps:
+                                description: (list) Wi-Fi LAN-Extention VAP.
+                            local_vaps:
                                 type: raw
-                                description: (list) Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
-                            max-clients:
+                                description: (list) Wi-Fi local VAP.
+                            max_clients:
                                 type: int
-                                description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                                description: Maximum number of Wi-Fi radio clients
                             mode:
                                 type: str
                                 description: Wi-Fi radio mode AP
                                 choices:
                                     - 'AP'
                                     - 'Client'
-                            operating-standard:
+                            operating_standard:
                                 type: str
-                                description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                                description: Wi-Fi operating standard.
                                 choices:
                                     - 'auto'
                                     - '11A-N-AC-AX'
@@ -840,25 +840,25 @@ options:
                                     - '11G-N'
                                     - '11N'
                                     - '11G'
-                            power-level:
+                            power_level:
                                 type: int
-                                description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
-                            radio-id:
+                                description: Wi-Fi power level in percent
+                            radio_id:
                                 type: int
-                                description: Deprecated, please rename it to radio_id. Radio ID.
+                                description: Radio ID.
                             status:
                                 type: str
                                 description: Enable/disable Wi-Fi radio.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    radio-2:
+                    radio_2:
                         type: dict
-                        description: Deprecated, please rename it to radio_2. Radio 2.
+                        description: Radio 2.
                         suboptions:
-                            80211d:
+                            d80211d:
                                 type: str
-                                description: Deprecated, please rename it to d80211d. Enable/disable Wi-Fi 802.
+                                description: Enable/disable Wi-Fi 802.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -875,15 +875,15 @@ options:
                                     - '20MHz'
                                     - '40MHz'
                                     - '80MHz'
-                            beacon-interval:
+                            beacon_interval:
                                 type: int
-                                description: Deprecated, please rename it to beacon_interval. Wi-Fi beacon interval in miliseconds
-                            bss-color:
+                                description: Wi-Fi beacon interval in miliseconds
+                            bss_color:
                                 type: int
-                                description: Deprecated, please rename it to bss_color. Wi-Fi 802.
-                            bss-color-mode:
+                                description: Wi-Fi 802.
+                            bss_color_mode:
                                 type: str
-                                description: Deprecated, please rename it to bss_color_mode. Wi-Fi 802.
+                                description: Wi-Fi 802.
                                 choices:
                                     - 'auto'
                                     - 'static'
@@ -917,38 +917,38 @@ options:
                                     - 'CH157'
                                     - 'CH161'
                                     - 'CH165'
-                            extension-channel:
+                            extension_channel:
                                 type: str
-                                description: Deprecated, please rename it to extension_channel. Wi-Fi extension channel.
+                                description: Wi-Fi extension channel.
                                 choices:
                                     - 'auto'
                                     - 'higher'
                                     - 'lower'
-                            guard-interval:
+                            guard_interval:
                                 type: str
-                                description: Deprecated, please rename it to guard_interval. Wi-Fi guard interval.
+                                description: Wi-Fi guard interval.
                                 choices:
                                     - 'auto'
                                     - '400ns'
                                     - '800ns'
-                            lan-ext-vap:
+                            lan_ext_vap:
                                 type: raw
-                                description: (list) Deprecated, please rename it to lan_ext_vap. Wi-Fi LAN-Extention VAP.
-                            local-vaps:
+                                description: (list) Wi-Fi LAN-Extention VAP.
+                            local_vaps:
                                 type: raw
-                                description: (list) Deprecated, please rename it to local_vaps. Wi-Fi local VAP.
-                            max-clients:
+                                description: (list) Wi-Fi local VAP.
+                            max_clients:
                                 type: int
-                                description: Deprecated, please rename it to max_clients. Maximum number of Wi-Fi radio clients
+                                description: Maximum number of Wi-Fi radio clients
                             mode:
                                 type: str
                                 description: Wi-Fi radio mode AP
                                 choices:
                                     - 'AP'
                                     - 'Client'
-                            operating-standard:
+                            operating_standard:
                                 type: str
-                                description: Deprecated, please rename it to operating_standard. Wi-Fi operating standard.
+                                description: Wi-Fi operating standard.
                                 choices:
                                     - 'auto'
                                     - '11A-N-AC-AX'
@@ -969,12 +969,12 @@ options:
                                     - '11G-N'
                                     - '11N'
                                     - '11G'
-                            power-level:
+                            power_level:
                                 type: int
-                                description: Deprecated, please rename it to power_level. Wi-Fi power level in percent
-                            radio-id:
+                                description: Wi-Fi power level in percent
+                            radio_id:
                                 type: int
-                                description: Deprecated, please rename it to radio_id. Radio ID.
+                                description: Radio ID.
                             status:
                                 type: str
                                 description: Enable/disable Wi-Fi radio.
@@ -1003,12 +1003,12 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         extensioncontroller_extenderprofile:
           allowaccess:
-            - https
-            - ping
-            - ssh
-            - snmp
-            - http
-            - telnet
+            - "https"
+            - "ping"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "telnet"
           bandwidth_limit: <integer>
           cellular:
             controller_report:
@@ -1024,8 +1024,8 @@ EXAMPLES = '''
                 disconnect_threshold: <integer>
                 signal: <value in [disable, enable]>
                 switch_back:
-                  - time
-                  - timer
+                  - "time"
+                  - "timer"
                 switch_back_time: <string>
                 switch_back_timer: <integer>
               conn_status: <integer>
@@ -1047,8 +1047,8 @@ EXAMPLES = '''
                 disconnect_threshold: <integer>
                 signal: <value in [disable, enable]>
                 switch_back:
-                  - time
-                  - timer
+                  - "time"
+                  - "timer"
                 switch_back_time: <string>
                 switch_back_timer: <integer>
               conn_status: <integer>
@@ -1074,13 +1074,13 @@ EXAMPLES = '''
               receiver:
                 -
                   alert:
-                    - system-reboot
-                    - data-exhausted
-                    - session-disconnect
-                    - low-signal-strength
-                    - mode-switch
-                    - os-image-fallback
-                    - fgt-backup-mode-switch
+                    - "system-reboot"
+                    - "data-exhausted"
+                    - "session-disconnect"
+                    - "low-signal-strength"
+                    - "mode-switch"
+                    - "os-image-fallback"
+                    - "fgt-backup-mode-switch"
                   name: <string>
                   phone_number: <string>
                   status: <value in [disable, enable]>
@@ -1122,17 +1122,17 @@ EXAMPLES = '''
               bss_color: <integer>
               bss_color_mode: <value in [auto, static]>
               channel:
-                - CH1
-                - CH2
-                - CH3
-                - CH4
-                - CH5
-                - CH6
-                - CH7
-                - CH8
-                - CH9
-                - CH10
-                - CH11
+                - "CH1"
+                - "CH2"
+                - "CH3"
+                - "CH4"
+                - "CH5"
+                - "CH6"
+                - "CH7"
+                - "CH8"
+                - "CH9"
+                - "CH10"
+                - "CH11"
               extension_channel: <value in [auto, higher, lower]>
               guard_interval: <value in [auto, 400ns, 800ns]>
               lan_ext_vap: <list or string>
@@ -1151,31 +1151,31 @@ EXAMPLES = '''
               bss_color: <integer>
               bss_color_mode: <value in [auto, static]>
               channel:
-                - CH36
-                - CH40
-                - CH44
-                - CH48
-                - CH52
-                - CH56
-                - CH60
-                - CH64
-                - CH100
-                - CH104
-                - CH108
-                - CH112
-                - CH116
-                - CH120
-                - CH124
-                - CH128
-                - CH132
-                - CH136
-                - CH140
-                - CH144
-                - CH149
-                - CH153
-                - CH157
-                - CH161
-                - CH165
+                - "CH36"
+                - "CH40"
+                - "CH44"
+                - "CH48"
+                - "CH52"
+                - "CH56"
+                - "CH60"
+                - "CH64"
+                - "CH100"
+                - "CH104"
+                - "CH108"
+                - "CH112"
+                - "CH116"
+                - "CH120"
+                - "CH124"
+                - "CH128"
+                - "CH132"
+                - "CH136"
+                - "CH140"
+                - "CH144"
+                - "CH149"
+                - "CH153"
+                - "CH157"
+                - "CH161"
+                - "CH165"
               extension_channel: <value in [auto, higher, lower]>
               guard_interval: <value in [auto, 400ns, 800ns]>
               lan_ext_vap: <list or string>
@@ -1229,23 +1229,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/extension-controller/extender-profile',
         '/pm/config/global/obj/extension-controller/extender-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}',
-        '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -1532,7 +1524,6 @@ def main():
                     }
                 }
             }
-
         }
     }
 
@@ -1546,9 +1537,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

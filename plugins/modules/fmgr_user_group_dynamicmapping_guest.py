@@ -116,9 +116,9 @@ options:
                 type: int
                 description: Guest ID.
                 required: true
-            mobile-phone:
+            mobile_phone:
                 type: str
-                description: Deprecated, please rename it to mobile_phone. Mobile phone.
+                description: Mobile phone.
             name:
                 type: str
                 description: Guest name.
@@ -128,9 +128,9 @@ options:
             sponsor:
                 type: str
                 description: Set the action for the sponsor guest user field.
-            user-id:
+            user_id:
                 type: str
-                description: Deprecated, please rename it to user_id. Guest ID.
+                description: Guest ID.
 '''
 
 EXAMPLES = '''
@@ -208,23 +208,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest',
         '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}',
-        '/pm/config/global/obj/user/group/{group}/dynamic_mapping/{dynamic_mapping}/guest/{guest}'
-    ]
-
     url_params = ['adom', 'group', 'dynamic_mapping']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -233,21 +225,20 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'user_group_dynamicmapping_guest': {
             'type': 'dict',
-            'v_range': [['7.0.2', '7.4.0']],
+            'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
-                'comment': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'company': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'email': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'expiration': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'group': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'id': {'v_range': [['7.0.2', '7.4.0']], 'required': True, 'type': 'int'},
-                'mobile-phone': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'name': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'password': {'v_range': [['7.0.2', '7.4.0']], 'no_log': True, 'type': 'raw'},
-                'sponsor': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'},
-                'user-id': {'v_range': [['7.0.2', '7.4.0']], 'type': 'str'}
+                'comment': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'company': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'email': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'expiration': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'group': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'id': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'required': True, 'type': 'int'},
+                'mobile-phone': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'name': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'password': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'no_log': True, 'type': 'raw'},
+                'sponsor': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'user-id': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'}
             }
-
         }
     }
 
@@ -261,9 +252,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

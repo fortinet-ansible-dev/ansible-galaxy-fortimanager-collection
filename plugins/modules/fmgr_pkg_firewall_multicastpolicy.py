@@ -99,9 +99,9 @@ options:
                 choices:
                     - 'deny'
                     - 'accept'
-            auto-asic-offload:
+            auto_asic_offload:
                 type: str
-                description: Deprecated, please rename it to auto_asic_offload. Enable/disable offloading policy traffic for hardware acceleration.
+                description: Enable/disable offloading policy traffic for hardware acceleration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -114,9 +114,9 @@ options:
             dstintf:
                 type: str
                 description: Destination interface name.
-            end-port:
+            end_port:
                 type: int
-                description: Deprecated, please rename it to end_port. Integer value for ending TCP/UDP/SCTP destination port in range
+                description: Integer value for ending TCP/UDP/SCTP destination port in range
             id:
                 type: int
                 description: Policy ID.
@@ -138,18 +138,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            snat-ip:
+            snat_ip:
                 type: str
-                description: Deprecated, please rename it to snat_ip. IPv4 address to be used as the source address for NATed traffic.
+                description: IPv4 address to be used as the source address for NATed traffic.
             srcaddr:
                 type: raw
                 description: (list or str) Source address objects.
             srcintf:
                 type: str
                 description: Source interface name.
-            start-port:
+            start_port:
                 type: int
-                description: Deprecated, please rename it to start_port. Integer value for starting TCP/UDP/SCTP destination port in range
+                description: Integer value for starting TCP/UDP/SCTP destination port in range
             status:
                 type: str
                 description: Enable/disable this policy.
@@ -165,15 +165,15 @@ options:
             name:
                 type: str
                 description: Policy name.
-            traffic-shaper:
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Traffic shaper to apply to traffic forwarded by the multicast policy.
-            ips-sensor:
+                description: Traffic shaper to apply to traffic forwarded by the multicast policy.
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. Name of an existing IPS sensor.
-            utm-status:
+                description: Name of an existing IPS sensor.
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Enable to add an IPS security profile to the policy.
+                description: Enable to add an IPS security profile to the policy.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -263,21 +263,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/multicast-policy/{multicast-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -288,7 +281,7 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dnat': {'type': 'str'},
                 'dstaddr': {'type': 'raw'},
                 'dstintf': {'type': 'str'},
@@ -309,7 +302,6 @@ def main():
                 'ips-sensor': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'utm-status': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -323,9 +315,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

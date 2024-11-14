@@ -102,9 +102,9 @@ options:
             dstaddr:
                 type: raw
                 description: (list or str) Destination address object from available options.
-            ha-mgmt-intf-only:
+            ha_mgmt_intf_only:
                 type: str
-                description: Deprecated, please rename it to ha_mgmt_intf_only. Enable/disable dedicating the HA management interface only for local-in...
+                description: Enable/disable dedicating the HA management interface only for local-in policy.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -136,51 +136,51 @@ options:
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr specifies what the destination address must NOT be.
+                description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
+                description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr specifies what the source address must NOT be.
+                description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-patch:
+            virtual_patch:
                 type: str
-                description: Deprecated, please rename it to virtual_patch. Enable/disable virtual patching.
+                description: Enable/disable virtual patching.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-src:
+            internet_service_src:
                 type: str
-                description: Deprecated, please rename it to internet_service_src. Enable/disable use of Internet Services in source for this local-in ...
+                description: Enable/disable use of Internet Services in source for this local-in policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-src-custom:
+            internet_service_src_custom:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_custom. Custom Internet Service source name.
-            internet-service-src-custom-group:
+                description: (list) Custom Internet Service source name.
+            internet_service_src_custom_group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_custom_group. Custom Internet Service source group name.
-            internet-service-src-group:
+                description: (list) Custom Internet Service source group name.
+            internet_service_src_group:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_group. Internet Service source group name.
-            internet-service-src-name:
+                description: (list) Internet Service source group name.
+            internet_service_src_name:
                 type: raw
-                description: (list) Deprecated, please rename it to internet_service_src_name. Internet Service source name.
-            internet-service-src-negate:
+                description: (list) Internet Service source name.
+            internet_service_src_negate:
                 type: str
-                description: Deprecated, please rename it to internet_service_src_negate. When enabled internet-service-src specifies what the service ...
+                description: When enabled internet-service-src specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -277,21 +277,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/local-in-policy/{local-in-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -315,7 +308,7 @@ def main():
                 'dstaddr-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcaddr-negate': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-patch': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-patch': {'v_range': [['7.2.6', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src-custom': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service-src-custom-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
@@ -324,7 +317,6 @@ def main():
                 'internet-service-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -338,9 +330,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

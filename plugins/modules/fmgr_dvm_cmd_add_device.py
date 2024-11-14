@@ -85,22 +85,21 @@ options:
                     desc:
                         type: str
                         description: Available for all operations.
-                    device action:
+                    device_action:
                         type: str
                         description:
-                            - Deprecated, please rename it to device_action.
                             - Specify add device operations, or leave blank to add real device
                             - add_model - add a model device.
                             - promote_unreg - promote an unregistered device to be managed by FortiManager using information from database.
-                    faz.quota:
+                    faz_quota:
                         type: int
-                        description: Deprecated, please rename it to faz_quota. Available for all operations.
+                        description: Available for all operations.
                     ip:
                         type: str
                         description: Add real device only.
-                    meta fields:
+                    meta_fields:
                         type: raw
-                        description: (dict or str) Deprecated, please rename it to meta_fields. Meta fields.
+                        description: (dict or str) Meta fields.
                     mgmt_mode:
                         type: str
                         description: Add real and model device.
@@ -158,12 +157,12 @@ options:
                     sn:
                         type: str
                         description: Add model device only.
-                    device blueprint:
+                    device_blueprint:
                         type: str
-                        description: Deprecated, please rename it to device_blueprint. Add model device only.
-                    authorization template:
+                        description: Add model device only.
+                    authorization_template:
                         type: str
-                        description: Deprecated, please rename it to authorization_template. Add model device only.
+                        description: Add model device only.
             flags:
                 type: list
                 elements: str
@@ -306,21 +305,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/dvm/cmd/add/device'
     ]
-
-    perobject_jrpc_urls = [
-        '/dvm/cmd/add/device/{device}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -359,7 +351,6 @@ def main():
                 'flags': {'type': 'list', 'choices': ['none', 'create_task', 'nonblocking', 'log_dev'], 'elements': 'str'},
                 'groups': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'}
             }
-
         }
     }
 
@@ -373,9 +364,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('exec', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_exec(argument_specs=module_arg_spec)
+    fmgr.process_exec()
 
     module.exit_json(meta=module.params)
 

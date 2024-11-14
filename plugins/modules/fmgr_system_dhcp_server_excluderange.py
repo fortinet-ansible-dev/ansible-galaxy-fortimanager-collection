@@ -93,37 +93,37 @@ options:
         required: false
         type: dict
         suboptions:
-            end-ip:
+            end_ip:
                 type: str
-                description: Deprecated, please rename it to end_ip. End of IP range.
+                description: End of IP range.
             id:
                 type: int
                 description: ID.
                 required: true
-            start-ip:
+            start_ip:
                 type: str
-                description: Deprecated, please rename it to start_ip. Start of IP range.
-            vci-match:
+                description: Start of IP range.
+            vci_match:
                 type: str
-                description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
-            vci-string:
+            vci_string:
                 type: raw
-                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-            lease-time:
+                description: (list) One or more VCI strings in quotes separated by spaces.
+            lease_time:
                 type: int
-                description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
-            uci-match:
+                description: Lease time in seconds, 0 means default lease time.
+            uci_match:
                 type: str
-                description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
+                description: Enable/disable user class identifier
                 choices:
                     - 'disable'
                     - 'enable'
-            uci-string:
+            uci_string:
                 type: raw
-                description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
+                description: (list) One or more UCI strings in quotes separated by spaces.
 '''
 
 EXAMPLES = '''
@@ -206,23 +206,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/exclude-range',
         '/pm/config/global/obj/system/dhcp/server/{server}/exclude-range'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}/exclude-range/{exclude-range}',
-        '/pm/config/global/obj/system/dhcp/server/{server}/exclude-range/{exclude-range}'
-    ]
-
     url_params = ['adom', 'server']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -241,7 +233,6 @@ def main():
                 'uci-match': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'uci-string': {'v_range': [['7.2.2', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -255,9 +246,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

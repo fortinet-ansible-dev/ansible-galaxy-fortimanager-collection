@@ -92,51 +92,51 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            aeroscout-ap-mac:
+            aeroscout_ap_mac:
                 type: str
-                description: Deprecated, please rename it to aeroscout_ap_mac. Use BSSID or board MAC address as AP MAC address in the Aeroscout AP mes...
+                description: Use BSSID or board MAC address as AP MAC address in the Aeroscout AP message.
                 choices:
                     - 'bssid'
                     - 'board-mac'
-            aeroscout-mmu-report:
+            aeroscout_mmu_report:
                 type: str
-                description: Deprecated, please rename it to aeroscout_mmu_report. Enable/disable MU compounded report.
+                description: Enable/disable MU compounded report.
                 choices:
                     - 'disable'
                     - 'enable'
-            aeroscout-mu:
+            aeroscout_mu:
                 type: str
-                description: Deprecated, please rename it to aeroscout_mu. Enable/disable AeroScout support.
+                description: Enable/disable AeroScout support.
                 choices:
                     - 'disable'
                     - 'enable'
-            aeroscout-mu-factor:
+            aeroscout_mu_factor:
                 type: int
-                description: Deprecated, please rename it to aeroscout_mu_factor. AeroScout Mobile Unit
-            aeroscout-mu-timeout:
+                description: AeroScout Mobile Unit
+            aeroscout_mu_timeout:
                 type: int
-                description: Deprecated, please rename it to aeroscout_mu_timeout. AeroScout MU mode timeout
-            aeroscout-server-ip:
+                description: AeroScout MU mode timeout
+            aeroscout_server_ip:
                 type: str
-                description: Deprecated, please rename it to aeroscout_server_ip. IP address of AeroScout server.
-            aeroscout-server-port:
+                description: IP address of AeroScout server.
+            aeroscout_server_port:
                 type: int
-                description: Deprecated, please rename it to aeroscout_server_port. AeroScout server UDP listening port.
-            ekahau-blink-mode:
+                description: AeroScout server UDP listening port.
+            ekahau_blink_mode:
                 type: str
-                description: Deprecated, please rename it to ekahau_blink_mode. Enable/disable Ekahua blink mode
+                description: Enable/disable Ekahua blink mode
                 choices:
                     - 'disable'
                     - 'enable'
-            ekahau-tag:
+            ekahau_tag:
                 type: str
-                description: Deprecated, please rename it to ekahau_tag. WiFi frame MAC address or WiFi Tag.
-            erc-server-ip:
+                description: WiFi frame MAC address or WiFi Tag.
+            erc_server_ip:
                 type: str
-                description: Deprecated, please rename it to erc_server_ip. IP address of Ekahua RTLS Controller
-            erc-server-port:
+                description: IP address of Ekahua RTLS Controller
+            erc_server_port:
                 type: int
-                description: Deprecated, please rename it to erc_server_port. Ekahua RTLS Controller
+                description: Ekahua RTLS Controller
             fortipresence:
                 type: str
                 description: Enable/disable FortiPresence to monitor the location and activity of WiFi clients even if they dont connect to this WiFi n...
@@ -146,98 +146,143 @@ options:
                     - 'enable2'
                     - 'foreign'
                     - 'both'
-            fortipresence-frequency:
+            fortipresence_frequency:
                 type: int
-                description: Deprecated, please rename it to fortipresence_frequency. FortiPresence report transmit frequency
-            fortipresence-port:
+                description: FortiPresence report transmit frequency
+            fortipresence_port:
                 type: int
-                description: Deprecated, please rename it to fortipresence_port. FortiPresence server UDP listening port
-            fortipresence-project:
+                description: FortiPresence server UDP listening port
+            fortipresence_project:
                 type: str
-                description: Deprecated, please rename it to fortipresence_project. FortiPresence project name
-            fortipresence-rogue:
+                description: FortiPresence project name
+            fortipresence_rogue:
                 type: str
-                description: Deprecated, please rename it to fortipresence_rogue. Enable/disable FortiPresence finding and reporting rogue APs.
+                description: Enable/disable FortiPresence finding and reporting rogue APs.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortipresence-secret:
+            fortipresence_secret:
                 type: raw
-                description: (list) Deprecated, please rename it to fortipresence_secret. FortiPresence secret password
-            fortipresence-server:
+                description: (list) FortiPresence secret password
+            fortipresence_server:
                 type: str
-                description: Deprecated, please rename it to fortipresence_server. FortiPresence server IP address.
-            fortipresence-unassoc:
+                description: FortiPresence server IP address.
+            fortipresence_unassoc:
                 type: str
-                description: Deprecated, please rename it to fortipresence_unassoc. Enable/disable FortiPresence finding and reporting unassociated sta...
+                description: Enable/disable FortiPresence finding and reporting unassociated stations.
                 choices:
                     - 'disable'
                     - 'enable'
-            station-locate:
+            station_locate:
                 type: str
-                description: Deprecated, please rename it to station_locate. Enable/disable client station locating services for all clients, whether a...
+                description: Enable/disable client station locating services for all clients, whether associated or not
                 choices:
                     - 'disable'
                     - 'enable'
-            fortipresence-ble:
+            fortipresence_ble:
                 type: str
-                description: Deprecated, please rename it to fortipresence_ble. Enable/disable FortiPresence finding and reporting BLE devices.
+                description: Enable/disable FortiPresence finding and reporting BLE devices.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortipresence-server-addr-type:
+            fortipresence_server_addr_type:
                 type: str
-                description: Deprecated, please rename it to fortipresence_server_addr_type. FortiPresence server address type
+                description: FortiPresence server address type
                 choices:
                     - 'fqdn'
                     - 'ipv4'
-            fortipresence-server-fqdn:
+            fortipresence_server_fqdn:
                 type: str
-                description: Deprecated, please rename it to fortipresence_server_fqdn. FQDN of FortiPresence server.
+                description: FQDN of FortiPresence server.
             polestar:
                 type: str
                 description: Enable/disable PoleStar BLE NAO Track Real Time Location Service
                 choices:
                     - 'disable'
                     - 'enable'
-            polestar-accumulation-interval:
+            polestar_accumulation_interval:
                 type: int
-                description: Deprecated, please rename it to polestar_accumulation_interval. Time that measurements should be accumulated in seconds
-            polestar-asset-addrgrp-list:
+                description: Time that measurements should be accumulated in seconds
+            polestar_asset_addrgrp_list:
                 type: str
-                description: Deprecated, please rename it to polestar_asset_addrgrp_list. Tags and asset addrgrp list to be reported.
-            polestar-asset-uuid-list1:
+                description: Tags and asset addrgrp list to be reported.
+            polestar_asset_uuid_list1:
                 type: str
-                description: Deprecated, please rename it to polestar_asset_uuid_list1. Tags and asset UUID list 1 to be reported
-            polestar-asset-uuid-list2:
+                description: Tags and asset UUID list 1 to be reported
+            polestar_asset_uuid_list2:
                 type: str
-                description: Deprecated, please rename it to polestar_asset_uuid_list2. Tags and asset UUID list 2 to be reported
-            polestar-asset-uuid-list3:
+                description: Tags and asset UUID list 2 to be reported
+            polestar_asset_uuid_list3:
                 type: str
-                description: Deprecated, please rename it to polestar_asset_uuid_list3. Tags and asset UUID list 3 to be reported
-            polestar-asset-uuid-list4:
+                description: Tags and asset UUID list 3 to be reported
+            polestar_asset_uuid_list4:
                 type: str
-                description: Deprecated, please rename it to polestar_asset_uuid_list4. Tags and asset UUID list 4 to be reported
-            polestar-protocol:
+                description: Tags and asset UUID list 4 to be reported
+            polestar_protocol:
                 type: str
-                description: Deprecated, please rename it to polestar_protocol. Select the protocol to report Measurements, Advertising Data, or Locati...
+                description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
                 choices:
                     - 'WSS'
-            polestar-reporting-interval:
+            polestar_reporting_interval:
                 type: int
-                description: Deprecated, please rename it to polestar_reporting_interval. Time between reporting accumulated measurements in seconds
-            polestar-server-fqdn:
+                description: Time between reporting accumulated measurements in seconds
+            polestar_server_fqdn:
                 type: str
-                description: Deprecated, please rename it to polestar_server_fqdn. FQDN of PoleStar Nao Track Server
-            polestar-server-path:
+                description: FQDN of PoleStar Nao Track Server
+            polestar_server_path:
                 type: str
-                description: Deprecated, please rename it to polestar_server_path. Path of PoleStar Nao Track Server
-            polestar-server-port:
+                description: Path of PoleStar Nao Track Server
+            polestar_server_port:
                 type: int
-                description: Deprecated, please rename it to polestar_server_port. Port of PoleStar Nao Track Server
-            polestar-server-token:
+                description: Port of PoleStar Nao Track Server
+            polestar_server_token:
                 type: str
-                description: Deprecated, please rename it to polestar_server_token. Access Token of PoleStar Nao Track Server.
+                description: Access Token of PoleStar Nao Track Server.
+            ble_rtls:
+                type: str
+                description: Set BLE Real Time Location Service
+                choices:
+                    - 'none'
+                    - 'polestar'
+                    - 'evresys'
+            ble_rtls_accumulation_interval:
+                type: int
+                description: Time that measurements should be accumulated in seconds
+            ble_rtls_asset_addrgrp_list:
+                type: raw
+                description: (list) Tags and asset addrgrp list to be reported.
+            ble_rtls_asset_uuid_list1:
+                type: str
+                description: Tags and asset UUID list 1 to be reported
+            ble_rtls_asset_uuid_list2:
+                type: str
+                description: Tags and asset UUID list 2 to be reported
+            ble_rtls_asset_uuid_list3:
+                type: str
+                description: Tags and asset UUID list 3 to be reported
+            ble_rtls_asset_uuid_list4:
+                type: str
+                description: Tags and asset UUID list 4 to be reported
+            ble_rtls_protocol:
+                type: str
+                description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
+                choices:
+                    - 'WSS'
+            ble_rtls_reporting_interval:
+                type: int
+                description: Time between reporting accumulated measurements in seconds
+            ble_rtls_server_fqdn:
+                type: str
+                description: FQDN of BLE Real Time Location Service
+            ble_rtls_server_path:
+                type: str
+                description: Path of BLE Real Time Location Service
+            ble_rtls_server_port:
+                type: int
+                description: Port of BLE Real Time Location Service
+            ble_rtls_server_token:
+                type: str
+                description: Access Token of BLE Real Time Location Service
 '''
 
 EXAMPLES = '''
@@ -296,6 +341,19 @@ EXAMPLES = '''
           polestar_server_path: <string>
           polestar_server_port: <integer>
           polestar_server_token: <string>
+          ble_rtls: <value in [none, polestar, evresys]>
+          ble_rtls_accumulation_interval: <integer>
+          ble_rtls_asset_addrgrp_list: <list or string>
+          ble_rtls_asset_uuid_list1: <string>
+          ble_rtls_asset_uuid_list2: <string>
+          ble_rtls_asset_uuid_list3: <string>
+          ble_rtls_asset_uuid_list4: <string>
+          ble_rtls_protocol: <value in [WSS]>
+          ble_rtls_reporting_interval: <integer>
+          ble_rtls_server_fqdn: <string>
+          ble_rtls_server_path: <string>
+          ble_rtls_server_port: <integer>
+          ble_rtls_server_token: <string>
 '''
 
 RETURN = '''
@@ -339,23 +397,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs/{lbs}',
-        '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/lbs/{lbs}'
-    ]
-
     url_params = ['adom', 'wtp-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -402,9 +452,21 @@ def main():
                 'polestar-server-fqdn': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'}
+                'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
+                'ble-rtls': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
+                'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5']], 'type': 'raw'},
+                'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['WSS'], 'type': 'str'},
+                'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
+                'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
+                'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5']], 'no_log': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -418,9 +480,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

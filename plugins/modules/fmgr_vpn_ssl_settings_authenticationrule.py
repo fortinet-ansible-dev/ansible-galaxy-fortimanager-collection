@@ -110,9 +110,9 @@ options:
                     - 'any'
                     - 'high'
                     - 'medium'
-            client-cert:
+            client_cert:
                 type: str
-                description: Deprecated, please rename it to client_cert. Enable/disable SSL VPN client certificate restrictive.
+                description: Enable/disable SSL VPN client certificate restrictive.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -129,30 +129,30 @@ options:
             realm:
                 type: str
                 description: SSL VPN realm.
-            source-address:
+            source_address:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_address. Source address of incoming traffic.
-            source-address-negate:
+                description: (list or str) Source address of incoming traffic.
+            source_address_negate:
                 type: str
-                description: Deprecated, please rename it to source_address_negate. Enable/disable negated source address match.
+                description: Enable/disable negated source address match.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-address6:
+            source_address6:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_address6. IPv6 source address of incoming traffic.
-            source-address6-negate:
+                description: (list or str) IPv6 source address of incoming traffic.
+            source_address6_negate:
                 type: str
-                description: Deprecated, please rename it to source_address6_negate. Enable/disable negated source IPv6 address match.
+                description: Enable/disable negated source IPv6 address match.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-interface:
+            source_interface:
                 type: raw
-                description: (list or str) Deprecated, please rename it to source_interface. SSL VPN source interface of incoming traffic.
-            user-peer:
+                description: (list or str) SSL VPN source interface of incoming traffic.
+            user_peer:
                 type: str
-                description: Deprecated, please rename it to user_peer. Name of user peer.
+                description: Name of user peer.
             users:
                 type: raw
                 description: (list or str) User name.
@@ -235,21 +235,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/device/{device}/vdom/{vdom}/vpn/ssl/settings/authentication-rule/{authentication-rule}'
-    ]
-
     url_params = ['device', 'vdom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -257,24 +250,23 @@ def main():
         'vdom': {'required': True, 'type': 'str'},
         'vpn_ssl_settings_authenticationrule': {
             'type': 'dict',
-            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']],
+            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
             'options': {
-                'auth': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer'], 'type': 'str'},
-                'cipher': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['any', 'high', 'medium'], 'type': 'str'},
-                'client-cert': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'groups': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'id': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'required': True, 'type': 'int'},
-                'portal': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'realm': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'source-address': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'source-address-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-address6': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'source-address6-negate': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-interface': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'},
-                'user-peer': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'users': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'raw'}
+                'auth': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['any', 'local', 'radius', 'ldap', 'tacacs+', 'peer'], 'type': 'str'},
+                'cipher': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['any', 'high', 'medium'], 'type': 'str'},
+                'client-cert': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'groups': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'id': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'required': True, 'type': 'int'},
+                'portal': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'realm': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'source-address': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'source-address-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-address6': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'source-address6-negate': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-interface': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'},
+                'user-peer': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'users': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -288,9 +280,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

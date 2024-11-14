@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            app-category:
+            app_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_category. IDs of one or more application categories that this shaper app...
+                description: (list or str) IDs of one or more application categories that this shaper applies application control traffic shaping to.
             application:
                 type: raw
                 description: (list) IDs of one or more applications that this shaper applies application control traffic shaping to.
@@ -115,15 +115,15 @@ options:
                 type: int
                 description: Shaping policy ID.
                 required: true
-            ip-version:
+            ip_version:
                 type: str
-                description: Deprecated, please rename it to ip_version. Apply this traffic shaping policy to IPv4 or IPv6 traffic.
+                description: Apply this traffic shaping policy to IPv4 or IPv6 traffic.
                 choices:
                     - '4'
                     - '6'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper. Per-IP traffic shaper to apply with this policy.
+                description: Per-IP traffic shaper to apply with this policy.
             schedule:
                 type: str
                 description: Schedule name.
@@ -142,81 +142,81 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-shaper:
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Traffic shaper to apply to traffic forwarded by the firewall policy.
-            traffic-shaper-reverse:
+                description: Traffic shaper to apply to traffic forwarded by the firewall policy.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Traffic shaper to apply to response traffic received by the firewa...
-            url-category:
+                description: Traffic shaper to apply to response traffic received by the firewall policy.
+            url_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to url_category. IDs of one or more FortiGuard Web Filtering categories that th...
+                description: (list or str) IDs of one or more FortiGuard Web Filtering categories that this shaper applies traffic shaping to.
             users:
                 type: raw
                 description: (list or str) Apply this traffic shaping policy to individual users that have authenticated with the FortiGate.
-            app-group:
+            app_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_group. One or more application group names.
-            class-id:
+                description: (list or str) One or more application group names.
+            class_id:
                 type: raw
-                description: (int or str) Deprecated, please rename it to class_id. Traffic class ID.
+                description: (int or str) Traffic class ID.
             comment:
                 type: str
                 description: Comments.
-            diffserv-forward:
+            diffserv_forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward. Enable to change packets DiffServ values to the specified diffservcode-f...
+                description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffserv-reverse:
+            diffserv_reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse. Enable to change packets reverse
+                description: Enable to change packets reverse
                 choices:
                     - 'disable'
                     - 'enable'
-            diffservcode-forward:
+            diffservcode_forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward. Change packets DiffServ to this value.
-            diffservcode-rev:
+                description: Change packets DiffServ to this value.
+            diffservcode_rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev. Change packets reverse
-            internet-service:
+                description: Change packets reverse
+            internet_service:
                 type: str
-                description: Deprecated, please rename it to internet_service. Enable/disable use of Internet Services for this policy.
+                description: Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-custom:
+            internet_service_custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom. Custom Internet Service name.
-            internet-service-custom-group:
+                description: (list or str) Custom Internet Service name.
+            internet_service_custom_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_custom_group. Custom Internet Service group name.
-            internet-service-group:
+                description: (list or str) Custom Internet Service group name.
+            internet_service_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_group. Internet Service group name.
-            internet-service-id:
+                description: (list or str) Internet Service group name.
+            internet_service_id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_id. Internet Service ID.
-            internet-service-src:
+                description: (list or str) Internet Service ID.
+            internet_service_src:
                 type: str
-                description: Deprecated, please rename it to internet_service_src. Enable/disable use of Internet Services in source for this policy.
+                description: Enable/disable use of Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-src-custom:
+            internet_service_src_custom:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom. Custom Internet Service source name.
-            internet-service-src-custom-group:
+                description: (list or str) Custom Internet Service source name.
+            internet_service_src_custom_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_custom_group. Custom Internet Service source group name.
-            internet-service-src-group:
+                description: (list or str) Custom Internet Service source group name.
+            internet_service_src_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_group. Internet Service source group name.
-            internet-service-src-id:
+                description: (list or str) Internet Service source group name.
+            internet_service_src_id:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_id. Internet Service source ID.
+                description: (list or str) Internet Service source ID.
             name:
                 type: str
                 description: Shaping policy name.
@@ -226,33 +226,33 @@ options:
             tos:
                 type: str
                 description: ToS
-            tos-mask:
+            tos_mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask. Non-zero bit positions are used for comparison while zero bit positions are ignored.
-            tos-negate:
+                description: Non-zero bit positions are used for comparison while zero bit positions are ignored.
+            tos_negate:
                 type: str
-                description: Deprecated, please rename it to tos_negate. Enable negated TOS match.
+                description: Enable negated TOS match.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            internet-service-name:
+            internet_service_name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_name. Internet Service ID.
-            internet-service-src-name:
+                description: (list or str) Internet Service ID.
+            internet_service_src_name:
                 type: raw
-                description: (list or str) Deprecated, please rename it to internet_service_src_name. Internet Service source name.
+                description: (list or str) Internet Service source name.
             cos:
                 type: str
                 description: VLAN CoS bit pattern.
-            cos-mask:
+            cos_mask:
                 type: str
-                description: Deprecated, please rename it to cos_mask. VLAN CoS evaluated bits.
-            traffic-type:
+                description: VLAN CoS evaluated bits.
+            traffic_type:
                 type: str
-                description: Deprecated, please rename it to traffic_type. Traffic type.
+                description: Traffic type.
                 choices:
                     - 'forwarding'
                     - 'local-in'
@@ -344,21 +344,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/shaping-policy/{shaping-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -415,7 +408,6 @@ def main():
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'}
             }
-
         }
     }
 
@@ -429,9 +421,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

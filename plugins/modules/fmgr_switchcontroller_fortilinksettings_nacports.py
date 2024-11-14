@@ -86,30 +86,30 @@ options:
         required: false
         type: dict
         suboptions:
-            lan-segment:
+            lan_segment:
                 type: str
-                description: Deprecated, please rename it to lan_segment. Enable/disable LAN segment feature on the FortiLink interface.
+                description: Enable/disable LAN segment feature on the FortiLink interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
-            member-change:
+            member_change:
                 type: int
-                description: Deprecated, please rename it to member_change. Member change.
-            nac-lan-interface:
+                description: Member change.
+            nac_lan_interface:
                 type: str
-                description: Deprecated, please rename it to nac_lan_interface. Configure NAC LAN interface.
-            nac-segment-vlans:
+                description: Configure NAC LAN interface.
+            nac_segment_vlans:
                 type: raw
-                description: (list) Deprecated, please rename it to nac_segment_vlans. Configure NAC segment VLANs.
-            onboarding-vlan:
+                description: (list) Configure NAC segment VLANs.
+            onboarding_vlan:
                 type: str
-                description: Deprecated, please rename it to onboarding_vlan. Default NAC Onboarding VLAN when NAC devices are discovered.
-            parent-key:
+                description: Default NAC Onboarding VLAN when NAC devices are discovered.
+            parent_key:
                 type: str
-                description: Deprecated, please rename it to parent_key. Parent key.
-            bounce-nac-port:
+                description: Parent key.
+            bounce_nac_port:
                 type: str
-                description: Deprecated, please rename it to bounce_nac_port. Enable/disable bouncing
+                description: Enable/disable bouncing
                 choices:
                     - 'disable'
                     - 'enable'
@@ -184,23 +184,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports',
         '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports/{nac-ports}',
-        '/pm/config/global/obj/switch-controller/fortilink-settings/{fortilink-settings}/nac-ports/{nac-ports}'
-    ]
-
     url_params = ['adom', 'fortilink-settings']
     module_primary_key = None
     module_arg_spec = {
@@ -219,7 +211,6 @@ def main():
                 'parent-key': {'v_range': [['7.2.1', '']], 'no_log': True, 'type': 'str'},
                 'bounce-nac-port': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -233,9 +224,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

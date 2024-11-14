@@ -89,57 +89,57 @@ options:
         required: false
         type: dict
         suboptions:
-            bandwidth-admission-control:
+            bandwidth_admission_control:
                 type: str
-                description: Deprecated, please rename it to bandwidth_admission_control. Enable/disable WMM bandwidth admission control.
+                description: Enable/disable WMM bandwidth admission control.
                 choices:
                     - 'disable'
                     - 'enable'
-            bandwidth-capacity:
+            bandwidth_capacity:
                 type: int
-                description: Deprecated, please rename it to bandwidth_capacity. Maximum bandwidth capacity allowed
+                description: Maximum bandwidth capacity allowed
             burst:
                 type: str
                 description: Enable/disable client rate burst.
                 choices:
                     - 'disable'
                     - 'enable'
-            call-admission-control:
+            call_admission_control:
                 type: str
-                description: Deprecated, please rename it to call_admission_control. Enable/disable WMM call admission control.
+                description: Enable/disable WMM call admission control.
                 choices:
                     - 'disable'
                     - 'enable'
-            call-capacity:
+            call_capacity:
                 type: int
-                description: Deprecated, please rename it to call_capacity. Maximum number of Voice over WLAN
+                description: Maximum number of Voice over WLAN
             comment:
                 type: str
                 description: Comment.
             downlink:
                 type: int
                 description: Maximum downlink bandwidth for Virtual Access Points
-            downlink-sta:
+            downlink_sta:
                 type: int
-                description: Deprecated, please rename it to downlink_sta. Maximum downlink bandwidth for clients
-            dscp-wmm-be:
+                description: Maximum downlink bandwidth for clients
+            dscp_wmm_be:
                 type: raw
-                description: (list) Deprecated, please rename it to dscp_wmm_be. DSCP mapping for best effort access
-            dscp-wmm-bk:
+                description: (list) DSCP mapping for best effort access
+            dscp_wmm_bk:
                 type: raw
-                description: (list) Deprecated, please rename it to dscp_wmm_bk. DSCP mapping for background access
-            dscp-wmm-mapping:
+                description: (list) DSCP mapping for background access
+            dscp_wmm_mapping:
                 type: str
-                description: Deprecated, please rename it to dscp_wmm_mapping. Enable/disable Differentiated Services Code Point
+                description: Enable/disable Differentiated Services Code Point
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-wmm-vi:
+            dscp_wmm_vi:
                 type: raw
-                description: (list) Deprecated, please rename it to dscp_wmm_vi. DSCP mapping for video access
-            dscp-wmm-vo:
+                description: (list) DSCP mapping for video access
+            dscp_wmm_vo:
                 type: raw
-                description: (list) Deprecated, please rename it to dscp_wmm_vo. DSCP mapping for voice access
+                description: (list) DSCP mapping for voice access
             name:
                 type: str
                 description: WiFi QoS profile name.
@@ -147,39 +147,39 @@ options:
             uplink:
                 type: int
                 description: Maximum uplink bandwidth for Virtual Access Points
-            uplink-sta:
+            uplink_sta:
                 type: int
-                description: Deprecated, please rename it to uplink_sta. Maximum uplink bandwidth for clients
+                description: Maximum uplink bandwidth for clients
             wmm:
                 type: str
                 description: Enable/disable WiFi multi-media
                 choices:
                     - 'disable'
                     - 'enable'
-            wmm-uapsd:
+            wmm_uapsd:
                 type: str
-                description: Deprecated, please rename it to wmm_uapsd. Enable/disable WMM Unscheduled Automatic Power Save Delivery
+                description: Enable/disable WMM Unscheduled Automatic Power Save Delivery
                 choices:
                     - 'disable'
                     - 'enable'
-            wmm-be-dscp:
+            wmm_be_dscp:
                 type: int
-                description: Deprecated, please rename it to wmm_be_dscp. DSCP marking for best effort access
-            wmm-bk-dscp:
+                description: DSCP marking for best effort access
+            wmm_bk_dscp:
                 type: int
-                description: Deprecated, please rename it to wmm_bk_dscp. DSCP marking for background access
-            wmm-dscp-marking:
+                description: DSCP marking for background access
+            wmm_dscp_marking:
                 type: str
-                description: Deprecated, please rename it to wmm_dscp_marking. Enable/disable WMM Differentiated Services Code Point
+                description: Enable/disable WMM Differentiated Services Code Point
                 choices:
                     - 'disable'
                     - 'enable'
-            wmm-vi-dscp:
+            wmm_vi_dscp:
                 type: int
-                description: Deprecated, please rename it to wmm_vi_dscp. DSCP marking for video access
-            wmm-vo-dscp:
+                description: DSCP marking for video access
+            wmm_vo_dscp:
                 type: int
-                description: Deprecated, please rename it to wmm_vo_dscp. DSCP marking for voice access
+                description: DSCP marking for voice access
 '''
 
 EXAMPLES = '''
@@ -267,23 +267,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/qos-profile',
         '/pm/config/global/obj/wireless-controller/qos-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/qos-profile/{qos-profile}',
-        '/pm/config/global/obj/wireless-controller/qos-profile/{qos-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -316,7 +308,6 @@ def main():
                 'wmm-vi-dscp': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'wmm-vo-dscp': {'v_range': [['6.2.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -330,9 +321,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

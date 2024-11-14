@@ -89,63 +89,63 @@ options:
         required: false
         type: dict
         suboptions:
-            auto-configuration:
+            auto_configuration:
                 type: str
-                description: Deprecated, please rename it to auto_configuration. Enable/disable auto configuration.
+                description: Enable/disable auto configuration.
                 choices:
                     - 'disable'
                     - 'enable'
-            conflicted-ip-timeout:
+            conflicted_ip_timeout:
                 type: int
-                description: Deprecated, please rename it to conflicted_ip_timeout. Time in seconds to wait after a conflicted IP address is removed fr...
-            ddns-auth:
+                description: Time in seconds to wait after a conflicted IP address is removed from the DHCP range before it can be reused.
+            ddns_auth:
                 type: str
-                description: Deprecated, please rename it to ddns_auth. DDNS authentication mode.
+                description: DDNS authentication mode.
                 choices:
                     - 'disable'
                     - 'tsig'
-            ddns-key:
+            ddns_key:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ddns_key. DDNS update key
-            ddns-keyname:
+                description: (list or str) DDNS update key
+            ddns_keyname:
                 type: str
-                description: Deprecated, please rename it to ddns_keyname. DDNS update key name.
-            ddns-server-ip:
+                description: DDNS update key name.
+            ddns_server_ip:
                 type: str
-                description: Deprecated, please rename it to ddns_server_ip. DDNS server IP.
-            ddns-ttl:
+                description: DDNS server IP.
+            ddns_ttl:
                 type: int
-                description: Deprecated, please rename it to ddns_ttl. TTL.
-            ddns-update:
+                description: TTL.
+            ddns_update:
                 type: str
-                description: Deprecated, please rename it to ddns_update. Enable/disable DDNS update for DHCP.
+                description: Enable/disable DDNS update for DHCP.
                 choices:
                     - 'disable'
                     - 'enable'
-            ddns-update-override:
+            ddns_update_override:
                 type: str
-                description: Deprecated, please rename it to ddns_update_override. Enable/disable DDNS update override for DHCP.
+                description: Enable/disable DDNS update override for DHCP.
                 choices:
                     - 'disable'
                     - 'enable'
-            ddns-zone:
+            ddns_zone:
                 type: str
-                description: Deprecated, please rename it to ddns_zone. Zone of your domain name
-            default-gateway:
+                description: Zone of your domain name
+            default_gateway:
                 type: str
-                description: Deprecated, please rename it to default_gateway. Default gateway IP address assigned by the DHCP server.
-            dns-server1:
+                description: Default gateway IP address assigned by the DHCP server.
+            dns_server1:
                 type: str
-                description: Deprecated, please rename it to dns_server1. DNS server 1.
-            dns-server2:
+                description: DNS server 1.
+            dns_server2:
                 type: str
-                description: Deprecated, please rename it to dns_server2. DNS server 2.
-            dns-server3:
+                description: DNS server 2.
+            dns_server3:
                 type: str
-                description: Deprecated, please rename it to dns_server3. DNS server 3.
-            dns-service:
+                description: DNS server 3.
+            dns_service:
                 type: str
-                description: Deprecated, please rename it to dns_service. Options for assigning DNS servers to DHCP clients.
+                description: Options for assigning DNS servers to DHCP clients.
                 choices:
                     - 'default'
                     - 'specify'
@@ -153,47 +153,47 @@ options:
             domain:
                 type: str
                 description: Domain name suffix for the IP addresses that the DHCP server assigns to clients.
-            exclude-range:
+            exclude_range:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exclude_range. Exclude range.
+                description: Exclude range.
                 suboptions:
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End of IP range.
+                        description: End of IP range.
                     id:
                         type: int
                         description: ID.
-                    start-ip:
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start of IP range.
-                    vci-match:
+                        description: Start of IP range.
+                    vci_match:
                         type: str
-                        description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                        description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    vci-string:
+                    vci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-                    lease-time:
+                        description: (list) One or more VCI strings in quotes separated by spaces.
+                    lease_time:
                         type: int
-                        description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
-                    uci-match:
+                        description: Lease time in seconds, 0 means default lease time.
+                    uci_match:
                         type: str
-                        description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
+                        description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    uci-string:
+                    uci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
+                        description: (list) One or more UCI strings in quotes separated by spaces.
             filename:
                 type: str
                 description: Name of the boot file on the TFTP server.
-            forticlient-on-net-status:
+            forticlient_on_net_status:
                 type: str
-                description: Deprecated, please rename it to forticlient_on_net_status. Enable/disable FortiClient-On-Net service for this DHCP server.
+                description: Enable/disable FortiClient-On-Net service for this DHCP server.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -204,77 +204,77 @@ options:
             interface:
                 type: str
                 description: DHCP server can assign IP configurations to clients connected to this interface.
-            ip-mode:
+            ip_mode:
                 type: str
-                description: Deprecated, please rename it to ip_mode. Method used to assign client IP.
+                description: Method used to assign client IP.
                 choices:
                     - 'range'
                     - 'usrgrp'
-            ip-range:
+            ip_range:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip_range. Ip range.
+                description: Ip range.
                 suboptions:
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End of IP range.
+                        description: End of IP range.
                     id:
                         type: int
                         description: ID.
-                    start-ip:
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start of IP range.
-                    vci-match:
+                        description: Start of IP range.
+                    vci_match:
                         type: str
-                        description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                        description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    vci-string:
+                    vci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-                    lease-time:
+                        description: (list) One or more VCI strings in quotes separated by spaces.
+                    lease_time:
                         type: int
-                        description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means default lease time.
-                    uci-match:
+                        description: Lease time in seconds, 0 means default lease time.
+                    uci_match:
                         type: str
-                        description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
+                        description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    uci-string:
+                    uci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
-            ipsec-lease-hold:
+                        description: (list) One or more UCI strings in quotes separated by spaces.
+            ipsec_lease_hold:
                 type: int
-                description: Deprecated, please rename it to ipsec_lease_hold. DHCP over IPsec leases expire this many seconds after tunnel down
-            lease-time:
+                description: DHCP over IPsec leases expire this many seconds after tunnel down
+            lease_time:
                 type: int
-                description: Deprecated, please rename it to lease_time. Lease time in seconds, 0 means unlimited.
-            mac-acl-default-action:
+                description: Lease time in seconds, 0 means unlimited.
+            mac_acl_default_action:
                 type: str
-                description: Deprecated, please rename it to mac_acl_default_action. MAC access control default action
+                description: MAC access control default action
                 choices:
                     - 'assign'
                     - 'block'
             netmask:
                 type: str
                 description: Netmask assigned by the DHCP server.
-            next-server:
+            next_server:
                 type: str
-                description: Deprecated, please rename it to next_server. IP address of a server
-            ntp-server1:
+                description: IP address of a server
+            ntp_server1:
                 type: str
-                description: Deprecated, please rename it to ntp_server1. NTP server 1.
-            ntp-server2:
+                description: NTP server 1.
+            ntp_server2:
                 type: str
-                description: Deprecated, please rename it to ntp_server2. NTP server 2.
-            ntp-server3:
+                description: NTP server 2.
+            ntp_server3:
                 type: str
-                description: Deprecated, please rename it to ntp_server3. NTP server 3.
-            ntp-service:
+                description: NTP server 3.
+            ntp_service:
                 type: str
-                description: Deprecated, please rename it to ntp_service. Options for assigning Network Time Protocol
+                description: Options for assigning Network Time Protocol
                 choices:
                     - 'default'
                     - 'specify'
@@ -304,28 +304,28 @@ options:
                     value:
                         type: str
                         description: DHCP option value.
-                    vci-match:
+                    vci_match:
                         type: str
-                        description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                        description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    vci-string:
+                    vci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-                    uci-match:
+                        description: (list) One or more VCI strings in quotes separated by spaces.
+                    uci_match:
                         type: str
-                        description: Deprecated, please rename it to uci_match. Enable/disable user class identifier
+                        description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
-                    uci-string:
+                    uci_string:
                         type: raw
-                        description: (list) Deprecated, please rename it to uci_string. One or more UCI strings in quotes separated by spaces.
-            reserved-address:
+                        description: (list) One or more UCI strings in quotes separated by spaces.
+            reserved_address:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to reserved_address. Reserved address.
+                description: Reserved address.
                 suboptions:
                     action:
                         type: str
@@ -346,21 +346,21 @@ options:
                     mac:
                         type: str
                         description: MAC address of the client that will get the reserved IP address.
-                    circuit-id:
+                    circuit_id:
                         type: str
-                        description: Deprecated, please rename it to circuit_id. Option 82 circuit-ID of the client that will get the reserved IP address.
-                    circuit-id-type:
+                        description: Option 82 circuit-ID of the client that will get the reserved IP address.
+                    circuit_id_type:
                         type: str
-                        description: Deprecated, please rename it to circuit_id_type. DHCP option type.
+                        description: DHCP option type.
                         choices:
                             - 'hex'
                             - 'string'
-                    remote-id:
+                    remote_id:
                         type: str
-                        description: Deprecated, please rename it to remote_id. Option 82 remote-ID of the client that will get the reserved IP address.
-                    remote-id-type:
+                        description: Option 82 remote-ID of the client that will get the reserved IP address.
+                    remote_id_type:
                         type: str
-                        description: Deprecated, please rename it to remote_id_type. DHCP option type.
+                        description: DHCP option type.
                         choices:
                             - 'hex'
                             - 'string'
@@ -370,9 +370,9 @@ options:
                         choices:
                             - 'mac'
                             - 'option82'
-            server-type:
+            server_type:
                 type: str
-                description: Deprecated, please rename it to server_type. DHCP server can be a normal DHCP server or an IPsec DHCP server.
+                description: DHCP server can be a normal DHCP server or an IPsec DHCP server.
                 choices:
                     - 'regular'
                     - 'ipsec'
@@ -382,9 +382,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            tftp-server:
+            tftp_server:
                 type: raw
-                description: (list) Deprecated, please rename it to tftp_server. One or more hostnames or IP addresses of the TFTP servers in quotes se...
+                description: (list) One or more hostnames or IP addresses of the TFTP servers in quotes separated by spaces.
             timezone:
                 type: str
                 description: Select the time zone to be assigned to DHCP clients.
@@ -477,64 +477,64 @@ options:
                     - '85'
                     - '86'
                     - '87'
-            timezone-option:
+            timezone_option:
                 type: str
-                description: Deprecated, please rename it to timezone_option. Options for the DHCP server to set the clients time zone.
+                description: Options for the DHCP server to set the clients time zone.
                 choices:
                     - 'disable'
                     - 'default'
                     - 'specify'
-            vci-match:
+            vci_match:
                 type: str
-                description: Deprecated, please rename it to vci_match. Enable/disable vendor class identifier
+                description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
-            vci-string:
+            vci_string:
                 type: raw
-                description: (list) Deprecated, please rename it to vci_string. One or more VCI strings in quotes separated by spaces.
-            wifi-ac1:
+                description: (list) One or more VCI strings in quotes separated by spaces.
+            wifi_ac1:
                 type: str
-                description: Deprecated, please rename it to wifi_ac1. WiFi Access Controller 1 IP address
-            wifi-ac2:
+                description: WiFi Access Controller 1 IP address
+            wifi_ac2:
                 type: str
-                description: Deprecated, please rename it to wifi_ac2. WiFi Access Controller 2 IP address
-            wifi-ac3:
+                description: WiFi Access Controller 2 IP address
+            wifi_ac3:
                 type: str
-                description: Deprecated, please rename it to wifi_ac3. WiFi Access Controller 3 IP address
-            wins-server1:
+                description: WiFi Access Controller 3 IP address
+            wins_server1:
                 type: str
-                description: Deprecated, please rename it to wins_server1. WINS server 1.
-            wins-server2:
+                description: WINS server 1.
+            wins_server2:
                 type: str
-                description: Deprecated, please rename it to wins_server2. WINS server 2.
-            dns-server4:
+                description: WINS server 2.
+            dns_server4:
                 type: str
-                description: Deprecated, please rename it to dns_server4. DNS server 4.
-            wifi-ac-service:
+                description: DNS server 4.
+            wifi_ac_service:
                 type: str
-                description: Deprecated, please rename it to wifi_ac_service. Options for assigning WiFi Access Controllers to DHCP clients
+                description: Options for assigning WiFi Access Controllers to DHCP clients
                 choices:
                     - 'specify'
                     - 'local'
-            auto-managed-status:
+            auto_managed_status:
                 type: str
-                description: Deprecated, please rename it to auto_managed_status. Enable/disable use of this DHCP server once this interface has been a...
+                description: Enable/disable use of this DHCP server once this interface has been assigned an IP address from FortiIPAM.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-settings-from-fortiipam:
+            dhcp_settings_from_fortiipam:
                 type: str
-                description: Deprecated, please rename it to dhcp_settings_from_fortiipam. Enable/disable populating of DHCP server settings from Forti...
+                description: Enable/disable populating of DHCP server settings from FortiIPAM.
                 choices:
                     - 'disable'
                     - 'enable'
-            relay-agent:
+            relay_agent:
                 type: str
-                description: Deprecated, please rename it to relay_agent. Relay agent IP.
-            shared-subnet:
+                description: Relay agent IP.
+            shared_subnet:
                 type: str
-                description: Deprecated, please rename it to shared_subnet. Enable/disable shared subnet.
+                description: Enable/disable shared subnet.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -628,23 +628,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/dhcp/server',
         '/pm/config/global/obj/system/dhcp/server'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/dhcp/server/{server}',
-        '/pm/config/global/obj/system/dhcp/server/{server}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -770,7 +762,6 @@ def main():
                 'relay-agent': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'shared-subnet': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -784,9 +775,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

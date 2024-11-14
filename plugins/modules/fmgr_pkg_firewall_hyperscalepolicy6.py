@@ -100,24 +100,24 @@ options:
                     - 'deny'
                     - 'accept'
                     - 'ipsec'
-            auto-asic-offload:
+            auto_asic_offload:
                 type: str
-                description: Deprecated, please rename it to auto_asic_offload. Enable/disable policy traffic ASIC offloading.
+                description: Enable/disable policy traffic ASIC offloading.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-log-server-grp:
+            cgn_log_server_grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp. NP log server group name
+                description: NP log server group name
             comments:
                 type: str
                 description: Comment.
             dstaddr:
                 type: raw
                 description: (list or str) Destination address and address group names.
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. When enabled dstaddr specifies what the destination address must NOT be.
+                description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -127,9 +127,9 @@ options:
             name:
                 type: str
                 description: Policy name.
-            policy-offload:
+            policy_offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload. Enable/disable offloading policy configuration to CP processors.
+                description: Enable/disable offloading policy configuration to CP processors.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -140,18 +140,18 @@ options:
             service:
                 type: raw
                 description: (list or str) Service and service group names.
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. When enabled service specifies what the service must NOT be.
+                description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr:
                 type: raw
                 description: (list or str) Source address and address group names.
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. When enabled srcaddr specifies what the source address must NOT be.
+                description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -164,18 +164,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-timeout-pid:
+            tcp_timeout_pid:
                 type: str
-                description: Deprecated, please rename it to tcp_timeout_pid. TCP timeout profile ID
-            traffic-shaper:
+                description: TCP timeout profile ID
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Reverse traffic shaper.
-            traffic-shaper-reverse:
+                description: Reverse traffic shaper.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Reverse traffic shaper.
-            udp-timeout-pid:
+                description: Reverse traffic shaper.
+            udp_timeout_pid:
                 type: str
-                description: Deprecated, please rename it to udp_timeout_pid. UDP timeout profile ID
+                description: UDP timeout profile ID
             uuid:
                 type: str
                 description: Universally Unique Identifier
@@ -265,21 +265,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -287,35 +280,58 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_hyperscalepolicy6': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
             'options': {
-                'action': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['deny', 'accept', 'ipsec'], 'type': 'str'},
+                'action': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['deny', 'accept', 'ipsec'],
+                    'type': 'str'
+                },
                 'auto-asic-offload': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'comments': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
-                'dstaddr-negate': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
-                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'policyid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'required': True, 'type': 'int'},
-                'service': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
-                'service-negate': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
-                'srcaddr-negate': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'raw'},
-                'status': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '7.2.0'], ['7.4.3', '']], 'type': 'str'}
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'dstaddr-negate': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'policy-offload': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'policyid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'service-negate': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr-negate': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'status': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -329,9 +345,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

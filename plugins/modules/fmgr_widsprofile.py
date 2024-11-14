@@ -89,16 +89,16 @@ options:
         required: false
         type: dict
         suboptions:
-            ap-auto-suppress:
+            ap_auto_suppress:
                 type: str
-                description: Deprecated, please rename it to ap_auto_suppress. Enable/disable on-wire rogue AP auto-suppression
+                description: Enable/disable on-wire rogue AP auto-suppression
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-bgscan-disable-day:
+            ap_bgscan_disable_day:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ap_bgscan_disable_day. Optionally turn off scanning for one or more days of the week.
+                description: Optionally turn off scanning for one or more days of the week.
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -107,224 +107,224 @@ options:
                     - 'thursday'
                     - 'friday'
                     - 'saturday'
-            ap-bgscan-disable-end:
+            ap_bgscan_disable_end:
                 type: str
-                description: Deprecated, please rename it to ap_bgscan_disable_end. End time, using a 24-hour clock in the format of hh
-            ap-bgscan-disable-start:
+                description: End time, using a 24-hour clock in the format of hh
+            ap_bgscan_disable_start:
                 type: str
-                description: Deprecated, please rename it to ap_bgscan_disable_start. Start time, using a 24-hour clock in the format of hh
-            ap-bgscan-duration:
+                description: Start time, using a 24-hour clock in the format of hh
+            ap_bgscan_duration:
                 type: int
-                description: Deprecated, please rename it to ap_bgscan_duration. Listening time on a scanning channel
-            ap-bgscan-idle:
+                description: Listening time on a scanning channel
+            ap_bgscan_idle:
                 type: int
-                description: Deprecated, please rename it to ap_bgscan_idle. Waiting time for channel inactivity before scanning this channel
-            ap-bgscan-intv:
+                description: Waiting time for channel inactivity before scanning this channel
+            ap_bgscan_intv:
                 type: int
-                description: Deprecated, please rename it to ap_bgscan_intv. Period of time between scanning two channels
-            ap-bgscan-period:
+                description: Period of time between scanning two channels
+            ap_bgscan_period:
                 type: int
-                description: Deprecated, please rename it to ap_bgscan_period. Period of time between background scans
-            ap-bgscan-report-intv:
+                description: Period of time between background scans
+            ap_bgscan_report_intv:
                 type: int
-                description: Deprecated, please rename it to ap_bgscan_report_intv. Period of time between background scan reports
-            ap-fgscan-report-intv:
+                description: Period of time between background scan reports
+            ap_fgscan_report_intv:
                 type: int
-                description: Deprecated, please rename it to ap_fgscan_report_intv. Period of time between foreground scan reports
-            ap-scan:
+                description: Period of time between foreground scan reports
+            ap_scan:
                 type: str
-                description: Deprecated, please rename it to ap_scan. Enable/disable rogue AP detection.
+                description: Enable/disable rogue AP detection.
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-scan-passive:
+            ap_scan_passive:
                 type: str
-                description: Deprecated, please rename it to ap_scan_passive. Enable/disable passive scanning.
+                description: Enable/disable passive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
-            asleap-attack:
+            asleap_attack:
                 type: str
-                description: Deprecated, please rename it to asleap_attack. Enable/disable asleap attack detection
+                description: Enable/disable asleap attack detection
                 choices:
                     - 'disable'
                     - 'enable'
-            assoc-flood-thresh:
+            assoc_flood_thresh:
                 type: int
-                description: Deprecated, please rename it to assoc_flood_thresh. The threshold value for association frame flooding.
-            assoc-flood-time:
+                description: The threshold value for association frame flooding.
+            assoc_flood_time:
                 type: int
-                description: Deprecated, please rename it to assoc_flood_time. Number of seconds after which a station is considered not connected.
-            assoc-frame-flood:
+                description: Number of seconds after which a station is considered not connected.
+            assoc_frame_flood:
                 type: str
-                description: Deprecated, please rename it to assoc_frame_flood. Enable/disable association frame flooding detection
+                description: Enable/disable association frame flooding detection
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-flood-thresh:
+            auth_flood_thresh:
                 type: int
-                description: Deprecated, please rename it to auth_flood_thresh. The threshold value for authentication frame flooding.
-            auth-flood-time:
+                description: The threshold value for authentication frame flooding.
+            auth_flood_time:
                 type: int
-                description: Deprecated, please rename it to auth_flood_time. Number of seconds after which a station is considered not connected.
-            auth-frame-flood:
+                description: Number of seconds after which a station is considered not connected.
+            auth_frame_flood:
                 type: str
-                description: Deprecated, please rename it to auth_frame_flood. Enable/disable authentication frame flooding detection
+                description: Enable/disable authentication frame flooding detection
                 choices:
                     - 'disable'
                     - 'enable'
             comment:
                 type: str
                 description: Comment.
-            deauth-broadcast:
+            deauth_broadcast:
                 type: str
-                description: Deprecated, please rename it to deauth_broadcast. Enable/disable broadcasting de-authentication detection
+                description: Enable/disable broadcasting de-authentication detection
                 choices:
                     - 'disable'
                     - 'enable'
-            deauth-unknown-src-thresh:
+            deauth_unknown_src_thresh:
                 type: int
-                description: Deprecated, please rename it to deauth_unknown_src_thresh. Threshold value per second to deauth unknown src for DoS attack
-            eapol-fail-flood:
+                description: Threshold value per second to deauth unknown src for DoS attack
+            eapol_fail_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_fail_flood. Enable/disable EAPOL-Failure flooding
+                description: Enable/disable EAPOL-Failure flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-fail-intv:
+            eapol_fail_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_fail_intv. The detection interval for EAPOL-Failure flooding
-            eapol-fail-thresh:
+                description: The detection interval for EAPOL-Failure flooding
+            eapol_fail_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_fail_thresh. The threshold value for EAPOL-Failure flooding in specified interval.
-            eapol-logoff-flood:
+                description: The threshold value for EAPOL-Failure flooding in specified interval.
+            eapol_logoff_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_logoff_flood. Enable/disable EAPOL-Logoff flooding
+                description: Enable/disable EAPOL-Logoff flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-logoff-intv:
+            eapol_logoff_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_logoff_intv. The detection interval for EAPOL-Logoff flooding
-            eapol-logoff-thresh:
+                description: The detection interval for EAPOL-Logoff flooding
+            eapol_logoff_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_logoff_thresh. The threshold value for EAPOL-Logoff flooding in specified interval.
-            eapol-pre-fail-flood:
+                description: The threshold value for EAPOL-Logoff flooding in specified interval.
+            eapol_pre_fail_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_pre_fail_flood. Enable/disable premature EAPOL-Failure flooding
+                description: Enable/disable premature EAPOL-Failure flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-pre-fail-intv:
+            eapol_pre_fail_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_pre_fail_intv. The detection interval for premature EAPOL-Failure flooding
-            eapol-pre-fail-thresh:
+                description: The detection interval for premature EAPOL-Failure flooding
+            eapol_pre_fail_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_pre_fail_thresh. The threshold value for premature EAPOL-Failure flooding in specifi...
-            eapol-pre-succ-flood:
+                description: The threshold value for premature EAPOL-Failure flooding in specified interval.
+            eapol_pre_succ_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_pre_succ_flood. Enable/disable premature EAPOL-Success flooding
+                description: Enable/disable premature EAPOL-Success flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-pre-succ-intv:
+            eapol_pre_succ_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_pre_succ_intv. The detection interval for premature EAPOL-Success flooding
-            eapol-pre-succ-thresh:
+                description: The detection interval for premature EAPOL-Success flooding
+            eapol_pre_succ_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_pre_succ_thresh. The threshold value for premature EAPOL-Success flooding in specifi...
-            eapol-start-flood:
+                description: The threshold value for premature EAPOL-Success flooding in specified interval.
+            eapol_start_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_start_flood. Enable/disable EAPOL-Start flooding
+                description: Enable/disable EAPOL-Start flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-start-intv:
+            eapol_start_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_start_intv. The detection interval for EAPOL-Start flooding
-            eapol-start-thresh:
+                description: The detection interval for EAPOL-Start flooding
+            eapol_start_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_start_thresh. The threshold value for EAPOL-Start flooding in specified interval.
-            eapol-succ-flood:
+                description: The threshold value for EAPOL-Start flooding in specified interval.
+            eapol_succ_flood:
                 type: str
-                description: Deprecated, please rename it to eapol_succ_flood. Enable/disable EAPOL-Success flooding
+                description: Enable/disable EAPOL-Success flooding
                 choices:
                     - 'disable'
                     - 'enable'
-            eapol-succ-intv:
+            eapol_succ_intv:
                 type: int
-                description: Deprecated, please rename it to eapol_succ_intv. The detection interval for EAPOL-Success flooding
-            eapol-succ-thresh:
+                description: The detection interval for EAPOL-Success flooding
+            eapol_succ_thresh:
                 type: int
-                description: Deprecated, please rename it to eapol_succ_thresh. The threshold value for EAPOL-Success flooding in specified interval.
-            invalid-mac-oui:
+                description: The threshold value for EAPOL-Success flooding in specified interval.
+            invalid_mac_oui:
                 type: str
-                description: Deprecated, please rename it to invalid_mac_oui. Enable/disable invalid MAC OUI detection.
+                description: Enable/disable invalid MAC OUI detection.
                 choices:
                     - 'disable'
                     - 'enable'
-            long-duration-attack:
+            long_duration_attack:
                 type: str
-                description: Deprecated, please rename it to long_duration_attack. Enable/disable long duration attack detection based on user configur...
+                description: Enable/disable long duration attack detection based on user configured threshold
                 choices:
                     - 'disable'
                     - 'enable'
-            long-duration-thresh:
+            long_duration_thresh:
                 type: int
-                description: Deprecated, please rename it to long_duration_thresh. Threshold value for long duration attack detection
+                description: Threshold value for long duration attack detection
             name:
                 type: str
                 description: WIDS profile name.
                 required: true
-            null-ssid-probe-resp:
+            null_ssid_probe_resp:
                 type: str
-                description: Deprecated, please rename it to null_ssid_probe_resp. Enable/disable null SSID probe response detection
+                description: Enable/disable null SSID probe response detection
                 choices:
                     - 'disable'
                     - 'enable'
-            sensor-mode:
+            sensor_mode:
                 type: str
-                description: Deprecated, please rename it to sensor_mode. Scan WiFi nearby stations
+                description: Scan WiFi nearby stations
                 choices:
                     - 'disable'
                     - 'foreign'
                     - 'both'
-            spoofed-deauth:
+            spoofed_deauth:
                 type: str
-                description: Deprecated, please rename it to spoofed_deauth. Enable/disable spoofed de-authentication attack detection
+                description: Enable/disable spoofed de-authentication attack detection
                 choices:
                     - 'disable'
                     - 'enable'
-            weak-wep-iv:
+            weak_wep_iv:
                 type: str
-                description: Deprecated, please rename it to weak_wep_iv. Enable/disable weak WEP IV
+                description: Enable/disable weak WEP IV
                 choices:
                     - 'disable'
                     - 'enable'
-            wireless-bridge:
+            wireless_bridge:
                 type: str
-                description: Deprecated, please rename it to wireless_bridge. Enable/disable wireless bridge detection
+                description: Enable/disable wireless bridge detection
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-bgscan-disable-schedules:
+            ap_bgscan_disable_schedules:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ap_bgscan_disable_schedules. Firewall schedules for turning off FortiAP radi...
-            rogue-scan:
+                description: (list or str) Firewall schedules for turning off FortiAP radio background scan.
+            rogue_scan:
                 type: str
-                description: Deprecated, please rename it to rogue_scan. Enable/disable rogue AP on-wire scan.
+                description: Enable/disable rogue AP on-wire scan.
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-scan-threshold:
+            ap_scan_threshold:
                 type: str
-                description: Deprecated, please rename it to ap_scan_threshold. Minimum signal level/threshold in dBm required for the AP to report det...
-            ap-scan-channel-list-2G-5G:
+                description: Minimum signal level/threshold in dBm required for the AP to report detected rogue AP
+            ap_scan_channel_list_2G_5G:
                 type: raw
-                description: (list) Deprecated, please rename it to ap_scan_channel_list_2G_5G. Selected ap scan channel list for 2.
-            ap-scan-channel-list-6G:
+                description: (list) Selected ap scan channel list for 2.
+            ap_scan_channel_list_6G:
                 type: raw
-                description: (list) Deprecated, please rename it to ap_scan_channel_list_6G. Selected ap scan channel list for 6G band.
+                description: (list) Selected ap scan channel list for 6G band.
 '''
 
 EXAMPLES = '''
@@ -348,13 +348,13 @@ EXAMPLES = '''
         widsprofile:
           ap_auto_suppress: <value in [disable, enable]>
           ap_bgscan_disable_day:
-            - sunday
-            - monday
-            - tuesday
-            - wednesday
-            - thursday
-            - friday
-            - saturday
+            - "sunday"
+            - "monday"
+            - "tuesday"
+            - "wednesday"
+            - "thursday"
+            - "friday"
+            - "saturday"
           ap_bgscan_disable_end: <string>
           ap_bgscan_disable_start: <string>
           ap_bgscan_duration: <integer>
@@ -450,23 +450,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wids-profile',
         '/pm/config/global/obj/wireless-controller/wids-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wids-profile/{wids-profile}',
-        '/pm/config/global/obj/wireless-controller/wids-profile/{wids-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -530,12 +522,11 @@ def main():
                 'weak-wep-iv': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'wireless-bridge': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-bgscan-disable-schedules': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'rogue-scan': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'rogue-scan': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-scan-threshold': {'v_range': [['6.2.3', '']], 'type': 'str'},
                 'ap-scan-channel-list-2G-5G': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ap-scan-channel-list-6G': {'v_range': [['7.4.1', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -549,9 +540,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

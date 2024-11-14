@@ -98,9 +98,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            flow-based:
+            flow_based:
                 type: str
-                description: Deprecated, please rename it to flow_based. Enable/disable flow-based spam filtering.
+                description: Enable/disable flow-based spam filtering.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -126,45 +126,45 @@ options:
                     - 'spamhdrcheck'
                     - 'spamfsphish'
                     - 'spambwl'
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group.
-            spam-bwl-table:
+                description: Replacement message group.
+            spam_bwl_table:
                 type: str
-                description: Deprecated, please rename it to spam_bwl_table. Anti-spam black/white list table ID.
-            spam-bword-table:
+                description: Anti-spam black/white list table ID.
+            spam_bword_table:
                 type: str
-                description: Deprecated, please rename it to spam_bword_table. Anti-spam banned word table ID.
-            spam-bword-threshold:
+                description: Anti-spam banned word table ID.
+            spam_bword_threshold:
                 type: int
-                description: Deprecated, please rename it to spam_bword_threshold. Spam banned word threshold.
-            spam-filtering:
+                description: Spam banned word threshold.
+            spam_filtering:
                 type: str
-                description: Deprecated, please rename it to spam_filtering. Enable/disable spam filtering.
+                description: Enable/disable spam filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            spam-iptrust-table:
+            spam_iptrust_table:
                 type: str
-                description: Deprecated, please rename it to spam_iptrust_table. Anti-spam IP trust table ID.
-            spam-log:
+                description: Anti-spam IP trust table ID.
+            spam_log:
                 type: str
-                description: Deprecated, please rename it to spam_log. Enable/disable spam logging for email filtering.
+                description: Enable/disable spam logging for email filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            spam-log-fortiguard-response:
+            spam_log_fortiguard_response:
                 type: str
-                description: Deprecated, please rename it to spam_log_fortiguard_response. Enable/disable logging FortiGuard spam response.
+                description: Enable/disable logging FortiGuard spam response.
                 choices:
                     - 'disable'
                     - 'enable'
-            spam-mheader-table:
+            spam_mheader_table:
                 type: str
-                description: Deprecated, please rename it to spam_mheader_table. Anti-spam MIME header table ID.
-            spam-rbl-table:
+                description: Anti-spam MIME header table ID.
+            spam_rbl_table:
                 type: str
-                description: Deprecated, please rename it to spam_rbl_table. Anti-spam DNSBL table ID.
+                description: Anti-spam DNSBL table ID.
             gmail:
                 type: dict
                 description: Gmail.
@@ -191,13 +191,13 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    tag-msg:
+                    tag_msg:
                         type: str
-                        description: Deprecated, please rename it to tag_msg. Subject text or header added to spam email.
-                    tag-type:
+                        description: Subject text or header added to spam email.
+                    tag_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
+                        description: Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
@@ -218,9 +218,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            msn-hotmail:
+            msn_hotmail:
                 type: dict
-                description: Deprecated, please rename it to msn_hotmail. Msn hotmail.
+                description: Msn hotmail.
                 suboptions:
                     log:
                         type: str
@@ -244,13 +244,13 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    tag-msg:
+                    tag_msg:
                         type: str
-                        description: Deprecated, please rename it to tag_msg. Subject text or header added to spam email.
-                    tag-type:
+                        description: Subject text or header added to spam email.
+                    tag_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
+                        description: Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
@@ -272,9 +272,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-override:
+                    local_override:
                         type: str
-                        description: Deprecated, please rename it to local_override. Enable/disable local filter to override SMTP remote check result.
+                        description: Enable/disable local filter to override SMTP remote check result.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -284,20 +284,20 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    tag-msg:
+                    tag_msg:
                         type: str
-                        description: Deprecated, please rename it to tag_msg. Subject text or header added to spam email.
-                    tag-type:
+                        description: Subject text or header added to spam email.
+                    tag_type:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
+                        description: Tag subject or header for spam email.
                         choices:
                             - 'subject'
                             - 'header'
                             - 'spaminfo'
-            yahoo-mail:
+            yahoo_mail:
                 type: dict
-                description: Deprecated, please rename it to yahoo_mail. Yahoo mail.
+                description: Yahoo mail.
                 suboptions:
                     log:
                         type: str
@@ -331,19 +331,19 @@ EXAMPLES = '''
           flow_based: <value in [disable, enable]>
           name: <string>
           options:
-            - bannedword
-            - spamemailbwl
-            - spamfsip
-            - spamfssubmit
-            - spamfschksum
-            - spamfsurl
-            - spamhelodns
-            - spamipbwl
-            - spamraddrdns
-            - spamrbl
-            - spamhdrcheck
-            - spamfsphish
-            - spambwl
+            - "bannedword"
+            - "spamemailbwl"
+            - "spamfsip"
+            - "spamfssubmit"
+            - "spamfschksum"
+            - "spamfsurl"
+            - "spamhelodns"
+            - "spamipbwl"
+            - "spamraddrdns"
+            - "spamrbl"
+            - "spamhdrcheck"
+            - "spamfsphish"
+            - "spambwl"
           replacemsg_group: <string>
           spam_bwl_table: <string>
           spam_bword_table: <string>
@@ -361,9 +361,9 @@ EXAMPLES = '''
             log: <value in [disable, enable]>
             tag_msg: <string>
             tag_type:
-              - subject
-              - header
-              - spaminfo
+              - "subject"
+              - "header"
+              - "spaminfo"
           mapi:
             action: <value in [pass, discard]>
             log: <value in [disable, enable]>
@@ -374,9 +374,9 @@ EXAMPLES = '''
             log: <value in [disable, enable]>
             tag_msg: <string>
             tag_type:
-              - subject
-              - header
-              - spaminfo
+              - "subject"
+              - "header"
+              - "spaminfo"
           smtp:
             action: <value in [pass, tag, discard]>
             hdrip: <value in [disable, enable]>
@@ -384,9 +384,9 @@ EXAMPLES = '''
             log: <value in [disable, enable]>
             tag_msg: <string>
             tag_type:
-              - subject
-              - header
-              - spaminfo
+              - "subject"
+              - "header"
+              - "spaminfo"
           yahoo_mail:
             log: <value in [disable, enable]>
 '''
@@ -432,23 +432,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/spamfilter/profile',
         '/pm/config/global/obj/spamfilter/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}',
-        '/pm/config/global/obj/spamfilter/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -481,19 +473,19 @@ def main():
                 'spam-mheader-table': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'spam-rbl-table': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'gmail': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
-                    'options': {'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+                    'options': {'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
                 },
                 'imap': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
-                        'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'tag-msg': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'type': 'str'},
+                        'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'tag-msg': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'type': 'str'},
                         'tag-type': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': ['subject', 'header', 'spaminfo'],
                             'elements': 'str'
@@ -501,27 +493,27 @@ def main():
                     }
                 },
                 'mapi': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
-                        'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'discard'], 'type': 'str'},
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'discard'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'msn-hotmail': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
-                    'options': {'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+                    'options': {'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}}
                 },
                 'pop3': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
-                        'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'tag-msg': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'type': 'str'},
+                        'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'tag-msg': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'type': 'str'},
                         'tag-type': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': ['subject', 'header', 'spaminfo'],
                             'elements': 'str'
@@ -529,16 +521,16 @@ def main():
                     }
                 },
                 'smtp': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
-                        'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
-                        'hdrip': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'local-override': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'tag-msg': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'type': 'str'},
+                        'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
+                        'hdrip': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'local-override': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'tag-msg': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'type': 'str'},
                         'tag-type': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': ['subject', 'header', 'spaminfo'],
                             'elements': 'str'
@@ -546,12 +538,11 @@ def main():
                     }
                 },
                 'yahoo-mail': {
-                    'v_range': [['6.2.8', '6.2.12']],
+                    'v_range': [['6.2.8', '6.2.13']],
                     'type': 'dict',
-                    'options': {'log': {'v_range': [['6.2.8', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+                    'options': {'log': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'}}
                 }
             }
-
         }
     }
 
@@ -565,9 +556,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

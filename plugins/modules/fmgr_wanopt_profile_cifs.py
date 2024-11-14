@@ -84,30 +84,30 @@ options:
         required: false
         type: dict
         suboptions:
-            byte-caching:
+            byte_caching:
                 type: str
-                description: Deprecated, please rename it to byte_caching. Enable/disable byte-caching for HTTP.
+                description: Enable/disable byte-caching for HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-traffic:
+            log_traffic:
                 type: str
-                description: Deprecated, please rename it to log_traffic. Enable/disable logging.
+                description: Enable/disable logging.
                 choices:
                     - 'disable'
                     - 'enable'
             port:
                 type: raw
                 description: (list) Single port number or port number range for CIFS.
-            prefer-chunking:
+            prefer_chunking:
                 type: str
-                description: Deprecated, please rename it to prefer_chunking. Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
+                description: Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
                 choices:
                     - 'dynamic'
                     - 'fix'
-            secure-tunnel:
+            secure_tunnel:
                 type: str
-                description: Deprecated, please rename it to secure_tunnel. Enable/disable securing the WAN Opt tunnel using SSL.
+                description: Enable/disable securing the WAN Opt tunnel using SSL.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -117,16 +117,16 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-sharing:
+            tunnel_sharing:
                 type: str
-                description: Deprecated, please rename it to tunnel_sharing. Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-i...
+                description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                 choices:
                     - 'private'
                     - 'shared'
                     - 'express-shared'
-            protocol-opt:
+            protocol_opt:
                 type: str
-                description: Deprecated, please rename it to protocol_opt. Select Protocol specific optimitation or generic TCP optimization.
+                description: Select Protocol specific optimitation or generic TCP optimization.
                 choices:
                     - 'protocol'
                     - 'tcp'
@@ -202,23 +202,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/cifs',
         '/pm/config/global/obj/wanopt/profile/{profile}/cifs'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wanopt/profile/{profile}/cifs/{cifs}',
-        '/pm/config/global/obj/wanopt/profile/{profile}/cifs/{cifs}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -237,7 +229,6 @@ def main():
                 'tunnel-sharing': {'choices': ['private', 'shared', 'express-shared'], 'type': 'str'},
                 'protocol-opt': {'v_range': [['6.4.0', '']], 'choices': ['protocol', 'tcp'], 'type': 'str'}
             }
-
         }
     }
 
@@ -251,9 +242,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

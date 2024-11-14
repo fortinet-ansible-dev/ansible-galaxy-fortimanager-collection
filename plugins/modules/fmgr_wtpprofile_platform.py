@@ -181,6 +181,8 @@ options:
                     - '443K'
                     - '241K'
                     - '243K'
+                    - '231K'
+                    - '23JK'
             mode:
                 type: str
                 description: Configure operation mode of 5G radios
@@ -264,23 +266,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/platform',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/platform'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/platform/{platform}',
-        '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/platform/{platform}'
-    ]
-
     url_params = ['adom', 'wtp-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -299,15 +293,14 @@ def main():
                         'C24JE', 'C21D', 'U421E', 'U423E', '221E', '222E', '223E', 'S221E', 'S223E', 'U221EV', 'U223EV', 'U321EV', 'U323EV', '224E',
                         'U422EV', 'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F', '432F', '234F', '23JF', 'U231F', '831F', 'U234F',
                         'U432F', '431FL', '432FR', '433FL', '231FL', '231G', '233G', '431G', '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K',
-                        '241K', '243K'
+                        '241K', '243K', '231K', '23JK'
                     ],
                     'type': 'str'
                 },
                 'mode': {'v_range': [['6.2.2', '']], 'choices': ['dual-5G', 'single-5G'], 'type': 'str'},
                 'ddscan': {'v_range': [['6.2.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                '_local_platform_str': {'v_range': [['6.2.8', '6.2.12'], ['6.4.6', '']], 'type': 'str'}
+                '_local_platform_str': {'v_range': [['6.2.8', '6.2.13'], ['6.4.6', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -321,9 +314,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

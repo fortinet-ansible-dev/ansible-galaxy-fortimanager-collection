@@ -92,9 +92,9 @@ options:
             comment:
                 type: str
                 description: Comment.
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging.
+                description: Enable/disable extended logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -108,15 +108,15 @@ options:
                 type: str
                 description: WAF Profile name.
                 required: true
-            url-access:
+            url_access:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to url_access. Url access.
+                description: Url access.
                 suboptions:
-                    access-pattern:
+                    access_pattern:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to access_pattern. Access pattern.
+                        description: Access pattern.
                         suboptions:
                             id:
                                 type: int
@@ -165,16 +165,16 @@ options:
                             - 'low'
                             - 'medium'
                             - 'high'
-            address-list:
+            address_list:
                 type: dict
-                description: Deprecated, please rename it to address_list. Address list.
+                description: Address list.
                 suboptions:
-                    blocked-address:
+                    blocked_address:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to blocked_address. Blocked address.
-                    blocked-log:
+                        description: (list or str) Blocked address.
+                    blocked_log:
                         type: str
-                        description: Deprecated, please rename it to blocked_log. Enable/disable logging on blocked addresses.
+                        description: Enable/disable logging on blocked addresses.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -191,16 +191,16 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    trusted-address:
+                    trusted_address:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to trusted_address. Trusted address.
+                        description: (list or str) Trusted address.
             constraint:
                 type: dict
                 description: Constraint.
                 suboptions:
-                    content-length:
+                    content_length:
                         type: dict
-                        description: Deprecated, please rename it to content_length. Content length.
+                        description: Content length.
                         suboptions:
                             action:
                                 type: str
@@ -238,15 +238,15 @@ options:
                             address:
                                 type: str
                                 description: Host address.
-                            content-length:
+                            content_length:
                                 type: str
-                                description: Deprecated, please rename it to content_length. HTTP content length in request.
+                                description: HTTP content length in request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            header-length:
+                            header_length:
                                 type: str
-                                description: Deprecated, please rename it to header_length. HTTP header length in request.
+                                description: HTTP header length in request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -259,9 +259,9 @@ options:
                             id:
                                 type: int
                                 description: Exception ID.
-                            line-length:
+                            line_length:
                                 type: str
-                                description: Deprecated, please rename it to line_length. HTTP line length in request.
+                                description: HTTP line length in request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -271,27 +271,27 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-cookie:
+                            max_cookie:
                                 type: str
-                                description: Deprecated, please rename it to max_cookie. Maximum number of cookies in HTTP request.
+                                description: Maximum number of cookies in HTTP request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-header-line:
+                            max_header_line:
                                 type: str
-                                description: Deprecated, please rename it to max_header_line. Maximum number of HTTP header line.
+                                description: Maximum number of HTTP header line.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-range-segment:
+                            max_range_segment:
                                 type: str
-                                description: Deprecated, please rename it to max_range_segment. Maximum number of range segments in HTTP range line.
+                                description: Maximum number of range segments in HTTP range line.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-url-param:
+                            max_url_param:
                                 type: str
-                                description: Deprecated, please rename it to max_url_param. Maximum number of parameters in URL.
+                                description: Maximum number of parameters in URL.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -301,9 +301,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            param-length:
+                            param_length:
                                 type: str
-                                description: Deprecated, please rename it to param_length. Maximum length of parameter in URL, HTTP POST request or HTT...
+                                description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -316,9 +316,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            url-param-length:
+                            url_param_length:
                                 type: str
-                                description: Deprecated, please rename it to url_param_length. Maximum length of parameter in URL.
+                                description: Maximum length of parameter in URL.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -328,9 +328,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    header-length:
+                    header_length:
                         type: dict
-                        description: Deprecated, please rename it to header_length. Header length.
+                        description: Header length.
                         suboptions:
                             action:
                                 type: str
@@ -389,9 +389,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    line-length:
+                    line_length:
                         type: dict
-                        description: Deprecated, please rename it to line_length. Line length.
+                        description: Line length.
                         suboptions:
                             action:
                                 type: str
@@ -450,9 +450,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    max-cookie:
+                    max_cookie:
                         type: dict
-                        description: Deprecated, please rename it to max_cookie. Max cookie.
+                        description: Max cookie.
                         suboptions:
                             action:
                                 type: str
@@ -466,9 +466,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-cookie:
+                            max_cookie:
                                 type: int
-                                description: Deprecated, please rename it to max_cookie. Maximum number of cookies in HTTP request
+                                description: Maximum number of cookies in HTTP request
                             severity:
                                 type: str
                                 description: Severity.
@@ -482,9 +482,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    max-header-line:
+                    max_header_line:
                         type: dict
-                        description: Deprecated, please rename it to max_header_line. Max header line.
+                        description: Max header line.
                         suboptions:
                             action:
                                 type: str
@@ -498,9 +498,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-header-line:
+                            max_header_line:
                                 type: int
-                                description: Deprecated, please rename it to max_header_line. Maximum number HTTP header lines
+                                description: Maximum number HTTP header lines
                             severity:
                                 type: str
                                 description: Severity.
@@ -514,9 +514,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    max-range-segment:
+                    max_range_segment:
                         type: dict
-                        description: Deprecated, please rename it to max_range_segment. Max range segment.
+                        description: Max range segment.
                         suboptions:
                             action:
                                 type: str
@@ -530,9 +530,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-range-segment:
+                            max_range_segment:
                                 type: int
-                                description: Deprecated, please rename it to max_range_segment. Maximum number of range segments in HTTP range line
+                                description: Maximum number of range segments in HTTP range line
                             severity:
                                 type: str
                                 description: Severity.
@@ -546,9 +546,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    max-url-param:
+                    max_url_param:
                         type: dict
-                        description: Deprecated, please rename it to max_url_param. Max url param.
+                        description: Max url param.
                         suboptions:
                             action:
                                 type: str
@@ -562,9 +562,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            max-url-param:
+                            max_url_param:
                                 type: int
-                                description: Deprecated, please rename it to max_url_param. Maximum number of parameters in URL
+                                description: Maximum number of parameters in URL
                             severity:
                                 type: str
                                 description: Severity.
@@ -607,9 +607,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    param-length:
+                    param_length:
                         type: dict
-                        description: Deprecated, please rename it to param_length. Param length.
+                        description: Param length.
                         suboptions:
                             action:
                                 type: str
@@ -639,9 +639,9 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                    url-param-length:
+                    url_param_length:
                         type: dict
-                        description: Deprecated, please rename it to url_param_length. Url param length.
+                        description: Url param length.
                         suboptions:
                             action:
                                 type: str
@@ -704,10 +704,10 @@ options:
                 type: dict
                 description: Method.
                 suboptions:
-                    default-allowed-methods:
+                    default_allowed_methods:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to default_allowed_methods. Methods.
+                        description: Methods.
                         choices:
                             - 'delete'
                             - 'get'
@@ -724,18 +724,18 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    method-policy:
+                    method_policy:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to method_policy. Method policy.
+                        description: Method policy.
                         suboptions:
                             address:
                                 type: str
                                 description: Host address.
-                            allowed-methods:
+                            allowed_methods:
                                 type: list
                                 elements: str
-                                description: Deprecated, please rename it to allowed_methods. Allowed Methods.
+                                description: Allowed Methods.
                                 choices:
                                     - 'delete'
                                     - 'get'
@@ -775,13 +775,13 @@ options:
                 type: dict
                 description: Signature.
                 suboptions:
-                    credit-card-detection-threshold:
+                    credit_card_detection_threshold:
                         type: int
-                        description: Deprecated, please rename it to credit_card_detection_threshold. The minimum number of Credit cards to detect viol...
-                    custom-signature:
+                        description: The minimum number of Credit cards to detect violation.
+                    custom_signature:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to custom_signature. Custom signature.
+                        description: Custom signature.
                         suboptions:
                             action:
                                 type: str
@@ -790,9 +790,9 @@ options:
                                     - 'allow'
                                     - 'block'
                                     - 'erase'
-                            case-sensitivity:
+                            case_sensitivity:
                                 type: str
-                                description: Deprecated, please rename it to case_sensitivity. Case sensitivity in pattern.
+                                description: Case sensitivity in pattern.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -845,15 +845,15 @@ options:
                                     - 'resp-body'
                                     - 'resp-hdr'
                                     - 'resp-status'
-                    disabled-signature:
+                    disabled_signature:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to disabled_signature. Disabled signatures
-                    disabled-sub-class:
+                        description: (list or str) Disabled signatures
+                    disabled_sub_class:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to disabled_sub_class. Disabled signature subclasses.
-                    main-class:
+                        description: (list or str) Disabled signature subclasses.
+                    main_class:
                         type: dict
-                        description: Deprecated, please rename it to main_class. Main class.
+                        description: Main class.
                         suboptions:
                             action:
                                 type: str
@@ -1025,29 +1025,29 @@ EXAMPLES = '''
               status: <value in [disable, enable]>
           method:
             default_allowed_methods:
-              - delete
-              - get
-              - head
-              - options
-              - post
-              - put
-              - trace
-              - others
-              - connect
+              - "delete"
+              - "get"
+              - "head"
+              - "options"
+              - "post"
+              - "put"
+              - "trace"
+              - "others"
+              - "connect"
             log: <value in [disable, enable]>
             method_policy:
               -
                 address: <string>
                 allowed_methods:
-                  - delete
-                  - get
-                  - head
-                  - options
-                  - post
-                  - put
-                  - trace
-                  - others
-                  - connect
+                  - "delete"
+                  - "get"
+                  - "head"
+                  - "options"
+                  - "post"
+                  - "put"
+                  - "trace"
+                  - "others"
+                  - "connect"
                 id: <integer>
                 pattern: <string>
                 regex: <value in [disable, enable]>
@@ -1066,19 +1066,19 @@ EXAMPLES = '''
                 severity: <value in [low, medium, high]>
                 status: <value in [disable, enable]>
                 target:
-                  - arg
-                  - arg-name
-                  - req-body
-                  - req-cookie
-                  - req-cookie-name
-                  - req-filename
-                  - req-header
-                  - req-header-name
-                  - req-raw-uri
-                  - req-uri
-                  - resp-body
-                  - resp-hdr
-                  - resp-status
+                  - "arg"
+                  - "arg-name"
+                  - "req-body"
+                  - "req-cookie"
+                  - "req-cookie-name"
+                  - "req-filename"
+                  - "req-header"
+                  - "req-header-name"
+                  - "req-raw-uri"
+                  - "req-uri"
+                  - "resp-body"
+                  - "resp-hdr"
+                  - "resp-status"
             disabled_signature: <list or string>
             disabled_sub_class: <list or string>
             main_class:
@@ -1130,23 +1130,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/waf/profile',
         '/pm/config/global/obj/waf/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/waf/profile/{profile}',
-        '/pm/config/global/obj/waf/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1182,236 +1174,236 @@ def main():
                     'elements': 'dict'
                 },
                 'address-list': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'blocked-address': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                        'blocked-log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'trusted-address': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'}
+                        'blocked-address': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                        'blocked-log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'trusted-address': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'}
                     }
                 },
                 'constraint': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'content-length': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'exception': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'address': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'content-length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'header-length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'hostname': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'line-length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'malformed': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-cookie': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-header-line': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-range-segment': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-url-param': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'method': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'param-length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'pattern': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'regex': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'url-param-length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'version': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'address': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'content-length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'header-length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'hostname': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'line-length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'malformed': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-cookie': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-header-line': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-range-segment': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-url-param': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'method': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'param-length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'pattern': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'regex': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'url-param-length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'version': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'header-length': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'hostname': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'line-length': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'malformed': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'max-cookie': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-cookie': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-cookie': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'max-header-line': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-header-line': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-header-line': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'max-range-segment': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-range-segment': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-range-segment': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'max-url-param': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'max-url-param': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'max-url-param': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'method': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'param-length': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'url-param-length': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'length': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'length': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         },
                         'version': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         }
                     }
                 },
                 'method': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'default-allowed-methods': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect'],
                             'elements': 'str'
                         },
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'method-policy': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'address': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
+                                'address': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                 'allowed-methods': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'type': 'list',
                                     'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'others', 'connect'],
                                     'elements': 'str'
                                 },
-                                'id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'pattern': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'regex': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'pattern': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'regex': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'signature': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'credit-card-detection-threshold': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'credit-card-detection-threshold': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'custom-signature': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'erase'], 'type': 'str'},
-                                'case-sensitivity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'direction': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['request', 'response'], 'type': 'str'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'name': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'pattern': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'erase'], 'type': 'str'},
+                                'case-sensitivity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'direction': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['request', 'response'], 'type': 'str'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'pattern': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'target': {
-                                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'type': 'list',
                                     'choices': [
                                         'arg', 'arg-name', 'req-body', 'req-cookie', 'req-cookie-name', 'req-filename', 'req-header', 'req-header-name',
@@ -1422,23 +1414,22 @@ def main():
                             },
                             'elements': 'dict'
                         },
-                        'disabled-signature': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
-                        'disabled-sub-class': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'disabled-signature': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
+                        'disabled-sub-class': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'main-class': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'dict',
                             'options': {
-                                'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'erase'], 'type': 'str'},
-                                'id': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
-                                'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'severity': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
-                                'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'erase'], 'type': 'str'},
+                                'id': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                                'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'severity': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['low', 'medium', 'high'], 'type': 'str'},
+                                'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             }
                         }
                     }
                 }
             }
-
         }
     }
 
@@ -1452,9 +1443,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

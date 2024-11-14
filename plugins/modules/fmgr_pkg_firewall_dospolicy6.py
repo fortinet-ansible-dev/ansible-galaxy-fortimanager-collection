@@ -122,12 +122,12 @@ options:
                             - 'attacker'
                             - 'both'
                             - 'interface'
-                    quarantine-expiry:
+                    quarantine_expiry:
                         type: str
-                        description: Deprecated, please rename it to quarantine_expiry. Duration of quarantine, from 1 minute to 364 days, 23 hours, an...
-                    quarantine-log:
+                        description: Duration of quarantine, from 1 minute to 364 days, 23 hours, and 59 minutes from now.
+                    quarantine_log:
                         type: str
-                        description: Deprecated, please rename it to quarantine_log. Enable/disable quarantine logging.
+                        description: Enable/disable quarantine logging.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -140,9 +140,9 @@ options:
                     threshold:
                         type: int
                         description: Number of detected instances per minute which triggers action
-                    threshold(default):
+                    threshold_default:
                         type: int
-                        description: Deprecated, please rename it to threshold_default). Threshold
+                        description: Threshold
                     synproxy_tos:
                         type: str
                         description: Determine TCP differentiated services code point value
@@ -415,21 +415,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/DoS-policy6/{DoS-policy6}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -471,37 +464,37 @@ def main():
                             'type': 'str'
                         },
                         'synproxy-tos': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36', '38', '40', '46', '255'],
                             'type': 'str'
                         },
                         'synproxy-tcp-window': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['4096', '8192', '16384', '32768'],
                             'type': 'str'
                         },
                         'synproxy-tcp-windowscale': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
                             'type': 'str'
                         },
                         'synproxy-tcp-timestamp': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'synproxy-ttl': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['32', '64', '128', '255'],
                             'type': 'str'
                         },
                         'synproxy-tcp-mss': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['0', '256', '512', '1024', '1300', '1360', '1460', '1500'],
                             'type': 'str'
                         },
                         'synproxy-tcp-sack': {
-                            'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '7.2.0'], ['7.4.3', '']],
+                            'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         }
@@ -518,7 +511,6 @@ def main():
                 'uuid': {'v_range': [['6.2.1', '7.2.0']], 'type': 'str'},
                 'name': {'v_range': [['6.4.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -532,9 +524,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

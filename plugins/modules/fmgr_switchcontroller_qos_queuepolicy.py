@@ -89,38 +89,38 @@ options:
         required: false
         type: dict
         suboptions:
-            cos-queue:
+            cos_queue:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to cos_queue. Cos queue.
+                description: Cos queue.
                 suboptions:
                     description:
                         type: str
                         description: Description of the COS queue.
-                    drop-policy:
+                    drop_policy:
                         type: str
-                        description: Deprecated, please rename it to drop_policy. COS queue drop policy.
+                        description: COS queue drop policy.
                         choices:
                             - 'taildrop'
                             - 'weighted-random-early-detection'
-                    max-rate:
+                    max_rate:
                         type: int
-                        description: Deprecated, please rename it to max_rate. Maximum rate
-                    min-rate:
+                        description: Maximum rate
+                    min_rate:
                         type: int
-                        description: Deprecated, please rename it to min_rate. Minimum rate
+                        description: Minimum rate
                     name:
                         type: str
                         description: Cos queue ID.
                     weight:
                         type: int
                         description: Weight of weighted round robin scheduling.
-                    max-rate-percent:
+                    max_rate_percent:
                         type: int
-                        description: Deprecated, please rename it to max_rate_percent. Maximum rate
-                    min-rate-percent:
+                        description: Maximum rate
+                    min_rate_percent:
                         type: int
-                        description: Deprecated, please rename it to min_rate_percent. Minimum rate
+                        description: Minimum rate
                     ecn:
                         type: str
                         description: Enable/disable ECN packet marking to drop eligible packets.
@@ -138,9 +138,9 @@ options:
                     - 'strict'
                     - 'round-robin'
                     - 'weighted'
-            rate-by:
+            rate_by:
                 type: str
-                description: Deprecated, please rename it to rate_by. COS queue rate by kbps or percent.
+                description: COS queue rate by kbps or percent.
                 choices:
                     - 'kbps'
                     - 'percent'
@@ -222,23 +222,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy',
         '/pm/config/global/obj/switch-controller/qos/queue-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/qos/queue-policy/{queue-policy}',
-        '/pm/config/global/obj/switch-controller/qos/queue-policy/{queue-policy}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -266,7 +258,6 @@ def main():
                 'schedule': {'choices': ['strict', 'round-robin', 'weighted'], 'type': 'str'},
                 'rate-by': {'v_range': [['6.2.0', '']], 'choices': ['kbps', 'percent'], 'type': 'str'}
             }
-
         }
     }
 
@@ -280,9 +271,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

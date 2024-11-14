@@ -93,18 +93,18 @@ options:
         required: false
         type: dict
         suboptions:
-            egress-shaping-profile:
+            egress_shaping_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to egress_shaping_profile. Egress shaping profile.
-            ingress-shaping-profile:
+                description: (list or str) Egress shaping profile.
+            ingress_shaping_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ingress_shaping_profile. Ingress shaping profile.
-            intf-zone:
+                description: (list or str) Ingress shaping profile.
+            intf_zone:
                 type: str
-                description: Deprecated, please rename it to intf_zone. Intf zone.
-            intrazone-deny:
+                description: Intf zone.
+            intrazone_deny:
                 type: str
-                description: Deprecated, please rename it to intrazone_deny. Intrazone deny.
+                description: Intrazone deny.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -182,23 +182,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping',
         '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}',
-        '/pm/config/global/obj/dynamic/interface/{interface}/platform_mapping/{platform_mapping}'
-    ]
-
     url_params = ['adom', 'interface']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -214,7 +206,6 @@ def main():
                 'intrazone-deny': {'v_range': [['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['6.4.1', '']], 'required': True, 'type': 'str'}
             }
-
         }
     }
 
@@ -228,9 +219,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

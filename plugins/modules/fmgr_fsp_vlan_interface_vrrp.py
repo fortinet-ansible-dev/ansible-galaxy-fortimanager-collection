@@ -93,18 +93,18 @@ options:
         required: false
         type: dict
         suboptions:
-            accept-mode:
+            accept_mode:
                 type: str
-                description: Deprecated, please rename it to accept_mode. Accept mode.
+                description: Accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            adv-interval:
+            adv_interval:
                 type: int
-                description: Deprecated, please rename it to adv_interval. Adv interval.
-            ignore-default-route:
+                description: Adv interval.
+            ignore_default_route:
                 type: str
-                description: Deprecated, please rename it to ignore_default_route. Ignore default route.
+                description: Ignore default route.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -117,9 +117,9 @@ options:
             priority:
                 type: int
                 description: Priority.
-            start-time:
+            start_time:
                 type: int
-                description: Deprecated, please rename it to start_time. Start time.
+                description: Start time.
             status:
                 type: str
                 description: Status.
@@ -135,9 +135,9 @@ options:
             vrdst:
                 type: raw
                 description: (list) Vrdst.
-            vrdst-priority:
+            vrdst_priority:
                 type: int
-                description: Deprecated, please rename it to vrdst_priority. Vrdst priority.
+                description: Vrdst priority.
             vrgrp:
                 type: int
                 description: Vrgrp.
@@ -148,10 +148,10 @@ options:
             vrip:
                 type: str
                 description: Vrip.
-            proxy-arp:
+            proxy_arp:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to proxy_arp. Proxy arp.
+                description: Proxy arp.
                 suboptions:
                     id:
                         type: int
@@ -241,23 +241,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp',
         '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}',
-        '/pm/config/global/obj/fsp/vlan/{vlan}/interface/vrrp/{vrrp}'
-    ]
-
     url_params = ['adom', 'vlan']
     module_primary_key = 'vrid'
     module_arg_spec = {
@@ -287,7 +279,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -301,9 +292,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

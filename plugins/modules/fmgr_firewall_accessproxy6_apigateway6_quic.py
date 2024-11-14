@@ -92,36 +92,36 @@ options:
         required: false
         type: dict
         suboptions:
-            ack-delay-exponent:
+            ack_delay_exponent:
                 type: int
-                description: Deprecated, please rename it to ack_delay_exponent. ACK delay exponent
-            active-connection-id-limit:
+                description: ACK delay exponent
+            active_connection_id_limit:
                 type: int
-                description: Deprecated, please rename it to active_connection_id_limit. Active connection ID limit
-            active-migration:
+                description: Active connection ID limit
+            active_migration:
                 type: str
-                description: Deprecated, please rename it to active_migration. Enable/disable active migration
+                description: Enable/disable active migration
                 choices:
                     - 'disable'
                     - 'enable'
-            grease-quic-bit:
+            grease_quic_bit:
                 type: str
-                description: Deprecated, please rename it to grease_quic_bit. Enable/disable grease QUIC bit
+                description: Enable/disable grease QUIC bit
                 choices:
                     - 'disable'
                     - 'enable'
-            max-ack-delay:
+            max_ack_delay:
                 type: int
-                description: Deprecated, please rename it to max_ack_delay. Maximum ACK delay in milliseconds
-            max-datagram-frame-size:
+                description: Maximum ACK delay in milliseconds
+            max_datagram_frame_size:
                 type: int
-                description: Deprecated, please rename it to max_datagram_frame_size. Maximum datagram frame size in bytes
-            max-idle-timeout:
+                description: Maximum datagram frame size in bytes
+            max_idle_timeout:
                 type: int
-                description: Deprecated, please rename it to max_idle_timeout. Maximum idle timeout milliseconds
-            max-udp-payload-size:
+                description: Maximum idle timeout milliseconds
+            max_udp_payload_size:
                 type: int
-                description: Deprecated, please rename it to max_udp_payload_size. Maximum UDP payload size in bytes
+                description: Maximum UDP payload size in bytes
 '''
 
 EXAMPLES = '''
@@ -195,23 +195,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic',
         '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic/{quic}',
-        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway6/{api-gateway6}/quic/{quic}'
-    ]
-
     url_params = ['adom', 'access-proxy6', 'api-gateway6']
     module_primary_key = None
     module_arg_spec = {
@@ -233,7 +225,6 @@ def main():
                 'max-idle-timeout': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'max-udp-payload-size': {'v_range': [['7.4.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -247,9 +238,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -101,9 +101,9 @@ options:
         required: false
         type: dict
         suboptions:
-            addr-type:
+            addr_type:
                 type: str
-                description: Deprecated, please rename it to addr_type. Type of address.
+                description: Type of address.
                 choices:
                     - 'fqdn'
                     - 'ip'
@@ -113,28 +113,28 @@ options:
             domain:
                 type: str
                 description: Wildcard domain name of the real server.
-            health-check:
+            health_check:
                 type: str
-                description: Deprecated, please rename it to health_check. Enable to check the responsiveness of the real server before forwarding traffic.
+                description: Enable to check the responsiveness of the real server before forwarding traffic.
                 choices:
                     - 'disable'
                     - 'enable'
-            health-check-proto:
+            health_check_proto:
                 type: str
-                description: Deprecated, please rename it to health_check_proto. Protocol of the health check monitor to use when polling to determine ...
+                description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
                 choices:
                     - 'ping'
                     - 'http'
                     - 'tcp-connect'
-            holddown-interval:
+            holddown_interval:
                 type: str
-                description: Deprecated, please rename it to holddown_interval. Enable/disable holddown timer.
+                description: Enable/disable holddown timer.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-host:
+            http_host:
                 type: str
-                description: Deprecated, please rename it to http_host. HTTP server domain name in HTTP header.
+                description: HTTP server domain name in HTTP header.
             id:
                 type: int
                 description: Real server ID.
@@ -148,15 +148,15 @@ options:
             port:
                 type: int
                 description: Port for communicating with the real server.
-            ssh-client-cert:
+            ssh_client_cert:
                 type: str
-                description: Deprecated, please rename it to ssh_client_cert. Set access-proxy SSH client certificate profile.
-            ssh-host-key:
+                description: Set access-proxy SSH client certificate profile.
+            ssh_host_key:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ssh_host_key. One or more server host key.
-            ssh-host-key-validation:
+                description: (list or str) One or more server host key.
+            ssh_host_key_validation:
                 type: str
-                description: Deprecated, please rename it to ssh_host_key_validation. Enable/disable SSH real server host key validation.
+                description: Enable/disable SSH real server host key validation.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -176,21 +176,21 @@ options:
             weight:
                 type: int
                 description: Weight of the real server.
-            translate-host:
+            translate_host:
                 type: str
-                description: Deprecated, please rename it to translate_host. Enable/disable translation of hostname/IP from virtual server to real server.
+                description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:
                     - 'disable'
                     - 'enable'
-            external-auth:
+            external_auth:
                 type: str
-                description: Deprecated, please rename it to external_auth. Enable/disable use of external browser as user-agent for SAML user authenti...
+                description: Enable/disable use of external browser as user-agent for SAML user authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-encryption:
+            tunnel_encryption:
                 type: str
-                description: Deprecated, please rename it to tunnel_encryption. Tunnel encryption.
+                description: Tunnel encryption.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -280,23 +280,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers',
         '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}',
-        '/pm/config/global/obj/firewall/access-proxy/{access-proxy}/api-gateway6/{api-gateway6}/realservers/{realservers}'
-    ]
-
     url_params = ['adom', 'access-proxy', 'api-gateway6']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -330,7 +322,6 @@ def main():
                 'external-auth': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-encryption': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -344,9 +335,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -97,9 +97,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            local-override:
+            local_override:
                 type: str
-                description: Deprecated, please rename it to local_override. Enable/disable local filter to override SMTP remote check result.
+                description: Enable/disable local filter to override SMTP remote check result.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -109,13 +109,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            tag-msg:
+            tag_msg:
                 type: str
-                description: Deprecated, please rename it to tag_msg. Subject text or header added to spam email.
-            tag-type:
+                description: Subject text or header added to spam email.
+            tag_type:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to tag_type. Tag subject or header for spam email.
+                description: Tag subject or header for spam email.
                 choices:
                     - 'subject'
                     - 'header'
@@ -147,9 +147,9 @@ EXAMPLES = '''
           log: <value in [disable, enable]>
           tag_msg: <string>
           tag_type:
-            - subject
-            - header
-            - spaminfo
+            - "subject"
+            - "header"
+            - "spaminfo"
 '''
 
 RETURN = '''
@@ -193,23 +193,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/smtp',
         '/pm/config/global/obj/spamfilter/profile/{profile}/smtp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/spamfilter/profile/{profile}/smtp/{smtp}',
-        '/pm/config/global/obj/spamfilter/profile/{profile}/smtp/{smtp}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -226,7 +218,6 @@ def main():
                 'tag-msg': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'tag-type': {'v_range': [['6.0.0', '7.2.1']], 'type': 'list', 'choices': ['subject', 'header', 'spaminfo'], 'elements': 'str'}
             }
-
         }
     }
 
@@ -240,9 +231,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

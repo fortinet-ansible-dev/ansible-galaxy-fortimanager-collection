@@ -85,10 +85,9 @@ options:
         required: false
         type: dict
         suboptions:
-            adom-lock:
+            adom_lock:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_lock.
                     - ADOM locking
                     - none - No permission.
                     - read - Read permission.
@@ -97,10 +96,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            adom-policy-packages:
+            adom_policy_packages:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_policy_packages.
                     - ADOM policy packages.
                     - none - No permission.
                     - read - Read permission.
@@ -109,10 +107,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            adom-switch:
+            adom_switch:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_switch.
                     - Administrator domain.
                     - none - No permission.
                     - read - Read permission.
@@ -121,10 +118,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            app-filter:
+            app_filter:
                 type: str
                 description:
-                    - Deprecated, please rename it to app_filter.
                     - App filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -142,20 +138,18 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            change-password:
+            change_password:
                 type: str
                 description:
-                    - Deprecated, please rename it to change_password.
                     - Enable/disable restricted user to change self password.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            config-retrieve:
+            config_retrieve:
                 type: str
                 description:
-                    - Deprecated, please rename it to config_retrieve.
                     - Configuration retrieve.
                     - none - No permission.
                     - read - Read permission.
@@ -164,10 +158,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            config-revert:
+            config_revert:
                 type: str
                 description:
-                    - Deprecated, please rename it to config_revert.
                     - Revert Configuration from Revision History
                     - none - No permission.
                     - read - Read permission.
@@ -176,10 +169,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            consistency-check:
+            consistency_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to consistency_check.
                     - Consistency check.
                     - none - No permission.
                     - read - Read permission.
@@ -197,16 +189,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            datamask-custom-fields:
+            datamask_custom_fields:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to datamask_custom_fields. Datamask custom fields.
+                description: Datamask custom fields.
                 suboptions:
-                    field-category:
+                    field_category:
                         type: list
                         elements: str
                         description:
-                            - Deprecated, please rename it to field_category.
                             - Field categories.
                             - log - Log.
                             - fortiview - FortiView.
@@ -219,23 +210,21 @@ options:
                             - 'alert'
                             - 'ueba'
                             - 'all'
-                    field-name:
+                    field_name:
                         type: str
-                        description: Deprecated, please rename it to field_name. Field name.
-                    field-status:
+                        description: Field name.
+                    field_status:
                         type: str
                         description:
-                            - Deprecated, please rename it to field_status.
                             - Field status.
                             - disable - Disable field.
                             - enable - Enable field.
                         choices:
                             - 'disable'
                             - 'enable'
-                    field-type:
+                    field_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to field_type.
                             - Field type.
                             - string - String.
                             - ip - IP.
@@ -248,21 +237,19 @@ options:
                             - 'mac'
                             - 'email'
                             - 'unknown'
-            datamask-custom-priority:
+            datamask_custom_priority:
                 type: str
                 description:
-                    - Deprecated, please rename it to datamask_custom_priority.
                     - Prioritize custom fields.
                     - disable - Disable custom field search priority.
                     - enable - Enable custom field search priority.
                 choices:
                     - 'disable'
                     - 'enable'
-            datamask-fields:
+            datamask_fields:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to datamask_fields.
                     - Data masking fields.
                     - user - User name.
                     - srcip - Source IP.
@@ -283,13 +270,12 @@ options:
                     - 'email'
                     - 'message'
                     - 'domain'
-            datamask-key:
+            datamask_key:
                 type: raw
-                description: (list) Deprecated, please rename it to datamask_key. Data masking encryption key.
-            deploy-management:
+                description: (list) Data masking encryption key.
+            deploy_management:
                 type: str
                 description:
-                    - Deprecated, please rename it to deploy_management.
                     - Install to devices.
                     - none - No permission.
                     - read - Read permission.
@@ -301,10 +287,9 @@ options:
             description:
                 type: str
                 description: Description.
-            device-ap:
+            device_ap:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_ap.
                     - Manage AP.
                     - none - No permission.
                     - read - Read permission.
@@ -313,10 +298,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-config:
+            device_config:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_config.
                     - Manage device configurations.
                     - none - No permission.
                     - read - Read permission.
@@ -325,10 +309,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-forticlient:
+            device_forticlient:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_forticlient.
                     - Manage FortiClient.
                     - none - No permission.
                     - read - Read permission.
@@ -337,10 +320,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-fortiswitch:
+            device_fortiswitch:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_fortiswitch.
                     - Manage FortiSwitch.
                     - none - No permission.
                     - read - Read permission.
@@ -349,10 +331,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-manager:
+            device_manager:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_manager.
                     - Device manager.
                     - none - No permission.
                     - read - Read permission.
@@ -361,10 +342,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-op:
+            device_op:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_op.
                     - Device add/delete/edit.
                     - none - No permission.
                     - read - Read permission.
@@ -373,10 +353,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-policy-package-lock:
+            device_policy_package_lock:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_policy_package_lock.
                     - Device/Policy Package locking
                     - none - No permission.
                     - read - Read permission.
@@ -385,10 +364,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-profile:
+            device_profile:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_profile.
                     - Device profile permission.
                     - none - No permission.
                     - read - Read permission.
@@ -397,10 +375,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-revision-deletion:
+            device_revision_deletion:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_revision_deletion.
                     - Delete device revision.
                     - none - No permission.
                     - read - Read permission.
@@ -409,10 +386,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            device-wan-link-load-balance:
+            device_wan_link_load_balance:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_wan_link_load_balance.
                     - Manage WAN link load balance.
                     - none - No permission.
                     - read - Read permission.
@@ -421,10 +397,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            event-management:
+            event_management:
                 type: str
                 description:
-                    - Deprecated, please rename it to event_management.
                     - Event management.
                     - none - No permission.
                     - read - Read permission.
@@ -433,10 +408,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            fgd-center-advanced:
+            fgd_center_advanced:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgd_center_advanced.
                     - FortiGuard Center Advanced.
                     - none - No permission.
                     - read - Read permission.
@@ -445,10 +419,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            fgd-center-fmw-mgmt:
+            fgd_center_fmw_mgmt:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgd_center_fmw_mgmt.
                     - FortiGuard Center Firmware Management.
                     - none - No permission.
                     - read - Read permission.
@@ -457,10 +430,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            fgd-center-licensing:
+            fgd_center_licensing:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgd_center_licensing.
                     - FortiGuard Center Licensing.
                     - none - No permission.
                     - read - Read permission.
@@ -480,10 +452,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            global-policy-packages:
+            global_policy_packages:
                 type: str
                 description:
-                    - Deprecated, please rename it to global_policy_packages.
                     - Global policy packages.
                     - none - No permission.
                     - read - Read permission.
@@ -492,10 +463,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            import-policy-packages:
+            import_policy_packages:
                 type: str
                 description:
-                    - Deprecated, please rename it to import_policy_packages.
                     - Import Policy Package.
                     - none - No permission.
                     - read - Read permission.
@@ -504,10 +474,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            intf-mapping:
+            intf_mapping:
                 type: str
                 description:
-                    - Deprecated, please rename it to intf_mapping.
                     - Interface Mapping
                     - none - No permission.
                     - read - Read permission.
@@ -516,20 +485,18 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            ips-filter:
+            ips_filter:
                 type: str
                 description:
-                    - Deprecated, please rename it to ips_filter.
                     - IPS filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-viewer:
+            log_viewer:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_viewer.
                     - Log viewer.
                     - none - No permission.
                     - read - Read permission.
@@ -538,10 +505,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            policy-objects:
+            policy_objects:
                 type: str
                 description:
-                    - Deprecated, please rename it to policy_objects.
                     - Policy objects permission.
                     - none - No permission.
                     - read - Read permission.
@@ -554,10 +520,9 @@ options:
                 type: str
                 description: Profile ID.
                 required: true
-            read-passwd:
+            read_passwd:
                 type: str
                 description:
-                    - Deprecated, please rename it to read_passwd.
                     - View password in clear text.
                     - none - No permission.
                     - read - Read permission.
@@ -566,10 +531,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            realtime-monitor:
+            realtime_monitor:
                 type: str
                 description:
-                    - Deprecated, please rename it to realtime_monitor.
                     - Realtime monitor.
                     - none - No permission.
                     - read - Read permission.
@@ -578,10 +542,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            report-viewer:
+            report_viewer:
                 type: str
                 description:
-                    - Deprecated, please rename it to report_viewer.
                     - Report viewer.
                     - none - No permission.
                     - read - Read permission.
@@ -599,10 +562,9 @@ options:
                 choices:
                     - 'global'
                     - 'adom'
-            set-install-targets:
+            set_install_targets:
                 type: str
                 description:
-                    - Deprecated, please rename it to set_install_targets.
                     - Edit installation targets.
                     - none - No permission.
                     - read - Read permission.
@@ -611,10 +573,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            system-setting:
+            system_setting:
                 type: str
                 description:
-                    - Deprecated, please rename it to system_setting.
                     - System setting.
                     - none - No permission.
                     - read - Read permission.
@@ -623,10 +584,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            term-access:
+            term_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to term_access.
                     - Terminal access.
                     - none - No permission.
                     - read - Read permission.
@@ -644,10 +604,9 @@ options:
                 choices:
                     - 'system'
                     - 'restricted'
-            vpn-manager:
+            vpn_manager:
                 type: str
                 description:
-                    - Deprecated, please rename it to vpn_manager.
                     - VPN manager.
                     - none - No permission.
                     - read - Read permission.
@@ -656,43 +615,39 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            web-filter:
+            web_filter:
                 type: str
                 description:
-                    - Deprecated, please rename it to web_filter.
                     - Web filter.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            datamask-unmasked-time:
+            datamask_unmasked_time:
                 type: int
-                description: Deprecated, please rename it to datamask_unmasked_time. Time in days without data masking.
-            super-user-profile:
+                description: Time in days without data masking.
+            super_user_profile:
                 type: str
                 description:
-                    - Deprecated, please rename it to super_user_profile.
                     - Enable/disable super user profile
                     - disable - Disable super user profile
                     - enable - Enable super user profile
                 choices:
                     - 'disable'
                     - 'enable'
-            allow-to-install:
+            allow_to_install:
                 type: str
                 description:
-                    - Deprecated, please rename it to allow_to_install.
                     - Enable/disable the restricted user to install objects to the devices.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            extension-access:
+            extension_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to extension_access.
                     - Manage extension access.
                     - none - No permission.
                     - read - Read permission.
@@ -701,10 +656,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            fabric-viewer:
+            fabric_viewer:
                 type: str
                 description:
-                    - Deprecated, please rename it to fabric_viewer.
                     - Fabric viewer.
                     - none - No permission.
                     - read - Read permission.
@@ -713,10 +667,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            run-report:
+            run_report:
                 type: str
                 description:
-                    - Deprecated, please rename it to run_report.
                     - Run reports.
                     - none - No permission.
                     - read - Read permission.
@@ -725,10 +678,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            script-access:
+            script_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to script_access.
                     - Script access.
                     - none - No permission.
                     - read - Read permission.
@@ -737,10 +689,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            triage-events:
+            triage_events:
                 type: str
                 description:
-                    - Deprecated, please rename it to triage_events.
                     - Triage events.
                     - none - No permission.
                     - read - Read permission.
@@ -749,10 +700,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            update-incidents:
+            update_incidents:
                 type: str
                 description:
-                    - Deprecated, please rename it to update_incidents.
                     - Create/update incidents.
                     - none - No permission.
                     - read - Read permission.
@@ -761,10 +711,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            ips-objects:
+            ips_objects:
                 type: str
                 description:
-                    - Deprecated, please rename it to ips_objects.
                     - Ips objects configuration.
                     - none - No permission.
                     - read - Read permission.
@@ -803,10 +752,9 @@ options:
             ipv6_trusthost9:
                 type: str
                 description: Admin user trusted host IPv6, default ffff
-            rpc-permit:
+            rpc_permit:
                 type: str
                 description:
-                    - Deprecated, please rename it to rpc_permit.
                     - Set none/read/read-write rpc-permission
                     - read-write - Read-write permission.
                     - none - No permission.
@@ -845,10 +793,9 @@ options:
             trusthost9:
                 type: str
                 description: Admin user trusted host IP, default 255.
-            ips-baseline-cfg:
+            ips_baseline_cfg:
                 type: str
                 description:
-                    - Deprecated, please rename it to ips_baseline_cfg.
                     - Ips baseline sensor configration.
                     - none - No permission.
                     - read - Read permission.
@@ -857,20 +804,18 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            ips-baseline-ovrd:
+            ips_baseline_ovrd:
                 type: str
                 description:
-                    - Deprecated, please rename it to ips_baseline_ovrd.
                     - Enable/disable override baseline ips sensor.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            device-fortiextender:
+            device_fortiextender:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_fortiextender.
                     - Manage FortiExtender.
                     - none - No permission.
                     - read - Read permission.
@@ -879,10 +824,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            ips-lock:
+            ips_lock:
                 type: str
                 description:
-                    - Deprecated, please rename it to ips_lock.
                     - IPS locking
                     - none - No permission.
                     - read - Read permission.
@@ -891,20 +835,18 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            fgt-gui-proxy:
+            fgt_gui_proxy:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgt_gui_proxy.
                     - FortiGate GUI proxy.
                     - disable - No permission.
                     - enable - With permission.
                 choices:
                     - 'disable'
                     - 'enable'
-            policy-ips-attrs:
+            policy_ips_attrs:
                 type: str
                 description:
-                    - Deprecated, please rename it to policy_ips_attrs.
                     - Policy ips attributes configuration.
                     - none - No permission.
                     - read - Read permission.
@@ -913,10 +855,9 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
-            write-passwd-access:
+            write_passwd_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to write_passwd_access.
                     - set all/specify-by-user/specify-by-profile write password access mode.
                     - all - All except super users.
                     - specify-by-user - Specify by user.
@@ -925,26 +866,25 @@ options:
                     - 'all'
                     - 'specify-by-user'
                     - 'specify-by-profile'
-            write-passwd-profiles:
+            write_passwd_profiles:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to write_passwd_profiles. Write passwd profiles.
+                description: Write passwd profiles.
                 suboptions:
                     profileid:
                         type: str
                         description: Profile ID.
-            write-passwd-user-list:
+            write_passwd_user_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to write_passwd_user_list. Write passwd user list.
+                description: Write passwd user list.
                 suboptions:
                     userid:
                         type: str
                         description: User ID.
-            adom-admin:
+            adom_admin:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_admin.
                     - Enable Adom Admin.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -1030,21 +970,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/admin/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/admin/profile/{profile}'
-    ]
-
     url_params = []
     module_primary_key = 'profileid'
     module_arg_spec = {
@@ -1146,7 +1079,7 @@ def main():
                 'trusthost9': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'ips-baseline-cfg': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-baseline-ovrd': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fortiextender': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-fortiextender': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-lock': {'v_range': [['7.2.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-ips-attrs': {'v_range': [['7.4.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1167,7 +1100,6 @@ def main():
                 },
                 'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -1181,9 +1113,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

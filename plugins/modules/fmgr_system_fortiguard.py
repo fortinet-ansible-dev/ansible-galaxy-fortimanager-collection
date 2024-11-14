@@ -80,75 +80,75 @@ options:
         required: false
         type: dict
         suboptions:
-            antispam-cache:
+            antispam_cache:
                 type: str
-                description: Deprecated, please rename it to antispam_cache. Enable/disable FortiGuard antispam request caching.
+                description: Enable/disable FortiGuard antispam request caching.
                 choices:
                     - 'disable'
                     - 'enable'
-            antispam-cache-mpercent:
+            antispam_cache_mpercent:
                 type: int
-                description: Deprecated, please rename it to antispam_cache_mpercent. Maximum percent of FortiGate memory the antispam cache is allowed...
-            antispam-cache-ttl:
+                description: Maximum percent of FortiGate memory the antispam cache is allowed to use
+            antispam_cache_ttl:
                 type: int
-                description: Deprecated, please rename it to antispam_cache_ttl. Time-to-live for antispam cache entries in seconds
-            antispam-expiration:
+                description: Time-to-live for antispam cache entries in seconds
+            antispam_expiration:
                 type: int
-                description: Deprecated, please rename it to antispam_expiration. Antispam expiration.
-            antispam-force-off:
+                description: Antispam expiration.
+            antispam_force_off:
                 type: str
-                description: Deprecated, please rename it to antispam_force_off. Enable/disable turning off the FortiGuard antispam service.
+                description: Enable/disable turning off the FortiGuard antispam service.
                 choices:
                     - 'disable'
                     - 'enable'
-            antispam-license:
+            antispam_license:
                 type: int
-                description: Deprecated, please rename it to antispam_license. Antispam license.
-            antispam-timeout:
+                description: Antispam license.
+            antispam_timeout:
                 type: int
-                description: Deprecated, please rename it to antispam_timeout. Antispam query time out
-            auto-join-forticloud:
+                description: Antispam query time out
+            auto_join_forticloud:
                 type: str
-                description: Deprecated, please rename it to auto_join_forticloud. Automatically connect to and login to FortiCloud.
+                description: Automatically connect to and login to FortiCloud.
                 choices:
                     - 'disable'
                     - 'enable'
-            ddns-server-ip:
+            ddns_server_ip:
                 type: str
-                description: Deprecated, please rename it to ddns_server_ip. IP address of the FortiDDNS server.
-            ddns-server-port:
+                description: IP address of the FortiDDNS server.
+            ddns_server_port:
                 type: int
-                description: Deprecated, please rename it to ddns_server_port. Port used to communicate with FortiDDNS servers.
-            load-balance-servers:
+                description: Port used to communicate with FortiDDNS servers.
+            load_balance_servers:
                 type: int
-                description: Deprecated, please rename it to load_balance_servers. Number of servers to alternate between as first FortiGuard option.
-            outbreak-prevention-cache:
+                description: Number of servers to alternate between as first FortiGuard option.
+            outbreak_prevention_cache:
                 type: str
-                description: Deprecated, please rename it to outbreak_prevention_cache. Enable/disable FortiGuard Virus Outbreak Prevention cache.
+                description: Enable/disable FortiGuard Virus Outbreak Prevention cache.
                 choices:
                     - 'disable'
                     - 'enable'
-            outbreak-prevention-cache-mpercent:
+            outbreak_prevention_cache_mpercent:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_cache_mpercent. Maximum percent of memory FortiGuard Virus Outbreak Pr...
-            outbreak-prevention-cache-ttl:
+                description: Maximum percent of memory FortiGuard Virus Outbreak Prevention cache can use
+            outbreak_prevention_cache_ttl:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_cache_ttl. Time-to-live for FortiGuard Virus Outbreak Prevention cache...
-            outbreak-prevention-expiration:
+                description: Time-to-live for FortiGuard Virus Outbreak Prevention cache entries
+            outbreak_prevention_expiration:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_expiration. Outbreak prevention expiration.
-            outbreak-prevention-force-off:
+                description: Outbreak prevention expiration.
+            outbreak_prevention_force_off:
                 type: str
-                description: Deprecated, please rename it to outbreak_prevention_force_off. Turn off FortiGuard Virus Outbreak Prevention service.
+                description: Turn off FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disable'
                     - 'enable'
-            outbreak-prevention-license:
+            outbreak_prevention_license:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_license. Outbreak prevention license.
-            outbreak-prevention-timeout:
+                description: Outbreak prevention license.
+            outbreak_prevention_timeout:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_timeout. FortiGuard Virus Outbreak Prevention time out
+                description: FortiGuard Virus Outbreak Prevention time out
             port:
                 type: str
                 description: Port used to communicate with the FortiGuard servers.
@@ -157,53 +157,53 @@ options:
                     - '80'
                     - '8888'
                     - '443'
-            sdns-server-ip:
+            sdns_server_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to sdns_server_ip. IP address of the FortiDNS server.
-            sdns-server-port:
+                description: (list) IP address of the FortiDNS server.
+            sdns_server_port:
                 type: int
-                description: Deprecated, please rename it to sdns_server_port. Port used to communicate with FortiDNS servers.
-            service-account-id:
+                description: Port used to communicate with FortiDNS servers.
+            service_account_id:
                 type: str
-                description: Deprecated, please rename it to service_account_id. Service account ID.
-            source-ip:
+                description: Service account ID.
+            source_ip:
                 type: str
-                description: Deprecated, please rename it to source_ip. Source IPv4 address used to communicate with FortiGuard.
-            source-ip6:
+                description: Source IPv4 address used to communicate with FortiGuard.
+            source_ip6:
                 type: str
-                description: Deprecated, please rename it to source_ip6. Source IPv6 address used to communicate with FortiGuard.
-            update-server-location:
+                description: Source IPv6 address used to communicate with FortiGuard.
+            update_server_location:
                 type: str
-                description: Deprecated, please rename it to update_server_location. Signature update server location.
+                description: Signature update server location.
                 choices:
                     - 'any'
                     - 'usa'
                     - 'automatic'
                     - 'eu'
-            webfilter-cache:
+            webfilter_cache:
                 type: str
-                description: Deprecated, please rename it to webfilter_cache. Enable/disable FortiGuard web filter caching.
+                description: Enable/disable FortiGuard web filter caching.
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-cache-ttl:
+            webfilter_cache_ttl:
                 type: int
-                description: Deprecated, please rename it to webfilter_cache_ttl. Time-to-live for web filter cache entries in seconds
-            webfilter-expiration:
+                description: Time-to-live for web filter cache entries in seconds
+            webfilter_expiration:
                 type: int
-                description: Deprecated, please rename it to webfilter_expiration. Webfilter expiration.
-            webfilter-force-off:
+                description: Webfilter expiration.
+            webfilter_force_off:
                 type: str
-                description: Deprecated, please rename it to webfilter_force_off. Enable/disable turning off the FortiGuard web filtering service.
+                description: Enable/disable turning off the FortiGuard web filtering service.
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-license:
+            webfilter_license:
                 type: int
-                description: Deprecated, please rename it to webfilter_license. Webfilter license.
-            webfilter-timeout:
+                description: Webfilter license.
+            webfilter_timeout:
                 type: int
-                description: Deprecated, please rename it to webfilter_timeout. Web filter query time out
+                description: Web filter query time out
             protocol:
                 type: str
                 description: Protocol used to communicate with the FortiGuard servers.
@@ -211,54 +211,54 @@ options:
                     - 'udp'
                     - 'http'
                     - 'https'
-            proxy-password:
+            proxy_password:
                 type: raw
-                description: (list) Deprecated, please rename it to proxy_password. Proxy user password.
-            proxy-server-ip:
+                description: (list) Proxy user password.
+            proxy_server_ip:
                 type: str
-                description: Deprecated, please rename it to proxy_server_ip. IP address of the proxy server.
-            proxy-server-port:
+                description: IP address of the proxy server.
+            proxy_server_port:
                 type: int
-                description: Deprecated, please rename it to proxy_server_port. Port used to communicate with the proxy server.
-            proxy-username:
+                description: Port used to communicate with the proxy server.
+            proxy_username:
                 type: str
-                description: Deprecated, please rename it to proxy_username. Proxy user name.
-            sandbox-region:
+                description: Proxy user name.
+            sandbox_region:
                 type: str
-                description: Deprecated, please rename it to sandbox_region. Cloud sandbox region.
-            avquery-cache-ttl:
+                description: Cloud sandbox region.
+            avquery_cache_ttl:
                 type: int
-                description: Deprecated, please rename it to avquery_cache_ttl. Time-to-live for antivirus cache entries
-            avquery-timeout:
+                description: Time-to-live for antivirus cache entries
+            avquery_timeout:
                 type: int
-                description: Deprecated, please rename it to avquery_timeout. Antivirus query time out
-            avquery-cache:
+                description: Antivirus query time out
+            avquery_cache:
                 type: str
-                description: Deprecated, please rename it to avquery_cache. Enable/disable the FortiGuard antivirus cache.
+                description: Enable/disable the FortiGuard antivirus cache.
                 choices:
                     - 'disable'
                     - 'enable'
-            avquery-cache-mpercent:
+            avquery_cache_mpercent:
                 type: int
-                description: Deprecated, please rename it to avquery_cache_mpercent. Maximum percent of memory the antivirus cache can use
-            avquery-license:
+                description: Maximum percent of memory the antivirus cache can use
+            avquery_license:
                 type: int
-                description: Deprecated, please rename it to avquery_license. Interval of time between license checks for the FortiGuard antivirus cont...
-            avquery-force-off:
+                description: Interval of time between license checks for the FortiGuard antivirus contract.
+            avquery_force_off:
                 type: str
-                description: Deprecated, please rename it to avquery_force_off. Turn off the FortiGuard antivirus service.
+                description: Turn off the FortiGuard antivirus service.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortiguard-anycast:
+            fortiguard_anycast:
                 type: str
-                description: Deprecated, please rename it to fortiguard_anycast. Enable/disable use of FortiGuards anycast network.
+                description: Enable/disable use of FortiGuards anycast network.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortiguard-anycast-source:
+            fortiguard_anycast_source:
                 type: str
-                description: Deprecated, please rename it to fortiguard_anycast_source. Configure which of Fortinets servers to provide FortiGuard serv...
+                description: Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                 choices:
                     - 'fortinet'
                     - 'aws'
@@ -266,77 +266,77 @@ options:
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
-            sdns-options:
+            sdns_options:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to sdns_options. Customization options for the FortiGuard DNS service.
+                description: Customization options for the FortiGuard DNS service.
                 choices:
                     - 'include-question-section'
-            anycast-sdns-server-ip:
+            anycast_sdns_server_ip:
                 type: str
-                description: Deprecated, please rename it to anycast_sdns_server_ip. IP address of the FortiGuard anycast DNS rating server.
-            anycast-sdns-server-port:
+                description: IP address of the FortiGuard anycast DNS rating server.
+            anycast_sdns_server_port:
                 type: int
-                description: Deprecated, please rename it to anycast_sdns_server_port. Port to connect to on the FortiGuard anycast DNS rating server.
-            persistent-connection:
+                description: Port to connect to on the FortiGuard anycast DNS rating server.
+            persistent_connection:
                 type: str
-                description: Deprecated, please rename it to persistent_connection. Enable/disable use of persistent connection to receive update notif...
+                description: Enable/disable use of persistent connection to receive update notification from FortiGuard.
                 choices:
                     - 'disable'
                     - 'enable'
-            update-build-proxy:
+            update_build_proxy:
                 type: str
-                description: Deprecated, please rename it to update_build_proxy. Enable/disable proxy dictionary rebuild.
+                description: Enable/disable proxy dictionary rebuild.
                 choices:
                     - 'disable'
                     - 'enable'
-            update-extdb:
+            update_extdb:
                 type: str
-                description: Deprecated, please rename it to update_extdb. Enable/disable external resource update.
+                description: Enable/disable external resource update.
                 choices:
                     - 'disable'
                     - 'enable'
-            update-ffdb:
+            update_ffdb:
                 type: str
-                description: Deprecated, please rename it to update_ffdb. Enable/disable Internet Service Database update.
+                description: Enable/disable Internet Service Database update.
                 choices:
                     - 'disable'
                     - 'enable'
-            update-uwdb:
+            update_uwdb:
                 type: str
-                description: Deprecated, please rename it to update_uwdb. Enable/disable allowlist update.
+                description: Enable/disable allowlist update.
                 choices:
                     - 'disable'
                     - 'enable'
-            videofilter-expiration:
+            videofilter_expiration:
                 type: int
-                description: Deprecated, please rename it to videofilter_expiration. Videofilter expiration.
-            videofilter-license:
+                description: Videofilter expiration.
+            videofilter_license:
                 type: int
-                description: Deprecated, please rename it to videofilter_license. Videofilter license.
-            ddns-server-ip6:
+                description: Videofilter license.
+            ddns_server_ip6:
                 type: str
-                description: Deprecated, please rename it to ddns_server_ip6. IPv6 address of the FortiDDNS server.
+                description: IPv6 address of the FortiDDNS server.
             vdom:
                 type: str
                 description: FortiGuard Service virtual domain name.
-            auto-firmware-upgrade:
+            auto_firmware_upgrade:
                 type: str
-                description: Deprecated, please rename it to auto_firmware_upgrade. Enable/disable automatic patch-level firmware upgrade from FortiGuard.
+                description: Enable/disable automatic patch-level firmware upgrade from FortiGuard.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-firmware-upgrade-day:
+            auto_firmware_upgrade_day:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to auto_firmware_upgrade_day. Allowed day
+                description: Allowed day
                 choices:
                     - 'sunday'
                     - 'monday'
@@ -345,39 +345,39 @@ options:
                     - 'thursday'
                     - 'friday'
                     - 'saturday'
-            auto-firmware-upgrade-end-hour:
+            auto_firmware_upgrade_end_hour:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_end_hour. End time in the designated time window for automatic patch...
-            auto-firmware-upgrade-start-hour:
+                description: End time in the designated time window for automatic patch-level firmware upgrade from FortiGuard in 24 hour time
+            auto_firmware_upgrade_start_hour:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_start_hour. Start time in the designated time window for automatic p...
-            sandbox-inline-scan:
+                description: Start time in the designated time window for automatic patch-level firmware upgrade from FortiGuard in 24 hour time
+            sandbox_inline_scan:
                 type: str
-                description: Deprecated, please rename it to sandbox_inline_scan. Enable/disable FortiCloud Sandbox inline-scan.
+                description: Enable/disable FortiCloud Sandbox inline-scan.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-firmware-upgrade-delay:
+            auto_firmware_upgrade_delay:
                 type: int
-                description: Deprecated, please rename it to auto_firmware_upgrade_delay. Delay of day
-            gui-prompt-auto-upgrade:
+                description: Delay of day
+            gui_prompt_auto_upgrade:
                 type: str
-                description: Deprecated, please rename it to gui_prompt_auto_upgrade. Enable/disable prompting of automatic patch-level firmware upgrad...
+                description: Enable/disable prompting of automatic patch-level firmware upgrade recommendation.
                 choices:
                     - 'disable'
                     - 'enable'
-            FDS-license-expiring-days:
+            FDS_license_expiring_days:
                 type: int
-                description: Deprecated, please rename it to FDS_license_expiring_days. Threshold for number of days before FortiGuard license expirati...
-            antispam-cache-mpermille:
+                description: Threshold for number of days before FortiGuard license expiration to generate license expiring event log
+            antispam_cache_mpermille:
                 type: int
-                description: Deprecated, please rename it to antispam_cache_mpermille. Maximum permille of FortiGate memory the antispam cache is allow...
-            outbreak-prevention-cache-mpermille:
+                description: Maximum permille of FortiGate memory the antispam cache is allowed to use
+            outbreak_prevention_cache_mpermille:
                 type: int
-                description: Deprecated, please rename it to outbreak_prevention_cache_mpermille. Maximum permille of memory FortiGuard Virus Outbreak ...
-            update-dldb:
+                description: Maximum permille of memory FortiGuard Virus Outbreak Prevention cache can use
+            update_dldb:
                 type: str
-                description: Deprecated, please rename it to update_dldb. Enable/disable DLP signature update.
+                description: Enable/disable DLP signature update.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -449,7 +449,7 @@ EXAMPLES = '''
           interface: <string>
           interface_select_method: <value in [auto, sdwan, specify]>
           sdns_options:
-            - include-question-section
+            - "include-question-section"
           anycast_sdns_server_ip: <string>
           anycast_sdns_server_port: <integer>
           persistent_connection: <value in [disable, enable]>
@@ -463,13 +463,13 @@ EXAMPLES = '''
           vdom: <string>
           auto_firmware_upgrade: <value in [disable, enable]>
           auto_firmware_upgrade_day:
-            - sunday
-            - monday
-            - tuesday
-            - wednesday
-            - thursday
-            - friday
-            - saturday
+            - "sunday"
+            - "monday"
+            - "tuesday"
+            - "wednesday"
+            - "thursday"
+            - "friday"
+            - "saturday"
           auto_firmware_upgrade_end_hour: <integer>
           auto_firmware_upgrade_start_hour: <integer>
           sandbox_inline_scan: <value in [disable, enable]>
@@ -522,23 +522,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/fortiguard',
         '/pm/config/global/obj/system/fortiguard'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/fortiguard/{fortiguard}',
-        '/pm/config/global/obj/system/fortiguard/{fortiguard}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -584,16 +576,16 @@ def main():
                 'proxy-server-port': {'v_range': [['6.2.1', '']], 'type': 'int'},
                 'proxy-username': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'sandbox-region': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'avquery-cache-ttl': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
-                'avquery-timeout': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
-                'avquery-cache': {'v_range': [['6.2.0', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'avquery-cache-mpercent': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
-                'avquery-license': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
-                'avquery-force-off': {'v_range': [['6.2.0', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'avquery-cache-ttl': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
+                'avquery-timeout': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
+                'avquery-cache': {'v_range': [['6.2.0', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'avquery-cache-mpercent': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
+                'avquery-license': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
+                'avquery-force-off': {'v_range': [['6.2.0', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiguard-anycast': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiguard-anycast-source': {'v_range': [['6.2.2', '']], 'choices': ['fortinet', 'aws', 'debug'], 'type': 'str'},
-                'interface': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'sdns-options': {'v_range': [['6.4.0', '']], 'type': 'list', 'choices': ['include-question-section'], 'elements': 'str'},
                 'anycast-sdns-server-ip': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'anycast-sdns-server-port': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -617,13 +609,12 @@ def main():
                 'auto-firmware-upgrade-start-hour': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'sandbox-inline-scan': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auto-firmware-upgrade-delay': {'v_range': [['7.2.4', '']], 'type': 'int'},
-                'gui-prompt-auto-upgrade': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-prompt-auto-upgrade': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'FDS-license-expiring-days': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'antispam-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'outbreak-prevention-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'update-dldb': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -637,9 +628,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

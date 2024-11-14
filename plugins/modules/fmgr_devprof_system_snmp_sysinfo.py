@@ -90,30 +90,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            append-index:
+            append_index:
                 type: str
-                description: Deprecated, please rename it to append_index. Enable/disable allowance of appending vdom or interface index in some RFC ta...
+                description: Enable/disable allowance of appending vdom or interface index in some RFC tables.
                 choices:
                     - 'disable'
                     - 'enable'
-            trap-high-cpu-threshold:
+            trap_high_cpu_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_high_cpu_threshold. CPU usage when trap is sent.
-            trap-log-full-threshold:
+                description: CPU usage when trap is sent.
+            trap_log_full_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_log_full_threshold. Log disk usage when trap is sent.
-            engine-id:
+                description: Log disk usage when trap is sent.
+            engine_id:
                 type: str
-                description: Deprecated, please rename it to engine_id. Local SNMP engineID string
-            trap-freeable-memory-threshold:
+                description: Local SNMP engineID string
+            trap_freeable_memory_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_freeable_memory_threshold. Freeable memory usage when trap is sent.
-            contact-info:
+                description: Freeable memory usage when trap is sent.
+            contact_info:
                 type: str
-                description: Deprecated, please rename it to contact_info. Contact information.
-            engine-id-type:
+                description: Contact information.
+            engine_id_type:
                 type: str
-                description: Deprecated, please rename it to engine_id_type. Local SNMP engineID type
+                description: Local SNMP engineID type
                 choices:
                     - 'text'
                     - 'hex'
@@ -121,18 +121,18 @@ options:
             description:
                 type: str
                 description: System description.
-            trap-free-memory-threshold:
+            trap_free_memory_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_free_memory_threshold. Free memory usage when trap is sent.
-            trap-low-memory-threshold:
+                description: Free memory usage when trap is sent.
+            trap_low_memory_threshold:
                 type: int
-                description: Deprecated, please rename it to trap_low_memory_threshold. Memory usage when trap is sent.
+                description: Memory usage when trap is sent.
             location:
                 type: str
                 description: System location.
-            non-mgmt-vdom-query:
+            non_mgmt_vdom_query:
                 type: str
-                description: Deprecated, please rename it to non_mgmt_vdom_query. Enable/disable allowance of SNMPv3 query from non-management vdoms.
+                description: Enable/disable allowance of SNMPv3 query from non-management vdoms.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -213,21 +213,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/sysinfo'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/sysinfo/{sysinfo}'
-    ]
-
     url_params = ['adom', 'devprof']
     module_primary_key = None
     module_arg_spec = {
@@ -238,20 +231,19 @@ def main():
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
             'options': {
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'append-index': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'trap-high-cpu-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'trap-log-full-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'engine-id': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'append-index': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'trap-high-cpu-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'trap-log-full-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'engine-id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'trap-freeable-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'contact-info': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'engine-id-type': {'v_range': [['7.4.3', '']], 'choices': ['text', 'hex', 'mac'], 'type': 'str'},
-                'description': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'contact-info': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'engine-id-type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['text', 'hex', 'mac'], 'type': 'str'},
+                'description': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'trap-free-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'trap-low-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'location': {'v_range': [['7.4.3', '']], 'type': 'str'},
+                'trap-low-memory-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
+                'location': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
                 'non-mgmt-vdom-query': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -265,9 +257,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

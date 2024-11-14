@@ -89,55 +89,55 @@ options:
         required: false
         type: dict
         suboptions:
-            expire-days:
+            expire_days:
                 type: int
-                description: Deprecated, please rename it to expire_days. Time in days before the users password expires.
+                description: Time in days before the users password expires.
             name:
                 type: str
                 description: Password policy name.
                 required: true
-            warn-days:
+            warn_days:
                 type: int
-                description: Deprecated, please rename it to warn_days. Time in days before a password expiration warning message is displayed to the u...
-            expired-password-renewal:
+                description: Time in days before a password expiration warning message is displayed to the user upon login.
+            expired_password_renewal:
                 type: str
-                description: Deprecated, please rename it to expired_password_renewal. Enable/disable renewal of a password that already is expired.
+                description: Enable/disable renewal of a password that already is expired.
                 choices:
                     - 'disable'
                     - 'enable'
-            expire-status:
+            expire_status:
                 type: str
-                description: Deprecated, please rename it to expire_status. Enable/disable password expiration.
+                description: Enable/disable password expiration.
                 choices:
                     - 'disable'
                     - 'enable'
-            min-change-characters:
+            min_change_characters:
                 type: int
-                description: Deprecated, please rename it to min_change_characters. Minimum number of unique characters in new password which do not ex...
-            min-lower-case-letter:
+                description: Minimum number of unique characters in new password which do not exist in old password
+            min_lower_case_letter:
                 type: int
-                description: Deprecated, please rename it to min_lower_case_letter. Minimum number of lowercase characters in password
-            min-non-alphanumeric:
+                description: Minimum number of lowercase characters in password
+            min_non_alphanumeric:
                 type: int
-                description: Deprecated, please rename it to min_non_alphanumeric. Minimum number of non-alphanumeric characters in password
-            min-number:
+                description: Minimum number of non-alphanumeric characters in password
+            min_number:
                 type: int
-                description: Deprecated, please rename it to min_number. Minimum number of numeric characters in password
-            min-upper-case-letter:
+                description: Minimum number of numeric characters in password
+            min_upper_case_letter:
                 type: int
-                description: Deprecated, please rename it to min_upper_case_letter. Minimum number of uppercase characters in password
-            minimum-length:
+                description: Minimum number of uppercase characters in password
+            minimum_length:
                 type: int
-                description: Deprecated, please rename it to minimum_length. Minimum password length
-            reuse-password:
+                description: Minimum password length
+            reuse_password:
                 type: str
-                description: Deprecated, please rename it to reuse_password. Enable/disable reuse of password.
+                description: Enable/disable reuse of password.
                 choices:
                     - 'disable'
                     - 'enable'
-            reuse-password-limit:
+            reuse_password_limit:
                 type: int
-                description: Deprecated, please rename it to reuse_password_limit. Number of times passwords can be reused
+                description: Number of times passwords can be reused
 '''
 
 EXAMPLES = '''
@@ -215,23 +215,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/password-policy',
         '/pm/config/global/obj/user/password-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/password-policy/{password-policy}',
-        '/pm/config/global/obj/user/password-policy/{password-policy}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -255,7 +247,6 @@ def main():
                 'reuse-password': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'reuse-password-limit': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'}
             }
-
         }
     }
 
@@ -269,9 +260,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

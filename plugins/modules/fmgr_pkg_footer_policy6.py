@@ -97,104 +97,104 @@ options:
                     - 'accept'
                     - 'ipsec'
                     - 'ssl-vpn'
-            anti-replay:
+            anti_replay:
                 type: str
-                description: Deprecated, please rename it to anti_replay. Anti replay.
+                description: Anti replay.
                 choices:
                     - 'disable'
                     - 'enable'
-            app-category:
+            app_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_category. App category.
-            app-group:
+                description: (list or str) App category.
+            app_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to app_group. App group.
+                description: (list or str) App group.
             application:
                 type: raw
                 description: (list) Application.
-            application-charts:
+            application_charts:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to application_charts. Application charts.
+                description: Application charts.
                 choices:
                     - 'top10-app'
                     - 'top10-p2p-user'
                     - 'top10-media-user'
-            application-list:
+            application_list:
                 type: raw
-                description: (list or str) Deprecated, please rename it to application_list. Application list.
-            auto-asic-offload:
+                description: (list or str) Application list.
+            auto_asic_offload:
                 type: str
-                description: Deprecated, please rename it to auto_asic_offload. Auto asic offload.
+                description: Auto asic offload.
                 choices:
                     - 'disable'
                     - 'enable'
-            av-profile:
+            av_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to av_profile. Av profile.
-            casi-profile:
+                description: (list or str) Av profile.
+            casi_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to casi_profile. Casi profile.
-            cifs-profile:
+                description: (list or str) Casi profile.
+            cifs_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to cifs_profile. Cifs profile.
+                description: (list or str) Cifs profile.
             comments:
                 type: str
                 description: Comments.
-            custom-log-fields:
+            custom_log_fields:
                 type: raw
-                description: (list or str) Deprecated, please rename it to custom_log_fields. Custom log fields.
-            deep-inspection-options:
+                description: (list or str) Custom log fields.
+            deep_inspection_options:
                 type: raw
-                description: (list or str) Deprecated, please rename it to deep_inspection_options. Deep inspection options.
-            device-detection-portal:
+                description: (list or str) Deep inspection options.
+            device_detection_portal:
                 type: str
-                description: Deprecated, please rename it to device_detection_portal. Device detection portal.
+                description: Device detection portal.
                 choices:
                     - 'disable'
                     - 'enable'
             devices:
                 type: raw
                 description: (list or str) Devices.
-            diffserv-forward:
+            diffserv_forward:
                 type: str
-                description: Deprecated, please rename it to diffserv_forward. Diffserv forward.
+                description: Diffserv forward.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffserv-reverse:
+            diffserv_reverse:
                 type: str
-                description: Deprecated, please rename it to diffserv_reverse. Diffserv reverse.
+                description: Diffserv reverse.
                 choices:
                     - 'disable'
                     - 'enable'
-            diffservcode-forward:
+            diffservcode_forward:
                 type: str
-                description: Deprecated, please rename it to diffservcode_forward. Diffservcode forward.
-            diffservcode-rev:
+                description: Diffservcode forward.
+            diffservcode_rev:
                 type: str
-                description: Deprecated, please rename it to diffservcode_rev. Diffservcode rev.
-            dlp-sensor:
+                description: Diffservcode rev.
+            dlp_sensor:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dlp_sensor. Dlp sensor.
-            dnsfilter-profile:
+                description: (list or str) Dlp sensor.
+            dnsfilter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dnsfilter_profile. Dnsfilter profile.
-            dscp-match:
+                description: (list or str) Dnsfilter profile.
+            dscp_match:
                 type: str
-                description: Deprecated, please rename it to dscp_match. Dscp match.
+                description: Dscp match.
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-negate:
+            dscp_negate:
                 type: str
-                description: Deprecated, please rename it to dscp_negate. Dscp negate.
+                description: Dscp negate.
                 choices:
                     - 'disable'
                     - 'enable'
-            dscp-value:
+            dscp_value:
                 type: str
-                description: Deprecated, please rename it to dscp_value. Dscp value.
+                description: Dscp value.
             dsri:
                 type: str
                 description: Dsri.
@@ -204,25 +204,25 @@ options:
             dstaddr:
                 type: raw
                 description: (list or str) Dstaddr.
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. Dstaddr negate.
+                description: Dstaddr negate.
                 choices:
                     - 'disable'
                     - 'enable'
             dstintf:
                 type: raw
                 description: (list or str) Dstintf.
-            dynamic-profile:
+            dynamic_profile:
                 type: str
-                description: Deprecated, please rename it to dynamic_profile. Dynamic profile.
+                description: Dynamic profile.
                 choices:
                     - 'disable'
                     - 'enable'
-            dynamic-profile-access:
+            dynamic_profile_access:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to dynamic_profile_access. Dynamic profile access.
+                description: Dynamic profile access.
                 choices:
                     - 'imap'
                     - 'smtp'
@@ -236,21 +236,21 @@ options:
                     - 'pop3s'
                     - 'https'
                     - 'ftps'
-            dynamic-profile-group:
+            dynamic_profile_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to dynamic_profile_group. Dynamic profile group.
-            email-collection-portal:
+                description: (list or str) Dynamic profile group.
+            email_collection_portal:
                 type: str
-                description: Deprecated, please rename it to email_collection_portal. Email collection portal.
+                description: Email collection portal.
                 choices:
                     - 'disable'
                     - 'enable'
-            emailfilter-profile:
+            emailfilter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to emailfilter_profile. Emailfilter profile.
-            firewall-session-dirty:
+                description: (list or str) Emailfilter profile.
+            firewall_session_dirty:
                 type: str
-                description: Deprecated, please rename it to firewall_session_dirty. Firewall session dirty.
+                description: Firewall session dirty.
                 choices:
                     - 'check-all'
                     - 'check-new'
@@ -266,31 +266,31 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            global-label:
+            global_label:
                 type: str
-                description: Deprecated, please rename it to global_label. Global label.
+                description: Global label.
             groups:
                 type: raw
                 description: (list or str) Groups.
-            http-policy-redirect:
+            http_policy_redirect:
                 type: str
-                description: Deprecated, please rename it to http_policy_redirect. Http policy redirect.
+                description: Http policy redirect.
                 choices:
                     - 'disable'
                     - 'enable'
-            icap-profile:
+            icap_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to icap_profile. Icap profile.
-            identity-based:
+                description: (list or str) Icap profile.
+            identity_based:
                 type: str
-                description: Deprecated, please rename it to identity_based. Identity based.
+                description: Identity based.
                 choices:
                     - 'disable'
                     - 'enable'
-            identity-based-policy6:
+            identity_based_policy6:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to identity_based_policy6. Identity based policy6.
+                description: Identity based policy6.
                 suboptions:
                     action:
                         type: str
@@ -298,39 +298,39 @@ options:
                         choices:
                             - 'deny'
                             - 'accept'
-                    application-list:
+                    application_list:
                         type: str
-                        description: Deprecated, please rename it to application_list. Application list.
-                    av-profile:
+                        description: Application list.
+                    av_profile:
                         type: str
-                        description: Deprecated, please rename it to av_profile. Av profile.
-                    deep-inspection-options:
+                        description: Av profile.
+                    deep_inspection_options:
                         type: str
-                        description: Deprecated, please rename it to deep_inspection_options. Deep inspection options.
+                        description: Deep inspection options.
                     devices:
                         type: str
                         description: Devices.
-                    dlp-sensor:
+                    dlp_sensor:
                         type: str
-                        description: Deprecated, please rename it to dlp_sensor. Dlp sensor.
-                    endpoint-compliance:
+                        description: Dlp sensor.
+                    endpoint_compliance:
                         type: str
-                        description: Deprecated, please rename it to endpoint_compliance. Endpoint compliance.
+                        description: Endpoint compliance.
                         choices:
                             - 'disable'
                             - 'enable'
                     groups:
                         type: str
                         description: Groups.
-                    icap-profile:
+                    icap_profile:
                         type: str
-                        description: Deprecated, please rename it to icap_profile. Icap profile.
+                        description: Icap profile.
                     id:
                         type: int
                         description: Id.
-                    ips-sensor:
+                    ips_sensor:
                         type: str
-                        description: Deprecated, please rename it to ips_sensor. Ips sensor.
+                        description: Ips sensor.
                     logtraffic:
                         type: str
                         description: Logtraffic.
@@ -339,75 +339,75 @@ options:
                             - 'enable'
                             - 'all'
                             - 'utm'
-                    mms-profile:
+                    mms_profile:
                         type: str
-                        description: Deprecated, please rename it to mms_profile. Mms profile.
-                    per-ip-shaper:
+                        description: Mms profile.
+                    per_ip_shaper:
                         type: str
-                        description: Deprecated, please rename it to per_ip_shaper. Per ip shaper.
-                    profile-group:
+                        description: Per ip shaper.
+                    profile_group:
                         type: str
-                        description: Deprecated, please rename it to profile_group. Profile group.
-                    profile-protocol-options:
+                        description: Profile group.
+                    profile_protocol_options:
                         type: str
-                        description: Deprecated, please rename it to profile_protocol_options. Profile protocol options.
-                    profile-type:
+                        description: Profile protocol options.
+                    profile_type:
                         type: str
-                        description: Deprecated, please rename it to profile_type. Profile type.
+                        description: Profile type.
                         choices:
                             - 'single'
                             - 'group'
-                    replacemsg-group:
+                    replacemsg_group:
                         type: str
-                        description: Deprecated, please rename it to replacemsg_group. Replacemsg group.
+                        description: Replacemsg group.
                     schedule:
                         type: str
                         description: Schedule.
-                    send-deny-packet:
+                    send_deny_packet:
                         type: str
-                        description: Deprecated, please rename it to send_deny_packet. Send deny packet.
+                        description: Send deny packet.
                         choices:
                             - 'disable'
                             - 'enable'
                     service:
                         type: str
                         description: Service.
-                    service-negate:
+                    service_negate:
                         type: str
-                        description: Deprecated, please rename it to service_negate. Service negate.
+                        description: Service negate.
                         choices:
                             - 'disable'
                             - 'enable'
-                    spamfilter-profile:
+                    spamfilter_profile:
                         type: str
-                        description: Deprecated, please rename it to spamfilter_profile. Spamfilter profile.
-                    sslvpn-portal:
+                        description: Spamfilter profile.
+                    sslvpn_portal:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_portal. Sslvpn portal.
-                    sslvpn-realm:
+                        description: Sslvpn portal.
+                    sslvpn_realm:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_realm. Sslvpn realm.
-                    traffic-shaper:
+                        description: Sslvpn realm.
+                    traffic_shaper:
                         type: str
-                        description: Deprecated, please rename it to traffic_shaper. Traffic shaper.
-                    traffic-shaper-reverse:
+                        description: Traffic shaper.
+                    traffic_shaper_reverse:
                         type: str
-                        description: Deprecated, please rename it to traffic_shaper_reverse. Traffic shaper reverse.
-                    utm-status:
+                        description: Traffic shaper reverse.
+                    utm_status:
                         type: str
-                        description: Deprecated, please rename it to utm_status. Utm status.
+                        description: Utm status.
                         choices:
                             - 'disable'
                             - 'enable'
-                    voip-profile:
+                    voip_profile:
                         type: str
-                        description: Deprecated, please rename it to voip_profile. Voip profile.
-                    webfilter-profile:
+                        description: Voip profile.
+                    webfilter_profile:
                         type: str
-                        description: Deprecated, please rename it to webfilter_profile. Webfilter profile.
-            identity-from:
+                        description: Webfilter profile.
+            identity_from:
                 type: str
-                description: Deprecated, please rename it to identity_from. Identity from.
+                description: Identity from.
                 choices:
                     - 'auth'
                     - 'device'
@@ -417,9 +417,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            inspection-mode:
+            inspection_mode:
                 type: str
-                description: Deprecated, please rename it to inspection_mode. Inspection mode.
+                description: Inspection mode.
                 choices:
                     - 'proxy'
                     - 'flow'
@@ -429,9 +429,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ips-sensor:
+            ips_sensor:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ips_sensor. Ips sensor.
+                description: (list or str) Ips sensor.
             label:
                 type: str
                 description: Label.
@@ -443,15 +443,15 @@ options:
                     - 'enable'
                     - 'all'
                     - 'utm'
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Logtraffic start.
+                description: Logtraffic start.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-profile:
+            mms_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to mms_profile. Mms profile.
+                description: (list or str) Mms profile.
             name:
                 type: str
                 description: Name.
@@ -473,15 +473,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            np-accelation:
+            np_accelation:
                 type: str
-                description: Deprecated, please rename it to np_accelation. Np accelation.
+                description: Np accelation.
                 choices:
                     - 'disable'
                     - 'enable'
-            np-acceleration:
+            np_acceleration:
                 type: str
-                description: Deprecated, please rename it to np_acceleration. Np acceleration.
+                description: Np acceleration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -491,9 +491,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: raw
-                description: (list or str) Deprecated, please rename it to per_ip_shaper. Per ip shaper.
+                description: (list or str) Per ip shaper.
             policyid:
                 type: int
                 description: Policyid.
@@ -501,24 +501,24 @@ options:
             poolname:
                 type: raw
                 description: (list or str) Poolname.
-            profile-group:
+            profile_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to profile_group. Profile group.
-            profile-protocol-options:
+                description: (list or str) Profile group.
+            profile_protocol_options:
                 type: raw
-                description: (list or str) Deprecated, please rename it to profile_protocol_options. Profile protocol options.
-            profile-type:
+                description: (list or str) Profile protocol options.
+            profile_type:
                 type: str
-                description: Deprecated, please rename it to profile_type. Profile type.
+                description: Profile type.
                 choices:
                     - 'single'
                     - 'group'
-            replacemsg-group:
+            replacemsg_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to replacemsg_group. Replacemsg group.
-            replacemsg-override-group:
+                description: (list or str) Replacemsg group.
+            replacemsg_override_group:
                 type: raw
-                description: (list or str) Deprecated, please rename it to replacemsg_override_group. Replacemsg override group.
+                description: (list or str) Replacemsg override group.
             rsso:
                 type: str
                 description: Rsso.
@@ -528,78 +528,78 @@ options:
             schedule:
                 type: raw
                 description: (list or str) Schedule.
-            send-deny-packet:
+            send_deny_packet:
                 type: str
-                description: Deprecated, please rename it to send_deny_packet. Send deny packet.
+                description: Send deny packet.
                 choices:
                     - 'disable'
                     - 'enable'
             service:
                 type: raw
                 description: (list or str) Service.
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. Service negate.
+                description: Service negate.
                 choices:
                     - 'disable'
                     - 'enable'
-            session-ttl:
+            session_ttl:
                 type: raw
-                description: (int or str) Deprecated, please rename it to session_ttl. Session ttl.
-            spamfilter-profile:
+                description: (int or str) Session ttl.
+            spamfilter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to spamfilter_profile. Spamfilter profile.
+                description: (list or str) Spamfilter profile.
             srcaddr:
                 type: raw
                 description: (list or str) Srcaddr.
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. Srcaddr negate.
+                description: Srcaddr negate.
                 choices:
                     - 'disable'
                     - 'enable'
             srcintf:
                 type: raw
                 description: (list or str) Srcintf.
-            ssh-filter-profile:
+            ssh_filter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ssh_filter_profile. Ssh filter profile.
-            ssh-policy-redirect:
+                description: (list or str) Ssh filter profile.
+            ssh_policy_redirect:
                 type: str
-                description: Deprecated, please rename it to ssh_policy_redirect. Ssh policy redirect.
+                description: Ssh policy redirect.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-mirror:
+            ssl_mirror:
                 type: str
-                description: Deprecated, please rename it to ssl_mirror. Ssl mirror.
+                description: Ssl mirror.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-mirror-intf:
+            ssl_mirror_intf:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ssl_mirror_intf. Ssl mirror intf.
-            ssl-ssh-profile:
+                description: (list or str) Ssl mirror intf.
+            ssl_ssh_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ssl_ssh_profile. Ssl ssh profile.
-            sslvpn-auth:
+                description: (list or str) Ssl ssh profile.
+            sslvpn_auth:
                 type: str
-                description: Deprecated, please rename it to sslvpn_auth. Sslvpn auth.
+                description: Sslvpn auth.
                 choices:
                     - 'any'
                     - 'local'
                     - 'radius'
                     - 'ldap'
                     - 'tacacs+'
-            sslvpn-ccert:
+            sslvpn_ccert:
                 type: str
-                description: Deprecated, please rename it to sslvpn_ccert. Sslvpn ccert.
+                description: Sslvpn ccert.
                 choices:
                     - 'disable'
                     - 'enable'
-            sslvpn-cipher:
+            sslvpn_cipher:
                 type: str
-                description: Deprecated, please rename it to sslvpn_cipher. Sslvpn cipher.
+                description: Sslvpn cipher.
                 choices:
                     - 'any'
                     - 'high'
@@ -613,118 +613,118 @@ options:
             tags:
                 type: raw
                 description: (list or str) Tags.
-            tcp-mss-receiver:
+            tcp_mss_receiver:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_receiver. Tcp mss receiver.
-            tcp-mss-sender:
+                description: Tcp mss receiver.
+            tcp_mss_sender:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_sender. Tcp mss sender.
-            tcp-session-without-syn:
+                description: Tcp mss sender.
+            tcp_session_without_syn:
                 type: str
-                description: Deprecated, please rename it to tcp_session_without_syn. Tcp session without syn.
+                description: Tcp session without syn.
                 choices:
                     - 'all'
                     - 'data-only'
                     - 'disable'
-            timeout-send-rst:
+            timeout_send_rst:
                 type: str
-                description: Deprecated, please rename it to timeout_send_rst. Timeout send rst.
+                description: Timeout send rst.
                 choices:
                     - 'disable'
                     - 'enable'
             tos:
                 type: str
                 description: Tos.
-            tos-mask:
+            tos_mask:
                 type: str
-                description: Deprecated, please rename it to tos_mask. Tos mask.
-            tos-negate:
+                description: Tos mask.
+            tos_negate:
                 type: str
-                description: Deprecated, please rename it to tos_negate. Tos negate.
+                description: Tos negate.
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-shaper:
+            traffic_shaper:
                 type: raw
-                description: (list or str) Deprecated, please rename it to traffic_shaper. Traffic shaper.
-            traffic-shaper-reverse:
+                description: (list or str) Traffic shaper.
+            traffic_shaper_reverse:
                 type: raw
-                description: (list or str) Deprecated, please rename it to traffic_shaper_reverse. Traffic shaper reverse.
-            url-category:
+                description: (list or str) Traffic shaper reverse.
+            url_category:
                 type: raw
-                description: (list or str) Deprecated, please rename it to url_category. Url category.
+                description: (list or str) Url category.
             users:
                 type: raw
                 description: (list or str) Users.
-            utm-inspection-mode:
+            utm_inspection_mode:
                 type: str
-                description: Deprecated, please rename it to utm_inspection_mode. Utm inspection mode.
+                description: Utm inspection mode.
                 choices:
                     - 'proxy'
                     - 'flow'
-            utm-status:
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Utm status.
+                description: Utm status.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Uuid.
-            vlan-cos-fwd:
+            vlan_cos_fwd:
                 type: int
-                description: Deprecated, please rename it to vlan_cos_fwd. Vlan cos fwd.
-            vlan-cos-rev:
+                description: Vlan cos fwd.
+            vlan_cos_rev:
                 type: int
-                description: Deprecated, please rename it to vlan_cos_rev. Vlan cos rev.
-            vlan-filter:
+                description: Vlan cos rev.
+            vlan_filter:
                 type: str
-                description: Deprecated, please rename it to vlan_filter. Vlan filter.
-            voip-profile:
+                description: Vlan filter.
+            voip_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to voip_profile. Voip profile.
+                description: (list or str) Voip profile.
             vpntunnel:
                 type: raw
                 description: (list or str) Vpntunnel.
-            webfilter-profile:
+            webfilter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to webfilter_profile. Webfilter profile.
-            waf-profile:
+                description: (list or str) Webfilter profile.
+            waf_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to waf_profile. Waf profile.
+                description: (list or str) Waf profile.
             webcache:
                 type: str
                 description: Webcache.
                 choices:
                     - 'disable'
                     - 'enable'
-            webcache-https:
+            webcache_https:
                 type: str
-                description: Deprecated, please rename it to webcache_https. Webcache https.
+                description: Webcache https.
                 choices:
                     - 'disable'
                     - 'enable'
-            webproxy-forward-server:
+            webproxy_forward_server:
                 type: raw
-                description: (list or str) Deprecated, please rename it to webproxy_forward_server. Webproxy forward server.
-            webproxy-profile:
+                description: (list or str) Webproxy forward server.
+            webproxy_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to webproxy_profile. Webproxy profile.
-            fsso-groups:
+                description: (list or str) Webproxy profile.
+            fsso_groups:
                 type: raw
-                description: (list or str) Deprecated, please rename it to fsso_groups. Fsso groups.
-            decrypted-traffic-mirror:
+                description: (list or str) Fsso groups.
+            decrypted_traffic_mirror:
                 type: raw
-                description: (list or str) Deprecated, please rename it to decrypted_traffic_mirror. Decrypted traffic mirror.
-            file-filter-profile:
+                description: (list or str) Decrypted traffic mirror.
+            file_filter_profile:
                 type: raw
-                description: (list or str) Deprecated, please rename it to file_filter_profile. File filter profile.
-            cgn-log-server-grp:
+                description: (list or str) File filter profile.
+            cgn_log_server_grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp. NP log server group name
-            policy-offload:
+                description: NP log server group name
+            policy_offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload. Enable/disable offloading policy configuration to CP processors.
+                description: Enable/disable offloading policy configuration to CP processors.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -819,21 +819,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/global/pkg/{pkg}/global/footer/policy6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}'
-    ]
-
     url_params = ['pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -997,11 +990,10 @@ def main():
                 'fsso-groups': {'v_range': [['6.2.3', '']], 'type': 'raw'},
                 'decrypted-traffic-mirror': {'v_range': [['6.4.0', '']], 'type': 'raw'},
                 'file-filter-profile': {'v_range': [['6.4.1', '']], 'type': 'raw'},
-                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
+                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 '_policy_block': {'v_range': [['7.2.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -1023,9 +1015,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

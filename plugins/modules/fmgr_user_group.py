@@ -89,15 +89,15 @@ options:
         required: false
         type: dict
         suboptions:
-            auth-concurrent-override:
+            auth_concurrent_override:
                 type: str
-                description: Deprecated, please rename it to auth_concurrent_override. Enable/disable overriding the global number of concurrent authen...
+                description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-concurrent-value:
+            auth_concurrent_value:
                 type: int
-                description: Deprecated, please rename it to auth_concurrent_value. Maximum number of concurrent authenticated connections per user
+                description: Maximum number of concurrent authenticated connections per user
             authtimeout:
                 type: int
                 description: Authentication timeout in minutes for this user group.
@@ -117,15 +117,15 @@ options:
             expire:
                 type: int
                 description: Time in seconds before guest user accounts expire.
-            expire-type:
+            expire_type:
                 type: str
-                description: Deprecated, please rename it to expire_type. Determine when the expiration countdown begins.
+                description: Determine when the expiration countdown begins.
                 choices:
                     - 'immediately'
                     - 'first-successful-login'
-            group-type:
+            group_type:
                 type: str
-                description: Deprecated, please rename it to group_type. Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
+                description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
                 choices:
                     - 'firewall'
                     - 'directory-service'
@@ -149,9 +149,9 @@ options:
                     expiration:
                         type: str
                         description: Expire time.
-                    mobile-phone:
+                    mobile_phone:
                         type: str
-                        description: Deprecated, please rename it to mobile_phone. Mobile phone.
+                        description: Mobile phone.
                     name:
                         type: str
                         description: Guest name.
@@ -161,18 +161,18 @@ options:
                     sponsor:
                         type: str
                         description: Set the action for the sponsor guest user field.
-                    user-id:
+                    user_id:
                         type: str
-                        description: Deprecated, please rename it to user_id. Guest ID.
+                        description: Guest ID.
                     group:
                         type: str
                         description: Guest name.
                     id:
                         type: int
                         description: Guest ID.
-            http-digest-realm:
+            http_digest_realm:
                 type: str
-                description: Deprecated, please rename it to http_digest_realm. Realm attribute for MD5-digest authentication.
+                description: Realm attribute for MD5-digest authentication.
             id:
                 type: int
                 description: Group ID.
@@ -184,31 +184,31 @@ options:
                     _gui_meta:
                         type: str
                         description: Gui meta.
-                    group-name:
+                    group_name:
                         type: str
-                        description: Deprecated, please rename it to group_name. Name of matching group on remote authentication server.
+                        description: Name of matching group on remote authentication server.
                     id:
                         type: int
                         description: ID.
-                    server-name:
+                    server_name:
                         type: str
-                        description: Deprecated, please rename it to server_name. Name of remote auth server.
-            max-accounts:
+                        description: Name of remote auth server.
+            max_accounts:
                 type: int
-                description: Deprecated, please rename it to max_accounts. Maximum number of guest accounts that can be created for this group
+                description: Maximum number of guest accounts that can be created for this group
             member:
                 type: list
                 elements: str
                 description: Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
-            mobile-phone:
+            mobile_phone:
                 type: str
-                description: Deprecated, please rename it to mobile_phone. Enable/disable the guest user mobile phone number field.
+                description: Enable/disable the guest user mobile phone number field.
                 choices:
                     - 'disable'
                     - 'enable'
-            multiple-guest-add:
+            multiple_guest_add:
                 type: str
-                description: Deprecated, please rename it to multiple_guest_add. Enable/disable addition of multiple guests.
+                description: Enable/disable addition of multiple guests.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -223,12 +223,12 @@ options:
                     - 'auto-generate'
                     - 'specify'
                     - 'disable'
-            sms-custom-server:
+            sms_custom_server:
                 type: str
-                description: Deprecated, please rename it to sms_custom_server. SMS server.
-            sms-server:
+                description: SMS server.
+            sms_server:
                 type: str
-                description: Deprecated, please rename it to sms_server. Send SMS through FortiGuard or other external server.
+                description: Send SMS through FortiGuard or other external server.
                 choices:
                     - 'fortiguard'
                     - 'custom'
@@ -239,19 +239,19 @@ options:
                     - 'optional'
                     - 'mandatory'
                     - 'disabled'
-            sso-attribute-value:
+            sso_attribute_value:
                 type: str
-                description: Deprecated, please rename it to sso_attribute_value. Name of the RADIUS user group that this local user group represents.
-            user-id:
+                description: Name of the RADIUS user group that this local user group represents.
+            user_id:
                 type: str
-                description: Deprecated, please rename it to user_id. Guest user ID type.
+                description: Guest user ID type.
                 choices:
                     - 'email'
                     - 'auto-generate'
                     - 'specify'
-            user-name:
+            user_name:
                 type: str
-                description: Deprecated, please rename it to user_name. Enable/disable the guest user name entry.
+                description: Enable/disable the guest user name entry.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -271,15 +271,15 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    auth-concurrent-override:
+                    auth_concurrent_override:
                         type: str
-                        description: Deprecated, please rename it to auth_concurrent_override. Enable/disable overriding the global number of concurren...
+                        description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
                         choices:
                             - 'disable'
                             - 'enable'
-                    auth-concurrent-value:
+                    auth_concurrent_value:
                         type: int
-                        description: Deprecated, please rename it to auth_concurrent_value. Maximum number of concurrent authenticated connections per user
+                        description: Maximum number of concurrent authenticated connections per user
                     authtimeout:
                         type: int
                         description: Authentication timeout in minutes for this user group.
@@ -299,15 +299,15 @@ options:
                     expire:
                         type: int
                         description: Time in seconds before guest user accounts expire
-                    expire-type:
+                    expire_type:
                         type: str
-                        description: Deprecated, please rename it to expire_type. Determine when the expiration countdown begins.
+                        description: Determine when the expiration countdown begins.
                         choices:
                             - 'immediately'
                             - 'first-successful-login'
-                    group-type:
+                    group_type:
                         type: str
-                        description: Deprecated, please rename it to group_type. Set the group to be for firewall authentication, FSSO, RSSO, or guest ...
+                        description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
                         choices:
                             - 'firewall'
                             - 'directory-service'
@@ -337,9 +337,9 @@ options:
                             id:
                                 type: int
                                 description: Guest ID.
-                            mobile-phone:
+                            mobile_phone:
                                 type: str
-                                description: Deprecated, please rename it to mobile_phone. Mobile phone.
+                                description: Mobile phone.
                             name:
                                 type: str
                                 description: Guest name.
@@ -349,21 +349,21 @@ options:
                             sponsor:
                                 type: str
                                 description: Set the action for the sponsor guest user field.
-                            user-id:
+                            user_id:
                                 type: str
-                                description: Deprecated, please rename it to user_id. Guest ID.
-                    http-digest-realm:
+                                description: Guest ID.
+                    http_digest_realm:
                         type: str
-                        description: Deprecated, please rename it to http_digest_realm. Realm attribute for MD5-digest authentication.
+                        description: Realm attribute for MD5-digest authentication.
                     id:
                         type: int
                         description: Group ID.
-                    ldap-memberof:
+                    ldap_memberof:
                         type: str
-                        description: Deprecated, please rename it to ldap_memberof. Ldap memberof.
-                    logic-type:
+                        description: Ldap memberof.
+                    logic_type:
                         type: str
-                        description: Deprecated, please rename it to logic_type. Logic type.
+                        description: Logic type.
                         choices:
                             - 'or'
                             - 'and'
@@ -375,30 +375,30 @@ options:
                             _gui_meta:
                                 type: str
                                 description: Gui meta.
-                            group-name:
+                            group_name:
                                 type: str
-                                description: Deprecated, please rename it to group_name. Name of matching user or group on remote authentication server.
+                                description: Name of matching user or group on remote authentication server.
                             id:
                                 type: int
                                 description: ID.
-                            server-name:
+                            server_name:
                                 type: str
-                                description: Deprecated, please rename it to server_name. Name of remote auth server.
-                    max-accounts:
+                                description: Name of remote auth server.
+                    max_accounts:
                         type: int
-                        description: Deprecated, please rename it to max_accounts. Maximum number of guest accounts that can be created for this group
+                        description: Maximum number of guest accounts that can be created for this group
                     member:
                         type: raw
                         description: (list or str) Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
-                    mobile-phone:
+                    mobile_phone:
                         type: str
-                        description: Deprecated, please rename it to mobile_phone. Enable/disable the guest user mobile phone number field.
+                        description: Enable/disable the guest user mobile phone number field.
                         choices:
                             - 'disable'
                             - 'enable'
-                    multiple-guest-add:
+                    multiple_guest_add:
                         type: str
-                        description: Deprecated, please rename it to multiple_guest_add. Enable/disable addition of multiple guests.
+                        description: Enable/disable addition of multiple guests.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -409,15 +409,15 @@ options:
                             - 'auto-generate'
                             - 'specify'
                             - 'disable'
-                    redir-url:
+                    redir_url:
                         type: str
-                        description: Deprecated, please rename it to redir_url. Redir url.
-                    sms-custom-server:
+                        description: Redir url.
+                    sms_custom_server:
                         type: str
-                        description: Deprecated, please rename it to sms_custom_server. SMS server.
-                    sms-server:
+                        description: SMS server.
+                    sms_server:
                         type: str
-                        description: Deprecated, please rename it to sms_server. Send SMS through FortiGuard or other external server.
+                        description: Send SMS through FortiGuard or other external server.
                         choices:
                             - 'fortiguard'
                             - 'custom'
@@ -428,46 +428,46 @@ options:
                             - 'optional'
                             - 'mandatory'
                             - 'disabled'
-                    sslvpn-bookmarks-group:
+                    sslvpn_bookmarks_group:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to sslvpn_bookmarks_group. Sslvpn bookmarks group.
-                    sslvpn-cache-cleaner:
+                        description: (list or str) Sslvpn bookmarks group.
+                    sslvpn_cache_cleaner:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_cache_cleaner. Sslvpn cache cleaner.
+                        description: Sslvpn cache cleaner.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-client-check:
+                    sslvpn_client_check:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to sslvpn_client_check. Sslvpn client check.
+                        description: Sslvpn client check.
                         choices:
                             - 'forticlient'
                             - 'forticlient-av'
                             - 'forticlient-fw'
                             - '3rdAV'
                             - '3rdFW'
-                    sslvpn-ftp:
+                    sslvpn_ftp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_ftp. Sslvpn ftp.
+                        description: Sslvpn ftp.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-http:
+                    sslvpn_http:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_http. Sslvpn http.
+                        description: Sslvpn http.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-os-check:
+                    sslvpn_os_check:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_os_check. Sslvpn os check.
+                        description: Sslvpn os check.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-os-check-list:
+                    sslvpn_os_check_list:
                         type: dict
-                        description: Deprecated, please rename it to sslvpn_os_check_list. Sslvpn os check list.
+                        description: Sslvpn os check list.
                         suboptions:
                             action:
                                 type: str
@@ -476,100 +476,100 @@ options:
                                     - 'allow'
                                     - 'check-up-to-date'
                                     - 'deny'
-                            latest-patch-level:
+                            latest_patch_level:
                                 type: str
-                                description: Deprecated, please rename it to latest_patch_level. Latest patch level.
+                                description: Latest patch level.
                             name:
                                 type: str
                                 description: Name.
                             tolerance:
                                 type: int
                                 description: Tolerance.
-                    sslvpn-portal:
+                    sslvpn_portal:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to sslvpn_portal. Sslvpn portal.
-                    sslvpn-portal-heading:
+                        description: (list or str) Sslvpn portal.
+                    sslvpn_portal_heading:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_portal_heading. Sslvpn portal heading.
-                    sslvpn-rdp:
+                        description: Sslvpn portal heading.
+                    sslvpn_rdp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_rdp. Sslvpn rdp.
+                        description: Sslvpn rdp.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-samba:
+                    sslvpn_samba:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_samba. Sslvpn samba.
+                        description: Sslvpn samba.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-split-tunneling:
+                    sslvpn_split_tunneling:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_split_tunneling. Sslvpn split tunneling.
+                        description: Sslvpn split tunneling.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-ssh:
+                    sslvpn_ssh:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_ssh. Sslvpn ssh.
+                        description: Sslvpn ssh.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-telnet:
+                    sslvpn_telnet:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_telnet. Sslvpn telnet.
+                        description: Sslvpn telnet.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-tunnel:
+                    sslvpn_tunnel:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel. Sslvpn tunnel.
+                        description: Sslvpn tunnel.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-tunnel-endip:
+                    sslvpn_tunnel_endip:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_endip. Sslvpn tunnel endip.
-                    sslvpn-tunnel-ip-mode:
+                        description: Sslvpn tunnel endip.
+                    sslvpn_tunnel_ip_mode:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_ip_mode. Sslvpn tunnel ip mode.
+                        description: Sslvpn tunnel ip mode.
                         choices:
                             - 'range'
                             - 'usrgrp'
-                    sslvpn-tunnel-startip:
+                    sslvpn_tunnel_startip:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_tunnel_startip. Sslvpn tunnel startip.
-                    sslvpn-virtual-desktop:
+                        description: Sslvpn tunnel startip.
+                    sslvpn_virtual_desktop:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_virtual_desktop. Sslvpn virtual desktop.
+                        description: Sslvpn virtual desktop.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-vnc:
+                    sslvpn_vnc:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_vnc. Sslvpn vnc.
+                        description: Sslvpn vnc.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sslvpn-webapp:
+                    sslvpn_webapp:
                         type: str
-                        description: Deprecated, please rename it to sslvpn_webapp. Sslvpn webapp.
+                        description: Sslvpn webapp.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sso-attribute-value:
+                    sso_attribute_value:
                         type: str
-                        description: Deprecated, please rename it to sso_attribute_value. Name of the RADIUS user group that this local user group repr...
-                    user-id:
+                        description: Name of the RADIUS user group that this local user group represents.
+                    user_id:
                         type: str
-                        description: Deprecated, please rename it to user_id. Guest user ID type.
+                        description: Guest user ID type.
                         choices:
                             - 'email'
                             - 'auto-generate'
                             - 'specify'
-                    user-name:
+                    user_name:
                         type: str
-                        description: Deprecated, please rename it to user_name. Enable/disable the guest user name entry.
+                        description: Enable/disable the guest user name entry.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -654,23 +654,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/user/group',
         '/pm/config/global/obj/user/group'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/user/group/{group}',
-        '/pm/config/global/obj/user/group/{group}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -699,7 +691,7 @@ def main():
                         'password': {'no_log': True, 'type': 'raw'},
                         'sponsor': {'type': 'str'},
                         'user-id': {'type': 'str'},
-                        'group': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
+                        'group': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                         'id': {'v_range': [['6.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
@@ -829,7 +821,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -843,9 +834,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

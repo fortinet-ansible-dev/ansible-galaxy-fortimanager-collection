@@ -100,29 +100,29 @@ options:
                     - 'pass'
                     - 'block'
                     - 'reset'
-            exempt-ip:
+            exempt_ip:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exempt_ip. Exempt ip.
+                description: Exempt ip.
                 suboptions:
-                    dst-ip:
+                    dst_ip:
                         type: str
-                        description: Deprecated, please rename it to dst_ip. Destination IP address and netmask.
+                        description: Destination IP address and netmask.
                     id:
                         type: int
                         description: Exempt IP ID.
-                    src-ip:
+                    src_ip:
                         type: str
-                        description: Deprecated, please rename it to src_ip. Source IP address and netmask.
+                        description: Source IP address and netmask.
             log:
                 type: str
                 description: Enable/disable logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-packet:
+            log_packet:
                 type: str
-                description: Deprecated, please rename it to log_packet. Enable/disable packet logging.
+                description: Enable/disable packet logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -134,18 +134,18 @@ options:
                     - 'attacker'
                     - 'both'
                     - 'interface'
-            quarantine-expiry:
+            quarantine_expiry:
                 type: int
-                description: Deprecated, please rename it to quarantine_expiry. Duration of quarantine in minute.
-            quarantine-log:
+                description: Duration of quarantine in minute.
+            quarantine_log:
                 type: str
-                description: Deprecated, please rename it to quarantine_log. Enable/disable logging of selected quarantine.
+                description: Enable/disable logging of selected quarantine.
                 choices:
                     - 'disable'
                     - 'enable'
-            rule-id:
+            rule_id:
                 type: int
-                description: Deprecated, please rename it to rule_id. Override rule ID.
+                description: Override rule ID.
             status:
                 type: str
                 description: Enable/disable status of override rule.
@@ -230,23 +230,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override',
         '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/override/{override}',
-        '/pm/config/global/obj/ips/baseline/sensor/{sensor}/override/{override}'
-    ]
-
     url_params = ['adom', 'sensor']
     module_primary_key = None
     module_arg_spec = {
@@ -275,7 +267,6 @@ def main():
                 'rule-id': {'v_range': [['7.0.1', '7.0.2']], 'type': 'int'},
                 'status': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -289,9 +280,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

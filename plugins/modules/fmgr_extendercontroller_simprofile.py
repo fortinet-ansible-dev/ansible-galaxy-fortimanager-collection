@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            auto-switch_profile:
+            auto_switch_profile:
                 type: dict
-                description: Deprecated, please rename it to auto_switch_profile. Auto switch profile.
+                description: Auto switch profile.
                 suboptions:
                     dataplan:
                         type: str
@@ -105,12 +105,12 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    disconnect-period:
+                    disconnect_period:
                         type: int
-                        description: Deprecated, please rename it to disconnect_period. Disconnect period.
-                    disconnect-threshold:
+                        description: Disconnect period.
+                    disconnect_threshold:
                         type: int
-                        description: Deprecated, please rename it to disconnect_threshold. Disconnect threshold.
+                        description: Disconnect threshold.
                     signal:
                         type: str
                         description: Signal.
@@ -123,25 +123,25 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    switch-back:
+                    switch_back:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to switch_back. Switch back.
+                        description: Switch back.
                         choices:
                             - 'time'
                             - 'timer'
-                    switch-back-time:
+                    switch_back_time:
                         type: str
-                        description: Deprecated, please rename it to switch_back_time. Switch back time.
-                    switch-back-timer:
+                        description: Switch back time.
+                    switch_back_timer:
                         type: int
-                        description: Deprecated, please rename it to switch_back_timer. Switch back timer.
-            conn-status:
+                        description: Switch back timer.
+            conn_status:
                 type: int
-                description: Deprecated, please rename it to conn_status. Conn status.
-            default-sim:
+                description: Conn status.
+            default_sim:
                 type: str
-                description: Deprecated, please rename it to default_sim. Default sim.
+                description: Default sim.
                 choices:
                     - 'sim1'
                     - 'sim2'
@@ -156,43 +156,43 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            modem-id:
+            modem_id:
                 type: int
-                description: Deprecated, please rename it to modem_id. Modem id.
+                description: Modem id.
             name:
                 type: str
                 description: Name.
                 required: true
-            preferred-carrier:
+            preferred_carrier:
                 type: str
-                description: Deprecated, please rename it to preferred_carrier. Preferred carrier.
-            redundant-intf:
+                description: Preferred carrier.
+            redundant_intf:
                 type: str
-                description: Deprecated, please rename it to redundant_intf. Redundant intf.
-            redundant-mode:
+                description: Redundant intf.
+            redundant_mode:
                 type: str
-                description: Deprecated, please rename it to redundant_mode. Redundant mode.
+                description: Redundant mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            sim1-pin:
+            sim1_pin:
                 type: str
-                description: Deprecated, please rename it to sim1_pin. Sim1 pin.
+                description: Sim1 pin.
                 choices:
                     - 'disable'
                     - 'enable'
-            sim1-pin-code:
+            sim1_pin_code:
                 type: raw
-                description: (list) Deprecated, please rename it to sim1_pin_code. Sim1 pin code.
-            sim2-pin:
+                description: (list) Sim1 pin code.
+            sim2_pin:
                 type: str
-                description: Deprecated, please rename it to sim2_pin. Sim2 pin.
+                description: Sim2 pin.
                 choices:
                     - 'disable'
                     - 'enable'
-            sim2-pin-code:
+            sim2_pin_code:
                 type: raw
-                description: (list) Deprecated, please rename it to sim2_pin_code. Sim2 pin code.
+                description: (list) Sim2 pin code.
             status:
                 type: str
                 description: Status.
@@ -228,8 +228,8 @@ EXAMPLES = '''
             signal: <value in [disable, enable]>
             status: <value in [disable, enable]>
             switch_back:
-              - time
-              - timer
+              - "time"
+              - "timer"
             switch_back_time: <string>
             switch_back_timer: <integer>
           conn_status: <integer>
@@ -289,23 +289,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/extender-controller/sim_profile',
         '/pm/config/global/obj/extender-controller/sim_profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/extender-controller/sim_profile/{sim_profile}',
-        '/pm/config/global/obj/extender-controller/sim_profile/{sim_profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -344,7 +336,6 @@ def main():
                 'sim2-pin-code': {'v_range': [['6.4.4', '']], 'type': 'raw'},
                 'status': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -358,9 +349,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

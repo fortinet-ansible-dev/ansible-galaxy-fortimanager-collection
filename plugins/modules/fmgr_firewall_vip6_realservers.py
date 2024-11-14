@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            client-ip:
+            client_ip:
                 type: str
-                description: Deprecated, please rename it to client_ip. Only clients in this IP range can connect to this real server.
+                description: Only clients in this IP range can connect to this real server.
             healthcheck:
                 type: str
                 description: Enable to check the responsiveness of the real server before forwarding traffic.
@@ -103,12 +103,12 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'vip'
-            holddown-interval:
+            holddown_interval:
                 type: int
-                description: Deprecated, please rename it to holddown_interval. Time in seconds that the health check monitor continues to monitor an u...
-            http-host:
+                description: Time in seconds that the health check monitor continues to monitor an unresponsive server that should be active.
+            http_host:
                 type: str
-                description: Deprecated, please rename it to http_host. HTTP server domain name in HTTP header.
+                description: HTTP server domain name in HTTP header.
             id:
                 type: int
                 description: Real server ID.
@@ -116,9 +116,9 @@ options:
             ip:
                 type: str
                 description: IPv6 address of the real server.
-            max-connections:
+            max_connections:
                 type: int
-                description: Deprecated, please rename it to max_connections. Max number of active connections that can directed to the real server.
+                description: Max number of active connections that can directed to the real server.
             monitor:
                 type: raw
                 description: (list or str) Name of the health check monitor to use when polling to determine a virtual servers connectivity status.
@@ -135,9 +135,9 @@ options:
             weight:
                 type: int
                 description: Weight of the real server.
-            translate-host:
+            translate_host:
                 type: str
-                description: Deprecated, please rename it to translate_host. Enable/disable translation of hostname/IP from virtual server to real server.
+                description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -223,23 +223,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/realservers',
         '/pm/config/global/obj/firewall/vip6/{vip6}/realservers'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/vip6/{vip6}/realservers/{realservers}',
-        '/pm/config/global/obj/firewall/vip6/{vip6}/realservers/{realservers}'
-    ]
-
     url_params = ['adom', 'vip6']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -262,7 +254,6 @@ def main():
                 'weight': {'type': 'int'},
                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -276,9 +267,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

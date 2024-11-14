@@ -89,85 +89,85 @@ options:
         required: false
         type: dict
         suboptions:
-            application-list:
+            application_list:
                 type: str
-                description: Deprecated, please rename it to application_list. Name of an existing Application list.
-            av-profile:
+                description: Name of an existing Application list.
+            av_profile:
                 type: str
-                description: Deprecated, please rename it to av_profile. Name of an existing Antivirus profile.
-            dlp-sensor:
+                description: Name of an existing Antivirus profile.
+            dlp_sensor:
                 type: str
-                description: Deprecated, please rename it to dlp_sensor. Name of an existing DLP sensor.
-            dnsfilter-profile:
+                description: Name of an existing DLP sensor.
+            dnsfilter_profile:
                 type: str
-                description: Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
-            icap-profile:
+                description: Name of an existing DNS filter profile.
+            icap_profile:
                 type: str
-                description: Deprecated, please rename it to icap_profile. Name of an existing ICAP profile.
-            ips-sensor:
+                description: Name of an existing ICAP profile.
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. Name of an existing IPS sensor.
-            mms-profile:
+                description: Name of an existing IPS sensor.
+            mms_profile:
                 type: str
-                description: Deprecated, please rename it to mms_profile. Name of an existing MMS profile.
+                description: Name of an existing MMS profile.
             name:
                 type: str
                 description: Profile group name.
                 required: true
-            profile-protocol-options:
+            profile_protocol_options:
                 type: str
-                description: Deprecated, please rename it to profile_protocol_options. Name of an existing Protocol options profile.
-            spamfilter-profile:
+                description: Name of an existing Protocol options profile.
+            spamfilter_profile:
                 type: str
-                description: Deprecated, please rename it to spamfilter_profile. Name of an existing Spam filter profile.
-            ssh-filter-profile:
+                description: Name of an existing Spam filter profile.
+            ssh_filter_profile:
                 type: str
-                description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
-            ssl-ssh-profile:
+                description: Name of an existing SSH filter profile.
+            ssl_ssh_profile:
                 type: str
-                description: Deprecated, please rename it to ssl_ssh_profile. Name of an existing SSL SSH profile.
-            voip-profile:
+                description: Name of an existing SSL SSH profile.
+            voip_profile:
                 type: str
-                description: Deprecated, please rename it to voip_profile. Name of an existing VoIP profile.
-            waf-profile:
+                description: Name of an existing VoIP profile.
+            waf_profile:
                 type: str
-                description: Deprecated, please rename it to waf_profile. Name of an existing Web application firewall profile.
-            webfilter-profile:
+                description: Name of an existing Web application firewall profile.
+            webfilter_profile:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile. Name of an existing Web filter profile.
-            cifs-profile:
+                description: Name of an existing Web filter profile.
+            cifs_profile:
                 type: str
-                description: Deprecated, please rename it to cifs_profile. Name of an existing CIFS profile.
-            emailfilter-profile:
+                description: Name of an existing CIFS profile.
+            emailfilter_profile:
                 type: str
-                description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
-            casi-profile:
+                description: Name of an existing email filter profile.
+            casi_profile:
                 type: str
-                description: Deprecated, please rename it to casi_profile. CASI profile.
-            file-filter-profile:
+                description: CASI profile.
+            file_filter_profile:
                 type: str
-                description: Deprecated, please rename it to file_filter_profile. Name of an existing file-filter profile.
-            videofilter-profile:
+                description: Name of an existing file-filter profile.
+            videofilter_profile:
                 type: str
-                description: Deprecated, please rename it to videofilter_profile. Name of an existing VideoFilter profile.
-            dlp-profile:
+                description: Name of an existing VideoFilter profile.
+            dlp_profile:
                 type: str
-                description: Deprecated, please rename it to dlp_profile. Name of an existing DLP profile.
-            sctp-filter-profile:
+                description: Name of an existing DLP profile.
+            sctp_filter_profile:
                 type: str
-                description: Deprecated, please rename it to sctp_filter_profile. Name of an existing SCTP filter profile.
-            ips-voip-filter:
+                description: Name of an existing SCTP filter profile.
+            ips_voip_filter:
                 type: str
-                description: Deprecated, please rename it to ips_voip_filter. Name of an existing VoIP
-            casb-profile:
+                description: Name of an existing VoIP
+            casb_profile:
                 type: str
-                description: Deprecated, please rename it to casb_profile. Name of an existing CASB profile.
-            virtual-patch-profile:
+                description: Name of an existing CASB profile.
+            virtual_patch_profile:
                 type: str
-                description: Deprecated, please rename it to virtual_patch_profile. Name of an existing virtual-patch profile.
-            diameter-filter-profile:
+                description: Name of an existing virtual-patch profile.
+            diameter_filter_profile:
                 type: str
-                description: Deprecated, please rename it to diameter_filter_profile. Name of an existing Diameter filter profile.
+                description: Name of an existing Diameter filter profile.
 '''
 
 EXAMPLES = '''
@@ -247,23 +247,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/profile-group',
         '/pm/config/global/obj/firewall/profile-group'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/profile-group/{profile-group}',
-        '/pm/config/global/obj/firewall/profile-group/{profile-group}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -289,7 +281,7 @@ def main():
                 'webfilter-profile': {'type': 'str'},
                 'cifs-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'emailfilter-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
+                'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'file-filter-profile': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'videofilter-profile': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'dlp-profile': {'v_range': [['7.2.0', '']], 'type': 'str'},
@@ -299,7 +291,6 @@ def main():
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -313,9 +304,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

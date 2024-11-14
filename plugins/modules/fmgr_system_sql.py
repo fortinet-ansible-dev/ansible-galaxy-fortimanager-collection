@@ -76,35 +76,32 @@ options:
         required: false
         type: dict
         suboptions:
-            background-rebuild:
+            background_rebuild:
                 type: str
                 description:
-                    - Deprecated, please rename it to background_rebuild.
                     - Disable/Enable rebuild SQL database in the background.
                     - disable - Rebuild SQL database not in the background.
                     - enable - Rebuild SQL database in the background.
                 choices:
                     - 'disable'
                     - 'enable'
-            custom-index:
+            custom_index:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_index. Custom index.
+                description: Custom index.
                 suboptions:
-                    case-sensitive:
+                    case_sensitive:
                         type: str
                         description:
-                            - Deprecated, please rename it to case_sensitive.
                             - Disable/Enable case sensitive index.
                             - disable - Build a case insensitive index.
                             - enable - Build a case sensitive index.
                         choices:
                             - 'disable'
                             - 'enable'
-                    device-type:
+                    device_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to device_type.
                             - Device type.
                             - FortiGate - Device type to FortiGate.
                             - FortiManager - Set device type to FortiManager
@@ -130,13 +127,12 @@ options:
                     id:
                         type: int
                         description: Add or Edit log index fields.
-                    index-field:
+                    index_field:
                         type: str
-                        description: Deprecated, please rename it to index_field. Log field name to be indexed.
-                    log-type:
+                        description: Log field name to be indexed.
+                    log_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_type.
                             - Log type.
                             - none - none
                             - app-ctrl
@@ -189,35 +185,33 @@ options:
                             - 'siem'
                             - 'ztna'
                             - 'security'
-            database-name:
+            database_name:
                 type: str
-                description: Deprecated, please rename it to database_name. Database name.
-            database-type:
+                description: Database name.
+            database_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to database_type.
                     - Database type.
                     - mysql - MySQL database.
                     - postgres - PostgreSQL local database.
                 choices:
                     - 'mysql'
                     - 'postgres'
-            device-count-high:
+            device_count_high:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_count_high.
                     - Must set to enable if the count of registered devices is greater than 8000.
                     - disable - Set to disable if device count is less than 8000.
                     - enable - Set to enable if device count is equal to or greater than 8000.
                 choices:
                     - 'disable'
                     - 'enable'
-            event-table-partition-time:
+            event_table_partition_time:
                 type: int
-                description: Deprecated, please rename it to event_table_partition_time. Maximum SQL database table partitioning time range in minute
-            fct-table-partition-time:
+                description: Maximum SQL database table partitioning time range in minute
+            fct_table_partition_time:
                 type: int
-                description: Deprecated, please rename it to fct_table_partition_time. Maximum SQL database table partitioning time range in minute
+                description: Maximum SQL database table partitioning time range in minute
             logtype:
                 type: list
                 elements: str
@@ -277,35 +271,33 @@ options:
             password:
                 type: raw
                 description: (list) Password for login remote database.
-            prompt-sql-upgrade:
+            prompt_sql_upgrade:
                 type: str
                 description:
-                    - Deprecated, please rename it to prompt_sql_upgrade.
                     - Prompt to convert log database into SQL database at start time on GUI.
                     - disable - Do not prompt to upgrade log database to SQL database at start time on GUI.
                     - enable - Prompt to upgrade log database to SQL database at start time on GUI.
                 choices:
                     - 'disable'
                     - 'enable'
-            rebuild-event:
+            rebuild_event:
                 type: str
                 description:
-                    - Deprecated, please rename it to rebuild_event.
                     - Disable/Enable rebuild event during SQL database rebuilding.
                     - disable - Do not rebuild event during SQL database rebuilding.
                     - enable - Rebuild event during SQL database rebuilding.
                 choices:
                     - 'disable'
                     - 'enable'
-            rebuild-event-start-time:
+            rebuild_event_start_time:
                 type: raw
-                description: (list) Deprecated, please rename it to rebuild_event_start_time. Rebuild event starting date and time
+                description: (list) Rebuild event starting date and time
             server:
                 type: str
                 description: Database IP or hostname.
-            start-time:
+            start_time:
                 type: raw
-                description: (list) Deprecated, please rename it to start_time. Start date and time
+                description: (list) Start date and time
             status:
                 type: str
                 description:
@@ -315,23 +307,22 @@ options:
                 choices:
                     - 'disable'
                     - 'local'
-            text-search-index:
+            text_search_index:
                 type: str
                 description:
-                    - Deprecated, please rename it to text_search_index.
                     - Disable/Enable text search index.
                     - disable - Do not create text search index.
                     - enable - Create text search index.
                 choices:
                     - 'disable'
                     - 'enable'
-            traffic-table-partition-time:
+            traffic_table_partition_time:
                 type: int
-                description: Deprecated, please rename it to traffic_table_partition_time. Maximum SQL database table partitioning time range in minute
-            ts-index-field:
+                description: Maximum SQL database table partitioning time range in minute
+            ts_index_field:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ts_index_field. Ts index field.
+                description: Ts index field.
                 suboptions:
                     category:
                         type: str
@@ -342,18 +333,17 @@ options:
             username:
                 type: str
                 description: User name for login remote database.
-            utm-table-partition-time:
+            utm_table_partition_time:
                 type: int
-                description: Deprecated, please rename it to utm_table_partition_time. Maximum SQL database table partitioning time range in minute
-            custom-skipidx:
+                description: Maximum SQL database table partitioning time range in minute
+            custom_skipidx:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_skipidx. Custom skipidx.
+                description: Custom skipidx.
                 suboptions:
-                    device-type:
+                    device_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to device_type.
                             - Device type.
                             - FortiGate - Set device type to FortiGate.
                             - FortiManager - Set device type to FortiManager
@@ -373,13 +363,12 @@ options:
                     id:
                         type: int
                         description: Add or Edit log index fields.
-                    index-field:
+                    index_field:
                         type: str
-                        description: Deprecated, please rename it to index_field. Field to be added to skip index.
-                    log-type:
+                        description: Field to be added to skip index.
+                    log_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_type.
                             - Log type.
                             - app-ctrl
                             - attack
@@ -432,9 +421,9 @@ options:
                             - 'siem'
                             - 'ztna'
                             - 'security'
-            compress-table-min-age:
+            compress_table_min_age:
                 type: int
-                description: Deprecated, please rename it to compress_table_min_age. Minimum age in days for SQL tables to be compressed.
+                description: Minimum age in days for SQL tables to be compressed.
 '''
 
 EXAMPLES = '''
@@ -468,34 +457,34 @@ EXAMPLES = '''
           event_table_partition_time: <integer>
           fct_table_partition_time: <integer>
           logtype:
-            - none
-            - app-ctrl
-            - attack
-            - content
-            - dlp
-            - emailfilter
-            - event
-            - generic
-            - history
-            - traffic
-            - virus
-            - voip
-            - webfilter
-            - netscan
-            - fct-event
-            - fct-traffic
-            - fct-netscan
-            - waf
-            - gtp
-            - dns
-            - ssh
-            - ssl
-            - file-filter
-            - asset
-            - protocol
-            - siem
-            - ztna
-            - security
+            - "none"
+            - "app-ctrl"
+            - "attack"
+            - "content"
+            - "dlp"
+            - "emailfilter"
+            - "event"
+            - "generic"
+            - "history"
+            - "traffic"
+            - "virus"
+            - "voip"
+            - "webfilter"
+            - "netscan"
+            - "fct-event"
+            - "fct-traffic"
+            - "fct-netscan"
+            - "waf"
+            - "gtp"
+            - "dns"
+            - "ssh"
+            - "ssl"
+            - "file-filter"
+            - "asset"
+            - "protocol"
+            - "siem"
+            - "ztna"
+            - "security"
           password: <list or string>
           prompt_sql_upgrade: <value in [disable, enable]>
           rebuild_event: <value in [disable, enable]>
@@ -561,21 +550,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/sql'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/sql/{sql}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -659,7 +641,6 @@ def main():
                 },
                 'compress-table-min-age': {'v_range': [['6.4.3', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -673,9 +654,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -98,33 +98,33 @@ options:
             application:
                 type: raw
                 description: (list) SaaS application controlled by this Access Proxy.
-            http-cookie-age:
+            http_cookie_age:
                 type: int
-                description: Deprecated, please rename it to http_cookie_age. Time in minutes that client web browsers should keep a cookie.
-            http-cookie-domain:
+                description: Time in minutes that client web browsers should keep a cookie.
+            http_cookie_domain:
                 type: str
-                description: Deprecated, please rename it to http_cookie_domain. Domain that HTTP cookie persistence should apply to.
-            http-cookie-domain-from-host:
+                description: Domain that HTTP cookie persistence should apply to.
+            http_cookie_domain_from_host:
                 type: str
-                description: Deprecated, please rename it to http_cookie_domain_from_host. Enable/disable use of HTTP cookie domain from host field in ...
+                description: Enable/disable use of HTTP cookie domain from host field in HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
-            http-cookie-generation:
+            http_cookie_generation:
                 type: int
-                description: Deprecated, please rename it to http_cookie_generation. Generation of HTTP cookie to be accepted.
-            http-cookie-path:
+                description: Generation of HTTP cookie to be accepted.
+            http_cookie_path:
                 type: str
-                description: Deprecated, please rename it to http_cookie_path. Limit HTTP cookie persistence to the specified path.
-            http-cookie-share:
+                description: Limit HTTP cookie persistence to the specified path.
+            http_cookie_share:
                 type: str
-                description: Deprecated, please rename it to http_cookie_share. Control sharing of cookies across API Gateway.
+                description: Control sharing of cookies across API Gateway.
                 choices:
                     - 'disable'
                     - 'same-ip'
-            https-cookie-secure:
+            https_cookie_secure:
                 type: str
-                description: Deprecated, please rename it to https_cookie_secure. Enable/disable verification that inserted HTTPS cookies are secure.
+                description: Enable/disable verification that inserted HTTPS cookies are secure.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -132,9 +132,9 @@ options:
                 type: int
                 description: API Gateway ID.
                 required: true
-            ldb-method:
+            ldb_method:
                 type: str
-                description: Deprecated, please rename it to ldb_method. Method used to distribute sessions to real servers.
+                description: Method used to distribute sessions to real servers.
                 choices:
                     - 'static'
                     - 'round-robin'
@@ -152,9 +152,9 @@ options:
                 elements: dict
                 description: Realservers.
                 suboptions:
-                    addr-type:
+                    addr_type:
                         type: str
-                        description: Deprecated, please rename it to addr_type. Type of address.
+                        description: Type of address.
                         choices:
                             - 'fqdn'
                             - 'ip'
@@ -164,28 +164,28 @@ options:
                     domain:
                         type: str
                         description: Wildcard domain name of the real server.
-                    health-check:
+                    health_check:
                         type: str
-                        description: Deprecated, please rename it to health_check. Enable to check the responsiveness of the real server before forward...
+                        description: Enable to check the responsiveness of the real server before forwarding traffic.
                         choices:
                             - 'disable'
                             - 'enable'
-                    health-check-proto:
+                    health_check_proto:
                         type: str
-                        description: Deprecated, please rename it to health_check_proto. Protocol of the health check monitor to use when polling to de...
+                        description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
                         choices:
                             - 'ping'
                             - 'http'
                             - 'tcp-connect'
-                    holddown-interval:
+                    holddown_interval:
                         type: str
-                        description: Deprecated, please rename it to holddown_interval. Enable/disable holddown timer.
+                        description: Enable/disable holddown timer.
                         choices:
                             - 'disable'
                             - 'enable'
-                    http-host:
+                    http_host:
                         type: str
-                        description: Deprecated, please rename it to http_host. HTTP server domain name in HTTP header.
+                        description: HTTP server domain name in HTTP header.
                     id:
                         type: int
                         description: Real server ID.
@@ -198,15 +198,15 @@ options:
                     port:
                         type: int
                         description: Port for communicating with the real server.
-                    ssh-client-cert:
+                    ssh_client_cert:
                         type: str
-                        description: Deprecated, please rename it to ssh_client_cert. Set access-proxy SSH client certificate profile.
-                    ssh-host-key:
+                        description: Set access-proxy SSH client certificate profile.
+                    ssh_host_key:
                         type: raw
-                        description: (list) Deprecated, please rename it to ssh_host_key. One or more server host key.
-                    ssh-host-key-validation:
+                        description: (list) One or more server host key.
+                    ssh_host_key_validation:
                         type: str
-                        description: Deprecated, please rename it to ssh_host_key_validation. Enable/disable SSH real server host key validation.
+                        description: Enable/disable SSH real server host key validation.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -226,33 +226,33 @@ options:
                     weight:
                         type: int
                         description: Weight of the real server.
-                    translate-host:
+                    translate_host:
                         type: str
-                        description: Deprecated, please rename it to translate_host. Enable/disable translation of hostname/IP from virtual server to r...
+                        description: Enable/disable translation of hostname/IP from virtual server to real server.
                         choices:
                             - 'disable'
                             - 'enable'
-                    external-auth:
+                    external_auth:
                         type: str
-                        description: Deprecated, please rename it to external_auth. Enable/disable use of external browser as user-agent for SAML user ...
+                        description: Enable/disable use of external browser as user-agent for SAML user authentication.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tunnel-encryption:
+                    tunnel_encryption:
                         type: str
-                        description: Deprecated, please rename it to tunnel_encryption. Tunnel encryption.
+                        description: Tunnel encryption.
                         choices:
                             - 'disable'
                             - 'enable'
-            saml-redirect:
+            saml_redirect:
                 type: str
-                description: Deprecated, please rename it to saml_redirect. Enable/disable SAML redirection after successful authentication.
+                description: Enable/disable SAML redirection after successful authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            saml-server:
+            saml_server:
                 type: str
-                description: Deprecated, please rename it to saml_server. SAML service provider configuration for VIP authentication.
+                description: SAML service provider configuration for VIP authentication.
             service:
                 type: str
                 description: Service.
@@ -263,17 +263,17 @@ options:
                     - 'samlsp'
                     - 'web-portal'
                     - 'saas'
-            ssl-algorithm:
+            ssl_algorithm:
                 type: str
-                description: Deprecated, please rename it to ssl_algorithm. Permitted encryption algorithms for the server side of SSL full mode sessio...
+                description: Permitted encryption algorithms for the server side of SSL full mode sessions according to encryption strength.
                 choices:
                     - 'high'
                     - 'medium'
                     - 'low'
-            ssl-cipher-suites:
+            ssl_cipher_suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
+                description: Ssl cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -362,9 +362,9 @@ options:
                             - 'tls-1.1'
                             - 'tls-1.2'
                             - 'tls-1.3'
-            ssl-dh-bits:
+            ssl_dh_bits:
                 type: str
-                description: Deprecated, please rename it to ssl_dh_bits. Number of bits to use in the Diffie-Hellman exchange for RSA encryption of SS...
+                description: Number of bits to use in the Diffie-Hellman exchange for RSA encryption of SSL sessions.
                 choices:
                     - '768'
                     - '1024'
@@ -372,53 +372,53 @@ options:
                     - '2048'
                     - '3072'
                     - '4096'
-            ssl-max-version:
+            ssl_max_version:
                 type: str
-                description: Deprecated, please rename it to ssl_max_version. Highest SSL/TLS version acceptable from a server.
+                description: Highest SSL/TLS version acceptable from a server.
                 choices:
                     - 'tls-1.0'
                     - 'tls-1.1'
                     - 'tls-1.2'
                     - 'tls-1.3'
-            ssl-min-version:
+            ssl_min_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_version. Lowest SSL/TLS version acceptable from a server.
+                description: Lowest SSL/TLS version acceptable from a server.
                 choices:
                     - 'tls-1.0'
                     - 'tls-1.1'
                     - 'tls-1.2'
                     - 'tls-1.3'
-            ssl-vpn-web-portal:
+            ssl_vpn_web_portal:
                 type: str
-                description: Deprecated, please rename it to ssl_vpn_web_portal. SSL-VPN web portal.
-            url-map:
+                description: SSL-VPN web portal.
+            url_map:
                 type: str
-                description: Deprecated, please rename it to url_map. URL pattern to match.
-            url-map-type:
+                description: URL pattern to match.
+            url_map_type:
                 type: str
-                description: Deprecated, please rename it to url_map_type. Type of url-map.
+                description: Type of url-map.
                 choices:
                     - 'sub-string'
                     - 'wildcard'
                     - 'regex'
-            virtual-host:
+            virtual_host:
                 type: str
-                description: Deprecated, please rename it to virtual_host. Virtual host.
-            ssl-renegotiation:
+                description: Virtual host.
+            ssl_renegotiation:
                 type: str
-                description: Deprecated, please rename it to ssl_renegotiation. Enable/disable secure renegotiation to comply with RFC 5746.
+                description: Enable/disable secure renegotiation to comply with RFC 5746.
                 choices:
                     - 'disable'
                     - 'enable'
-            h2-support:
+            h2_support:
                 type: str
-                description: Deprecated, please rename it to h2_support. HTTP2 support, default=Enable.
+                description: HTTP2 support, default=Enable.
                 choices:
                     - 'disable'
                     - 'enable'
-            h3-support:
+            h3_support:
                 type: str
-                description: Deprecated, please rename it to h3_support. HTTP3/QUIC support, default=Disable.
+                description: HTTP3/QUIC support, default=Disable.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -426,36 +426,36 @@ options:
                 type: dict
                 description: Quic.
                 suboptions:
-                    ack-delay-exponent:
+                    ack_delay_exponent:
                         type: int
-                        description: Deprecated, please rename it to ack_delay_exponent. ACK delay exponent
-                    active-connection-id-limit:
+                        description: ACK delay exponent
+                    active_connection_id_limit:
                         type: int
-                        description: Deprecated, please rename it to active_connection_id_limit. Active connection ID limit
-                    active-migration:
+                        description: Active connection ID limit
+                    active_migration:
                         type: str
-                        description: Deprecated, please rename it to active_migration. Enable/disable active migration
+                        description: Enable/disable active migration
                         choices:
                             - 'disable'
                             - 'enable'
-                    grease-quic-bit:
+                    grease_quic_bit:
                         type: str
-                        description: Deprecated, please rename it to grease_quic_bit. Enable/disable grease QUIC bit
+                        description: Enable/disable grease QUIC bit
                         choices:
                             - 'disable'
                             - 'enable'
-                    max-ack-delay:
+                    max_ack_delay:
                         type: int
-                        description: Deprecated, please rename it to max_ack_delay. Maximum ACK delay in milliseconds
-                    max-datagram-frame-size:
+                        description: Maximum ACK delay in milliseconds
+                    max_datagram_frame_size:
                         type: int
-                        description: Deprecated, please rename it to max_datagram_frame_size. Maximum datagram frame size in bytes
-                    max-idle-timeout:
+                        description: Maximum datagram frame size in bytes
+                    max_idle_timeout:
                         type: int
-                        description: Deprecated, please rename it to max_idle_timeout. Maximum idle timeout milliseconds
-                    max-udp-payload-size:
+                        description: Maximum idle timeout milliseconds
+                    max_udp_payload_size:
                         type: int
-                        description: Deprecated, please rename it to max_udp_payload_size. Maximum UDP payload size in bytes
+                        description: Maximum UDP payload size in bytes
 '''
 
 EXAMPLES = '''
@@ -520,10 +520,10 @@ EXAMPLES = '''
               cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
               priority: <integer>
               versions:
-                - tls-1.0
-                - tls-1.1
-                - tls-1.2
-                - tls-1.3
+                - "tls-1.0"
+                - "tls-1.1"
+                - "tls-1.2"
+                - "tls-1.3"
           ssl_dh_bits: <value in [768, 1024, 1536, ...]>
           ssl_max_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
           ssl_min_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
@@ -586,23 +586,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway',
         '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}',
-        '/pm/config/global/obj/firewall/access-proxy6/{access-proxy6}/api-gateway/{api-gateway}'
-    ]
-
     url_params = ['adom', 'access-proxy6']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -726,7 +718,6 @@ def main():
                     }
                 }
             }
-
         }
     }
 
@@ -740,9 +731,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

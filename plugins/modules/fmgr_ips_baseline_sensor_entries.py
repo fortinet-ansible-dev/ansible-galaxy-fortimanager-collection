@@ -107,20 +107,20 @@ options:
             cve:
                 type: raw
                 description: (list) List of CVE IDs of the signatures to add to the sensor
-            exempt-ip:
+            exempt_ip:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to exempt_ip. Exempt ip.
+                description: Exempt ip.
                 suboptions:
-                    dst-ip:
+                    dst_ip:
                         type: str
-                        description: Deprecated, please rename it to dst_ip. Destination IP address and netmask.
+                        description: Destination IP address and netmask.
                     id:
                         type: int
                         description: Exempt IP ID.
-                    src-ip:
+                    src_ip:
                         type: str
-                        description: Deprecated, please rename it to src_ip. Source IP address and netmask.
+                        description: Source IP address and netmask.
             id:
                 type: int
                 description: Rule ID in IPS database
@@ -134,15 +134,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            log-attack-context:
+            log_attack_context:
                 type: str
-                description: Deprecated, please rename it to log_attack_context. Enable/disable logging of attack context
+                description: Enable/disable logging of attack context
                 choices:
                     - 'disable'
                     - 'enable'
-            log-packet:
+            log_packet:
                 type: str
-                description: Deprecated, please rename it to log_packet. Enable/disable packet logging.
+                description: Enable/disable packet logging.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -160,30 +160,30 @@ options:
                     - 'attacker'
                     - 'both'
                     - 'interface'
-            quarantine-expiry:
+            quarantine_expiry:
                 type: str
-                description: Deprecated, please rename it to quarantine_expiry. Duration of quarantine.
-            quarantine-log:
+                description: Duration of quarantine.
+            quarantine_log:
                 type: str
-                description: Deprecated, please rename it to quarantine_log. Enable/disable quarantine logging.
+                description: Enable/disable quarantine logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            rate-count:
+            rate_count:
                 type: int
-                description: Deprecated, please rename it to rate_count. Count of the rate.
-            rate-duration:
+                description: Count of the rate.
+            rate_duration:
                 type: int
-                description: Deprecated, please rename it to rate_duration. Duration
-            rate-mode:
+                description: Duration
+            rate_mode:
                 type: str
-                description: Deprecated, please rename it to rate_mode. Rate limit mode.
+                description: Rate limit mode.
                 choices:
                     - 'periodical'
                     - 'continuous'
-            rate-track:
+            rate_track:
                 type: str
-                description: Deprecated, please rename it to rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
@@ -297,23 +297,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries',
         '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/ips/baseline/sensor/{sensor}/entries/{entries}',
-        '/pm/config/global/obj/ips/baseline/sensor/{sensor}/entries/{entries}'
-    ]
-
     url_params = ['adom', 'sensor']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -355,7 +347,6 @@ def main():
                 'status': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable', 'default'], 'type': 'str'},
                 'tags': {'v_range': [['7.0.1', '7.0.2']], 'type': 'str'}
             }
-
         }
     }
 
@@ -369,9 +360,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

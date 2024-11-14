@@ -76,13 +76,12 @@ options:
         required: false
         type: dict
         suboptions:
-            as-cache:
+            as_cache:
                 type: int
-                description: Deprecated, please rename it to as_cache. Antispam service maximum memory usage in megabytes
-            as-log:
+                description: Antispam service maximum memory usage in megabytes
+            as_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to as_log.
                     - Antispam log setting
                     - disable - Disable spam log.
                     - nospam - Log non-spam events.
@@ -91,23 +90,21 @@ options:
                     - 'disable'
                     - 'nospam'
                     - 'all'
-            as-preload:
+            as_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to as_preload.
                     - Enable/disable preloading antispam database to memory
                     - disable - Disable antispam database preload.
                     - enable - Enable antispam database preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            av-cache:
+            av_cache:
                 type: int
-                description: Deprecated, please rename it to av_cache. Antivirus service maximum memory usage, in megabytes
-            av-log:
+                description: Antivirus service maximum memory usage, in megabytes
+            av_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to av_log.
                     - Antivirus log setting
                     - disable - Disable virus log.
                     - novirus - Log non-virus events.
@@ -116,23 +113,21 @@ options:
                     - 'disable'
                     - 'novirus'
                     - 'all'
-            av-preload:
+            av_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to av_preload.
                     - Enable/disable preloading antivirus database to memory
                     - disable - Disable antivirus database preload.
                     - enable - Enable antivirus database preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            av2-cache:
+            av2_cache:
                 type: int
-                description: Deprecated, please rename it to av2_cache. Antispam service maximum memory usage in megabytes
-            av2-log:
+                description: Antispam service maximum memory usage in megabytes
+            av2_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to av2_log.
                     - Outbreak prevention log setting
                     - disable - Disable av2 log.
                     - noav2 - Log non-av2 events.
@@ -141,36 +136,33 @@ options:
                     - 'disable'
                     - 'noav2'
                     - 'all'
-            av2-preload:
+            av2_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to av2_preload.
                     - Enable/disable preloading outbreak prevention database to memory
                     - disable - Disable outbreak prevention database preload.
                     - enable - Enable outbreak prevention database preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            eventlog-query:
+            eventlog_query:
                 type: str
                 description:
-                    - Deprecated, please rename it to eventlog_query.
                     - Enable/disable record query to event-log besides fgd-log
                     - disable - Record query to event-log besides fgd-log.
                     - enable - Do not log to event-log.
                 choices:
                     - 'disable'
                     - 'enable'
-            fgd-pull-interval:
+            fgd_pull_interval:
                 type: int
-                description: Deprecated, please rename it to fgd_pull_interval. Fgd pull interval setting, in minutes
-            fq-cache:
+                description: Fgd pull interval setting, in minutes
+            fq_cache:
                 type: int
-                description: Deprecated, please rename it to fq_cache. File query service maximum memory usage, in megabytes
-            fq-log:
+                description: File query service maximum memory usage, in megabytes
+            fq_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to fq_log.
                     - File query log setting
                     - disable - Disable file query log.
                     - nofilequery - Log non-file query events.
@@ -179,20 +171,18 @@ options:
                     - 'disable'
                     - 'nofilequery'
                     - 'all'
-            fq-preload:
+            fq_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to fq_preload.
                     - Enable/disable preloading file query database to memory
                     - disable - Disable file query db preload.
                     - enable - Enable file query db preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            linkd-log:
+            linkd_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to linkd_log.
                     - Linkd log setting
                     - emergency - The unit is unusable.
                     - alert - Immediate action is required
@@ -213,39 +203,39 @@ options:
                     - 'info'
                     - 'debug'
                     - 'disable'
-            max-client-worker:
+            max_client_worker:
                 type: int
-                description: Deprecated, please rename it to max_client_worker. Max worker for tcp client connection
-            max-log-quota:
+                description: Max worker for tcp client connection
+            max_log_quota:
                 type: int
-                description: Deprecated, please rename it to max_log_quota. Maximum log quota setting, in megabytes
-            max-unrated-site:
+                description: Maximum log quota setting, in megabytes
+            max_unrated_site:
                 type: int
-                description: Deprecated, please rename it to max_unrated_site. Maximum number of unrated site in memory, in kilobytes
-            restrict-as1-dbver:
+                description: Maximum number of unrated site in memory, in kilobytes
+            restrict_as1_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_as1_dbver. Restrict system update to indicated antispam
-            restrict-as2-dbver:
+                description: Restrict system update to indicated antispam
+            restrict_as2_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_as2_dbver. Restrict system update to indicated antispam
-            restrict-as4-dbver:
+                description: Restrict system update to indicated antispam
+            restrict_as4_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_as4_dbver. Restrict system update to indicated antispam
-            restrict-av-dbver:
+                description: Restrict system update to indicated antispam
+            restrict_av_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_av_dbver. Restrict system update to indicated antivirus database version
-            restrict-av2-dbver:
+                description: Restrict system update to indicated antivirus database version
+            restrict_av2_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_av2_dbver. Restrict system update to indicated outbreak prevention database version
-            restrict-fq-dbver:
+                description: Restrict system update to indicated outbreak prevention database version
+            restrict_fq_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_fq_dbver. Restrict system update to indicated file query database version
-            restrict-wf-dbver:
+                description: Restrict system update to indicated file query database version
+            restrict_wf_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_wf_dbver. Restrict system update to indicated web filter database version
-            server-override:
+                description: Restrict system update to indicated web filter database version
+            server_override:
                 type: dict
-                description: Deprecated, please rename it to server_override. Server override.
+                description: Server override.
                 suboptions:
                     servlist:
                         type: list
@@ -264,11 +254,10 @@ options:
                             port:
                                 type: int
                                 description: Port number to use when contacting FortiGuard
-                            service-type:
+                            service_type:
                                 type: raw
                                 description:
                                     - (list or str)
-                                    - Deprecated, please rename it to service_type.
                                     - Override service type.
                                     - fgd - Server override config for fgd
                                     - fgc - Server override config for fgc
@@ -289,38 +278,36 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            stat-log-interval:
+            stat_log_interval:
                 type: int
-                description: Deprecated, please rename it to stat_log_interval. Statistic log interval setting, in minutes
-            stat-sync-interval:
+                description: Statistic log interval setting, in minutes
+            stat_sync_interval:
                 type: int
-                description: Deprecated, please rename it to stat_sync_interval. Synchronization interval for statistic of unrated site in minutes
-            update-interval:
+                description: Synchronization interval for statistic of unrated site in minutes
+            update_interval:
                 type: int
-                description: Deprecated, please rename it to update_interval. FortiGuard database update wait time if not enough delta files, in hours
-            update-log:
+                description: FortiGuard database update wait time if not enough delta files, in hours
+            update_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to update_log.
                     - Enable/disable update log setting
                     - disable - Disable update log.
                     - enable - Enable update log.
                 choices:
                     - 'disable'
                     - 'enable'
-            wf-cache:
+            wf_cache:
                 type: int
-                description: Deprecated, please rename it to wf_cache. Web filter service maximum memory usage, in megabytes
-            wf-dn-cache-expire-time:
+                description: Web filter service maximum memory usage, in megabytes
+            wf_dn_cache_expire_time:
                 type: int
-                description: Deprecated, please rename it to wf_dn_cache_expire_time. Web filter DN cache expire time, in minutes
-            wf-dn-cache-max-number:
+                description: Web filter DN cache expire time, in minutes
+            wf_dn_cache_max_number:
                 type: int
-                description: Deprecated, please rename it to wf_dn_cache_max_number. Maximum number of Web filter DN cache
-            wf-log:
+                description: Maximum number of Web filter DN cache
+            wf_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to wf_log.
                     - Web filter log setting
                     - disable - Disable URL log.
                     - nourl - Log non-URL events.
@@ -329,23 +316,21 @@ options:
                     - 'disable'
                     - 'nourl'
                     - 'all'
-            wf-preload:
+            wf_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to wf_preload.
                     - Enable/disable preloading the web filter database into memory
                     - disable - Disable web filter database preload.
                     - enable - Enable web filter database preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            iot-cache:
+            iot_cache:
                 type: int
-                description: Deprecated, please rename it to iot_cache. IoT service maximum memory usage, in megabytes
-            iot-log:
+                description: IoT service maximum memory usage, in megabytes
+            iot_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to iot_log.
                     - IoT log setting
                     - disable - Disable IoT log.
                     - nofilequery - Log non-IoT events.
@@ -355,23 +340,21 @@ options:
                     - 'nofilequery'
                     - 'all'
                     - 'noiot'
-            iot-preload:
+            iot_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to iot_preload.
                     - Enable/disable preloading IoT database to memory
                     - disable - Disable IoT db preload.
                     - enable - Enable IoT db preload.
                 choices:
                     - 'disable'
                     - 'enable'
-            restrict-iots-dbver:
+            restrict_iots_dbver:
                 type: str
-                description: Deprecated, please rename it to restrict_iots_dbver. Restrict system update to indicated file query database version
-            stat-log:
+                description: Restrict system update to indicated file query database version
+            stat_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to stat_log.
                     - stat log setting
                     - emergency - The unit is unusable
                     - alert - Immediate action is required
@@ -392,10 +375,9 @@ options:
                     - 'info'
                     - 'debug'
                     - 'disable'
-            iotv-preload:
+            iotv_preload:
                 type: str
                 description:
-                    - Deprecated, please rename it to iotv_preload.
                     - Enable/disable preloading IoT-Vulnerability database to memory
                     - disable - Disable IoT-Vulnerability db preload.
                     - enable - Enable IoT-Vulnerability db preload.
@@ -454,12 +436,12 @@ EXAMPLES = '''
                 ip6: <string>
                 port: <integer>
                 service_type: # <list or string>
-                  - fgd
-                  - fgc
-                  - fsa
-                  - fgfq
-                  - geoip
-                  - iot-collect
+                  - "fgd"
+                  - "fgc"
+                  - "fsa"
+                  - "fgfq"
+                  - "geoip"
+                  - "iot-collect"
             status: <value in [disable, enable]>
           stat_log_interval: <integer>
           stat_sync_interval: <integer>
@@ -519,21 +501,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/fmupdate/web-spam/fgd-setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/fmupdate/web-spam/fgd-setting/{fgd-setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -592,18 +567,17 @@ def main():
                 'wf-dn-cache-max-number': {'type': 'int'},
                 'wf-log': {'choices': ['disable', 'nourl', 'all'], 'type': 'str'},
                 'wf-preload': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'iot-cache': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'iot-log': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all', 'noiot'], 'type': 'str'},
-                'iot-preload': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
+                'iot-cache': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'iot-log': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'nofilequery', 'all', 'noiot'], 'type': 'str'},
+                'iot-preload': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
                 'stat-log': {
-                    'v_range': [['7.0.10', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug', 'disable'],
                     'type': 'str'
                 },
                 'iotv-preload': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -617,9 +591,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

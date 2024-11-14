@@ -89,162 +89,162 @@ options:
             act:
                 type: int
                 description: Tcam tact act.
-            act-v:
+            act_v:
                 type: str
-                description: Deprecated, please rename it to act_v. Enable to set tact act.
+                description: Enable to set tact act.
                 choices:
                     - 'disable'
                     - 'enable'
-            fmtuv4-s:
+            fmtuv4_s:
                 type: int
-                description: Deprecated, please rename it to fmtuv4_s. Tcam tact fmtuv4-s.
-            fmtuv4-s-v:
+                description: Tcam tact fmtuv4-s.
+            fmtuv4_s_v:
                 type: str
-                description: Deprecated, please rename it to fmtuv4_s_v. Enable to set tact fmtuv4-s.
+                description: Enable to set tact fmtuv4-s.
                 choices:
                     - 'disable'
                     - 'enable'
-            fmtuv6-s:
+            fmtuv6_s:
                 type: int
-                description: Deprecated, please rename it to fmtuv6_s. Tcam tact fmtuv6-s.
-            fmtuv6-s-v:
+                description: Tcam tact fmtuv6-s.
+            fmtuv6_s_v:
                 type: str
-                description: Deprecated, please rename it to fmtuv6_s_v. Enable to set tact fmtuv6-s.
+                description: Enable to set tact fmtuv6-s.
                 choices:
                     - 'disable'
                     - 'enable'
             lnkid:
                 type: int
                 description: Tcam tact lnkid.
-            lnkid-v:
+            lnkid_v:
                 type: str
-                description: Deprecated, please rename it to lnkid_v. Enable to set tact lnkid.
+                description: Enable to set tact lnkid.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-id:
+            mac_id:
                 type: int
-                description: Deprecated, please rename it to mac_id. Tcam tact mac-id.
-            mac-id-v:
+                description: Tcam tact mac-id.
+            mac_id_v:
                 type: str
-                description: Deprecated, please rename it to mac_id_v. Enable to set tact mac-id.
+                description: Enable to set tact mac-id.
                 choices:
                     - 'disable'
                     - 'enable'
-            mss-t:
+            mss_t:
                 type: int
-                description: Deprecated, please rename it to mss_t. Tcam tact mss.
-            mss-t-v:
+                description: Tcam tact mss.
+            mss_t_v:
                 type: str
-                description: Deprecated, please rename it to mss_t_v. Enable to set tact mss.
+                description: Enable to set tact mss.
                 choices:
                     - 'disable'
                     - 'enable'
             mtuv4:
                 type: int
                 description: Tcam tact mtuv4.
-            mtuv4-v:
+            mtuv4_v:
                 type: str
-                description: Deprecated, please rename it to mtuv4_v. Enable to set tact mtuv4.
+                description: Enable to set tact mtuv4.
                 choices:
                     - 'disable'
                     - 'enable'
             mtuv6:
                 type: int
                 description: Tcam tact mtuv6.
-            mtuv6-v:
+            mtuv6_v:
                 type: str
-                description: Deprecated, please rename it to mtuv6_v. Enable to set tact mtuv6.
+                description: Enable to set tact mtuv6.
                 choices:
                     - 'disable'
                     - 'enable'
-            slif-act:
+            slif_act:
                 type: int
-                description: Deprecated, please rename it to slif_act. Tcam tact slif-act.
-            slif-act-v:
+                description: Tcam tact slif-act.
+            slif_act_v:
                 type: str
-                description: Deprecated, please rename it to slif_act_v. Enable to set tact slif-act.
+                description: Enable to set tact slif-act.
                 choices:
                     - 'disable'
                     - 'enable'
             sublnkid:
                 type: int
                 description: Tcam tact sublnkid.
-            sublnkid-v:
+            sublnkid_v:
                 type: str
-                description: Deprecated, please rename it to sublnkid_v. Enable to set tact sublnkid.
+                description: Enable to set tact sublnkid.
                 choices:
                     - 'disable'
                     - 'enable'
-            tgtv-act:
+            tgtv_act:
                 type: int
-                description: Deprecated, please rename it to tgtv_act. Tcam tact tgtv-act.
-            tgtv-act-v:
+                description: Tcam tact tgtv-act.
+            tgtv_act_v:
                 type: str
-                description: Deprecated, please rename it to tgtv_act_v. Enable to set tact tgtv-act.
+                description: Enable to set tact tgtv-act.
                 choices:
                     - 'disable'
                     - 'enable'
-            tlif-act:
+            tlif_act:
                 type: int
-                description: Deprecated, please rename it to tlif_act. Tcam tact tlif-act.
-            tlif-act-v:
+                description: Tcam tact tlif-act.
+            tlif_act_v:
                 type: str
-                description: Deprecated, please rename it to tlif_act_v. Enable to set tact tlif-act.
+                description: Enable to set tact tlif-act.
                 choices:
                     - 'disable'
                     - 'enable'
             tpeid:
                 type: int
                 description: Tcam tact tpeid.
-            tpeid-v:
+            tpeid_v:
                 type: str
-                description: Deprecated, please rename it to tpeid_v. Enable to set tact tpeid.
+                description: Enable to set tact tpeid.
                 choices:
                     - 'disable'
                     - 'enable'
             v6fe:
                 type: int
                 description: Tcam tact v6fe.
-            v6fe-v:
+            v6fe_v:
                 type: str
-                description: Deprecated, please rename it to v6fe_v. Enable to set tact v6fe.
+                description: Enable to set tact v6fe.
                 choices:
                     - 'disable'
                     - 'enable'
-            vep-en-v:
+            vep_en_v:
                 type: str
-                description: Deprecated, please rename it to vep_en_v. Enable to set tact vep-en.
+                description: Enable to set tact vep-en.
                 choices:
                     - 'disable'
                     - 'enable'
-            vep-slid:
+            vep_slid:
                 type: int
-                description: Deprecated, please rename it to vep_slid. Tcam tact vep_slid.
-            vep-slid-v:
+                description: Tcam tact vep_slid.
+            vep_slid_v:
                 type: str
-                description: Deprecated, please rename it to vep_slid_v. Enable to set tact vep-slid.
+                description: Enable to set tact vep-slid.
                 choices:
                     - 'disable'
                     - 'enable'
             vep_en:
                 type: int
                 description: Tcam tact vep_en.
-            xlt-lif:
+            xlt_lif:
                 type: int
-                description: Deprecated, please rename it to xlt_lif. Tcam tact xlt-lif.
-            xlt-lif-v:
+                description: Tcam tact xlt-lif.
+            xlt_lif_v:
                 type: str
-                description: Deprecated, please rename it to xlt_lif_v. Enable to set tact xlt-lif.
+                description: Enable to set tact xlt-lif.
                 choices:
                     - 'disable'
                     - 'enable'
-            xlt-vid:
+            xlt_vid:
                 type: int
-                description: Deprecated, please rename it to xlt_vid. Tcam tact xlt-vid.
-            xlt-vid-v:
+                description: Tcam tact xlt-vid.
+            xlt_vid_v:
                 type: str
-                description: Deprecated, please rename it to xlt_vid_v. Enable to set tact xlt-vid.
+                description: Enable to set tact xlt-vid.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -348,23 +348,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/tact',
         '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/tact'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/tact/{tact}',
-        '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/tact/{tact}'
-    ]
-
     url_params = ['adom', 'npu-tcam']
     module_primary_key = None
     module_arg_spec = {
@@ -412,7 +404,6 @@ def main():
                 'xlt-vid': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'xlt-vid-v': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -426,9 +417,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -76,48 +76,48 @@ options:
         required: false
         type: dict
         suboptions:
-            check-status-timeout:
+            check_status_timeout:
                 type: int
-                description: Deprecated, please rename it to check_status_timeout. Timeout for checking status after tunnnel is up.
-            ctrl-check-status-timeout:
+                description: Timeout for checking status after tunnnel is up.
+            ctrl_check_status_timeout:
                 type: int
-                description: Deprecated, please rename it to ctrl_check_status_timeout. Timeout for checking fap/fsw/fext status after request upgrade.
-            ctrl-put-image-by-fds-timeout:
+                description: Timeout for checking fap/fsw/fext status after request upgrade.
+            ctrl_put_image_by_fds_timeout:
                 type: int
-                description: Deprecated, please rename it to ctrl_put_image_by_fds_timeout. Timeout for waiting device get fap/fsw/fext image from fort...
-            ha-sync-timeout:
+                description: Timeout for waiting device get fap/fsw/fext image from fortiguard.
+            ha_sync_timeout:
                 type: int
-                description: Deprecated, please rename it to ha_sync_timeout. Timeout for waiting HA sync.
-            license-check-timeout:
+                description: Timeout for waiting HA sync.
+            license_check_timeout:
                 type: int
-                description: Deprecated, please rename it to license_check_timeout. Timeout for waiting fortigate check license.
-            prepare-image-timeout:
+                description: Timeout for waiting fortigate check license.
+            prepare_image_timeout:
                 type: int
-                description: Deprecated, please rename it to prepare_image_timeout. Timeout for preparing image.
-            put-image-by-fds-timeout:
+                description: Timeout for preparing image.
+            put_image_by_fds_timeout:
                 type: int
-                description: Deprecated, please rename it to put_image_by_fds_timeout. Timeout for waiting device get image from fortiguard.
-            put-image-timeout:
+                description: Timeout for waiting device get image from fortiguard.
+            put_image_timeout:
                 type: int
-                description: Deprecated, please rename it to put_image_timeout. Timeout for waiting send image over tunnel.
-            reboot-of-fsck-timeout:
+                description: Timeout for waiting send image over tunnel.
+            reboot_of_fsck_timeout:
                 type: int
-                description: Deprecated, please rename it to reboot_of_fsck_timeout. Timeout for waiting fortigate reboot.
-            reboot-of-upgrade-timeout:
+                description: Timeout for waiting fortigate reboot.
+            reboot_of_upgrade_timeout:
                 type: int
-                description: Deprecated, please rename it to reboot_of_upgrade_timeout. Timeout for waiting fortigate reboot after image upgrade.
-            retrieve-timeout:
+                description: Timeout for waiting fortigate reboot after image upgrade.
+            retrieve_timeout:
                 type: int
-                description: Deprecated, please rename it to retrieve_timeout. Timeout for waiting retrieve.
-            rpc-timeout:
+                description: Timeout for waiting retrieve.
+            rpc_timeout:
                 type: int
-                description: Deprecated, please rename it to rpc_timeout. Timeout for waiting fortigate rpc response.
-            total-timeout:
+                description: Timeout for waiting fortigate rpc response.
+            total_timeout:
                 type: int
-                description: Deprecated, please rename it to total_timeout. Timeout for the whole fortigate upgrade
-            health-check-timeout:
+                description: Timeout for the whole fortigate upgrade
+            health_check_timeout:
                 type: int
-                description: Deprecated, please rename it to health_check_timeout. Timeout for waiting retrieve.
+                description: Timeout for waiting retrieve.
 '''
 
 EXAMPLES = '''
@@ -194,44 +194,36 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/fmupdate/fwm-setting/upgrade-timeout'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/fmupdate/fwm-setting/upgrade-timeout/{upgrade-timeout}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
         'fmupdate_fwmsetting_upgradetimeout': {
             'type': 'dict',
-            'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']],
+            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']],
             'options': {
-                'check-status-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'license-check-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'put-image-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'retrieve-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'rpc-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'total-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
+                'check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'license-check-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'put-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'retrieve-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'rpc-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'total-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
                 'health-check-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -245,9 +237,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

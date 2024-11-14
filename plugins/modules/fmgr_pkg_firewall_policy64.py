@@ -126,12 +126,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            per-ip-shaper:
+            per_ip_shaper:
                 type: str
-                description: Deprecated, please rename it to per_ip_shaper. Per-IP traffic shaper.
-            permit-any-host:
+                description: Per-IP traffic shaper.
+            permit_any_host:
                 type: str
-                description: Deprecated, please rename it to permit_any_host. Enable/disable permit any host in.
+                description: Enable/disable permit any host in.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -163,54 +163,54 @@ options:
             tags:
                 type: str
                 description: Applied object tags.
-            tcp-mss-receiver:
+            tcp_mss_receiver:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_receiver. TCP MSS value of receiver.
-            tcp-mss-sender:
+                description: TCP MSS value of receiver.
+            tcp_mss_sender:
                 type: int
-                description: Deprecated, please rename it to tcp_mss_sender. TCP MSS value of sender.
-            traffic-shaper:
+                description: TCP MSS value of sender.
+            traffic_shaper:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper. Traffic shaper.
-            traffic-shaper-reverse:
+                description: Traffic shaper.
+            traffic_shaper_reverse:
                 type: str
-                description: Deprecated, please rename it to traffic_shaper_reverse. Reverse traffic shaper.
+                description: Reverse traffic shaper.
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Record logs when a session starts and ends.
+                description: Record logs when a session starts and ends.
                 choices:
                     - 'disable'
                     - 'enable'
             name:
                 type: str
                 description: Policy name.
-            policy-offload:
+            policy_offload:
                 type: str
-                description: Deprecated, please rename it to policy_offload. Enable/disable hardware session setup for CGNAT.
+                description: Enable/disable hardware session setup for CGNAT.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-session-quota:
+            cgn_session_quota:
                 type: int
-                description: Deprecated, please rename it to cgn_session_quota. Session quota
-            cgn-eif:
+                description: Session quota
+            cgn_eif:
                 type: str
-                description: Deprecated, please rename it to cgn_eif. Enable/disable CGN endpoint independent filtering.
+                description: Enable/disable CGN endpoint independent filtering.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-log-server-grp:
+            cgn_log_server_grp:
                 type: str
-                description: Deprecated, please rename it to cgn_log_server_grp. NP log server group name
-            cgn-resource-quota:
+                description: NP log server group name
+            cgn_resource_quota:
                 type: int
-                description: Deprecated, please rename it to cgn_resource_quota. Resource quota
-            cgn-eim:
+                description: Resource quota
+            cgn_eim:
                 type: str
-                description: Deprecated, please rename it to cgn_eim. Enable/disable CGN endpoint independent mapping.
+                description: Enable/disable CGN endpoint independent mapping.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -303,21 +303,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy64/{policy64}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -343,7 +336,7 @@ def main():
                 'srcaddr': {'type': 'raw'},
                 'srcintf': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                'tags': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                 'tcp-mss-receiver': {'type': 'int'},
                 'tcp-mss-sender': {'type': 'int'},
                 'traffic-shaper': {'type': 'str'},
@@ -351,14 +344,13 @@ def main():
                 'uuid': {'type': 'str'},
                 'logtraffic-start': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-session-quota': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
-                'cgn-eif': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'str'},
-                'cgn-resource-quota': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
-                'cgn-eim': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-session-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
+                'cgn-eif': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
+                'cgn-resource-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
+                'cgn-eim': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -372,9 +364,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

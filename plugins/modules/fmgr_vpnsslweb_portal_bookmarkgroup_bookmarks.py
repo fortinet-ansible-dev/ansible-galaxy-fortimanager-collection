@@ -99,9 +99,9 @@ options:
         required: false
         type: dict
         suboptions:
-            additional-params:
+            additional_params:
                 type: str
-                description: Deprecated, please rename it to additional_params. Additional parameters.
+                description: Additional parameters.
             apptype:
                 type: str
                 description: Application type.
@@ -123,10 +123,10 @@ options:
             folder:
                 type: str
                 description: Network shared file folder parameter.
-            form-data:
+            form_data:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to form_data. Form data.
+                description: Form data.
                 suboptions:
                     name:
                         type: str
@@ -137,18 +137,18 @@ options:
             host:
                 type: str
                 description: Host name/IP parameter.
-            listening-port:
+            listening_port:
                 type: int
-                description: Deprecated, please rename it to listening_port. Listening port
-            load-balancing-info:
+                description: Listening port
+            load_balancing_info:
                 type: str
-                description: Deprecated, please rename it to load_balancing_info. The load balancing information or cookie which should be provided to ...
-            logon-password:
+                description: The load balancing information or cookie which should be provided to the connection broker.
+            logon_password:
                 type: raw
-                description: (list) Deprecated, please rename it to logon_password. Logon password.
-            logon-user:
+                description: (list) Logon password.
+            logon_user:
                 type: str
-                description: Deprecated, please rename it to logon_user. Logon user.
+                description: Logon user.
             name:
                 type: str
                 description: Bookmark name.
@@ -156,15 +156,15 @@ options:
             port:
                 type: int
                 description: Remote port.
-            preconnection-blob:
+            preconnection_blob:
                 type: str
-                description: Deprecated, please rename it to preconnection_blob. An arbitrary string which identifies the RDP source.
-            preconnection-id:
+                description: An arbitrary string which identifies the RDP source.
+            preconnection_id:
                 type: int
-                description: Deprecated, please rename it to preconnection_id. The numeric ID of the RDP source
-            remote-port:
+                description: The numeric ID of the RDP source
+            remote_port:
                 type: int
-                description: Deprecated, please rename it to remote_port. Remote port
+                description: Remote port
             security:
                 type: str
                 description: Security mode for RDP connection.
@@ -173,9 +173,9 @@ options:
                     - 'nla'
                     - 'tls'
                     - 'any'
-            server-layout:
+            server_layout:
                 type: str
-                description: Deprecated, please rename it to server_layout. Server side keyboard layout.
+                description: Server side keyboard layout.
                 choices:
                     - 'en-us-qwerty'
                     - 'de-de-qwertz'
@@ -190,9 +190,9 @@ options:
                     - 'pt-br-qwerty'
                     - 'tr-tr-qwerty'
                     - 'fr-ca-qwerty'
-            show-status-window:
+            show_status_window:
                 type: str
-                description: Deprecated, please rename it to show_status_window. Enable/disable showing of status window.
+                description: Enable/disable showing of status window.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -203,33 +203,33 @@ options:
                     - 'disable'
                     - 'static'
                     - 'auto'
-            sso-credential:
+            sso_credential:
                 type: str
-                description: Deprecated, please rename it to sso_credential. Single sign-on credentials.
+                description: Single sign-on credentials.
                 choices:
                     - 'sslvpn-login'
                     - 'alternative'
-            sso-credential-sent-once:
+            sso_credential_sent_once:
                 type: str
-                description: Deprecated, please rename it to sso_credential_sent_once. Single sign-on credentials are only sent once to remote server.
+                description: Single sign-on credentials are only sent once to remote server.
                 choices:
                     - 'disable'
                     - 'enable'
-            sso-password:
+            sso_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sso_password. SSO password.
-            sso-username:
+                description: (list) SSO password.
+            sso_username:
                 type: str
-                description: Deprecated, please rename it to sso_username. SSO user name.
+                description: SSO user name.
             url:
                 type: str
                 description: URL parameter.
             domain:
                 type: str
                 description: Login domain.
-            color-depth:
+            color_depth:
                 type: str
-                description: Deprecated, please rename it to color_depth. Color depth per pixel.
+                description: Color depth per pixel.
                 choices:
                     - '8'
                     - '16'
@@ -237,9 +237,9 @@ options:
             height:
                 type: int
                 description: Screen height
-            keyboard-layout:
+            keyboard_layout:
                 type: str
-                description: Deprecated, please rename it to keyboard_layout. Keyboard layout.
+                description: Keyboard layout.
                 choices:
                     - 'ar'
                     - 'da'
@@ -311,24 +311,24 @@ options:
                     - 'fr-apple'
                     - 'la-am'
                     - 'ja-106'
-            restricted-admin:
+            restricted_admin:
                 type: str
-                description: Deprecated, please rename it to restricted_admin. Enable/disable restricted admin mode for RDP.
+                description: Enable/disable restricted admin mode for RDP.
                 choices:
                     - 'disable'
                     - 'enable'
-            send-preconnection-id:
+            send_preconnection_id:
                 type: str
-                description: Deprecated, please rename it to send_preconnection_id. Enable/disable sending of preconnection ID.
+                description: Enable/disable sending of preconnection ID.
                 choices:
                     - 'disable'
                     - 'enable'
             width:
                 type: int
                 description: Screen width
-            vnc-keyboard-layout:
+            vnc_keyboard_layout:
                 type: str
-                description: Deprecated, please rename it to vnc_keyboard_layout. Keyboard layout.
+                description: Keyboard layout.
                 choices:
                     - 'da'
                     - 'de'
@@ -451,23 +451,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks',
         '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}',
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}/bookmark-group/{bookmark-group}/bookmarks/{bookmarks}'
-    ]
-
     url_params = ['adom', 'portal', 'bookmark-group']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -510,10 +502,10 @@ def main():
                 'sso-username': {'type': 'str'},
                 'url': {'type': 'str'},
                 'domain': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                'color-depth': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
+                'color-depth': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
                 'height': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'keyboard-layout': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': [
                         'ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu', 'it', 'ja', 'lt',
                         'lv', 'mk', 'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101', 'ar-102', 'ar-102-azerty',
@@ -524,8 +516,8 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'restricted-admin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'send-preconnection-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'restricted-admin': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'send-preconnection-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'width': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'vnc-keyboard-layout': {
                     'v_range': [['7.2.2', '']],
@@ -536,7 +528,6 @@ def main():
                     'type': 'str'
                 }
             }
-
         }
     }
 
@@ -550,9 +541,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

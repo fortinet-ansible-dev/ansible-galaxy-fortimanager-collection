@@ -84,10 +84,10 @@ options:
         required: false
         type: dict
         suboptions:
-            default-allowed-methods:
+            default_allowed_methods:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to default_allowed_methods. Methods.
+                description: Methods.
                 choices:
                     - 'delete'
                     - 'get'
@@ -104,18 +104,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            method-policy:
+            method_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to method_policy. Method policy.
+                description: Method policy.
                 suboptions:
                     address:
                         type: str
                         description: Host address.
-                    allowed-methods:
+                    allowed_methods:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to allowed_methods. Allowed Methods.
+                        description: Allowed Methods.
                         choices:
                             - 'delete'
                             - 'get'
@@ -173,29 +173,29 @@ EXAMPLES = '''
         profile: <your own value>
         waf_profile_method:
           default_allowed_methods:
-            - delete
-            - get
-            - head
-            - options
-            - post
-            - put
-            - trace
-            - others
-            - connect
+            - "delete"
+            - "get"
+            - "head"
+            - "options"
+            - "post"
+            - "put"
+            - "trace"
+            - "others"
+            - "connect"
           log: <value in [disable, enable]>
           method_policy:
             -
               address: <string>
               allowed_methods:
-                - delete
-                - get
-                - head
-                - options
-                - post
-                - put
-                - trace
-                - others
-                - connect
+                - "delete"
+                - "get"
+                - "head"
+                - "options"
+                - "post"
+                - "put"
+                - "trace"
+                - "others"
+                - "connect"
               id: <integer>
               pattern: <string>
               regex: <value in [disable, enable]>
@@ -244,23 +244,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method',
         '/pm/config/global/obj/waf/profile/{profile}/method'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/waf/profile/{profile}/method/{method}',
-        '/pm/config/global/obj/waf/profile/{profile}/method/{method}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -294,7 +286,6 @@ def main():
                 'severity': {'choices': ['low', 'medium', 'high'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -308,9 +299,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

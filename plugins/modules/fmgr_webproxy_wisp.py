@@ -92,22 +92,22 @@ options:
             comment:
                 type: str
                 description: Comment.
-            max-connections:
+            max_connections:
                 type: int
-                description: Deprecated, please rename it to max_connections. Maximum number of web proxy WISP connections
+                description: Maximum number of web proxy WISP connections
             name:
                 type: str
                 description: Server name.
                 required: true
-            outgoing-ip:
+            outgoing_ip:
                 type: str
-                description: Deprecated, please rename it to outgoing_ip. WISP outgoing IP address.
-            server-ip:
+                description: WISP outgoing IP address.
+            server_ip:
                 type: str
-                description: Deprecated, please rename it to server_ip. WISP server IP address.
-            server-port:
+                description: WISP server IP address.
+            server_port:
                 type: int
-                description: Deprecated, please rename it to server_port. WISP server port
+                description: WISP server port
             timeout:
                 type: int
                 description: Period of time before WISP requests time out
@@ -182,23 +182,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/web-proxy/wisp',
         '/pm/config/global/obj/web-proxy/wisp'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/web-proxy/wisp/{wisp}',
-        '/pm/config/global/obj/web-proxy/wisp/{wisp}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -215,7 +207,6 @@ def main():
                 'server-port': {'type': 'int'},
                 'timeout': {'type': 'int'}
             }
-
         }
     }
 
@@ -229,9 +220,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -99,9 +99,9 @@ options:
                 choices:
                     - 'deny'
                     - 'accept'
-            active-auth-method:
+            active_auth_method:
                 type: str
-                description: Deprecated, please rename it to active_auth_method. Active authentication method.
+                description: Active authentication method.
                 choices:
                     - 'ntlm'
                     - 'basic'
@@ -109,15 +109,15 @@ options:
                     - 'form'
                     - 'none'
                     - 'negotiate'
-            application-list:
+            application_list:
                 type: str
-                description: Deprecated, please rename it to application_list. Application list.
-            av-profile:
+                description: Application list.
+            av_profile:
                 type: str
-                description: Deprecated, please rename it to av_profile. Antivirus profile.
-            casi-profile:
+                description: Antivirus profile.
+            casi_profile:
                 type: str
-                description: Deprecated, please rename it to casi_profile. CASI profile.
+                description: CASI profile.
             comments:
                 type: str
                 description: Comment.
@@ -129,15 +129,15 @@ options:
                     - 'domain'
                     - 'policy'
                     - 'user'
-            dlp-sensor:
+            dlp_sensor:
                 type: str
-                description: Deprecated, please rename it to dlp_sensor. DLP sensor.
+                description: DLP sensor.
             dstaddr:
                 type: str
                 description: Destination address name.
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. Enable/disable negated destination address match.
+                description: Enable/disable negated destination address match.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -147,32 +147,32 @@ options:
             dstintf:
                 type: str
                 description: Destination interface name.
-            global-label:
+            global_label:
                 type: str
-                description: Deprecated, please rename it to global_label. Label for global view.
-            icap-profile:
+                description: Label for global view.
+            icap_profile:
                 type: str
-                description: Deprecated, please rename it to icap_profile. ICAP profile.
-            identity-based:
+                description: ICAP profile.
+            identity_based:
                 type: str
-                description: Deprecated, please rename it to identity_based. Enable/disable identity-based policy.
+                description: Enable/disable identity-based policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            identity-based-policy:
+            identity_based_policy:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to identity_based_policy. Identity based policy.
+                description: Identity based policy.
                 suboptions:
-                    application-list:
+                    application_list:
                         type: str
-                        description: Deprecated, please rename it to application_list. Application list.
-                    av-profile:
+                        description: Application list.
+                    av_profile:
                         type: str
-                        description: Deprecated, please rename it to av_profile. Antivirus profile.
-                    casi-profile:
+                        description: Antivirus profile.
+                    casi_profile:
                         type: str
-                        description: Deprecated, please rename it to casi_profile. CASI profile.
+                        description: CASI profile.
                     disclaimer:
                         type: str
                         description: Web proxy disclaimer setting.
@@ -181,21 +181,21 @@ options:
                             - 'domain'
                             - 'policy'
                             - 'user'
-                    dlp-sensor:
+                    dlp_sensor:
                         type: str
-                        description: Deprecated, please rename it to dlp_sensor. DLP sensor.
+                        description: DLP sensor.
                     groups:
                         type: str
                         description: Group name.
-                    icap-profile:
+                    icap_profile:
                         type: str
-                        description: Deprecated, please rename it to icap_profile. ICAP profile.
+                        description: ICAP profile.
                     id:
                         type: int
                         description: ID.
-                    ips-sensor:
+                    ips_sensor:
                         type: str
-                        description: Deprecated, please rename it to ips_sensor. IPS sensor.
+                        description: IPS sensor.
                     logtraffic:
                         type: str
                         description: Enable/disable policy log traffic.
@@ -203,33 +203,33 @@ options:
                             - 'disable'
                             - 'all'
                             - 'utm'
-                    logtraffic-start:
+                    logtraffic_start:
                         type: str
-                        description: Deprecated, please rename it to logtraffic_start. Enable/disable policy log traffic start.
+                        description: Enable/disable policy log traffic start.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mms-profile:
+                    mms_profile:
                         type: str
-                        description: Deprecated, please rename it to mms_profile. Mms profile
-                    profile-group:
+                        description: Mms profile
+                    profile_group:
                         type: str
-                        description: Deprecated, please rename it to profile_group. Profile group
-                    profile-protocol-options:
+                        description: Profile group
+                    profile_protocol_options:
                         type: str
-                        description: Deprecated, please rename it to profile_protocol_options. Profile protocol options.
-                    profile-type:
+                        description: Profile protocol options.
+                    profile_type:
                         type: str
-                        description: Deprecated, please rename it to profile_type. Profile type
+                        description: Profile type
                         choices:
                             - 'single'
                             - 'group'
-                    replacemsg-override-group:
+                    replacemsg_override_group:
                         type: str
-                        description: Deprecated, please rename it to replacemsg_override_group. Specify authentication replacement message override group.
-                    scan-botnet-connections:
+                        description: Specify authentication replacement message override group.
+                    scan_botnet_connections:
                         type: str
-                        description: Deprecated, please rename it to scan_botnet_connections. Enable/disable scanning of connections to Botnet servers.
+                        description: Enable/disable scanning of connections to Botnet servers.
                         choices:
                             - 'disable'
                             - 'block'
@@ -237,36 +237,36 @@ options:
                     schedule:
                         type: str
                         description: Schedule name.
-                    spamfilter-profile:
+                    spamfilter_profile:
                         type: str
-                        description: Deprecated, please rename it to spamfilter_profile. Spam filter profile.
-                    ssl-ssh-profile:
+                        description: Spam filter profile.
+                    ssl_ssh_profile:
                         type: str
-                        description: Deprecated, please rename it to ssl_ssh_profile. SSL SSH Profile.
+                        description: SSL SSH Profile.
                     users:
                         type: str
                         description: User name.
-                    utm-status:
+                    utm_status:
                         type: str
-                        description: Deprecated, please rename it to utm_status. Enable AV/web/IPS protection profile.
+                        description: Enable AV/web/IPS protection profile.
                         choices:
                             - 'disable'
                             - 'enable'
-                    waf-profile:
+                    waf_profile:
                         type: str
-                        description: Deprecated, please rename it to waf_profile. Web application firewall profile.
-                    webfilter-profile:
+                        description: Web application firewall profile.
+                    webfilter_profile:
                         type: str
-                        description: Deprecated, please rename it to webfilter_profile. Web filter profile.
-            ip-based:
+                        description: Web filter profile.
+            ip_based:
                 type: str
-                description: Deprecated, please rename it to ip_based. Enable/disable IP-based authentication.
+                description: Enable/disable IP-based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            ips-sensor:
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. IPS sensor.
+                description: IPS sensor.
             label:
                 type: str
                 description: Label for section view.
@@ -277,28 +277,28 @@ options:
                     - 'disable'
                     - 'all'
                     - 'utm'
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Enable/disable policy log traffic start.
+                description: Enable/disable policy log traffic start.
                 choices:
                     - 'disable'
                     - 'enable'
-            mms-profile:
+            mms_profile:
                 type: str
-                description: Deprecated, please rename it to mms_profile. Mms profile
+                description: Mms profile
             policyid:
                 type: int
                 description: Policy ID.
                 required: true
-            profile-group:
+            profile_group:
                 type: str
-                description: Deprecated, please rename it to profile_group. Profile group
-            profile-protocol-options:
+                description: Profile group
+            profile_protocol_options:
                 type: str
-                description: Deprecated, please rename it to profile_protocol_options. Profile protocol options.
-            profile-type:
+                description: Profile protocol options.
+            profile_type:
                 type: str
-                description: Deprecated, please rename it to profile_type. Profile type
+                description: Profile type
                 choices:
                     - 'single'
                     - 'group'
@@ -309,18 +309,18 @@ options:
                     - 'web'
                     - 'ftp'
                     - 'wanopt'
-            replacemsg-override-group:
+            replacemsg_override_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_override_group. Specify authentication replacement message override group.
-            require-tfa:
+                description: Specify authentication replacement message override group.
+            require_tfa:
                 type: str
-                description: Deprecated, please rename it to require_tfa. Enable/disable requirement of 2-factor authentication.
+                description: Enable/disable requirement of 2-factor authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            scan-botnet-connections:
+            scan_botnet_connections:
                 type: str
-                description: Deprecated, please rename it to scan_botnet_connections. Enable/disable scanning of connections to Botnet servers.
+                description: Enable/disable scanning of connections to Botnet servers.
                 choices:
                     - 'disable'
                     - 'block'
@@ -331,33 +331,33 @@ options:
             service:
                 type: str
                 description: Service name.
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. Enable/disable negated service match.
+                description: Enable/disable negated service match.
                 choices:
                     - 'disable'
                     - 'enable'
-            spamfilter-profile:
+            spamfilter_profile:
                 type: str
-                description: Deprecated, please rename it to spamfilter_profile. Spam filter profile.
+                description: Spam filter profile.
             srcaddr:
                 type: str
                 description: Source address name.
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. Enable/disable negated source address match.
+                description: Enable/disable negated source address match.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr6:
                 type: str
                 description: IPv6 source address
-            ssl-ssh-profile:
+            ssl_ssh_profile:
                 type: str
-                description: Deprecated, please rename it to ssl_ssh_profile. SSL SSH Profile.
-            sso-auth-method:
+                description: SSL SSH Profile.
+            sso_auth_method:
                 type: str
-                description: Deprecated, please rename it to sso_auth_method. SSO authentication method.
+                description: SSO authentication method.
                 choices:
                     - 'fsso'
                     - 'rsso'
@@ -371,9 +371,9 @@ options:
             tags:
                 type: str
                 description: Applied object tags.
-            transaction-based:
+            transaction_based:
                 type: str
-                description: Deprecated, please rename it to transaction_based. Enable/disable transaction based authentication.
+                description: Enable/disable transaction based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -383,21 +383,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            utm-status:
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Enable AV/web/IPS protection profile.
+                description: Enable AV/web/IPS protection profile.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Universally Unique IDentifier.
-            waf-profile:
+            waf_profile:
                 type: str
-                description: Deprecated, please rename it to waf_profile. Web application firewall profile.
-            web-auth-cookie:
+                description: Web application firewall profile.
+            web_auth_cookie:
                 type: str
-                description: Deprecated, please rename it to web_auth_cookie. Enable/disable Web authentication cookie.
+                description: Enable/disable Web authentication cookie.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -407,22 +407,22 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            webcache-https:
+            webcache_https:
                 type: str
-                description: Deprecated, please rename it to webcache_https. Enable/disable web cache for HTTPS.
+                description: Enable/disable web cache for HTTPS.
                 choices:
                     - 'disable'
                     - 'any'
                     - 'enable'
-            webfilter-profile:
+            webfilter_profile:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile. Web filter profile.
-            webproxy-forward-server:
+                description: Web filter profile.
+            webproxy_forward_server:
                 type: str
-                description: Deprecated, please rename it to webproxy_forward_server. Web proxy forward server.
-            webproxy-profile:
+                description: Web proxy forward server.
+            webproxy_profile:
                 type: str
-                description: Deprecated, please rename it to webproxy_profile. Web proxy profile.
+                description: Web proxy profile.
 '''
 
 EXAMPLES = '''
@@ -565,21 +565,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pkg/{pkg}/firewall/explicit-proxy-policy/{explicit-proxy-policy}'
-    ]
-
     url_params = ['adom', 'pkg']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -587,96 +580,95 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'pkg_firewall_explicitproxypolicy': {
             'type': 'dict',
-            'v_range': [['6.2.0', '6.2.12']],
+            'v_range': [['6.2.0', '6.2.13']],
             'options': {
-                'action': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['deny', 'accept'], 'type': 'str'},
+                'action': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['deny', 'accept'], 'type': 'str'},
                 'active-auth-method': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'choices': ['ntlm', 'basic', 'digest', 'form', 'none', 'negotiate'],
                     'type': 'str'
                 },
-                'application-list': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'av-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'comments': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'disclaimer': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'domain', 'policy', 'user'], 'type': 'str'},
-                'dlp-sensor': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'dstaddr-negate': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstaddr6': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'dstintf': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'global-label': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'icap-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'identity-based': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'application-list': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'av-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'comments': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'disclaimer': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'domain', 'policy', 'user'], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'dstaddr-negate': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr6': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'dstintf': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'global-label': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'icap-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'identity-based': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'identity-based-policy': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
                     'options': {
-                        'application-list': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'av-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'casi-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'disclaimer': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'domain', 'policy', 'user'], 'type': 'str'},
-                        'dlp-sensor': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'groups': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'icap-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'id': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'},
-                        'ips-sensor': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'logtraffic': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                        'logtraffic-start': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'mms-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'profile-group': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'profile-protocol-options': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'profile-type': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['single', 'group'], 'type': 'str'},
-                        'replacemsg-override-group': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'scan-botnet-connections': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'schedule': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'spamfilter-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'ssl-ssh-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'users': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'utm-status': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'waf-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                        'webfilter-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'}
+                        'application-list': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'av-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'disclaimer': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'domain', 'policy', 'user'], 'type': 'str'},
+                        'dlp-sensor': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'groups': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'icap-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'id': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'},
+                        'ips-sensor': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'logtraffic': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                        'logtraffic-start': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mms-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'profile-group': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'profile-protocol-options': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'profile-type': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['single', 'group'], 'type': 'str'},
+                        'replacemsg-override-group': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'scan-botnet-connections': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
+                        'schedule': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'spamfilter-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'ssl-ssh-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'users': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'utm-status': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'waf-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                        'webfilter-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'ip-based': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ips-sensor': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'label': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'logtraffic': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                'logtraffic-start': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'policyid': {'v_range': [['6.2.0', '6.2.12']], 'required': True, 'type': 'int'},
-                'profile-group': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'profile-type': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['single', 'group'], 'type': 'str'},
-                'proxy': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['web', 'ftp', 'wanopt'], 'type': 'str'},
-                'replacemsg-override-group': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'require-tfa': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-botnet-connections': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                'schedule': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'service': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'service-negate': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'spamfilter-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'srcaddr': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'srcaddr-negate': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr6': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'ssl-ssh-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'sso-auth-method': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['fsso', 'rsso', 'none'], 'type': 'str'},
-                'status': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'transaction-based': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'transparent': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'utm-status': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'waf-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'web-auth-cookie': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'any', 'enable'], 'type': 'str'},
-                'webfilter-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'webproxy-forward-server': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'webproxy-profile': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'}
+                'ip-based': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-sensor': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'label': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'logtraffic': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                'logtraffic-start': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'policyid': {'v_range': [['6.2.0', '6.2.13']], 'required': True, 'type': 'int'},
+                'profile-group': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'profile-type': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['single', 'group'], 'type': 'str'},
+                'proxy': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['web', 'ftp', 'wanopt'], 'type': 'str'},
+                'replacemsg-override-group': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'require-tfa': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-botnet-connections': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
+                'schedule': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'service': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'service-negate': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'spamfilter-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'srcaddr': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'srcaddr-negate': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr6': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'sso-auth-method': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['fsso', 'rsso', 'none'], 'type': 'str'},
+                'status': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'transaction-based': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'transparent': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'utm-status': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'waf-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'web-auth-cookie': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'any', 'enable'], 'type': 'str'},
+                'webfilter-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'webproxy-forward-server': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'webproxy-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'}
             }
-
         }
     }
 
@@ -690,9 +682,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

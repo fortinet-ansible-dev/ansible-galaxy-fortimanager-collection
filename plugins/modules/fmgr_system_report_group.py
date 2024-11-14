@@ -88,42 +88,40 @@ options:
             adom:
                 type: str
                 description: Admin domain name.
-            case-insensitive:
+            case_insensitive:
                 type: str
                 description:
-                    - Deprecated, please rename it to case_insensitive.
                     - Case insensitive.
                     - disable - Disable the case insensitive match.
                     - enable - Enable the case insensitive match.
                 choices:
                     - 'disable'
                     - 'enable'
-            chart-alternative:
+            chart_alternative:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to chart_alternative. Chart alternative.
+                description: Chart alternative.
                 suboptions:
-                    chart-name:
+                    chart_name:
                         type: str
-                        description: Deprecated, please rename it to chart_name. Chart name.
-                    chart-replace:
+                        description: Chart name.
+                    chart_replace:
                         type: str
-                        description: Deprecated, please rename it to chart_replace. Chart replacement.
-            group-by:
+                        description: Chart replacement.
+            group_by:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to group_by. Group by.
+                description: Group by.
                 suboptions:
-                    var-expression:
+                    var_expression:
                         type: str
-                        description: Deprecated, please rename it to var_expression. Variable expression.
-                    var-name:
+                        description: Variable expression.
+                    var_name:
                         type: str
-                        description: Deprecated, please rename it to var_name. Variable name.
-                    var-type:
+                        description: Variable name.
+                    var_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to var_type.
                             - Variable type.
                             - integer - Integer.
                             - string - String.
@@ -134,13 +132,13 @@ options:
                             - 'string'
                             - 'enum'
                             - 'ip'
-            group-id:
+            group_id:
                 type: int
-                description: Deprecated, please rename it to group_id. Group ID.
+                description: Group ID.
                 required: true
-            report-like:
+            report_like:
                 type: str
-                description: Deprecated, please rename it to report_like. Report pattern.
+                description: Report pattern.
 '''
 
 EXAMPLES = '''
@@ -217,21 +215,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/report/group'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/report/group/{group}'
-    ]
-
     url_params = []
     module_primary_key = 'group-id'
     module_arg_spec = {
@@ -254,7 +245,6 @@ def main():
                 'group-id': {'required': True, 'type': 'int'},
                 'report-like': {'type': 'str'}
             }
-
         }
     }
 
@@ -268,9 +258,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

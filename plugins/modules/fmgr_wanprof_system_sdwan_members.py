@@ -93,9 +93,9 @@ options:
         required: false
         type: dict
         suboptions:
-            _dynamic-member:
+            _dynamic_member:
                 type: str
-                description: Deprecated, please rename it to _dynamic_member. Dynamic member.
+                description: Dynamic member.
             comment:
                 type: str
                 description: Comments.
@@ -108,18 +108,18 @@ options:
             gateway6:
                 type: str
                 description: IPv6 gateway.
-            ingress-spillover-threshold:
+            ingress_spillover_threshold:
                 type: int
-                description: Deprecated, please rename it to ingress_spillover_threshold. Ingress spillover threshold for this interface
+                description: Ingress spillover threshold for this interface
             interface:
                 type: str
                 description: Interface name.
             priority:
                 type: int
                 description: Priority of the interface
-            seq-num:
+            seq_num:
                 type: int
-                description: Deprecated, please rename it to seq_num. Sequence number
+                description: Sequence number
                 required: true
             source:
                 type: str
@@ -127,18 +127,18 @@ options:
             source6:
                 type: str
                 description: Source IPv6 address used in the health-check packet to the server.
-            spillover-threshold:
+            spillover_threshold:
                 type: int
-                description: Deprecated, please rename it to spillover_threshold. Egress spillover threshold for this interface
+                description: Egress spillover threshold for this interface
             status:
                 type: str
                 description: Enable/disable this interface in the SD-WAN.
                 choices:
                     - 'disable'
                     - 'enable'
-            volume-ratio:
+            volume_ratio:
                 type: int
-                description: Deprecated, please rename it to volume_ratio. Measured volume ratio
+                description: Measured volume ratio
             weight:
                 type: int
                 description: Weight of this interface for weighted load balancing.
@@ -148,18 +148,18 @@ options:
             priority6:
                 type: int
                 description: Priority of the interface for IPv6
-            preferred-source:
+            preferred_source:
                 type: str
-                description: Deprecated, please rename it to preferred_source. Preferred source of route for this member.
-            transport-group:
+                description: Preferred source of route for this member.
+            transport_group:
                 type: int
-                description: Deprecated, please rename it to transport_group. Measured transport group
-            priority-in-sla:
+                description: Measured transport group
+            priority_in_sla:
                 type: int
-                description: Deprecated, please rename it to priority_in_sla. Preferred priority of routes to this member when this member is in-sla
-            priority-out-sla:
+                description: Preferred priority of routes to this member when this member is in-sla
+            priority_out_sla:
                 type: int
-                description: Deprecated, please rename it to priority_out_sla. Preferred priority of routes to this member when this member is out-of-sla
+                description: Preferred priority of routes to this member when this member is out-of-sla
 '''
 
 EXAMPLES = '''
@@ -246,21 +246,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/members'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/sdwan/members/{members}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = 'seq-num'
     module_arg_spec = {
@@ -270,7 +263,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.4.1', '']],
             'options': {
-                '_dynamic-member': {'v_range': [['6.4.1', '6.4.14']], 'type': 'str'},
+                '_dynamic-member': {'v_range': [['6.4.1', '6.4.15']], 'type': 'str'},
                 'comment': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'cost': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'gateway': {'v_range': [['6.4.1', '']], 'type': 'str'},
@@ -292,7 +285,6 @@ def main():
                 'priority-in-sla': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'priority-out-sla': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -306,9 +298,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

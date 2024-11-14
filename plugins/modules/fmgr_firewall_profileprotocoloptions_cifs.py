@@ -101,44 +101,44 @@ options:
                 description: One or more options that can be applied to the session.
                 choices:
                     - 'oversize'
-            oversize-limit:
+            oversize_limit:
                 type: int
-                description: Deprecated, please rename it to oversize_limit. Maximum in-memory file size that can be scanned
-            scan-bzip2:
+                description: Maximum in-memory file size that can be scanned
+            scan_bzip2:
                 type: str
-                description: Deprecated, please rename it to scan_bzip2. Enable/disable scanning of BZip2 compressed files.
+                description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-window-maximum:
+            tcp_window_maximum:
                 type: int
-                description: Deprecated, please rename it to tcp_window_maximum. Maximum dynamic TCP window size
-            tcp-window-minimum:
+                description: Maximum dynamic TCP window size
+            tcp_window_minimum:
                 type: int
-                description: Deprecated, please rename it to tcp_window_minimum. Minimum dynamic TCP window size
-            tcp-window-size:
+                description: Minimum dynamic TCP window size
+            tcp_window_size:
                 type: int
-                description: Deprecated, please rename it to tcp_window_size. Set TCP static window size
-            tcp-window-type:
+                description: Set TCP static window size
+            tcp_window_type:
                 type: str
-                description: Deprecated, please rename it to tcp_window_type. Specify type of TCP window to use for this protocol.
+                description: Specify type of TCP window to use for this protocol.
                 choices:
                     - 'system'
                     - 'static'
                     - 'dynamic'
                     - 'auto-tuning'
-            uncompressed-nest-limit:
+            uncompressed_nest_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_nest_limit. Maximum nested levels of compression that can be uncompressed and...
-            uncompressed-oversize-limit:
+                description: Maximum nested levels of compression that can be uncompressed and scanned
+            uncompressed_oversize_limit:
                 type: int
-                description: Deprecated, please rename it to uncompressed_oversize_limit. Maximum in-memory uncompressed file size that can be scanned
-            domain-controller:
+                description: Maximum in-memory uncompressed file size that can be scanned
+            domain_controller:
                 type: str
-                description: Deprecated, please rename it to domain_controller. Domain for which to decrypt CIFS traffic.
-            file-filter:
+                description: Domain for which to decrypt CIFS traffic.
+            file_filter:
                 type: dict
-                description: Deprecated, please rename it to file_filter. File filter.
+                description: File filter.
                 suboptions:
                     entries:
                         type: list
@@ -161,9 +161,9 @@ options:
                                     - 'any'
                                     - 'incoming'
                                     - 'outgoing'
-                            file-type:
+                            file_type:
                                 type: raw
-                                description: (list) Deprecated, please rename it to file_type. Select file type.
+                                description: (list) Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
@@ -185,17 +185,17 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            server-credential-type:
+            server_credential_type:
                 type: str
-                description: Deprecated, please rename it to server_credential_type. CIFS server credential type.
+                description: CIFS server credential type.
                 choices:
                     - 'none'
                     - 'credential-replication'
                     - 'credential-keytab'
-            server-keytab:
+            server_keytab:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to server_keytab. Server keytab.
+                description: Server keytab.
                 suboptions:
                     keytab:
                         type: str
@@ -230,7 +230,7 @@ EXAMPLES = '''
           ports: <list or integer>
           status: <value in [disable, enable]>
           options:
-            - oversize
+            - "oversize"
           oversize_limit: <integer>
           scan_bzip2: <value in [disable, enable]>
           tcp_window_maximum: <integer>
@@ -249,7 +249,7 @@ EXAMPLES = '''
                 file_type: <list or string>
                 filter: <string>
                 protocol:
-                  - cifs
+                  - "cifs"
             log: <value in [disable, enable]>
             status: <value in [disable, enable]>
           server_credential_type: <value in [none, credential-replication, credential-keytab]>
@@ -301,23 +301,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs',
         '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/{cifs}',
-        '/pm/config/global/obj/firewall/profile-protocol-options/{profile-protocol-options}/cifs/{cifs}'
-    ]
-
     url_params = ['adom', 'profile-protocol-options']
     module_primary_key = None
     module_arg_spec = {
@@ -374,7 +366,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -388,9 +379,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

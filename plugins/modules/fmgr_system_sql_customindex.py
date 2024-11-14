@@ -85,20 +85,18 @@ options:
         required: false
         type: dict
         suboptions:
-            case-sensitive:
+            case_sensitive:
                 type: str
                 description:
-                    - Deprecated, please rename it to case_sensitive.
                     - Disable/Enable case sensitive index.
                     - disable - Build a case insensitive index.
                     - enable - Build a case sensitive index.
                 choices:
                     - 'disable'
                     - 'enable'
-            device-type:
+            device_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_type.
                     - Device type.
                     - FortiGate - Device type to FortiGate.
                     - FortiManager - Set device type to FortiManager
@@ -125,13 +123,12 @@ options:
                 type: int
                 description: Add or Edit log index fields.
                 required: true
-            index-field:
+            index_field:
                 type: str
-                description: Deprecated, please rename it to index_field. Log field name to be indexed.
-            log-type:
+                description: Log field name to be indexed.
+            log_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_type.
                     - Log type.
                     - none - none
                     - app-ctrl
@@ -264,21 +261,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/sql/custom-index'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/sql/custom-index/{custom-index}'
-    ]
-
     url_params = []
     module_primary_key = 'id'
     module_arg_spec = {
@@ -305,7 +295,6 @@ def main():
                     'type': 'str'
                 }
             }
-
         }
     }
 
@@ -319,9 +308,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

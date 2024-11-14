@@ -89,10 +89,10 @@ options:
         required: false
         type: dict
         suboptions:
-            allow-user-access:
+            allow_user_access:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to allow_user_access. Allow user access to SSL-VPN applications.
+                description: Allow user access to SSL-VPN applications.
                 choices:
                     - 'web'
                     - 'ftp'
@@ -105,25 +105,25 @@ options:
                     - 'citrix'
                     - 'portforward'
                     - 'sftp'
-            auto-connect:
+            auto_connect:
                 type: str
-                description: Deprecated, please rename it to auto_connect. Enable/disable automatic connect by client when system is up.
+                description: Enable/disable automatic connect by client when system is up.
                 choices:
                     - 'disable'
                     - 'enable'
-            bookmark-group:
+            bookmark_group:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to bookmark_group. Bookmark group.
+                description: Bookmark group.
                 suboptions:
                     bookmarks:
                         type: list
                         elements: dict
                         description: Bookmarks.
                         suboptions:
-                            additional-params:
+                            additional_params:
                                 type: str
-                                description: Deprecated, please rename it to additional_params. Additional parameters.
+                                description: Additional parameters.
                             apptype:
                                 type: str
                                 description: Application type.
@@ -145,10 +145,10 @@ options:
                             folder:
                                 type: str
                                 description: Network shared file folder parameter.
-                            form-data:
+                            form_data:
                                 type: list
                                 elements: dict
-                                description: Deprecated, please rename it to form_data. Form data.
+                                description: Form data.
                                 suboptions:
                                     name:
                                         type: str
@@ -159,33 +159,33 @@ options:
                             host:
                                 type: str
                                 description: Host name/IP parameter.
-                            listening-port:
+                            listening_port:
                                 type: int
-                                description: Deprecated, please rename it to listening_port. Listening port
-                            load-balancing-info:
+                                description: Listening port
+                            load_balancing_info:
                                 type: str
-                                description: Deprecated, please rename it to load_balancing_info. The load balancing information or cookie which should...
-                            logon-password:
+                                description: The load balancing information or cookie which should be provided to the connection broker.
+                            logon_password:
                                 type: raw
-                                description: (list) Deprecated, please rename it to logon_password. Logon password.
-                            logon-user:
+                                description: (list) Logon password.
+                            logon_user:
                                 type: str
-                                description: Deprecated, please rename it to logon_user. Logon user.
+                                description: Logon user.
                             name:
                                 type: str
                                 description: Bookmark name.
                             port:
                                 type: int
                                 description: Remote port.
-                            preconnection-blob:
+                            preconnection_blob:
                                 type: str
-                                description: Deprecated, please rename it to preconnection_blob. An arbitrary string which identifies the RDP source.
-                            preconnection-id:
+                                description: An arbitrary string which identifies the RDP source.
+                            preconnection_id:
                                 type: int
-                                description: Deprecated, please rename it to preconnection_id. The numeric ID of the RDP source
-                            remote-port:
+                                description: The numeric ID of the RDP source
+                            remote_port:
                                 type: int
-                                description: Deprecated, please rename it to remote_port. Remote port
+                                description: Remote port
                             security:
                                 type: str
                                 description: Security mode for RDP connection.
@@ -194,9 +194,9 @@ options:
                                     - 'nla'
                                     - 'tls'
                                     - 'any'
-                            server-layout:
+                            server_layout:
                                 type: str
-                                description: Deprecated, please rename it to server_layout. Server side keyboard layout.
+                                description: Server side keyboard layout.
                                 choices:
                                     - 'en-us-qwerty'
                                     - 'de-de-qwertz'
@@ -211,9 +211,9 @@ options:
                                     - 'pt-br-qwerty'
                                     - 'tr-tr-qwerty'
                                     - 'fr-ca-qwerty'
-                            show-status-window:
+                            show_status_window:
                                 type: str
-                                description: Deprecated, please rename it to show_status_window. Enable/disable showing of status window.
+                                description: Enable/disable showing of status window.
                                 choices:
                                     - 'disable'
                                     - 'enable'
@@ -224,33 +224,33 @@ options:
                                     - 'disable'
                                     - 'static'
                                     - 'auto'
-                            sso-credential:
+                            sso_credential:
                                 type: str
-                                description: Deprecated, please rename it to sso_credential. Single sign-on credentials.
+                                description: Single sign-on credentials.
                                 choices:
                                     - 'sslvpn-login'
                                     - 'alternative'
-                            sso-credential-sent-once:
+                            sso_credential_sent_once:
                                 type: str
-                                description: Deprecated, please rename it to sso_credential_sent_once. Single sign-on credentials are only sent once to...
+                                description: Single sign-on credentials are only sent once to remote server.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            sso-password:
+                            sso_password:
                                 type: raw
-                                description: (list) Deprecated, please rename it to sso_password. SSO password.
-                            sso-username:
+                                description: (list) SSO password.
+                            sso_username:
                                 type: str
-                                description: Deprecated, please rename it to sso_username. SSO user name.
+                                description: SSO user name.
                             url:
                                 type: str
                                 description: URL parameter.
                             domain:
                                 type: str
                                 description: Login domain.
-                            color-depth:
+                            color_depth:
                                 type: str
-                                description: Deprecated, please rename it to color_depth. Color depth per pixel.
+                                description: Color depth per pixel.
                                 choices:
                                     - '8'
                                     - '16'
@@ -258,9 +258,9 @@ options:
                             height:
                                 type: int
                                 description: Screen height
-                            keyboard-layout:
+                            keyboard_layout:
                                 type: str
-                                description: Deprecated, please rename it to keyboard_layout. Keyboard layout.
+                                description: Keyboard layout.
                                 choices:
                                     - 'ar'
                                     - 'da'
@@ -332,24 +332,24 @@ options:
                                     - 'fr-apple'
                                     - 'la-am'
                                     - 'ja-106'
-                            restricted-admin:
+                            restricted_admin:
                                 type: str
-                                description: Deprecated, please rename it to restricted_admin. Enable/disable restricted admin mode for RDP.
+                                description: Enable/disable restricted admin mode for RDP.
                                 choices:
                                     - 'disable'
                                     - 'enable'
-                            send-preconnection-id:
+                            send_preconnection_id:
                                 type: str
-                                description: Deprecated, please rename it to send_preconnection_id. Enable/disable sending of preconnection ID.
+                                description: Enable/disable sending of preconnection ID.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             width:
                                 type: int
                                 description: Screen width
-                            vnc-keyboard-layout:
+                            vnc_keyboard_layout:
                                 type: str
-                                description: Deprecated, please rename it to vnc_keyboard_layout. Keyboard layout.
+                                description: Keyboard layout.
                                 choices:
                                     - 'da'
                                     - 'de'
@@ -374,224 +374,224 @@ options:
                     name:
                         type: str
                         description: Bookmark group name.
-            custom-lang:
+            custom_lang:
                 type: str
-                description: Deprecated, please rename it to custom_lang. Change the web portal display language.
-            customize-forticlient-download-url:
+                description: Change the web portal display language.
+            customize_forticlient_download_url:
                 type: str
-                description: Deprecated, please rename it to customize_forticlient_download_url. Enable support of customized download URL for FortiClient.
+                description: Enable support of customized download URL for FortiClient.
                 choices:
                     - 'disable'
                     - 'enable'
-            display-bookmark:
+            display_bookmark:
                 type: str
-                description: Deprecated, please rename it to display_bookmark. Enable to display the web portal bookmark widget.
+                description: Enable to display the web portal bookmark widget.
                 choices:
                     - 'disable'
                     - 'enable'
-            display-connection-tools:
+            display_connection_tools:
                 type: str
-                description: Deprecated, please rename it to display_connection_tools. Enable to display the web portal connection tools widget.
+                description: Enable to display the web portal connection tools widget.
                 choices:
                     - 'disable'
                     - 'enable'
-            display-history:
+            display_history:
                 type: str
-                description: Deprecated, please rename it to display_history. Enable to display the web portal user login history widget.
+                description: Enable to display the web portal user login history widget.
                 choices:
                     - 'disable'
                     - 'enable'
-            display-status:
+            display_status:
                 type: str
-                description: Deprecated, please rename it to display_status. Enable to display the web portal status widget.
+                description: Enable to display the web portal status widget.
                 choices:
                     - 'disable'
                     - 'enable'
-            dns-server1:
+            dns_server1:
                 type: str
-                description: Deprecated, please rename it to dns_server1. IPv4 DNS server 1.
-            dns-server2:
+                description: IPv4 DNS server 1.
+            dns_server2:
                 type: str
-                description: Deprecated, please rename it to dns_server2. IPv4 DNS server 2.
-            dns-suffix:
+                description: IPv4 DNS server 2.
+            dns_suffix:
                 type: str
-                description: Deprecated, please rename it to dns_suffix. DNS suffix.
-            exclusive-routing:
+                description: DNS suffix.
+            exclusive_routing:
                 type: str
-                description: Deprecated, please rename it to exclusive_routing. Enable/disable all traffic go through tunnel only.
+                description: Enable/disable all traffic go through tunnel only.
                 choices:
                     - 'disable'
                     - 'enable'
-            forticlient-download:
+            forticlient_download:
                 type: str
-                description: Deprecated, please rename it to forticlient_download. Enable/disable download option for FortiClient.
+                description: Enable/disable download option for FortiClient.
                 choices:
                     - 'disable'
                     - 'enable'
-            forticlient-download-method:
+            forticlient_download_method:
                 type: str
-                description: Deprecated, please rename it to forticlient_download_method. FortiClient download method.
+                description: FortiClient download method.
                 choices:
                     - 'direct'
                     - 'ssl-vpn'
             heading:
                 type: str
                 description: Web portal heading message.
-            hide-sso-credential:
+            hide_sso_credential:
                 type: str
-                description: Deprecated, please rename it to hide_sso_credential. Enable to prevent SSO credential being sent to client.
+                description: Enable to prevent SSO credential being sent to client.
                 choices:
                     - 'disable'
                     - 'enable'
-            host-check:
+            host_check:
                 type: str
-                description: Deprecated, please rename it to host_check. Type of host checking performed on endpoints.
+                description: Type of host checking performed on endpoints.
                 choices:
                     - 'none'
                     - 'av'
                     - 'fw'
                     - 'av-fw'
                     - 'custom'
-            host-check-interval:
+            host_check_interval:
                 type: int
-                description: Deprecated, please rename it to host_check_interval. Periodic host check interval.
-            host-check-policy:
+                description: Periodic host check interval.
+            host_check_policy:
                 type: raw
-                description: (list or str) Deprecated, please rename it to host_check_policy. One or more policies to require the endpoint to have spec...
-            ip-mode:
+                description: (list or str) One or more policies to require the endpoint to have specific security software.
+            ip_mode:
                 type: str
-                description: Deprecated, please rename it to ip_mode. Method by which users of this SSL-VPN tunnel obtain IP addresses.
+                description: Method by which users of this SSL-VPN tunnel obtain IP addresses.
                 choices:
                     - 'range'
                     - 'user-group'
                     - 'dhcp'
                     - 'no-ip'
-            ip-pools:
+            ip_pools:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ip_pools. IPv4 firewall source address objects reserved for SSL-VPN tunnel m...
-            ipv6-dns-server1:
+                description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
+            ipv6_dns_server1:
                 type: str
-                description: Deprecated, please rename it to ipv6_dns_server1. IPv6 DNS server 1.
-            ipv6-dns-server2:
+                description: IPv6 DNS server 1.
+            ipv6_dns_server2:
                 type: str
-                description: Deprecated, please rename it to ipv6_dns_server2. IPv6 DNS server 2.
-            ipv6-exclusive-routing:
+                description: IPv6 DNS server 2.
+            ipv6_exclusive_routing:
                 type: str
-                description: Deprecated, please rename it to ipv6_exclusive_routing. Enable/disable all IPv6 traffic go through tunnel only.
+                description: Enable/disable all IPv6 traffic go through tunnel only.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-pools:
+            ipv6_pools:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ipv6_pools. IPv4 firewall source address objects reserved for SSL-VPN tunnel...
-            ipv6-service-restriction:
+                description: (list or str) IPv4 firewall source address objects reserved for SSL-VPN tunnel mode clients.
+            ipv6_service_restriction:
                 type: str
-                description: Deprecated, please rename it to ipv6_service_restriction. Enable/disable IPv6 tunnel service restriction.
+                description: Enable/disable IPv6 tunnel service restriction.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-split-tunneling:
+            ipv6_split_tunneling:
                 type: str
-                description: Deprecated, please rename it to ipv6_split_tunneling. Enable/disable IPv6 split tunneling.
+                description: Enable/disable IPv6 split tunneling.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-split-tunneling-routing-address:
+            ipv6_split_tunneling_routing_address:
                 type: raw
-                description: (list or str) Deprecated, please rename it to ipv6_split_tunneling_routing_address. IPv6 SSL-VPN tunnel mode firewall addr...
-            ipv6-tunnel-mode:
+                description: (list or str) IPv6 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to con...
+            ipv6_tunnel_mode:
                 type: str
-                description: Deprecated, please rename it to ipv6_tunnel_mode. Enable/disable IPv6 SSL-VPN tunnel mode.
+                description: Enable/disable IPv6 SSL-VPN tunnel mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-wins-server1:
+            ipv6_wins_server1:
                 type: str
-                description: Deprecated, please rename it to ipv6_wins_server1. IPv6 WINS server 1.
-            ipv6-wins-server2:
+                description: IPv6 WINS server 1.
+            ipv6_wins_server2:
                 type: str
-                description: Deprecated, please rename it to ipv6_wins_server2. IPv6 WINS server 2.
-            keep-alive:
+                description: IPv6 WINS server 2.
+            keep_alive:
                 type: str
-                description: Deprecated, please rename it to keep_alive. Enable/disable automatic reconnect for FortiClient connections.
+                description: Enable/disable automatic reconnect for FortiClient connections.
                 choices:
                     - 'disable'
                     - 'enable'
-            limit-user-logins:
+            limit_user_logins:
                 type: str
-                description: Deprecated, please rename it to limit_user_logins. Enable to limit each user to one SSL-VPN session at a time.
+                description: Enable to limit each user to one SSL-VPN session at a time.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-addr-action:
+            mac_addr_action:
                 type: str
-                description: Deprecated, please rename it to mac_addr_action. Client MAC address action.
+                description: Client MAC address action.
                 choices:
                     - 'deny'
                     - 'allow'
-            mac-addr-check:
+            mac_addr_check:
                 type: str
-                description: Deprecated, please rename it to mac_addr_check. Enable/disable MAC address host checking.
+                description: Enable/disable MAC address host checking.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-addr-check-rule:
+            mac_addr_check_rule:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mac_addr_check_rule. Mac addr check rule.
+                description: Mac addr check rule.
                 suboptions:
-                    mac-addr-list:
+                    mac_addr_list:
                         type: raw
-                        description: (list) Deprecated, please rename it to mac_addr_list. Client MAC address list.
-                    mac-addr-mask:
+                        description: (list) Client MAC address list.
+                    mac_addr_mask:
                         type: int
-                        description: Deprecated, please rename it to mac_addr_mask. Client MAC address mask.
+                        description: Client MAC address mask.
                     name:
                         type: str
                         description: Client MAC address check rule name.
-            macos-forticlient-download-url:
+            macos_forticlient_download_url:
                 type: str
-                description: Deprecated, please rename it to macos_forticlient_download_url. Download URL for Mac FortiClient.
+                description: Download URL for Mac FortiClient.
             name:
                 type: str
                 description: Portal name.
                 required: true
-            os-check:
+            os_check:
                 type: str
-                description: Deprecated, please rename it to os_check. Enable to let the FortiGate decide action based on client OS.
+                description: Enable to let the FortiGate decide action based on client OS.
                 choices:
                     - 'disable'
                     - 'enable'
-            redir-url:
+            redir_url:
                 type: str
-                description: Deprecated, please rename it to redir_url. Client login redirect URL.
-            save-password:
+                description: Client login redirect URL.
+            save_password:
                 type: str
-                description: Deprecated, please rename it to save_password. Enable/disable FortiClient saving the users password.
+                description: Enable/disable FortiClient saving the users password.
                 choices:
                     - 'disable'
                     - 'enable'
-            service-restriction:
+            service_restriction:
                 type: str
-                description: Deprecated, please rename it to service_restriction. Enable/disable tunnel service restriction.
+                description: Enable/disable tunnel service restriction.
                 choices:
                     - 'disable'
                     - 'enable'
-            skip-check-for-unsupported-browser:
+            skip_check_for_unsupported_browser:
                 type: str
-                description: Deprecated, please rename it to skip_check_for_unsupported_browser. Enable to skip host check if browser does not support it.
+                description: Enable to skip host check if browser does not support it.
                 choices:
                     - 'disable'
                     - 'enable'
-            skip-check-for-unsupported-os:
+            skip_check_for_unsupported_os:
                 type: str
-                description: Deprecated, please rename it to skip_check_for_unsupported_os. Enable to skip host check if client OS does not support it.
+                description: Enable to skip host check if client OS does not support it.
                 choices:
                     - 'disable'
                     - 'enable'
-            smb-ntlmv1-auth:
+            smb_ntlmv1_auth:
                 type: str
-                description: Deprecated, please rename it to smb_ntlmv1_auth. Enable support of NTLMv1 for Samba authentication.
+                description: Enable support of NTLMv1 for Samba authentication.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -601,38 +601,38 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            split-dns:
+            split_dns:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to split_dns. Split dns.
+                description: Split dns.
                 suboptions:
-                    dns-server1:
+                    dns_server1:
                         type: str
-                        description: Deprecated, please rename it to dns_server1. DNS server 1.
-                    dns-server2:
+                        description: DNS server 1.
+                    dns_server2:
                         type: str
-                        description: Deprecated, please rename it to dns_server2. DNS server 2.
+                        description: DNS server 2.
                     domains:
                         type: str
                         description: Split DNS domains used for SSL-VPN clients separated by comma
                     id:
                         type: int
                         description: ID.
-                    ipv6-dns-server1:
+                    ipv6_dns_server1:
                         type: str
-                        description: Deprecated, please rename it to ipv6_dns_server1. IPv6 DNS server 1.
-                    ipv6-dns-server2:
+                        description: IPv6 DNS server 1.
+                    ipv6_dns_server2:
                         type: str
-                        description: Deprecated, please rename it to ipv6_dns_server2. IPv6 DNS server 2.
-            split-tunneling:
+                        description: IPv6 DNS server 2.
+            split_tunneling:
                 type: str
-                description: Deprecated, please rename it to split_tunneling. Enable/disable IPv4 split tunneling.
+                description: Enable/disable IPv4 split tunneling.
                 choices:
                     - 'disable'
                     - 'enable'
-            split-tunneling-routing-address:
+            split_tunneling_routing_address:
                 type: raw
-                description: (list or str) Deprecated, please rename it to split_tunneling_routing_address. IPv4 SSL-VPN tunnel mode firewall address o...
+                description: (list or str) IPv4 SSL-VPN tunnel mode firewall address objects that override firewall policy destination addresses to con...
             theme:
                 type: str
                 description: Web portal color scheme.
@@ -655,125 +655,125 @@ options:
                     - 'eclipse'
                     - 'jet-stream'
                     - 'security-fabric'
-            tunnel-mode:
+            tunnel_mode:
                 type: str
-                description: Deprecated, please rename it to tunnel_mode. Enable/disable IPv4 SSL-VPN tunnel mode.
+                description: Enable/disable IPv4 SSL-VPN tunnel mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-bookmark:
+            user_bookmark:
                 type: str
-                description: Deprecated, please rename it to user_bookmark. Enable to allow web portal users to create their own bookmarks.
+                description: Enable to allow web portal users to create their own bookmarks.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-group-bookmark:
+            user_group_bookmark:
                 type: str
-                description: Deprecated, please rename it to user_group_bookmark. Enable to allow web portal users to create bookmarks for all users in...
+                description: Enable to allow web portal users to create bookmarks for all users in the same user group.
                 choices:
                     - 'disable'
                     - 'enable'
-            web-mode:
+            web_mode:
                 type: str
-                description: Deprecated, please rename it to web_mode. Enable/disable SSL VPN web mode.
+                description: Enable/disable SSL VPN web mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            windows-forticlient-download-url:
+            windows_forticlient_download_url:
                 type: str
-                description: Deprecated, please rename it to windows_forticlient_download_url. Download URL for Windows FortiClient.
-            wins-server1:
+                description: Download URL for Windows FortiClient.
+            wins_server1:
                 type: str
-                description: Deprecated, please rename it to wins_server1. IPv4 WINS server 1.
-            wins-server2:
+                description: IPv4 WINS server 1.
+            wins_server2:
                 type: str
-                description: Deprecated, please rename it to wins_server2. IPv4 WINS server 1.
-            skip-check-for-browser:
+                description: IPv4 WINS server 1.
+            skip_check_for_browser:
                 type: str
-                description: Deprecated, please rename it to skip_check_for_browser. Enable to skip host check for browser support.
+                description: Enable to skip host check for browser support.
                 choices:
                     - 'disable'
                     - 'enable'
-            smb-max-version:
+            smb_max_version:
                 type: str
-                description: Deprecated, please rename it to smb_max_version. SMB maximum client protocol version.
+                description: SMB maximum client protocol version.
                 choices:
                     - 'smbv1'
                     - 'smbv2'
                     - 'smbv3'
-            smb-min-version:
+            smb_min_version:
                 type: str
-                description: Deprecated, please rename it to smb_min_version. SMB minimum client protocol version.
+                description: SMB minimum client protocol version.
                 choices:
                     - 'smbv1'
                     - 'smbv2'
                     - 'smbv3'
-            virtual-desktop-logout-when-browser-close:
+            virtual_desktop_logout_when_browser_close:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_logout_when_browser_close. Enable/disable logout when browser is close in ...
+                description: Enable/disable logout when browser is close in virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop-clipboard-share:
+            virtual_desktop_clipboard_share:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_clipboard_share. Enable/disable sharing of clipboard in virtual desktop.
+                description: Enable/disable sharing of clipboard in virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop-desktop-switch:
+            virtual_desktop_desktop_switch:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_desktop_switch. Enable/disable switch to virtual desktop.
+                description: Enable/disable switch to virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop:
+            virtual_desktop:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop. Enable/disable SSL VPN virtual desktop.
+                description: Enable/disable SSL VPN virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop-network-share-access:
+            virtual_desktop_network_share_access:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_network_share_access. Enable/disable network share access in virtual desktop.
+                description: Enable/disable network share access in virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop-printing:
+            virtual_desktop_printing:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_printing. Enable/disable printing in virtual desktop.
+                description: Enable/disable printing in virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            virtual-desktop-app-list:
+            virtual_desktop_app_list:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_app_list. Virtual desktop application list.
-            virtual-desktop-removable-media-access:
+                description: Virtual desktop application list.
+            virtual_desktop_removable_media_access:
                 type: str
-                description: Deprecated, please rename it to virtual_desktop_removable_media_access. Enable/disable access to removable media in virtua...
+                description: Enable/disable access to removable media in virtual desktop.
                 choices:
                     - 'disable'
                     - 'enable'
-            transform-backward-slashes:
+            transform_backward_slashes:
                 type: str
-                description: Deprecated, please rename it to transform_backward_slashes. Transform backward slashes to forward slashes in URLs.
+                description: Transform backward slashes to forward slashes in URLs.
                 choices:
                     - 'disable'
                     - 'enable'
-            ipv6-split-tunneling-routing-negate:
+            ipv6_split_tunneling_routing_negate:
                 type: str
-                description: Deprecated, please rename it to ipv6_split_tunneling_routing_negate. Enable to negate IPv6 split tunneling routing address.
+                description: Enable to negate IPv6 split tunneling routing address.
                 choices:
                     - 'disable'
                     - 'enable'
-            split-tunneling-routing-negate:
+            split_tunneling_routing_negate:
                 type: str
-                description: Deprecated, please rename it to split_tunneling_routing_negate. Enable to negate split tunneling routing address.
+                description: Enable to negate split tunneling routing address.
                 choices:
                     - 'disable'
                     - 'enable'
-            os-check-list:
+            os_check_list:
                 type: dict
-                description: Deprecated, please rename it to os_check_list. Os check list.
+                description: Os check list.
                 suboptions:
                     action:
                         type: str
@@ -782,33 +782,33 @@ options:
                             - 'allow'
                             - 'check-up-to-date'
                             - 'deny'
-                    latest-patch-level:
+                    latest_patch_level:
                         type: str
-                        description: Deprecated, please rename it to latest_patch_level. Latest OS patch level.
+                        description: Latest OS patch level.
                     name:
                         type: str
                         description: Name.
                     tolerance:
                         type: int
                         description: OS patch level tolerance.
-                    minor-version:
+                    minor_version:
                         type: int
-                        description: Deprecated, please rename it to minor_version. Minor version number.
-            use-sdwan:
+                        description: Minor version number.
+            use_sdwan:
                 type: str
-                description: Deprecated, please rename it to use_sdwan. Use SD-WAN rules to get output interface.
+                description: Use SD-WAN rules to get output interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            prefer-ipv6-dns:
+            prefer_ipv6_dns:
                 type: str
-                description: Deprecated, please rename it to prefer_ipv6_dns. Prefer to query IPv6 dns first if enabled.
+                description: Prefer to query IPv6 dns first if enabled.
                 choices:
                     - 'disable'
                     - 'enable'
-            rewrite-ip-uri-ui:
+            rewrite_ip_uri_ui:
                 type: str
-                description: Deprecated, please rename it to rewrite_ip_uri_ui. Rewrite contents for URI contains IP and /ui/.
+                description: Rewrite contents for URI contains IP and /ui/.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -818,38 +818,38 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            default-window-height:
+            default_window_height:
                 type: int
-                description: Deprecated, please rename it to default_window_height. Screen height
-            default-window-width:
+                description: Screen height
+            default_window_width:
                 type: int
-                description: Deprecated, please rename it to default_window_width. Screen width
-            dhcp-ip-overlap:
+                description: Screen width
+            dhcp_ip_overlap:
                 type: str
-                description: Deprecated, please rename it to dhcp_ip_overlap. Configure overlapping DHCP IP allocation assignment.
+                description: Configure overlapping DHCP IP allocation assignment.
                 choices:
                     - 'use-old'
                     - 'use-new'
-            client-src-range:
+            client_src_range:
                 type: str
-                description: Deprecated, please rename it to client_src_range. Allow client to add source range for the tunnel traffic.
+                description: Allow client to add source range for the tunnel traffic.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-ra-giaddr:
+            dhcp_ra_giaddr:
                 type: str
-                description: Deprecated, please rename it to dhcp_ra_giaddr. Relay agent gateway IP address to use in the giaddr field of DHCP requests.
-            dhcp6-ra-linkaddr:
+                description: Relay agent gateway IP address to use in the giaddr field of DHCP requests.
+            dhcp6_ra_linkaddr:
                 type: str
-                description: Deprecated, please rename it to dhcp6_ra_linkaddr. Relay agent IPv6 link address to use in DHCP6 requests.
-            landing-page:
+                description: Relay agent IPv6 link address to use in DHCP6 requests.
+            landing_page:
                 type: dict
-                description: Deprecated, please rename it to landing_page. Landing page.
+                description: Landing page.
                 suboptions:
-                    form-data:
+                    form_data:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to form_data. Form data.
+                        description: Form data.
                         suboptions:
                             name:
                                 type: str
@@ -857,9 +857,9 @@ options:
                             value:
                                 type: str
                                 description: Value.
-                    logout-url:
+                    logout_url:
                         type: str
-                        description: Deprecated, please rename it to logout_url. Landing page log out URL.
+                        description: Landing page log out URL.
                     sso:
                         type: str
                         description: Single sign-on.
@@ -867,30 +867,30 @@ options:
                             - 'disable'
                             - 'static'
                             - 'auto'
-                    sso-credential:
+                    sso_credential:
                         type: str
-                        description: Deprecated, please rename it to sso_credential. Single sign-on credentials.
+                        description: Single sign-on credentials.
                         choices:
                             - 'sslvpn-login'
                             - 'alternative'
-                    sso-password:
+                    sso_password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sso_password. SSO password.
-                    sso-username:
+                        description: (list) SSO password.
+                    sso_username:
                         type: str
-                        description: Deprecated, please rename it to sso_username. SSO user name.
+                        description: SSO user name.
                     url:
                         type: str
                         description: Landing page URL.
-            landing-page-mode:
+            landing_page_mode:
                 type: str
-                description: Deprecated, please rename it to landing_page_mode. Enable/disable SSL-VPN landing page mode.
+                description: Enable/disable SSL-VPN landing page mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            default-protocol:
+            default_protocol:
                 type: str
-                description: Deprecated, please rename it to default_protocol. Application type that is set by default.
+                description: Application type that is set by default.
                 choices:
                     - 'web'
                     - 'ftp'
@@ -900,15 +900,15 @@ options:
                     - 'rdp'
                     - 'ssh'
                     - 'sftp'
-            focus-bookmark:
+            focus_bookmark:
                 type: str
-                description: Deprecated, please rename it to focus_bookmark. Enable to prioritize the placement of the bookmark section over the quick-...
+                description: Enable to prioritize the placement of the bookmark section over the quick-connection section in the SSL-VPN application.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-reservation:
+            dhcp_reservation:
                 type: str
-                description: Deprecated, please rename it to dhcp_reservation. Enable/disable dhcp reservation.
+                description: Enable/disable dhcp reservation.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -934,17 +934,17 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         vpnsslweb_portal:
           allow_user_access:
-            - web
-            - ftp
-            - telnet
-            - smb
-            - vnc
-            - rdp
-            - ssh
-            - ping
-            - citrix
-            - portforward
-            - sftp
+            - "web"
+            - "ftp"
+            - "telnet"
+            - "smb"
+            - "vnc"
+            - "rdp"
+            - "ssh"
+            - "ping"
+            - "citrix"
+            - "portforward"
+            - "sftp"
           auto_connect: <value in [disable, enable]>
           bookmark_group:
             -
@@ -1140,23 +1140,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal',
         '/pm/config/global/obj/vpn/ssl/web/portal'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpn/ssl/web/portal/{portal}',
-        '/pm/config/global/obj/vpn/ssl/web/portal/{portal}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1211,10 +1203,10 @@ def main():
                                 'sso-username': {'type': 'str'},
                                 'url': {'type': 'str'},
                                 'domain': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                                'color-depth': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
+                                'color-depth': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['8', '16', '32'], 'type': 'str'},
                                 'height': {'v_range': [['7.0.3', '']], 'type': 'int'},
                                 'keyboard-layout': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': [
                                         'ar', 'da', 'de', 'de-ch', 'en-gb', 'en-uk', 'en-us', 'es', 'fi', 'fr', 'fr-be', 'fr-ca', 'fr-ch', 'hr', 'hu',
                                         'it', 'ja', 'lt', 'lv', 'mk', 'no', 'pl', 'pt', 'pt-br', 'ru', 'sl', 'sv', 'tk', 'tr', 'fr-ca-m', 'wg', 'ar-101',
@@ -1225,9 +1217,9 @@ def main():
                                     ],
                                     'type': 'str'
                                 },
-                                'restricted-admin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'restricted-admin': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'send-preconnection-id': {
-                                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                                     'choices': ['disable', 'enable'],
                                     'type': 'str'
                                 },
@@ -1326,35 +1318,35 @@ def main():
                 'skip-check-for-browser': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'smb-max-version': {'v_range': [['6.2.0', '']], 'choices': ['smbv1', 'smbv2', 'smbv3'], 'type': 'str'},
                 'smb-min-version': {'v_range': [['6.2.0', '']], 'choices': ['smbv1', 'smbv2', 'smbv3'], 'type': 'str'},
-                'virtual-desktop-logout-when-browser-close': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop-clipboard-share': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop-desktop-switch': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop-network-share-access': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop-printing': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-desktop-app-list': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'virtual-desktop-removable-media-access': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-logout-when-browser-close': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-clipboard-share': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-desktop-switch': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-network-share-access': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-printing': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-desktop-app-list': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'virtual-desktop-removable-media-access': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'transform-backward-slashes': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipv6-split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'os-check-list': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
-                        'latest-patch-level': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'name': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'tolerance': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'int'},
+                        'action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'check-up-to-date', 'deny'], 'type': 'str'},
+                        'latest-patch-level': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'tolerance': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
                     }
                 },
-                'use-sdwan': {'v_range': [['6.2.7', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'use-sdwan': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'prefer-ipv6-dns': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rewrite-ip-uri-ui': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'clipboard': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'clipboard': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-window-height': {'v_range': [['7.0.4', '']], 'type': 'int'},
                 'default-window-width': {'v_range': [['7.0.4', '']], 'type': 'int'},
-                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
+                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
                 'client-src-range': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
@@ -1381,7 +1373,6 @@ def main():
                 'focus-bookmark': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-reservation': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -1395,9 +1386,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

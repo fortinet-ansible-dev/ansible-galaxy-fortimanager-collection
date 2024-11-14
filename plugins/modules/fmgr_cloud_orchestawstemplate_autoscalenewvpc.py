@@ -89,30 +89,30 @@ options:
         required: false
         type: dict
         suboptions:
-            availability-zones:
+            availability_zones:
                 type: str
-                description: Deprecated, please rename it to availability_zones. Availability zones.
-            custom-asset-container:
+                description: Availability zones.
+            custom_asset_container:
                 type: str
-                description: Deprecated, please rename it to custom_asset_container. Custom asset container.
-            custom-asset-directory:
+                description: Custom asset container.
+            custom_asset_directory:
                 type: str
-                description: Deprecated, please rename it to custom_asset_directory. Custom asset directory.
-            custom-identifier:
+                description: Custom asset directory.
+            custom_identifier:
                 type: str
-                description: Deprecated, please rename it to custom_identifier. Custom identifier.
-            faz-autoscale-admin-password:
+                description: Custom identifier.
+            faz_autoscale_admin_password:
                 type: raw
-                description: (list) Deprecated, please rename it to faz_autoscale_admin_password. Faz autoscale admin password.
-            faz-autoscale-admin-username:
+                description: (list) Faz autoscale admin password.
+            faz_autoscale_admin_username:
                 type: str
-                description: Deprecated, please rename it to faz_autoscale_admin_username. Faz autoscale admin username.
-            faz-custom-private-ipaddress:
+                description: Faz autoscale admin username.
+            faz_custom_private_ipaddress:
                 type: str
-                description: Deprecated, please rename it to faz_custom_private_ipaddress. Faz custom private ipaddress.
-            faz-instance-type:
+                description: Faz custom private ipaddress.
+            faz_instance_type:
                 type: str
-                description: Deprecated, please rename it to faz_instance_type. Faz instance type.
+                description: Faz instance type.
                 choices:
                     - 'h1.2xlarge'
                     - 'h1.4xlarge'
@@ -125,24 +125,24 @@ options:
                     - 't2.medium'
                     - 't2.large'
                     - 't2.xlarge'
-            faz-integration-options:
+            faz_integration_options:
                 type: str
-                description: Deprecated, please rename it to faz_integration_options. Faz integration options.
+                description: Faz integration options.
                 choices:
                     - 'no'
                     - 'yes'
-            faz-version:
+            faz_version:
                 type: str
-                description: Deprecated, please rename it to faz_version. Faz version.
-            fgt-admin-cidr:
+                description: Faz version.
+            fgt_admin_cidr:
                 type: str
-                description: Deprecated, please rename it to fgt_admin_cidr. Fgt admin cidr.
-            fgt-admin-port:
+                description: Fgt admin cidr.
+            fgt_admin_port:
                 type: int
-                description: Deprecated, please rename it to fgt_admin_port. Fgt admin port.
-            fgt-instance-type:
+                description: Fgt admin port.
+            fgt_instance_type:
                 type: str
-                description: Deprecated, please rename it to fgt_instance_type. Fgt instance type.
+                description: Fgt instance type.
                 choices:
                     - 't2.small'
                     - 'c5.large'
@@ -150,82 +150,82 @@ options:
                     - 'c5.2xlarge'
                     - 'c5.4xlarge'
                     - 'c5.9xlarge'
-            fgt-psk-secret:
+            fgt_psk_secret:
                 type: str
-                description: Deprecated, please rename it to fgt_psk_secret. Fgt psk secret.
-            fgtasg-cool-down:
+                description: Fgt psk secret.
+            fgtasg_cool_down:
                 type: int
-                description: Deprecated, please rename it to fgtasg_cool_down. Fgtasg cool down.
-            fgtasg-desired-capacity-byol:
+                description: Fgtasg cool down.
+            fgtasg_desired_capacity_byol:
                 type: int
-                description: Deprecated, please rename it to fgtasg_desired_capacity_byol. Fgtasg desired capacity byol.
-            fgtasg-desired-capacity-payg:
+                description: Fgtasg desired capacity byol.
+            fgtasg_desired_capacity_payg:
                 type: int
-                description: Deprecated, please rename it to fgtasg_desired_capacity_payg. Fgtasg desired capacity payg.
-            fgtasg-health-check-grace-period:
+                description: Fgtasg desired capacity payg.
+            fgtasg_health_check_grace_period:
                 type: int
-                description: Deprecated, please rename it to fgtasg_health_check_grace_period. Fgtasg health check grace period.
-            fgtasg-max-size-byol:
+                description: Fgtasg health check grace period.
+            fgtasg_max_size_byol:
                 type: int
-                description: Deprecated, please rename it to fgtasg_max_size_byol. Fgtasg max size byol.
-            fgtasg-max-size-payg:
+                description: Fgtasg max size byol.
+            fgtasg_max_size_payg:
                 type: int
-                description: Deprecated, please rename it to fgtasg_max_size_payg. Fgtasg max size payg.
-            fgtasg-min-size-byol:
+                description: Fgtasg max size payg.
+            fgtasg_min_size_byol:
                 type: int
-                description: Deprecated, please rename it to fgtasg_min_size_byol. Fgtasg min size byol.
-            fgtasg-min-size-payg:
+                description: Fgtasg min size byol.
+            fgtasg_min_size_payg:
                 type: int
-                description: Deprecated, please rename it to fgtasg_min_size_payg. Fgtasg min size payg.
-            fgtasg-scale-in-threshold:
+                description: Fgtasg min size payg.
+            fgtasg_scale_in_threshold:
                 type: int
-                description: Deprecated, please rename it to fgtasg_scale_in_threshold. Fgtasg scale in threshold.
-            fgtasg-scale-out-threshold:
+                description: Fgtasg scale in threshold.
+            fgtasg_scale_out_threshold:
                 type: int
-                description: Deprecated, please rename it to fgtasg_scale_out_threshold. Fgtasg scale out threshold.
-            fos-version:
+                description: Fgtasg scale out threshold.
+            fos_version:
                 type: str
-                description: Deprecated, please rename it to fos_version. Fos version.
-            get-license-grace-period:
+                description: Fos version.
+            get_license_grace_period:
                 type: int
-                description: Deprecated, please rename it to get_license_grace_period. Get license grace period.
-            heartbeat-delay-allowance:
+                description: Get license grace period.
+            heartbeat_delay_allowance:
                 type: int
-                description: Deprecated, please rename it to heartbeat_delay_allowance. Heartbeat delay allowance.
-            heartbeat-interval:
+                description: Heartbeat delay allowance.
+            heartbeat_interval:
                 type: int
-                description: Deprecated, please rename it to heartbeat_interval. Heartbeat interval.
-            heartbeat-loss-count:
+                description: Heartbeat interval.
+            heartbeat_loss_count:
                 type: int
-                description: Deprecated, please rename it to heartbeat_loss_count. Heartbeat loss count.
-            internal-balancer-dns-name:
+                description: Heartbeat loss count.
+            internal_balancer_dns_name:
                 type: str
-                description: Deprecated, please rename it to internal_balancer_dns_name. Internal balancer dns name.
-            internal-balancing-options:
+                description: Internal balancer dns name.
+            internal_balancing_options:
                 type: str
-                description: Deprecated, please rename it to internal_balancing_options. Internal balancing options.
+                description: Internal balancing options.
                 choices:
                     - 'add a new internal load balancer'
                     - 'use a load balancer specified below'
                     - 'do not need one'
-            internal-target-group-health-check-path:
+            internal_target_group_health_check_path:
                 type: str
-                description: Deprecated, please rename it to internal_target_group_health_check_path. Internal target group health check path.
-            key-pair-name:
+                description: Internal target group health check path.
+            key_pair_name:
                 type: str
-                description: Deprecated, please rename it to key_pair_name. Key pair name.
-            lifecycle-hook-timeout:
+                description: Key pair name.
+            lifecycle_hook_timeout:
                 type: int
-                description: Deprecated, please rename it to lifecycle_hook_timeout. Lifecycle hook timeout.
-            loadbalancing-health-check-threshold:
+                description: Lifecycle hook timeout.
+            loadbalancing_health_check_threshold:
                 type: int
-                description: Deprecated, please rename it to loadbalancing_health_check_threshold. Loadbalancing health check threshold.
-            loadbalancing-traffic-port:
+                description: Loadbalancing health check threshold.
+            loadbalancing_traffic_port:
                 type: int
-                description: Deprecated, please rename it to loadbalancing_traffic_port. Loadbalancing traffic port.
-            loadbalancing-traffic-protocol:
+                description: Loadbalancing traffic port.
+            loadbalancing_traffic_protocol:
                 type: str
-                description: Deprecated, please rename it to loadbalancing_traffic_protocol. Loadbalancing traffic protocol.
+                description: Loadbalancing traffic protocol.
                 choices:
                     - 'HTTPS'
                     - 'HTTP'
@@ -234,51 +234,51 @@ options:
                 type: str
                 description: Name.
                 required: true
-            notification-email:
+            notification_email:
                 type: str
-                description: Deprecated, please rename it to notification_email. Notification email.
-            primary-election-timeout:
+                description: Notification email.
+            primary_election_timeout:
                 type: int
-                description: Deprecated, please rename it to primary_election_timeout. Primary election timeout.
-            private-subnet1-cidr:
+                description: Primary election timeout.
+            private_subnet1_cidr:
                 type: str
-                description: Deprecated, please rename it to private_subnet1_cidr. Private subnet1 cidr.
-            private-subnet2-cidr:
+                description: Private subnet1 cidr.
+            private_subnet2_cidr:
                 type: str
-                description: Deprecated, please rename it to private_subnet2_cidr. Private subnet2 cidr.
-            public-subnet1-cidr:
+                description: Private subnet2 cidr.
+            public_subnet1_cidr:
                 type: str
-                description: Deprecated, please rename it to public_subnet1_cidr. Public subnet1 cidr.
-            public-subnet2-cidr:
+                description: Public subnet1 cidr.
+            public_subnet2_cidr:
                 type: str
-                description: Deprecated, please rename it to public_subnet2_cidr. Public subnet2 cidr.
-            resource-tag-prefix:
+                description: Public subnet2 cidr.
+            resource_tag_prefix:
                 type: str
-                description: Deprecated, please rename it to resource_tag_prefix. Resource tag prefix.
-            s3-bucket-name:
+                description: Resource tag prefix.
+            s3_bucket_name:
                 type: str
-                description: Deprecated, please rename it to s3_bucket_name. S3 bucket name.
-            s3-key-prefix:
+                description: S3 bucket name.
+            s3_key_prefix:
                 type: str
-                description: Deprecated, please rename it to s3_key_prefix. S3 key prefix.
-            sync-recovery-count:
+                description: S3 key prefix.
+            sync_recovery_count:
                 type: int
-                description: Deprecated, please rename it to sync_recovery_count. Sync recovery count.
-            terminate-unhealthy-vm:
+                description: Sync recovery count.
+            terminate_unhealthy_vm:
                 type: str
-                description: Deprecated, please rename it to terminate_unhealthy_vm. Terminate unhealthy vm.
+                description: Terminate unhealthy vm.
                 choices:
                     - 'no'
                     - 'yes'
-            use-custom-asset-location:
+            use_custom_asset_location:
                 type: str
-                description: Deprecated, please rename it to use_custom_asset_location. Use custom asset location.
+                description: Use custom asset location.
                 choices:
                     - 'no'
                     - 'yes'
-            vpc-cidr:
+            vpc_cidr:
                 type: str
-                description: Deprecated, please rename it to vpc_cidr. Vpc cidr.
+                description: Vpc cidr.
 '''
 
 EXAMPLES = '''
@@ -394,23 +394,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc',
         '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}',
-        '/pm/config/global/obj/cloud/orchest-awstemplate/autoscale-new-vpc/{autoscale-new-vpc}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -486,7 +478,6 @@ def main():
                 'use-custom-asset-location': {'v_range': [['7.4.0', '']], 'choices': ['no', 'yes'], 'type': 'str'},
                 'vpc-cidr': {'v_range': [['7.4.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -500,9 +491,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

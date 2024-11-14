@@ -89,252 +89,252 @@ options:
             act:
                 type: int
                 description: Tcam sact act.
-            act-v:
+            act_v:
                 type: str
-                description: Deprecated, please rename it to act_v. Enable to set sact act.
+                description: Enable to set sact act.
                 choices:
                     - 'disable'
                     - 'enable'
             bmproc:
                 type: int
                 description: Tcam sact bmproc.
-            bmproc-v:
+            bmproc_v:
                 type: str
-                description: Deprecated, please rename it to bmproc_v. Enable to set sact bmproc.
+                description: Enable to set sact bmproc.
                 choices:
                     - 'disable'
                     - 'enable'
-            df-lif:
+            df_lif:
                 type: int
-                description: Deprecated, please rename it to df_lif. Tcam sact df-lif.
-            df-lif-v:
+                description: Tcam sact df-lif.
+            df_lif_v:
                 type: str
-                description: Deprecated, please rename it to df_lif_v. Enable to set sact df-lif.
+                description: Enable to set sact df-lif.
                 choices:
                     - 'disable'
                     - 'enable'
             dfr:
                 type: int
                 description: Tcam sact dfr.
-            dfr-v:
+            dfr_v:
                 type: str
-                description: Deprecated, please rename it to dfr_v. Enable to set sact dfr.
+                description: Enable to set sact dfr.
                 choices:
                     - 'disable'
                     - 'enable'
-            dmac-skip:
+            dmac_skip:
                 type: int
-                description: Deprecated, please rename it to dmac_skip. Tcam sact dmac-skip.
-            dmac-skip-v:
+                description: Tcam sact dmac-skip.
+            dmac_skip_v:
                 type: str
-                description: Deprecated, please rename it to dmac_skip_v. Enable to set sact dmac-skip.
+                description: Enable to set sact dmac-skip.
                 choices:
                     - 'disable'
                     - 'enable'
             dosen:
                 type: int
                 description: Tcam sact dosen.
-            dosen-v:
+            dosen_v:
                 type: str
-                description: Deprecated, please rename it to dosen_v. Enable to set sact dosen.
+                description: Enable to set sact dosen.
                 choices:
                     - 'disable'
                     - 'enable'
-            espff-proc:
+            espff_proc:
                 type: int
-                description: Deprecated, please rename it to espff_proc. Tcam sact espff-proc.
-            espff-proc-v:
+                description: Tcam sact espff-proc.
+            espff_proc_v:
                 type: str
-                description: Deprecated, please rename it to espff_proc_v. Enable to set sact espff-proc.
+                description: Enable to set sact espff-proc.
                 choices:
                     - 'disable'
                     - 'enable'
-            etype-pid:
+            etype_pid:
                 type: int
-                description: Deprecated, please rename it to etype_pid. Tcam sact etype-pid.
-            etype-pid-v:
+                description: Tcam sact etype-pid.
+            etype_pid_v:
                 type: str
-                description: Deprecated, please rename it to etype_pid_v. Enable to set sact etype-pid.
+                description: Enable to set sact etype-pid.
                 choices:
                     - 'disable'
                     - 'enable'
-            frag-proc:
+            frag_proc:
                 type: int
-                description: Deprecated, please rename it to frag_proc. Tcam sact frag-proc.
-            frag-proc-v:
+                description: Tcam sact frag-proc.
+            frag_proc_v:
                 type: str
-                description: Deprecated, please rename it to frag_proc_v. Enable to set sact frag-proc.
+                description: Enable to set sact frag-proc.
                 choices:
                     - 'disable'
                     - 'enable'
             fwd:
                 type: int
                 description: Tcam sact fwd.
-            fwd-lif:
+            fwd_lif:
                 type: int
-                description: Deprecated, please rename it to fwd_lif. Tcam sact fwd-lif.
-            fwd-lif-v:
+                description: Tcam sact fwd-lif.
+            fwd_lif_v:
                 type: str
-                description: Deprecated, please rename it to fwd_lif_v. Enable to set sact fwd-lif.
+                description: Enable to set sact fwd-lif.
                 choices:
                     - 'disable'
                     - 'enable'
-            fwd-tvid:
+            fwd_tvid:
                 type: int
-                description: Deprecated, please rename it to fwd_tvid. Tcam sact fwd-tvid.
-            fwd-tvid-v:
+                description: Tcam sact fwd-tvid.
+            fwd_tvid_v:
                 type: str
-                description: Deprecated, please rename it to fwd_tvid_v. Enable to set sact fwd-vid.
+                description: Enable to set sact fwd-vid.
                 choices:
                     - 'disable'
                     - 'enable'
-            fwd-v:
+            fwd_v:
                 type: str
-                description: Deprecated, please rename it to fwd_v. Enable to set sact fwd.
+                description: Enable to set sact fwd.
                 choices:
                     - 'disable'
                     - 'enable'
             icpen:
                 type: int
                 description: Tcam sact icpen.
-            icpen-v:
+            icpen_v:
                 type: str
-                description: Deprecated, please rename it to icpen_v. Enable to set sact icpen.
+                description: Enable to set sact icpen.
                 choices:
                     - 'disable'
                     - 'enable'
-            igmp-mld-snp:
+            igmp_mld_snp:
                 type: int
-                description: Deprecated, please rename it to igmp_mld_snp. Tcam sact igmp-mld-snp.
-            igmp-mld-snp-v:
+                description: Tcam sact igmp-mld-snp.
+            igmp_mld_snp_v:
                 type: str
-                description: Deprecated, please rename it to igmp_mld_snp_v. Enable to set sact igmp-mld-snp.
+                description: Enable to set sact igmp-mld-snp.
                 choices:
                     - 'disable'
                     - 'enable'
             learn:
                 type: int
                 description: Tcam sact learn.
-            learn-v:
+            learn_v:
                 type: str
-                description: Deprecated, please rename it to learn_v. Enable to set sact learn.
+                description: Enable to set sact learn.
                 choices:
                     - 'disable'
                     - 'enable'
-            m-srh-ctrl:
+            m_srh_ctrl:
                 type: int
-                description: Deprecated, please rename it to m_srh_ctrl. Tcam sact m-srh-ctrl.
-            m-srh-ctrl-v:
+                description: Tcam sact m-srh-ctrl.
+            m_srh_ctrl_v:
                 type: str
-                description: Deprecated, please rename it to m_srh_ctrl_v. Enable to set sact m-srh-ctrl.
+                description: Enable to set sact m-srh-ctrl.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-id:
+            mac_id:
                 type: int
-                description: Deprecated, please rename it to mac_id. Tcam sact mac-id.
-            mac-id-v:
+                description: Tcam sact mac-id.
+            mac_id_v:
                 type: str
-                description: Deprecated, please rename it to mac_id_v. Enable to set sact mac-id.
+                description: Enable to set sact mac-id.
                 choices:
                     - 'disable'
                     - 'enable'
             mss:
                 type: int
                 description: Tcam sact mss.
-            mss-v:
+            mss_v:
                 type: str
-                description: Deprecated, please rename it to mss_v. Enable to set sact mss.
+                description: Enable to set sact mss.
                 choices:
                     - 'disable'
                     - 'enable'
             pleen:
                 type: int
                 description: Tcam sact pleen.
-            pleen-v:
+            pleen_v:
                 type: str
-                description: Deprecated, please rename it to pleen_v. Enable to set sact pleen.
+                description: Enable to set sact pleen.
                 choices:
                     - 'disable'
                     - 'enable'
-            prio-pid:
+            prio_pid:
                 type: int
-                description: Deprecated, please rename it to prio_pid. Tcam sact prio-pid.
-            prio-pid-v:
+                description: Tcam sact prio-pid.
+            prio_pid_v:
                 type: str
-                description: Deprecated, please rename it to prio_pid_v. Enable to set sact prio-pid.
+                description: Enable to set sact prio-pid.
                 choices:
                     - 'disable'
                     - 'enable'
             promis:
                 type: int
                 description: Tcam sact promis.
-            promis-v:
+            promis_v:
                 type: str
-                description: Deprecated, please rename it to promis_v. Enable to set sact promis.
+                description: Enable to set sact promis.
                 choices:
                     - 'disable'
                     - 'enable'
             rfsh:
                 type: int
                 description: Tcam sact rfsh.
-            rfsh-v:
+            rfsh_v:
                 type: str
-                description: Deprecated, please rename it to rfsh_v. Enable to set sact rfsh.
+                description: Enable to set sact rfsh.
                 choices:
                     - 'disable'
                     - 'enable'
-            smac-skip:
+            smac_skip:
                 type: int
-                description: Deprecated, please rename it to smac_skip. Tcam sact smac-skip.
-            smac-skip-v:
+                description: Tcam sact smac-skip.
+            smac_skip_v:
                 type: str
-                description: Deprecated, please rename it to smac_skip_v. Enable to set sact smac-skip.
+                description: Enable to set sact smac-skip.
                 choices:
                     - 'disable'
                     - 'enable'
-            tp-smchk-v:
+            tp_smchk_v:
                 type: str
-                description: Deprecated, please rename it to tp_smchk_v. Enable to set sact tp mode.
+                description: Enable to set sact tp mode.
                 choices:
                     - 'disable'
                     - 'enable'
             tp_smchk:
                 type: int
                 description: Tcam sact tp mode.
-            tpe-id:
+            tpe_id:
                 type: int
-                description: Deprecated, please rename it to tpe_id. Tcam sact tpe-id.
-            tpe-id-v:
+                description: Tcam sact tpe-id.
+            tpe_id_v:
                 type: str
-                description: Deprecated, please rename it to tpe_id_v. Enable to set sact tpe-id.
+                description: Enable to set sact tpe-id.
                 choices:
                     - 'disable'
                     - 'enable'
             vdm:
                 type: int
                 description: Tcam sact vdm.
-            vdm-v:
+            vdm_v:
                 type: str
-                description: Deprecated, please rename it to vdm_v. Enable to set sact vdm.
+                description: Enable to set sact vdm.
                 choices:
                     - 'disable'
                     - 'enable'
-            vdom-id:
+            vdom_id:
                 type: int
-                description: Deprecated, please rename it to vdom_id. Tcam sact vdom-id.
-            vdom-id-v:
+                description: Tcam sact vdom-id.
+            vdom_id_v:
                 type: str
-                description: Deprecated, please rename it to vdom_id_v. Enable to set sact vdom-id.
+                description: Enable to set sact vdom-id.
                 choices:
                     - 'disable'
                     - 'enable'
-            x-mode:
+            x_mode:
                 type: int
-                description: Deprecated, please rename it to x_mode. Tcam sact x-mode.
-            x-mode-v:
+                description: Tcam sact x-mode.
+            x_mode_v:
                 type: str
-                description: Deprecated, please rename it to x_mode_v. Enable to set sact x-mode.
+                description: Enable to set sact x-mode.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -458,23 +458,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/sact',
         '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/sact'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/npu-tcam/{npu-tcam}/sact/{sact}',
-        '/pm/config/global/obj/system/npu/npu-tcam/{npu-tcam}/sact/{sact}'
-    ]
-
     url_params = ['adom', 'npu-tcam']
     module_primary_key = None
     module_arg_spec = {
@@ -542,7 +534,6 @@ def main():
                 'x-mode': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'x-mode-v': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -556,9 +547,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

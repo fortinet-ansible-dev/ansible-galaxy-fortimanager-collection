@@ -92,9 +92,9 @@ options:
             comment:
                 type: str
                 description: Comment.
-            log-level:
+            log_level:
                 type: str
-                description: Deprecated, please rename it to log_level. Lowest level of log messages that FortiAP units send to this server
+                description: Lowest level of log messages that FortiAP units send to this server
                 choices:
                     - 'emergency'
                     - 'alert'
@@ -108,24 +108,24 @@ options:
                 type: str
                 description: WTP system log server profile name.
                 required: true
-            server-addr-type:
+            server_addr_type:
                 type: str
-                description: Deprecated, please rename it to server_addr_type. Syslog server address type
+                description: Syslog server address type
                 choices:
                     - 'fqdn'
                     - 'ip'
-            server-fqdn:
+            server_fqdn:
                 type: str
-                description: Deprecated, please rename it to server_fqdn. FQDN of syslog server that FortiAP units send log messages to.
-            server-ip:
+                description: FQDN of syslog server that FortiAP units send log messages to.
+            server_ip:
                 type: str
-                description: Deprecated, please rename it to server_ip. IP address of syslog server that FortiAP units send log messages to.
-            server-port:
+                description: IP address of syslog server that FortiAP units send log messages to.
+            server_port:
                 type: int
-                description: Deprecated, please rename it to server_port. Port number of syslog server that FortiAP units send log messages to
-            server-status:
+                description: Port number of syslog server that FortiAP units send log messages to
+            server_status:
                 type: str
-                description: Deprecated, please rename it to server_status. Enable/disable FortiAP units to send log messages to a syslog server
+                description: Enable/disable FortiAP units to send log messages to a syslog server
                 choices:
                     - 'disable'
                     - 'enable'
@@ -201,23 +201,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile',
         '/pm/config/global/obj/wireless-controller/syslog-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/syslog-profile/{syslog-profile}',
-        '/pm/config/global/obj/wireless-controller/syslog-profile/{syslog-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -239,7 +231,6 @@ def main():
                 'server-port': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'server-status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -253,9 +244,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

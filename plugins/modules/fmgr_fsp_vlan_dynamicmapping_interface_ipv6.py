@@ -94,58 +94,58 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp6-client-options:
+            dhcp6_client_options:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to dhcp6_client_options. Dhcp6 client options.
+                description: Dhcp6 client options.
                 choices:
                     - 'rapid'
                     - 'iapd'
                     - 'iana'
                     - 'dns'
                     - 'dnsname'
-            dhcp6-information-request:
+            dhcp6_information_request:
                 type: str
-                description: Deprecated, please rename it to dhcp6_information_request. Dhcp6 information request.
+                description: Dhcp6 information request.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp6-prefix-delegation:
+            dhcp6_prefix_delegation:
                 type: str
-                description: Deprecated, please rename it to dhcp6_prefix_delegation. Dhcp6 prefix delegation.
+                description: Dhcp6 prefix delegation.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp6-prefix-hint:
+            dhcp6_prefix_hint:
                 type: str
-                description: Deprecated, please rename it to dhcp6_prefix_hint. Dhcp6 prefix hint.
-            dhcp6-prefix-hint-plt:
+                description: Dhcp6 prefix hint.
+            dhcp6_prefix_hint_plt:
                 type: int
-                description: Deprecated, please rename it to dhcp6_prefix_hint_plt. Dhcp6 prefix hint plt.
-            dhcp6-prefix-hint-vlt:
+                description: Dhcp6 prefix hint plt.
+            dhcp6_prefix_hint_vlt:
                 type: int
-                description: Deprecated, please rename it to dhcp6_prefix_hint_vlt. Dhcp6 prefix hint vlt.
-            dhcp6-relay-ip:
+                description: Dhcp6 prefix hint vlt.
+            dhcp6_relay_ip:
                 type: str
-                description: Deprecated, please rename it to dhcp6_relay_ip. Dhcp6 relay ip.
-            dhcp6-relay-service:
+                description: Dhcp6 relay ip.
+            dhcp6_relay_service:
                 type: str
-                description: Deprecated, please rename it to dhcp6_relay_service. Dhcp6 relay service.
+                description: Dhcp6 relay service.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp6-relay-type:
+            dhcp6_relay_type:
                 type: str
-                description: Deprecated, please rename it to dhcp6_relay_type. Dhcp6 relay type.
+                description: Dhcp6 relay type.
                 choices:
                     - 'regular'
-            ip6-address:
+            ip6_address:
                 type: str
-                description: Deprecated, please rename it to ip6_address. Ip6 address.
-            ip6-allowaccess:
+                description: Ip6 address.
+            ip6_allowaccess:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ip6_allowaccess. Ip6 allowaccess.
+                description: Ip6 allowaccess.
                 choices:
                     - 'https'
                     - 'ping'
@@ -156,35 +156,35 @@ options:
                     - 'fgfm'
                     - 'capwap'
                     - 'fabric'
-            ip6-default-life:
+            ip6_default_life:
                 type: int
-                description: Deprecated, please rename it to ip6_default_life. Ip6 default life.
-            ip6-delegated-prefix-list:
+                description: Ip6 default life.
+            ip6_delegated_prefix_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip6_delegated_prefix_list. Ip6 delegated prefix list.
+                description: Ip6 delegated prefix list.
                 suboptions:
-                    autonomous-flag:
+                    autonomous_flag:
                         type: str
-                        description: Deprecated, please rename it to autonomous_flag. Autonomous flag.
+                        description: Autonomous flag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    onlink-flag:
+                    onlink_flag:
                         type: str
-                        description: Deprecated, please rename it to onlink_flag. Onlink flag.
+                        description: Onlink flag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    prefix-id:
+                    prefix_id:
                         type: int
-                        description: Deprecated, please rename it to prefix_id. Prefix id.
+                        description: Prefix id.
                     rdnss:
                         type: raw
                         description: (list) Rdnss.
-                    rdnss-service:
+                    rdnss_service:
                         type: str
-                        description: Deprecated, please rename it to rdnss_service. Rdnss service.
+                        description: Rdnss service.
                         choices:
                             - 'delegated'
                             - 'default'
@@ -192,135 +192,135 @@ options:
                     subnet:
                         type: str
                         description: Subnet.
-                    upstream-interface:
+                    upstream_interface:
                         type: str
-                        description: Deprecated, please rename it to upstream_interface. Upstream interface.
-                    delegated-prefix-iaid:
+                        description: Upstream interface.
+                    delegated_prefix_iaid:
                         type: int
-                        description: Deprecated, please rename it to delegated_prefix_iaid. IAID of obtained delegated-prefix from the upstream interface.
-            ip6-dns-server-override:
+                        description: IAID of obtained delegated-prefix from the upstream interface.
+            ip6_dns_server_override:
                 type: str
-                description: Deprecated, please rename it to ip6_dns_server_override. Ip6 dns server override.
+                description: Ip6 dns server override.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip6-extra-addr:
+            ip6_extra_addr:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip6_extra_addr. Ip6 extra addr.
+                description: Ip6 extra addr.
                 suboptions:
                     prefix:
                         type: str
                         description: Prefix.
-            ip6-hop-limit:
+            ip6_hop_limit:
                 type: int
-                description: Deprecated, please rename it to ip6_hop_limit. Ip6 hop limit.
-            ip6-link-mtu:
+                description: Ip6 hop limit.
+            ip6_link_mtu:
                 type: int
-                description: Deprecated, please rename it to ip6_link_mtu. Ip6 link mtu.
-            ip6-manage-flag:
+                description: Ip6 link mtu.
+            ip6_manage_flag:
                 type: str
-                description: Deprecated, please rename it to ip6_manage_flag. Ip6 manage flag.
+                description: Ip6 manage flag.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip6-max-interval:
+            ip6_max_interval:
                 type: int
-                description: Deprecated, please rename it to ip6_max_interval. Ip6 max interval.
-            ip6-min-interval:
+                description: Ip6 max interval.
+            ip6_min_interval:
                 type: int
-                description: Deprecated, please rename it to ip6_min_interval. Ip6 min interval.
-            ip6-mode:
+                description: Ip6 min interval.
+            ip6_mode:
                 type: str
-                description: Deprecated, please rename it to ip6_mode. Ip6 mode.
+                description: Ip6 mode.
                 choices:
                     - 'static'
                     - 'dhcp'
                     - 'pppoe'
                     - 'delegated'
-            ip6-other-flag:
+            ip6_other_flag:
                 type: str
-                description: Deprecated, please rename it to ip6_other_flag. Ip6 other flag.
+                description: Ip6 other flag.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip6-prefix-list:
+            ip6_prefix_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip6_prefix_list. Ip6 prefix list.
+                description: Ip6 prefix list.
                 suboptions:
-                    autonomous-flag:
+                    autonomous_flag:
                         type: str
-                        description: Deprecated, please rename it to autonomous_flag. Autonomous flag.
+                        description: Autonomous flag.
                         choices:
                             - 'disable'
                             - 'enable'
                     dnssl:
                         type: raw
                         description: (list) Dnssl.
-                    onlink-flag:
+                    onlink_flag:
                         type: str
-                        description: Deprecated, please rename it to onlink_flag. Onlink flag.
+                        description: Onlink flag.
                         choices:
                             - 'disable'
                             - 'enable'
-                    preferred-life-time:
+                    preferred_life_time:
                         type: int
-                        description: Deprecated, please rename it to preferred_life_time. Preferred life time.
+                        description: Preferred life time.
                     prefix:
                         type: str
                         description: Prefix.
                     rdnss:
                         type: raw
                         description: (list) Rdnss.
-                    valid-life-time:
+                    valid_life_time:
                         type: int
-                        description: Deprecated, please rename it to valid_life_time. Valid life time.
-            ip6-reachable-time:
+                        description: Valid life time.
+            ip6_reachable_time:
                 type: int
-                description: Deprecated, please rename it to ip6_reachable_time. Ip6 reachable time.
-            ip6-retrans-time:
+                description: Ip6 reachable time.
+            ip6_retrans_time:
                 type: int
-                description: Deprecated, please rename it to ip6_retrans_time. Ip6 retrans time.
-            ip6-send-adv:
+                description: Ip6 retrans time.
+            ip6_send_adv:
                 type: str
-                description: Deprecated, please rename it to ip6_send_adv. Ip6 send adv.
+                description: Ip6 send adv.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip6-subnet:
+            ip6_subnet:
                 type: str
-                description: Deprecated, please rename it to ip6_subnet. Ip6 subnet.
-            ip6-upstream-interface:
+                description: Ip6 subnet.
+            ip6_upstream_interface:
                 type: str
-                description: Deprecated, please rename it to ip6_upstream_interface. Ip6 upstream interface.
-            nd-cert:
+                description: Ip6 upstream interface.
+            nd_cert:
                 type: str
-                description: Deprecated, please rename it to nd_cert. Nd cert.
-            nd-cga-modifier:
+                description: Nd cert.
+            nd_cga_modifier:
                 type: str
-                description: Deprecated, please rename it to nd_cga_modifier. Nd cga modifier.
-            nd-mode:
+                description: Nd cga modifier.
+            nd_mode:
                 type: str
-                description: Deprecated, please rename it to nd_mode. Nd mode.
+                description: Nd mode.
                 choices:
                     - 'basic'
                     - 'SEND-compatible'
-            nd-security-level:
+            nd_security_level:
                 type: int
-                description: Deprecated, please rename it to nd_security_level. Nd security level.
-            nd-timestamp-delta:
+                description: Nd security level.
+            nd_timestamp_delta:
                 type: int
-                description: Deprecated, please rename it to nd_timestamp_delta. Nd timestamp delta.
-            nd-timestamp-fuzz:
+                description: Nd timestamp delta.
+            nd_timestamp_fuzz:
                 type: int
-                description: Deprecated, please rename it to nd_timestamp_fuzz. Nd timestamp fuzz.
+                description: Nd timestamp fuzz.
             vrip6_link_local:
                 type: str
                 description: Vrip6 link local.
-            vrrp-virtual-mac6:
+            vrrp_virtual_mac6:
                 type: str
-                description: Deprecated, please rename it to vrrp_virtual_mac6. Vrrp virtual mac6.
+                description: Vrrp virtual mac6.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -329,15 +329,15 @@ options:
                 elements: dict
                 description: Vrrp6.
                 suboptions:
-                    accept-mode:
+                    accept_mode:
                         type: str
-                        description: Deprecated, please rename it to accept_mode. Accept mode.
+                        description: Accept mode.
                         choices:
                             - 'disable'
                             - 'enable'
-                    adv-interval:
+                    adv_interval:
                         type: int
-                        description: Deprecated, please rename it to adv_interval. Adv interval.
+                        description: Adv interval.
                     preempt:
                         type: str
                         description: Preempt.
@@ -347,9 +347,9 @@ options:
                     priority:
                         type: int
                         description: Priority.
-                    start-time:
+                    start_time:
                         type: int
-                        description: Deprecated, please rename it to start_time. Start time.
+                        description: Start time.
                     status:
                         type: str
                         description: Status.
@@ -368,42 +368,42 @@ options:
                     vrip6:
                         type: str
                         description: Vrip6.
-            interface-identifier:
+            interface_identifier:
                 type: str
-                description: Deprecated, please rename it to interface_identifier. Interface identifier.
-            unique-autoconf-addr:
+                description: Interface identifier.
+            unique_autoconf_addr:
                 type: str
-                description: Deprecated, please rename it to unique_autoconf_addr. Unique autoconf addr.
+                description: Unique autoconf addr.
                 choices:
                     - 'disable'
                     - 'enable'
-            icmp6-send-redirect:
+            icmp6_send_redirect:
                 type: str
-                description: Deprecated, please rename it to icmp6_send_redirect. Enable/disable sending of ICMPv6 redirects.
+                description: Enable/disable sending of ICMPv6 redirects.
                 choices:
                     - 'disable'
                     - 'enable'
-            cli-conn6-status:
+            cli_conn6_status:
                 type: int
-                description: Deprecated, please rename it to cli_conn6_status. Cli conn6 status.
-            ip6-prefix-mode:
+                description: Cli conn6 status.
+            ip6_prefix_mode:
                 type: str
-                description: Deprecated, please rename it to ip6_prefix_mode. Assigning a prefix from DHCP or RA.
+                description: Assigning a prefix from DHCP or RA.
                 choices:
                     - 'dhcp6'
                     - 'ra'
-            ra-send-mtu:
+            ra_send_mtu:
                 type: str
-                description: Deprecated, please rename it to ra_send_mtu. Enable/disable sending link MTU in RA packet.
+                description: Enable/disable sending link MTU in RA packet.
                 choices:
                     - 'disable'
                     - 'enable'
-            ip6-delegated-prefix-iaid:
+            ip6_delegated_prefix_iaid:
                 type: int
-                description: Deprecated, please rename it to ip6_delegated_prefix_iaid. IAID of obtained delegated-prefix from the upstream interface.
-            dhcp6-relay-source-interface:
+                description: IAID of obtained delegated-prefix from the upstream interface.
+            dhcp6_relay_source_interface:
                 type: str
-                description: Deprecated, please rename it to dhcp6_relay_source_interface. Enable/disable use of address on this interface as the sourc...
+                description: Enable/disable use of address on this interface as the source address of the relay message.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -431,11 +431,11 @@ EXAMPLES = '''
         fsp_vlan_dynamicmapping_interface_ipv6:
           autoconf: <value in [disable, enable]>
           dhcp6_client_options:
-            - rapid
-            - iapd
-            - iana
-            - dns
-            - dnsname
+            - "rapid"
+            - "iapd"
+            - "iana"
+            - "dns"
+            - "dnsname"
           dhcp6_information_request: <value in [disable, enable]>
           dhcp6_prefix_delegation: <value in [disable, enable]>
           dhcp6_prefix_hint: <string>
@@ -446,15 +446,15 @@ EXAMPLES = '''
           dhcp6_relay_type: <value in [regular]>
           ip6_address: <string>
           ip6_allowaccess:
-            - https
-            - ping
-            - ssh
-            - snmp
-            - http
-            - telnet
-            - fgfm
-            - capwap
-            - fabric
+            - "https"
+            - "ping"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "telnet"
+            - "fgfm"
+            - "capwap"
+            - "fabric"
           ip6_default_life: <integer>
           ip6_delegated_prefix_list:
             -
@@ -562,23 +562,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6',
         '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/{ipv6}',
-        '/pm/config/global/obj/fsp/vlan/{vlan}/dynamic_mapping/{dynamic_mapping}/interface/ipv6/{ipv6}'
-    ]
-
     url_params = ['adom', 'vlan', 'dynamic_mapping']
     module_primary_key = None
     module_arg_spec = {
@@ -587,114 +579,117 @@ def main():
         'dynamic_mapping': {'required': True, 'type': 'str'},
         'fsp_vlan_dynamicmapping_interface_ipv6': {
             'type': 'dict',
-            'v_range': [['6.2.2', '7.4.0']],
+            'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
             'options': {
-                'autoconf': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'autoconf': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp6-client-options': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'choices': ['rapid', 'iapd', 'iana', 'dns', 'dnsname'],
                     'elements': 'str'
                 },
-                'dhcp6-information-request': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dhcp6-prefix-delegation': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dhcp6-prefix-hint': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'dhcp6-prefix-hint-plt': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'dhcp6-prefix-hint-vlt': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'dhcp6-relay-ip': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'dhcp6-relay-service': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dhcp6-relay-type': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['regular'], 'type': 'str'},
-                'ip6-address': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
+                'dhcp6-information-request': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dhcp6-prefix-delegation': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dhcp6-prefix-hint': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'dhcp6-prefix-hint-plt': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'dhcp6-prefix-hint-vlt': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'dhcp6-relay-ip': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'dhcp6-relay-service': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dhcp6-relay-type': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['regular'], 'type': 'str'},
+                'ip6-address': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
                 'ip6-allowaccess': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric'],
                     'elements': 'str'
                 },
-                'ip6-default-life': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
+                'ip6-default-life': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
                 'ip6-delegated-prefix-list': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'options': {
-                        'autonomous-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'onlink-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'prefix-id': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'rdnss': {'v_range': [['6.2.2', '7.4.0']], 'type': 'raw'},
-                        'rdnss-service': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['delegated', 'default', 'specify'], 'type': 'str'},
-                        'subnet': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                        'upstream-interface': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '7.4.0']], 'type': 'int'}
+                        'autonomous-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'onlink-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'prefix-id': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'rdnss': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                        'rdnss-service': {
+                            'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
+                            'choices': ['delegated', 'default', 'specify'],
+                            'type': 'str'
+                        },
+                        'subnet': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                        'upstream-interface': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'ip6-dns-server-override': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-dns-server-override': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip6-extra-addr': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
-                    'options': {'prefix': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'}},
+                    'options': {'prefix': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'ip6-hop-limit': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-link-mtu': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-manage-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ip6-max-interval': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-min-interval': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-mode': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['static', 'dhcp', 'pppoe', 'delegated'], 'type': 'str'},
-                'ip6-other-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-hop-limit': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-link-mtu': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-manage-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-max-interval': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-min-interval': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-mode': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['static', 'dhcp', 'pppoe', 'delegated'], 'type': 'str'},
+                'ip6-other-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip6-prefix-list': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'options': {
-                        'autonomous-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'dnssl': {'v_range': [['6.2.2', '7.4.0']], 'type': 'raw'},
-                        'onlink-flag': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'preferred-life-time': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'prefix': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                        'rdnss': {'v_range': [['6.2.2', '7.4.0']], 'type': 'raw'},
-                        'valid-life-time': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'}
+                        'autonomous-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dnssl': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                        'onlink-flag': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'preferred-life-time': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'prefix': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                        'rdnss': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'raw'},
+                        'valid-life-time': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'ip6-reachable-time': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-retrans-time': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'ip6-send-adv': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ip6-subnet': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'ip6-upstream-interface': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'nd-cert': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'nd-cga-modifier': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'nd-mode': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['basic', 'SEND-compatible'], 'type': 'str'},
-                'nd-security-level': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'nd-timestamp-delta': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'nd-timestamp-fuzz': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                'vrip6_link_local': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                'vrrp-virtual-mac6': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-reachable-time': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-retrans-time': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-send-adv': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-subnet': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'ip6-upstream-interface': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'nd-cert': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'nd-cga-modifier': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'nd-mode': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['basic', 'SEND-compatible'], 'type': 'str'},
+                'nd-security-level': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'nd-timestamp-delta': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'nd-timestamp-fuzz': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'vrip6_link_local': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'vrrp-virtual-mac6': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vrrp6': {
-                    'v_range': [['6.2.2', '7.4.0']],
+                    'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']],
                     'type': 'list',
                     'options': {
-                        'accept-mode': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'adv-interval': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'preempt': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'priority': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'start-time': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'status': {'v_range': [['6.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'vrdst6': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'},
-                        'vrgrp': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'vrid': {'v_range': [['6.2.2', '7.4.0']], 'type': 'int'},
-                        'vrip6': {'v_range': [['6.2.2', '7.4.0']], 'type': 'str'}
+                        'accept-mode': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'adv-interval': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'preempt': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'priority': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'start-time': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'status': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vrdst6': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                        'vrgrp': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'vrid': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                        'vrip6': {'v_range': [['6.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'interface-identifier': {'v_range': [['6.4.1', '7.4.0']], 'type': 'str'},
-                'unique-autoconf-addr': {'v_range': [['6.4.1', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'icmp6-send-redirect': {'v_range': [['6.4.4', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cli-conn6-status': {'v_range': [['7.0.0', '7.4.0']], 'type': 'int'},
-                'ip6-prefix-mode': {'v_range': [['7.0.0', '7.4.0']], 'choices': ['dhcp6', 'ra'], 'type': 'str'},
-                'ra-send-mtu': {'v_range': [['6.4.6', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ip6-delegated-prefix-iaid': {'v_range': [['7.0.2', '7.4.0']], 'type': 'int'},
-                'dhcp6-relay-source-interface': {'v_range': [['7.2.2', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'interface-identifier': {'v_range': [['6.4.1', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'str'},
+                'unique-autoconf-addr': {'v_range': [['6.4.1', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'icmp6-send-redirect': {'v_range': [['6.4.4', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cli-conn6-status': {'v_range': [['7.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'ip6-prefix-mode': {'v_range': [['7.0.0', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['dhcp6', 'ra'], 'type': 'str'},
+                'ra-send-mtu': {'v_range': [['6.4.6', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-delegated-prefix-iaid': {'v_range': [['7.0.2', '7.2.5'], ['7.4.0', '7.4.0']], 'type': 'int'},
+                'dhcp6-relay-source-interface': {'v_range': [['7.2.2', '7.2.5'], ['7.4.0', '7.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -708,9 +703,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

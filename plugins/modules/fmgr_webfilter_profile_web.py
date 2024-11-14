@@ -90,37 +90,37 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            bword-table:
+            bword_table:
                 type: str
-                description: Deprecated, please rename it to bword_table. Banned word table ID.
-            bword-threshold:
+                description: Banned word table ID.
+            bword_threshold:
                 type: int
-                description: Deprecated, please rename it to bword_threshold. Banned word score threshold.
-            content-header-list:
+                description: Banned word score threshold.
+            content_header_list:
                 type: str
-                description: Deprecated, please rename it to content_header_list. Content header list.
-            keyword-match:
+                description: Content header list.
+            keyword_match:
                 type: raw
-                description: (list) Deprecated, please rename it to keyword_match. Search keywords to log when match is found.
-            log-search:
+                description: (list) Search keywords to log when match is found.
+            log_search:
                 type: str
-                description: Deprecated, please rename it to log_search. Enable/disable logging all search phrases.
+                description: Enable/disable logging all search phrases.
                 choices:
                     - 'disable'
                     - 'enable'
-            safe-search:
+            safe_search:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to safe_search. Safe search type.
+                description: Safe search type.
                 choices:
                     - 'google'
                     - 'yahoo'
                     - 'bing'
                     - 'url'
                     - 'header'
-            urlfilter-table:
+            urlfilter_table:
                 type: str
-                description: Deprecated, please rename it to urlfilter_table. URL filter table ID.
+                description: URL filter table ID.
             whitelist:
                 type: list
                 elements: str
@@ -132,9 +132,9 @@ options:
                     - 'exempt-dlp'
                     - 'exempt-rangeblock'
                     - 'extended-log-others'
-            youtube-restrict:
+            youtube_restrict:
                 type: str
-                description: Deprecated, please rename it to youtube_restrict. YouTube EDU filter level.
+                description: YouTube EDU filter level.
                 choices:
                     - 'strict'
                     - 'none'
@@ -156,9 +156,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            vimeo-restrict:
+            vimeo_restrict:
                 type: str
-                description: Deprecated, please rename it to vimeo_restrict. Set Vimeo-restrict
+                description: Set Vimeo-restrict
 '''
 
 EXAMPLES = '''
@@ -187,27 +187,27 @@ EXAMPLES = '''
           keyword_match: <list or string>
           log_search: <value in [disable, enable]>
           safe_search:
-            - google
-            - yahoo
-            - bing
-            - url
-            - header
+            - "google"
+            - "yahoo"
+            - "bing"
+            - "url"
+            - "header"
           urlfilter_table: <string>
           whitelist:
-            - exempt-av
-            - exempt-webcontent
-            - exempt-activex-java-cookie
-            - exempt-dlp
-            - exempt-rangeblock
-            - extended-log-others
+            - "exempt-av"
+            - "exempt-webcontent"
+            - "exempt-activex-java-cookie"
+            - "exempt-dlp"
+            - "exempt-rangeblock"
+            - "extended-log-others"
           youtube_restrict: <value in [strict, none, moderate]>
           allowlist:
-            - exempt-av
-            - exempt-webcontent
-            - exempt-activex-java-cookie
-            - exempt-dlp
-            - exempt-rangeblock
-            - extended-log-others
+            - "exempt-av"
+            - "exempt-webcontent"
+            - "exempt-activex-java-cookie"
+            - "exempt-dlp"
+            - "exempt-rangeblock"
+            - "extended-log-others"
           blocklist: <value in [disable, enable]>
           vimeo_restrict: <string>
 '''
@@ -253,23 +253,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/web',
         '/pm/config/global/obj/webfilter/profile/{profile}/web'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/web/{web}',
-        '/pm/config/global/obj/webfilter/profile/{profile}/web/{web}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -302,7 +294,6 @@ def main():
                 'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -316,9 +307,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

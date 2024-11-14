@@ -89,12 +89,12 @@ options:
         required: false
         type: dict
         suboptions:
-            app-category:
+            app_category:
                 type: raw
-                description: (list) Deprecated, please rename it to app_category. Application category ID.
-            app-service-type:
+                description: (list) Application category ID.
+            app_service_type:
                 type: str
-                description: Deprecated, please rename it to app_service_type. Application service type.
+                description: Application service type.
                 choices:
                     - 'disable'
                     - 'app-id'
@@ -105,9 +105,9 @@ options:
             category:
                 type: str
                 description: Service category.
-            check-reset-range:
+            check_reset_range:
                 type: str
-                description: Deprecated, please rename it to check_reset_range. Configure the type of ICMP error message verification.
+                description: Configure the type of ICMP error message verification.
                 choices:
                     - 'disable'
                     - 'default'
@@ -175,69 +175,69 @@ options:
                     - 'SOCKS-TCP'
                     - 'SOCKS-UDP'
                     - 'TCP/UDP/UDP-Lite/SCTP'
-            protocol-number:
+            protocol_number:
                 type: int
-                description: Deprecated, please rename it to protocol_number. IP protocol number.
+                description: IP protocol number.
             proxy:
                 type: str
                 description: Enable/disable web proxy service.
                 choices:
                     - 'disable'
                     - 'enable'
-            sctp-portrange:
+            sctp_portrange:
                 type: str
-                description: Deprecated, please rename it to sctp_portrange. Multiple SCTP port ranges.
-            session-ttl:
+                description: Multiple SCTP port ranges.
+            session_ttl:
                 type: raw
-                description: (int or str) Deprecated, please rename it to session_ttl. Session TTL
-            tcp-halfclose-timer:
+                description: (int or str) Session TTL
+            tcp_halfclose_timer:
                 type: int
-                description: Deprecated, please rename it to tcp_halfclose_timer. Wait time to close a TCP session waiting for an unanswered FIN packet
-            tcp-halfopen-timer:
+                description: Wait time to close a TCP session waiting for an unanswered FIN packet
+            tcp_halfopen_timer:
                 type: int
-                description: Deprecated, please rename it to tcp_halfopen_timer. Wait time to close a TCP session waiting for an unanswered open sessio...
-            tcp-portrange:
+                description: Wait time to close a TCP session waiting for an unanswered open session packet
+            tcp_portrange:
                 type: str
-                description: Deprecated, please rename it to tcp_portrange. Multiple TCP port ranges.
-            tcp-timewait-timer:
+                description: Multiple TCP port ranges.
+            tcp_timewait_timer:
                 type: int
-                description: Deprecated, please rename it to tcp_timewait_timer. Set the length of the TCP TIME-WAIT state in seconds
-            udp-idle-timer:
+                description: Set the length of the TCP TIME-WAIT state in seconds
+            udp_idle_timer:
                 type: int
-                description: Deprecated, please rename it to udp_idle_timer. UDP half close timeout
-            udp-portrange:
+                description: UDP half close timeout
+            udp_portrange:
                 type: str
-                description: Deprecated, please rename it to udp_portrange. Multiple UDP port ranges.
+                description: Multiple UDP port ranges.
             visibility:
                 type: str
                 description: Enable/disable the visibility of the service on the GUI.
                 choices:
                     - 'disable'
                     - 'enable'
-            explicit-proxy:
+            explicit_proxy:
                 type: str
-                description: Deprecated, please rename it to explicit_proxy. Enable/disable explicit web proxy service.
+                description: Enable/disable explicit web proxy service.
                 choices:
                     - 'disable'
                     - 'enable'
-            global-object:
+            global_object:
                 type: int
-                description: Deprecated, please rename it to global_object. Global Object.
-            fabric-object:
+                description: Global Object.
+            fabric_object:
                 type: str
-                description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            tcp-rst-timer:
+            tcp_rst_timer:
                 type: int
-                description: Deprecated, please rename it to tcp_rst_timer. Set the length of the TCP CLOSE state in seconds
+                description: Set the length of the TCP CLOSE state in seconds
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            udplite-portrange:
+            udplite_portrange:
                 type: str
-                description: Deprecated, please rename it to udplite_portrange. Multiple UDP-Lite port ranges.
+                description: Multiple UDP-Lite port ranges.
 '''
 
 EXAMPLES = '''
@@ -323,23 +323,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/service/custom',
         '/pm/config/global/obj/firewall/service/custom'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/service/custom/{custom}',
-        '/pm/config/global/obj/firewall/service/custom/{custom}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -385,14 +377,13 @@ def main():
                 'udp-idle-timer': {'type': 'int'},
                 'udp-portrange': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'explicit-proxy': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'explicit-proxy': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-rst-timer': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'uuid': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'udplite-portrange': {'v_range': [['7.6.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -406,9 +397,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

@@ -76,59 +76,54 @@ options:
         required: false
         type: dict
         suboptions:
-            fds-image-timeout:
+            fds_image_timeout:
                 type: int
-                description: Deprecated, please rename it to fds_image_timeout. Timer for fgt download image from fortiguard
-            max-fds-retry:
+                description: Timer for fgt download image from fortiguard
+            max_fds_retry:
                 type: int
-                description: Deprecated, please rename it to max_fds_retry. The retries when fgt download from fds fail
-            multiple-steps-interval:
+                description: The retries when fgt download from fds fail
+            multiple_steps_interval:
                 type: int
-                description: Deprecated, please rename it to multiple_steps_interval. Waiting time between multiple steps upgrade
-            skip-disk-check:
+                description: Waiting time between multiple steps upgrade
+            skip_disk_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to skip_disk_check.
                     - skip disk check when upgrade image.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-scan-fgt-disk:
+            auto_scan_fgt_disk:
                 type: str
                 description:
-                    - Deprecated, please rename it to auto_scan_fgt_disk.
                     - auto scan fgt disk if needed.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            check-fgt-disk:
+            check_fgt_disk:
                 type: str
                 description:
-                    - Deprecated, please rename it to check_fgt_disk.
                     - check fgt disk before upgrade image.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fds-failover-fmg:
+            fds_failover_fmg:
                 type: str
                 description:
-                    - Deprecated, please rename it to fds_failover_fmg.
                     - using fmg local image file is download from fds fails.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            immx-source:
+            immx_source:
                 type: str
                 description:
-                    - Deprecated, please rename it to immx_source.
                     - Configure which of IMMX file to be used for choosing upgrade pach.
                     - fmg - Use IMMX file for FortiManager
                     - fgt - Use IMMX file for FortiGate
@@ -148,74 +143,73 @@ options:
                     - 'fwm'
                     - 'fwm_dm'
                     - 'fwm_dm_json'
-            upgrade-timeout:
+            upgrade_timeout:
                 type: dict
-                description: Deprecated, please rename it to upgrade_timeout. Upgrade timeout.
+                description: Upgrade timeout.
                 suboptions:
-                    check-status-timeout:
+                    check_status_timeout:
                         type: int
-                        description: Deprecated, please rename it to check_status_timeout. Timeout for checking status after tunnnel is up.
-                    ctrl-check-status-timeout:
+                        description: Timeout for checking status after tunnnel is up.
+                    ctrl_check_status_timeout:
                         type: int
-                        description: Deprecated, please rename it to ctrl_check_status_timeout. Timeout for checking fap/fsw/fext status after request ...
-                    ctrl-put-image-by-fds-timeout:
+                        description: Timeout for checking fap/fsw/fext status after request upgrade.
+                    ctrl_put_image_by_fds_timeout:
                         type: int
-                        description: Deprecated, please rename it to ctrl_put_image_by_fds_timeout. Timeout for waiting device get fap/fsw/fext image f...
-                    ha-sync-timeout:
+                        description: Timeout for waiting device get fap/fsw/fext image from fortiguard.
+                    ha_sync_timeout:
                         type: int
-                        description: Deprecated, please rename it to ha_sync_timeout. Timeout for waiting HA sync.
-                    license-check-timeout:
+                        description: Timeout for waiting HA sync.
+                    license_check_timeout:
                         type: int
-                        description: Deprecated, please rename it to license_check_timeout. Timeout for waiting fortigate check license.
-                    prepare-image-timeout:
+                        description: Timeout for waiting fortigate check license.
+                    prepare_image_timeout:
                         type: int
-                        description: Deprecated, please rename it to prepare_image_timeout. Timeout for preparing image.
-                    put-image-by-fds-timeout:
+                        description: Timeout for preparing image.
+                    put_image_by_fds_timeout:
                         type: int
-                        description: Deprecated, please rename it to put_image_by_fds_timeout. Timeout for waiting device get image from fortiguard.
-                    put-image-timeout:
+                        description: Timeout for waiting device get image from fortiguard.
+                    put_image_timeout:
                         type: int
-                        description: Deprecated, please rename it to put_image_timeout. Timeout for waiting send image over tunnel.
-                    reboot-of-fsck-timeout:
+                        description: Timeout for waiting send image over tunnel.
+                    reboot_of_fsck_timeout:
                         type: int
-                        description: Deprecated, please rename it to reboot_of_fsck_timeout. Timeout for waiting fortigate reboot.
-                    reboot-of-upgrade-timeout:
+                        description: Timeout for waiting fortigate reboot.
+                    reboot_of_upgrade_timeout:
                         type: int
-                        description: Deprecated, please rename it to reboot_of_upgrade_timeout. Timeout for waiting fortigate reboot after image upgrade.
-                    retrieve-timeout:
+                        description: Timeout for waiting fortigate reboot after image upgrade.
+                    retrieve_timeout:
                         type: int
-                        description: Deprecated, please rename it to retrieve_timeout. Timeout for waiting retrieve.
-                    rpc-timeout:
+                        description: Timeout for waiting retrieve.
+                    rpc_timeout:
                         type: int
-                        description: Deprecated, please rename it to rpc_timeout. Timeout for waiting fortigate rpc response.
-                    total-timeout:
+                        description: Timeout for waiting fortigate rpc response.
+                    total_timeout:
                         type: int
-                        description: Deprecated, please rename it to total_timeout. Timeout for the whole fortigate upgrade
-                    health-check-timeout:
+                        description: Timeout for the whole fortigate upgrade
+                    health_check_timeout:
                         type: int
-                        description: Deprecated, please rename it to health_check_timeout. Timeout for waiting retrieve.
-            retry-interval:
+                        description: Timeout for waiting retrieve.
+            retry_interval:
                 type: int
-                description: Deprecated, please rename it to retry_interval. Waiting time for resending request to device
-            retry-max:
+                description: Waiting time for resending request to device
+            retry_max:
                 type: int
-                description: Deprecated, please rename it to retry_max. Max retry times
-            health-check:
+                description: Max retry times
+            health_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to health_check.
                     - do health check after upgrade
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            max-device-history:
+            max_device_history:
                 type: int
-                description: Deprecated, please rename it to max_device_history. Max number of device upgrade report
-            max-profile-history:
+                description: Max number of device upgrade report
+            max_profile_history:
                 type: int
-                description: Deprecated, please rename it to max_profile_history. Max number of profile upgrade report
+                description: Max number of profile upgrade report
             retrieve:
                 type: str
                 description:
@@ -225,16 +219,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            revision-diff:
+            revision_diff:
                 type: str
                 description:
-                    - Deprecated, please rename it to revision_diff.
                     - calculate diff script after upgrade
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
+            send_image_retry:
+                type: int
+                description: Retry send image when failed
 '''
 
 EXAMPLES = '''
@@ -285,6 +281,7 @@ EXAMPLES = '''
           max_profile_history: <integer>
           retrieve: <value in [disable, enable]>
           revision_diff: <value in [disable, enable]>
+          send_image_retry: <integer>
 '''
 
 RETURN = '''
@@ -328,21 +325,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/fmupdate/fwm-setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/fmupdate/fwm-setting/{fwm-setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -358,36 +348,36 @@ def main():
                 'check-fgt-disk': {'v_range': [['6.2.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fds-failover-fmg': {'v_range': [['6.2.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'immx-source': {'v_range': [['6.4.2', '']], 'choices': ['fmg', 'fgt', 'cloud'], 'type': 'str'},
-                'log': {'v_range': [['6.4.8', '6.4.14'], ['7.0.1', '']], 'choices': ['fwm', 'fwm_dm', 'fwm_dm_json'], 'type': 'str'},
+                'log': {'v_range': [['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['fwm', 'fwm_dm', 'fwm_dm_json'], 'type': 'str'},
                 'upgrade-timeout': {
-                    'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']],
+                    'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']],
                     'type': 'dict',
                     'options': {
-                        'check-status-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'license-check-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'put-image-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'retrieve-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'rpc-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                        'total-timeout': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
+                        'check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'license-check-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'put-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'retrieve-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'rpc-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'total-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
                         'health-check-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'}
                     }
                 },
-                'retry-interval': {'v_range': [['7.0.10', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                'retry-max': {'v_range': [['7.0.10', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
+                'retry-interval': {'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'retry-max': {'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
                 'health-check': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-device-history': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'max-profile-history': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'retrieve': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'revision-diff': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'revision-diff': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'send-image-retry': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '7.4.5']], 'type': 'int'}
             }
-
         }
     }
 
@@ -401,9 +391,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

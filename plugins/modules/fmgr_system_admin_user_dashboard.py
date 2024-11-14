@@ -92,10 +92,9 @@ options:
             column:
                 type: int
                 description: Widgets column ID.
-            diskio-content-type:
+            diskio_content_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to diskio_content_type.
                     - Disk I/O Monitor widgets chart type.
                     - util - bandwidth utilization.
                     - iops - the number of I/O requests.
@@ -104,10 +103,9 @@ options:
                     - 'util'
                     - 'iops'
                     - 'blks'
-            diskio-period:
+            diskio_period:
                 type: str
                 description:
-                    - Deprecated, please rename it to diskio_period.
                     - Disk I/O Monitor widgets data period.
                     - 1hour - 1 hour.
                     - 8hour - 8 hour.
@@ -116,10 +114,9 @@ options:
                     - '1hour'
                     - '8hour'
                     - '24hour'
-            log-rate-period:
+            log_rate_period:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_rate_period.
                     - Log receive monitor widgets data period.
                     - 2min  - 2 minutes.
                     - 1hour - 1 hour.
@@ -128,10 +125,9 @@ options:
                     - '2min'
                     - '1hour'
                     - '6hours'
-            log-rate-topn:
+            log_rate_topn:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_rate_topn.
                     - Log receive monitor widgets number of top items to display.
                     - 1 - Top 1.
                     - 2 - Top 2.
@@ -144,10 +140,9 @@ options:
                     - '3'
                     - '4'
                     - '5'
-            log-rate-type:
+            log_rate_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_rate_type.
                     - Log receive monitor widgets statistics breakdown options.
                     - log - Show log rates for each log type.
                     - device - Show log rates for each device.
@@ -161,26 +156,24 @@ options:
             name:
                 type: str
                 description: Widget name.
-            num-entries:
+            num_entries:
                 type: int
-                description: Deprecated, please rename it to num_entries. Number of entries.
-            refresh-interval:
+                description: Number of entries.
+            refresh_interval:
                 type: int
-                description: Deprecated, please rename it to refresh_interval. Widgets refresh interval.
-            res-cpu-display:
+                description: Widgets refresh interval.
+            res_cpu_display:
                 type: str
                 description:
-                    - Deprecated, please rename it to res_cpu_display.
                     - Widgets CPU display type.
                     - average  - Average usage of CPU.
                     - each - Each usage of CPU.
                 choices:
                     - 'average'
                     - 'each'
-            res-period:
+            res_period:
                 type: str
                 description:
-                    - Deprecated, please rename it to res_period.
                     - Widgets data period.
                     - 10min  - Last 10 minutes.
                     - hour - Last hour.
@@ -189,10 +182,9 @@ options:
                     - '10min'
                     - 'hour'
                     - 'day'
-            res-view-type:
+            res_view_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to res_view_type.
                     - Widgets data view type.
                     - real-time  - Real-time view.
                     - history - History view.
@@ -211,10 +203,9 @@ options:
             tabid:
                 type: int
                 description: ID of tab where widget is displayed.
-            time-period:
+            time_period:
                 type: str
                 description:
-                    - Deprecated, please rename it to time_period.
                     - Log Database Monitor widgets data period.
                     - 1hour - 1 hour.
                     - 8hour - 8 hour.
@@ -223,10 +214,9 @@ options:
                     - '1hour'
                     - '8hour'
                     - '24hour'
-            widget-type:
+            widget_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to widget_type.
                     - Widget type.
                     - top-lograte - Log Receive Monitor.
                     - sysres - System resources.
@@ -355,21 +345,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/admin/user/{user}/dashboard'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/admin/user/{user}/dashboard/{dashboard}'
-    ]
-
     url_params = ['user']
     module_primary_key = 'moduleid'
     module_arg_spec = {
@@ -402,7 +385,6 @@ def main():
                     'type': 'str'
                 }
             }
-
         }
     }
 
@@ -416,9 +398,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

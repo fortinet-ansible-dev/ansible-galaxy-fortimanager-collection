@@ -84,33 +84,33 @@ options:
         required: false
         type: dict
         suboptions:
-            apn-restriction:
+            apn_restriction:
                 type: str
-                description: Deprecated, please rename it to apn_restriction. Validate APN restriction.
+                description: Validate APN restriction.
                 choices:
                     - 'disable'
                     - 'enable'
-            charging-ID:
+            charging_ID:
                 type: str
-                description: Deprecated, please rename it to charging_ID. Validate charging ID.
+                description: Validate charging ID.
                 choices:
                     - 'disable'
                     - 'enable'
-            charging-gateway-addr:
+            charging_gateway_addr:
                 type: str
-                description: Deprecated, please rename it to charging_gateway_addr. Validate charging gateway address.
+                description: Validate charging gateway address.
                 choices:
                     - 'disable'
                     - 'enable'
-            end-user-addr:
+            end_user_addr:
                 type: str
-                description: Deprecated, please rename it to end_user_addr. Validate end user address.
+                description: Validate end user address.
                 choices:
                     - 'disable'
                     - 'enable'
-            gsn-addr:
+            gsn_addr:
                 type: str
-                description: Deprecated, please rename it to gsn_addr. Validate GSN address.
+                description: Validate GSN address.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -126,21 +126,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            mm-context:
+            mm_context:
                 type: str
-                description: Deprecated, please rename it to mm_context. Validate MM context.
+                description: Validate MM context.
                 choices:
                     - 'disable'
                     - 'enable'
-            ms-tzone:
+            ms_tzone:
                 type: str
-                description: Deprecated, please rename it to ms_tzone. Validate MS time zone.
+                description: Validate MS time zone.
                 choices:
                     - 'disable'
                     - 'enable'
-            ms-validated:
+            ms_validated:
                 type: str
-                description: Deprecated, please rename it to ms_validated. Validate MS validated.
+                description: Validate MS validated.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -156,15 +156,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            pdp-context:
+            pdp_context:
                 type: str
-                description: Deprecated, please rename it to pdp_context. Validate PDP context.
+                description: Validate PDP context.
                 choices:
                     - 'disable'
                     - 'enable'
-            qos-profile:
+            qos_profile:
                 type: str
-                description: Deprecated, please rename it to qos_profile. Validate Quality of Service
+                description: Validate Quality of Service
                 choices:
                     - 'disable'
                     - 'enable'
@@ -174,21 +174,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            rat-type:
+            rat_type:
                 type: str
-                description: Deprecated, please rename it to rat_type. Validate RAT type.
+                description: Validate RAT type.
                 choices:
                     - 'disable'
                     - 'enable'
-            reordering-required:
+            reordering_required:
                 type: str
-                description: Deprecated, please rename it to reordering_required. Validate re-ordering required.
+                description: Validate re-ordering required.
                 choices:
                     - 'disable'
                     - 'enable'
-            selection-mode:
+            selection_mode:
                 type: str
-                description: Deprecated, please rename it to selection_mode. Validate selection mode.
+                description: Validate selection mode.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -281,23 +281,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-validation',
         '/pm/config/global/obj/firewall/gtp/{gtp}/ie-validation'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/gtp/{gtp}/ie-validation/{ie-validation}',
-        '/pm/config/global/obj/firewall/gtp/{gtp}/ie-validation/{ie-validation}'
-    ]
-
     url_params = ['adom', 'gtp']
     module_primary_key = None
     module_arg_spec = {
@@ -327,7 +319,6 @@ def main():
                 'selection-mode': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'uli': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -341,9 +332,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

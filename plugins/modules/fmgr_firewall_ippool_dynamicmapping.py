@@ -104,45 +104,45 @@ options:
                     vdom:
                         type: str
                         description: Vdom.
-            arp-intf:
+            arp_intf:
                 type: str
-                description: Deprecated, please rename it to arp_intf. Arp intf.
-            arp-reply:
+                description: Arp intf.
+            arp_reply:
                 type: str
-                description: Deprecated, please rename it to arp_reply. Arp reply.
+                description: Arp reply.
                 choices:
                     - 'disable'
                     - 'enable'
-            associated-interface:
+            associated_interface:
                 type: str
-                description: Deprecated, please rename it to associated_interface. Associated interface.
-            block-size:
+                description: Associated interface.
+            block_size:
                 type: int
-                description: Deprecated, please rename it to block_size. Block size.
+                description: Block size.
             comments:
                 type: str
                 description: Comments.
             endip:
                 type: str
                 description: Endip.
-            num-blocks-per-user:
+            num_blocks_per_user:
                 type: int
-                description: Deprecated, please rename it to num_blocks_per_user. Num blocks per user.
-            pba-timeout:
+                description: Num blocks per user.
+            pba_timeout:
                 type: int
-                description: Deprecated, please rename it to pba_timeout. Pba timeout.
-            permit-any-host:
+                description: Pba timeout.
+            permit_any_host:
                 type: str
-                description: Deprecated, please rename it to permit_any_host. Permit any host.
+                description: Permit any host.
                 choices:
                     - 'disable'
                     - 'enable'
-            source-endip:
+            source_endip:
                 type: str
-                description: Deprecated, please rename it to source_endip. Source endip.
-            source-startip:
+                description: Source endip.
+            source_startip:
                 type: str
-                description: Deprecated, please rename it to source_startip. Source startip.
+                description: Source startip.
             startip:
                 type: str
                 description: Startip.
@@ -155,102 +155,102 @@ options:
                     - 'fixed-port-range'
                     - 'port-block-allocation'
                     - 'cgn-resource-allocation'
-            cgn-block-size:
+            cgn_block_size:
                 type: int
-                description: Deprecated, please rename it to cgn_block_size. Cgn block size.
-            cgn-client-endip:
+                description: Cgn block size.
+            cgn_client_endip:
                 type: str
-                description: Deprecated, please rename it to cgn_client_endip. Cgn client endip.
-            cgn-client-startip:
+                description: Cgn client endip.
+            cgn_client_startip:
                 type: str
-                description: Deprecated, please rename it to cgn_client_startip. Cgn client startip.
-            cgn-fixedalloc:
+                description: Cgn client startip.
+            cgn_fixedalloc:
                 type: str
-                description: Deprecated, please rename it to cgn_fixedalloc. Cgn fixedalloc.
+                description: Cgn fixedalloc.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-overload:
+            cgn_overload:
                 type: str
-                description: Deprecated, please rename it to cgn_overload. Cgn overload.
+                description: Cgn overload.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-port-end:
+            cgn_port_end:
                 type: int
-                description: Deprecated, please rename it to cgn_port_end. Cgn port end.
-            cgn-port-start:
+                description: Cgn port end.
+            cgn_port_start:
                 type: int
-                description: Deprecated, please rename it to cgn_port_start. Cgn port start.
-            cgn-spa:
+                description: Cgn port start.
+            cgn_spa:
                 type: str
-                description: Deprecated, please rename it to cgn_spa. Cgn spa.
+                description: Cgn spa.
                 choices:
                     - 'disable'
                     - 'enable'
-            utilization-alarm-clear:
+            utilization_alarm_clear:
                 type: int
-                description: Deprecated, please rename it to utilization_alarm_clear. Utilization alarm clear.
-            utilization-alarm-raise:
+                description: Utilization alarm clear.
+            utilization_alarm_raise:
                 type: int
-                description: Deprecated, please rename it to utilization_alarm_raise. Utilization alarm raise.
+                description: Utilization alarm raise.
             endport:
                 type: int
                 description: Final port number
-            port-per-user:
+            port_per_user:
                 type: int
-                description: Deprecated, please rename it to port_per_user. Number of port for each user
+                description: Number of port for each user
             startport:
                 type: int
                 description: First port number
-            add-nat64-route:
+            add_nat64_route:
                 type: str
-                description: Deprecated, please rename it to add_nat64_route. Enable/disable adding NAT64 route.
+                description: Enable/disable adding NAT64 route.
                 choices:
                     - 'disable'
                     - 'enable'
-            cgn-client-ipv6shift:
+            cgn_client_ipv6shift:
                 type: int
-                description: Deprecated, please rename it to cgn_client_ipv6shift. IPv6 shift for fixed-allocation.
+                description: IPv6 shift for fixed-allocation.
             nat64:
                 type: str
                 description: Enable/disable NAT64.
                 choices:
                     - 'disable'
                     - 'enable'
-            subnet-broadcast-in-ippool:
+            subnet_broadcast_in_ippool:
                 type: str
-                description: Deprecated, please rename it to subnet_broadcast_in_ippool. Enable/disable inclusion of the subnetwork address and broadca...
+                description: Enable/disable inclusion of the subnetwork address and broadcast IP address in the NAT64 IP pool.
                 choices:
                     - 'disable'
                     - 'enable'
-            exclude-ip:
+            exclude_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to exclude_ip. Exclude IPs x.
-            pba-interim-log:
+                description: (list) Exclude IPs x.
+            pba_interim_log:
                 type: int
-                description: Deprecated, please rename it to pba_interim_log. Port block allocation interim logging interval
-            client-prefix-length:
+                description: Port block allocation interim logging interval
+            client_prefix_length:
                 type: int
-                description: Deprecated, please rename it to client_prefix_length. Subnet length of a single deterministic NAT64 client
-            icmp-session-quota:
+                description: Subnet length of a single deterministic NAT64 client
+            icmp_session_quota:
                 type: int
-                description: Deprecated, please rename it to icmp_session_quota. Maximum number of concurrent ICMP sessions allowed per client
-            privileged-port-use-pba:
+                description: Maximum number of concurrent ICMP sessions allowed per client
+            privileged_port_use_pba:
                 type: str
-                description: Deprecated, please rename it to privileged_port_use_pba. Enable/disable selection of the external port from the port block...
+                description: Enable/disable selection of the external port from the port block allocation for NATing privileged ports
                 choices:
                     - 'disable'
                     - 'enable'
-            source-prefix6:
+            source_prefix6:
                 type: str
-                description: Deprecated, please rename it to source_prefix6. Source IPv6 network to be translated
-            tcp-session-quota:
+                description: Source IPv6 network to be translated
+            tcp_session_quota:
                 type: int
-                description: Deprecated, please rename it to tcp_session_quota. Maximum number of concurrent TCP sessions allowed per client
-            udp-session-quota:
+                description: Maximum number of concurrent TCP sessions allowed per client
+            udp_session_quota:
                 type: int
-                description: Deprecated, please rename it to udp_session_quota. Maximum number of concurrent UDP sessions allowed per client
+                description: Maximum number of concurrent UDP sessions allowed per client
 '''
 
 EXAMPLES = '''
@@ -337,23 +337,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping',
         '/pm/config/global/obj/firewall/ippool/{ippool}/dynamic_mapping'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}',
-        '/pm/config/global/obj/firewall/ippool/{ippool}/dynamic_mapping/{dynamic_mapping}'
-    ]
-
     url_params = ['adom', 'ippool']
     module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
     module_arg_spec = {
@@ -377,23 +369,23 @@ def main():
                 'source-startip': {'type': 'str'},
                 'startip': {'type': 'str'},
                 'type': {'choices': ['overload', 'one-to-one', 'fixed-port-range', 'port-block-allocation', 'cgn-resource-allocation'], 'type': 'str'},
-                'cgn-block-size': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'cgn-client-endip': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'cgn-client-startip': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'str'},
-                'cgn-fixedalloc': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-overload': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-port-end': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'cgn-port-start': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'cgn-spa': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'utilization-alarm-clear': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
-                'utilization-alarm-raise': {'v_range': [['6.2.6', '6.2.12'], ['6.4.2', '']], 'type': 'int'},
+                'cgn-block-size': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'cgn-client-endip': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'cgn-client-startip': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
+                'cgn-fixedalloc': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-overload': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-port-end': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'cgn-port-start': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'cgn-spa': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'utilization-alarm-clear': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
+                'utilization-alarm-raise': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'int'},
                 'endport': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'port-per-user': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'startport': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'add-nat64-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.12'], ['6.4.7', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
+                'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.13'], ['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
                 'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'client-prefix-length': {'v_range': [['7.6.0', '']], 'type': 'int'},
@@ -403,7 +395,6 @@ def main():
                 'tcp-session-quota': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'udp-session-quota': {'v_range': [['7.6.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -417,9 +408,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

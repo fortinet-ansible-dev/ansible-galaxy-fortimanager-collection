@@ -84,22 +84,22 @@ options:
         required: false
         type: dict
         suboptions:
-            check-basic-auth:
+            check_basic_auth:
                 type: str
-                description: Deprecated, please rename it to check_basic_auth. Enable/disable checking of HTTP Basic Auth field for known credentials.
+                description: Enable/disable checking of HTTP Basic Auth field for known credentials.
                 choices:
                     - 'disable'
                     - 'enable'
-            check-uri:
+            check_uri:
                 type: str
-                description: Deprecated, please rename it to check_uri. Enable/disable checking of GET URI parameters for known credentials.
+                description: Enable/disable checking of GET URI parameters for known credentials.
                 choices:
                     - 'disable'
                     - 'enable'
-            custom-patterns:
+            custom_patterns:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to custom_patterns. Custom patterns.
+                description: Custom patterns.
                 suboptions:
                     category:
                         type: str
@@ -116,20 +116,20 @@ options:
                         choices:
                             - 'regex'
                             - 'literal'
-            default-action:
+            default_action:
                 type: str
-                description: Deprecated, please rename it to default_action. Action to be taken when there is no matching rule.
+                description: Action to be taken when there is no matching rule.
                 choices:
                     - 'log'
                     - 'block'
                     - 'exempt'
-            domain-controller:
+            domain_controller:
                 type: str
-                description: Deprecated, please rename it to domain_controller. Domain for which to verify received credentials against.
-            inspection-entries:
+                description: Domain for which to verify received credentials against.
+            inspection_entries:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to inspection_entries. Inspection entries.
+                description: Inspection entries.
                 suboptions:
                     action:
                         type: str
@@ -138,24 +138,24 @@ options:
                             - 'log'
                             - 'block'
                             - 'exempt'
-                    fortiguard-category:
+                    fortiguard_category:
                         type: raw
-                        description: (list) Deprecated, please rename it to fortiguard_category. FortiGuard category to match.
+                        description: (list) FortiGuard category to match.
                     name:
                         type: str
                         description: Inspection target name.
-            max-body-len:
+            max_body_len:
                 type: int
-                description: Deprecated, please rename it to max_body_len. Maximum size of a POST body to check for credentials.
+                description: Maximum size of a POST body to check for credentials.
             status:
                 type: str
                 description: Toggle AntiPhishing functionality.
                 choices:
                     - 'disable'
                     - 'enable'
-            check-username-only:
+            check_username_only:
                 type: str
-                description: Deprecated, please rename it to check_username_only. Enable/disable acting only on valid username credentials.
+                description: Enable/disable acting only on valid username credentials.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -251,23 +251,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish',
         '/pm/config/global/obj/webfilter/profile/{profile}/antiphish'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/antiphish/{antiphish}',
-        '/pm/config/global/obj/webfilter/profile/{profile}/antiphish/{antiphish}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -307,7 +299,6 @@ def main():
                 'authentication': {'v_range': [['7.0.0', '']], 'choices': ['domain-controller', 'ldap'], 'type': 'str'},
                 'ldap': {'v_range': [['7.0.0', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -321,9 +312,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

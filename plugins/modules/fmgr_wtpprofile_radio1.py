@@ -92,63 +92,63 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-handoff:
+            ap_handoff:
                 type: str
-                description: Deprecated, please rename it to ap_handoff. Enable/disable AP handoff of clients to other APs
+                description: Enable/disable AP handoff of clients to other APs
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-addr:
+            ap_sniffer_addr:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_addr. MAC address to monitor.
-            ap-sniffer-bufsize:
+                description: MAC address to monitor.
+            ap_sniffer_bufsize:
                 type: int
-                description: Deprecated, please rename it to ap_sniffer_bufsize. Sniffer buffer size
-            ap-sniffer-chan:
+                description: Sniffer buffer size
+            ap_sniffer_chan:
                 type: int
-                description: Deprecated, please rename it to ap_sniffer_chan. Channel on which to operate the sniffer
-            ap-sniffer-ctl:
+                description: Channel on which to operate the sniffer
+            ap_sniffer_ctl:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_ctl. Enable/disable sniffer on WiFi control frame
+                description: Enable/disable sniffer on WiFi control frame
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-data:
+            ap_sniffer_data:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_data. Enable/disable sniffer on WiFi data frame
+                description: Enable/disable sniffer on WiFi data frame
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-mgmt-beacon:
+            ap_sniffer_mgmt_beacon:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_mgmt_beacon. Enable/disable sniffer on WiFi management Beacon frames
+                description: Enable/disable sniffer on WiFi management Beacon frames
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-mgmt-other:
+            ap_sniffer_mgmt_other:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_mgmt_other. Enable/disable sniffer on WiFi management other frames
+                description: Enable/disable sniffer on WiFi management other frames
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-mgmt-probe:
+            ap_sniffer_mgmt_probe:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_mgmt_probe. Enable/disable sniffer on WiFi management probe frames
+                description: Enable/disable sniffer on WiFi management probe frames
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-power-high:
+            auto_power_high:
                 type: int
-                description: Deprecated, please rename it to auto_power_high. Automatic transmit power high limit in dBm
-            auto-power-level:
+                description: Automatic transmit power high limit in dBm
+            auto_power_level:
                 type: str
-                description: Deprecated, please rename it to auto_power_level. Enable/disable automatic power-level adjustment to prevent co-channel in...
+                description: Enable/disable automatic power-level adjustment to prevent co-channel interference
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-power-low:
+            auto_power_low:
                 type: int
-                description: Deprecated, please rename it to auto_power_low. Automatic transmission power low limit in dBm
+                description: Automatic transmission power low limit in dBm
             band:
                 type: str
                 description: WiFi band that Radio 1 operates on.
@@ -181,33 +181,33 @@ options:
                     - '802.11be-2G'
                     - '802.11be-5G'
                     - '802.11be-6G'
-            bandwidth-admission-control:
+            bandwidth_admission_control:
                 type: str
-                description: Deprecated, please rename it to bandwidth_admission_control. Enable/disable WiFi multimedia
+                description: Enable/disable WiFi multimedia
                 choices:
                     - 'disable'
                     - 'enable'
-            bandwidth-capacity:
+            bandwidth_capacity:
                 type: int
-                description: Deprecated, please rename it to bandwidth_capacity. Maximum bandwidth capacity allowed
-            beacon-interval:
+                description: Maximum bandwidth capacity allowed
+            beacon_interval:
                 type: int
-                description: Deprecated, please rename it to beacon_interval. Beacon interval.
-            call-admission-control:
+                description: Beacon interval.
+            call_admission_control:
                 type: str
-                description: Deprecated, please rename it to call_admission_control. Enable/disable WiFi multimedia
+                description: Enable/disable WiFi multimedia
                 choices:
                     - 'disable'
                     - 'enable'
-            call-capacity:
+            call_capacity:
                 type: int
-                description: Deprecated, please rename it to call_capacity. Maximum number of Voice over WLAN
+                description: Maximum number of Voice over WLAN
             channel:
                 type: raw
                 description: (list) Selected list of wireless radio channels.
-            channel-bonding:
+            channel_bonding:
                 type: str
-                description: Deprecated, please rename it to channel_bonding. Channel bandwidth
+                description: Channel bandwidth
                 choices:
                     - 'disable'
                     - 'enable'
@@ -217,9 +217,9 @@ options:
                     - '160MHz'
                     - '320MHz'
                     - '240MHz'
-            channel-utilization:
+            channel_utilization:
                 type: str
-                description: Deprecated, please rename it to channel_utilization. Enable/disable measuring channel utilization.
+                description: Enable/disable measuring channel utilization.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -238,21 +238,21 @@ options:
             dtim:
                 type: int
                 description: DTIM interval.
-            frag-threshold:
+            frag_threshold:
                 type: int
-                description: Deprecated, please rename it to frag_threshold. Maximum packet size that can be sent without fragmentation
-            frequency-handoff:
+                description: Maximum packet size that can be sent without fragmentation
+            frequency_handoff:
                 type: str
-                description: Deprecated, please rename it to frequency_handoff. Enable/disable frequency handoff of clients to other channels
+                description: Enable/disable frequency handoff of clients to other channels
                 choices:
                     - 'disable'
                     - 'enable'
-            max-clients:
+            max_clients:
                 type: int
-                description: Deprecated, please rename it to max_clients. Maximum number of stations
-            max-distance:
+                description: Maximum number of stations
+            max_distance:
                 type: int
-                description: Deprecated, please rename it to max_distance. Maximum expected distance between the AP and clients
+                description: Maximum expected distance between the AP and clients
             mode:
                 type: str
                 description: Mode of radio 1.
@@ -262,58 +262,58 @@ options:
                     - 'monitor'
                     - 'sniffer'
                     - 'sam'
-            power-level:
+            power_level:
                 type: int
-                description: Deprecated, please rename it to power_level. Radio power level as a percentage of the maximum transmit power
-            powersave-optimize:
+                description: Radio power level as a percentage of the maximum transmit power
+            powersave_optimize:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to powersave_optimize. Enable client power-saving features such as TIM, AC VO, and OBSS etc.
+                description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
                 choices:
                     - 'tim'
                     - 'ac-vo'
                     - 'no-obss-scan'
                     - 'no-11b-rate'
                     - 'client-rate-follow'
-            protection-mode:
+            protection_mode:
                 type: str
-                description: Deprecated, please rename it to protection_mode. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'rtscts'
                     - 'ctsonly'
                     - 'disable'
-            radio-id:
+            radio_id:
                 type: int
-                description: Deprecated, please rename it to radio_id. Radio id.
-            rts-threshold:
+                description: Radio id.
+            rts_threshold:
                 type: int
-                description: Deprecated, please rename it to rts_threshold. Maximum packet size for RTS transmissions, specifying the maximum size of a...
-            short-guard-interval:
+                description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
+            short_guard_interval:
                 type: str
-                description: Deprecated, please rename it to short_guard_interval. Use either the short guard interval
+                description: Use either the short guard interval
                 choices:
                     - 'disable'
                     - 'enable'
-            spectrum-analysis:
+            spectrum_analysis:
                 type: str
-                description: Deprecated, please rename it to spectrum_analysis. Enable/disable spectrum analysis to find interference that would negati...
+                description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'scan-only'
-            transmit-optimize:
+            transmit_optimize:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to transmit_optimize. Packet transmission optimization options including power saving, aggreg...
+                description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
                 choices:
                     - 'disable'
                     - 'power-save'
                     - 'aggr-limit'
                     - 'retry-limit'
                     - 'send-bar'
-            vap-all:
+            vap_all:
                 type: str
-                description: Deprecated, please rename it to vap_all. Enable/disable the automatic inheritance of all Virtual Access Points
+                description: Enable/disable the automatic inheritance of all Virtual Access Points
                 choices:
                     - 'disable'
                     - 'enable'
@@ -323,25 +323,25 @@ options:
             vaps:
                 type: raw
                 description: (list or str) Manually selected list of Virtual Access Points
-            wids-profile:
+            wids_profile:
                 type: str
-                description: Deprecated, please rename it to wids_profile. Wireless Intrusion Detection System
-            airtime-fairness:
+                description: Wireless Intrusion Detection System
+            airtime_fairness:
                 type: str
-                description: Deprecated, please rename it to airtime_fairness. Enable/disable airtime fairness
+                description: Enable/disable airtime fairness
                 choices:
                     - 'disable'
                     - 'enable'
-            band-5g-type:
+            band_5g_type:
                 type: str
-                description: Deprecated, please rename it to band_5g_type. WiFi 5G band type.
+                description: WiFi 5G band type.
                 choices:
                     - '5g-full'
                     - '5g-high'
                     - '5g-low'
-            zero-wait-dfs:
+            zero_wait_dfs:
                 type: str
-                description: Deprecated, please rename it to zero_wait_dfs. Enable/disable zero wait DFS on radio
+                description: Enable/disable zero wait DFS on radio
                 choices:
                     - 'disable'
                     - 'enable'
@@ -369,130 +369,130 @@ options:
             vap8:
                 type: str
                 description: Virtual Access Point
-            bss-color:
+            bss_color:
                 type: int
-                description: Deprecated, please rename it to bss_color. BSS color value for this 11ax radio
-            auto-power-target:
+                description: BSS color value for this 11ax radio
+            auto_power_target:
                 type: str
-                description: Deprecated, please rename it to auto_power_target. The target of automatic transmit power adjustment in dBm.
+                description: The target of automatic transmit power adjustment in dBm.
             drma:
                 type: str
                 description: Enable/disable dynamic radio mode assignment
                 choices:
                     - 'disable'
                     - 'enable'
-            drma-sensitivity:
+            drma_sensitivity:
                 type: str
-                description: Deprecated, please rename it to drma_sensitivity. Network Coverage Factor
+                description: Network Coverage Factor
                 choices:
                     - 'low'
                     - 'medium'
                     - 'high'
-            iperf-protocol:
+            iperf_protocol:
                 type: str
-                description: Deprecated, please rename it to iperf_protocol. Iperf test protocol
+                description: Iperf test protocol
                 choices:
                     - 'udp'
                     - 'tcp'
-            iperf-server-port:
+            iperf_server_port:
                 type: int
-                description: Deprecated, please rename it to iperf_server_port. Iperf service port number.
-            power-mode:
+                description: Iperf service port number.
+            power_mode:
                 type: str
-                description: Deprecated, please rename it to power_mode. Set radio effective isotropic radiated power
+                description: Set radio effective isotropic radiated power
                 choices:
                     - 'dBm'
                     - 'percentage'
-            power-value:
+            power_value:
                 type: int
-                description: Deprecated, please rename it to power_value. Radio EIRP power in dBm
-            sam-bssid:
+                description: Radio EIRP power in dBm
+            sam_bssid:
                 type: str
-                description: Deprecated, please rename it to sam_bssid. BSSID for WiFi network.
-            sam-captive-portal:
+                description: BSSID for WiFi network.
+            sam_captive_portal:
                 type: str
-                description: Deprecated, please rename it to sam_captive_portal. Enable/disable Captive Portal Authentication
+                description: Enable/disable Captive Portal Authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            sam-password:
+            sam_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_password. Passphrase for WiFi network connection.
-            sam-report-intv:
+                description: (list) Passphrase for WiFi network connection.
+            sam_report_intv:
                 type: int
-                description: Deprecated, please rename it to sam_report_intv. SAM report interval
-            sam-security-type:
+                description: SAM report interval
+            sam_security_type:
                 type: str
-                description: Deprecated, please rename it to sam_security_type. Select WiFi network security type
+                description: Select WiFi network security type
                 choices:
                     - 'open'
                     - 'wpa-personal'
                     - 'wpa-enterprise'
                     - 'owe'
                     - 'wpa3-sae'
-            sam-server:
+            sam_server:
                 type: str
-                description: Deprecated, please rename it to sam_server. SAM test server IP address or domain name.
-            sam-ssid:
+                description: SAM test server IP address or domain name.
+            sam_ssid:
                 type: str
-                description: Deprecated, please rename it to sam_ssid. SSID for WiFi network.
-            sam-test:
+                description: SSID for WiFi network.
+            sam_test:
                 type: str
-                description: Deprecated, please rename it to sam_test. Select SAM test type
+                description: Select SAM test type
                 choices:
                     - 'ping'
                     - 'iperf'
-            sam-username:
+            sam_username:
                 type: str
-                description: Deprecated, please rename it to sam_username. Username for WiFi network connection.
-            arrp-profile:
+                description: Username for WiFi network connection.
+            arrp_profile:
                 type: str
-                description: Deprecated, please rename it to arrp_profile. Distributed Automatic Radio Resource Provisioning
-            bss-color-mode:
+                description: Distributed Automatic Radio Resource Provisioning
+            bss_color_mode:
                 type: str
-                description: Deprecated, please rename it to bss_color_mode. BSS color mode for this 11ax radio
+                description: BSS color mode for this 11ax radio
                 choices:
                     - 'auto'
                     - 'static'
-            sam-cwp-failure-string:
+            sam_cwp_failure_string:
                 type: str
-                description: Deprecated, please rename it to sam_cwp_failure_string. Failure identification on the page after an incorrect login.
-            sam-cwp-match-string:
+                description: Failure identification on the page after an incorrect login.
+            sam_cwp_match_string:
                 type: str
-                description: Deprecated, please rename it to sam_cwp_match_string. Identification string from the captive portal login form.
-            sam-cwp-password:
+                description: Identification string from the captive portal login form.
+            sam_cwp_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_cwp_password. Password for captive portal authentication.
-            sam-cwp-success-string:
+                description: (list) Password for captive portal authentication.
+            sam_cwp_success_string:
                 type: str
-                description: Deprecated, please rename it to sam_cwp_success_string. Success identification on the page after a successful login.
-            sam-cwp-test-url:
+                description: Success identification on the page after a successful login.
+            sam_cwp_test_url:
                 type: str
-                description: Deprecated, please rename it to sam_cwp_test_url. Website the client is trying to access.
-            sam-cwp-username:
+                description: Website the client is trying to access.
+            sam_cwp_username:
                 type: str
-                description: Deprecated, please rename it to sam_cwp_username. Username for captive portal authentication.
-            sam-server-fqdn:
+                description: Username for captive portal authentication.
+            sam_server_fqdn:
                 type: str
-                description: Deprecated, please rename it to sam_server_fqdn. SAM test server domain name.
-            sam-server-ip:
+                description: SAM test server domain name.
+            sam_server_ip:
                 type: str
-                description: Deprecated, please rename it to sam_server_ip. SAM test server IP address.
-            sam-server-type:
+                description: SAM test server IP address.
+            sam_server_type:
                 type: str
-                description: Deprecated, please rename it to sam_server_type. Select SAM server type
+                description: Select SAM server type
                 choices:
                     - 'ip'
                     - 'fqdn'
-            80211d:
+            d80211d:
                 type: str
-                description: Deprecated, please rename it to d80211d. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            optional-antenna:
+            optional_antenna:
                 type: str
-                description: Deprecated, please rename it to optional_antenna. Optional antenna used on FAP
+                description: Optional antenna used on FAP
                 choices:
                     - 'none'
                     - 'FANT-04ABGN-0606-O-N'
@@ -503,9 +503,9 @@ options:
                     - 'FANT-10ACAX-1213-D-N'
                     - 'FANT-08ABGN-1213-D-R'
                     - 'custom'
-            mimo-mode:
+            mimo_mode:
                 type: str
-                description: Deprecated, please rename it to mimo_mode. Configure radio MIMO mode
+                description: Configure radio MIMO mode
                 choices:
                     - 'default'
                     - '1x1'
@@ -513,43 +513,43 @@ options:
                     - '3x3'
                     - '4x4'
                     - '8x8'
-            optional-antenna-gain:
+            optional_antenna_gain:
                 type: str
-                description: Deprecated, please rename it to optional_antenna_gain. Optional antenna gain in dBi
-            sam-ca-certificate:
+                description: Optional antenna gain in dBi
+            sam_ca_certificate:
                 type: str
-                description: Deprecated, please rename it to sam_ca_certificate. CA certificate for WPA2/WPA3-ENTERPRISE.
-            sam-client-certificate:
+                description: CA certificate for WPA2/WPA3-ENTERPRISE.
+            sam_client_certificate:
                 type: str
-                description: Deprecated, please rename it to sam_client_certificate. Client certificate for WPA2/WPA3-ENTERPRISE.
-            sam-eap-method:
+                description: Client certificate for WPA2/WPA3-ENTERPRISE.
+            sam_eap_method:
                 type: str
-                description: Deprecated, please rename it to sam_eap_method. Select WPA2/WPA3-ENTERPRISE EAP Method
+                description: Select WPA2/WPA3-ENTERPRISE EAP Method
                 choices:
                     - 'tls'
                     - 'peap'
                     - 'both'
-            sam-private-key:
+            sam_private_key:
                 type: str
-                description: Deprecated, please rename it to sam_private_key. Private key for WPA2/WPA3-ENTERPRISE.
-            sam-private-key-password:
+                description: Private key for WPA2/WPA3-ENTERPRISE.
+            sam_private_key_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sam_private_key_password. Password for private key file for WPA2/WPA3-ENTERPRISE.
-            channel-bonding-ext:
+                description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
+            channel_bonding_ext:
                 type: str
-                description: Deprecated, please rename it to channel_bonding_ext. Channel bandwidth extension
+                description: Channel bandwidth extension
                 choices:
                     - '320MHz-1'
                     - '320MHz-2'
-            80211mc:
+            d80211mc:
                 type: str
-                description: Deprecated, please rename it to d80211mc. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            ap-sniffer-chan-width:
+            ap_sniffer_chan_width:
                 type: str
-                description: Deprecated, please rename it to ap_sniffer_chan_width. Channel bandwidth for sniffer.
+                description: Channel bandwidth for sniffer.
                 choices:
                     - '320MHz'
                     - '240MHz'
@@ -610,22 +610,22 @@ EXAMPLES = '''
           mode: <value in [disabled, ap, monitor, ...]>
           power_level: <integer>
           powersave_optimize:
-            - tim
-            - ac-vo
-            - no-obss-scan
-            - no-11b-rate
-            - client-rate-follow
+            - "tim"
+            - "ac-vo"
+            - "no-obss-scan"
+            - "no-11b-rate"
+            - "client-rate-follow"
           protection_mode: <value in [rtscts, ctsonly, disable]>
           radio_id: <integer>
           rts_threshold: <integer>
           short_guard_interval: <value in [disable, enable]>
           spectrum_analysis: <value in [disable, enable, scan-only]>
           transmit_optimize:
-            - disable
-            - power-save
-            - aggr-limit
-            - retry-limit
-            - send-bar
+            - "disable"
+            - "power-save"
+            - "aggr-limit"
+            - "retry-limit"
+            - "send-bar"
           vap_all: <value in [disable, enable, tunnel, ...]>
           vaps: <list or string>
           wids_profile: <string>
@@ -723,23 +723,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1',
         '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1/{radio-1}',
-        '/pm/config/global/obj/wireless-controller/wtp-profile/{wtp-profile}/radio-1/{radio-1}'
-    ]
-
     url_params = ['adom', 'wtp-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -860,9 +852,8 @@ def main():
                 'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
                 'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
                 '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ap-sniffer-chan-width': {'v_range': [['7.6.0', '']], 'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'], 'type': 'str'}
+                'ap-sniffer-chan-width': {'v_range': [['7.4.4', '']], 'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'], 'type': 'str'}
             }
-
         }
     }
 
@@ -876,9 +867,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

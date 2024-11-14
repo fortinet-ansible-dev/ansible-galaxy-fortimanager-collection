@@ -89,58 +89,58 @@ options:
         required: false
         type: dict
         suboptions:
-            analytics-bl-filetype:
+            analytics_bl_filetype:
                 type: str
-                description: Deprecated, please rename it to analytics_bl_filetype. Only submit files matching this DLP file-pattern to FortiSandbox.
-            analytics-db:
+                description: Only submit files matching this DLP file-pattern to FortiSandbox.
+            analytics_db:
                 type: str
-                description: Deprecated, please rename it to analytics_db. Enable/disable using the FortiSandbox signature database to supplement the A...
+                description: Enable/disable using the FortiSandbox signature database to supplement the AV signature databases.
                 choices:
                     - 'disable'
                     - 'enable'
-            analytics-max-upload:
+            analytics_max_upload:
                 type: int
-                description: Deprecated, please rename it to analytics_max_upload. Maximum size of files that can be uploaded to FortiSandbox
-            analytics-wl-filetype:
+                description: Maximum size of files that can be uploaded to FortiSandbox
+            analytics_wl_filetype:
                 type: str
-                description: Deprecated, please rename it to analytics_wl_filetype. Do not submit files matching this DLP file-pattern to FortiSandbox.
-            av-block-log:
+                description: Do not submit files matching this DLP file-pattern to FortiSandbox.
+            av_block_log:
                 type: str
-                description: Deprecated, please rename it to av_block_log. Enable/disable logging for AntiVirus file blocking.
+                description: Enable/disable logging for AntiVirus file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
-            av-virus-log:
+            av_virus_log:
                 type: str
-                description: Deprecated, please rename it to av_virus_log. Enable/disable AntiVirus logging.
+                description: Enable/disable AntiVirus logging.
                 choices:
                     - 'disable'
                     - 'enable'
             comment:
                 type: str
                 description: Comment.
-            extended-log:
+            extended_log:
                 type: str
-                description: Deprecated, please rename it to extended_log. Enable/disable extended logging for antivirus.
+                description: Enable/disable extended logging for antivirus.
                 choices:
                     - 'disable'
                     - 'enable'
-            ftgd-analytics:
+            ftgd_analytics:
                 type: str
-                description: Deprecated, please rename it to ftgd_analytics. Settings to control which files are uploaded to FortiSandbox.
+                description: Settings to control which files are uploaded to FortiSandbox.
                 choices:
                     - 'disable'
                     - 'suspicious'
                     - 'everything'
-            inspection-mode:
+            inspection_mode:
                 type: str
-                description: Deprecated, please rename it to inspection_mode. Inspection mode.
+                description: Inspection mode.
                 choices:
                     - 'proxy'
                     - 'flow-based'
-            mobile-malware-db:
+            mobile_malware_db:
                 type: str
-                description: Deprecated, please rename it to mobile_malware_db. Enable/disable using the mobile malware signature database.
+                description: Enable/disable using the mobile malware signature database.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -148,20 +148,20 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group customized for this profile.
-            scan-mode:
+                description: Replacement message group customized for this profile.
+            scan_mode:
                 type: str
-                description: Deprecated, please rename it to scan_mode. Choose between full scan mode and quick scan mode.
+                description: Choose between full scan mode and quick scan mode.
                 choices:
                     - 'quick'
                     - 'full'
                     - 'legacy'
                     - 'default'
-            feature-set:
+            feature_set:
                 type: str
-                description: Deprecated, please rename it to feature_set. Flow/proxy feature set.
+                description: Flow/proxy feature set.
                 choices:
                     - 'proxy'
                     - 'flow'
@@ -169,10 +169,10 @@ options:
                 type: dict
                 description: Cifs.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -183,10 +183,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -211,9 +211,9 @@ options:
                             - 'scan'
                             - 'quarantine'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -221,16 +221,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -262,129 +262,129 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-            content-disarm:
+            content_disarm:
                 type: dict
-                description: Deprecated, please rename it to content_disarm. Content disarm.
+                description: Content disarm.
                 suboptions:
-                    cover-page:
+                    cover_page:
                         type: str
-                        description: Deprecated, please rename it to cover_page. Enable/disable inserting a cover page into the disarmed document.
+                        description: Enable/disable inserting a cover page into the disarmed document.
                         choices:
                             - 'disable'
                             - 'enable'
-                    detect-only:
+                    detect_only:
                         type: str
-                        description: Deprecated, please rename it to detect_only. Enable/disable only detect disarmable files, do not alter content.
+                        description: Enable/disable only detect disarmable files, do not alter content.
                         choices:
                             - 'disable'
                             - 'enable'
-                    error-action:
+                    error_action:
                         type: str
-                        description: Deprecated, please rename it to error_action. Action to be taken if CDR engine encounters an unrecoverable error.
+                        description: Action to be taken if CDR engine encounters an unrecoverable error.
                         choices:
                             - 'block'
                             - 'log-only'
                             - 'ignore'
-                    office-action:
+                    office_action:
                         type: str
-                        description: Deprecated, please rename it to office_action. Enable/disable stripping of PowerPoint action events in Microsoft O...
+                        description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    office-dde:
+                    office_dde:
                         type: str
-                        description: Deprecated, please rename it to office_dde. Enable/disable stripping of Dynamic Data Exchange events in Microsoft ...
+                        description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    office-embed:
+                    office_embed:
                         type: str
-                        description: Deprecated, please rename it to office_embed. Enable/disable stripping of embedded objects in Microsoft Office doc...
+                        description: Enable/disable stripping of embedded objects in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    office-hylink:
+                    office_hylink:
                         type: str
-                        description: Deprecated, please rename it to office_hylink. Enable/disable stripping of hyperlinks in Microsoft Office documents.
+                        description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    office-linked:
+                    office_linked:
                         type: str
-                        description: Deprecated, please rename it to office_linked. Enable/disable stripping of linked objects in Microsoft Office docu...
+                        description: Enable/disable stripping of linked objects in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    office-macro:
+                    office_macro:
                         type: str
-                        description: Deprecated, please rename it to office_macro. Enable/disable stripping of macros in Microsoft Office documents.
+                        description: Enable/disable stripping of macros in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    original-file-destination:
+                    original_file_destination:
                         type: str
-                        description: Deprecated, please rename it to original_file_destination. Destination to send original file if active content is ...
+                        description: Destination to send original file if active content is removed.
                         choices:
                             - 'fortisandbox'
                             - 'quarantine'
                             - 'discard'
-                    pdf-act-form:
+                    pdf_act_form:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_form. Enable/disable stripping of PDF document actions that submit data to...
+                        description: Enable/disable stripping of PDF document actions that submit data to other targets.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-act-gotor:
+                    pdf_act_gotor:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_gotor. Enable/disable stripping of PDF document actions that access other ...
+                        description: Enable/disable stripping of PDF document actions that access other PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-act-java:
+                    pdf_act_java:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_java. Enable/disable stripping of PDF document actions that execute JavaSc...
+                        description: Enable/disable stripping of PDF document actions that execute JavaScript code.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-act-launch:
+                    pdf_act_launch:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_launch. Enable/disable stripping of PDF document actions that launch other...
+                        description: Enable/disable stripping of PDF document actions that launch other applications.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-act-movie:
+                    pdf_act_movie:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_movie. Enable/disable stripping of PDF document actions that play a movie.
+                        description: Enable/disable stripping of PDF document actions that play a movie.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-act-sound:
+                    pdf_act_sound:
                         type: str
-                        description: Deprecated, please rename it to pdf_act_sound. Enable/disable stripping of PDF document actions that play a sound.
+                        description: Enable/disable stripping of PDF document actions that play a sound.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-embedfile:
+                    pdf_embedfile:
                         type: str
-                        description: Deprecated, please rename it to pdf_embedfile. Enable/disable stripping of embedded files in PDF documents.
+                        description: Enable/disable stripping of embedded files in PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-hyperlink:
+                    pdf_hyperlink:
                         type: str
-                        description: Deprecated, please rename it to pdf_hyperlink. Enable/disable stripping of hyperlinks from PDF documents.
+                        description: Enable/disable stripping of hyperlinks from PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    pdf-javacode:
+                    pdf_javacode:
                         type: str
-                        description: Deprecated, please rename it to pdf_javacode. Enable/disable stripping of JavaScript code in PDF documents.
+                        description: Enable/disable stripping of JavaScript code in PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
-                    analytics-suspicious:
+                    analytics_suspicious:
                         type: str
-                        description: Deprecated, please rename it to analytics_suspicious. Enable/disable using CDR as a secondary method for determini...
+                        description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -392,10 +392,10 @@ options:
                 type: dict
                 description: Ftp.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -406,10 +406,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -436,9 +436,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -446,16 +446,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -491,10 +491,10 @@ options:
                 type: dict
                 description: Http.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -505,10 +505,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -519,9 +519,9 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    content-disarm:
+                    content_disarm:
                         type: str
-                        description: Deprecated, please rename it to content_disarm. Enable Content Disarm and Reconstruction for this protocol.
+                        description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -542,9 +542,9 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                             - 'strict-file'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -552,22 +552,22 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-optimize:
+                    av_optimize:
                         type: str
-                        description: Deprecated, please rename it to av_optimize. Av optimize.
+                        description: Av optimize.
                         choices:
                             - 'disable'
                             - 'enable'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -599,9 +599,9 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    unknown-content-encoding:
+                    unknown_content_encoding:
                         type: str
-                        description: Deprecated, please rename it to unknown_content_encoding. Configure the action the FortiGate unit will take on unk...
+                        description: Configure the action the FortiGate unit will take on unknown content-encoding.
                         choices:
                             - 'block'
                             - 'inspect'
@@ -610,10 +610,10 @@ options:
                 type: dict
                 description: Imap.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -624,10 +624,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -638,9 +638,9 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    content-disarm:
+                    content_disarm:
                         type: str
-                        description: Deprecated, please rename it to content_disarm. Enable Content Disarm and Reconstruction for this protocol.
+                        description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -666,9 +666,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -676,16 +676,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -721,10 +721,10 @@ options:
                 type: dict
                 description: Mapi.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -735,10 +735,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -770,9 +770,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -780,16 +780,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -821,9 +821,9 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-            nac-quar:
+            nac_quar:
                 type: dict
-                description: Deprecated, please rename it to nac_quar. Nac quar.
+                description: Nac quar.
                 suboptions:
                     expiry:
                         type: str
@@ -845,10 +845,10 @@ options:
                 type: dict
                 description: Nntp.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -859,10 +859,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -889,9 +889,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -899,16 +899,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -940,19 +940,19 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-            outbreak-prevention:
+            outbreak_prevention:
                 type: dict
-                description: Deprecated, please rename it to outbreak_prevention. Outbreak prevention.
+                description: Outbreak prevention.
                 suboptions:
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable/disable external malware blocklist.
+                        description: Enable/disable external malware blocklist.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ftgd-service:
+                    ftgd_service:
                         type: str
-                        description: Deprecated, please rename it to ftgd_service. Enable/disable FortiGuard Virus outbreak prevention service.
+                        description: Enable/disable FortiGuard Virus outbreak prevention service.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -960,10 +960,10 @@ options:
                 type: dict
                 description: Pop3.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -974,10 +974,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -988,9 +988,9 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    content-disarm:
+                    content_disarm:
                         type: str
-                        description: Deprecated, please rename it to content_disarm. Enable Content Disarm and Reconstruction for this protocol.
+                        description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1016,9 +1016,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -1026,16 +1026,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1071,10 +1071,10 @@ options:
                 type: dict
                 description: Smtp.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1085,10 +1085,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1099,9 +1099,9 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    content-disarm:
+                    content_disarm:
                         type: str
-                        description: Deprecated, please rename it to content_disarm. Enable Content Disarm and Reconstruction for this protocol.
+                        description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1127,9 +1127,9 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -1137,16 +1137,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1182,10 +1182,10 @@ options:
                 type: dict
                 description: Ssh.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1196,10 +1196,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1224,9 +1224,9 @@ options:
                             - 'avmonitor'
                             - 'quarantine'
                             - 'scan'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable Virus Outbreak Prevention service.
+                        description: Enable Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
@@ -1234,16 +1234,16 @@ options:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    av-scan:
+                    av_scan:
                         type: str
-                        description: Deprecated, please rename it to av_scan. Enable AntiVirus scan service.
+                        description: Enable AntiVirus scan service.
                         choices:
                             - 'disable'
                             - 'monitor'
                             - 'block'
-                    external-blocklist:
+                    external_blocklist:
                         type: str
-                        description: Deprecated, please rename it to external_blocklist. Enable external-blocklist.
+                        description: Enable external-blocklist.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1279,10 +1279,10 @@ options:
                 type: dict
                 description: Smb.
                 suboptions:
-                    archive-block:
+                    archive_block:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_block. Select the archive types to block.
+                        description: Select the archive types to block.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1293,10 +1293,10 @@ options:
                             - 'partiallycorrupted'
                             - 'fileslimit'
                             - 'timeout'
-                    archive-log:
+                    archive_log:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to archive_log. Select the archive types to log.
+                        description: Select the archive types to log.
                         choices:
                             - 'encrypted'
                             - 'corrupted'
@@ -1322,94 +1322,94 @@ options:
                             - 'quarantine'
                             - 'avquery'
                             - 'avmonitor'
-                    outbreak-prevention:
+                    outbreak_prevention:
                         type: str
-                        description: Deprecated, please rename it to outbreak_prevention. Enable FortiGuard Virus Outbreak Prevention service.
+                        description: Enable FortiGuard Virus Outbreak Prevention service.
                         choices:
                             - 'disabled'
                             - 'files'
                             - 'full-archive'
-            analytics-accept-filetype:
+            analytics_accept_filetype:
                 type: str
-                description: Deprecated, please rename it to analytics_accept_filetype. Only submit files matching this DLP file-pattern to FortiSandbox.
-            analytics-ignore-filetype:
+                description: Only submit files matching this DLP file-pattern to FortiSandbox.
+            analytics_ignore_filetype:
                 type: str
-                description: Deprecated, please rename it to analytics_ignore_filetype. Do not submit files matching this DLP file-pattern to FortiSandbox.
-            ems-threat-feed:
+                description: Do not submit files matching this DLP file-pattern to FortiSandbox.
+            ems_threat_feed:
                 type: str
-                description: Deprecated, please rename it to ems_threat_feed. Enable/disable use of EMS threat feed when performing AntiVirus scan.
+                description: Enable/disable use of EMS threat feed when performing AntiVirus scan.
                 choices:
                     - 'disable'
                     - 'enable'
-            external-blocklist:
+            external_blocklist:
                 type: raw
-                description: (list or str) Deprecated, please rename it to external_blocklist. One or more external malware block lists.
-            external-blocklist-archive-scan:
+                description: (list or str) One or more external malware block lists.
+            external_blocklist_archive_scan:
                 type: str
-                description: Deprecated, please rename it to external_blocklist_archive_scan. Enable/disable external-blocklist archive scanning.
+                description: Enable/disable external-blocklist archive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
-            external-blocklist-enable-all:
+            external_blocklist_enable_all:
                 type: str
-                description: Deprecated, please rename it to external_blocklist_enable_all. Enable/disable all external blocklists.
+                description: Enable/disable all external blocklists.
                 choices:
                     - 'disable'
                     - 'enable'
-            outbreak-prevention-archive-scan:
+            outbreak_prevention_archive_scan:
                 type: str
-                description: Deprecated, please rename it to outbreak_prevention_archive_scan. Enable/disable outbreak-prevention archive scanning.
+                description: Enable/disable outbreak-prevention archive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortindr-error-action:
+            fortindr_error_action:
                 type: str
-                description: Deprecated, please rename it to fortindr_error_action. Action to take if FortiNDR encounters an error.
+                description: Action to take if FortiNDR encounters an error.
                 choices:
                     - 'log-only'
                     - 'block'
                     - 'ignore'
-            fortindr-timeout-action:
+            fortindr_timeout_action:
                 type: str
-                description: Deprecated, please rename it to fortindr_timeout_action. Action to take if FortiNDR encounters a scan timeout.
+                description: Action to take if FortiNDR encounters a scan timeout.
                 choices:
                     - 'log-only'
                     - 'block'
                     - 'ignore'
-            fortisandbox-error-action:
+            fortisandbox_error_action:
                 type: str
-                description: Deprecated, please rename it to fortisandbox_error_action. Action to take if FortiSandbox inline scan encounters an error.
+                description: Action to take if FortiSandbox inline scan encounters an error.
                 choices:
                     - 'log-only'
                     - 'block'
                     - 'ignore'
-            fortisandbox-max-upload:
+            fortisandbox_max_upload:
                 type: int
-                description: Deprecated, please rename it to fortisandbox_max_upload. Maximum size of files that can be uploaded to FortiSandbox.
-            fortisandbox-mode:
+                description: Maximum size of files that can be uploaded to FortiSandbox.
+            fortisandbox_mode:
                 type: str
-                description: Deprecated, please rename it to fortisandbox_mode. FortiSandbox scan modes.
+                description: FortiSandbox scan modes.
                 choices:
                     - 'inline'
                     - 'analytics-suspicious'
                     - 'analytics-everything'
-            fortisandbox-timeout-action:
+            fortisandbox_timeout_action:
                 type: str
-                description: Deprecated, please rename it to fortisandbox_timeout_action. Action to take if FortiSandbox inline scan encounters a scan ...
+                description: Action to take if FortiSandbox inline scan encounters a scan timeout.
                 choices:
                     - 'log-only'
                     - 'block'
                     - 'ignore'
-            fortiai-error-action:
+            fortiai_error_action:
                 type: str
-                description: Deprecated, please rename it to fortiai_error_action. Action to take if FortiAI encounters an error.
+                description: Action to take if FortiAI encounters an error.
                 choices:
                     - 'block'
                     - 'log-only'
                     - 'ignore'
-            fortiai-timeout-action:
+            fortiai_timeout_action:
                 type: str
-                description: Deprecated, please rename it to fortiai_timeout_action. Action to take if FortiAI encounters a scan timeout.
+                description: Action to take if FortiAI encounters a scan timeout.
                 choices:
                     - 'block'
                     - 'log-only'
@@ -1501,23 +1501,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/antivirus/profile',
         '/pm/config/global/obj/antivirus/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/antivirus/profile/{profile}',
-        '/pm/config/global/obj/antivirus/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1542,11 +1534,11 @@ def main():
                 'scan-mode': {'choices': ['quick', 'full', 'legacy', 'default'], 'type': 'str'},
                 'feature-set': {'v_range': [['6.4.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'cifs': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1554,22 +1546,22 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'quarantine', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1582,41 +1574,41 @@ def main():
                     }
                 },
                 'content-disarm': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'cover-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'detect-only': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cover-page': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'detect-only': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'error-action': {'v_range': [['6.4.5', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
-                        'office-action': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'office-dde': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'office-embed': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'office-hylink': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'office-linked': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'office-macro': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-action': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-dde': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-embed': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-hylink': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-linked': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'office-macro': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'original-file-destination': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['fortisandbox', 'quarantine', 'discard'],
                             'type': 'str'
                         },
-                        'pdf-act-form': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-act-gotor': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-act-java': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-act-launch': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-act-movie': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-act-sound': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-embedfile': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-hyperlink': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pdf-javacode': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-form': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-gotor': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-java': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-launch': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-movie': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-act-sound': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-embedfile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-hyperlink': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'pdf-javacode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'analytics-suspicious': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'ftp': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1624,22 +1616,22 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1652,11 +1644,11 @@ def main():
                     }
                 },
                 'http': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1664,27 +1656,27 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'content-disarm': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'content-disarm': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor', 'strict-file'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
-                        'av-optimize': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'av-optimize': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'av-scan': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'external-blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1692,18 +1684,18 @@ def main():
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'unknown-content-encoding': {
-                            'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                             'choices': ['block', 'inspect', 'bypass'],
                             'type': 'str'
                         }
                     }
                 },
                 'imap': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1711,24 +1703,24 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'content-disarm': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'executables': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
+                        'content-disarm': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'executables': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1741,11 +1733,11 @@ def main():
                     }
                 },
                 'mapi': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1753,23 +1745,23 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'executables': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'executables': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1782,20 +1774,20 @@ def main():
                     }
                 },
                 'nac-quar': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'expiry': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'infected': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['none', 'quar-src-ip', 'quar-interface'], 'type': 'str'},
-                        'log': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'expiry': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'infected': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['none', 'quar-src-ip', 'quar-interface'], 'type': 'str'},
+                        'log': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'nntp': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1803,22 +1795,22 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1831,19 +1823,19 @@ def main():
                     }
                 },
                 'outbreak-prevention': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'external-blocklist': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ftgd-service': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'external-blocklist': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ftgd-service': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'pop3': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1851,24 +1843,24 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'content-disarm': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'executables': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
+                        'content-disarm': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'executables': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1881,11 +1873,11 @@ def main():
                     }
                 },
                 'smtp': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1893,24 +1885,24 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'content-disarm': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'executables': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
+                        'content-disarm': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'executables': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['default', 'virus'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['scan', 'file-filter', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1923,11 +1915,11 @@ def main():
                     }
                 },
                 'ssh': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1935,22 +1927,22 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'type': 'list',
                             'choices': ['avmonitor', 'quarantine', 'scan'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
@@ -1963,11 +1955,11 @@ def main():
                     }
                 },
                 'smb': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                     'type': 'dict',
                     'options': {
                         'archive-block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
@@ -1975,22 +1967,22 @@ def main():
                             'elements': 'str'
                         },
                         'archive-log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': [
                                 'encrypted', 'corrupted', 'multipart', 'nested', 'mailbomb', 'unhandled', 'partiallycorrupted', 'fileslimit', 'timeout'
                             ],
                             'elements': 'str'
                         },
-                        'emulator': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'emulator': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'options': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'type': 'list',
                             'choices': ['scan', 'quarantine', 'avquery', 'avmonitor'],
                             'elements': 'str'
                         },
                         'outbreak-prevention': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disabled', 'files', 'full-archive'],
                             'type': 'str'
                         }
@@ -2012,7 +2004,6 @@ def main():
                 'fortiai-error-action': {'v_range': [['7.0.1', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
                 'fortiai-timeout-action': {'v_range': [['7.0.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'}
             }
-
         }
     }
 
@@ -2026,9 +2017,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

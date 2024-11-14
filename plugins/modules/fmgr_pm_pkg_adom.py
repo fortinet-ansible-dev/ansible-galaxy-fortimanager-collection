@@ -83,59 +83,59 @@ options:
             name:
                 type: str
                 description: Name.
-            obj ver:
+            obj_ver:
                 type: int
-                description: Deprecated, please rename it to obj_ver. Obj ver.
+                description: Obj ver.
             oid:
                 type: int
                 description: Oid.
-            package setting:
+            package_setting:
                 type: dict
-                description: Deprecated, please rename it to package_setting. Package setting.
+                description: Package setting.
                 suboptions:
-                    central-nat:
+                    central_nat:
                         type: str
-                        description: Deprecated, please rename it to central_nat. Central nat.
+                        description: Central nat.
                         choices:
                             - 'disable'
                             - 'enable'
-                    consolidated-firewall-mode:
+                    consolidated_firewall_mode:
                         type: str
-                        description: Deprecated, please rename it to consolidated_firewall_mode. Consolidated firewall mode.
+                        description: Consolidated firewall mode.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwpolicy-implicit-log:
+                    fwpolicy_implicit_log:
                         type: str
-                        description: Deprecated, please rename it to fwpolicy_implicit_log. Fwpolicy implicit log.
+                        description: Fwpolicy implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwpolicy6-implicit-log:
+                    fwpolicy6_implicit_log:
                         type: str
-                        description: Deprecated, please rename it to fwpolicy6_implicit_log. Fwpolicy6 implicit log.
+                        description: Fwpolicy6 implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
-                    inspection-mode:
+                    inspection_mode:
                         type: str
-                        description: Deprecated, please rename it to inspection_mode. Inspection mode.
+                        description: Inspection mode.
                         choices:
                             - 'proxy'
                             - 'flow'
-                    ngfw-mode:
+                    ngfw_mode:
                         type: str
-                        description: Deprecated, please rename it to ngfw_mode. Ngfw mode.
+                        description: Ngfw mode.
                         choices:
                             - 'profile-based'
                             - 'policy-based'
-                    ssl-ssh-profile:
+                    ssl_ssh_profile:
                         type: str
-                        description: Deprecated, please rename it to ssl_ssh_profile. Ssl ssh profile.
-            scope member:
+                        description: Ssl ssh profile.
+            scope_member:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to scope_member. Scope member.
+                description: Scope member.
                 suboptions:
                     name:
                         type: str
@@ -149,70 +149,63 @@ options:
                 choices:
                     - 'pkg'
                     - 'folder'
-            package settings:
+            package_settings:
                 type: dict
-                description: Deprecated, please rename it to package_settings. Package settings.
+                description: Package settings.
                 suboptions:
-                    central-nat:
+                    central_nat:
                         type: str
                         description:
-                            - Deprecated, please rename it to central_nat.
                             - disable -
                             - enable -
                         choices:
                             - 'disable'
                             - 'enable'
-                    consolidated-firewall-mode:
+                    consolidated_firewall_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to consolidated_firewall_mode.
                             - For flow-based policy package.
                             - disable -
                             - enable -
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwpolicy-implicit-log:
+                    fwpolicy_implicit_log:
                         type: str
                         description:
-                            - Deprecated, please rename it to fwpolicy_implicit_log.
                             - disable -
                             - enable -
                         choices:
                             - 'disable'
                             - 'enable'
-                    fwpolicy6-implicit-log:
+                    fwpolicy6_implicit_log:
                         type: str
                         description:
-                            - Deprecated, please rename it to fwpolicy6_implicit_log.
                             - disable -
                             - enable -
                         choices:
                             - 'disable'
                             - 'enable'
-                    inspection-mode:
+                    inspection_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to inspection_mode.
                             - proxy -
                             - flow -
                         choices:
                             - 'proxy'
                             - 'flow'
-                    ngfw-mode:
+                    ngfw_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to ngfw_mode.
                             - For flow-based policy package.
                             - profile-based -
                             - policy-based -
                         choices:
                             - 'profile-based'
                             - 'policy-based'
-                    policy-offload-level:
+                    policy_offload_level:
                         type: str
                         description:
-                            - Deprecated, please rename it to policy_offload_level.
                             - disable -
                             - default -
                             - dos-offload -
@@ -222,9 +215,9 @@ options:
                             - 'default'
                             - 'dos-offload'
                             - 'full-offload'
-                    ssl-ssh-profile:
+                    ssl_ssh_profile:
                         type: str
-                        description: Deprecated, please rename it to ssl_ssh_profile. SSL-SSH profile required for NGFW-mode policy package.
+                        description: SSL-SSH profile required for NGFW-mode policy package.
 '''
 
 EXAMPLES = '''
@@ -291,21 +284,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/pkg/adom/{adom}'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/pkg/adom/{adom}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -337,25 +323,24 @@ def main():
                 'scope member': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
                 'type': {'choices': ['pkg', 'folder'], 'type': 'str'},
                 'package settings': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'dict',
                     'options': {
-                        'central-nat': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'consolidated-firewall-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fwpolicy-implicit-log': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fwpolicy6-implicit-log': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'inspection-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
-                        'ngfw-mode': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['profile-based', 'policy-based'], 'type': 'str'},
+                        'central-nat': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'consolidated-firewall-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fwpolicy-implicit-log': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fwpolicy6-implicit-log': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'inspection-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
+                        'ngfw-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['profile-based', 'policy-based'], 'type': 'str'},
                         'policy-offload-level': {
-                            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                             'choices': ['disable', 'default', 'dos-offload', 'full-offload'],
                             'type': 'str'
                         },
-                        'ssl-ssh-profile': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
+                        'ssl-ssh-profile': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                     }
                 }
             }
-
         }
     }
 
@@ -369,9 +354,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

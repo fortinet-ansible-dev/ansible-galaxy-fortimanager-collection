@@ -96,19 +96,19 @@ options:
             comment:
                 type: str
                 description: Comment.
-            concurrent-clients:
+            concurrent_clients:
                 type: str
-                description: Deprecated, please rename it to concurrent_clients. Number of clients that can connect using this pre-shared key.
-            key-name:
+                description: Number of clients that can connect using this pre-shared key.
+            key_name:
                 type: str
-                description: Deprecated, please rename it to key_name. Pre-shared key name.
+                description: Pre-shared key name.
                 required: true
             passphrase:
                 type: raw
                 description: (list) WPA Pre-shared key.
-            mpsk-schedules:
+            mpsk_schedules:
                 type: raw
-                description: (list or str) Deprecated, please rename it to mpsk_schedules. Firewall schedule for MPSK passphrase.
+                description: (list or str) Firewall schedule for MPSK passphrase.
 '''
 
 EXAMPLES = '''
@@ -179,23 +179,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key',
         '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}',
-        '/pm/config/global/obj/wireless-controller/vap/{vap}/mpsk-key/{mpsk-key}'
-    ]
-
     url_params = ['adom', 'vap']
     module_primary_key = 'key-name'
     module_arg_spec = {
@@ -212,7 +204,6 @@ def main():
                 'passphrase': {'no_log': True, 'type': 'raw'},
                 'mpsk-schedules': {'v_range': [['6.2.2', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -226,9 +217,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

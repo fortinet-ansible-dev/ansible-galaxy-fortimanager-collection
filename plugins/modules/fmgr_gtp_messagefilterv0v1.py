@@ -89,39 +89,39 @@ options:
         required: false
         type: dict
         suboptions:
-            create-mbms:
+            create_mbms:
                 type: str
-                description: Deprecated, please rename it to create_mbms. GTPv1 create MBMS context
+                description: GTPv1 create MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
-            create-pdp:
+            create_pdp:
                 type: str
-                description: Deprecated, please rename it to create_pdp. Create PDP context
+                description: Create PDP context
                 choices:
                     - 'allow'
                     - 'deny'
-            data-record:
+            data_record:
                 type: str
-                description: Deprecated, please rename it to data_record. Data record transfer
+                description: Data record transfer
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-aa-pdp:
+            delete_aa_pdp:
                 type: str
-                description: Deprecated, please rename it to delete_aa_pdp. GTPv0 delete AA PDP context
+                description: GTPv0 delete AA PDP context
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-mbms:
+            delete_mbms:
                 type: str
-                description: Deprecated, please rename it to delete_mbms. GTPv1 delete MBMS context
+                description: GTPv1 delete MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-pdp:
+            delete_pdp:
                 type: str
-                description: Deprecated, please rename it to delete_pdp. Delete PDP context
+                description: Delete PDP context
                 choices:
                     - 'allow'
                     - 'deny'
@@ -131,39 +131,39 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            end-marker:
+            end_marker:
                 type: str
-                description: Deprecated, please rename it to end_marker. GTPv1 End marker
+                description: GTPv1 End marker
                 choices:
                     - 'allow'
                     - 'deny'
-            error-indication:
+            error_indication:
                 type: str
-                description: Deprecated, please rename it to error_indication. Error indication
+                description: Error indication
                 choices:
                     - 'allow'
                     - 'deny'
-            failure-report:
+            failure_report:
                 type: str
-                description: Deprecated, please rename it to failure_report. Failure report
+                description: Failure report
                 choices:
                     - 'allow'
                     - 'deny'
-            fwd-relocation:
+            fwd_relocation:
                 type: str
-                description: Deprecated, please rename it to fwd_relocation. GTPv1 forward relocation
+                description: GTPv1 forward relocation
                 choices:
                     - 'allow'
                     - 'deny'
-            fwd-srns-context:
+            fwd_srns_context:
                 type: str
-                description: Deprecated, please rename it to fwd_srns_context. GTPv1 forward SRNS
+                description: GTPv1 forward SRNS
                 choices:
                     - 'allow'
                     - 'deny'
-            gtp-pdu:
+            gtp_pdu:
                 type: str
-                description: Deprecated, please rename it to gtp_pdu. PDU
+                description: PDU
                 choices:
                     - 'allow'
                     - 'deny'
@@ -173,45 +173,45 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-de-registration:
+            mbms_de_registration:
                 type: str
-                description: Deprecated, please rename it to mbms_de_registration. GTPv1 MBMS de-registration
+                description: GTPv1 MBMS de-registration
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-notification:
+            mbms_notification:
                 type: str
-                description: Deprecated, please rename it to mbms_notification. GTPv1 MBMS notification
+                description: GTPv1 MBMS notification
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-registration:
+            mbms_registration:
                 type: str
-                description: Deprecated, please rename it to mbms_registration. GTPv1 MBMS registration
+                description: GTPv1 MBMS registration
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-start:
+            mbms_session_start:
                 type: str
-                description: Deprecated, please rename it to mbms_session_start. GTPv1 MBMS session start
+                description: GTPv1 MBMS session start
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-stop:
+            mbms_session_stop:
                 type: str
-                description: Deprecated, please rename it to mbms_session_stop. GTPv1 MBMS session stop
+                description: GTPv1 MBMS session stop
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-update:
+            mbms_session_update:
                 type: str
-                description: Deprecated, please rename it to mbms_session_update. GTPv1 MBMS session update
+                description: GTPv1 MBMS session update
                 choices:
                     - 'allow'
                     - 'deny'
-            ms-info-change-notif:
+            ms_info_change_notif:
                 type: str
-                description: Deprecated, please rename it to ms_info_change_notif. GTPv1 MS info change notification
+                description: GTPv1 MS info change notification
                 choices:
                     - 'allow'
                     - 'deny'
@@ -219,27 +219,27 @@ options:
                 type: str
                 description: Message filter name.
                 required: true
-            node-alive:
+            node_alive:
                 type: str
-                description: Deprecated, please rename it to node_alive. Node alive
+                description: Node alive
                 choices:
                     - 'allow'
                     - 'deny'
-            note-ms-present:
+            note_ms_present:
                 type: str
-                description: Deprecated, please rename it to note_ms_present. Note MS GPRS present
+                description: Note MS GPRS present
                 choices:
                     - 'allow'
                     - 'deny'
-            pdu-notification:
+            pdu_notification:
                 type: str
-                description: Deprecated, please rename it to pdu_notification. PDU notification
+                description: PDU notification
                 choices:
                     - 'allow'
                     - 'deny'
-            ran-info:
+            ran_info:
                 type: str
-                description: Deprecated, please rename it to ran_info. GTPv1 RAN information relay
+                description: GTPv1 RAN information relay
                 choices:
                     - 'allow'
                     - 'deny'
@@ -249,72 +249,72 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            relocation-cancel:
+            relocation_cancel:
                 type: str
-                description: Deprecated, please rename it to relocation_cancel. GTPv1 relocation cancel
+                description: GTPv1 relocation cancel
                 choices:
                     - 'allow'
                     - 'deny'
-            send-route:
+            send_route:
                 type: str
-                description: Deprecated, please rename it to send_route. Send routing information for GPRS
+                description: Send routing information for GPRS
                 choices:
                     - 'allow'
                     - 'deny'
-            sgsn-context:
+            sgsn_context:
                 type: str
-                description: Deprecated, please rename it to sgsn_context. SGSN context
+                description: SGSN context
                 choices:
                     - 'allow'
                     - 'deny'
-            support-extension:
+            support_extension:
                 type: str
-                description: Deprecated, please rename it to support_extension. GTPv1 supported extension headers notify
+                description: GTPv1 supported extension headers notify
                 choices:
                     - 'allow'
                     - 'deny'
-            unknown-message:
+            unknown_message:
                 type: str
-                description: Deprecated, please rename it to unknown_message. Allow or Deny unknown messages.
+                description: Allow or Deny unknown messages.
                 choices:
                     - 'allow'
                     - 'deny'
-            unknown-message-white-list:
+            unknown_message_white_list:
                 type: raw
-                description: (list) Deprecated, please rename it to unknown_message_white_list. White list
-            update-mbms:
+                description: (list) White list
+            update_mbms:
                 type: str
-                description: Deprecated, please rename it to update_mbms. GTPv1 update MBMS context
+                description: GTPv1 update MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
-            update-pdp:
+            update_pdp:
                 type: str
-                description: Deprecated, please rename it to update_pdp. Update PDP context
+                description: Update PDP context
                 choices:
                     - 'allow'
                     - 'deny'
-            v0-create-aa-pdp--v1-init-pdp-ctx:
+            v0_create_aa_pdp__v1_init_pdp_ctx:
                 type: str
-                description: Deprecated, please rename it to v0_create_aa_pdp__v1_init_pdp_ctx. GTPv0 create AA PDP context
+                description: GTPv0 create AA PDP context
                 choices:
                     - 'deny'
                     - 'allow'
-            version-not-support:
+            version_not_support:
                 type: str
-                description: Deprecated, please rename it to version_not_support. Version not supported
+                description: Version not supported
                 choices:
                     - 'allow'
                     - 'deny'
-            create-aa-pdp|init-pdp-ctx:
+            create_aa_pdp|init_pdp_ctx:
                 type: str
-                description: Deprecated, please rename it to create_aa_pdp|init_pdp_ctx. GTPv0 create AA PDP context
+                description: GTPv0 create AA PDP context
                 choices:
                     - 'allow'
                     - 'deny'
-            ue-registration-query:
+            ue_registration_query:
                 type: str
-                description: Deprecated, please rename it to ue_registration_query. UE Registration Query
+                description: UE Registration Query
                 choices:
                     - 'allow'
                     - 'deny'
@@ -421,23 +421,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/gtp/message-filter-v0v1',
         '/pm/config/global/obj/gtp/message-filter-v0v1'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/gtp/message-filter-v0v1/{message-filter-v0v1}',
-        '/pm/config/global/obj/gtp/message-filter-v0v1/{message-filter-v0v1}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -483,10 +475,9 @@ def main():
                 'update-pdp': {'choices': ['allow', 'deny'], 'type': 'str'},
                 'v0-create-aa-pdp--v1-init-pdp-ctx': {'choices': ['deny', 'allow'], 'type': 'str'},
                 'version-not-support': {'choices': ['allow', 'deny'], 'type': 'str'},
-                'create-aa-pdp|init-pdp-ctx': {'v_range': [['6.2.0', '6.4.14']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'create-aa-pdp|init-pdp-ctx': {'v_range': [['6.2.0', '6.4.15']], 'choices': ['allow', 'deny'], 'type': 'str'},
                 'ue-registration-query': {'v_range': [['7.2.1', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
-
         }
     }
 
@@ -500,9 +491,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

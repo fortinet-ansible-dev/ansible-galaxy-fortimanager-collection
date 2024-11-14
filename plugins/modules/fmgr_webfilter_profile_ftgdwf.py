@@ -84,9 +84,9 @@ options:
         required: false
         type: dict
         suboptions:
-            exempt-quota:
+            exempt_quota:
                 type: raw
-                description: (list or str) Deprecated, please rename it to exempt_quota. Do not stop quota for these categories.
+                description: (list or str) Do not stop quota for these categories.
             filters:
                 type: list
                 elements: dict
@@ -100,9 +100,9 @@ options:
                             - 'monitor'
                             - 'warning'
                             - 'authenticate'
-                    auth-usr-grp:
+                    auth_usr_grp:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to auth_usr_grp. Groups with permission to authenticate.
+                        description: (list or str) Groups with permission to authenticate.
                     category:
                         type: str
                         description: Categories and groups the filter examines.
@@ -115,27 +115,27 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    override-replacemsg:
+                    override_replacemsg:
                         type: str
-                        description: Deprecated, please rename it to override_replacemsg. Override replacement message.
-                    warn-duration:
+                        description: Override replacement message.
+                    warn_duration:
                         type: str
-                        description: Deprecated, please rename it to warn_duration. Duration of warnings.
-                    warning-duration-type:
+                        description: Duration of warnings.
+                    warning_duration_type:
                         type: str
-                        description: Deprecated, please rename it to warning_duration_type. Re-display warning after closing browser or after a timeout.
+                        description: Re-display warning after closing browser or after a timeout.
                         choices:
                             - 'session'
                             - 'timeout'
-                    warning-prompt:
+                    warning_prompt:
                         type: str
-                        description: Deprecated, please rename it to warning_prompt. Warning prompts in each category or each domain.
+                        description: Warning prompts in each category or each domain.
                         choices:
                             - 'per-domain'
                             - 'per-category'
-            max-quota-timeout:
+            max_quota_timeout:
                 type: int
-                description: Deprecated, please rename it to max_quota_timeout. Maximum FortiGuard quota used by single page view in seconds
+                description: Maximum FortiGuard quota used by single page view in seconds
             options:
                 type: list
                 elements: str
@@ -167,9 +167,9 @@ options:
                     id:
                         type: int
                         description: ID number.
-                    override-replacemsg:
+                    override_replacemsg:
                         type: str
-                        description: Deprecated, please rename it to override_replacemsg. Override replacement message.
+                        description: Override replacement message.
                     type:
                         type: str
                         description: Quota type.
@@ -187,33 +187,33 @@ options:
                     value:
                         type: int
                         description: Traffic quota value.
-            rate-crl-urls:
+            rate_crl_urls:
                 type: str
-                description: Deprecated, please rename it to rate_crl_urls. Enable/disable rating CRL by URL.
+                description: Enable/disable rating CRL by URL.
                 choices:
                     - 'disable'
                     - 'enable'
-            rate-css-urls:
+            rate_css_urls:
                 type: str
-                description: Deprecated, please rename it to rate_css_urls. Enable/disable rating CSS by URL.
+                description: Enable/disable rating CSS by URL.
                 choices:
                     - 'disable'
                     - 'enable'
-            rate-image-urls:
+            rate_image_urls:
                 type: str
-                description: Deprecated, please rename it to rate_image_urls. Enable/disable rating images by URL.
+                description: Enable/disable rating images by URL.
                 choices:
                     - 'disable'
                     - 'enable'
-            rate-javascript-urls:
+            rate_javascript_urls:
                 type: str
-                description: Deprecated, please rename it to rate_javascript_urls. Enable/disable rating JavaScript by URL.
+                description: Enable/disable rating JavaScript by URL.
                 choices:
                     - 'disable'
                     - 'enable'
-            category-override:
+            category_override:
                 type: str
-                description: Deprecated, please rename it to category_override. Local categories take precedence over FortiGuard categories.
+                description: Local categories take precedence over FortiGuard categories.
 '''
 
 EXAMPLES = '''
@@ -249,15 +249,15 @@ EXAMPLES = '''
               warning_prompt: <value in [per-domain, per-category]>
           max_quota_timeout: <integer>
           options:
-            - error-allow
-            - http-err-detail
-            - rate-image-urls
-            - strict-blocking
-            - rate-server-ip
-            - redir-block
-            - connect-request-bypass
-            - log-all-url
-            - ftgd-disable
+            - "error-allow"
+            - "http-err-detail"
+            - "rate-image-urls"
+            - "strict-blocking"
+            - "rate-server-ip"
+            - "redir-block"
+            - "connect-request-bypass"
+            - "log-all-url"
+            - "ftgd-disable"
           ovrd: <list or string>
           quota:
             -
@@ -316,23 +316,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf',
         '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/{ftgd-wf}',
-        '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/{ftgd-wf}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -385,9 +377,8 @@ def main():
                 'rate-css-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-image-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-javascript-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'category-override': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'}
+                'category-override': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'}
             }
-
         }
     }
 
@@ -401,9 +392,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

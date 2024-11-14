@@ -118,57 +118,57 @@ options:
                     - 'ftm'
                     - 'fabric'
                     - 'speed-test'
-            _intf_device-identification:
+            _intf_device_identification:
                 type: str
-                description: Deprecated, please rename it to _intf_device_identification. Intf device identification.
+                description: Intf device identification.
                 choices:
                     - 'disable'
                     - 'enable'
-            _intf_device-netscan:
+            _intf_device_netscan:
                 type: str
-                description: Deprecated, please rename it to _intf_device_netscan. Intf device netscan.
+                description: Intf device netscan.
                 choices:
                     - 'disable'
                     - 'enable'
-            _intf_dhcp-relay-ip:
+            _intf_dhcp_relay_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to _intf_dhcp_relay_ip. Intf dhcp relay ip.
-            _intf_dhcp-relay-service:
+                description: (list) Intf dhcp relay ip.
+            _intf_dhcp_relay_service:
                 type: str
-                description: Deprecated, please rename it to _intf_dhcp_relay_service. Intf dhcp relay service.
+                description: Intf dhcp relay service.
                 choices:
                     - 'disable'
                     - 'enable'
-            _intf_dhcp-relay-type:
+            _intf_dhcp_relay_type:
                 type: str
-                description: Deprecated, please rename it to _intf_dhcp_relay_type. Intf dhcp relay type.
+                description: Intf dhcp relay type.
                 choices:
                     - 'regular'
                     - 'ipsec'
-            _intf_dhcp6-relay-ip:
+            _intf_dhcp6_relay_ip:
                 type: str
-                description: Deprecated, please rename it to _intf_dhcp6_relay_ip. Intf dhcp6 relay ip.
-            _intf_dhcp6-relay-service:
+                description: Intf dhcp6 relay ip.
+            _intf_dhcp6_relay_service:
                 type: str
-                description: Deprecated, please rename it to _intf_dhcp6_relay_service. Intf dhcp6 relay service.
+                description: Intf dhcp6 relay service.
                 choices:
                     - 'disable'
                     - 'enable'
-            _intf_dhcp6-relay-type:
+            _intf_dhcp6_relay_type:
                 type: str
-                description: Deprecated, please rename it to _intf_dhcp6_relay_type. Intf dhcp6 relay type.
+                description: Intf dhcp6 relay type.
                 choices:
                     - 'regular'
             _intf_ip:
                 type: str
                 description: Intf ip.
-            _intf_ip6-address:
+            _intf_ip6_address:
                 type: str
-                description: Deprecated, please rename it to _intf_ip6_address. Intf ip6 address.
-            _intf_ip6-allowaccess:
+                description: Intf ip6 address.
+            _intf_ip6_allowaccess:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to _intf_ip6_allowaccess. Intf ip6 allowaccess.
+                description: Intf ip6 allowaccess.
                 choices:
                     - 'https'
                     - 'ping'
@@ -179,15 +179,15 @@ options:
                     - 'any'
                     - 'fgfm'
                     - 'capwap'
-            _intf_listen-forticlient-connection:
+            _intf_listen_forticlient_connection:
                 type: str
-                description: Deprecated, please rename it to _intf_listen_forticlient_connection. Intf listen forticlient connection.
+                description: Intf listen forticlient connection.
                 choices:
                     - 'disable'
                     - 'enable'
-            acct-interim-interval:
+            acct_interim_interval:
                 type: int
-                description: Deprecated, please rename it to acct_interim_interval. WiFi RADIUS accounting interim interval
+                description: WiFi RADIUS accounting interim interval
             alias:
                 type: str
                 description: Alias.
@@ -200,16 +200,16 @@ options:
                     - 'RADIUS'
                     - 'radius'
                     - 'usergroup'
-            broadcast-ssid:
+            broadcast_ssid:
                 type: str
-                description: Deprecated, please rename it to broadcast_ssid. Enable/disable broadcasting the SSID
+                description: Enable/disable broadcasting the SSID
                 choices:
                     - 'disable'
                     - 'enable'
-            broadcast-suppression:
+            broadcast_suppression:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to broadcast_suppression. Optional suppression of broadcast messages.
+                description: Optional suppression of broadcast messages.
                 choices:
                     - 'dhcp'
                     - 'arp'
@@ -230,50 +230,50 @@ options:
                     - 'all-other-bc'
                     - 'arp-proxy'
                     - 'dhcp-ucast'
-            captive-portal-ac-name:
+            captive_portal_ac_name:
                 type: str
-                description: Deprecated, please rename it to captive_portal_ac_name. Local-bridging captive portal ac-name.
-            captive-portal-macauth-radius-secret:
+                description: Local-bridging captive portal ac-name.
+            captive_portal_macauth_radius_secret:
                 type: raw
-                description: (list) Deprecated, please rename it to captive_portal_macauth_radius_secret. Secret key to access the macauth RADIUS server.
-            captive-portal-macauth-radius-server:
+                description: (list) Secret key to access the macauth RADIUS server.
+            captive_portal_macauth_radius_server:
                 type: str
-                description: Deprecated, please rename it to captive_portal_macauth_radius_server. Captive portal external RADIUS server domain name or...
-            captive-portal-radius-secret:
+                description: Captive portal external RADIUS server domain name or IP address.
+            captive_portal_radius_secret:
                 type: raw
-                description: (list) Deprecated, please rename it to captive_portal_radius_secret. Secret key to access the RADIUS server.
-            captive-portal-radius-server:
+                description: (list) Secret key to access the RADIUS server.
+            captive_portal_radius_server:
                 type: str
-                description: Deprecated, please rename it to captive_portal_radius_server. Captive portal RADIUS server domain name or IP address.
-            captive-portal-session-timeout-interval:
+                description: Captive portal RADIUS server domain name or IP address.
+            captive_portal_session_timeout_interval:
                 type: int
-                description: Deprecated, please rename it to captive_portal_session_timeout_interval. Session timeout interval
-            dhcp-lease-time:
+                description: Session timeout interval
+            dhcp_lease_time:
                 type: int
-                description: Deprecated, please rename it to dhcp_lease_time. DHCP lease time in seconds for NAT IP address.
-            dhcp-option82-circuit-id-insertion:
+                description: DHCP lease time in seconds for NAT IP address.
+            dhcp_option82_circuit_id_insertion:
                 type: str
-                description: Deprecated, please rename it to dhcp_option82_circuit_id_insertion. Enable/disable DHCP option 82 circuit-id insert
+                description: Enable/disable DHCP option 82 circuit-id insert
                 choices:
                     - 'disable'
                     - 'style-1'
                     - 'style-2'
                     - 'style-3'
-            dhcp-option82-insertion:
+            dhcp_option82_insertion:
                 type: str
-                description: Deprecated, please rename it to dhcp_option82_insertion. Enable/disable DHCP option 82 insert
+                description: Enable/disable DHCP option 82 insert
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-option82-remote-id-insertion:
+            dhcp_option82_remote_id_insertion:
                 type: str
-                description: Deprecated, please rename it to dhcp_option82_remote_id_insertion. Enable/disable DHCP option 82 remote-id insert
+                description: Enable/disable DHCP option 82 remote-id insert
                 choices:
                     - 'disable'
                     - 'style-1'
-            dynamic-vlan:
+            dynamic_vlan:
                 type: str
-                description: Deprecated, please rename it to dynamic_vlan. Enable/disable dynamic VLAN assignment.
+                description: Enable/disable dynamic VLAN assignment.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -311,57 +311,57 @@ options:
                             - 'ftm'
                             - 'fabric'
                             - 'speed-test'
-                    _intf_device-identification:
+                    _intf_device_identification:
                         type: str
-                        description: Deprecated, please rename it to _intf_device_identification. Intf device identification.
+                        description: Intf device identification.
                         choices:
                             - 'disable'
                             - 'enable'
-                    _intf_device-netscan:
+                    _intf_device_netscan:
                         type: str
-                        description: Deprecated, please rename it to _intf_device_netscan. Intf device netscan.
+                        description: Intf device netscan.
                         choices:
                             - 'disable'
                             - 'enable'
-                    _intf_dhcp-relay-ip:
+                    _intf_dhcp_relay_ip:
                         type: raw
-                        description: (list) Deprecated, please rename it to _intf_dhcp_relay_ip. Intf dhcp relay ip.
-                    _intf_dhcp-relay-service:
+                        description: (list) Intf dhcp relay ip.
+                    _intf_dhcp_relay_service:
                         type: str
-                        description: Deprecated, please rename it to _intf_dhcp_relay_service. Intf dhcp relay service.
+                        description: Intf dhcp relay service.
                         choices:
                             - 'disable'
                             - 'enable'
-                    _intf_dhcp-relay-type:
+                    _intf_dhcp_relay_type:
                         type: str
-                        description: Deprecated, please rename it to _intf_dhcp_relay_type. Intf dhcp relay type.
+                        description: Intf dhcp relay type.
                         choices:
                             - 'regular'
                             - 'ipsec'
-                    _intf_dhcp6-relay-ip:
+                    _intf_dhcp6_relay_ip:
                         type: str
-                        description: Deprecated, please rename it to _intf_dhcp6_relay_ip. Intf dhcp6 relay ip.
-                    _intf_dhcp6-relay-service:
+                        description: Intf dhcp6 relay ip.
+                    _intf_dhcp6_relay_service:
                         type: str
-                        description: Deprecated, please rename it to _intf_dhcp6_relay_service. Intf dhcp6 relay service.
+                        description: Intf dhcp6 relay service.
                         choices:
                             - 'disable'
                             - 'enable'
-                    _intf_dhcp6-relay-type:
+                    _intf_dhcp6_relay_type:
                         type: str
-                        description: Deprecated, please rename it to _intf_dhcp6_relay_type. Intf dhcp6 relay type.
+                        description: Intf dhcp6 relay type.
                         choices:
                             - 'regular'
                     _intf_ip:
                         type: str
                         description: Intf ip.
-                    _intf_ip6-address:
+                    _intf_ip6_address:
                         type: str
-                        description: Deprecated, please rename it to _intf_ip6_address. Intf ip6 address.
-                    _intf_ip6-allowaccess:
+                        description: Intf ip6 address.
+                    _intf_ip6_allowaccess:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to _intf_ip6_allowaccess. Intf ip6 allowaccess.
+                        description: Intf ip6 allowaccess.
                         choices:
                             - 'https'
                             - 'ping'
@@ -372,9 +372,9 @@ options:
                             - 'any'
                             - 'fgfm'
                             - 'capwap'
-                    _intf_listen-forticlient-connection:
+                    _intf_listen_forticlient_connection:
                         type: str
-                        description: Deprecated, please rename it to _intf_listen_forticlient_connection. Intf listen forticlient connection.
+                        description: Intf listen forticlient connection.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -389,18 +389,18 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    acct-interim-interval:
+                    acct_interim_interval:
                         type: int
-                        description: Deprecated, please rename it to acct_interim_interval. Acct interim interval.
-                    address-group:
+                        description: Acct interim interval.
+                    address_group:
                         type: str
-                        description: Deprecated, please rename it to address_group. Address group.
+                        description: Address group.
                     alias:
                         type: str
                         description: Alias.
-                    atf-weight:
+                    atf_weight:
                         type: int
-                        description: Deprecated, please rename it to atf_weight. Atf weight.
+                        description: Atf weight.
                     auth:
                         type: str
                         description: Auth.
@@ -410,16 +410,16 @@ options:
                             - 'RADIUS'
                             - 'radius'
                             - 'usergroup'
-                    broadcast-ssid:
+                    broadcast_ssid:
                         type: str
-                        description: Deprecated, please rename it to broadcast_ssid. Broadcast ssid.
+                        description: Broadcast ssid.
                         choices:
                             - 'disable'
                             - 'enable'
-                    broadcast-suppression:
+                    broadcast_suppression:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to broadcast_suppression. Broadcast suppression.
+                        description: Broadcast suppression.
                         choices:
                             - 'dhcp'
                             - 'arp'
@@ -440,68 +440,68 @@ options:
                             - 'all-other-bc'
                             - 'arp-proxy'
                             - 'dhcp-ucast'
-                    captive-portal-ac-name:
+                    captive_portal_ac_name:
                         type: str
-                        description: Deprecated, please rename it to captive_portal_ac_name. Captive portal ac name.
-                    captive-portal-macauth-radius-secret:
+                        description: Captive portal ac name.
+                    captive_portal_macauth_radius_secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to captive_portal_macauth_radius_secret. Captive portal macauth radius secret.
-                    captive-portal-macauth-radius-server:
+                        description: (list) Captive portal macauth radius secret.
+                    captive_portal_macauth_radius_server:
                         type: str
-                        description: Deprecated, please rename it to captive_portal_macauth_radius_server. Captive portal macauth radius server.
-                    captive-portal-radius-secret:
+                        description: Captive portal macauth radius server.
+                    captive_portal_radius_secret:
                         type: raw
-                        description: (list) Deprecated, please rename it to captive_portal_radius_secret. Captive portal radius secret.
-                    captive-portal-radius-server:
+                        description: (list) Captive portal radius secret.
+                    captive_portal_radius_server:
                         type: str
-                        description: Deprecated, please rename it to captive_portal_radius_server. Captive portal radius server.
-                    captive-portal-session-timeout-interval:
+                        description: Captive portal radius server.
+                    captive_portal_session_timeout_interval:
                         type: int
-                        description: Deprecated, please rename it to captive_portal_session_timeout_interval. Captive portal session timeout interval.
-                    client-count:
+                        description: Captive portal session timeout interval.
+                    client_count:
                         type: int
-                        description: Deprecated, please rename it to client_count. Client count.
-                    dhcp-lease-time:
+                        description: Client count.
+                    dhcp_lease_time:
                         type: int
-                        description: Deprecated, please rename it to dhcp_lease_time. Dhcp lease time.
-                    dhcp-option82-circuit-id-insertion:
+                        description: Dhcp lease time.
+                    dhcp_option82_circuit_id_insertion:
                         type: str
-                        description: Deprecated, please rename it to dhcp_option82_circuit_id_insertion. Dhcp option82 circuit id insertion.
+                        description: Dhcp option82 circuit id insertion.
                         choices:
                             - 'disable'
                             - 'style-1'
                             - 'style-2'
                             - 'style-3'
-                    dhcp-option82-insertion:
+                    dhcp_option82_insertion:
                         type: str
-                        description: Deprecated, please rename it to dhcp_option82_insertion. Dhcp option82 insertion.
+                        description: Dhcp option82 insertion.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dhcp-option82-remote-id-insertion:
+                    dhcp_option82_remote_id_insertion:
                         type: str
-                        description: Deprecated, please rename it to dhcp_option82_remote_id_insertion. Dhcp option82 remote id insertion.
+                        description: Dhcp option82 remote id insertion.
                         choices:
                             - 'disable'
                             - 'style-1'
-                    dynamic-vlan:
+                    dynamic_vlan:
                         type: str
-                        description: Deprecated, please rename it to dynamic_vlan. Dynamic vlan.
+                        description: Dynamic vlan.
                         choices:
                             - 'disable'
                             - 'enable'
-                    eap-reauth:
+                    eap_reauth:
                         type: str
-                        description: Deprecated, please rename it to eap_reauth. Eap reauth.
+                        description: Eap reauth.
                         choices:
                             - 'disable'
                             - 'enable'
-                    eap-reauth-intv:
+                    eap_reauth_intv:
                         type: int
-                        description: Deprecated, please rename it to eap_reauth_intv. Eap reauth intv.
-                    eapol-key-retries:
+                        description: Eap reauth intv.
+                    eapol_key_retries:
                         type: str
-                        description: Deprecated, please rename it to eapol_key_retries. Eapol key retries.
+                        description: Eapol key retries.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -512,57 +512,57 @@ options:
                             - 'TKIP'
                             - 'AES'
                             - 'TKIP-AES'
-                    external-fast-roaming:
+                    external_fast_roaming:
                         type: str
-                        description: Deprecated, please rename it to external_fast_roaming. External fast roaming.
+                        description: External fast roaming.
                         choices:
                             - 'disable'
                             - 'enable'
-                    external-logout:
+                    external_logout:
                         type: str
-                        description: Deprecated, please rename it to external_logout. External logout.
-                    external-web:
+                        description: External logout.
+                    external_web:
                         type: str
-                        description: Deprecated, please rename it to external_web. External web.
-                    fast-bss-transition:
+                        description: External web.
+                    fast_bss_transition:
                         type: str
-                        description: Deprecated, please rename it to fast_bss_transition. Fast bss transition.
+                        description: Fast bss transition.
                         choices:
                             - 'disable'
                             - 'enable'
-                    fast-roaming:
+                    fast_roaming:
                         type: str
-                        description: Deprecated, please rename it to fast_roaming. Fast roaming.
+                        description: Fast roaming.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ft-mobility-domain:
+                    ft_mobility_domain:
                         type: int
-                        description: Deprecated, please rename it to ft_mobility_domain. Ft mobility domain.
-                    ft-over-ds:
+                        description: Ft mobility domain.
+                    ft_over_ds:
                         type: str
-                        description: Deprecated, please rename it to ft_over_ds. Ft over ds.
+                        description: Ft over ds.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ft-r0-key-lifetime:
+                    ft_r0_key_lifetime:
                         type: int
-                        description: Deprecated, please rename it to ft_r0_key_lifetime. Ft r0 key lifetime.
-                    gtk-rekey:
+                        description: Ft r0 key lifetime.
+                    gtk_rekey:
                         type: str
-                        description: Deprecated, please rename it to gtk_rekey. Gtk rekey.
+                        description: Gtk rekey.
                         choices:
                             - 'disable'
                             - 'enable'
-                    gtk-rekey-intv:
+                    gtk_rekey_intv:
                         type: int
-                        description: Deprecated, please rename it to gtk_rekey_intv. Gtk rekey intv.
-                    hotspot20-profile:
+                        description: Gtk rekey intv.
+                    hotspot20_profile:
                         type: str
-                        description: Deprecated, please rename it to hotspot20_profile. Hotspot20 profile.
-                    intra-vap-privacy:
+                        description: Hotspot20 profile.
+                    intra_vap_privacy:
                         type: str
-                        description: Deprecated, please rename it to intra_vap_privacy. Intra vap privacy.
+                        description: Intra vap privacy.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -583,72 +583,72 @@ options:
                             - 'tx'
                             - 'rx'
                             - 'rxtx'
-                    local-authentication:
+                    local_authentication:
                         type: str
-                        description: Deprecated, please rename it to local_authentication. Local authentication.
+                        description: Local authentication.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-bridging:
+                    local_bridging:
                         type: str
-                        description: Deprecated, please rename it to local_bridging. Local bridging.
+                        description: Local bridging.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-lan:
+                    local_lan:
                         type: str
-                        description: Deprecated, please rename it to local_lan. Local lan.
+                        description: Local lan.
                         choices:
                             - 'deny'
                             - 'allow'
-                    local-standalone:
+                    local_standalone:
                         type: str
-                        description: Deprecated, please rename it to local_standalone. Local standalone.
+                        description: Local standalone.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-standalone-nat:
+                    local_standalone_nat:
                         type: str
-                        description: Deprecated, please rename it to local_standalone_nat. Local standalone nat.
+                        description: Local standalone nat.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-switching:
+                    local_switching:
                         type: str
-                        description: Deprecated, please rename it to local_switching. Local switching.
+                        description: Local switching.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-auth-bypass:
+                    mac_auth_bypass:
                         type: str
-                        description: Deprecated, please rename it to mac_auth_bypass. Mac auth bypass.
+                        description: Mac auth bypass.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-filter:
+                    mac_filter:
                         type: str
-                        description: Deprecated, please rename it to mac_filter. Mac filter.
+                        description: Mac filter.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mac-filter-policy-other:
+                    mac_filter_policy_other:
                         type: str
-                        description: Deprecated, please rename it to mac_filter_policy_other. Mac filter policy other.
+                        description: Mac filter policy other.
                         choices:
                             - 'deny'
                             - 'allow'
-                    max-clients:
+                    max_clients:
                         type: int
-                        description: Deprecated, please rename it to max_clients. Max clients.
-                    max-clients-ap:
+                        description: Max clients.
+                    max_clients_ap:
                         type: int
-                        description: Deprecated, please rename it to max_clients_ap. Max clients ap.
-                    me-disable-thresh:
+                        description: Max clients ap.
+                    me_disable_thresh:
                         type: int
-                        description: Deprecated, please rename it to me_disable_thresh. Me disable thresh.
-                    mesh-backhaul:
+                        description: Me disable thresh.
+                    mesh_backhaul:
                         type: str
-                        description: Deprecated, please rename it to mesh_backhaul. Mesh backhaul.
+                        description: Mesh backhaul.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -658,18 +658,18 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    mpsk-concurrent-clients:
+                    mpsk_concurrent_clients:
                         type: int
-                        description: Deprecated, please rename it to mpsk_concurrent_clients. Mpsk concurrent clients.
-                    multicast-enhance:
+                        description: Mpsk concurrent clients.
+                    multicast_enhance:
                         type: str
-                        description: Deprecated, please rename it to multicast_enhance. Multicast enhance.
+                        description: Multicast enhance.
                         choices:
                             - 'disable'
                             - 'enable'
-                    multicast-rate:
+                    multicast_rate:
                         type: str
-                        description: Deprecated, please rename it to multicast_rate. Multicast rate.
+                        description: Multicast rate.
                         choices:
                             - '0'
                             - '6000'
@@ -681,23 +681,23 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    owe-groups:
+                    owe_groups:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to owe_groups. Owe groups.
+                        description: Owe groups.
                         choices:
                             - '19'
                             - '20'
                             - '21'
-                    owe-transition:
+                    owe_transition:
                         type: str
-                        description: Deprecated, please rename it to owe_transition. Owe transition.
+                        description: Owe transition.
                         choices:
                             - 'disable'
                             - 'enable'
-                    owe-transition-ssid:
+                    owe_transition_ssid:
                         type: str
-                        description: Deprecated, please rename it to owe_transition_ssid. Owe transition ssid.
+                        description: Owe transition ssid.
                     passphrase:
                         type: raw
                         description: (list) Passphrase.
@@ -708,18 +708,18 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'optional'
-                    pmf-assoc-comeback-timeout:
+                    pmf_assoc_comeback_timeout:
                         type: int
-                        description: Deprecated, please rename it to pmf_assoc_comeback_timeout. Pmf assoc comeback timeout.
-                    pmf-sa-query-retry-timeout:
+                        description: Pmf assoc comeback timeout.
+                    pmf_sa_query_retry_timeout:
                         type: int
-                        description: Deprecated, please rename it to pmf_sa_query_retry_timeout. Pmf sa query retry timeout.
-                    portal-message-override-group:
+                        description: Pmf sa query retry timeout.
+                    portal_message_override_group:
                         type: str
-                        description: Deprecated, please rename it to portal_message_override_group. Portal message override group.
-                    portal-type:
+                        description: Portal message override group.
+                    portal_type:
                         type: str
-                        description: Deprecated, please rename it to portal_type. Portal type.
+                        description: Portal type.
                         choices:
                             - 'auth'
                             - 'auth+disclaimer'
@@ -730,64 +730,64 @@ options:
                             - 'auth-mac'
                             - 'external-auth'
                             - 'external-macauth'
-                    probe-resp-suppression:
+                    probe_resp_suppression:
                         type: str
-                        description: Deprecated, please rename it to probe_resp_suppression. Probe resp suppression.
+                        description: Probe resp suppression.
                         choices:
                             - 'disable'
                             - 'enable'
-                    probe-resp-threshold:
+                    probe_resp_threshold:
                         type: str
-                        description: Deprecated, please rename it to probe_resp_threshold. Probe resp threshold.
-                    ptk-rekey:
+                        description: Probe resp threshold.
+                    ptk_rekey:
                         type: str
-                        description: Deprecated, please rename it to ptk_rekey. Ptk rekey.
+                        description: Ptk rekey.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ptk-rekey-intv:
+                    ptk_rekey_intv:
                         type: int
-                        description: Deprecated, please rename it to ptk_rekey_intv. Ptk rekey intv.
-                    qos-profile:
+                        description: Ptk rekey intv.
+                    qos_profile:
                         type: str
-                        description: Deprecated, please rename it to qos_profile. Qos profile.
+                        description: Qos profile.
                     quarantine:
                         type: str
                         description: Quarantine.
                         choices:
                             - 'disable'
                             - 'enable'
-                    radio-2g-threshold:
+                    radio_2g_threshold:
                         type: str
-                        description: Deprecated, please rename it to radio_2g_threshold. Radio 2g threshold.
-                    radio-5g-threshold:
+                        description: Radio 2g threshold.
+                    radio_5g_threshold:
                         type: str
-                        description: Deprecated, please rename it to radio_5g_threshold. Radio 5g threshold.
-                    radio-sensitivity:
+                        description: Radio 5g threshold.
+                    radio_sensitivity:
                         type: str
-                        description: Deprecated, please rename it to radio_sensitivity. Radio sensitivity.
+                        description: Radio sensitivity.
                         choices:
                             - 'disable'
                             - 'enable'
-                    radius-mac-auth:
+                    radius_mac_auth:
                         type: str
-                        description: Deprecated, please rename it to radius_mac_auth. Radius mac auth.
+                        description: Radius mac auth.
                         choices:
                             - 'disable'
                             - 'enable'
-                    radius-mac-auth-server:
+                    radius_mac_auth_server:
                         type: str
-                        description: Deprecated, please rename it to radius_mac_auth_server. Radius mac auth server.
-                    radius-mac-auth-usergroups:
+                        description: Radius mac auth server.
+                    radius_mac_auth_usergroups:
                         type: raw
-                        description: (list) Deprecated, please rename it to radius_mac_auth_usergroups. Radius mac auth usergroups.
-                    radius-server:
+                        description: (list) Radius mac auth usergroups.
+                    radius_server:
                         type: str
-                        description: Deprecated, please rename it to radius_server. Radius server.
-                    rates-11a:
+                        description: Radius server.
+                    rates_11a:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11a. Rates 11a.
+                        description: Rates 11a.
                         choices:
                             - '1'
                             - '1-basic'
@@ -813,10 +813,10 @@ options:
                             - '54-basic'
                             - '11'
                             - '11-basic'
-                    rates-11ac-ss12:
+                    rates_11ac_ss12:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11ac_ss12. Rates 11ac ss12.
+                        description: Rates 11ac ss12.
                         choices:
                             - 'mcs0/1'
                             - 'mcs1/1'
@@ -842,10 +842,10 @@ options:
                             - 'mcs11/1'
                             - 'mcs10/2'
                             - 'mcs11/2'
-                    rates-11ac-ss34:
+                    rates_11ac_ss34:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11ac_ss34. Rates 11ac ss34.
+                        description: Rates 11ac ss34.
                         choices:
                             - 'mcs0/3'
                             - 'mcs1/3'
@@ -871,10 +871,10 @@ options:
                             - 'mcs11/3'
                             - 'mcs10/4'
                             - 'mcs11/4'
-                    rates-11bg:
+                    rates_11bg:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11bg. Rates 11bg.
+                        description: Rates 11bg.
                         choices:
                             - '1'
                             - '1-basic'
@@ -900,10 +900,10 @@ options:
                             - '54-basic'
                             - '11'
                             - '11-basic'
-                    rates-11n-ss12:
+                    rates_11n_ss12:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11n_ss12. Rates 11n ss12.
+                        description: Rates 11n ss12.
                         choices:
                             - 'mcs0/1'
                             - 'mcs1/1'
@@ -921,10 +921,10 @@ options:
                             - 'mcs13/2'
                             - 'mcs14/2'
                             - 'mcs15/2'
-                    rates-11n-ss34:
+                    rates_11n_ss34:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11n_ss34. Rates 11n ss34.
+                        description: Rates 11n ss34.
                         choices:
                             - 'mcs16/3'
                             - 'mcs17/3'
@@ -942,10 +942,10 @@ options:
                             - 'mcs29/4'
                             - 'mcs30/4'
                             - 'mcs31/4'
-                    sae-groups:
+                    sae_groups:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to sae_groups. Sae groups.
+                        description: Sae groups.
                         choices:
                             - '1'
                             - '2'
@@ -963,9 +963,9 @@ options:
                             - '29'
                             - '30'
                             - '31'
-                    sae-password:
+                    sae_password:
                         type: raw
-                        description: (list) Deprecated, please rename it to sae_password. Sae password.
+                        description: (list) Sae password.
                     schedule:
                         type: raw
                         description: (list or str) Schedule.
@@ -1003,54 +1003,54 @@ options:
                             - 'wpa3-sae-transition'
                             - 'wpa3-only-enterprise'
                             - 'wpa3-enterprise-transition'
-                    security-exempt-list:
+                    security_exempt_list:
                         type: str
-                        description: Deprecated, please rename it to security_exempt_list. Security exempt list.
-                    security-obsolete-option:
+                        description: Security exempt list.
+                    security_obsolete_option:
                         type: str
-                        description: Deprecated, please rename it to security_obsolete_option. Security obsolete option.
+                        description: Security obsolete option.
                         choices:
                             - 'disable'
                             - 'enable'
-                    security-redirect-url:
+                    security_redirect_url:
                         type: str
-                        description: Deprecated, please rename it to security_redirect_url. Security redirect url.
-                    selected-usergroups:
+                        description: Security redirect url.
+                    selected_usergroups:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to selected_usergroups. Selected usergroups.
-                    split-tunneling:
+                        description: (list or str) Selected usergroups.
+                    split_tunneling:
                         type: str
-                        description: Deprecated, please rename it to split_tunneling. Split tunneling.
+                        description: Split tunneling.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssid:
                         type: str
                         description: Ssid.
-                    tkip-counter-measure:
+                    tkip_counter_measure:
                         type: str
-                        description: Deprecated, please rename it to tkip_counter_measure. Tkip counter measure.
+                        description: Tkip counter measure.
                         choices:
                             - 'disable'
                             - 'enable'
                     usergroup:
                         type: raw
                         description: (list or str) Usergroup.
-                    utm-profile:
+                    utm_profile:
                         type: str
-                        description: Deprecated, please rename it to utm_profile. Utm profile.
+                        description: Utm profile.
                     vdom:
                         type: raw
                         description: (list or str) Vdom.
-                    vlan-auto:
+                    vlan_auto:
                         type: str
-                        description: Deprecated, please rename it to vlan_auto. Vlan auto.
+                        description: Vlan auto.
                         choices:
                             - 'disable'
                             - 'enable'
-                    vlan-pooling:
+                    vlan_pooling:
                         type: str
-                        description: Deprecated, please rename it to vlan_pooling. Vlan pooling.
+                        description: Vlan pooling.
                         choices:
                             - 'wtp-group'
                             - 'round-robin'
@@ -1059,62 +1059,62 @@ options:
                     vlanid:
                         type: int
                         description: Vlanid.
-                    voice-enterprise:
+                    voice_enterprise:
                         type: str
-                        description: Deprecated, please rename it to voice_enterprise. Voice enterprise.
+                        description: Voice enterprise.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mu-mimo:
+                    mu_mimo:
                         type: str
-                        description: Deprecated, please rename it to mu_mimo. Mu mimo.
+                        description: Mu mimo.
                         choices:
                             - 'disable'
                             - 'enable'
-                    _intf_device-access-list:
+                    _intf_device_access_list:
                         type: str
-                        description: Deprecated, please rename it to _intf_device_access_list. Intf device access list.
-                    external-web-format:
+                        description: Intf device access list.
+                    external_web_format:
                         type: str
-                        description: Deprecated, please rename it to external_web_format. External web format.
+                        description: External web format.
                         choices:
                             - 'auto-detect'
                             - 'no-query-string'
                             - 'partial-query-string'
-                    high-efficiency:
+                    high_efficiency:
                         type: str
-                        description: Deprecated, please rename it to high_efficiency. High efficiency.
+                        description: High efficiency.
                         choices:
                             - 'disable'
                             - 'enable'
-                    primary-wag-profile:
+                    primary_wag_profile:
                         type: str
-                        description: Deprecated, please rename it to primary_wag_profile. Primary wag profile.
-                    secondary-wag-profile:
+                        description: Primary wag profile.
+                    secondary_wag_profile:
                         type: str
-                        description: Deprecated, please rename it to secondary_wag_profile. Secondary wag profile.
-                    target-wake-time:
+                        description: Secondary wag profile.
+                    target_wake_time:
                         type: str
-                        description: Deprecated, please rename it to target_wake_time. Target wake time.
+                        description: Target wake time.
                         choices:
                             - 'disable'
                             - 'enable'
-                    tunnel-echo-interval:
+                    tunnel_echo_interval:
                         type: int
-                        description: Deprecated, please rename it to tunnel_echo_interval. Tunnel echo interval.
-                    tunnel-fallback-interval:
+                        description: Tunnel echo interval.
+                    tunnel_fallback_interval:
                         type: int
-                        description: Deprecated, please rename it to tunnel_fallback_interval. Tunnel fallback interval.
-                    access-control-list:
+                        description: Tunnel fallback interval.
+                    access_control_list:
                         type: str
-                        description: Deprecated, please rename it to access_control_list. Access control list.
-                    captive-portal-auth-timeout:
+                        description: Access control list.
+                    captive_portal_auth_timeout:
                         type: int
-                        description: Deprecated, please rename it to captive_portal_auth_timeout. Captive portal auth timeout.
-                    ipv6-rules:
+                        description: Captive portal auth timeout.
+                    ipv6_rules:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to ipv6_rules. Ipv6 rules.
+                        description: Ipv6 rules.
                         choices:
                             - 'drop-icmp6ra'
                             - 'drop-icmp6rs'
@@ -1125,116 +1125,116 @@ options:
                             - 'ndp-proxy'
                             - 'drop-ns-dad'
                             - 'drop-ns-nondad'
-                    sticky-client-remove:
+                    sticky_client_remove:
                         type: str
-                        description: Deprecated, please rename it to sticky_client_remove. Sticky client remove.
+                        description: Sticky client remove.
                         choices:
                             - 'disable'
                             - 'enable'
-                    sticky-client-threshold-2g:
+                    sticky_client_threshold_2g:
                         type: str
-                        description: Deprecated, please rename it to sticky_client_threshold_2g. Sticky client threshold 2g.
-                    sticky-client-threshold-5g:
+                        description: Sticky client threshold 2g.
+                    sticky_client_threshold_5g:
                         type: str
-                        description: Deprecated, please rename it to sticky_client_threshold_5g. Sticky client threshold 5g.
-                    bss-color-partial:
+                        description: Sticky client threshold 5g.
+                    bss_color_partial:
                         type: str
-                        description: Deprecated, please rename it to bss_color_partial. Bss color partial.
+                        description: Bss color partial.
                         choices:
                             - 'disable'
                             - 'enable'
-                    dhcp-option43-insertion:
+                    dhcp_option43_insertion:
                         type: str
-                        description: Deprecated, please rename it to dhcp_option43_insertion. Dhcp option43 insertion.
+                        description: Dhcp option43 insertion.
                         choices:
                             - 'disable'
                             - 'enable'
-                    mpsk-profile:
+                    mpsk_profile:
                         type: str
-                        description: Deprecated, please rename it to mpsk_profile. Mpsk profile.
-                    igmp-snooping:
+                        description: Mpsk profile.
+                    igmp_snooping:
                         type: str
-                        description: Deprecated, please rename it to igmp_snooping. Enable/disable IGMP snooping.
+                        description: Enable/disable IGMP snooping.
                         choices:
                             - 'disable'
                             - 'enable'
-                    port-macauth:
+                    port_macauth:
                         type: str
-                        description: Deprecated, please rename it to port_macauth. Enable/disable LAN port MAC authentication
+                        description: Enable/disable LAN port MAC authentication
                         choices:
                             - 'disable'
                             - 'radius'
                             - 'address-group'
-                    port-macauth-reauth-timeout:
+                    port_macauth_reauth_timeout:
                         type: int
-                        description: Deprecated, please rename it to port_macauth_reauth_timeout. LAN port MAC authentication re-authentication timeout...
-                    port-macauth-timeout:
+                        description: LAN port MAC authentication re-authentication timeout value
+                    port_macauth_timeout:
                         type: int
-                        description: Deprecated, please rename it to port_macauth_timeout. LAN port MAC authentication idle timeout value
-                    additional-akms:
+                        description: LAN port MAC authentication idle timeout value
+                    additional_akms:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to additional_akms. Additional AKMs.
+                        description: Additional AKMs.
                         choices:
                             - 'akm6'
                             - 'akm24'
-                    bstm-disassociation-imminent:
+                    bstm_disassociation_imminent:
                         type: str
-                        description: Deprecated, please rename it to bstm_disassociation_imminent. Enable/disable forcing of disassociation after the B...
+                        description: Enable/disable forcing of disassociation after the BSTM request timer has been reached
                         choices:
                             - 'disable'
                             - 'enable'
-                    bstm-load-balancing-disassoc-timer:
+                    bstm_load_balancing_disassoc_timer:
                         type: int
-                        description: Deprecated, please rename it to bstm_load_balancing_disassoc_timer. Time interval for client to voluntarily leave ...
-                    bstm-rssi-disassoc-timer:
+                        description: Time interval for client to voluntarily leave AP before forcing a disassociation due to AP load-balancing
+                    bstm_rssi_disassoc_timer:
                         type: int
-                        description: Deprecated, please rename it to bstm_rssi_disassoc_timer. Time interval for client to voluntarily leave AP before ...
-                    dhcp-address-enforcement:
+                        description: Time interval for client to voluntarily leave AP before forcing a disassociation due to low RSSI
+                    dhcp_address_enforcement:
                         type: str
-                        description: Deprecated, please rename it to dhcp_address_enforcement. Enable/disable DHCP address enforcement
+                        description: Enable/disable DHCP address enforcement
                         choices:
                             - 'disable'
                             - 'enable'
-                    gas-comeback-delay:
+                    gas_comeback_delay:
                         type: int
-                        description: Deprecated, please rename it to gas_comeback_delay. GAS comeback delay
-                    gas-fragmentation-limit:
+                        description: GAS comeback delay
+                    gas_fragmentation_limit:
                         type: int
-                        description: Deprecated, please rename it to gas_fragmentation_limit. GAS fragmentation limit
-                    mac-called-station-delimiter:
+                        description: GAS fragmentation limit
+                    mac_called_station_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_called_station_delimiter. MAC called station delimiter
+                        description: MAC called station delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-calling-station-delimiter:
+                    mac_calling_station_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_calling_station_delimiter. MAC calling station delimiter
+                        description: MAC calling station delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-case:
+                    mac_case:
                         type: str
-                        description: Deprecated, please rename it to mac_case. MAC case
+                        description: MAC case
                         choices:
                             - 'uppercase'
                             - 'lowercase'
-                    mac-password-delimiter:
+                    mac_password_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_password_delimiter. MAC authentication password delimiter
+                        description: MAC authentication password delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
                             - 'colon'
                             - 'none'
-                    mac-username-delimiter:
+                    mac_username_delimiter:
                         type: str
-                        description: Deprecated, please rename it to mac_username_delimiter. MAC authentication username delimiter
+                        description: MAC authentication username delimiter
                         choices:
                             - 'hyphen'
                             - 'single-hyphen'
@@ -1246,9 +1246,9 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    mbo-cell-data-conn-pref:
+                    mbo_cell_data_conn_pref:
                         type: str
-                        description: Deprecated, please rename it to mbo_cell_data_conn_pref. MBO cell data connection preference
+                        description: MBO cell data connection preference
                         choices:
                             - 'excluded'
                             - 'prefer-not'
@@ -1259,88 +1259,88 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    nac-profile:
+                    nac_profile:
                         type: str
-                        description: Deprecated, please rename it to nac_profile. NAC profile name.
-                    neighbor-report-dual-band:
+                        description: NAC profile name.
+                    neighbor_report_dual_band:
                         type: str
-                        description: Deprecated, please rename it to neighbor_report_dual_band. Enable/disable dual-band neighbor report
+                        description: Enable/disable dual-band neighbor report
                         choices:
                             - 'disable'
                             - 'enable'
-                    address-group-policy:
+                    address_group_policy:
                         type: str
-                        description: Deprecated, please rename it to address_group_policy. Configure MAC address filtering policy for MAC addresses tha...
+                        description: Configure MAC address filtering policy for MAC addresses that are in the address-group.
                         choices:
                             - 'disable'
                             - 'allow'
                             - 'deny'
-                    antivirus-profile:
+                    antivirus_profile:
                         type: str
-                        description: Deprecated, please rename it to antivirus_profile. AntiVirus profile name.
-                    application-detection-engine:
+                        description: AntiVirus profile name.
+                    application_detection_engine:
                         type: str
-                        description: Deprecated, please rename it to application_detection_engine. Enable/disable application detection engine
+                        description: Enable/disable application detection engine
                         choices:
                             - 'disable'
                             - 'enable'
-                    application-list:
+                    application_list:
                         type: str
-                        description: Deprecated, please rename it to application_list. Application control list name.
-                    application-report-intv:
+                        description: Application control list name.
+                    application_report_intv:
                         type: int
-                        description: Deprecated, please rename it to application_report_intv. Application report interval
-                    auth-cert:
+                        description: Application report interval
+                    auth_cert:
                         type: str
-                        description: Deprecated, please rename it to auth_cert. HTTPS server certificate.
-                    auth-portal-addr:
+                        description: HTTPS server certificate.
+                    auth_portal_addr:
                         type: str
-                        description: Deprecated, please rename it to auth_portal_addr. Address of captive portal.
-                    beacon-advertising:
+                        description: Address of captive portal.
+                    beacon_advertising:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to beacon_advertising. Fortinet beacon advertising IE data
+                        description: Fortinet beacon advertising IE data
                         choices:
                             - 'name'
                             - 'model'
                             - 'serial-number'
-                    ips-sensor:
+                    ips_sensor:
                         type: str
-                        description: Deprecated, please rename it to ips_sensor. IPS sensor name.
-                    l3-roaming:
+                        description: IPS sensor name.
+                    l3_roaming:
                         type: str
-                        description: Deprecated, please rename it to l3_roaming. Enable/disable layer 3 roaming
+                        description: Enable/disable layer 3 roaming
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-standalone-dns:
+                    local_standalone_dns:
                         type: str
-                        description: Deprecated, please rename it to local_standalone_dns. Enable/disable AP local standalone DNS.
+                        description: Enable/disable AP local standalone DNS.
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-standalone-dns-ip:
+                    local_standalone_dns_ip:
                         type: raw
-                        description: (list) Deprecated, please rename it to local_standalone_dns_ip. IPv4 addresses for the local standalone DNS.
+                        description: (list) IPv4 addresses for the local standalone DNS.
                     osen:
                         type: str
                         description: Enable/disable OSEN as part of key management
                         choices:
                             - 'disable'
                             - 'enable'
-                    radius-mac-mpsk-auth:
+                    radius_mac_mpsk_auth:
                         type: str
-                        description: Deprecated, please rename it to radius_mac_mpsk_auth. Enable/disable RADIUS-based MAC authentication of clients fo...
+                        description: Enable/disable RADIUS-based MAC authentication of clients for MPSK authentication
                         choices:
                             - 'disable'
                             - 'enable'
-                    radius-mac-mpsk-timeout:
+                    radius_mac_mpsk_timeout:
                         type: int
-                        description: Deprecated, please rename it to radius_mac_mpsk_timeout. RADIUS MAC MPSK cache timeout interval
-                    rates-11ax-ss12:
+                        description: RADIUS MAC MPSK cache timeout interval
+                    rates_11ax_ss12:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11ax_ss12. Allowed data rates for 802.
+                        description: Allowed data rates for 802.
                         choices:
                             - 'mcs0/1'
                             - 'mcs1/1'
@@ -1366,10 +1366,10 @@ options:
                             - 'mcs9/2'
                             - 'mcs10/2'
                             - 'mcs11/2'
-                    rates-11ax-ss34:
+                    rates_11ax_ss34:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to rates_11ax_ss34. Allowed data rates for 802.
+                        description: Allowed data rates for 802.
                         choices:
                             - 'mcs0/3'
                             - 'mcs1/3'
@@ -1395,73 +1395,73 @@ options:
                             - 'mcs9/4'
                             - 'mcs10/4'
                             - 'mcs11/4'
-                    scan-botnet-connections:
+                    scan_botnet_connections:
                         type: str
-                        description: Deprecated, please rename it to scan_botnet_connections. Block or monitor connections to Botnet servers or disable...
+                        description: Block or monitor connections to Botnet servers or disable Botnet scanning.
                         choices:
                             - 'disable'
                             - 'block'
                             - 'monitor'
-                    utm-log:
+                    utm_log:
                         type: str
-                        description: Deprecated, please rename it to utm_log. Enable/disable UTM logging.
+                        description: Enable/disable UTM logging.
                         choices:
                             - 'disable'
                             - 'enable'
-                    utm-status:
+                    utm_status:
                         type: str
-                        description: Deprecated, please rename it to utm_status. Enable to add one or more security profiles
+                        description: Enable to add one or more security profiles
                         choices:
                             - 'disable'
                             - 'enable'
-                    webfilter-profile:
+                    webfilter_profile:
                         type: str
-                        description: Deprecated, please rename it to webfilter_profile. WebFilter profile name.
-                    sae-h2e-only:
+                        description: WebFilter profile name.
+                    sae_h2e_only:
                         type: str
-                        description: Deprecated, please rename it to sae_h2e_only. Use hash-to-element-only mechanism for PWE derivation
+                        description: Use hash-to-element-only mechanism for PWE derivation
                         choices:
                             - 'disable'
                             - 'enable'
-                    sae-pk:
+                    sae_pk:
                         type: str
-                        description: Deprecated, please rename it to sae_pk. Enable/disable WPA3 SAE-PK
+                        description: Enable/disable WPA3 SAE-PK
                         choices:
                             - 'disable'
                             - 'enable'
-                    sae-private-key:
+                    sae_private_key:
                         type: str
-                        description: Deprecated, please rename it to sae_private_key. Private key used for WPA3 SAE-PK authentication.
-                    sticky-client-threshold-6g:
+                        description: Private key used for WPA3 SAE-PK authentication.
+                    sticky_client_threshold_6g:
                         type: str
-                        description: Deprecated, please rename it to sticky_client_threshold_6g. Minimum signal level/threshold in dBm required for the...
-                    application-dscp-marking:
+                        description: Minimum signal level/threshold in dBm required for the 6G client to be serviced by the AP
+                    application_dscp_marking:
                         type: str
-                        description: Deprecated, please rename it to application_dscp_marking. Enable/disable application attribute based DSCP marking
+                        description: Enable/disable application attribute based DSCP marking
                         choices:
                             - 'disable'
                             - 'enable'
-                    l3-roaming-mode:
+                    l3_roaming_mode:
                         type: str
-                        description: Deprecated, please rename it to l3_roaming_mode. Select the way that layer 3 roaming traffic is passed
+                        description: Select the way that layer 3 roaming traffic is passed
                         choices:
                             - 'direct'
                             - 'indirect'
-                    rates-11ac-mcs-map:
+                    rates_11ac_mcs_map:
                         type: str
-                        description: Deprecated, please rename it to rates_11ac_mcs_map. Comma separated list of max supported VHT MCS for spatial stre...
-                    rates-11ax-mcs-map:
+                        description: Comma separated list of max supported VHT MCS for spatial streams 1 through 8.
+                    rates_11ax_mcs_map:
                         type: str
-                        description: Deprecated, please rename it to rates_11ax_mcs_map. Comma separated list of max supported HE MCS for spatial strea...
-                    captive-portal-fw-accounting:
+                        description: Comma separated list of max supported HE MCS for spatial streams 1 through 8.
+                    captive_portal_fw_accounting:
                         type: str
-                        description: Deprecated, please rename it to captive_portal_fw_accounting. Enable/disable RADIUS accounting for captive portal ...
+                        description: Enable/disable RADIUS accounting for captive portal firewall authentication session.
                         choices:
                             - 'disable'
                             - 'enable'
-                    radius-mac-auth-block-interval:
+                    radius_mac_auth_block_interval:
                         type: int
-                        description: Deprecated, please rename it to radius_mac_auth_block_interval. Dont send RADIUS MAC auth request again if the cli...
+                        description: Dont send RADIUS MAC auth request again if the client has been rejected within specific interval
                     _is_factory_setting:
                         type: str
                         description: Is factory setting.
@@ -1469,73 +1469,73 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'ext'
-                    80211k:
+                    d80211k:
                         type: str
-                        description: Deprecated, please rename it to d80211k. Enable/disable 802.
+                        description: Enable/disable 802.
                         choices:
                             - 'disable'
                             - 'enable'
-                    80211v:
+                    d80211v:
                         type: str
-                        description: Deprecated, please rename it to d80211v. Enable/disable 802.
+                        description: Enable/disable 802.
                         choices:
                             - 'disable'
                             - 'enable'
-                    roaming-acct-interim-update:
+                    roaming_acct_interim_update:
                         type: str
-                        description: Deprecated, please rename it to roaming_acct_interim_update. Enable/disable using accounting interim update instea...
+                        description: Enable/disable using accounting interim update instead of accounting start/stop on roaming for WPA-Enterprise secu...
                         choices:
                             - 'disable'
                             - 'enable'
-                    sae-hnp-only:
+                    sae_hnp_only:
                         type: str
-                        description: Deprecated, please rename it to sae_hnp_only. Use hunting-and-pecking-only mechanism for PWE derivation
+                        description: Use hunting-and-pecking-only mechanism for PWE derivation
                         choices:
                             - 'disable'
                             - 'enable'
-                    akm24-only:
+                    akm24_only:
                         type: str
-                        description: Deprecated, please rename it to akm24_only. WPA3 SAE using group-dependent hash only
+                        description: WPA3 SAE using group-dependent hash only
                         choices:
                             - 'disable'
                             - 'enable'
-                    beacon-protection:
+                    beacon_protection:
                         type: str
-                        description: Deprecated, please rename it to beacon_protection. Enable/disable beacon protection support
+                        description: Enable/disable beacon protection support
                         choices:
                             - 'disable'
                             - 'enable'
-                    captive-portal:
+                    captive_portal:
                         type: str
-                        description: Deprecated, please rename it to captive_portal. Enable/disable captive portal.
+                        description: Enable/disable captive portal.
                         choices:
                             - 'disable'
                             - 'enable'
-                    nas-filter-rule:
+                    nas_filter_rule:
                         type: str
-                        description: Deprecated, please rename it to nas_filter_rule. Enable/disable NAS filter rule support
+                        description: Enable/disable NAS filter rule support
                         choices:
                             - 'disable'
                             - 'enable'
-                    rates-11be-mcs-map:
+                    rates_11be_mcs_map:
                         type: str
-                        description: Deprecated, please rename it to rates_11be_mcs_map. Comma separated list of max nss that supports EHT-MCS 0-9, 10-...
-                    rates-11be-mcs-map-160:
+                        description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 20MHz/40MHz/80MHz bandwidth.
+                    rates_11be_mcs_map_160:
                         type: str
-                        description: Deprecated, please rename it to rates_11be_mcs_map_160. Comma separated list of max nss that supports EHT-MCS 0-9,...
-                    rates-11be-mcs-map-320:
+                        description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 160MHz bandwidth.
+                    rates_11be_mcs_map_320:
                         type: str
-                        description: Deprecated, please rename it to rates_11be_mcs_map_320. Comma separated list of max nss that supports EHT-MCS 0-9,...
-                    _intf_ip-managed-by-fortiipam:
+                        description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 320MHz bandwidth.
+                    _intf_ip_managed_by_fortiipam:
                         type: str
-                        description: Deprecated, please rename it to _intf_ip_managed_by_fortiipam. Intf ip managed by fortiipam.
+                        description: Intf ip managed by fortiipam.
                         choices:
                             - 'disable'
                             - 'enable'
                             - 'inherit-global'
-                    _intf_managed-subnetwork-size:
+                    _intf_managed_subnetwork_size:
                         type: str
-                        description: Deprecated, please rename it to _intf_managed_subnetwork_size. Intf managed subnetwork size.
+                        description: Intf managed subnetwork size.
                         choices:
                             - '32'
                             - '64'
@@ -1549,30 +1549,30 @@ options:
                             - '16384'
                             - '32768'
                             - '65536'
-                    domain-name-stripping:
+                    domain_name_stripping:
                         type: str
-                        description: Deprecated, please rename it to domain_name_stripping. Enable/disable stripping domain name from identity
+                        description: Enable/disable stripping domain name from identity
                         choices:
                             - 'disable'
                             - 'enable'
-                    local-lan-partition:
+                    local_lan_partition:
                         type: str
-                        description: Deprecated, please rename it to local_lan_partition. Enable/disable segregating client traffic to local LAN side
+                        description: Enable/disable segregating client traffic to local LAN side
                         choices:
                             - 'disable'
                             - 'enable'
-            eap-reauth:
+            eap_reauth:
                 type: str
-                description: Deprecated, please rename it to eap_reauth. Enable/disable EAP re-authentication for WPA-Enterprise security.
+                description: Enable/disable EAP re-authentication for WPA-Enterprise security.
                 choices:
                     - 'disable'
                     - 'enable'
-            eap-reauth-intv:
+            eap_reauth_intv:
                 type: int
-                description: Deprecated, please rename it to eap_reauth_intv. EAP re-authentication interval
-            eapol-key-retries:
+                description: EAP re-authentication interval
+            eapol_key_retries:
                 type: str
-                description: Deprecated, please rename it to eapol_key_retries. Enable/disable retransmission of EAPOL-Key frames
+                description: Enable/disable retransmission of EAPOL-Key frames
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1583,57 +1583,57 @@ options:
                     - 'TKIP'
                     - 'AES'
                     - 'TKIP-AES'
-            external-fast-roaming:
+            external_fast_roaming:
                 type: str
-                description: Deprecated, please rename it to external_fast_roaming. Enable/disable fast roaming or pre-authentication with external APs...
+                description: Enable/disable fast roaming or pre-authentication with external APs not managed by the FortiGate
                 choices:
                     - 'disable'
                     - 'enable'
-            external-logout:
+            external_logout:
                 type: str
-                description: Deprecated, please rename it to external_logout. URL of external authentication logout server.
-            external-web:
+                description: URL of external authentication logout server.
+            external_web:
                 type: str
-                description: Deprecated, please rename it to external_web. URL of external authentication web server.
-            fast-bss-transition:
+                description: URL of external authentication web server.
+            fast_bss_transition:
                 type: str
-                description: Deprecated, please rename it to fast_bss_transition. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            fast-roaming:
+            fast_roaming:
                 type: str
-                description: Deprecated, please rename it to fast_roaming. Enable/disable fast-roaming, or pre-authentication, where supported by clients
+                description: Enable/disable fast-roaming, or pre-authentication, where supported by clients
                 choices:
                     - 'disable'
                     - 'enable'
-            ft-mobility-domain:
+            ft_mobility_domain:
                 type: int
-                description: Deprecated, please rename it to ft_mobility_domain. Mobility domain identifier in FT
-            ft-over-ds:
+                description: Mobility domain identifier in FT
+            ft_over_ds:
                 type: str
-                description: Deprecated, please rename it to ft_over_ds. Enable/disable FT over the Distribution System
+                description: Enable/disable FT over the Distribution System
                 choices:
                     - 'disable'
                     - 'enable'
-            ft-r0-key-lifetime:
+            ft_r0_key_lifetime:
                 type: int
-                description: Deprecated, please rename it to ft_r0_key_lifetime. Lifetime of the PMK-R0 key in FT, 1-65535 minutes.
-            gtk-rekey:
+                description: Lifetime of the PMK-R0 key in FT, 1-65535 minutes.
+            gtk_rekey:
                 type: str
-                description: Deprecated, please rename it to gtk_rekey. Enable/disable GTK rekey for WPA security.
+                description: Enable/disable GTK rekey for WPA security.
                 choices:
                     - 'disable'
                     - 'enable'
-            gtk-rekey-intv:
+            gtk_rekey_intv:
                 type: int
-                description: Deprecated, please rename it to gtk_rekey_intv. GTK rekey interval
-            hotspot20-profile:
+                description: GTK rekey interval
+            hotspot20_profile:
                 type: str
-                description: Deprecated, please rename it to hotspot20_profile. Hotspot 2.
-            intra-vap-privacy:
+                description: Hotspot 2.
+            intra_vap_privacy:
                 type: str
-                description: Deprecated, please rename it to intra_vap_privacy. Enable/disable blocking communication between clients on the same SSID
+                description: Enable/disable blocking communication between clients on the same SSID
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1654,52 +1654,52 @@ options:
                     - 'tx'
                     - 'rx'
                     - 'rxtx'
-            local-authentication:
+            local_authentication:
                 type: str
-                description: Deprecated, please rename it to local_authentication. Enable/disable AP local authentication.
+                description: Enable/disable AP local authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            local-bridging:
+            local_bridging:
                 type: str
-                description: Deprecated, please rename it to local_bridging. Enable/disable bridging of wireless and Ethernet interfaces on the FortiAP
+                description: Enable/disable bridging of wireless and Ethernet interfaces on the FortiAP
                 choices:
                     - 'disable'
                     - 'enable'
-            local-lan:
+            local_lan:
                 type: str
-                description: Deprecated, please rename it to local_lan. Allow/deny traffic destined for a Class A, B, or C private IP address
+                description: Allow/deny traffic destined for a Class A, B, or C private IP address
                 choices:
                     - 'deny'
                     - 'allow'
-            local-standalone:
+            local_standalone:
                 type: str
-                description: Deprecated, please rename it to local_standalone. Enable/disable AP local standalone
+                description: Enable/disable AP local standalone
                 choices:
                     - 'disable'
                     - 'enable'
-            local-standalone-nat:
+            local_standalone_nat:
                 type: str
-                description: Deprecated, please rename it to local_standalone_nat. Enable/disable AP local standalone NAT mode.
+                description: Enable/disable AP local standalone NAT mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-auth-bypass:
+            mac_auth_bypass:
                 type: str
-                description: Deprecated, please rename it to mac_auth_bypass. Enable/disable MAC authentication bypass.
+                description: Enable/disable MAC authentication bypass.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-filter:
+            mac_filter:
                 type: str
-                description: Deprecated, please rename it to mac_filter. Enable/disable MAC filtering to block wireless clients by mac address.
+                description: Enable/disable MAC filtering to block wireless clients by mac address.
                 choices:
                     - 'disable'
                     - 'enable'
-            mac-filter-list:
+            mac_filter_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mac_filter_list. Mac filter list.
+                description: Mac filter list.
                 suboptions:
                     id:
                         type: int
@@ -1707,30 +1707,30 @@ options:
                     mac:
                         type: str
                         description: MAC address.
-                    mac-filter-policy:
+                    mac_filter_policy:
                         type: str
-                        description: Deprecated, please rename it to mac_filter_policy. Deny or allow the client with this MAC address.
+                        description: Deny or allow the client with this MAC address.
                         choices:
                             - 'deny'
                             - 'allow'
-            mac-filter-policy-other:
+            mac_filter_policy_other:
                 type: str
-                description: Deprecated, please rename it to mac_filter_policy_other. Allow or block clients with MAC addresses that are not in the fil...
+                description: Allow or block clients with MAC addresses that are not in the filter list.
                 choices:
                     - 'deny'
                     - 'allow'
-            max-clients:
+            max_clients:
                 type: int
-                description: Deprecated, please rename it to max_clients. Maximum number of clients that can connect simultaneously to the VAP
-            max-clients-ap:
+                description: Maximum number of clients that can connect simultaneously to the VAP
+            max_clients_ap:
                 type: int
-                description: Deprecated, please rename it to max_clients_ap. Maximum number of clients that can connect simultaneously to each radio
-            me-disable-thresh:
+                description: Maximum number of clients that can connect simultaneously to each radio
+            me_disable_thresh:
                 type: int
-                description: Deprecated, please rename it to me_disable_thresh. Disable multicast enhancement when this many clients are receiving mult...
-            mesh-backhaul:
+                description: Disable multicast enhancement when this many clients are receiving multicast traffic.
+            mesh_backhaul:
                 type: str
-                description: Deprecated, please rename it to mesh_backhaul. Enable/disable using this VAP as a WiFi mesh backhaul
+                description: Enable/disable using this VAP as a WiFi mesh backhaul
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1740,38 +1740,38 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            mpsk-concurrent-clients:
+            mpsk_concurrent_clients:
                 type: int
-                description: Deprecated, please rename it to mpsk_concurrent_clients. Number of pre-shared keys
-            mpsk-key:
+                description: Number of pre-shared keys
+            mpsk_key:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mpsk_key. Mpsk key.
+                description: Mpsk key.
                 suboptions:
                     comment:
                         type: str
                         description: Comment.
-                    concurrent-clients:
+                    concurrent_clients:
                         type: str
-                        description: Deprecated, please rename it to concurrent_clients. Number of clients that can connect using this pre-shared key.
-                    key-name:
+                        description: Number of clients that can connect using this pre-shared key.
+                    key_name:
                         type: str
-                        description: Deprecated, please rename it to key_name. Pre-shared key name.
+                        description: Pre-shared key name.
                     passphrase:
                         type: raw
                         description: (list) WPA Pre-shared key.
-                    mpsk-schedules:
+                    mpsk_schedules:
                         type: raw
-                        description: (list or str) Deprecated, please rename it to mpsk_schedules. Firewall schedule for MPSK passphrase.
-            multicast-enhance:
+                        description: (list or str) Firewall schedule for MPSK passphrase.
+            multicast_enhance:
                 type: str
-                description: Deprecated, please rename it to multicast_enhance. Enable/disable converting multicast to unicast to improve performance
+                description: Enable/disable converting multicast to unicast to improve performance
                 choices:
                     - 'disable'
                     - 'enable'
-            multicast-rate:
+            multicast_rate:
                 type: str
-                description: Deprecated, please rename it to multicast_rate. Multicast rate
+                description: Multicast rate
                 choices:
                     - '0'
                     - '6000'
@@ -1797,18 +1797,18 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'optional'
-            pmf-assoc-comeback-timeout:
+            pmf_assoc_comeback_timeout:
                 type: int
-                description: Deprecated, please rename it to pmf_assoc_comeback_timeout. Protected Management Frames
-            pmf-sa-query-retry-timeout:
+                description: Protected Management Frames
+            pmf_sa_query_retry_timeout:
                 type: int
-                description: Deprecated, please rename it to pmf_sa_query_retry_timeout. Protected Management Frames
-            portal-message-override-group:
+                description: Protected Management Frames
+            portal_message_override_group:
                 type: str
-                description: Deprecated, please rename it to portal_message_override_group. Replacement message group for this VAP
-            portal-type:
+                description: Replacement message group for this VAP
+            portal_type:
                 type: str
-                description: Deprecated, please rename it to portal_type. Captive portal functionality.
+                description: Captive portal functionality.
                 choices:
                     - 'auth'
                     - 'auth+disclaimer'
@@ -1819,64 +1819,64 @@ options:
                     - 'auth-mac'
                     - 'external-auth'
                     - 'external-macauth'
-            probe-resp-suppression:
+            probe_resp_suppression:
                 type: str
-                description: Deprecated, please rename it to probe_resp_suppression. Enable/disable probe response suppression
+                description: Enable/disable probe response suppression
                 choices:
                     - 'disable'
                     - 'enable'
-            probe-resp-threshold:
+            probe_resp_threshold:
                 type: str
-                description: Deprecated, please rename it to probe_resp_threshold. Minimum signal level/threshold in dBm required for the AP response t...
-            ptk-rekey:
+                description: Minimum signal level/threshold in dBm required for the AP response to probe requests
+            ptk_rekey:
                 type: str
-                description: Deprecated, please rename it to ptk_rekey. Enable/disable PTK rekey for WPA-Enterprise security.
+                description: Enable/disable PTK rekey for WPA-Enterprise security.
                 choices:
                     - 'disable'
                     - 'enable'
-            ptk-rekey-intv:
+            ptk_rekey_intv:
                 type: int
-                description: Deprecated, please rename it to ptk_rekey_intv. PTK rekey interval
-            qos-profile:
+                description: PTK rekey interval
+            qos_profile:
                 type: str
-                description: Deprecated, please rename it to qos_profile. Quality of service profile name.
+                description: Quality of service profile name.
             quarantine:
                 type: str
                 description: Enable/disable station quarantine
                 choices:
                     - 'disable'
                     - 'enable'
-            radio-2g-threshold:
+            radio_2g_threshold:
                 type: str
-                description: Deprecated, please rename it to radio_2g_threshold. Minimum signal level/threshold in dBm required for the AP response to ...
-            radio-5g-threshold:
+                description: Minimum signal level/threshold in dBm required for the AP response to receive a packet in 2.
+            radio_5g_threshold:
                 type: str
-                description: Deprecated, please rename it to radio_5g_threshold. Minimum signal level/threshold in dBm required for the AP response to ...
-            radio-sensitivity:
+                description: Minimum signal level/threshold in dBm required for the AP response to receive a packet in 5G band
+            radio_sensitivity:
                 type: str
-                description: Deprecated, please rename it to radio_sensitivity. Enable/disable software radio sensitivity
+                description: Enable/disable software radio sensitivity
                 choices:
                     - 'disable'
                     - 'enable'
-            radius-mac-auth:
+            radius_mac_auth:
                 type: str
-                description: Deprecated, please rename it to radius_mac_auth. Enable/disable RADIUS-based MAC authentication of clients
+                description: Enable/disable RADIUS-based MAC authentication of clients
                 choices:
                     - 'disable'
                     - 'enable'
-            radius-mac-auth-server:
+            radius_mac_auth_server:
                 type: str
-                description: Deprecated, please rename it to radius_mac_auth_server. RADIUS-based MAC authentication server.
-            radius-mac-auth-usergroups:
+                description: RADIUS-based MAC authentication server.
+            radius_mac_auth_usergroups:
                 type: raw
-                description: (list) Deprecated, please rename it to radius_mac_auth_usergroups. Selective user groups that are permitted for RADIUS mac...
-            radius-server:
+                description: (list) Selective user groups that are permitted for RADIUS mac authentication.
+            radius_server:
                 type: str
-                description: Deprecated, please rename it to radius_server. RADIUS server to be used to authenticate WiFi users.
-            rates-11a:
+                description: RADIUS server to be used to authenticate WiFi users.
+            rates_11a:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11a. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - '1'
                     - '1-basic'
@@ -1902,10 +1902,10 @@ options:
                     - '54-basic'
                     - '11'
                     - '11-basic'
-            rates-11ac-ss12:
+            rates_11ac_ss12:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11ac_ss12. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs0/1'
                     - 'mcs1/1'
@@ -1931,10 +1931,10 @@ options:
                     - 'mcs11/1'
                     - 'mcs10/2'
                     - 'mcs11/2'
-            rates-11ac-ss34:
+            rates_11ac_ss34:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11ac_ss34. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs0/3'
                     - 'mcs1/3'
@@ -1960,10 +1960,10 @@ options:
                     - 'mcs11/3'
                     - 'mcs10/4'
                     - 'mcs11/4'
-            rates-11bg:
+            rates_11bg:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11bg. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - '1'
                     - '1-basic'
@@ -1989,10 +1989,10 @@ options:
                     - '54-basic'
                     - '11'
                     - '11-basic'
-            rates-11n-ss12:
+            rates_11n_ss12:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11n_ss12. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs0/1'
                     - 'mcs1/1'
@@ -2010,10 +2010,10 @@ options:
                     - 'mcs13/2'
                     - 'mcs14/2'
                     - 'mcs15/2'
-            rates-11n-ss34:
+            rates_11n_ss34:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11n_ss34. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs16/3'
                     - 'mcs17/3'
@@ -2068,68 +2068,68 @@ options:
                     - 'wpa3-sae-transition'
                     - 'wpa3-only-enterprise'
                     - 'wpa3-enterprise-transition'
-            security-exempt-list:
+            security_exempt_list:
                 type: str
-                description: Deprecated, please rename it to security_exempt_list. Optional security exempt list for captive portal authentication.
-            security-obsolete-option:
+                description: Optional security exempt list for captive portal authentication.
+            security_obsolete_option:
                 type: str
-                description: Deprecated, please rename it to security_obsolete_option. Enable/disable obsolete security options.
+                description: Enable/disable obsolete security options.
                 choices:
                     - 'disable'
                     - 'enable'
-            security-redirect-url:
+            security_redirect_url:
                 type: str
-                description: Deprecated, please rename it to security_redirect_url. Optional URL for redirecting users after they pass captive portal a...
-            selected-usergroups:
+                description: Optional URL for redirecting users after they pass captive portal authentication.
+            selected_usergroups:
                 type: raw
-                description: (list or str) Deprecated, please rename it to selected_usergroups. Selective user groups that are permitted to authenticate.
-            split-tunneling:
+                description: (list or str) Selective user groups that are permitted to authenticate.
+            split_tunneling:
                 type: str
-                description: Deprecated, please rename it to split_tunneling. Enable/disable split tunneling
+                description: Enable/disable split tunneling
                 choices:
                     - 'disable'
                     - 'enable'
             ssid:
                 type: str
                 description: IEEE 802.
-            tkip-counter-measure:
+            tkip_counter_measure:
                 type: str
-                description: Deprecated, please rename it to tkip_counter_measure. Enable/disable TKIP counter measure.
+                description: Enable/disable TKIP counter measure.
                 choices:
                     - 'disable'
                     - 'enable'
             usergroup:
                 type: raw
                 description: (list or str) Firewall user group to be used to authenticate WiFi users.
-            utm-profile:
+            utm_profile:
                 type: str
-                description: Deprecated, please rename it to utm_profile. UTM profile name.
+                description: UTM profile name.
             vdom:
                 type: str
                 description: Name of the VDOM that the Virtual AP has been added to.
-            vlan-auto:
+            vlan_auto:
                 type: str
-                description: Deprecated, please rename it to vlan_auto. Enable/disable automatic management of SSID VLAN interface.
+                description: Enable/disable automatic management of SSID VLAN interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            vlan-pool:
+            vlan_pool:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to vlan_pool. Vlan pool.
+                description: Vlan pool.
                 suboptions:
-                    _wtp-group:
+                    _wtp_group:
                         type: str
-                        description: Deprecated, please rename it to _wtp_group. Wtp group.
+                        description: Wtp group.
                     id:
                         type: int
                         description: ID.
-                    wtp-group:
+                    wtp_group:
                         type: str
-                        description: Deprecated, please rename it to wtp_group. WTP group name.
-            vlan-pooling:
+                        description: WTP group name.
+            vlan_pooling:
                 type: str
-                description: Deprecated, please rename it to vlan_pooling. Enable/disable VLAN pooling, to allow grouping of multiple wireless controll...
+                description: Enable/disable VLAN pooling, to allow grouping of multiple wireless controller VLANs into VLAN pools
                 choices:
                     - 'wtp-group'
                     - 'round-robin'
@@ -2138,45 +2138,45 @@ options:
             vlanid:
                 type: int
                 description: Optional VLAN ID.
-            voice-enterprise:
+            voice_enterprise:
                 type: str
-                description: Deprecated, please rename it to voice_enterprise. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            address-group:
+            address_group:
                 type: str
-                description: Deprecated, please rename it to address_group. Address group ID.
-            atf-weight:
+                description: Address group ID.
+            atf_weight:
                 type: int
-                description: Deprecated, please rename it to atf_weight. Airtime weight in percentage
-            mu-mimo:
+                description: Airtime weight in percentage
+            mu_mimo:
                 type: str
-                description: Deprecated, please rename it to mu_mimo. Enable/disable Multi-user MIMO
+                description: Enable/disable Multi-user MIMO
                 choices:
                     - 'disable'
                     - 'enable'
-            owe-groups:
+            owe_groups:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to owe_groups. OWE-Groups.
+                description: OWE-Groups.
                 choices:
                     - '19'
                     - '20'
                     - '21'
-            owe-transition:
+            owe_transition:
                 type: str
-                description: Deprecated, please rename it to owe_transition. Enable/disable OWE transition mode support.
+                description: Enable/disable OWE transition mode support.
                 choices:
                     - 'disable'
                     - 'enable'
-            owe-transition-ssid:
+            owe_transition_ssid:
                 type: str
-                description: Deprecated, please rename it to owe_transition_ssid. OWE transition mode peer SSID.
-            sae-groups:
+                description: OWE transition mode peer SSID.
+            sae_groups:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to sae_groups. SAE-Groups.
+                description: SAE-Groups.
                 choices:
                     - '1'
                     - '2'
@@ -2194,53 +2194,53 @@ options:
                     - '29'
                     - '30'
                     - '31'
-            sae-password:
+            sae_password:
                 type: raw
-                description: (list) Deprecated, please rename it to sae_password. WPA3 SAE password to be used to authenticate WiFi users.
-            _intf_device-access-list:
+                description: (list) WPA3 SAE password to be used to authenticate WiFi users.
+            _intf_device_access_list:
                 type: str
-                description: Deprecated, please rename it to _intf_device_access_list. Intf device access list.
-            external-web-format:
+                description: Intf device access list.
+            external_web_format:
                 type: str
-                description: Deprecated, please rename it to external_web_format. URL query parameter detection
+                description: URL query parameter detection
                 choices:
                     - 'auto-detect'
                     - 'no-query-string'
                     - 'partial-query-string'
-            high-efficiency:
+            high_efficiency:
                 type: str
-                description: Deprecated, please rename it to high_efficiency. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            primary-wag-profile:
+            primary_wag_profile:
                 type: str
-                description: Deprecated, please rename it to primary_wag_profile. Primary wireless access gateway profile name.
-            secondary-wag-profile:
+                description: Primary wireless access gateway profile name.
+            secondary_wag_profile:
                 type: str
-                description: Deprecated, please rename it to secondary_wag_profile. Secondary wireless access gateway profile name.
-            target-wake-time:
+                description: Secondary wireless access gateway profile name.
+            target_wake_time:
                 type: str
-                description: Deprecated, please rename it to target_wake_time. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            tunnel-echo-interval:
+            tunnel_echo_interval:
                 type: int
-                description: Deprecated, please rename it to tunnel_echo_interval. The time interval to send echo to both primary and secondary tunnel ...
-            tunnel-fallback-interval:
+                description: The time interval to send echo to both primary and secondary tunnel peers
+            tunnel_fallback_interval:
                 type: int
-                description: Deprecated, please rename it to tunnel_fallback_interval. The time interval for secondary tunnel to fall back to primary t...
-            access-control-list:
+                description: The time interval for secondary tunnel to fall back to primary tunnel
+            access_control_list:
                 type: str
-                description: Deprecated, please rename it to access_control_list. Access-control-list profile name.
-            captive-portal-auth-timeout:
+                description: Access-control-list profile name.
+            captive_portal_auth_timeout:
                 type: int
-                description: Deprecated, please rename it to captive_portal_auth_timeout. Hard timeout - AP will always clear the session after timeout...
-            ipv6-rules:
+                description: Hard timeout - AP will always clear the session after timeout regardless of traffic
+            ipv6_rules:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ipv6_rules. Optional rules of IPv6 packets.
+                description: Optional rules of IPv6 packets.
                 choices:
                     - 'drop-icmp6ra'
                     - 'drop-icmp6rs'
@@ -2251,132 +2251,132 @@ options:
                     - 'ndp-proxy'
                     - 'drop-ns-dad'
                     - 'drop-ns-nondad'
-            sticky-client-remove:
+            sticky_client_remove:
                 type: str
-                description: Deprecated, please rename it to sticky_client_remove. Enable/disable sticky client remove to maintain good signal level cl...
+                description: Enable/disable sticky client remove to maintain good signal level clients in SSID.
                 choices:
                     - 'disable'
                     - 'enable'
-            sticky-client-threshold-2g:
+            sticky_client_threshold_2g:
                 type: str
-                description: Deprecated, please rename it to sticky_client_threshold_2g. Minimum signal level/threshold in dBm required for the 2G clie...
-            sticky-client-threshold-5g:
+                description: Minimum signal level/threshold in dBm required for the 2G client to be serviced by the AP
+            sticky_client_threshold_5g:
                 type: str
-                description: Deprecated, please rename it to sticky_client_threshold_5g. Minimum signal level/threshold in dBm required for the 5G clie...
-            bss-color-partial:
+                description: Minimum signal level/threshold in dBm required for the 5G client to be serviced by the AP
+            bss_color_partial:
                 type: str
-                description: Deprecated, please rename it to bss_color_partial. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-option43-insertion:
+            dhcp_option43_insertion:
                 type: str
-                description: Deprecated, please rename it to dhcp_option43_insertion. Enable/disable insertion of DHCP option 43
+                description: Enable/disable insertion of DHCP option 43
                 choices:
                     - 'disable'
                     - 'enable'
-            mpsk-profile:
+            mpsk_profile:
                 type: str
-                description: Deprecated, please rename it to mpsk_profile. MPSK profile name.
-            igmp-snooping:
+                description: MPSK profile name.
+            igmp_snooping:
                 type: str
-                description: Deprecated, please rename it to igmp_snooping. Enable/disable IGMP snooping.
+                description: Enable/disable IGMP snooping.
                 choices:
                     - 'disable'
                     - 'enable'
-            port-macauth:
+            port_macauth:
                 type: str
-                description: Deprecated, please rename it to port_macauth. Enable/disable LAN port MAC authentication
+                description: Enable/disable LAN port MAC authentication
                 choices:
                     - 'disable'
                     - 'radius'
                     - 'address-group'
-            port-macauth-reauth-timeout:
+            port_macauth_reauth_timeout:
                 type: int
-                description: Deprecated, please rename it to port_macauth_reauth_timeout. LAN port MAC authentication re-authentication timeout value
-            port-macauth-timeout:
+                description: LAN port MAC authentication re-authentication timeout value
+            port_macauth_timeout:
                 type: int
-                description: Deprecated, please rename it to port_macauth_timeout. LAN port MAC authentication idle timeout value
-            portal-message-overrides:
+                description: LAN port MAC authentication idle timeout value
+            portal_message_overrides:
                 type: dict
-                description: Deprecated, please rename it to portal_message_overrides. Portal message overrides.
+                description: Portal message overrides.
                 suboptions:
-                    auth-disclaimer-page:
+                    auth_disclaimer_page:
                         type: str
-                        description: Deprecated, please rename it to auth_disclaimer_page. Override auth-disclaimer-page message with message from port...
-                    auth-login-failed-page:
+                        description: Override auth-disclaimer-page message with message from portal-message-overrides group.
+                    auth_login_failed_page:
                         type: str
-                        description: Deprecated, please rename it to auth_login_failed_page. Override auth-login-failed-page message with message from ...
-                    auth-login-page:
+                        description: Override auth-login-failed-page message with message from portal-message-overrides group.
+                    auth_login_page:
                         type: str
-                        description: Deprecated, please rename it to auth_login_page. Override auth-login-page message with message from portal-message...
-                    auth-reject-page:
+                        description: Override auth-login-page message with message from portal-message-overrides group.
+                    auth_reject_page:
                         type: str
-                        description: Deprecated, please rename it to auth_reject_page. Override auth-reject-page message with message from portal-messa...
-            additional-akms:
+                        description: Override auth-reject-page message with message from portal-message-overrides group.
+            additional_akms:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to additional_akms. Additional AKMs.
+                description: Additional AKMs.
                 choices:
                     - 'akm6'
                     - 'akm24'
-            bstm-disassociation-imminent:
+            bstm_disassociation_imminent:
                 type: str
-                description: Deprecated, please rename it to bstm_disassociation_imminent. Enable/disable forcing of disassociation after the BSTM requ...
+                description: Enable/disable forcing of disassociation after the BSTM request timer has been reached
                 choices:
                     - 'disable'
                     - 'enable'
-            bstm-load-balancing-disassoc-timer:
+            bstm_load_balancing_disassoc_timer:
                 type: int
-                description: Deprecated, please rename it to bstm_load_balancing_disassoc_timer. Time interval for client to voluntarily leave AP befor...
-            bstm-rssi-disassoc-timer:
+                description: Time interval for client to voluntarily leave AP before forcing a disassociation due to AP load-balancing
+            bstm_rssi_disassoc_timer:
                 type: int
-                description: Deprecated, please rename it to bstm_rssi_disassoc_timer. Time interval for client to voluntarily leave AP before forcing ...
-            dhcp-address-enforcement:
+                description: Time interval for client to voluntarily leave AP before forcing a disassociation due to low RSSI
+            dhcp_address_enforcement:
                 type: str
-                description: Deprecated, please rename it to dhcp_address_enforcement. Enable/disable DHCP address enforcement
+                description: Enable/disable DHCP address enforcement
                 choices:
                     - 'disable'
                     - 'enable'
-            gas-comeback-delay:
+            gas_comeback_delay:
                 type: int
-                description: Deprecated, please rename it to gas_comeback_delay. GAS comeback delay
-            gas-fragmentation-limit:
+                description: GAS comeback delay
+            gas_fragmentation_limit:
                 type: int
-                description: Deprecated, please rename it to gas_fragmentation_limit. GAS fragmentation limit
-            mac-called-station-delimiter:
+                description: GAS fragmentation limit
+            mac_called_station_delimiter:
                 type: str
-                description: Deprecated, please rename it to mac_called_station_delimiter. MAC called station delimiter
+                description: MAC called station delimiter
                 choices:
                     - 'hyphen'
                     - 'single-hyphen'
                     - 'colon'
                     - 'none'
-            mac-calling-station-delimiter:
+            mac_calling_station_delimiter:
                 type: str
-                description: Deprecated, please rename it to mac_calling_station_delimiter. MAC calling station delimiter
+                description: MAC calling station delimiter
                 choices:
                     - 'hyphen'
                     - 'single-hyphen'
                     - 'colon'
                     - 'none'
-            mac-case:
+            mac_case:
                 type: str
-                description: Deprecated, please rename it to mac_case. MAC case
+                description: MAC case
                 choices:
                     - 'uppercase'
                     - 'lowercase'
-            mac-password-delimiter:
+            mac_password_delimiter:
                 type: str
-                description: Deprecated, please rename it to mac_password_delimiter. MAC authentication password delimiter
+                description: MAC authentication password delimiter
                 choices:
                     - 'hyphen'
                     - 'single-hyphen'
                     - 'colon'
                     - 'none'
-            mac-username-delimiter:
+            mac_username_delimiter:
                 type: str
-                description: Deprecated, please rename it to mac_username_delimiter. MAC authentication username delimiter
+                description: MAC authentication username delimiter
                 choices:
                     - 'hyphen'
                     - 'single-hyphen'
@@ -2388,9 +2388,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            mbo-cell-data-conn-pref:
+            mbo_cell_data_conn_pref:
                 type: str
-                description: Deprecated, please rename it to mbo_cell_data_conn_pref. MBO cell data connection preference
+                description: MBO cell data connection preference
                 choices:
                     - 'excluded'
                     - 'prefer-not'
@@ -2401,88 +2401,88 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            nac-profile:
+            nac_profile:
                 type: str
-                description: Deprecated, please rename it to nac_profile. NAC profile name.
-            neighbor-report-dual-band:
+                description: NAC profile name.
+            neighbor_report_dual_band:
                 type: str
-                description: Deprecated, please rename it to neighbor_report_dual_band. Enable/disable dual-band neighbor report
+                description: Enable/disable dual-band neighbor report
                 choices:
                     - 'disable'
                     - 'enable'
-            address-group-policy:
+            address_group_policy:
                 type: str
-                description: Deprecated, please rename it to address_group_policy. Configure MAC address filtering policy for MAC addresses that are in...
+                description: Configure MAC address filtering policy for MAC addresses that are in the address-group.
                 choices:
                     - 'disable'
                     - 'allow'
                     - 'deny'
-            antivirus-profile:
+            antivirus_profile:
                 type: str
-                description: Deprecated, please rename it to antivirus_profile. AntiVirus profile name.
-            application-detection-engine:
+                description: AntiVirus profile name.
+            application_detection_engine:
                 type: str
-                description: Deprecated, please rename it to application_detection_engine. Enable/disable application detection engine
+                description: Enable/disable application detection engine
                 choices:
                     - 'disable'
                     - 'enable'
-            application-list:
+            application_list:
                 type: str
-                description: Deprecated, please rename it to application_list. Application control list name.
-            application-report-intv:
+                description: Application control list name.
+            application_report_intv:
                 type: int
-                description: Deprecated, please rename it to application_report_intv. Application report interval
-            auth-cert:
+                description: Application report interval
+            auth_cert:
                 type: str
-                description: Deprecated, please rename it to auth_cert. HTTPS server certificate.
-            auth-portal-addr:
+                description: HTTPS server certificate.
+            auth_portal_addr:
                 type: str
-                description: Deprecated, please rename it to auth_portal_addr. Address of captive portal.
-            beacon-advertising:
+                description: Address of captive portal.
+            beacon_advertising:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to beacon_advertising. Fortinet beacon advertising IE data
+                description: Fortinet beacon advertising IE data
                 choices:
                     - 'name'
                     - 'model'
                     - 'serial-number'
-            ips-sensor:
+            ips_sensor:
                 type: str
-                description: Deprecated, please rename it to ips_sensor. IPS sensor name.
-            l3-roaming:
+                description: IPS sensor name.
+            l3_roaming:
                 type: str
-                description: Deprecated, please rename it to l3_roaming. Enable/disable layer 3 roaming
+                description: Enable/disable layer 3 roaming
                 choices:
                     - 'disable'
                     - 'enable'
-            local-standalone-dns:
+            local_standalone_dns:
                 type: str
-                description: Deprecated, please rename it to local_standalone_dns. Enable/disable AP local standalone DNS.
+                description: Enable/disable AP local standalone DNS.
                 choices:
                     - 'disable'
                     - 'enable'
-            local-standalone-dns-ip:
+            local_standalone_dns_ip:
                 type: raw
-                description: (list) Deprecated, please rename it to local_standalone_dns_ip. IPv4 addresses for the local standalone DNS.
+                description: (list) IPv4 addresses for the local standalone DNS.
             osen:
                 type: str
                 description: Enable/disable OSEN as part of key management
                 choices:
                     - 'disable'
                     - 'enable'
-            radius-mac-mpsk-auth:
+            radius_mac_mpsk_auth:
                 type: str
-                description: Deprecated, please rename it to radius_mac_mpsk_auth. Enable/disable RADIUS-based MAC authentication of clients for MPSK a...
+                description: Enable/disable RADIUS-based MAC authentication of clients for MPSK authentication
                 choices:
                     - 'disable'
                     - 'enable'
-            radius-mac-mpsk-timeout:
+            radius_mac_mpsk_timeout:
                 type: int
-                description: Deprecated, please rename it to radius_mac_mpsk_timeout. RADIUS MAC MPSK cache timeout interval
-            rates-11ax-ss12:
+                description: RADIUS MAC MPSK cache timeout interval
+            rates_11ax_ss12:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11ax_ss12. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs0/1'
                     - 'mcs1/1'
@@ -2508,10 +2508,10 @@ options:
                     - 'mcs9/2'
                     - 'mcs10/2'
                     - 'mcs11/2'
-            rates-11ax-ss34:
+            rates_11ax_ss34:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to rates_11ax_ss34. Allowed data rates for 802.
+                description: Allowed data rates for 802.
                 choices:
                     - 'mcs0/3'
                     - 'mcs1/3'
@@ -2537,84 +2537,84 @@ options:
                     - 'mcs9/4'
                     - 'mcs10/4'
                     - 'mcs11/4'
-            scan-botnet-connections:
+            scan_botnet_connections:
                 type: str
-                description: Deprecated, please rename it to scan_botnet_connections. Block or monitor connections to Botnet servers or disable Botnet ...
+                description: Block or monitor connections to Botnet servers or disable Botnet scanning.
                 choices:
                     - 'disable'
                     - 'block'
                     - 'monitor'
-            utm-log:
+            utm_log:
                 type: str
-                description: Deprecated, please rename it to utm_log. Enable/disable UTM logging.
+                description: Enable/disable UTM logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            utm-status:
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Enable to add one or more security profiles
+                description: Enable to add one or more security profiles
                 choices:
                     - 'disable'
                     - 'enable'
-            vlan-name:
+            vlan_name:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to vlan_name. Vlan name.
+                description: Vlan name.
                 suboptions:
                     name:
                         type: str
                         description: VLAN name.
-                    vlan-id:
+                    vlan_id:
                         type: int
-                        description: Deprecated, please rename it to vlan_id. VLAN ID.
-            webfilter-profile:
+                        description: VLAN ID.
+            webfilter_profile:
                 type: str
-                description: Deprecated, please rename it to webfilter_profile. WebFilter profile name.
-            sae-h2e-only:
+                description: WebFilter profile name.
+            sae_h2e_only:
                 type: str
-                description: Deprecated, please rename it to sae_h2e_only. Use hash-to-element-only mechanism for PWE derivation
+                description: Use hash-to-element-only mechanism for PWE derivation
                 choices:
                     - 'disable'
                     - 'enable'
-            sae-pk:
+            sae_pk:
                 type: str
-                description: Deprecated, please rename it to sae_pk. Enable/disable WPA3 SAE-PK
+                description: Enable/disable WPA3 SAE-PK
                 choices:
                     - 'disable'
                     - 'enable'
-            sae-private-key:
+            sae_private_key:
                 type: str
-                description: Deprecated, please rename it to sae_private_key. Private key used for WPA3 SAE-PK authentication.
-            sticky-client-threshold-6g:
+                description: Private key used for WPA3 SAE-PK authentication.
+            sticky_client_threshold_6g:
                 type: str
-                description: Deprecated, please rename it to sticky_client_threshold_6g. Minimum signal level/threshold in dBm required for the 6G clie...
-            application-dscp-marking:
+                description: Minimum signal level/threshold in dBm required for the 6G client to be serviced by the AP
+            application_dscp_marking:
                 type: str
-                description: Deprecated, please rename it to application_dscp_marking. Enable/disable application attribute based DSCP marking
+                description: Enable/disable application attribute based DSCP marking
                 choices:
                     - 'disable'
                     - 'enable'
-            l3-roaming-mode:
+            l3_roaming_mode:
                 type: str
-                description: Deprecated, please rename it to l3_roaming_mode. Select the way that layer 3 roaming traffic is passed
+                description: Select the way that layer 3 roaming traffic is passed
                 choices:
                     - 'direct'
                     - 'indirect'
-            rates-11ac-mcs-map:
+            rates_11ac_mcs_map:
                 type: str
-                description: Deprecated, please rename it to rates_11ac_mcs_map. Comma separated list of max supported VHT MCS for spatial streams 1 th...
-            rates-11ax-mcs-map:
+                description: Comma separated list of max supported VHT MCS for spatial streams 1 through 8.
+            rates_11ax_mcs_map:
                 type: str
-                description: Deprecated, please rename it to rates_11ax_mcs_map. Comma separated list of max supported HE MCS for spatial streams 1 thr...
-            captive-portal-fw-accounting:
+                description: Comma separated list of max supported HE MCS for spatial streams 1 through 8.
+            captive_portal_fw_accounting:
                 type: str
-                description: Deprecated, please rename it to captive_portal_fw_accounting. Enable/disable RADIUS accounting for captive portal firewall...
+                description: Enable/disable RADIUS accounting for captive portal firewall authentication session.
                 choices:
                     - 'disable'
                     - 'enable'
-            radius-mac-auth-block-interval:
+            radius_mac_auth_block_interval:
                 type: int
-                description: Deprecated, please rename it to radius_mac_auth_block_interval. Dont send RADIUS MAC auth request again if the client has ...
+                description: Dont send RADIUS MAC auth request again if the client has been rejected within specific interval
             _is_factory_setting:
                 type: str
                 description: Is factory setting.
@@ -2622,73 +2622,73 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'ext'
-            80211k:
+            d80211k:
                 type: str
-                description: Deprecated, please rename it to d80211k. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            80211v:
+            d80211v:
                 type: str
-                description: Deprecated, please rename it to d80211v. Enable/disable 802.
+                description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
-            roaming-acct-interim-update:
+            roaming_acct_interim_update:
                 type: str
-                description: Deprecated, please rename it to roaming_acct_interim_update. Enable/disable using accounting interim update instead of acc...
+                description: Enable/disable using accounting interim update instead of accounting start/stop on roaming for WPA-Enterprise security.
                 choices:
                     - 'disable'
                     - 'enable'
-            sae-hnp-only:
+            sae_hnp_only:
                 type: str
-                description: Deprecated, please rename it to sae_hnp_only. Use hunting-and-pecking-only mechanism for PWE derivation
+                description: Use hunting-and-pecking-only mechanism for PWE derivation
                 choices:
                     - 'disable'
                     - 'enable'
-            akm24-only:
+            akm24_only:
                 type: str
-                description: Deprecated, please rename it to akm24_only. WPA3 SAE using group-dependent hash only
+                description: WPA3 SAE using group-dependent hash only
                 choices:
                     - 'disable'
                     - 'enable'
-            beacon-protection:
+            beacon_protection:
                 type: str
-                description: Deprecated, please rename it to beacon_protection. Enable/disable beacon protection support
+                description: Enable/disable beacon protection support
                 choices:
                     - 'disable'
                     - 'enable'
-            captive-portal:
+            captive_portal:
                 type: str
-                description: Deprecated, please rename it to captive_portal. Enable/disable captive portal.
+                description: Enable/disable captive portal.
                 choices:
                     - 'disable'
                     - 'enable'
-            nas-filter-rule:
+            nas_filter_rule:
                 type: str
-                description: Deprecated, please rename it to nas_filter_rule. Enable/disable NAS filter rule support
+                description: Enable/disable NAS filter rule support
                 choices:
                     - 'disable'
                     - 'enable'
-            rates-11be-mcs-map:
+            rates_11be_mcs_map:
                 type: str
-                description: Deprecated, please rename it to rates_11be_mcs_map. Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-1...
-            rates-11be-mcs-map-160:
+                description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 20MHz/40MHz/80MHz bandwidth.
+            rates_11be_mcs_map_160:
                 type: str
-                description: Deprecated, please rename it to rates_11be_mcs_map_160. Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, ...
-            rates-11be-mcs-map-320:
+                description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 160MHz bandwidth.
+            rates_11be_mcs_map_320:
                 type: str
-                description: Deprecated, please rename it to rates_11be_mcs_map_320. Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, ...
-            _intf_ip-managed-by-fortiipam:
+                description: Comma separated list of max nss that supports EHT-MCS 0-9, 10-11, 12-13 for 320MHz bandwidth.
+            _intf_ip_managed_by_fortiipam:
                 type: str
-                description: Deprecated, please rename it to _intf_ip_managed_by_fortiipam. Intf ip managed by fortiipam.
+                description: Intf ip managed by fortiipam.
                 choices:
                     - 'disable'
                     - 'enable'
                     - 'inherit-global'
-            _intf_managed-subnetwork-size:
+            _intf_managed_subnetwork_size:
                 type: str
-                description: Deprecated, please rename it to _intf_managed_subnetwork_size. Intf managed subnetwork size.
+                description: Intf managed subnetwork size.
                 choices:
                     - '32'
                     - '64'
@@ -2702,15 +2702,15 @@ options:
                     - '16384'
                     - '32768'
                     - '65536'
-            domain-name-stripping:
+            domain_name_stripping:
                 type: str
-                description: Deprecated, please rename it to domain_name_stripping. Enable/disable stripping domain name from identity
+                description: Enable/disable stripping domain name from identity
                 choices:
                     - 'disable'
                     - 'enable'
-            local-lan-partition:
+            local_lan_partition:
                 type: str
-                description: Deprecated, please rename it to local_lan_partition. Enable/disable segregating client traffic to local LAN side
+                description: Enable/disable segregating client traffic to local LAN side
                 choices:
                     - 'disable'
                     - 'enable'
@@ -2738,21 +2738,21 @@ EXAMPLES = '''
           _centmgmt: <value in [disable, enable]>
           _dhcp_svr_id: <string>
           _intf_allowaccess:
-            - https
-            - ping
-            - ssh
-            - snmp
-            - http
-            - telnet
-            - fgfm
-            - auto-ipsec
-            - radius-acct
-            - probe-response
-            - capwap
-            - dnp
-            - ftm
-            - fabric
-            - speed-test
+            - "https"
+            - "ping"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "telnet"
+            - "fgfm"
+            - "auto-ipsec"
+            - "radius-acct"
+            - "probe-response"
+            - "capwap"
+            - "dnp"
+            - "ftm"
+            - "fabric"
+            - "speed-test"
           _intf_device_identification: <value in [disable, enable]>
           _intf_device_netscan: <value in [disable, enable]>
           _intf_dhcp_relay_ip: <list or string>
@@ -2764,40 +2764,40 @@ EXAMPLES = '''
           _intf_ip: <string>
           _intf_ip6_address: <string>
           _intf_ip6_allowaccess:
-            - https
-            - ping
-            - ssh
-            - snmp
-            - http
-            - telnet
-            - any
-            - fgfm
-            - capwap
+            - "https"
+            - "ping"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "telnet"
+            - "any"
+            - "fgfm"
+            - "capwap"
           _intf_listen_forticlient_connection: <value in [disable, enable]>
           acct_interim_interval: <integer>
           alias: <string>
           auth: <value in [PSK, psk, RADIUS, ...]>
           broadcast_ssid: <value in [disable, enable]>
           broadcast_suppression:
-            - dhcp
-            - arp
-            - dhcp2
-            - arp2
-            - netbios-ns
-            - netbios-ds
-            - arp3
-            - dhcp-up
-            - dhcp-down
-            - arp-known
-            - arp-unknown
-            - arp-reply
-            - ipv6
-            - dhcp-starvation
-            - arp-poison
-            - all-other-mc
-            - all-other-bc
-            - arp-proxy
-            - dhcp-ucast
+            - "dhcp"
+            - "arp"
+            - "dhcp2"
+            - "arp2"
+            - "netbios-ns"
+            - "netbios-ds"
+            - "arp3"
+            - "dhcp-up"
+            - "dhcp-down"
+            - "arp-known"
+            - "arp-unknown"
+            - "arp-reply"
+            - "ipv6"
+            - "dhcp-starvation"
+            - "arp-poison"
+            - "all-other-mc"
+            - "all-other-bc"
+            - "arp-proxy"
+            - "dhcp-ucast"
           captive_portal_ac_name: <string>
           captive_portal_macauth_radius_secret: <list or string>
           captive_portal_macauth_radius_server: <string>
@@ -2814,21 +2814,21 @@ EXAMPLES = '''
               _centmgmt: <value in [disable, enable]>
               _dhcp_svr_id: <string>
               _intf_allowaccess:
-                - https
-                - ping
-                - ssh
-                - snmp
-                - http
-                - telnet
-                - fgfm
-                - auto-ipsec
-                - radius-acct
-                - probe-response
-                - capwap
-                - dnp
-                - ftm
-                - fabric
-                - speed-test
+                - "https"
+                - "ping"
+                - "ssh"
+                - "snmp"
+                - "http"
+                - "telnet"
+                - "fgfm"
+                - "auto-ipsec"
+                - "radius-acct"
+                - "probe-response"
+                - "capwap"
+                - "dnp"
+                - "ftm"
+                - "fabric"
+                - "speed-test"
               _intf_device_identification: <value in [disable, enable]>
               _intf_device_netscan: <value in [disable, enable]>
               _intf_dhcp_relay_ip: <list or string>
@@ -2840,15 +2840,15 @@ EXAMPLES = '''
               _intf_ip: <string>
               _intf_ip6_address: <string>
               _intf_ip6_allowaccess:
-                - https
-                - ping
-                - ssh
-                - snmp
-                - http
-                - telnet
-                - any
-                - fgfm
-                - capwap
+                - "https"
+                - "ping"
+                - "ssh"
+                - "snmp"
+                - "http"
+                - "telnet"
+                - "any"
+                - "fgfm"
+                - "capwap"
               _intf_listen_forticlient_connection: <value in [disable, enable]>
               _scope:
                 -
@@ -2861,25 +2861,25 @@ EXAMPLES = '''
               auth: <value in [PSK, psk, RADIUS, ...]>
               broadcast_ssid: <value in [disable, enable]>
               broadcast_suppression:
-                - dhcp
-                - arp
-                - dhcp2
-                - arp2
-                - netbios-ns
-                - netbios-ds
-                - arp3
-                - dhcp-up
-                - dhcp-down
-                - arp-known
-                - arp-unknown
-                - arp-reply
-                - ipv6
-                - dhcp-starvation
-                - arp-poison
-                - all-other-mc
-                - all-other-bc
-                - arp-proxy
-                - dhcp-ucast
+                - "dhcp"
+                - "arp"
+                - "dhcp2"
+                - "arp2"
+                - "netbios-ns"
+                - "netbios-ds"
+                - "arp3"
+                - "dhcp-up"
+                - "dhcp-down"
+                - "arp-known"
+                - "arp-unknown"
+                - "arp-reply"
+                - "ipv6"
+                - "dhcp-starvation"
+                - "arp-poison"
+                - "all-other-mc"
+                - "all-other-bc"
+                - "arp-proxy"
+                - "dhcp-ucast"
               captive_portal_ac_name: <string>
               captive_portal_macauth_radius_secret: <list or string>
               captive_portal_macauth_radius_server: <string>
@@ -2931,9 +2931,9 @@ EXAMPLES = '''
               multicast_rate: <value in [0, 6000, 12000, ...]>
               okc: <value in [disable, enable]>
               owe_groups:
-                - 19
-                - 20
-                - 21
+                - "19"
+                - "20"
+                - "21"
               owe_transition: <value in [disable, enable]>
               owe_transition_ssid: <string>
               passphrase: <list or string>
@@ -2956,156 +2956,156 @@ EXAMPLES = '''
               radius_mac_auth_usergroups: <list or string>
               radius_server: <string>
               rates_11a:
-                - 1
-                - 1-basic
-                - 2
-                - 2-basic
-                - 5.5
-                - 5.5-basic
-                - 6
-                - 6-basic
-                - 9
-                - 9-basic
-                - 12
-                - 12-basic
-                - 18
-                - 18-basic
-                - 24
-                - 24-basic
-                - 36
-                - 36-basic
-                - 48
-                - 48-basic
-                - 54
-                - 54-basic
-                - 11
-                - 11-basic
+                - "1"
+                - "1-basic"
+                - "2"
+                - "2-basic"
+                - "5.5"
+                - "5.5-basic"
+                - "6"
+                - "6-basic"
+                - "9"
+                - "9-basic"
+                - "12"
+                - "12-basic"
+                - "18"
+                - "18-basic"
+                - "24"
+                - "24-basic"
+                - "36"
+                - "36-basic"
+                - "48"
+                - "48-basic"
+                - "54"
+                - "54-basic"
+                - "11"
+                - "11-basic"
               rates_11ac_ss12:
-                - mcs0/1
-                - mcs1/1
-                - mcs2/1
-                - mcs3/1
-                - mcs4/1
-                - mcs5/1
-                - mcs6/1
-                - mcs7/1
-                - mcs8/1
-                - mcs9/1
-                - mcs0/2
-                - mcs1/2
-                - mcs2/2
-                - mcs3/2
-                - mcs4/2
-                - mcs5/2
-                - mcs6/2
-                - mcs7/2
-                - mcs8/2
-                - mcs9/2
-                - mcs10/1
-                - mcs11/1
-                - mcs10/2
-                - mcs11/2
+                - "mcs0/1"
+                - "mcs1/1"
+                - "mcs2/1"
+                - "mcs3/1"
+                - "mcs4/1"
+                - "mcs5/1"
+                - "mcs6/1"
+                - "mcs7/1"
+                - "mcs8/1"
+                - "mcs9/1"
+                - "mcs0/2"
+                - "mcs1/2"
+                - "mcs2/2"
+                - "mcs3/2"
+                - "mcs4/2"
+                - "mcs5/2"
+                - "mcs6/2"
+                - "mcs7/2"
+                - "mcs8/2"
+                - "mcs9/2"
+                - "mcs10/1"
+                - "mcs11/1"
+                - "mcs10/2"
+                - "mcs11/2"
               rates_11ac_ss34:
-                - mcs0/3
-                - mcs1/3
-                - mcs2/3
-                - mcs3/3
-                - mcs4/3
-                - mcs5/3
-                - mcs6/3
-                - mcs7/3
-                - mcs8/3
-                - mcs9/3
-                - mcs0/4
-                - mcs1/4
-                - mcs2/4
-                - mcs3/4
-                - mcs4/4
-                - mcs5/4
-                - mcs6/4
-                - mcs7/4
-                - mcs8/4
-                - mcs9/4
-                - mcs10/3
-                - mcs11/3
-                - mcs10/4
-                - mcs11/4
+                - "mcs0/3"
+                - "mcs1/3"
+                - "mcs2/3"
+                - "mcs3/3"
+                - "mcs4/3"
+                - "mcs5/3"
+                - "mcs6/3"
+                - "mcs7/3"
+                - "mcs8/3"
+                - "mcs9/3"
+                - "mcs0/4"
+                - "mcs1/4"
+                - "mcs2/4"
+                - "mcs3/4"
+                - "mcs4/4"
+                - "mcs5/4"
+                - "mcs6/4"
+                - "mcs7/4"
+                - "mcs8/4"
+                - "mcs9/4"
+                - "mcs10/3"
+                - "mcs11/3"
+                - "mcs10/4"
+                - "mcs11/4"
               rates_11bg:
-                - 1
-                - 1-basic
-                - 2
-                - 2-basic
-                - 5.5
-                - 5.5-basic
-                - 6
-                - 6-basic
-                - 9
-                - 9-basic
-                - 12
-                - 12-basic
-                - 18
-                - 18-basic
-                - 24
-                - 24-basic
-                - 36
-                - 36-basic
-                - 48
-                - 48-basic
-                - 54
-                - 54-basic
-                - 11
-                - 11-basic
+                - "1"
+                - "1-basic"
+                - "2"
+                - "2-basic"
+                - "5.5"
+                - "5.5-basic"
+                - "6"
+                - "6-basic"
+                - "9"
+                - "9-basic"
+                - "12"
+                - "12-basic"
+                - "18"
+                - "18-basic"
+                - "24"
+                - "24-basic"
+                - "36"
+                - "36-basic"
+                - "48"
+                - "48-basic"
+                - "54"
+                - "54-basic"
+                - "11"
+                - "11-basic"
               rates_11n_ss12:
-                - mcs0/1
-                - mcs1/1
-                - mcs2/1
-                - mcs3/1
-                - mcs4/1
-                - mcs5/1
-                - mcs6/1
-                - mcs7/1
-                - mcs8/2
-                - mcs9/2
-                - mcs10/2
-                - mcs11/2
-                - mcs12/2
-                - mcs13/2
-                - mcs14/2
-                - mcs15/2
+                - "mcs0/1"
+                - "mcs1/1"
+                - "mcs2/1"
+                - "mcs3/1"
+                - "mcs4/1"
+                - "mcs5/1"
+                - "mcs6/1"
+                - "mcs7/1"
+                - "mcs8/2"
+                - "mcs9/2"
+                - "mcs10/2"
+                - "mcs11/2"
+                - "mcs12/2"
+                - "mcs13/2"
+                - "mcs14/2"
+                - "mcs15/2"
               rates_11n_ss34:
-                - mcs16/3
-                - mcs17/3
-                - mcs18/3
-                - mcs19/3
-                - mcs20/3
-                - mcs21/3
-                - mcs22/3
-                - mcs23/3
-                - mcs24/4
-                - mcs25/4
-                - mcs26/4
-                - mcs27/4
-                - mcs28/4
-                - mcs29/4
-                - mcs30/4
-                - mcs31/4
+                - "mcs16/3"
+                - "mcs17/3"
+                - "mcs18/3"
+                - "mcs19/3"
+                - "mcs20/3"
+                - "mcs21/3"
+                - "mcs22/3"
+                - "mcs23/3"
+                - "mcs24/4"
+                - "mcs25/4"
+                - "mcs26/4"
+                - "mcs27/4"
+                - "mcs28/4"
+                - "mcs29/4"
+                - "mcs30/4"
+                - "mcs31/4"
               sae_groups:
-                - 1
-                - 2
-                - 5
-                - 14
-                - 15
-                - 16
-                - 17
-                - 18
-                - 19
-                - 20
-                - 21
-                - 27
-                - 28
-                - 29
-                - 30
-                - 31
+                - "1"
+                - "2"
+                - "5"
+                - "14"
+                - "15"
+                - "16"
+                - "17"
+                - "18"
+                - "19"
+                - "20"
+                - "21"
+                - "27"
+                - "28"
+                - "29"
+                - "30"
+                - "31"
               sae_password: <list or string>
               schedule: <list or string>
               security: <value in [None, WEP64, wep64, ...]>
@@ -3135,15 +3135,15 @@ EXAMPLES = '''
               access_control_list: <string>
               captive_portal_auth_timeout: <integer>
               ipv6_rules:
-                - drop-icmp6ra
-                - drop-icmp6rs
-                - drop-llmnr6
-                - drop-icmp6mld2
-                - drop-dhcp6s
-                - drop-dhcp6c
-                - ndp-proxy
-                - drop-ns-dad
-                - drop-ns-nondad
+                - "drop-icmp6ra"
+                - "drop-icmp6rs"
+                - "drop-llmnr6"
+                - "drop-icmp6mld2"
+                - "drop-dhcp6s"
+                - "drop-dhcp6c"
+                - "ndp-proxy"
+                - "drop-ns-dad"
+                - "drop-ns-nondad"
               sticky_client_remove: <value in [disable, enable]>
               sticky_client_threshold_2g: <string>
               sticky_client_threshold_5g: <string>
@@ -3155,8 +3155,8 @@ EXAMPLES = '''
               port_macauth_reauth_timeout: <integer>
               port_macauth_timeout: <integer>
               additional_akms:
-                - akm6
-                - akm24
+                - "akm6"
+                - "akm24"
               bstm_disassociation_imminent: <value in [disable, enable]>
               bstm_load_balancing_disassoc_timer: <integer>
               bstm_rssi_disassoc_timer: <integer>
@@ -3181,9 +3181,9 @@ EXAMPLES = '''
               auth_cert: <string>
               auth_portal_addr: <string>
               beacon_advertising:
-                - name
-                - model
-                - serial-number
+                - "name"
+                - "model"
+                - "serial-number"
               ips_sensor: <string>
               l3_roaming: <value in [disable, enable]>
               local_standalone_dns: <value in [disable, enable]>
@@ -3192,55 +3192,55 @@ EXAMPLES = '''
               radius_mac_mpsk_auth: <value in [disable, enable]>
               radius_mac_mpsk_timeout: <integer>
               rates_11ax_ss12:
-                - mcs0/1
-                - mcs1/1
-                - mcs2/1
-                - mcs3/1
-                - mcs4/1
-                - mcs5/1
-                - mcs6/1
-                - mcs7/1
-                - mcs8/1
-                - mcs9/1
-                - mcs10/1
-                - mcs11/1
-                - mcs0/2
-                - mcs1/2
-                - mcs2/2
-                - mcs3/2
-                - mcs4/2
-                - mcs5/2
-                - mcs6/2
-                - mcs7/2
-                - mcs8/2
-                - mcs9/2
-                - mcs10/2
-                - mcs11/2
+                - "mcs0/1"
+                - "mcs1/1"
+                - "mcs2/1"
+                - "mcs3/1"
+                - "mcs4/1"
+                - "mcs5/1"
+                - "mcs6/1"
+                - "mcs7/1"
+                - "mcs8/1"
+                - "mcs9/1"
+                - "mcs10/1"
+                - "mcs11/1"
+                - "mcs0/2"
+                - "mcs1/2"
+                - "mcs2/2"
+                - "mcs3/2"
+                - "mcs4/2"
+                - "mcs5/2"
+                - "mcs6/2"
+                - "mcs7/2"
+                - "mcs8/2"
+                - "mcs9/2"
+                - "mcs10/2"
+                - "mcs11/2"
               rates_11ax_ss34:
-                - mcs0/3
-                - mcs1/3
-                - mcs2/3
-                - mcs3/3
-                - mcs4/3
-                - mcs5/3
-                - mcs6/3
-                - mcs7/3
-                - mcs8/3
-                - mcs9/3
-                - mcs10/3
-                - mcs11/3
-                - mcs0/4
-                - mcs1/4
-                - mcs2/4
-                - mcs3/4
-                - mcs4/4
-                - mcs5/4
-                - mcs6/4
-                - mcs7/4
-                - mcs8/4
-                - mcs9/4
-                - mcs10/4
-                - mcs11/4
+                - "mcs0/3"
+                - "mcs1/3"
+                - "mcs2/3"
+                - "mcs3/3"
+                - "mcs4/3"
+                - "mcs5/3"
+                - "mcs6/3"
+                - "mcs7/3"
+                - "mcs8/3"
+                - "mcs9/3"
+                - "mcs10/3"
+                - "mcs11/3"
+                - "mcs0/4"
+                - "mcs1/4"
+                - "mcs2/4"
+                - "mcs3/4"
+                - "mcs4/4"
+                - "mcs5/4"
+                - "mcs6/4"
+                - "mcs7/4"
+                - "mcs8/4"
+                - "mcs9/4"
+                - "mcs10/4"
+                - "mcs11/4"
               scan_botnet_connections: <value in [disable, block, monitor]>
               utm_log: <value in [disable, enable]>
               utm_status: <value in [disable, enable]>
@@ -3341,139 +3341,139 @@ EXAMPLES = '''
           radius_mac_auth_usergroups: <list or string>
           radius_server: <string>
           rates_11a:
-            - 1
-            - 1-basic
-            - 2
-            - 2-basic
-            - 5.5
-            - 5.5-basic
-            - 6
-            - 6-basic
-            - 9
-            - 9-basic
-            - 12
-            - 12-basic
-            - 18
-            - 18-basic
-            - 24
-            - 24-basic
-            - 36
-            - 36-basic
-            - 48
-            - 48-basic
-            - 54
-            - 54-basic
-            - 11
-            - 11-basic
+            - "1"
+            - "1-basic"
+            - "2"
+            - "2-basic"
+            - "5.5"
+            - "5.5-basic"
+            - "6"
+            - "6-basic"
+            - "9"
+            - "9-basic"
+            - "12"
+            - "12-basic"
+            - "18"
+            - "18-basic"
+            - "24"
+            - "24-basic"
+            - "36"
+            - "36-basic"
+            - "48"
+            - "48-basic"
+            - "54"
+            - "54-basic"
+            - "11"
+            - "11-basic"
           rates_11ac_ss12:
-            - mcs0/1
-            - mcs1/1
-            - mcs2/1
-            - mcs3/1
-            - mcs4/1
-            - mcs5/1
-            - mcs6/1
-            - mcs7/1
-            - mcs8/1
-            - mcs9/1
-            - mcs0/2
-            - mcs1/2
-            - mcs2/2
-            - mcs3/2
-            - mcs4/2
-            - mcs5/2
-            - mcs6/2
-            - mcs7/2
-            - mcs8/2
-            - mcs9/2
-            - mcs10/1
-            - mcs11/1
-            - mcs10/2
-            - mcs11/2
+            - "mcs0/1"
+            - "mcs1/1"
+            - "mcs2/1"
+            - "mcs3/1"
+            - "mcs4/1"
+            - "mcs5/1"
+            - "mcs6/1"
+            - "mcs7/1"
+            - "mcs8/1"
+            - "mcs9/1"
+            - "mcs0/2"
+            - "mcs1/2"
+            - "mcs2/2"
+            - "mcs3/2"
+            - "mcs4/2"
+            - "mcs5/2"
+            - "mcs6/2"
+            - "mcs7/2"
+            - "mcs8/2"
+            - "mcs9/2"
+            - "mcs10/1"
+            - "mcs11/1"
+            - "mcs10/2"
+            - "mcs11/2"
           rates_11ac_ss34:
-            - mcs0/3
-            - mcs1/3
-            - mcs2/3
-            - mcs3/3
-            - mcs4/3
-            - mcs5/3
-            - mcs6/3
-            - mcs7/3
-            - mcs8/3
-            - mcs9/3
-            - mcs0/4
-            - mcs1/4
-            - mcs2/4
-            - mcs3/4
-            - mcs4/4
-            - mcs5/4
-            - mcs6/4
-            - mcs7/4
-            - mcs8/4
-            - mcs9/4
-            - mcs10/3
-            - mcs11/3
-            - mcs10/4
-            - mcs11/4
+            - "mcs0/3"
+            - "mcs1/3"
+            - "mcs2/3"
+            - "mcs3/3"
+            - "mcs4/3"
+            - "mcs5/3"
+            - "mcs6/3"
+            - "mcs7/3"
+            - "mcs8/3"
+            - "mcs9/3"
+            - "mcs0/4"
+            - "mcs1/4"
+            - "mcs2/4"
+            - "mcs3/4"
+            - "mcs4/4"
+            - "mcs5/4"
+            - "mcs6/4"
+            - "mcs7/4"
+            - "mcs8/4"
+            - "mcs9/4"
+            - "mcs10/3"
+            - "mcs11/3"
+            - "mcs10/4"
+            - "mcs11/4"
           rates_11bg:
-            - 1
-            - 1-basic
-            - 2
-            - 2-basic
-            - 5.5
-            - 5.5-basic
-            - 6
-            - 6-basic
-            - 9
-            - 9-basic
-            - 12
-            - 12-basic
-            - 18
-            - 18-basic
-            - 24
-            - 24-basic
-            - 36
-            - 36-basic
-            - 48
-            - 48-basic
-            - 54
-            - 54-basic
-            - 11
-            - 11-basic
+            - "1"
+            - "1-basic"
+            - "2"
+            - "2-basic"
+            - "5.5"
+            - "5.5-basic"
+            - "6"
+            - "6-basic"
+            - "9"
+            - "9-basic"
+            - "12"
+            - "12-basic"
+            - "18"
+            - "18-basic"
+            - "24"
+            - "24-basic"
+            - "36"
+            - "36-basic"
+            - "48"
+            - "48-basic"
+            - "54"
+            - "54-basic"
+            - "11"
+            - "11-basic"
           rates_11n_ss12:
-            - mcs0/1
-            - mcs1/1
-            - mcs2/1
-            - mcs3/1
-            - mcs4/1
-            - mcs5/1
-            - mcs6/1
-            - mcs7/1
-            - mcs8/2
-            - mcs9/2
-            - mcs10/2
-            - mcs11/2
-            - mcs12/2
-            - mcs13/2
-            - mcs14/2
-            - mcs15/2
+            - "mcs0/1"
+            - "mcs1/1"
+            - "mcs2/1"
+            - "mcs3/1"
+            - "mcs4/1"
+            - "mcs5/1"
+            - "mcs6/1"
+            - "mcs7/1"
+            - "mcs8/2"
+            - "mcs9/2"
+            - "mcs10/2"
+            - "mcs11/2"
+            - "mcs12/2"
+            - "mcs13/2"
+            - "mcs14/2"
+            - "mcs15/2"
           rates_11n_ss34:
-            - mcs16/3
-            - mcs17/3
-            - mcs18/3
-            - mcs19/3
-            - mcs20/3
-            - mcs21/3
-            - mcs22/3
-            - mcs23/3
-            - mcs24/4
-            - mcs25/4
-            - mcs26/4
-            - mcs27/4
-            - mcs28/4
-            - mcs29/4
-            - mcs30/4
-            - mcs31/4
+            - "mcs16/3"
+            - "mcs17/3"
+            - "mcs18/3"
+            - "mcs19/3"
+            - "mcs20/3"
+            - "mcs21/3"
+            - "mcs22/3"
+            - "mcs23/3"
+            - "mcs24/4"
+            - "mcs25/4"
+            - "mcs26/4"
+            - "mcs27/4"
+            - "mcs28/4"
+            - "mcs29/4"
+            - "mcs30/4"
+            - "mcs31/4"
           schedule: <list or string>
           security: <value in [None, WEP64, wep64, ...]>
           security_exempt_list: <string>
@@ -3499,28 +3499,28 @@ EXAMPLES = '''
           atf_weight: <integer>
           mu_mimo: <value in [disable, enable]>
           owe_groups:
-            - 19
-            - 20
-            - 21
+            - "19"
+            - "20"
+            - "21"
           owe_transition: <value in [disable, enable]>
           owe_transition_ssid: <string>
           sae_groups:
-            - 1
-            - 2
-            - 5
-            - 14
-            - 15
-            - 16
-            - 17
-            - 18
-            - 19
-            - 20
-            - 21
-            - 27
-            - 28
-            - 29
-            - 30
-            - 31
+            - "1"
+            - "2"
+            - "5"
+            - "14"
+            - "15"
+            - "16"
+            - "17"
+            - "18"
+            - "19"
+            - "20"
+            - "21"
+            - "27"
+            - "28"
+            - "29"
+            - "30"
+            - "31"
           sae_password: <list or string>
           _intf_device_access_list: <string>
           external_web_format: <value in [auto-detect, no-query-string, partial-query-string]>
@@ -3533,15 +3533,15 @@ EXAMPLES = '''
           access_control_list: <string>
           captive_portal_auth_timeout: <integer>
           ipv6_rules:
-            - drop-icmp6ra
-            - drop-icmp6rs
-            - drop-llmnr6
-            - drop-icmp6mld2
-            - drop-dhcp6s
-            - drop-dhcp6c
-            - ndp-proxy
-            - drop-ns-dad
-            - drop-ns-nondad
+            - "drop-icmp6ra"
+            - "drop-icmp6rs"
+            - "drop-llmnr6"
+            - "drop-icmp6mld2"
+            - "drop-dhcp6s"
+            - "drop-dhcp6c"
+            - "ndp-proxy"
+            - "drop-ns-dad"
+            - "drop-ns-nondad"
           sticky_client_remove: <value in [disable, enable]>
           sticky_client_threshold_2g: <string>
           sticky_client_threshold_5g: <string>
@@ -3558,8 +3558,8 @@ EXAMPLES = '''
             auth_login_page: <string>
             auth_reject_page: <string>
           additional_akms:
-            - akm6
-            - akm24
+            - "akm6"
+            - "akm24"
           bstm_disassociation_imminent: <value in [disable, enable]>
           bstm_load_balancing_disassoc_timer: <integer>
           bstm_rssi_disassoc_timer: <integer>
@@ -3584,9 +3584,9 @@ EXAMPLES = '''
           auth_cert: <string>
           auth_portal_addr: <string>
           beacon_advertising:
-            - name
-            - model
-            - serial-number
+            - "name"
+            - "model"
+            - "serial-number"
           ips_sensor: <string>
           l3_roaming: <value in [disable, enable]>
           local_standalone_dns: <value in [disable, enable]>
@@ -3595,55 +3595,55 @@ EXAMPLES = '''
           radius_mac_mpsk_auth: <value in [disable, enable]>
           radius_mac_mpsk_timeout: <integer>
           rates_11ax_ss12:
-            - mcs0/1
-            - mcs1/1
-            - mcs2/1
-            - mcs3/1
-            - mcs4/1
-            - mcs5/1
-            - mcs6/1
-            - mcs7/1
-            - mcs8/1
-            - mcs9/1
-            - mcs10/1
-            - mcs11/1
-            - mcs0/2
-            - mcs1/2
-            - mcs2/2
-            - mcs3/2
-            - mcs4/2
-            - mcs5/2
-            - mcs6/2
-            - mcs7/2
-            - mcs8/2
-            - mcs9/2
-            - mcs10/2
-            - mcs11/2
+            - "mcs0/1"
+            - "mcs1/1"
+            - "mcs2/1"
+            - "mcs3/1"
+            - "mcs4/1"
+            - "mcs5/1"
+            - "mcs6/1"
+            - "mcs7/1"
+            - "mcs8/1"
+            - "mcs9/1"
+            - "mcs10/1"
+            - "mcs11/1"
+            - "mcs0/2"
+            - "mcs1/2"
+            - "mcs2/2"
+            - "mcs3/2"
+            - "mcs4/2"
+            - "mcs5/2"
+            - "mcs6/2"
+            - "mcs7/2"
+            - "mcs8/2"
+            - "mcs9/2"
+            - "mcs10/2"
+            - "mcs11/2"
           rates_11ax_ss34:
-            - mcs0/3
-            - mcs1/3
-            - mcs2/3
-            - mcs3/3
-            - mcs4/3
-            - mcs5/3
-            - mcs6/3
-            - mcs7/3
-            - mcs8/3
-            - mcs9/3
-            - mcs10/3
-            - mcs11/3
-            - mcs0/4
-            - mcs1/4
-            - mcs2/4
-            - mcs3/4
-            - mcs4/4
-            - mcs5/4
-            - mcs6/4
-            - mcs7/4
-            - mcs8/4
-            - mcs9/4
-            - mcs10/4
-            - mcs11/4
+            - "mcs0/3"
+            - "mcs1/3"
+            - "mcs2/3"
+            - "mcs3/3"
+            - "mcs4/3"
+            - "mcs5/3"
+            - "mcs6/3"
+            - "mcs7/3"
+            - "mcs8/3"
+            - "mcs9/3"
+            - "mcs10/3"
+            - "mcs11/3"
+            - "mcs0/4"
+            - "mcs1/4"
+            - "mcs2/4"
+            - "mcs3/4"
+            - "mcs4/4"
+            - "mcs5/4"
+            - "mcs6/4"
+            - "mcs7/4"
+            - "mcs8/4"
+            - "mcs9/4"
+            - "mcs10/4"
+            - "mcs11/4"
           scan_botnet_connections: <value in [disable, block, monitor]>
           utm_log: <value in [disable, enable]>
           utm_status: <value in [disable, enable]>
@@ -3721,23 +3721,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/vap',
         '/pm/config/global/obj/wireless-controller/vap'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}',
-        '/pm/config/global/obj/wireless-controller/vap/{vap}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -4030,12 +4022,12 @@ def main():
                         'mpsk-profile': {'v_range': [['6.4.2', '']], 'type': 'str'},
                         'igmp-snooping': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'port-macauth': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']],
                             'choices': ['disable', 'radius', 'address-group'],
                             'type': 'str'
                         },
-                        'port-macauth-reauth-timeout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
-                        'port-macauth-timeout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
+                        'port-macauth-reauth-timeout': {'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
+                        'port-macauth-timeout': {'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
                         'additional-akms': {'v_range': [['7.0.0', '']], 'type': 'list', 'choices': ['akm6', 'akm24'], 'elements': 'str'},
                         'bstm-disassociation-imminent': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'bstm-load-balancing-disassoc-timer': {'v_range': [['7.0.0', '']], 'type': 'int'},
@@ -4103,10 +4095,10 @@ def main():
                         'utm-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'utm-status': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'webfilter-profile': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'sae-h2e-only': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'sae-pk': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'sae-private-key': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
-                        'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                        'sae-h2e-only': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'sae-pk': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'sae-private-key': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
+                        'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                         'application-dscp-marking': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'l3-roaming-mode': {'v_range': [['7.2.1', '']], 'choices': ['direct', 'indirect'], 'type': 'str'},
                         'rates-11ac-mcs-map': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -4291,7 +4283,7 @@ def main():
                     'options': {
                         '_wtp-group': {'type': 'str'},
                         'id': {'type': 'int'},
-                        'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.4.3', '']], 'type': 'str'}
+                        'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -4337,17 +4329,17 @@ def main():
                 'dhcp-option43-insertion': {'v_range': [['6.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mpsk-profile': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'igmp-snooping': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'port-macauth': {'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']], 'choices': ['disable', 'radius', 'address-group'], 'type': 'str'},
-                'port-macauth-reauth-timeout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
-                'port-macauth-timeout': {'v_range': [['6.2.8', '6.2.12'], ['6.4.3', '']], 'type': 'int'},
+                'port-macauth': {'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'radius', 'address-group'], 'type': 'str'},
+                'port-macauth-reauth-timeout': {'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
+                'port-macauth-timeout': {'v_range': [['6.2.8', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
                 'portal-message-overrides': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'auth-disclaimer-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'auth-login-failed-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'auth-login-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'},
-                        'auth-reject-page': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'str'}
+                        'auth-disclaimer-page': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'auth-login-failed-page': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'auth-login-page': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
+                        'auth-reject-page': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'}
                     }
                 },
                 'additional-akms': {'v_range': [['7.0.0', '']], 'type': 'list', 'choices': ['akm6', 'akm24'], 'elements': 'str'},
@@ -4410,10 +4402,10 @@ def main():
                     'elements': 'dict'
                 },
                 'webfilter-profile': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'sae-h2e-only': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sae-pk': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sae-private-key': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
-                'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'str'},
+                'sae-h2e-only': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sae-pk': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sae-private-key': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
+                'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                 'application-dscp-marking': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'l3-roaming-mode': {'v_range': [['7.2.1', '']], 'choices': ['direct', 'indirect'], 'type': 'str'},
                 'rates-11ac-mcs-map': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -4441,7 +4433,6 @@ def main():
                 'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -4455,9 +4446,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

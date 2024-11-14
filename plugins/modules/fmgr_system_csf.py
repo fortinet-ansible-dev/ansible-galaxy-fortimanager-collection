@@ -76,20 +76,18 @@ options:
         required: false
         type: dict
         suboptions:
-            accept-auth-by-cert:
+            accept_auth_by_cert:
                 type: str
                 description:
-                    - Deprecated, please rename it to accept_auth_by_cert.
                     - Accept connections with unknown certificates and ask admin for approval.
                     - disable - Do not accept SSL connections with unknown certificates.
                     - enable - Accept SSL connections without automatic certificate verification.
                 choices:
                     - 'disable'
                     - 'enable'
-            authorization-request-type:
+            authorization_request_type:
                 type: str
                 description:
-                    - Deprecated, please rename it to authorization_request_type.
                     - Authorization request type.
                     - certificate - Request verification by certificate.
                     - serial - Request verification by serial number.
@@ -99,41 +97,38 @@ options:
             certificate:
                 type: str
                 description: Certificate.
-            configuration-sync:
+            configuration_sync:
                 type: str
                 description:
-                    - Deprecated, please rename it to configuration_sync.
                     - Configuration sync mode.
                     - default - Synchronize configuration for IPAM, FortiAnalyzer, FortiSandbox, and Central Management to root node.
                     - local - Do not synchronize configuration with root node.
                 choices:
                     - 'default'
                     - 'local'
-            downstream-access:
+            downstream_access:
                 type: str
                 description:
-                    - Deprecated, please rename it to downstream_access.
                     - Enable/disable downstream device access to this device&apos;s configuration and data.
                     - disable - Disable downstream device access to this device&apos;s configuration and data.
                     - enable - Enable downstream device access to this device&apos;s configuration and data.
                 choices:
                     - 'disable'
                     - 'enable'
-            downstream-accprofile:
+            downstream_accprofile:
                 type: str
-                description: Deprecated, please rename it to downstream_accprofile. Default access profile for requests from downstream devices.
-            fabric-connector:
+                description: Default access profile for requests from downstream devices.
+            fabric_connector:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to fabric_connector. Fabric connector.
+                description: Fabric connector.
                 suboptions:
                     accprofile:
                         type: str
                         description: Override access profile.
-                    configuration-write-access:
+                    configuration_write_access:
                         type: str
                         description:
-                            - Deprecated, please rename it to configuration_write_access.
                             - Enable/disable downstream device write access to configuration.
                             - disable - Disable downstream device write access to configuration.
                             - enable - Enable downstream device write access to configuration.
@@ -143,70 +138,65 @@ options:
                     serial:
                         type: str
                         description: Serial.
-            fabric-object-unification:
+            fabric_object_unification:
                 type: str
                 description:
-                    - Deprecated, please rename it to fabric_object_unification.
                     - Fabric CMDB Object Unification.
                     - local - Global CMDB objects will not be synchronized to and from this device.
                     - default - Global CMDB objects will be synchronized in Security Fabric.
                 choices:
                     - 'local'
                     - 'default'
-            fabric-workers:
+            fabric_workers:
                 type: int
-                description: Deprecated, please rename it to fabric_workers. Number of worker processes for Security Fabric daemon.
-            file-mgmt:
+                description: Number of worker processes for Security Fabric daemon.
+            file_mgmt:
                 type: str
                 description:
-                    - Deprecated, please rename it to file_mgmt.
                     - Enable/disable Security Fabric daemon file management.
                     - disable - Disable daemon file management.
                     - enable - Enable daemon file management.
                 choices:
                     - 'disable'
                     - 'enable'
-            file-quota:
+            file_quota:
                 type: int
-                description: Deprecated, please rename it to file_quota. Maximum amount of memory that can be used by the daemon files
-            file-quota-warning:
+                description: Maximum amount of memory that can be used by the daemon files
+            file_quota_warning:
                 type: int
-                description: Deprecated, please rename it to file_quota_warning. Warn when the set percentage of quota has been used.
-            fixed-key:
+                description: Warn when the set percentage of quota has been used.
+            fixed_key:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to fixed_key. Auto-generated fixed key used when this device is the root.
-            forticloud-account-enforcement:
+                description: Auto-generated fixed key used when this device is the root.
+            forticloud_account_enforcement:
                 type: str
                 description:
-                    - Deprecated, please rename it to forticloud_account_enforcement.
                     - Fabric FortiCloud account unification.
                     - disable - Disable FortiCloud accound ID matching for Security Fabric.
                     - enable - Enable FortiCloud account ID matching for Security Fabric.
                 choices:
                     - 'disable'
                     - 'enable'
-            group-name:
+            group_name:
                 type: str
-                description: Deprecated, please rename it to group_name. Security Fabric group name.
-            group-password:
+                description: Security Fabric group name.
+            group_password:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to group_password. Security Fabric group password.
-            log-unification:
+                description: Security Fabric group password.
+            log_unification:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_unification.
                     - Enable/disable broadcast of discovery messages for log unification.
                     - disable - Disable broadcast of discovery messages for log unification.
                     - enable - Enable broadcast of discovery messages for log unification.
                 choices:
                     - 'disable'
                     - 'enable'
-            saml-configuration-sync:
+            saml_configuration_sync:
                 type: str
                 description:
-                    - Deprecated, please rename it to saml_configuration_sync.
                     - SAML setting configuration synchronization.
                     - local - Do not apply SAML configuration generated by root.
                     - default - SAML setting for fabric members is created by fabric root.
@@ -222,10 +212,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            trusted-list:
+            trusted_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to trusted_list. Trusted list.
+                description: Trusted list.
                 suboptions:
                     action:
                         type: str
@@ -236,10 +226,9 @@ options:
                         choices:
                             - 'accept'
                             - 'deny'
-                    authorization-type:
+                    authorization_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to authorization_type.
                             - Authorization type.
                             - serial - Verify downstream by serial number.
                             - certificate - Verify downstream by certificate.
@@ -249,19 +238,18 @@ options:
                     certificate:
                         type: str
                         description: Certificate.
-                    downstream-authorization:
+                    downstream_authorization:
                         type: str
                         description:
-                            - Deprecated, please rename it to downstream_authorization.
                             - Trust authorizations by this node&apos;s administrator.
                             - disable - Disable downstream authorization.
                             - enable - Enable downstream authorization.
                         choices:
                             - 'disable'
                             - 'enable'
-                    ha-members:
+                    ha_members:
                         type: str
-                        description: Deprecated, please rename it to ha_members. HA members.
+                        description: HA members.
                     index:
                         type: int
                         description: Index of the downstream in tree.
@@ -274,19 +262,35 @@ options:
             upstream:
                 type: str
                 description: IP/FQDN of the FortiGate upstream from this FortiGate in the Security Fabric.
-            upstream-port:
+            upstream_port:
                 type: int
-                description: Deprecated, please rename it to upstream_port. The port number to use to communicate with the FortiGate upstream from this...
-            upstream-confirm:
+                description: The port number to use to communicate with the FortiGate upstream from this FortiGate in the Security Fabric
+            upstream_confirm:
                 type: str
                 description:
-                    - Deprecated, please rename it to upstream_confirm.
                     - Upstream authorization confirm.
                     - discover - Discover upstream device&apos;s info.
                     - confirm - Confirm upstream device&apos;s access.
                 choices:
                     - 'discover'
                     - 'confirm'
+            ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for upstream and downstream connections.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -342,6 +346,7 @@ EXAMPLES = '''
           upstream: <string>
           upstream_port: <integer>
           upstream_confirm: <value in [discover, confirm]>
+          ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
 '''
 
 RETURN = '''
@@ -385,21 +390,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/csf'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/csf/{csf}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -452,9 +450,13 @@ def main():
                 },
                 'upstream': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'upstream-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'upstream-confirm': {'v_range': [['7.6.0', '']], 'choices': ['discover', 'confirm'], 'type': 'str'}
+                'upstream-confirm': {'v_range': [['7.6.0', '']], 'choices': ['discover', 'confirm'], 'type': 'str'},
+                'ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -468,9 +470,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

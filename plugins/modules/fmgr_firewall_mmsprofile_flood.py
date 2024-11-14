@@ -119,15 +119,15 @@ options:
                     - 'block'
                     - 'archive-first'
                     - 'alert-notif'
-            block-time1:
+            block_time1:
                 type: int
-                description: Deprecated, please rename it to block_time1. Duration for which action takes effect
-            block-time2:
+                description: Duration for which action takes effect
+            block_time2:
                 type: int
-                description: Deprecated, please rename it to block_time2. Duration for which action takes effect
-            block-time3:
+                description: Duration for which action takes effect
+            block_time3:
                 type: int
-                description: Deprecated, please rename it to block_time3. Duration action takes effect
+                description: Duration action takes effect
             limit1:
                 type: int
                 description: Maximum number of messages allowed.
@@ -189,26 +189,26 @@ EXAMPLES = '''
         mms_profile: <your own value>
         firewall_mmsprofile_flood:
           action1:
-            - log
-            - archive
-            - intercept
-            - block
-            - archive-first
-            - alert-notif
+            - "log"
+            - "archive"
+            - "intercept"
+            - "block"
+            - "archive-first"
+            - "alert-notif"
           action2:
-            - log
-            - archive
-            - intercept
-            - block
-            - archive-first
-            - alert-notif
+            - "log"
+            - "archive"
+            - "intercept"
+            - "block"
+            - "archive-first"
+            - "alert-notif"
           action3:
-            - log
-            - archive
-            - intercept
-            - block
-            - archive-first
-            - alert-notif
+            - "log"
+            - "archive"
+            - "intercept"
+            - "block"
+            - "archive-first"
+            - "alert-notif"
           block_time1: <integer>
           block_time2: <integer>
           block_time3: <integer>
@@ -265,23 +265,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/flood',
         '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/flood'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/mms-profile/{mms-profile}/flood/{flood}',
-        '/pm/config/global/obj/firewall/mms-profile/{mms-profile}/flood/{flood}'
-    ]
-
     url_params = ['adom', 'mms-profile']
     module_primary_key = None
     module_arg_spec = {
@@ -309,7 +301,6 @@ def main():
                 'window2': {'type': 'int'},
                 'window3': {'type': 'int'}
             }
-
         }
     }
 
@@ -323,9 +314,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -96,14 +96,14 @@ options:
             _policy_block:
                 type: int
                 description: Assigned policy block.
-            access-proxy:
+            access_proxy:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to access_proxy. IPv4 access proxy.
-            access-proxy6:
+                description: IPv4 access proxy.
+            access_proxy6:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to access_proxy6. IPv6 access proxy.
+                description: IPv6 access proxy.
             action:
                 type: str
                 description: Accept or deny traffic matching the policy parameters.
@@ -111,40 +111,40 @@ options:
                     - 'accept'
                     - 'deny'
                     - 'redirect'
-            application-list:
+            application_list:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to application_list. Name of an existing Application list.
-            av-profile:
+                description: Name of an existing Application list.
+            av_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to av_profile. Name of an existing Antivirus profile.
-            block-notification:
+                description: Name of an existing Antivirus profile.
+            block_notification:
                 type: str
-                description: Deprecated, please rename it to block_notification. Enable/disable block notification.
+                description: Enable/disable block notification.
                 choices:
                     - 'disable'
                     - 'enable'
-            casb-profile:
+            casb_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to casb_profile. Name of an existing CASB profile.
+                description: Name of an existing CASB profile.
             comments:
                 type: str
                 description: Optional comments.
-            decrypted-traffic-mirror:
+            decrypted_traffic_mirror:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to decrypted_traffic_mirror. Decrypted traffic mirror.
-            detect-https-in-http-request:
+                description: Decrypted traffic mirror.
+            detect_https_in_http_request:
                 type: str
-                description: Deprecated, please rename it to detect_https_in_http_request. Enable/disable detection of HTTPS in HTTP request.
+                description: Enable/disable detection of HTTPS in HTTP request.
                 choices:
                     - 'disable'
                     - 'enable'
-            device-ownership:
+            device_ownership:
                 type: str
-                description: Deprecated, please rename it to device_ownership. When enabled, the ownership enforcement will be done at policy level.
+                description: When enabled, the ownership enforcement will be done at policy level.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -156,21 +156,21 @@ options:
                     - 'domain'
                     - 'policy'
                     - 'user'
-            dlp-profile:
+            dlp_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to dlp_profile. Name of an existing DLP profile.
-            dnsfilter-profile:
+                description: Name of an existing DLP profile.
+            dnsfilter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to dnsfilter_profile. Name of an existing DNS filter profile.
+                description: Name of an existing DNS filter profile.
             dstaddr:
                 type: list
                 elements: str
                 description: Destination address objects.
-            dstaddr-negate:
+            dstaddr_negate:
                 type: str
-                description: Deprecated, please rename it to dstaddr_negate. When enabled, destination addresses match against any address EXCEPT the s...
+                description: When enabled, destination addresses match against any address EXCEPT the specified destination addresses.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -182,101 +182,101 @@ options:
                 type: list
                 elements: str
                 description: Destination interface names.
-            emailfilter-profile:
+            emailfilter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to emailfilter_profile. Name of an existing email filter profile.
-            file-filter-profile:
+                description: Name of an existing email filter profile.
+            file_filter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to file_filter_profile. Name of an existing file-filter profile.
-            global-label:
+                description: Name of an existing file-filter profile.
+            global_label:
                 type: str
-                description: Deprecated, please rename it to global_label. Global web-based manager visible label.
+                description: Global web-based manager visible label.
             groups:
                 type: list
                 elements: str
                 description: Names of group objects.
-            http-tunnel-auth:
+            http_tunnel_auth:
                 type: str
-                description: Deprecated, please rename it to http_tunnel_auth. Enable/disable HTTP tunnel authentication.
+                description: Enable/disable HTTP tunnel authentication.
                 choices:
                     - 'disable'
                     - 'enable'
-            icap-profile:
+            icap_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to icap_profile. Name of an existing ICAP profile.
-            internet-service:
+                description: Name of an existing ICAP profile.
+            internet_service:
                 type: str
-                description: Deprecated, please rename it to internet_service. Enable/disable use of Internet Services for this policy.
+                description: Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-custom:
+            internet_service_custom:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service_custom. Custom Internet Service name.
-            internet-service-custom-group:
+                description: Custom Internet Service name.
+            internet_service_custom_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service_custom_group. Custom Internet Service group name.
-            internet-service-group:
+                description: Custom Internet Service group name.
+            internet_service_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service_group. Internet Service group name.
-            internet-service-name:
+                description: Internet Service group name.
+            internet_service_name:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service_name. Internet Service name.
-            internet-service-negate:
+                description: Internet Service name.
+            internet_service_negate:
                 type: str
-                description: Deprecated, please rename it to internet_service_negate. When enabled, Internet Services match against any internet servic...
+                description: When enabled, Internet Services match against any internet service EXCEPT the selected Internet Service.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service6:
+            internet_service6:
                 type: str
-                description: Deprecated, please rename it to internet_service6. Enable/disable use of Internet Services IPv6 for this policy.
+                description: Enable/disable use of Internet Services IPv6 for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service6-custom:
+            internet_service6_custom:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service6_custom. Custom Internet Service IPv6 name.
-            internet-service6-custom-group:
+                description: Custom Internet Service IPv6 name.
+            internet_service6_custom_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service6_custom_group. Custom Internet Service IPv6 group name.
-            internet-service6-group:
+                description: Custom Internet Service IPv6 group name.
+            internet_service6_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service6_group. Internet Service IPv6 group name.
-            internet-service6-name:
+                description: Internet Service IPv6 group name.
+            internet_service6_name:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service6_name. Internet Service IPv6 name.
-            internet-service6-negate:
+                description: Internet Service IPv6 name.
+            internet_service6_negate:
                 type: str
-                description: Deprecated, please rename it to internet_service6_negate. When enabled, Internet Services match against any internet servi...
+                description: When enabled, Internet Services match against any internet service IPv6 EXCEPT the selected Internet Service IPv6.
                 choices:
                     - 'disable'
                     - 'enable'
-            ips-sensor:
+            ips_sensor:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ips_sensor. Name of an existing IPS sensor.
-            ips-voip-filter:
+                description: Name of an existing IPS sensor.
+            ips_voip_filter:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ips_voip_filter. Name of an existing VoIP
+                description: Name of an existing VoIP
             label:
                 type: str
                 description: VDOM-specific GUI visible label.
-            log-http-transaction:
+            log_http_transaction:
                 type: str
-                description: Deprecated, please rename it to log_http_transaction. Enable/disable HTTP transaction log.
+                description: Enable/disable HTTP transaction log.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -287,9 +287,9 @@ options:
                     - 'disable'
                     - 'all'
                     - 'utm'
-            logtraffic-start:
+            logtraffic_start:
                 type: str
-                description: Deprecated, please rename it to logtraffic_start. Enable/disable policy log traffic start.
+                description: Enable/disable policy log traffic start.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -304,17 +304,17 @@ options:
                 type: list
                 elements: str
                 description: Name of IP pool object.
-            profile-group:
+            profile_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to profile_group. Name of profile group.
-            profile-protocol-options:
+                description: Name of profile group.
+            profile_protocol_options:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to profile_protocol_options. Name of an existing Protocol options profile.
-            profile-type:
+                description: Name of an existing Protocol options profile.
+            profile_type:
                 type: str
-                description: Deprecated, please rename it to profile_type. Determine whether the firewall policy allows security profile groups or sing...
+                description: Determine whether the firewall policy allows security profile groups or single profiles only.
                 choices:
                     - 'single'
                     - 'group'
@@ -330,41 +330,41 @@ options:
                     - 'ssh-tunnel'
                     - 'access-proxy'
                     - 'ztna-proxy'
-            redirect-url:
+            redirect_url:
                 type: str
-                description: Deprecated, please rename it to redirect_url. Redirect URL for further explicit web proxy processing.
-            replacemsg-override-group:
+                description: Redirect URL for further explicit web proxy processing.
+            replacemsg_override_group:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to replacemsg_override_group. Authentication replacement message override group.
+                description: Authentication replacement message override group.
             schedule:
                 type: list
                 elements: str
                 description: Name of schedule object.
-            sctp-filter-profile:
+            sctp_filter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to sctp_filter_profile. Name of an existing SCTP filter profile.
+                description: Name of an existing SCTP filter profile.
             service:
                 type: list
                 elements: str
                 description: Name of service objects.
-            service-negate:
+            service_negate:
                 type: str
-                description: Deprecated, please rename it to service_negate. When enabled, services match against any service EXCEPT the specified dest...
+                description: When enabled, services match against any service EXCEPT the specified destination services.
                 choices:
                     - 'disable'
                     - 'enable'
-            session-ttl:
+            session_ttl:
                 type: str
-                description: Deprecated, please rename it to session_ttl. TTL in seconds for sessions accepted by this policy
+                description: TTL in seconds for sessions accepted by this policy
             srcaddr:
                 type: list
                 elements: str
                 description: Source address objects.
-            srcaddr-negate:
+            srcaddr_negate:
                 type: str
-                description: Deprecated, please rename it to srcaddr_negate. When enabled, source addresses match against any address EXCEPT the specif...
+                description: When enabled, source addresses match against any address EXCEPT the specified source addresses.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -376,20 +376,20 @@ options:
                 type: list
                 elements: str
                 description: Source interface names.
-            ssh-filter-profile:
+            ssh_filter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssh_filter_profile. Name of an existing SSH filter profile.
-            ssh-policy-redirect:
+                description: Name of an existing SSH filter profile.
+            ssh_policy_redirect:
                 type: str
-                description: Deprecated, please rename it to ssh_policy_redirect. Redirect SSH traffic to matching transparent proxy policy.
+                description: Redirect SSH traffic to matching transparent proxy policy.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-ssh-profile:
+            ssl_ssh_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ssl_ssh_profile. Name of an existing SSL SSH profile.
+                description: Name of an existing SSL SSH profile.
             status:
                 type: str
                 description: Enable/disable the active status of the policy.
@@ -406,89 +406,89 @@ options:
                 type: list
                 elements: str
                 description: Names of user objects.
-            utm-status:
+            utm_status:
                 type: str
-                description: Deprecated, please rename it to utm_status. Enable the use of UTM profiles/sensors/lists.
+                description: Enable the use of UTM profiles/sensors/lists.
                 choices:
                     - 'disable'
                     - 'enable'
             uuid:
                 type: str
                 description: Universally Unique Identifier
-            videofilter-profile:
+            videofilter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to videofilter_profile. Name of an existing VideoFilter profile.
-            waf-profile:
+                description: Name of an existing VideoFilter profile.
+            waf_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to waf_profile. Name of an existing Web application firewall profile.
+                description: Name of an existing Web application firewall profile.
             webcache:
                 type: str
                 description: Enable/disable web caching.
                 choices:
                     - 'disable'
                     - 'enable'
-            webcache-https:
+            webcache_https:
                 type: str
-                description: Deprecated, please rename it to webcache_https. Enable/disable web caching for HTTPS
+                description: Enable/disable web caching for HTTPS
                 choices:
                     - 'disable'
                     - 'enable'
-            webfilter-profile:
+            webfilter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to webfilter_profile. Name of an existing Web filter profile.
-            webproxy-forward-server:
+                description: Name of an existing Web filter profile.
+            webproxy_forward_server:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to webproxy_forward_server. Web proxy forward server name.
-            webproxy-profile:
+                description: Web proxy forward server name.
+            webproxy_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to webproxy_profile. Name of web proxy profile.
-            ztna-ems-tag:
+                description: Name of web proxy profile.
+            ztna_ems_tag:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ztna_ems_tag. ZTNA EMS Tag names.
-            ztna-proxy:
+                description: ZTNA EMS Tag names.
+            ztna_proxy:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to ztna_proxy. IPv4 ZTNA traffic forward proxy.
-            ztna-tags-match-logic:
+                description: IPv4 ZTNA traffic forward proxy.
+            ztna_tags_match_logic:
                 type: str
-                description: Deprecated, please rename it to ztna_tags_match_logic. ZTNA tag matching logic.
+                description: ZTNA tag matching logic.
                 choices:
                     - 'or'
                     - 'and'
-            diameter-filter-profile:
+            diameter_filter_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to diameter_filter_profile. Name of an existing Diameter filter profile.
-            virtual-patch-profile:
+                description: Name of an existing Diameter filter profile.
+            virtual_patch_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to virtual_patch_profile. Virtual patch profile.
-            voip-profile:
+                description: Virtual patch profile.
+            voip_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to voip_profile. Name of an existing VoIP profile.
-            dlp-sensor:
+                description: Name of an existing VoIP profile.
+            dlp_sensor:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to dlp_sensor. Name of an existing DLP sensor.
-            cifs-profile:
+                description: Name of an existing DLP sensor.
+            cifs_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to cifs_profile. Name of an existing CIFS profile.
-            internet-service-id:
+                description: Name of an existing CIFS profile.
+            internet_service_id:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to internet_service_id. Internet Service ID.
-            mms-profile:
+                description: Internet Service ID.
+            mms_profile:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to mms_profile. Name of an existing MMS profile.
+                description: Name of an existing MMS profile.
 '''
 
 EXAMPLES = '''
@@ -640,21 +640,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/pblock/{pblock}/firewall/proxy-policy/{proxy-policy}'
-    ]
-
     url_params = ['adom', 'pblock']
     module_primary_key = 'policyid'
     module_arg_spec = {
@@ -755,7 +748,6 @@ def main():
                 'internet-service-id': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'mms-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'}
             }
-
         }
     }
 
@@ -769,9 +761,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

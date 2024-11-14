@@ -97,39 +97,39 @@ options:
                     - 'ibeacon'
                     - 'eddystone-uid'
                     - 'eddystone-url'
-            beacon-interval:
+            beacon_interval:
                 type: int
-                description: Deprecated, please rename it to beacon_interval. Beacon interval
-            ble-scanning:
+                description: Beacon interval
+            ble_scanning:
                 type: str
-                description: Deprecated, please rename it to ble_scanning. Enable/disable Bluetooth Low Energy
+                description: Enable/disable Bluetooth Low Energy
                 choices:
                     - 'disable'
                     - 'enable'
             comment:
                 type: str
                 description: Comment.
-            eddystone-instance:
+            eddystone_instance:
                 type: str
-                description: Deprecated, please rename it to eddystone_instance. Eddystone instance ID.
-            eddystone-namespace:
+                description: Eddystone instance ID.
+            eddystone_namespace:
                 type: str
-                description: Deprecated, please rename it to eddystone_namespace. Eddystone namespace ID.
-            eddystone-url:
+                description: Eddystone namespace ID.
+            eddystone_url:
                 type: str
-                description: Deprecated, please rename it to eddystone_url. Eddystone URL.
-            eddystone-url-encode-hex:
+                description: Eddystone URL.
+            eddystone_url_encode_hex:
                 type: str
-                description: Deprecated, please rename it to eddystone_url_encode_hex. Eddystone encoded URL hexadecimal string
-            ibeacon-uuid:
+                description: Eddystone encoded URL hexadecimal string
+            ibeacon_uuid:
                 type: str
-                description: Deprecated, please rename it to ibeacon_uuid. Universally Unique Identifier
-            major-id:
+                description: Universally Unique Identifier
+            major_id:
                 type: int
-                description: Deprecated, please rename it to major_id. Major ID.
-            minor-id:
+                description: Major ID.
+            minor_id:
                 type: int
-                description: Deprecated, please rename it to minor_id. Minor ID.
+                description: Minor ID.
             name:
                 type: str
                 description: Bluetooth Low Energy profile name.
@@ -151,27 +151,27 @@ options:
                     - '10'
                     - '11'
                     - '12'
-            scan-interval:
+            scan_interval:
                 type: int
-                description: Deprecated, please rename it to scan_interval. Scan Interval
-            scan-period:
+                description: Scan Interval
+            scan_period:
                 type: int
-                description: Deprecated, please rename it to scan_period. Scan Period
-            scan-threshold:
+                description: Scan Period
+            scan_threshold:
                 type: str
-                description: Deprecated, please rename it to scan_threshold. Minimum signal level/threshold in dBm required for the AP to report detect...
-            scan-time:
+                description: Minimum signal level/threshold in dBm required for the AP to report detected BLE device
+            scan_time:
                 type: int
-                description: Deprecated, please rename it to scan_time. Scan Time
-            scan-type:
+                description: Scan Time
+            scan_type:
                 type: str
-                description: Deprecated, please rename it to scan_type. Scan Type
+                description: Scan Type
                 choices:
                     - 'active'
                     - 'passive'
-            scan-window:
+            scan_window:
                 type: int
-                description: Deprecated, please rename it to scan_window. Scan Windows
+                description: Scan Windows
 '''
 
 EXAMPLES = '''
@@ -194,9 +194,9 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         bleprofile:
           advertising:
-            - ibeacon
-            - eddystone-uid
-            - eddystone-url
+            - "ibeacon"
+            - "eddystone-uid"
+            - "eddystone-url"
           beacon_interval: <integer>
           ble_scanning: <value in [disable, enable]>
           comment: <string>
@@ -258,23 +258,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/ble-profile',
         '/pm/config/global/obj/wireless-controller/ble-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/ble-profile/{ble-profile}',
-        '/pm/config/global/obj/wireless-controller/ble-profile/{ble-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -303,7 +295,6 @@ def main():
                 'scan-type': {'v_range': [['7.4.1', '']], 'choices': ['active', 'passive'], 'type': 'str'},
                 'scan-window': {'v_range': [['7.4.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -317,9 +308,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

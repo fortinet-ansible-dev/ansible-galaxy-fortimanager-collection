@@ -228,12 +228,12 @@ options:
                     - 'QTM'
                     - 'qtm'
                     - 'l2tO'
-            profile-id:
+            profile_id:
                 type: int
-                description: Deprecated, please rename it to profile_id. Set NPU DSW DTS profile ID.
-            queue-select:
+                description: Set NPU DSW DTS profile ID.
+            queue_select:
                 type: int
-                description: Deprecated, please rename it to queue_select. Set NPU DSW DTS queue ID select
+                description: Set NPU DSW DTS queue ID select
 '''
 
 EXAMPLES = '''
@@ -303,33 +303,25 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile',
         '/pm/config/global/obj/system/npu/dsw-queue-dts-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}',
-        '/pm/config/global/obj/system/npu/dsw-queue-dts-profile/{dsw-queue-dts-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu_dswqueuedtsprofile': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
                 'iport': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': [
                         'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
                         'HTX0', 'htx0', 'HTX1', 'htx1', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr',
@@ -338,9 +330,9 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'str'},
+                'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'required': True, 'type': 'str'},
                 'oport': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'choices': [
                         'EIF0', 'eif0', 'EIF1', 'eif1', 'EIF2', 'eif2', 'EIF3', 'eif3', 'EIF4', 'eif4', 'EIF5', 'eif5', 'EIF6', 'eif6', 'EIF7', 'eif7',
                         'HRX', 'hrx', 'SSE0', 'sse0', 'SSE1', 'sse1', 'SSE2', 'sse2', 'SSE3', 'sse3', 'RLT', 'rlt', 'DFR', 'dfr', 'IPSECI', 'ipseci',
@@ -350,10 +342,9 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'profile-id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'queue-select': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                'profile-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'queue-select': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -367,9 +358,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

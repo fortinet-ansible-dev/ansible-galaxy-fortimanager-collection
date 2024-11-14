@@ -85,19 +85,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            notification-throttle:
+            notification_throttle:
                 type: int
-                description: Deprecated, please rename it to notification_throttle. Minute value for throttling the rate of IoC notifications.
-            rescan-max-runner:
+                description: Minute value for throttling the rate of IoC notifications.
+            rescan_max_runner:
                 type: int
-                description: Deprecated, please rename it to rescan_max_runner. Max count of cocurrent runner of IoC rescan.
-            rescan-run-at:
+                description: Max count of cocurrent runner of IoC rescan.
+            rescan_run_at:
                 type: int
-                description: Deprecated, please rename it to rescan_run_at. When to run IoC rescan.
-            rescan-status:
+                description: When to run IoC rescan.
+            rescan_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to rescan_status.
                     - Disable/Enable IoC rescan.
                     - disable - Disable IoC feature.
                     - enable - Enable IoC feature.
@@ -181,21 +180,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/log/ioc'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/log/ioc/{ioc}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -210,7 +202,6 @@ def main():
                 'rescan-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -224,9 +215,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

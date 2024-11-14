@@ -97,15 +97,15 @@ options:
         required: false
         type: dict
         suboptions:
-            ha-direct:
+            ha_direct:
                 type: str
-                description: Deprecated, please rename it to ha_direct. Enable/disable direct management of HA cluster members.
+                description: Enable/disable direct management of HA cluster members.
                 choices:
                     - 'disable'
                     - 'enable'
-            host-type:
+            host_type:
                 type: str
-                description: Deprecated, please rename it to host_type. Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
+                description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
                 choices:
                     - 'any'
                     - 'query'
@@ -117,15 +117,15 @@ options:
             ipv6:
                 type: str
                 description: SNMP manager IPv6 address prefix.
-            source-ipv6:
+            source_ipv6:
                 type: str
-                description: Deprecated, please rename it to source_ipv6. Source IPv6 address for SNMP traps.
+                description: Source IPv6 address for SNMP traps.
             interface:
                 type: raw
                 description: (list) Specify outgoing interface to reach server.
-            interface-select-method:
+            interface_select_method:
                 type: str
-                description: Deprecated, please rename it to interface_select_method. Specify how to select outgoing interface to reach server.
+                description: Specify how to select outgoing interface to reach server.
                 choices:
                     - 'auto'
                     - 'sdwan'
@@ -214,21 +214,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/devprof/{devprof}/system/snmp/community/{community}/hosts6/{hosts6}'
-    ]
-
     url_params = ['adom', 'devprof', 'community']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -247,7 +240,6 @@ def main():
                 'interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
             }
-
         }
     }
 
@@ -261,9 +253,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

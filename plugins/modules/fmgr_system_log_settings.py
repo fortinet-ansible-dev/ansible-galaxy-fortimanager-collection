@@ -76,81 +76,78 @@ options:
         required: false
         type: dict
         suboptions:
-            FAC-custom-field1:
+            FAC_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FAC_custom_field1. Name of custom log field to index.
-            FAZ-custom-field1:
+                description: Name of custom log field to index.
+            FAZ_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FAZ_custom_field1. Name of custom log field to index.
-            FCH-custom-field1:
+                description: Name of custom log field to index.
+            FCH_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FCH_custom_field1. Name of custom log field to index.
-            FCT-custom-field1:
+                description: Name of custom log field to index.
+            FCT_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FCT_custom_field1. Name of custom log field to index.
-            FDD-custom-field1:
+                description: Name of custom log field to index.
+            FDD_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FDD_custom_field1. Name of custom log field to index.
-            FGT-custom-field1:
+                description: Name of custom log field to index.
+            FGT_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FGT_custom_field1. Name of custom log field to index.
-            FMG-custom-field1:
+                description: Name of custom log field to index.
+            FMG_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FMG_custom_field1. Name of custom log field to index.
-            FML-custom-field1:
+                description: Name of custom log field to index.
+            FML_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FML_custom_field1. Name of custom log field to index.
-            FPX-custom-field1:
+                description: Name of custom log field to index.
+            FPX_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FPX_custom_field1. Name of custom log field to index.
-            FSA-custom-field1:
+                description: Name of custom log field to index.
+            FSA_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FSA_custom_field1. Name of custom log field to index.
-            FWB-custom-field1:
+                description: Name of custom log field to index.
+            FWB_custom_field1:
                 type: str
-                description: Deprecated, please rename it to FWB_custom_field1. Name of custom log field to index.
-            browse-max-logfiles:
+                description: Name of custom log field to index.
+            browse_max_logfiles:
                 type: int
-                description: Deprecated, please rename it to browse_max_logfiles. Maximum number of log files for each log browse attempt for each Adom.
-            dns-resolve-dstip:
+                description: Maximum number of log files for each log browse attempt for each Adom.
+            dns_resolve_dstip:
                 type: str
                 description:
-                    - Deprecated, please rename it to dns_resolve_dstip.
                     - Enable/Disable resolving destination IP by DNS.
                     - disable - Disable resolving destination IP by DNS.
                     - enable - Enable resolving destination IP by DNS.
                 choices:
                     - 'disable'
                     - 'enable'
-            download-max-logs:
+            download_max_logs:
                 type: int
-                description: Deprecated, please rename it to download_max_logs. Maximum number of logs for each log download attempt.
-            ha-auto-migrate:
+                description: Maximum number of logs for each log download attempt.
+            ha_auto_migrate:
                 type: str
                 description:
-                    - Deprecated, please rename it to ha_auto_migrate.
                     - Enabled/Disable automatically merging HA members logs to HA cluster.
                     - disable - Disable automatically merging HA members logs to HA cluster.
                     - enable - Enable automatically merging HA members logs to HA cluster.
                 choices:
                     - 'disable'
                     - 'enable'
-            import-max-logfiles:
+            import_max_logfiles:
                 type: int
-                description: Deprecated, please rename it to import_max_logfiles. Maximum number of log files for each log import attempt.
-            log-file-archive-name:
+                description: Maximum number of log files for each log import attempt.
+            log_file_archive_name:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_file_archive_name.
                     - Log file name format for archiving, such as backup, upload or download.
                     - basic - Basic format for log archive file name, e.
                     - extended - Extended format for log archive file name, e.
                 choices:
                     - 'basic'
                     - 'extended'
-            rolling-analyzer:
+            rolling_analyzer:
                 type: dict
-                description: Deprecated, please rename it to rolling_analyzer. Rolling analyzer.
+                description: Rolling analyzer.
                 suboptions:
                     days:
                         type: list
@@ -172,10 +169,9 @@ options:
                             - 'thu'
                             - 'fri'
                             - 'sat'
-                    del-files:
+                    del_files:
                         type: str
                         description:
-                            - Deprecated, please rename it to del_files.
                             - Enable/disable log file deletion after uploading.
                             - disable - Disable log file deletion.
                             - enable - Enable log file deletion.
@@ -185,13 +181,12 @@ options:
                     directory:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
-                    file-size:
+                    file_size:
                         type: int
-                        description: Deprecated, please rename it to file_size. Roll log files when they reach this size
-                    gzip-format:
+                        description: Roll log files when they reach this size
+                    gzip_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to gzip_format.
                             - Enable/disable compression of uploaded log files.
                             - disable - Disable compression.
                             - enable - Enable compression.
@@ -210,10 +205,9 @@ options:
                     ip3:
                         type: str
                         description: Upload server IP3 address.
-                    log-format:
+                    log_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_format.
                             - Format of uploaded log files.
                             - native - Native format
                             - text - Text format
@@ -234,10 +228,9 @@ options:
                     password3:
                         type: raw
                         description: (list) Upload server login password3.
-                    server-type:
+                    server_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to server_type.
                             - Upload server type.
                             - ftp - Upload via FTP.
                             - sftp - Upload via SFTP.
@@ -255,23 +248,21 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    upload-hour:
+                    upload_hour:
                         type: int
-                        description: Deprecated, please rename it to upload_hour. Log files upload schedule
-                    upload-mode:
+                        description: Log files upload schedule
+                    upload_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_mode.
                             - Upload mode with multiple servers.
                             - backup - Servers are attempted and used one after the other upon failure to connect.
                             - mirror - All configured servers are attempted and used.
                         choices:
                             - 'backup'
                             - 'mirror'
-                    upload-trigger:
+                    upload_trigger:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_trigger.
                             - Event triggering log files upload.
                             - on-roll - Upload log files after they are rolled.
                             - on-schedule - Upload log files daily.
@@ -307,9 +298,9 @@ options:
                     port3:
                         type: int
                         description: Upload server IP3 port number.
-                    rolling-upgrade-status:
+                    rolling_upgrade_status:
                         type: int
-                        description: Deprecated, please rename it to rolling_upgrade_status. Rolling upgrade status
+                        description: Rolling upgrade status
                     server:
                         type: str
                         description: Upload server FQDN/IP.
@@ -319,9 +310,9 @@ options:
                     server3:
                         type: str
                         description: Upload server3 FQDN/IP.
-            rolling-local:
+            rolling_local:
                 type: dict
-                description: Deprecated, please rename it to rolling_local. Rolling local.
+                description: Rolling local.
                 suboptions:
                     days:
                         type: list
@@ -343,10 +334,9 @@ options:
                             - 'thu'
                             - 'fri'
                             - 'sat'
-                    del-files:
+                    del_files:
                         type: str
                         description:
-                            - Deprecated, please rename it to del_files.
                             - Enable/disable log file deletion after uploading.
                             - disable - Disable log file deletion.
                             - enable - Enable log file deletion.
@@ -356,13 +346,12 @@ options:
                     directory:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
-                    file-size:
+                    file_size:
                         type: int
-                        description: Deprecated, please rename it to file_size. Roll log files when they reach this size
-                    gzip-format:
+                        description: Roll log files when they reach this size
+                    gzip_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to gzip_format.
                             - Enable/disable compression of uploaded log files.
                             - disable - Disable compression.
                             - enable - Enable compression.
@@ -381,10 +370,9 @@ options:
                     ip3:
                         type: str
                         description: Upload server IP3 address.
-                    log-format:
+                    log_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_format.
                             - Format of uploaded log files.
                             - native - Native format
                             - text - Text format
@@ -405,10 +393,9 @@ options:
                     password3:
                         type: raw
                         description: (list) Upload server login password3.
-                    server-type:
+                    server_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to server_type.
                             - Upload server type.
                             - ftp - Upload via FTP.
                             - sftp - Upload via SFTP.
@@ -426,23 +413,21 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    upload-hour:
+                    upload_hour:
                         type: int
-                        description: Deprecated, please rename it to upload_hour. Log files upload schedule
-                    upload-mode:
+                        description: Log files upload schedule
+                    upload_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_mode.
                             - Upload mode with multiple servers.
                             - backup - Servers are attempted and used one after the other upon failure to connect.
                             - mirror - All configured servers are attempted and used.
                         choices:
                             - 'backup'
                             - 'mirror'
-                    upload-trigger:
+                    upload_trigger:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_trigger.
                             - Event triggering log files upload.
                             - on-roll - Upload log files after they are rolled.
                             - on-schedule - Upload log files daily.
@@ -478,9 +463,9 @@ options:
                     port3:
                         type: int
                         description: Upload server IP3 port number.
-                    rolling-upgrade-status:
+                    rolling_upgrade_status:
                         type: int
-                        description: Deprecated, please rename it to rolling_upgrade_status. Rolling upgrade status
+                        description: Rolling upgrade status
                     server:
                         type: str
                         description: Upload server FQDN/IP.
@@ -490,9 +475,9 @@ options:
                     server3:
                         type: str
                         description: Upload server3 FQDN/IP.
-            rolling-regular:
+            rolling_regular:
                 type: dict
-                description: Deprecated, please rename it to rolling_regular. Rolling regular.
+                description: Rolling regular.
                 suboptions:
                     days:
                         type: list
@@ -514,10 +499,9 @@ options:
                             - 'thu'
                             - 'fri'
                             - 'sat'
-                    del-files:
+                    del_files:
                         type: str
                         description:
-                            - Deprecated, please rename it to del_files.
                             - Enable/disable log file deletion after uploading.
                             - disable - Disable log file deletion.
                             - enable - Enable log file deletion.
@@ -527,13 +511,12 @@ options:
                     directory:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
-                    file-size:
+                    file_size:
                         type: int
-                        description: Deprecated, please rename it to file_size. Roll log files when they reach this size
-                    gzip-format:
+                        description: Roll log files when they reach this size
+                    gzip_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to gzip_format.
                             - Enable/disable compression of uploaded log files.
                             - disable - Disable compression.
                             - enable - Enable compression.
@@ -552,10 +535,9 @@ options:
                     ip3:
                         type: str
                         description: Upload server IP3 address.
-                    log-format:
+                    log_format:
                         type: str
                         description:
-                            - Deprecated, please rename it to log_format.
                             - Format of uploaded log files.
                             - native - Native format
                             - text - Text format
@@ -576,10 +558,9 @@ options:
                     password3:
                         type: raw
                         description: (list) Upload server login password3.
-                    server-type:
+                    server_type:
                         type: str
                         description:
-                            - Deprecated, please rename it to server_type.
                             - Upload server type.
                             - ftp - Upload via FTP.
                             - sftp - Upload via SFTP.
@@ -597,23 +578,21 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    upload-hour:
+                    upload_hour:
                         type: int
-                        description: Deprecated, please rename it to upload_hour. Log files upload schedule
-                    upload-mode:
+                        description: Log files upload schedule
+                    upload_mode:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_mode.
                             - Upload mode with multiple servers.
                             - backup - Servers are attempted and used one after the other upon failure to connect.
                             - mirror - All configured servers are attempted and used.
                         choices:
                             - 'backup'
                             - 'mirror'
-                    upload-trigger:
+                    upload_trigger:
                         type: str
                         description:
-                            - Deprecated, please rename it to upload_trigger.
                             - Event triggering log files upload.
                             - on-roll - Upload log files after they are rolled.
                             - on-schedule - Upload log files daily.
@@ -649,9 +628,9 @@ options:
                     port3:
                         type: int
                         description: Upload server IP3 port number.
-                    rolling-upgrade-status:
+                    rolling_upgrade_status:
                         type: int
-                        description: Deprecated, please rename it to rolling_upgrade_status. Rolling upgrade status
+                        description: Rolling upgrade status
                     server:
                         type: str
                         description: Upload server FQDN/IP.
@@ -661,45 +640,42 @@ options:
                     server3:
                         type: str
                         description: Upload server3 FQDN/IP.
-            sync-search-timeout:
+            sync_search_timeout:
                 type: int
-                description: Deprecated, please rename it to sync_search_timeout. Maximum number of seconds for running a log search session in synchro...
-            keep-dev-logs:
+                description: Maximum number of seconds for running a log search session in synchronous mode.
+            keep_dev_logs:
                 type: str
                 description:
-                    - Deprecated, please rename it to keep_dev_logs.
                     - Enable/Disable keeping the dev logs after the device has been deleted.
                     - disable - Disable keeping the dev logs after the device has been deleted.
                     - enable - Enable keeping the dev logs after the device has been deleted.
                 choices:
                     - 'disable'
                     - 'enable'
-            device-auto-detect:
+            device_auto_detect:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_auto_detect.
                     - Enable/Disable looking up device ID in syslog received with no encryption.
                     - disable - Disable looking up device ID in syslog received with no encryption.
                     - enable - Enable looking up device ID in syslog received with no encryption.
                 choices:
                     - 'disable'
                     - 'enable'
-            unencrypted-logging:
+            unencrypted_logging:
                 type: str
                 description:
-                    - Deprecated, please rename it to unencrypted_logging.
                     - Enable/Disable receiving syslog through UDP
                     - disable - Disable receiving syslog through UDP
                     - enable - Enable receiving syslog through UDP
                 choices:
                     - 'disable'
                     - 'enable'
-            log-interval-dev-no-logging:
+            log_interval_dev_no_logging:
                 type: int
-                description: Deprecated, please rename it to log_interval_dev_no_logging. Interval in minute of no log received from a device when cons...
-            log-upload-interval-dev-no-logging:
+                description: Interval in minute of no log received from a device when considering the device down.
+            log_upload_interval_dev_no_logging:
                 type: int
-                description: Deprecated, please rename it to log_upload_interval_dev_no_logging. Interval in minute of no log uploaded from a device wh...
+                description: Interval in minute of no log uploaded from a device when considering the device down.
 '''
 
 EXAMPLES = '''
@@ -738,13 +714,13 @@ EXAMPLES = '''
           log_file_archive_name: <value in [basic, extended]>
           rolling_analyzer:
             days:
-              - sun
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-              - sat
+              - "sun"
+              - "mon"
+              - "tue"
+              - "wed"
+              - "thu"
+              - "fri"
+              - "sat"
             del_files: <value in [disable, enable]>
             directory: <string>
             file_size: <integer>
@@ -776,13 +752,13 @@ EXAMPLES = '''
             server3: <string>
           rolling_local:
             days:
-              - sun
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-              - sat
+              - "sun"
+              - "mon"
+              - "tue"
+              - "wed"
+              - "thu"
+              - "fri"
+              - "sat"
             del_files: <value in [disable, enable]>
             directory: <string>
             file_size: <integer>
@@ -814,13 +790,13 @@ EXAMPLES = '''
             server3: <string>
           rolling_regular:
             days:
-              - sun
-              - mon
-              - tue
-              - wed
-              - thu
-              - fri
-              - sat
+              - "sun"
+              - "mon"
+              - "tue"
+              - "wed"
+              - "thu"
+              - "fri"
+              - "sat"
             del_files: <value in [disable, enable]>
             directory: <string>
             file_size: <integer>
@@ -899,21 +875,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/log/settings'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/log/settings/{settings}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -947,9 +916,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -982,9 +951,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1017,9 +986,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.12']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1044,21 +1013,20 @@ def main():
                     }
                 },
                 'sync-search-timeout': {'type': 'int'},
-                'keep-dev-logs': {'v_range': [['6.4.7', '6.4.14'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'keep-dev-logs': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'device-auto-detect': {
-                    'v_range': [['7.0.10', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'unencrypted-logging': {
-                    'v_range': [['7.0.10', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.5'], ['7.4.2', '']], 'type': 'int'}
+                'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -1072,9 +1040,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

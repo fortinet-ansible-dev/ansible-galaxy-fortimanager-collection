@@ -93,27 +93,27 @@ options:
         required: false
         type: dict
         suboptions:
-            _dynamic-server:
+            _dynamic_server:
                 type: str
-                description: Deprecated, please rename it to _dynamic_server. Dynamic server.
-            addr-mode:
+                description: Dynamic server.
+            addr_mode:
                 type: str
-                description: Deprecated, please rename it to addr_mode. Address mode
+                description: Address mode
                 choices:
                     - 'ipv4'
                     - 'ipv6'
             failtime:
                 type: int
                 description: Number of failures before server is considered lost
-            http-agent:
+            http_agent:
                 type: str
-                description: Deprecated, please rename it to http_agent. String in the http-agent field in the HTTP header.
-            http-get:
+                description: String in the http-agent field in the HTTP header.
+            http_get:
                 type: str
-                description: Deprecated, please rename it to http_get. URL used to communicate with the server if the protocol if the protocol is HTTP.
-            http-match:
+                description: URL used to communicate with the server if the protocol if the protocol is HTTP.
+            http_match:
                 type: str
-                description: Deprecated, please rename it to http_match. Response string expected from the server if the protocol is HTTP.
+                description: Response string expected from the server if the protocol is HTTP.
             interval:
                 type: int
                 description: Status check interval, or the time between attempting to connect to the server
@@ -124,9 +124,9 @@ options:
                 type: str
                 description: Status check or health check name.
                 required: true
-            packet-size:
+            packet_size:
                 type: int
-                description: Deprecated, please rename it to packet_size. Packet size of a twamp test session,
+                description: Packet size of a twamp test session,
             password:
                 type: raw
                 description: (list) Twamp controller password in authentication mode
@@ -147,9 +147,9 @@ options:
             recoverytime:
                 type: int
                 description: Number of successful responses received before server is considered recovered
-            security-mode:
+            security_mode:
                 type: str
-                description: Deprecated, please rename it to security_mode. Twamp controller security mode.
+                description: Twamp controller security mode.
                 choices:
                     - 'none'
                     - 'authentication'
@@ -164,89 +164,89 @@ options:
                     id:
                         type: int
                         description: SLA ID.
-                    jitter-threshold:
+                    jitter_threshold:
                         type: int
-                        description: Deprecated, please rename it to jitter_threshold. Jitter for SLA to make decision in milliseconds.
-                    latency-threshold:
+                        description: Jitter for SLA to make decision in milliseconds.
+                    latency_threshold:
                         type: int
-                        description: Deprecated, please rename it to latency_threshold. Latency for SLA to make decision in milliseconds.
-                    link-cost-factor:
+                        description: Latency for SLA to make decision in milliseconds.
+                    link_cost_factor:
                         type: list
                         elements: str
-                        description: Deprecated, please rename it to link_cost_factor. Criteria on which to base link selection.
+                        description: Criteria on which to base link selection.
                         choices:
                             - 'latency'
                             - 'jitter'
                             - 'packet-loss'
-                    packetloss-threshold:
+                    packetloss_threshold:
                         type: int
-                        description: Deprecated, please rename it to packetloss_threshold. Packet loss for SLA to make decision in percentage.
-            threshold-alert-jitter:
+                        description: Packet loss for SLA to make decision in percentage.
+            threshold_alert_jitter:
                 type: int
-                description: Deprecated, please rename it to threshold_alert_jitter. Alert threshold for jitter
-            threshold-alert-latency:
+                description: Alert threshold for jitter
+            threshold_alert_latency:
                 type: int
-                description: Deprecated, please rename it to threshold_alert_latency. Alert threshold for latency
-            threshold-alert-packetloss:
+                description: Alert threshold for latency
+            threshold_alert_packetloss:
                 type: int
-                description: Deprecated, please rename it to threshold_alert_packetloss. Alert threshold for packet loss
-            threshold-warning-jitter:
+                description: Alert threshold for packet loss
+            threshold_warning_jitter:
                 type: int
-                description: Deprecated, please rename it to threshold_warning_jitter. Warning threshold for jitter
-            threshold-warning-latency:
+                description: Warning threshold for jitter
+            threshold_warning_latency:
                 type: int
-                description: Deprecated, please rename it to threshold_warning_latency. Warning threshold for latency
-            threshold-warning-packetloss:
+                description: Warning threshold for latency
+            threshold_warning_packetloss:
                 type: int
-                description: Deprecated, please rename it to threshold_warning_packetloss. Warning threshold for packet loss
-            update-cascade-interface:
+                description: Warning threshold for packet loss
+            update_cascade_interface:
                 type: str
-                description: Deprecated, please rename it to update_cascade_interface. Enable/disable update cascade interface.
+                description: Enable/disable update cascade interface.
                 choices:
                     - 'disable'
                     - 'enable'
-            update-static-route:
+            update_static_route:
                 type: str
-                description: Deprecated, please rename it to update_static_route. Enable/disable updating the static route.
+                description: Enable/disable updating the static route.
                 choices:
                     - 'disable'
                     - 'enable'
-            internet-service-id:
+            internet_service_id:
                 type: str
-                description: Deprecated, please rename it to internet_service_id. Internet service ID.
-            probe-packets:
+                description: Internet service ID.
+            probe_packets:
                 type: str
-                description: Deprecated, please rename it to probe_packets. Enable/disable transmission of probe packets.
+                description: Enable/disable transmission of probe packets.
                 choices:
                     - 'disable'
                     - 'enable'
-            sla-fail-log-period:
+            sla_fail_log_period:
                 type: int
-                description: Deprecated, please rename it to sla_fail_log_period. Time interval in seconds that SLA fail log messages will be generated
-            sla-pass-log-period:
+                description: Time interval in seconds that SLA fail log messages will be generated
+            sla_pass_log_period:
                 type: int
-                description: Deprecated, please rename it to sla_pass_log_period. Time interval in seconds that SLA pass log messages will be generated
+                description: Time interval in seconds that SLA pass log messages will be generated
             timeout:
                 type: int
                 description: How long to wait before not receiving a reply from the server to consider the connetion attempt a failure
-            ha-priority:
+            ha_priority:
                 type: int
-                description: Deprecated, please rename it to ha_priority. HA election priority
+                description: HA election priority
             diffservcode:
                 type: str
                 description: Differentiated services code point
-            probe-timeout:
+            probe_timeout:
                 type: int
-                description: Deprecated, please rename it to probe_timeout. Time to wait before a probe packet is considered lost
-            dns-request-domain:
+                description: Time to wait before a probe packet is considered lost
+            dns_request_domain:
                 type: str
-                description: Deprecated, please rename it to dns_request_domain. Fully qualified domain name to resolve for the DNS probe.
-            probe-count:
+                description: Fully qualified domain name to resolve for the DNS probe.
+            probe_count:
                 type: int
-                description: Deprecated, please rename it to probe_count. Number of most recent probes that should be used to calculate latency and jitter
-            system-dns:
+                description: Number of most recent probes that should be used to calculate latency and jitter
+            system_dns:
                 type: str
-                description: Deprecated, please rename it to system_dns. Enable/disable system DNS as the probe server.
+                description: Enable/disable system DNS as the probe server.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -294,9 +294,9 @@ EXAMPLES = '''
               jitter_threshold: <integer>
               latency_threshold: <integer>
               link_cost_factor:
-                - latency
-                - jitter
-                - packet-loss
+                - "latency"
+                - "jitter"
+                - "packet-loss"
               packetloss_threshold: <integer>
           threshold_alert_jitter: <integer>
           threshold_alert_latency: <integer>
@@ -360,21 +360,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/health-check/{health-check}'
-    ]
-
     url_params = ['adom', 'wanprof']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -384,7 +377,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                '_dynamic-server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
+                '_dynamic-server': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                 'addr-mode': {'choices': ['ipv4', 'ipv6'], 'type': 'str'},
                 'failtime': {'type': 'int'},
                 'http-agent': {'type': 'str'},
@@ -423,7 +416,7 @@ def main():
                 'probe-packets': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sla-fail-log-period': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'sla-pass-log-period': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'int'},
-                'timeout': {'v_range': [['6.2.0', '6.4.14']], 'type': 'int'},
+                'timeout': {'v_range': [['6.2.0', '6.4.15']], 'type': 'int'},
                 'ha-priority': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'diffservcode': {'v_range': [['6.2.5', '']], 'type': 'str'},
                 'probe-timeout': {'v_range': [['6.2.5', '']], 'type': 'int'},
@@ -431,7 +424,6 @@ def main():
                 'probe-count': {'v_range': [['6.4.0', '6.4.0']], 'type': 'int'},
                 'system-dns': {'v_range': [['6.4.0', '6.4.0']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -445,9 +437,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

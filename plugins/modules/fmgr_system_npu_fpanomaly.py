@@ -80,430 +80,430 @@ options:
         required: false
         type: dict
         suboptions:
-            esp-minlen-err:
+            esp_minlen_err:
                 type: str
-                description: Deprecated, please rename it to esp_minlen_err. Invalid IPv4 ESP short packet anomalies.
+                description: Invalid IPv4 ESP short packet anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            icmp-csum-err:
+            icmp_csum_err:
                 type: str
-                description: Deprecated, please rename it to icmp_csum_err. Invalid IPv4 ICMP packet checksum anomalies.
+                description: Invalid IPv4 ICMP packet checksum anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            icmp-minlen-err:
+            icmp_minlen_err:
                 type: str
-                description: Deprecated, please rename it to icmp_minlen_err. Invalid IPv4 ICMP short packet anomalies.
+                description: Invalid IPv4 ICMP short packet anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-csum-err:
+            ipv4_csum_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_csum_err. Invalid IPv4 packet checksum anomalies.
+                description: Invalid IPv4 packet checksum anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-ihl-err:
+            ipv4_ihl_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_ihl_err. Invalid IPv4 header length anomalies.
+                description: Invalid IPv4 header length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-len-err:
+            ipv4_len_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_len_err. Invalid IPv4 packet length anomalies.
+                description: Invalid IPv4 packet length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-opt-err:
+            ipv4_opt_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_opt_err. Invalid IPv4 option parsing anomalies.
+                description: Invalid IPv4 option parsing anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-ttlzero-err:
+            ipv4_ttlzero_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_ttlzero_err. Invalid IPv4 TTL field zero anomalies.
+                description: Invalid IPv4 TTL field zero anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-ver-err:
+            ipv4_ver_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_ver_err. Invalid IPv4 header version anomalies.
+                description: Invalid IPv4 header version anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-exthdr-len-err:
+            ipv6_exthdr_len_err:
                 type: str
-                description: Deprecated, please rename it to ipv6_exthdr_len_err. Invalid IPv6 packet chain extension header total length anomalies.
+                description: Invalid IPv6 packet chain extension header total length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-exthdr-order-err:
+            ipv6_exthdr_order_err:
                 type: str
-                description: Deprecated, please rename it to ipv6_exthdr_order_err. Invalid IPv6 packet extension header ordering anomalies.
+                description: Invalid IPv6 packet extension header ordering anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-ihl-err:
+            ipv6_ihl_err:
                 type: str
-                description: Deprecated, please rename it to ipv6_ihl_err. Invalid IPv6 packet length anomalies.
+                description: Invalid IPv6 packet length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-plen-zero:
+            ipv6_plen_zero:
                 type: str
-                description: Deprecated, please rename it to ipv6_plen_zero. Invalid IPv6 packet payload length zero anomalies.
+                description: Invalid IPv6 packet payload length zero anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-ver-err:
+            ipv6_ver_err:
                 type: str
-                description: Deprecated, please rename it to ipv6_ver_err. Invalid IPv6 packet version anomalies.
+                description: Invalid IPv6 packet version anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-csum-err:
+            tcp_csum_err:
                 type: str
-                description: Deprecated, please rename it to tcp_csum_err. Invalid IPv4 TCP packet checksum anomalies.
+                description: Invalid IPv4 TCP packet checksum anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-hlen-err:
+            tcp_hlen_err:
                 type: str
-                description: Deprecated, please rename it to tcp_hlen_err. Invalid IPv4 TCP header length anomalies.
+                description: Invalid IPv4 TCP header length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-plen-err:
+            tcp_plen_err:
                 type: str
-                description: Deprecated, please rename it to tcp_plen_err. Invalid IPv4 TCP packet length anomalies.
+                description: Invalid IPv4 TCP packet length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udp-csum-err:
+            udp_csum_err:
                 type: str
-                description: Deprecated, please rename it to udp_csum_err. Invalid IPv4 UDP packet checksum anomalies.
+                description: Invalid IPv4 UDP packet checksum anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udp-hlen-err:
+            udp_hlen_err:
                 type: str
-                description: Deprecated, please rename it to udp_hlen_err. Invalid IPv4 UDP packet header length anomalies.
+                description: Invalid IPv4 UDP packet header length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udp-len-err:
+            udp_len_err:
                 type: str
-                description: Deprecated, please rename it to udp_len_err. Invalid IPv4 UDP packet length anomalies.
+                description: Invalid IPv4 UDP packet length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udp-plen-err:
+            udp_plen_err:
                 type: str
-                description: Deprecated, please rename it to udp_plen_err. Invalid IPv4 UDP packet minimum length anomalies.
+                description: Invalid IPv4 UDP packet minimum length anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udplite-cover-err:
+            udplite_cover_err:
                 type: str
-                description: Deprecated, please rename it to udplite_cover_err. Invalid IPv4 UDP-Lite packet coverage anomalies.
+                description: Invalid IPv4 UDP-Lite packet coverage anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            udplite-csum-err:
+            udplite_csum_err:
                 type: str
-                description: Deprecated, please rename it to udplite_csum_err. Invalid IPv4 UDP-Lite packet checksum anomalies.
+                description: Invalid IPv4 UDP-Lite packet checksum anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            unknproto-minlen-err:
+            unknproto_minlen_err:
                 type: str
-                description: Deprecated, please rename it to unknproto_minlen_err. Invalid IPv4 L4 unknown protocol short packet anomalies.
+                description: Invalid IPv4 L4 unknown protocol short packet anomalies.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-fin-only:
+            tcp_fin_only:
                 type: str
-                description: Deprecated, please rename it to tcp_fin_only. TCP SYN flood with only FIN flag set anomalies.
-                choices:
-                    - 'allow'
-                    - 'drop'
-                    - 'trap-to-host'
-            ipv4-optsecurity:
-                type: str
-                description: Deprecated, please rename it to ipv4_optsecurity. Security option anomalies.
+                description: TCP SYN flood with only FIN flag set anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-optralert:
+            ipv4_optsecurity:
                 type: str
-                description: Deprecated, please rename it to ipv6_optralert. Router alert option anomalies.
+                description: Security option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-syn-fin:
+            ipv6_optralert:
                 type: str
-                description: Deprecated, please rename it to tcp_syn_fin. TCP SYN flood SYN/FIN flag set anomalies.
+                description: Router alert option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-proto-err:
+            tcp_syn_fin:
                 type: str
-                description: Deprecated, please rename it to ipv4_proto_err. Invalid layer 4 protocol anomalies.
+                description: TCP SYN flood SYN/FIN flag set anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-saddr-err:
+            ipv4_proto_err:
                 type: str
-                description: Deprecated, please rename it to ipv6_saddr_err. Source address as multicast anomalies.
+                description: Invalid layer 4 protocol anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            icmp-frag:
+            ipv6_saddr_err:
                 type: str
-                description: Deprecated, please rename it to icmp_frag. Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
+                description: Source address as multicast anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-optssrr:
+            icmp_frag:
                 type: str
-                description: Deprecated, please rename it to ipv4_optssrr. Strict source record route option anomalies.
+                description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-opthomeaddr:
+            ipv4_optssrr:
                 type: str
-                description: Deprecated, please rename it to ipv6_opthomeaddr. Home address option anomalies.
+                description: Strict source record route option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            udp-land:
+            ipv6_opthomeaddr:
                 type: str
-                description: Deprecated, please rename it to udp_land. UDP land anomalies.
+                description: Home address option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-optinvld:
+            udp_land:
                 type: str
-                description: Deprecated, please rename it to ipv6_optinvld. Invalid option anomalies.
+                description: UDP land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-fin-noack:
+            ipv6_optinvld:
                 type: str
-                description: Deprecated, please rename it to tcp_fin_noack. TCP SYN flood with FIN flag set without ACK setting anomalies.
+                description: Invalid option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-proto-err:
+            tcp_fin_noack:
                 type: str
-                description: Deprecated, please rename it to ipv6_proto_err. Layer 4 invalid protocol anomalies.
+                description: TCP SYN flood with FIN flag set without ACK setting anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-land:
+            ipv6_proto_err:
                 type: str
-                description: Deprecated, please rename it to tcp_land. TCP land anomalies.
+                description: Layer 4 invalid protocol anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-unknopt:
+            tcp_land:
                 type: str
-                description: Deprecated, please rename it to ipv4_unknopt. Unknown option anomalies.
+                description: TCP land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-optstream:
+            ipv4_unknopt:
                 type: str
-                description: Deprecated, please rename it to ipv4_optstream. Stream option anomalies.
+                description: Unknown option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-optjumbo:
+            ipv4_optstream:
                 type: str
-                description: Deprecated, please rename it to ipv6_optjumbo. Jumbo options anomalies.
+                description: Stream option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            icmp-land:
+            ipv6_optjumbo:
                 type: str
-                description: Deprecated, please rename it to icmp_land. ICMP land anomalies.
+                description: Jumbo options anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-winnuke:
+            icmp_land:
                 type: str
-                description: Deprecated, please rename it to tcp_winnuke. TCP WinNuke anomalies.
+                description: ICMP land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-daddr-err:
+            tcp_winnuke:
                 type: str
-                description: Deprecated, please rename it to ipv6_daddr_err. Destination address as unspecified or loopback address anomalies.
+                description: TCP WinNuke anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-land:
+            ipv6_daddr_err:
                 type: str
-                description: Deprecated, please rename it to ipv4_land. Land anomalies.
+                description: Destination address as unspecified or loopback address anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-opttunnel:
+            ipv4_land:
                 type: str
-                description: Deprecated, please rename it to ipv6_opttunnel. Tunnel encapsulation limit option anomalies.
+                description: Land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-no-flag:
+            ipv6_opttunnel:
                 type: str
-                description: Deprecated, please rename it to tcp_no_flag. TCP SYN flood with no flag set anomalies.
+                description: Tunnel encapsulation limit option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-land:
+            tcp_no_flag:
                 type: str
-                description: Deprecated, please rename it to ipv6_land. Land anomalies.
+                description: TCP SYN flood with no flag set anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-optlsrr:
+            ipv6_land:
                 type: str
-                description: Deprecated, please rename it to ipv4_optlsrr. Loose source record route option anomalies.
+                description: Land anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-opttimestamp:
+            ipv4_optlsrr:
                 type: str
-                description: Deprecated, please rename it to ipv4_opttimestamp. Timestamp option anomalies.
+                description: Loose source record route option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv4-optrr:
+            ipv4_opttimestamp:
                 type: str
-                description: Deprecated, please rename it to ipv4_optrr. Record route option anomalies.
+                description: Timestamp option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-optnsap:
+            ipv4_optrr:
                 type: str
-                description: Deprecated, please rename it to ipv6_optnsap. Network service access point address option anomalies.
+                description: Record route option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-unknopt:
+            ipv6_optnsap:
                 type: str
-                description: Deprecated, please rename it to ipv6_unknopt. Unknown option anomalies.
+                description: Network service access point address option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            tcp-syn-data:
+            ipv6_unknopt:
                 type: str
-                description: Deprecated, please rename it to tcp_syn_data. TCP SYN flood packets with data anomalies.
+                description: Unknown option anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            ipv6-optendpid:
+            tcp_syn_data:
                 type: str
-                description: Deprecated, please rename it to ipv6_optendpid. End point identification anomalies.
+                description: TCP SYN flood packets with data anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
                     - 'trap-to-host'
-            gtpu-plen-err:
+            ipv6_optendpid:
                 type: str
-                description: Deprecated, please rename it to gtpu_plen_err. Gtpu plen err.
+                description: End point identification anomalies.
+                choices:
+                    - 'allow'
+                    - 'drop'
+                    - 'trap-to-host'
+            gtpu_plen_err:
+                type: str
+                description: Gtpu plen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            vxlan-minlen-err:
+            vxlan_minlen_err:
                 type: str
-                description: Deprecated, please rename it to vxlan_minlen_err. Vxlan minlen err.
+                description: Vxlan minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            capwap-minlen-err:
+            capwap_minlen_err:
                 type: str
-                description: Deprecated, please rename it to capwap_minlen_err. Capwap minlen err.
+                description: Capwap minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            gre-csum-err:
+            gre_csum_err:
                 type: str
-                description: Deprecated, please rename it to gre_csum_err. Gre csum err.
+                description: Gre csum err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            nvgre-minlen-err:
+            nvgre_minlen_err:
                 type: str
-                description: Deprecated, please rename it to nvgre_minlen_err. Nvgre minlen err.
+                description: Nvgre minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            sctp-l4len-err:
+            sctp_l4len_err:
                 type: str
-                description: Deprecated, please rename it to sctp_l4len_err. Sctp l4len err.
+                description: Sctp l4len err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            tcp-hlenvsl4len-err:
+            tcp_hlenvsl4len_err:
                 type: str
-                description: Deprecated, please rename it to tcp_hlenvsl4len_err. Tcp hlenvsl4len err.
+                description: Tcp hlenvsl4len err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            sctp-crc-err:
+            sctp_crc_err:
                 type: str
-                description: Deprecated, please rename it to sctp_crc_err. Sctp crc err.
+                description: Sctp crc err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            sctp-clen-err:
+            sctp_clen_err:
                 type: str
-                description: Deprecated, please rename it to sctp_clen_err. Sctp clen err.
+                description: Sctp clen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            uesp-minlen-err:
+            uesp_minlen_err:
                 type: str
-                description: Deprecated, please rename it to uesp_minlen_err. Uesp minlen err.
+                description: Uesp minlen err.
                 choices:
                     - 'drop'
                     - 'trap-to-host'
-            sctp-csum-err:
+            sctp_csum_err:
                 type: str
-                description: Deprecated, please rename it to sctp_csum_err. Invalid IPv4 SCTP checksum anomalies.
+                description: Invalid IPv4 SCTP checksum anomalies.
                 choices:
                     - 'allow'
                     - 'drop'
@@ -637,99 +637,90 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly',
         '/pm/config/global/obj/system/npu/fp-anomaly'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/fp-anomaly/{fp-anomaly}',
-        '/pm/config/global/obj/system/npu/fp-anomaly/{fp-anomaly}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu_fpanomaly': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'esp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'icmp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'icmp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-ihl-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-opt-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-ttlzero-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-ver-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-exthdr-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-exthdr-order-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-ihl-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-plen-zero': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-ver-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-hlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udp-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udp-hlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udp-len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udp-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udplite-cover-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udplite-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-fin-only': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-optralert': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-syn-fin': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-proto-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-saddr-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'icmp-frag': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-optssrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-opthomeaddr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'udp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-optinvld': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-fin-noack': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-proto-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-unknopt': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-optstream': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-optjumbo': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'icmp-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-winnuke': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-daddr-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-opttunnel': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-no-flag': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-land': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-optlsrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-opttimestamp': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv4-optrr': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-optnsap': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-syn-data': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'gre-csum-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-crc-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-clen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.5'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                'esp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'icmp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'icmp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-opt-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-ttlzero-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-ver-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-exthdr-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-exthdr-order-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-ihl-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-plen-zero': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-ver-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udp-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udp-hlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udp-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udplite-cover-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-fin-only': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-optralert': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-syn-fin': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-proto-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-saddr-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'icmp-frag': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-optssrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-opthomeaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'udp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-optinvld': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-fin-noack': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-proto-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-optstream': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-optjumbo': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'icmp-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-winnuke': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-daddr-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-opttunnel': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-no-flag': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-land': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-optlsrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-opttimestamp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv4-optrr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-optnsap': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-syn-data': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
+                'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
             }
-
         }
     }
 
@@ -743,9 +734,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

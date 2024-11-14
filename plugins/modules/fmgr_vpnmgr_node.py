@@ -89,21 +89,21 @@ options:
         required: false
         type: dict
         suboptions:
-            add-route:
+            add_route:
                 type: str
-                description: Deprecated, please rename it to add_route. Add route.
+                description: Add route.
                 choices:
                     - 'disable'
                     - 'enable'
-            assign-ip:
+            assign_ip:
                 type: str
-                description: Deprecated, please rename it to assign_ip. Assign ip.
+                description: Assign ip.
                 choices:
                     - 'disable'
                     - 'enable'
-            assign-ip-from:
+            assign_ip_from:
                 type: str
-                description: Deprecated, please rename it to assign_ip_from. Assign ip from.
+                description: Assign ip from.
                 choices:
                     - 'range'
                     - 'usrgrp'
@@ -118,9 +118,9 @@ options:
             authusrgrp:
                 type: str
                 description: Authusrgrp.
-            auto-configuration:
+            auto_configuration:
                 type: str
-                description: Deprecated, please rename it to auto_configuration. Auto configuration.
+                description: Auto configuration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -133,24 +133,24 @@ options:
             banner:
                 type: str
                 description: Banner.
-            default-gateway:
+            default_gateway:
                 type: str
-                description: Deprecated, please rename it to default_gateway. Default gateway.
-            dhcp-server:
+                description: Default gateway.
+            dhcp_server:
                 type: str
-                description: Deprecated, please rename it to dhcp_server. Dhcp server.
+                description: Dhcp server.
                 choices:
                     - 'disable'
                     - 'enable'
-            dns-mode:
+            dns_mode:
                 type: str
-                description: Deprecated, please rename it to dns_mode. Dns mode.
+                description: Dns mode.
                 choices:
                     - 'auto'
                     - 'manual'
-            dns-service:
+            dns_service:
                 type: str
-                description: Deprecated, please rename it to dns_service. Dns service.
+                description: Dns service.
                 choices:
                     - 'default'
                     - 'specify'
@@ -183,85 +183,85 @@ options:
             iface:
                 type: raw
                 description: (list or str) Iface.
-            ip-range:
+            ip_range:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ip_range. Ip range.
+                description: Ip range.
                 suboptions:
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End ip.
+                        description: End ip.
                     id:
                         type: int
                         description: Id.
-                    start-ip:
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start ip.
-            ipsec-lease-hold:
+                        description: Start ip.
+            ipsec_lease_hold:
                 type: int
-                description: Deprecated, please rename it to ipsec_lease_hold. Ipsec lease hold.
-            ipv4-dns-server1:
+                description: Ipsec lease hold.
+            ipv4_dns_server1:
                 type: str
-                description: Deprecated, please rename it to ipv4_dns_server1. Ipv4 dns server1.
-            ipv4-dns-server2:
+                description: Ipv4 dns server1.
+            ipv4_dns_server2:
                 type: str
-                description: Deprecated, please rename it to ipv4_dns_server2. Ipv4 dns server2.
-            ipv4-dns-server3:
+                description: Ipv4 dns server2.
+            ipv4_dns_server3:
                 type: str
-                description: Deprecated, please rename it to ipv4_dns_server3. Ipv4 dns server3.
-            ipv4-end-ip:
+                description: Ipv4 dns server3.
+            ipv4_end_ip:
                 type: str
-                description: Deprecated, please rename it to ipv4_end_ip. Ipv4 end ip.
-            ipv4-exclude-range:
+                description: Ipv4 end ip.
+            ipv4_exclude_range:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ipv4_exclude_range. Ipv4 exclude range.
+                description: Ipv4 exclude range.
                 suboptions:
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End ip.
+                        description: End ip.
                     id:
                         type: int
                         description: Id.
-                    start-ip:
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start ip.
-            ipv4-netmask:
+                        description: Start ip.
+            ipv4_netmask:
                 type: str
-                description: Deprecated, please rename it to ipv4_netmask. Ipv4 netmask.
-            ipv4-split-include:
+                description: Ipv4 netmask.
+            ipv4_split_include:
                 type: str
-                description: Deprecated, please rename it to ipv4_split_include. Ipv4 split include.
-            ipv4-start-ip:
+                description: Ipv4 split include.
+            ipv4_start_ip:
                 type: str
-                description: Deprecated, please rename it to ipv4_start_ip. Ipv4 start ip.
-            ipv4-wins-server1:
+                description: Ipv4 start ip.
+            ipv4_wins_server1:
                 type: str
-                description: Deprecated, please rename it to ipv4_wins_server1. Ipv4 wins server1.
-            ipv4-wins-server2:
+                description: Ipv4 wins server1.
+            ipv4_wins_server2:
                 type: str
-                description: Deprecated, please rename it to ipv4_wins_server2. Ipv4 wins server2.
-            local-gw:
+                description: Ipv4 wins server2.
+            local_gw:
                 type: str
-                description: Deprecated, please rename it to local_gw. Local gw.
+                description: Local gw.
             localid:
                 type: str
                 description: Localid.
-            mode-cfg:
+            mode_cfg:
                 type: str
-                description: Deprecated, please rename it to mode_cfg. Mode cfg.
+                description: Mode cfg.
                 choices:
                     - 'disable'
                     - 'enable'
-            mode-cfg-ip-version:
+            mode_cfg_ip_version:
                 type: str
-                description: Deprecated, please rename it to mode_cfg_ip_version. Mode cfg ip version.
+                description: Mode cfg ip version.
                 choices:
                     - '4'
                     - '6'
-            net-device:
+            net_device:
                 type: str
-                description: Deprecated, please rename it to net_device. Net device.
+                description: Net device.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -294,25 +294,25 @@ options:
                     seq:
                         type: int
                         description: Seq.
-            public-ip:
+            public_ip:
                 type: str
-                description: Deprecated, please rename it to public_ip. Public ip.
+                description: Public ip.
             role:
                 type: str
                 description: Role.
                 choices:
                     - 'hub'
                     - 'spoke'
-            route-overlap:
+            route_overlap:
                 type: str
-                description: Deprecated, please rename it to route_overlap. Route overlap.
+                description: Route overlap.
                 choices:
                     - 'use-old'
                     - 'use-new'
                     - 'allow'
-            spoke-zone:
+            spoke_zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to spoke_zone. Spoke zone.
+                description: (list or str) Spoke zone.
             summary_addr:
                 type: list
                 elements: dict
@@ -327,27 +327,27 @@ options:
                     seq:
                         type: int
                         description: Seq.
-            tunnel-search:
+            tunnel_search:
                 type: str
-                description: Deprecated, please rename it to tunnel_search. Tunnel search.
+                description: Tunnel search.
                 choices:
                     - 'selectors'
                     - 'nexthop'
-            unity-support:
+            unity_support:
                 type: str
-                description: Deprecated, please rename it to unity_support. Unity support.
+                description: Unity support.
                 choices:
                     - 'disable'
                     - 'enable'
             usrgrp:
                 type: str
                 description: Usrgrp.
-            vpn-interface-priority:
+            vpn_interface_priority:
                 type: int
-                description: Deprecated, please rename it to vpn_interface_priority. Vpn interface priority.
-            vpn-zone:
+                description: Vpn interface priority.
+            vpn_zone:
                 type: raw
-                description: (list or str) Deprecated, please rename it to vpn_zone. Vpn zone.
+                description: (list or str) Vpn zone.
             vpntable:
                 type: raw
                 description: (list or str) Vpntable.
@@ -360,22 +360,22 @@ options:
                     - 'pap'
                     - 'chap'
                     - 'auto'
-            exchange-interface-ip:
+            exchange_interface_ip:
                 type: str
-                description: Deprecated, please rename it to exchange_interface_ip. Exchange interface ip.
+                description: Exchange interface ip.
                 choices:
                     - 'disable'
                     - 'enable'
-            hub-public-ip:
+            hub_public_ip:
                 type: str
-                description: Deprecated, please rename it to hub_public_ip. Hub public ip.
-            ipv4-split-exclude:
+                description: Hub public ip.
+            ipv4_split_exclude:
                 type: str
-                description: Deprecated, please rename it to ipv4_split_exclude. Ipv4 split exclude.
-            scope member:
+                description: Ipv4 split exclude.
+            scope_member:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to scope_member. Scope member.
+                description: Scope member.
                 suboptions:
                     name:
                         type: str
@@ -383,42 +383,42 @@ options:
                     vdom:
                         type: str
                         description: Vdom.
-            dhcp-ra-giaddr:
+            dhcp_ra_giaddr:
                 type: str
-                description: Deprecated, please rename it to dhcp_ra_giaddr. Dhcp ra giaddr.
+                description: Dhcp ra giaddr.
             encapsulation:
                 type: str
                 description: Encapsulation.
                 choices:
                     - 'tunnel-mode'
                     - 'transport-mode'
-            ipv4-name:
+            ipv4_name:
                 type: str
-                description: Deprecated, please rename it to ipv4_name. Ipv4 name.
+                description: Ipv4 name.
             l2tp:
                 type: str
                 description: L2tp.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-discovery-receiver:
+            auto_discovery_receiver:
                 type: str
-                description: Deprecated, please rename it to auto_discovery_receiver. Auto discovery receiver.
+                description: Auto discovery receiver.
                 choices:
                     - 'disable'
                     - 'enable'
-            auto-discovery-sender:
+            auto_discovery_sender:
                 type: str
-                description: Deprecated, please rename it to auto_discovery_sender. Auto discovery sender.
+                description: Auto discovery sender.
                 choices:
                     - 'disable'
                     - 'enable'
-            network-id:
+            network_id:
                 type: int
-                description: Deprecated, please rename it to network_id. Network id.
-            network-overlay:
+                description: Network id.
+            network_overlay:
                 type: str
-                description: Deprecated, please rename it to network_overlay. Network overlay.
+                description: Network overlay.
                 choices:
                     - 'enable'
                     - 'disable'
@@ -575,23 +575,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/vpnmgr/node',
         '/pm/config/global/obj/vpnmgr/node'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/vpnmgr/node/{node}',
-        '/pm/config/global/obj/vpnmgr/node/{node}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -671,25 +663,24 @@ def main():
                 'hub-public-ip': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'ipv4-split-exclude': {'v_range': [['6.4.6', '']], 'type': 'str'},
                 'scope member': {
-                    'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'dhcp-ra-giaddr': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
+                'dhcp-ra-giaddr': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
                 'encapsulation': {'v_range': [['7.0.2', '']], 'choices': ['tunnel-mode', 'transport-mode'], 'type': 'str'},
-                'ipv4-name': {'v_range': [['6.4.8', '6.4.14'], ['7.0.4', '']], 'type': 'str'},
+                'ipv4-name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
                 'l2tp': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'network-id': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'type': 'int'},
-                'network-overlay': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
-                'protocol': {'v_range': [['7.2.5', '7.2.5'], ['7.4.1', '']], 'type': 'int'}
+                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'network-id': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'type': 'int'},
+                'network-overlay': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
+                'protocol': {'v_range': [['7.2.5', '7.2.8'], ['7.4.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -703,9 +694,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

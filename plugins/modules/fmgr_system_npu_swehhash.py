@@ -88,48 +88,48 @@ options:
                     - 'xor8'
                     - 'xor4'
                     - 'crc16'
-            destination-ip-lower-16:
+            destination_ip_lower_16:
                 type: str
-                description: Deprecated, please rename it to destination_ip_lower_16. Include/exclude destination IP address lower 16 bits.
+                description: Include/exclude destination IP address lower 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
-            destination-ip-upper-16:
+            destination_ip_upper_16:
                 type: str
-                description: Deprecated, please rename it to destination_ip_upper_16. Include/exclude destination IP address upper 16 bits.
+                description: Include/exclude destination IP address upper 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
-            destination-port:
+            destination_port:
                 type: str
-                description: Deprecated, please rename it to destination_port. Include/exclude destination port if TCP/UDP.
+                description: Include/exclude destination port if TCP/UDP.
                 choices:
                     - 'include'
                     - 'exclude'
-            ip-protocol:
+            ip_protocol:
                 type: str
-                description: Deprecated, please rename it to ip_protocol. Include/exclude IP protocol.
+                description: Include/exclude IP protocol.
                 choices:
                     - 'include'
                     - 'exclude'
-            netmask-length:
+            netmask_length:
                 type: int
-                description: Deprecated, please rename it to netmask_length. Network mask length.
-            source-ip-lower-16:
+                description: Network mask length.
+            source_ip_lower_16:
                 type: str
-                description: Deprecated, please rename it to source_ip_lower_16. Include/exclude source IP address lower 16 bits.
+                description: Include/exclude source IP address lower 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
-            source-ip-upper-16:
+            source_ip_upper_16:
                 type: str
-                description: Deprecated, please rename it to source_ip_upper_16. Include/exclude source IP address upper 16 bits.
+                description: Include/exclude source IP address upper 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
-            source-port:
+            source_port:
                 type: str
-                description: Deprecated, please rename it to source_port. Include/exclude source port if TCP/UDP.
+                description: Include/exclude source port if TCP/UDP.
                 choices:
                     - 'include'
                     - 'exclude'
@@ -205,23 +205,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/sw-eh-hash',
         '/pm/config/global/obj/system/npu/sw-eh-hash'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/sw-eh-hash/{sw-eh-hash}',
-        '/pm/config/global/obj/system/npu/sw-eh-hash/{sw-eh-hash}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
@@ -240,7 +232,6 @@ def main():
                 'source-ip-upper-16': {'v_range': [['7.0.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
                 'source-port': {'v_range': [['7.0.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'}
             }
-
         }
     }
 
@@ -254,9 +245,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

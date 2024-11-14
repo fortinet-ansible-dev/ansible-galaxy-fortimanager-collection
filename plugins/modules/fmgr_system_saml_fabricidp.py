@@ -85,25 +85,24 @@ options:
         required: false
         type: dict
         suboptions:
-            dev-id:
+            dev_id:
                 type: str
-                description: Deprecated, please rename it to dev_id. IDP Device ID.
-            idp-cert:
+                description: IDP Device ID.
+            idp_cert:
                 type: str
-                description: Deprecated, please rename it to idp_cert. IDP Certificate name.
-            idp-entity-id:
+                description: IDP Certificate name.
+            idp_entity_id:
                 type: str
-                description: Deprecated, please rename it to idp_entity_id. IDP entity ID.
-            idp-single-logout-url:
+                description: IDP entity ID.
+            idp_single_logout_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-            idp-single-sign-on-url:
+                description: IDP single logout url.
+            idp_single_sign_on_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
-            idp-status:
+                description: IDP single sign-on URL.
+            idp_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to idp_status.
                     - Enable/disable SAML authentication
                     - disable - Disable SAML authentication.
                     - enable - Enabld SAML authentication.
@@ -179,21 +178,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/saml/fabric-idp'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/saml/fabric-idp/{fabric-idp}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -208,7 +200,6 @@ def main():
                 'idp-single-sign-on-url': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'idp-status': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -222,9 +213,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

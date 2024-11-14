@@ -76,26 +76,24 @@ options:
         required: false
         type: dict
         suboptions:
-            admin-lockout-duration:
+            admin_lockout_duration:
                 type: int
-                description: Deprecated, please rename it to admin_lockout_duration. Lockout duration
-            admin-lockout-threshold:
+                description: Lockout duration
+            admin_lockout_threshold:
                 type: int
-                description: Deprecated, please rename it to admin_lockout_threshold. Lockout threshold for administration.
-            adom-mode:
+                description: Lockout threshold for administration.
+            adom_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_mode.
                     - ADOM mode.
                     - normal - Normal ADOM mode.
                     - advanced - Advanced ADOM mode.
                 choices:
                     - 'normal'
                     - 'advanced'
-            adom-rev-auto-delete:
+            adom_rev_auto_delete:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_rev_auto_delete.
                     - Auto delete features for old ADOM revisions.
                     - disable - Disable auto delete function for ADOM revision.
                     - by-revisions - Auto delete ADOM revisions by maximum number of revisions.
@@ -104,39 +102,36 @@ options:
                     - 'disable'
                     - 'by-revisions'
                     - 'by-days'
-            adom-rev-max-backup-revisions:
+            adom_rev_max_backup_revisions:
                 type: int
-                description: Deprecated, please rename it to adom_rev_max_backup_revisions. Maximum number of ADOM revisions to backup.
-            adom-rev-max-days:
+                description: Maximum number of ADOM revisions to backup.
+            adom_rev_max_days:
                 type: int
-                description: Deprecated, please rename it to adom_rev_max_days. Number of days to keep old ADOM revisions.
-            adom-rev-max-revisions:
+                description: Number of days to keep old ADOM revisions.
+            adom_rev_max_revisions:
                 type: int
-                description: Deprecated, please rename it to adom_rev_max_revisions. Maximum number of ADOM revisions to keep.
-            adom-select:
+                description: Maximum number of ADOM revisions to keep.
+            adom_select:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_select.
                     - Enable/disable select ADOM after login.
                     - disable - Disable select ADOM after login.
                     - enable - Enable select ADOM after login.
                 choices:
                     - 'disable'
                     - 'enable'
-            adom-status:
+            adom_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to adom_status.
                     - ADOM status.
                     - disable - Disable ADOM mode.
                     - enable - Enable ADOM mode.
                 choices:
                     - 'disable'
                     - 'enable'
-            clt-cert-req:
+            clt_cert_req:
                 type: str
                 description:
-                    - Deprecated, please rename it to clt_cert_req.
                     - Require client certificate for GUI login.
                     - disable - Disable setting.
                     - enable - Require client certificate for GUI login.
@@ -145,30 +140,27 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'optional'
-            console-output:
+            console_output:
                 type: str
                 description:
-                    - Deprecated, please rename it to console_output.
                     - Console output mode.
                     - standard - Standard output.
                     - more - More page output.
                 choices:
                     - 'standard'
                     - 'more'
-            country-flag:
+            country_flag:
                 type: str
                 description:
-                    - Deprecated, please rename it to country_flag.
                     - Country flag Status.
                     - disable - Disable country flag icon beside ip address.
                     - enable - Enable country flag icon beside ip address.
                 choices:
                     - 'disable'
                     - 'enable'
-            create-revision:
+            create_revision:
                 type: str
                 description:
-                    - Deprecated, please rename it to create_revision.
                     - Enable/disable create revision by default.
                     - disable - Disable create revision by default.
                     - enable - Enable create revision by default.
@@ -184,33 +176,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            default-disk-quota:
+            default_disk_quota:
                 type: int
-                description: Deprecated, please rename it to default_disk_quota. Default disk quota for registered device
-            detect-unregistered-log-device:
+                description: Default disk quota for registered device
+            detect_unregistered_log_device:
                 type: str
                 description:
-                    - Deprecated, please rename it to detect_unregistered_log_device.
                     - Detect unregistered logging device from log message.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
                 choices:
                     - 'disable'
                     - 'enable'
-            device-view-mode:
+            device_view_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to device_view_mode.
                     - Set devices/groups view mode.
                     - regular - Regular view mode.
                     - tree - Tree view mode.
                 choices:
                     - 'regular'
                     - 'tree'
-            dh-params:
+            dh_params:
                 type: str
                 description:
-                    - Deprecated, please rename it to dh_params.
                     - Minimum size of Diffie-Hellman prime for SSH/HTTPS
                     - 1024 - 1024 bits.
                     - 1536 - 1536 bits.
@@ -227,11 +216,10 @@ options:
                     - '4096'
                     - '6144'
                     - '8192'
-            disable-module:
+            disable_module:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to disable_module.
                     - Disable module list.
                     - fortiview-noc - FortiView/NOC-SOC module.
                 choices:
@@ -241,10 +229,9 @@ options:
                     - 'siem'
                     - 'soc'
                     - 'ai'
-            enc-algorithm:
+            enc_algorithm:
                 type: str
                 description:
-                    - Deprecated, please rename it to enc_algorithm.
                     - SSL communication encryption algorithms.
                     - low - SSL communication using all available encryption algorithms.
                     - medium - SSL communication using high and medium encryption algorithms.
@@ -254,23 +241,21 @@ options:
                     - 'medium'
                     - 'high'
                     - 'custom'
-            faz-status:
+            faz_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to faz_status.
                     - FAZ status.
                     - disable - Disable FAZ feature.
                     - enable - Enable FAZ feature.
                 choices:
                     - 'disable'
                     - 'enable'
-            fgfm-local-cert:
+            fgfm_local_cert:
                 type: str
-                description: Deprecated, please rename it to fgfm_local_cert. Set the fgfm local certificate.
-            fgfm-ssl-protocol:
+                description: Set the fgfm local certificate.
+            fgfm_ssl_protocol:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgfm_ssl_protocol.
                     - set the lowest SSL protocols for fgfmsd.
                     - sslv3 - set SSLv3 as the lowest version.
                     - tlsv1.
@@ -282,10 +267,10 @@ options:
                     - 'tlsv1.1'
                     - 'tlsv1.2'
                     - 'tlsv1.3'
-            ha-member-auto-grouping:
+                    - 'follow-global-ssl-protocol'
+            ha_member_auto_grouping:
                 type: str
                 description:
-                    - Deprecated, please rename it to ha_member_auto_grouping.
                     - Enable/disable automatically group HA members feature
                     - disable - Disable automatically grouping HA members feature.
                     - enable - Enable automatically grouping HA members only when group name is unique in your network.
@@ -301,10 +286,9 @@ options:
             hostname:
                 type: str
                 description: System hostname.
-            import-ignore-addr-cmt:
+            import_ignore_addr_cmt:
                 type: str
                 description:
-                    - Deprecated, please rename it to import_ignore_addr_cmt.
                     - Enable/Disable import ignore of address comments.
                     - disable - Disable import ignore of address comments.
                     - enable - Enable import ignore of address comments.
@@ -331,26 +315,24 @@ options:
             latitude:
                 type: str
                 description: Fmg location latitude
-            ldap-cache-timeout:
+            ldap_cache_timeout:
                 type: int
-                description: Deprecated, please rename it to ldap_cache_timeout. LDAP browser cache timeout
+                description: LDAP browser cache timeout
             ldapconntimeout:
                 type: int
                 description: LDAP connection timeout
-            lock-preempt:
+            lock_preempt:
                 type: str
                 description:
-                    - Deprecated, please rename it to lock_preempt.
                     - Enable/disable ADOM lock override.
                     - disable - Disable lock preempt.
                     - enable - Enable lock preempt.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-checksum:
+            log_checksum:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_checksum.
                     - Record log file hash value, timestamp, and authentication code at transmission or rolling.
                     - none - No record log file checksum.
                     - md5 - Record log files MD5 hash value only.
@@ -359,22 +341,21 @@ options:
                     - 'none'
                     - 'md5'
                     - 'md5-auth'
-            log-forward-cache-size:
+            log_forward_cache_size:
                 type: int
-                description: Deprecated, please rename it to log_forward_cache_size. Log forwarding disk cache size
+                description: Log forwarding disk cache size
             longitude:
                 type: str
                 description: Fmg location longitude
-            max-log-forward:
+            max_log_forward:
                 type: int
-                description: Deprecated, please rename it to max_log_forward. Maximum number of log-forward and aggregation settings.
-            max-running-reports:
+                description: Maximum number of log-forward and aggregation settings.
+            max_running_reports:
                 type: int
-                description: Deprecated, please rename it to max_running_reports. Maximum number of reports generating at one time.
-            oftp-ssl-protocol:
+                description: Maximum number of reports generating at one time.
+            oftp_ssl_protocol:
                 type: str
                 description:
-                    - Deprecated, please rename it to oftp_ssl_protocol.
                     - set the lowest SSL protocols for oftpd.
                     - sslv3 - set SSLv3 as the lowest version.
                     - tlsv1.
@@ -386,107 +367,97 @@ options:
                     - 'tlsv1.1'
                     - 'tlsv1.2'
                     - 'tlsv1.3'
-            partial-install:
+            partial_install:
                 type: str
                 description:
-                    - Deprecated, please rename it to partial_install.
                     - Enable/Disable partial install
                     - disable - Disable partial install function.
                     - enable - Enable partial install function.
                 choices:
                     - 'disable'
                     - 'enable'
-            partial-install-force:
+            partial_install_force:
                 type: str
                 description:
-                    - Deprecated, please rename it to partial_install_force.
                     - Enable/Disable partial install when devdb is modified.
                     - disable - Disable partial install when devdb is modified.
                     - enable - Enable partial install when devdb is modified.
                 choices:
                     - 'disable'
                     - 'enable'
-            partial-install-rev:
+            partial_install_rev:
                 type: str
                 description:
-                    - Deprecated, please rename it to partial_install_rev.
                     - Enable/Disable auto creating adom revision for partial install.
                     - disable - Disable partial install revision.
                     - enable - Enable partial install revision.
                 choices:
                     - 'disable'
                     - 'enable'
-            perform-improve-by-ha:
+            perform_improve_by_ha:
                 type: str
                 description:
-                    - Deprecated, please rename it to perform_improve_by_ha.
                     - Enable/Disable performance improvement by distributing tasks to HA slaves.
                     - disable - Disable performance improvement by HA.
                     - enable - Enable performance improvement by HA.
                 choices:
                     - 'disable'
                     - 'enable'
-            policy-hit-count:
+            policy_hit_count:
                 type: str
                 description:
-                    - Deprecated, please rename it to policy_hit_count.
                     - show policy hit count.
                     - disable - Disable policy hit count.
                     - enable - Enable policy hit count.
                 choices:
                     - 'disable'
                     - 'enable'
-            policy-object-in-dual-pane:
+            policy_object_in_dual_pane:
                 type: str
                 description:
-                    - Deprecated, please rename it to policy_object_in_dual_pane.
                     - show policies and objects in dual pane.
                     - disable - Disable polices and objects in dual pane.
                     - enable - Enable polices and objects in dual pane.
                 choices:
                     - 'disable'
                     - 'enable'
-            pre-login-banner:
+            pre_login_banner:
                 type: str
                 description:
-                    - Deprecated, please rename it to pre_login_banner.
                     - Enable/disable pre-login banner.
                     - disable - Disable pre-login banner.
                     - enable - Enable pre-login banner.
                 choices:
                     - 'disable'
                     - 'enable'
-            pre-login-banner-message:
+            pre_login_banner_message:
                 type: str
-                description: Deprecated, please rename it to pre_login_banner_message. Pre-login banner message.
+                description: Pre-login banner message.
             remoteauthtimeout:
                 type: int
                 description: Remote authentication
-            search-all-adoms:
+            search_all_adoms:
                 type: str
                 description:
-                    - Deprecated, please rename it to search_all_adoms.
                     - Enable/Disable Search all ADOMs for where-used query.
                     - disable - Disable search all ADOMs for where-used queries.
                     - enable - Enable search all ADOMs for where-used queries.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-low-encryption:
+            ssl_low_encryption:
                 type: str
                 description:
-                    - Deprecated, please rename it to ssl_low_encryption.
                     - SSL low-grade encryption.
                     - disable - Disable SSL low-grade encryption.
                     - enable - Enable SSL low-grade encryption.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-protocol:
+            ssl_protocol:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ssl_protocol.
                     - SSL protocols.
                     - tlsv1.
                     - tlsv1.
@@ -498,19 +469,18 @@ options:
                     - 'tlsv1.0'
                     - 'sslv3'
                     - 'tlsv1.3'
-            ssl-static-key-ciphers:
+            ssl_static_key_ciphers:
                 type: str
                 description:
-                    - Deprecated, please rename it to ssl_static_key_ciphers.
                     - Enable/disable SSL static key ciphers.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            task-list-size:
+            task_list_size:
                 type: int
-                description: Deprecated, please rename it to task_list_size. Maximum number of completed tasks to keep.
+                description: Maximum number of completed tasks to keep.
             tftp:
                 type: str
                 description:
@@ -707,9 +677,9 @@ options:
                     - '89'
                     - '90'
                     - '91'
-            tunnel-mtu:
+            tunnel_mtu:
                 type: int
-                description: Deprecated, please rename it to tunnel_mtu. Maximum transportation unit
+                description: Maximum transportation unit
             usg:
                 type: str
                 description:
@@ -719,21 +689,19 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            vdom-mirror:
+            vdom_mirror:
                 type: str
                 description:
-                    - Deprecated, please rename it to vdom_mirror.
                     - VDOM mirror.
                     - disable - Disable VDOM mirror function.
                     - enable - Enable VDOM mirror function.
                 choices:
                     - 'disable'
                     - 'enable'
-            webservice-proto:
+            webservice_proto:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to webservice_proto.
                     - Web Service connection support SSL protocols.
                     - tlsv1.
                     - tlsv1.
@@ -747,13 +715,12 @@ options:
                     - 'sslv3'
                     - 'sslv2'
                     - 'tlsv1.3'
-            workflow-max-sessions:
+            workflow_max_sessions:
                 type: int
-                description: Deprecated, please rename it to workflow_max_sessions. Maximum number of workflow sessions per ADOM
-            workspace-mode:
+                description: Maximum number of workflow sessions per ADOM
+            workspace_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to workspace_mode.
                     - Set workspace mode
                     - disabled - Workspace disabled.
                     - normal - Workspace lock mode.
@@ -763,107 +730,99 @@ options:
                     - 'normal'
                     - 'workflow'
                     - 'per-adom'
-            clone-name-option:
+            clone_name_option:
                 type: str
                 description:
-                    - Deprecated, please rename it to clone_name_option.
                     - set the clone object names option.
                     - default - Add a prefix of Clone of to the clone name.
                     - keep - Keep the original name for user to edit.
                 choices:
                     - 'default'
                     - 'keep'
-            fgfm-ca-cert:
+            fgfm_ca_cert:
                 type: str
-                description: Deprecated, please rename it to fgfm_ca_cert. Set the extra fgfm CA certificates.
-            mc-policy-disabled-adoms:
+                description: Set the extra fgfm CA certificates.
+            mc_policy_disabled_adoms:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to mc_policy_disabled_adoms. Mc policy disabled adoms.
+                description: Mc policy disabled adoms.
                 suboptions:
-                    adom-name:
+                    adom_name:
                         type: str
-                        description: Deprecated, please rename it to adom_name. Adom names.
-            policy-object-icon:
+                        description: Adom names.
+            policy_object_icon:
                 type: str
                 description:
-                    - Deprecated, please rename it to policy_object_icon.
                     - show icons of policy objects.
                     - disable - Disable icon of policy objects.
                     - enable - Enable icon of policy objects.
                 choices:
                     - 'disable'
                     - 'enable'
-            private-data-encryption:
+            private_data_encryption:
                 type: str
                 description:
-                    - Deprecated, please rename it to private_data_encryption.
                     - Enable/disable private data encryption using an AES 128-bit key.
                     - disable - Disable private data encryption using an AES 128-bit key.
                     - enable - Enable private data encryption using an AES 128-bit key.
                 choices:
                     - 'disable'
                     - 'enable'
-            per-policy-lock:
+            per_policy_lock:
                 type: str
                 description:
-                    - Deprecated, please rename it to per_policy_lock.
                     - Enable/Disable per policy lock.
                     - disable - Disable per policy lock.
                     - enable - Enable per policy lock.
                 choices:
                     - 'disable'
                     - 'enable'
-            multiple-steps-upgrade-in-autolink:
+            multiple_steps_upgrade_in_autolink:
                 type: str
                 description:
-                    - Deprecated, please rename it to multiple_steps_upgrade_in_autolink.
                     - Enable/disable multiple steps upgade in autolink process
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            object-revision-db-max:
+            object_revision_db_max:
                 type: int
-                description: Deprecated, please rename it to object_revision_db_max. Maximum revisions for a single database
-            object-revision-mandatory-note:
+                description: Maximum revisions for a single database
+            object_revision_mandatory_note:
                 type: str
                 description:
-                    - Deprecated, please rename it to object_revision_mandatory_note.
                     - Enable/disable mandatory note when create revision.
                     - disable - Disable object revision.
                     - enable - Enable object revision.
                 choices:
                     - 'disable'
                     - 'enable'
-            object-revision-object-max:
+            object_revision_object_max:
                 type: int
-                description: Deprecated, please rename it to object_revision_object_max. Maximum revisions for a single object
-            object-revision-status:
+                description: Maximum revisions for a single object
+            object_revision_status:
                 type: str
                 description:
-                    - Deprecated, please rename it to object_revision_status.
                     - Enable/disable create revision when modify objects.
                     - disable - Disable object revision.
                     - enable - Enable object revision.
                 choices:
                     - 'disable'
                     - 'enable'
-            normalized-intf-zone-only:
+            normalized_intf_zone_only:
                 type: str
                 description:
-                    - Deprecated, please rename it to normalized_intf_zone_only.
                     - allow normalized interface to be zone only.
                     - disable - Disable SSL low-grade encryption.
                     - enable - Enable SSL low-grade encryption.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-cipher-suites:
+            ssl_cipher_suites:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_cipher_suites. Ssl cipher suites.
+                description: Ssl cipher suites.
                 suboptions:
                     cipher:
                         type: str
@@ -880,47 +839,70 @@ options:
                         choices:
                             - 'tls1.2-or-below'
                             - 'tls1.3'
-            gui-curl-timeout:
+            gui_curl_timeout:
                 type: int
-                description: Deprecated, please rename it to gui_curl_timeout. GUI curl timeout in seconds
-            table-entry-blink:
+                description: GUI curl timeout in seconds
+            fgfm_cert_exclusive:
                 type: str
                 description:
-                    - Deprecated, please rename it to table_entry_blink.
+                    - set if the local or CA certificates should be used exclusively.
+                    - disable - Used certificate best-effort.
+                    - enable - Used certificate exclusive.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fgfm_deny_unknown:
+                type: str
+                description:
+                    - set if allow devices with unknown SN actively register as an unauthorized device.
+                    - disable - Allow devices with unknown SN to actively register as an unauthorized device.
+                    - enable - Deny devices with unknown SN to actively register as an unauthorized device.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fgfm_peercert_withoutsn:
+                type: str
+                description:
+                    - set if the subject CN or SAN of peers SSL certificate sent in FGFM should include the serial number of the device.
+                    - disable - Peers certificate must include serial number in subject CN or SAN.
+                    - enable - Peers certificate might not include serial number in subject CN or SAN.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            table_entry_blink:
+                type: str
+                description:
                     - Enable/disable table entry blink in GUI
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            contentpack-fgt-install:
+            contentpack_fgt_install:
                 type: str
                 description:
-                    - Deprecated, please rename it to contentpack_fgt_install.
                     - Enable/disable outbreak alert auto install for FGT ADOMS .
                     - disable - Disable the sql report auto outbreak auto install.
                     - enable - Enable the sql report auto outbreak auto install.
                 choices:
                     - 'disable'
                     - 'enable'
-            gui-polling-interval:
+            gui_polling_interval:
                 type: int
-                description: Deprecated, please rename it to gui_polling_interval. GUI polling interval in seconds
-            no-copy-permission-check:
+                description: GUI polling interval in seconds
+            no_copy_permission_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to no_copy_permission_check.
                     - Do not perform permission check to block object changes in different adom during copy and install.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssh-enc-algo:
+            ssh_enc_algo:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ssh_enc_algo.
                     - Select one or more SSH ciphers.
                     - chacha20-poly1305@openssh.
                     - aes128-ctr
@@ -955,11 +937,10 @@ options:
                     - 'rijndael-cbc@lysator.liu.se'
                     - 'aes128-gcm@openssh.com'
                     - 'aes256-gcm@openssh.com'
-            ssh-hostkey-algo:
+            ssh_hostkey_algo:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ssh_hostkey_algo.
                     - Select one or more SSH hostkey algorithms.
                     - ssh-rsa
                     - ecdsa-sha2-nistp521
@@ -972,11 +953,10 @@ options:
                     - 'rsa-sha2-256'
                     - 'rsa-sha2-512'
                     - 'ssh-ed25519'
-            ssh-kex-algo:
+            ssh_kex_algo:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ssh_kex_algo.
                     - Select one or more SSH kex algorithms.
                     - diffie-hellman-group1-sha1
                     - diffie-hellman-group14-sha1
@@ -1001,11 +981,10 @@ options:
                     - 'ecdh-sha2-nistp256'
                     - 'ecdh-sha2-nistp384'
                     - 'ecdh-sha2-nistp521'
-            ssh-mac-algo:
+            ssh_mac_algo:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ssh_mac_algo.
                     - Select one or more SSH MAC algorithms.
                     - hmac-md5
                     - hmac-md5-etm@openssh.
@@ -1042,151 +1021,111 @@ options:
                     - 'umac-128@openssh.com'
                     - 'umac-64-etm@openssh.com'
                     - 'umac-128-etm@openssh.com'
-            ssh-strong-crypto:
+            ssh_strong_crypto:
                 type: str
                 description:
-                    - Deprecated, please rename it to ssh_strong_crypto.
                     - Only allow strong ciphers for SSH when enabled.
                     - disable - Disable strong crypto for SSH.
                     - enable - Enable strong crypto for SSH.
                 choices:
                     - 'disable'
                     - 'enable'
-            fgfm-cert-exclusive:
+            admin_lockout_method:
                 type: str
                 description:
-                    - Deprecated, please rename it to fgfm_cert_exclusive.
-                    - set if the local or CA certificates should be used exclusively.
-                    - disable - Used certificate best-effort.
-                    - enable - Used certificate exclusive.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            fgfm-deny-unknown:
-                type: str
-                description:
-                    - Deprecated, please rename it to fgfm_deny_unknown.
-                    - set if allow devices with unknown SN actively register as an unauthorized device.
-                    - disable - Allow devices with unknown SN to actively register as an unauthorized device.
-                    - enable - Deny devices with unknown SN to actively register as an unauthorized device.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            fgfm-peercert-withoutsn:
-                type: str
-                description:
-                    - Deprecated, please rename it to fgfm_peercert_withoutsn.
-                    - set if the subject CN or SAN of peer&apos;s SSL certificate sent in FGFM should include the serial number of the device.
-                    - disable - Peer&apos;s certificate must include serial number in subject CN or SAN.
-                    - enable - Peer&apos;s certificate might not include serial number in subject CN or SAN.
-                choices:
-                    - 'disable'
-                    - 'enable'
-            admin-lockout-method:
-                type: str
-                description:
-                    - Deprecated, please rename it to admin_lockout_method.
                     - Lockout method for administration.
                     - ip - Lockout by IP
                     - user - Lockout by user
                 choices:
                     - 'ip'
                     - 'user'
-            workspace-unlock-after-install:
+            workspace_unlock_after_install:
                 type: str
                 description:
-                    - Deprecated, please rename it to workspace_unlock_after_install.
                     - Enable/disable ADOM auto-unlock after device installation.
                     - disable - Disable automatically unlock adom after device installation.
                     - enable - Enable automatically unlock adom after device installation.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-checksum-upload:
+            log_checksum_upload:
                 type: str
                 description:
-                    - Deprecated, please rename it to log_checksum_upload.
                     - Enable/disable upload log checksum with log files.
                     - disable - Disable attribute function.
                     - enable - Enable attribute function.
                 choices:
                     - 'disable'
                     - 'enable'
-            apache-mode:
+            apache_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to apache_mode.
                     - Set apache mode.
                     - event - Apache event mode.
                     - prefork - Apache prefork mode.
                 choices:
                     - 'event'
                     - 'prefork'
-            no-vip-value-check:
+            no_vip_value_check:
                 type: str
                 description:
-                    - Deprecated, please rename it to no_vip_value_check.
                     - Enable/disable skipping policy instead of throwing error when vip has no default or dynamic mapping during policy copy
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            fortiservice-port:
+            fortiservice_port:
                 type: int
-                description: Deprecated, please rename it to fortiservice_port. FortiService port
-            management-ip:
+                description: FortiService port
+            management_ip:
                 type: str
-                description: Deprecated, please rename it to management_ip. Management IP address of this FortiGate.
-            management-port:
+                description: Management IP address of this FortiGate.
+            management_port:
                 type: int
-                description: Deprecated, please rename it to management_port. Overriding port for management connection
-            save-last-hit-in-adomdb:
+                description: Overriding port for management connection
+            save_last_hit_in_adomdb:
                 type: str
                 description:
-                    - Deprecated, please rename it to save_last_hit_in_adomdb.
                     - Enable/Disable save last-hit value in adomdb.
                     - disable - Disable save last-hit value in adomdb.
                     - enable - Enable save last-hit value in adomdb.
                 choices:
                     - 'disable'
                     - 'enable'
-            api-ip-binding:
+            api_ip_binding:
                 type: str
                 description:
-                    - Deprecated, please rename it to api_ip_binding.
                     - Enable/disable source IP check for JSON API request.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            admin-host:
+            admin_host:
                 type: str
-                description: Deprecated, please rename it to admin_host. Administrative host for HTTP and HTTPs.
-            admin-ssh-grace-time:
+                description: Administrative host for HTTP and HTTPs.
+            admin_ssh_grace_time:
                 type: int
-                description: Deprecated, please rename it to admin_ssh_grace_time. Maximum time in seconds permitted between making an SSH connection t...
-            fabric-storage-pool-quota:
+                description: Maximum time in seconds permitted between making an SSH connection to the FortiManager unit and authenticating
+            fabric_storage_pool_quota:
                 type: int
-                description: Deprecated, please rename it to fabric_storage_pool_quota. Disk quota for Fabric
-            fabric-storage-pool-size:
+                description: Disk quota for Fabric
+            fabric_storage_pool_size:
                 type: int
-                description: Deprecated, please rename it to fabric_storage_pool_size. Max storage pooll size
-            fcp-cfg-service:
+                description: Max storage pooll size
+            fcp_cfg_service:
                 type: str
                 description:
-                    - Deprecated, please rename it to fcp_cfg_service.
                     - Enable/disable FCP service processing configuration requests
                     - disable - FCP service doesn&apos;t process configuration requests from web
                     - enable - FCP service processes configuration requests from web.
                 choices:
                     - 'disable'
                     - 'enable'
-            jsonapi-log:
+            jsonapi_log:
                 type: str
                 description:
-                    - Deprecated, please rename it to jsonapi_log.
                     - enable jsonapi log.
                     - disable - disable jsonapi log.
                     - request - logging jsonapi request.
@@ -1197,6 +1136,54 @@ options:
                     - 'request'
                     - 'response'
                     - 'all'
+            global_ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for all SSL connections.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
+            httpd_ssl_protocol:
+                type: list
+                elements: str
+                description:
+                    - set SSL protocols for apache daemon
+                    - sslv3 - Enable SSLv3.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
+            mapclient_ssl_protocol:
+                type: str
+                description:
+                    - set the lowest SSL protocol version for connection to mapserver.
+                    - follow-global-ssl-protocol - Follow system.
+                    - sslv3 - set SSLv3 as the lowest version.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                    - tlsv1.
+                choices:
+                    - 'follow-global-ssl-protocol'
+                    - 'sslv3'
+                    - 'tlsv1.0'
+                    - 'tlsv1.1'
+                    - 'tlsv1.2'
+                    - 'tlsv1.3'
 '''
 
 EXAMPLES = '''
@@ -1284,21 +1271,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/global'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/global/{global}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -1328,7 +1308,7 @@ def main():
                 'enc-algorithm': {'choices': ['low', 'medium', 'high', 'custom'], 'type': 'str'},
                 'faz-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'fgfm-local-cert': {'type': 'str'},
-                'fgfm-ssl-protocol': {'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'], 'type': 'str'},
+                'fgfm-ssl-protocol': {'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3', 'follow-global-ssl-protocol'], 'type': 'str'},
                 'ha-member-auto-grouping': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'hitcount_concurrent': {'v_range': [['6.0.0', '6.4.2']], 'type': 'int'},
                 'hitcount_interval': {'v_range': [['6.0.0', '6.4.2']], 'type': 'int'},
@@ -1356,7 +1336,12 @@ def main():
                 'remoteauthtimeout': {'type': 'int'},
                 'search-all-adoms': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-low-encryption': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-protocol': {'type': 'list', 'choices': ['tlsv1.2', 'tlsv1.1', 'tlsv1.0', 'sslv3', 'tlsv1.3'], 'elements': 'str'},
+                'ssl-protocol': {
+                    'v_range': [['6.0.0', '7.4.3'], ['7.6.0', '']],
+                    'type': 'list',
+                    'choices': ['tlsv1.2', 'tlsv1.1', 'tlsv1.0', 'sslv3', 'tlsv1.3'],
+                    'elements': 'str'
+                },
                 'ssl-static-key-ciphers': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'task-list-size': {'type': 'int'},
                 'tftp': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1392,24 +1377,39 @@ def main():
                 'object-revision-mandatory-note': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'object-revision-object-max': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'object-revision-status': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'normalized-intf-zone-only': {'v_range': [['6.4.7', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'normalized-intf-zone-only': {'v_range': [['6.4.7', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-cipher-suites': {
-                    'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']],
+                    'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']],
                     'type': 'list',
                     'options': {
-                        'cipher': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'str'},
-                        'priority': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'type': 'int'},
-                        'version': {'v_range': [['6.4.8', '6.4.14'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
+                        'cipher': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'type': 'str'},
+                        'priority': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
+                        'version': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'choices': ['tls1.2-or-below', 'tls1.3'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'gui-curl-timeout': {'v_range': [['6.4.11', '6.4.14'], ['7.0.7', '7.0.12'], ['7.2.2', '']], 'type': 'int'},
-                'table-entry-blink': {'v_range': [['7.0.4', '7.0.12'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'contentpack-fgt-install': {'v_range': [['7.0.5', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'gui-polling-interval': {'v_range': [['7.0.5', '7.0.12'], ['7.2.1', '']], 'type': 'int'},
-                'no-copy-permission-check': {'v_range': [['7.0.8', '7.0.12'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-curl-timeout': {'v_range': [['6.4.11', '6.4.15'], ['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                'fgfm-cert-exclusive': {
+                    'v_range': [['6.4.15', '6.4.15'], ['7.0.12', '7.0.13'], ['7.2.2', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'fgfm-deny-unknown': {
+                    'v_range': [['6.4.15', '6.4.15'], ['7.0.12', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'fgfm-peercert-withoutsn': {
+                    'v_range': [['6.4.15', '6.4.15'], ['7.0.12', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'table-entry-blink': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'contentpack-fgt-install': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-polling-interval': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                'no-copy-permission-check': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssh-enc-algo': {
-                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'arcfour256', 'arcfour128', 'aes128-cbc', '3des-cbc',
@@ -1419,13 +1419,13 @@ def main():
                     'elements': 'str'
                 },
                 'ssh-hostkey-algo': {
-                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': ['ssh-rsa', 'ecdsa-sha2-nistp521', 'rsa-sha2-256', 'rsa-sha2-512', 'ssh-ed25519'],
                     'elements': 'str'
                 },
                 'ssh-kex-algo': {
-                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'diffie-hellman-group1-sha1', 'diffie-hellman-group14-sha1', 'diffie-hellman-group14-sha256', 'diffie-hellman-group16-sha512',
@@ -1435,7 +1435,7 @@ def main():
                     'elements': 'str'
                 },
                 'ssh-mac-algo': {
-                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'type': 'list',
                     'choices': [
                         'hmac-md5', 'hmac-md5-etm@openssh.com', 'hmac-md5-96', 'hmac-md5-96-etm@openssh.com', 'hmac-sha1', 'hmac-sha1-etm@openssh.com',
@@ -1446,39 +1446,39 @@ def main():
                     'elements': 'str'
                 },
                 'ssh-strong-crypto': {
-                    'v_range': [['7.0.11', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.2', '']],
-                    'choices': ['disable', 'enable'],
-                    'type': 'str'
-                },
-                'fgfm-cert-exclusive': {'v_range': [['7.0.12', '7.0.12'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fgfm-deny-unknown': {
-                    'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.3', '']],
-                    'choices': ['disable', 'enable'],
-                    'type': 'str'
-                },
-                'fgfm-peercert-withoutsn': {
-                    'v_range': [['7.0.12', '7.0.12'], ['7.2.5', '7.2.5'], ['7.4.3', '']],
+                    'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'admin-lockout-method': {'v_range': [['7.2.2', '']], 'choices': ['ip', 'user'], 'type': 'str'},
                 'workspace-unlock-after-install': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-checksum-upload': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'apache-mode': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'choices': ['event', 'prefork'], 'type': 'str'},
-                'no-vip-value-check': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apache-mode': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'choices': ['event', 'prefork'], 'type': 'str'},
+                'no-vip-value-check': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiservice-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'management-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'management-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'save-last-hit-in-adomdb': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'api-ip-binding': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'admin-host': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'admin-ssh-grace-time': {'v_range': [['7.6.0', '']], 'type': 'int'},
+                'admin-host': {'v_range': [['7.4.4', '']], 'type': 'str'},
+                'admin-ssh-grace-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '']], 'type': 'int'},
                 'fabric-storage-pool-quota': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'fabric-storage-pool-size': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'fcp-cfg-service': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'jsonapi-log': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'request', 'response', 'all'], 'type': 'str'}
+                'fcp-cfg-service': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'jsonapi-log': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'request', 'response', 'all'], 'type': 'str'},
+                'global-ssl-protocol': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'], 'type': 'str'},
+                'httpd-ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'type': 'list',
+                    'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'elements': 'str'
+                },
+                'mapclient-ssl-protocol': {
+                    'v_range': [['7.4.4', '7.4.5']],
+                    'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
+                    'type': 'str'
+                }
             }
-
         }
     }
 
@@ -1492,9 +1492,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

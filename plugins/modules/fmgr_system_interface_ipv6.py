@@ -80,14 +80,13 @@ options:
         required: false
         type: dict
         suboptions:
-            ip6-address:
+            ip6_address:
                 type: str
-                description: Deprecated, please rename it to ip6_address. IPv6 address/prefix of interface.
-            ip6-allowaccess:
+                description: IPv6 address/prefix of interface.
+            ip6_allowaccess:
                 type: list
                 elements: str
                 description:
-                    - Deprecated, please rename it to ip6_allowaccess.
                     - Allow management access to interface.
                     - ping - PING access.
                     - https - HTTPS access.
@@ -105,10 +104,9 @@ options:
                     - 'webservice'
                     - 'https-logging'
                     - 'fabric'
-            ip6-autoconf:
+            ip6_autoconf:
                 type: str
                 description:
-                    - Deprecated, please rename it to ip6_autoconf.
                     - Enable/disable address auto config
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -137,14 +135,14 @@ EXAMPLES = '''
         system_interface_ipv6:
           ip6_address: <string>
           ip6_allowaccess:
-            - ping
-            - https
-            - ssh
-            - snmp
-            - http
-            - webservice
-            - https-logging
-            - fabric
+            - "ping"
+            - "https"
+            - "ssh"
+            - "snmp"
+            - "http"
+            - "webservice"
+            - "https-logging"
+            - "fabric"
           ip6_autoconf: <value in [disable, enable]>
 '''
 
@@ -189,21 +187,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/interface/{interface}/ipv6'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/interface/{interface}/ipv6/{ipv6}'
-    ]
-
     url_params = ['interface']
     module_primary_key = None
     module_arg_spec = {
@@ -220,7 +211,6 @@ def main():
                 },
                 'ip6-autoconf': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -234,9 +224,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -86,30 +86,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            stats-update-interval:
+            stats_update_interval:
                 type: int
-                description: Deprecated, please rename it to stats_update_interval. Stats update interval
-            udp-keepalive-interval:
+                description: Stats update interval
+            udp_keepalive_interval:
                 type: int
-                description: Deprecated, please rename it to udp_keepalive_interval. UDP keepalive interval
-            scan-stale:
+                description: UDP keepalive interval
+            scan_stale:
                 type: int
-                description: Deprecated, please rename it to scan_stale. Configure scanning of active or stale sessions
-            scan-vt:
+                description: Configure scanning of active or stale sessions
+            scan_vt:
                 type: int
-                description: Deprecated, please rename it to scan_vt. Select version/type to scan
-            stats-qual-access:
+                description: Select version/type to scan
+            stats_qual_access:
                 type: int
-                description: Deprecated, please rename it to stats_qual_access. Statistics update access qualification in seconds
-            stats-qual-duration:
+                description: Statistics update access qualification in seconds
+            stats_qual_duration:
                 type: int
-                description: Deprecated, please rename it to stats_qual_duration. Statistics update duration qualification in seconds
-            udp-qual-access:
+                description: Statistics update duration qualification in seconds
+            udp_qual_access:
                 type: int
-                description: Deprecated, please rename it to udp_qual_access. UDP keepalive access qualification in seconds
-            udp-qual-duration:
+                description: UDP keepalive access qualification in seconds
+            udp_qual_duration:
                 type: int
-                description: Deprecated, please rename it to udp_qual_duration. UDP keepalive duration qualification in seconds
+                description: UDP keepalive duration qualification in seconds
 '''
 
 EXAMPLES = '''
@@ -182,42 +182,33 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/background-sse-scan',
         '/pm/config/global/obj/system/npu/background-sse-scan'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/background-sse-scan/{background-sse-scan}',
-        '/pm/config/global/obj/system/npu/background-sse-scan/{background-sse-scan}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu_backgroundssescan': {
             'type': 'dict',
-            'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']],
+            'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']],
             'options': {
-                'scan': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'stats-update-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
-                'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.14'], ['7.0.3', '']], 'type': 'int'},
-                'scan-stale': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                'scan-vt': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                'stats-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                'stats-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                'udp-qual-access': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'},
-                'udp-qual-duration': {'v_range': [['7.0.12', '7.0.12'], ['7.4.1', '']], 'type': 'int'}
+                'scan': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'stats-update-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
+                'scan-stale': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'scan-vt': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'stats-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'stats-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'udp-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'udp-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -231,9 +222,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

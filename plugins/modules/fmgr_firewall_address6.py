@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            cache-ttl:
+            cache_ttl:
                 type: int
-                description: Deprecated, please rename it to cache_ttl. Minimal TTL of individual IPv6 addresses in FQDN cache.
+                description: Minimal TTL of individual IPv6 addresses in FQDN cache.
             color:
                 type: int
                 description: Integer value to determine the color of the icon in the GUI
@@ -114,44 +114,44 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    cache-ttl:
+                    cache_ttl:
                         type: int
-                        description: Deprecated, please rename it to cache_ttl. Cache ttl.
+                        description: Cache ttl.
                     color:
                         type: int
                         description: Color.
                     comment:
                         type: str
                         description: Comment.
-                    end-ip:
+                    end_ip:
                         type: str
-                        description: Deprecated, please rename it to end_ip. End ip.
+                        description: End ip.
                     fqdn:
                         type: str
                         description: Fqdn.
                     host:
                         type: str
                         description: Host.
-                    host-type:
+                    host_type:
                         type: str
-                        description: Deprecated, please rename it to host_type. Host type.
+                        description: Host type.
                         choices:
                             - 'any'
                             - 'specific'
                     ip6:
                         type: str
                         description: Ip6.
-                    obj-id:
+                    obj_id:
                         type: str
-                        description: Deprecated, please rename it to obj_id. Obj id.
+                        description: Obj id.
                     sdn:
                         type: str
                         description: Sdn.
                         choices:
                             - 'nsx'
-                    start-ip:
+                    start_ip:
                         type: str
-                        description: Deprecated, please rename it to start_ip. Start ip.
+                        description: Start ip.
                     tags:
                         type: raw
                         description: (list or str) Tags.
@@ -180,10 +180,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-                    subnet-segment:
+                    subnet_segment:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to subnet_segment. Subnet segment.
+                        description: Subnet segment.
                         suboptions:
                             name:
                                 type: str
@@ -197,54 +197,64 @@ options:
                             value:
                                 type: str
                                 description: Value.
-                    _image-base64:
+                    _image_base64:
                         type: str
-                        description: Deprecated, please rename it to _image_base64. Image base64.
-                    end-mac:
+                        description: Image base64.
+                    end_mac:
                         type: str
-                        description: Deprecated, please rename it to end_mac. End mac.
-                    start-mac:
+                        description: End mac.
+                    start_mac:
                         type: str
-                        description: Deprecated, please rename it to start_mac. Start mac.
+                        description: Start mac.
                     country:
                         type: str
                         description: Country.
-                    global-object:
+                    global_object:
                         type: int
-                        description: Deprecated, please rename it to global_object. Global object.
-                    fabric-object:
+                        description: Global object.
+                    fabric_object:
                         type: str
-                        description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                        description: Security Fabric global object setting.
                         choices:
                             - 'disable'
                             - 'enable'
                     macaddr:
                         type: raw
                         description: (list) Multiple MAC address ranges.
-                    epg-name:
+                    epg_name:
                         type: str
-                        description: Deprecated, please rename it to epg_name. Endpoint group name.
-                    sdn-tag:
+                        description: Endpoint group name.
+                    sdn_tag:
                         type: str
-                        description: Deprecated, please rename it to sdn_tag. SDN Tag.
+                        description: SDN Tag.
                     tenant:
                         type: str
                         description: Tenant.
-                    route-tag:
+                    route_tag:
                         type: int
-                        description: Deprecated, please rename it to route_tag. Route-tag address.
-            end-ip:
+                        description: Route-tag address.
+                    filter:
+                        type: str
+                        description: Match criteria filter.
+                    sdn_addr_type:
+                        type: str
+                        description: Type of addresses to collect.
+                        choices:
+                            - 'all'
+                            - 'private'
+                            - 'public'
+            end_ip:
                 type: str
-                description: Deprecated, please rename it to end_ip. Final IP address
+                description: Final IP address
             fqdn:
                 type: str
                 description: Fully qualified domain name.
             host:
                 type: str
                 description: Host Address.
-            host-type:
+            host_type:
                 type: str
-                description: Deprecated, please rename it to host_type. Host type.
+                description: Host type.
                 choices:
                     - 'any'
                     - 'specific'
@@ -259,31 +269,31 @@ options:
                     ip:
                         type: str
                         description: IP.
-                    net-id:
+                    net_id:
                         type: str
-                        description: Deprecated, please rename it to net_id. Network ID.
-                    obj-id:
+                        description: Network ID.
+                    obj_id:
                         type: str
-                        description: Deprecated, please rename it to obj_id. Object ID.
+                        description: Object ID.
             name:
                 type: str
                 description: Address name.
                 required: true
-            obj-id:
+            obj_id:
                 type: str
-                description: Deprecated, please rename it to obj_id. Object ID for NSX.
+                description: Object ID for NSX.
             sdn:
                 type: str
                 description: SDN.
                 choices:
                     - 'nsx'
-            start-ip:
+            start_ip:
                 type: str
-                description: Deprecated, please rename it to start_ip. First IP address
-            subnet-segment:
+                description: First IP address
+            subnet_segment:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to subnet_segment. Subnet segment.
+                description: Subnet segment.
                 suboptions:
                     name:
                         type: str
@@ -339,50 +349,60 @@ options:
             tags:
                 type: str
                 description: Names of object-tags applied to address.
-            profile-list:
+            profile_list:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to profile_list. Profile list.
+                description: Profile list.
                 suboptions:
-                    profile-id:
+                    profile_id:
                         type: int
-                        description: Deprecated, please rename it to profile_id. NSX service profile ID.
-            _image-base64:
+                        description: NSX service profile ID.
+            _image_base64:
                 type: str
-                description: Deprecated, please rename it to _image_base64. Image base64.
-            end-mac:
+                description: Image base64.
+            end_mac:
                 type: str
-                description: Deprecated, please rename it to end_mac. Last MAC address in the range.
-            start-mac:
+                description: Last MAC address in the range.
+            start_mac:
                 type: str
-                description: Deprecated, please rename it to start_mac. First MAC address in the range.
+                description: First MAC address in the range.
             country:
                 type: str
                 description: IPv6 addresses associated to a specific country.
-            global-object:
+            global_object:
                 type: int
-                description: Deprecated, please rename it to global_object. Global Object.
-            fabric-object:
+                description: Global Object.
+            fabric_object:
                 type: str
-                description: Deprecated, please rename it to fabric_object. Security Fabric global object setting.
+                description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
             macaddr:
                 type: raw
                 description: (list) Multiple MAC address ranges.
-            epg-name:
+            epg_name:
                 type: str
-                description: Deprecated, please rename it to epg_name. Endpoint group name.
-            sdn-tag:
+                description: Endpoint group name.
+            sdn_tag:
                 type: str
-                description: Deprecated, please rename it to sdn_tag. SDN Tag.
+                description: SDN Tag.
             tenant:
                 type: str
                 description: Tenant.
-            route-tag:
+            route_tag:
                 type: int
-                description: Deprecated, please rename it to route_tag. Route-tag address.
+                description: Route-tag address.
+            filter:
+                type: str
+                description: Match criteria filter.
+            sdn_addr_type:
+                type: str
+                description: Type of addresses to collect.
+                choices:
+                    - 'all'
+                    - 'private'
+                    - 'public'
 '''
 
 EXAMPLES = '''
@@ -464,23 +484,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/address6',
         '/pm/config/global/obj/firewall/address6'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/address6/{address6}',
-        '/pm/config/global/obj/firewall/address6/{address6}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -523,8 +535,8 @@ def main():
                             'elements': 'dict'
                         },
                         '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                        'end-mac': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                        'start-mac': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
+                        'end-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                        'start-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
                         'country': {'v_range': [['6.4.0', '']], 'type': 'str'},
                         'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                         'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -532,7 +544,9 @@ def main():
                         'epg-name': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'}
+                        'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
+                        'filter': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                        'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -568,16 +582,16 @@ def main():
                 'type': {'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag'], 'type': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.14']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'profile-list': {
-                    'v_range': [['6.2.0', '6.2.12']],
+                    'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
-                    'options': {'profile-id': {'v_range': [['6.2.0', '6.2.12']], 'type': 'int'}},
+                    'options': {'profile-id': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'}},
                     'elements': 'dict'
                 },
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                'end-mac': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
-                'start-mac': {'v_range': [['6.2.5', '6.2.12'], ['6.4.1', '']], 'type': 'str'},
+                'end-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
+                'start-mac': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
                 'country': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -585,9 +599,10 @@ def main():
                 'epg-name': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'}
+                'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
+                'filter': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
+                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
             }
-
         }
     }
 
@@ -601,9 +616,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

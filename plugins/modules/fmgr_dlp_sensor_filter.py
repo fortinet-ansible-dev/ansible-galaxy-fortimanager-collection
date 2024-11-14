@@ -113,21 +113,21 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'summary-only'
-            company-identifier:
+            company_identifier:
                 type: str
-                description: Deprecated, please rename it to company_identifier. Enter a company identifier watermark to match.
+                description: Enter a company identifier watermark to match.
             expiry:
                 type: str
                 description: Quarantine duration in days, hours, minutes format
-            file-size:
+            file_size:
                 type: int
-                description: Deprecated, please rename it to file_size. Match files this size or larger
-            file-type:
+                description: Match files this size or larger
+            file_type:
                 type: str
-                description: Deprecated, please rename it to file_type. Select the number of a DLP file pattern table to match.
-            filter-by:
+                description: Select the number of a DLP file pattern table to match.
+            filter_by:
                 type: str
-                description: Deprecated, please rename it to filter_by. Select the type of content to match.
+                description: Select the type of content to match.
                 choices:
                     - 'credit-card'
                     - 'ssn'
@@ -138,16 +138,16 @@ options:
                     - 'watermark'
                     - 'encrypted'
                     - 'file-type-and-size'
-            fp-sensitivity:
+            fp_sensitivity:
                 type: raw
-                description: (list or str) Deprecated, please rename it to fp_sensitivity. Select a DLP file pattern sensitivity to match.
+                description: (list or str) Select a DLP file pattern sensitivity to match.
             id:
                 type: int
                 description: ID.
                 required: true
-            match-percentage:
+            match_percentage:
                 type: int
-                description: Deprecated, please rename it to match_percentage. Percentage of fingerprints in the fingerprint databases designated with ...
+                description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
             name:
                 type: str
                 description: Filter name.
@@ -229,24 +229,24 @@ EXAMPLES = '''
           match_percentage: <integer>
           name: <string>
           proto:
-            - imap
-            - smtp
-            - pop3
-            - ftp
-            - nntp
-            - mm1
-            - mm3
-            - mm4
-            - mm7
-            - mapi
-            - aim
-            - icq
-            - msn
-            - yahoo
-            - http-get
-            - http-post
-            - ssh
-            - cifs
+            - "imap"
+            - "smtp"
+            - "pop3"
+            - "ftp"
+            - "nntp"
+            - "mm1"
+            - "mm3"
+            - "mm4"
+            - "mm7"
+            - "mapi"
+            - "aim"
+            - "icq"
+            - "msn"
+            - "yahoo"
+            - "http-get"
+            - "http-post"
+            - "ssh"
+            - "cifs"
           regexp: <string>
           severity: <value in [info, low, medium, ...]>
           type: <value in [file, message]>
@@ -294,23 +294,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter',
         '/pm/config/global/obj/dlp/sensor/{sensor}/filter'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/sensor/{sensor}/filter/{filter}',
-        '/pm/config/global/obj/dlp/sensor/{sensor}/filter/{filter}'
-    ]
-
     url_params = ['adom', 'sensor']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -350,7 +342,6 @@ def main():
                 'type': {'choices': ['file', 'message'], 'type': 'str'},
                 'sensitivity': {'v_range': [['6.2.0', '']], 'type': 'raw'}
             }
-
         }
     }
 
@@ -364,9 +355,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

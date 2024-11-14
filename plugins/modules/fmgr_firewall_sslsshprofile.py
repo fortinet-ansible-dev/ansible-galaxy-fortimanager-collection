@@ -95,9 +95,9 @@ options:
             comment:
                 type: str
                 description: Optional comments.
-            mapi-over-https:
+            mapi_over_https:
                 type: str
-                description: Deprecated, please rename it to mapi_over_https. Enable/disable inspection of MAPI over HTTPS.
+                description: Enable/disable inspection of MAPI over HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -105,31 +105,31 @@ options:
                 type: str
                 description: Name.
                 required: true
-            rpc-over-https:
+            rpc_over_https:
                 type: str
-                description: Deprecated, please rename it to rpc_over_https. Enable/disable inspection of RPC over HTTPS.
+                description: Enable/disable inspection of RPC over HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-cert:
+            server_cert:
                 type: raw
-                description: (list or str) Deprecated, please rename it to server_cert. Certificate used by SSL Inspection to replace server certificate.
-            server-cert-mode:
+                description: (list or str) Certificate used by SSL Inspection to replace server certificate.
+            server_cert_mode:
                 type: str
-                description: Deprecated, please rename it to server_cert_mode. Re-sign or replace the servers certificate.
+                description: Re-sign or replace the servers certificate.
                 choices:
                     - 're-sign'
                     - 'replace'
-            ssl-anomalies-log:
+            ssl_anomalies_log:
                 type: str
-                description: Deprecated, please rename it to ssl_anomalies_log. Enable/disable logging SSL anomalies.
+                description: Enable/disable logging SSL anomalies.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-exempt:
+            ssl_exempt:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_exempt. Ssl exempt.
+                description: Ssl exempt.
                 suboptions:
                     address:
                         type: str
@@ -137,9 +137,9 @@ options:
                     address6:
                         type: str
                         description: IPv6 address object.
-                    fortiguard-category:
+                    fortiguard_category:
                         type: str
-                        description: Deprecated, please rename it to fortiguard_category. FortiGuard category ID.
+                        description: FortiGuard category ID.
                     id:
                         type: int
                         description: ID number.
@@ -156,30 +156,30 @@ options:
                             - 'wildcard-fqdn'
                             - 'regex'
                             - 'finger-print'
-                    wildcard-fqdn:
+                    wildcard_fqdn:
                         type: str
-                        description: Deprecated, please rename it to wildcard_fqdn. Exempt servers by wildcard FQDN.
-            ssl-exemptions-log:
+                        description: Exempt servers by wildcard FQDN.
+            ssl_exemptions_log:
                 type: str
-                description: Deprecated, please rename it to ssl_exemptions_log. Enable/disable logging SSL exemptions.
+                description: Enable/disable logging SSL exemptions.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-server:
+            ssl_server:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ssl_server. Ssl server.
+                description: Ssl server.
                 suboptions:
-                    ftps-client-cert-request:
+                    ftps_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to ftps_client_cert_request. Action based on client certificate request during the FT...
+                        description: Action based on client certificate request during the FTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    https-client-cert-request:
+                    https_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to https_client_cert_request. Action based on client certificate request during the H...
+                        description: Action based on client certificate request during the HTTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
@@ -187,9 +187,9 @@ options:
                     id:
                         type: int
                         description: SSL server ID.
-                    imaps-client-cert-request:
+                    imaps_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to imaps_client_cert_request. Action based on client certificate request during the I...
+                        description: Action based on client certificate request during the IMAPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
@@ -197,75 +197,75 @@ options:
                     ip:
                         type: str
                         description: IPv4 address of the SSL server.
-                    pop3s-client-cert-request:
+                    pop3s_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to pop3s_client_cert_request. Action based on client certificate request during the P...
+                        description: Action based on client certificate request during the POP3S handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    smtps-client-cert-request:
+                    smtps_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to smtps_client_cert_request. Action based on client certificate request during the S...
+                        description: Action based on client certificate request during the SMTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    ssl-other-client-cert-request:
+                    ssl_other_client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to ssl_other_client_cert_request. Action based on client certificate request during a...
+                        description: Action based on client certificate request during an SSL protocol handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    ftps-client-certificate:
+                    ftps_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to ftps_client_certificate. Action based on received client certificate during the FT...
+                        description: Action based on received client certificate during the FTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    https-client-certificate:
+                    https_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to https_client_certificate. Action based on received client certificate during the H...
+                        description: Action based on received client certificate during the HTTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    imaps-client-certificate:
+                    imaps_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to imaps_client_certificate. Action based on received client certificate during the I...
+                        description: Action based on received client certificate during the IMAPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    pop3s-client-certificate:
+                    pop3s_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to pop3s_client_certificate. Action based on received client certificate during the P...
+                        description: Action based on received client certificate during the POP3S handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    smtps-client-certificate:
+                    smtps_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to smtps_client_certificate. Action based on received client certificate during the S...
+                        description: Action based on received client certificate during the SMTPS handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    ssl-other-client-certificate:
+                    ssl_other_client_certificate:
                         type: str
-                        description: Deprecated, please rename it to ssl_other_client_certificate. Action based on received client certificate during a...
+                        description: Action based on received client certificate during an SSL protocol handshake.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-            untrusted-caname:
+            untrusted_caname:
                 type: str
-                description: Deprecated, please rename it to untrusted_caname. Untrusted CA certificate used by SSL Inspection.
-            use-ssl-server:
+                description: Untrusted CA certificate used by SSL Inspection.
+            use_ssl_server:
                 type: str
-                description: Deprecated, please rename it to use_ssl_server. Enable/disable the use of SSL server table for SSL offloading.
+                description: Enable/disable the use of SSL server table for SSL offloading.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -275,24 +275,24 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            block-blacklisted-certificates:
+            block_blacklisted_certificates:
                 type: str
-                description: Deprecated, please rename it to block_blacklisted_certificates. Enable/disable blocking SSL-based botnet communication by ...
+                description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blacklist.
                 choices:
                     - 'disable'
                     - 'enable'
             certname:
                 type: str
                 description: Certificate containing the key to use when re-signing server certificates for SSL inspection.
-            ssl-invalid-server-cert-log:
+            ssl_invalid_server_cert_log:
                 type: str
-                description: Deprecated, please rename it to ssl_invalid_server_cert_log. Enable/disable SSL server certificate validation logging.
+                description: Enable/disable SSL server certificate validation logging.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-negotiation-log:
+            ssl_negotiation_log:
                 type: str
-                description: Deprecated, please rename it to ssl_negotiation_log. Enable/disable logging SSL negotiation.
+                description: Enable/disable logging SSL negotiation.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -300,30 +300,30 @@ options:
                 type: dict
                 description: Ftps.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
@@ -331,16 +331,16 @@ options:
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -351,70 +351,70 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Minimum SSL version to be allowed.
+                        description: Minimum SSL version to be allowed.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
                             - 'tls-1.1'
                             - 'tls-1.2'
                             - 'tls-1.3'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
@@ -423,30 +423,30 @@ options:
                 type: dict
                 description: Https.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
@@ -454,22 +454,22 @@ options:
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -481,76 +481,76 @@ options:
                             - 'disable'
                             - 'certificate-inspection'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-probe-failure:
+                    cert_probe_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_probe_failure. Action based on certificate probe failure.
+                        description: Action based on certificate probe failure.
                         choices:
                             - 'block'
                             - 'allow'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Minimum SSL version to be allowed.
+                        description: Minimum SSL version to be allowed.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
                             - 'tls-1.1'
                             - 'tls-1.2'
                             - 'tls-1.3'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
@@ -564,9 +564,9 @@ options:
                             - 'bypass'
                             - 'block'
                             - 'inspect'
-                    encrypted-client-hello:
+                    encrypted_client_hello:
                         type: str
-                        description: Deprecated, please rename it to encrypted_client_hello. Block/allow session based on existence of encrypted-client...
+                        description: Block/allow session based on existence of encrypted-client-hello.
                         choices:
                             - 'block'
                             - 'allow'
@@ -574,30 +574,30 @@ options:
                 type: dict
                 description: Imaps.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
@@ -605,22 +605,22 @@ options:
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -631,68 +631,68 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
                             - 'inspect'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
+                        description: Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -703,30 +703,30 @@ options:
                 type: dict
                 description: Pop3s.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
@@ -734,22 +734,22 @@ options:
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -760,68 +760,68 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
                             - 'inspect'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
+                        description: Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -832,30 +832,30 @@ options:
                 type: dict
                 description: Smtps.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
@@ -863,22 +863,22 @@ options:
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -889,68 +889,68 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
                             - 'inspect'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
+                        description: Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -961,30 +961,30 @@ options:
                 type: dict
                 description: Ssh.
                 suboptions:
-                    inspect-all:
+                    inspect_all:
                         type: str
-                        description: Deprecated, please rename it to inspect_all. Level of SSL inspection.
+                        description: Level of SSL inspection.
                         choices:
                             - 'disable'
                             - 'deep-inspection'
                     ports:
                         type: raw
                         description: (list) Ports to use for scanning
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    ssh-algorithm:
+                    ssh_algorithm:
                         type: str
-                        description: Deprecated, please rename it to ssh_algorithm. Relative strength of encryption algorithms accepted during negotiation.
+                        description: Relative strength of encryption algorithms accepted during negotiation.
                         choices:
                             - 'compatible'
                             - 'high-encryption'
-                    ssh-tun-policy-check:
+                    ssh_tun_policy_check:
                         type: str
-                        description: Deprecated, please rename it to ssh_tun_policy_check. Enable/disable SSH tunnel policy check.
+                        description: Enable/disable SSH tunnel policy check.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -994,15 +994,15 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-version:
+                    unsupported_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_version. Action based on SSH version being unsupported.
+                        description: Action based on SSH version being unsupported.
                         choices:
                             - 'block'
                             - 'bypass'
-                    ssh-policy-check:
+                    ssh_policy_check:
                         type: str
-                        description: Deprecated, please rename it to ssh_policy_check. Enable/disable SSH policy check.
+                        description: Enable/disable SSH policy check.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1028,132 +1028,132 @@ options:
                 type: dict
                 description: Ssl.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    inspect-all:
+                    inspect_all:
                         type: str
-                        description: Deprecated, please rename it to inspect_all. Level of SSL inspection.
+                        description: Level of SSL inspection.
                         choices:
                             - 'disable'
                             - 'certificate-inspection'
                             - 'deep-inspection'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'disable'
                             - 'enable'
                             - 'strict'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'allow'
                             - 'block'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl:
+                    unsupported_ssl:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl. Action based on the SSL encryption used being unsupported.
+                        description: Action based on the SSL encryption used being unsupported.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    client-cert-request:
+                    client_cert_request:
                         type: str
-                        description: Deprecated, please rename it to client_cert_request. Action based on client certificate request.
+                        description: Action based on client certificate request.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    invalid-server-cert:
+                    invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to invalid_server_cert. Allow or block the invalid SSL session server certificate.
+                        description: Allow or block the invalid SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
-                    allow-invalid-server-cert:
+                    allow_invalid_server_cert:
                         type: str
-                        description: Deprecated, please rename it to allow_invalid_server_cert. When enabled, allows SSL sessions whose server certific...
+                        description: When enabled, allows SSL sessions whose server certificate validation failed.
                         choices:
                             - 'disable'
                             - 'enable'
-                    untrusted-cert:
+                    untrusted_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_cert. Allow, ignore, or block the untrusted SSL session server certificate.
+                        description: Allow, ignore, or block the untrusted SSL session server certificate.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-probe-failure:
+                    cert_probe_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_probe_failure. Action based on certificate probe failure.
+                        description: Action based on certificate probe failure.
                         choices:
                             - 'block'
                             - 'allow'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Minimum SSL version to be allowed.
+                        description: Minimum SSL version to be allowed.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
                             - 'tls-1.1'
                             - 'tls-1.2'
                             - 'tls-1.3'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
                             - 'inspect'
-                    encrypted-client-hello:
+                    encrypted_client_hello:
                         type: str
-                        description: Deprecated, please rename it to encrypted_client_hello. Block/allow session based on existence of encrypted-client...
+                        description: Block/allow session based on existence of encrypted-client-hello.
                         choices:
                             - 'block'
                             - 'allow'
@@ -1163,9 +1163,9 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            block-blocklisted-certificates:
+            block_blocklisted_certificates:
                 type: str
-                description: Deprecated, please rename it to block_blocklisted_certificates. Enable/disable blocking SSL-based botnet communication by ...
+                description: Enable/disable blocking SSL-based botnet communication by FortiGuard certificate blocklist.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -1173,50 +1173,50 @@ options:
                 type: dict
                 description: Dot.
                 suboptions:
-                    cert-validation-failure:
+                    cert_validation_failure:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_failure. Action based on certificate validation failure.
+                        description: Action based on certificate validation failure.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    cert-validation-timeout:
+                    cert_validation_timeout:
                         type: str
-                        description: Deprecated, please rename it to cert_validation_timeout. Action based on certificate validation timeout.
+                        description: Action based on certificate validation timeout.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    client-certificate:
+                    client_certificate:
                         type: str
-                        description: Deprecated, please rename it to client_certificate. Action based on received client certificate.
+                        description: Action based on received client certificate.
                         choices:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
-                    expired-server-cert:
+                    expired_server_cert:
                         type: str
-                        description: Deprecated, please rename it to expired_server_cert. Action based on server certificate is expired.
+                        description: Action based on server certificate is expired.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    proxy-after-tcp-handshake:
+                    proxy_after_tcp_handshake:
                         type: str
-                        description: Deprecated, please rename it to proxy_after_tcp_handshake. Proxy traffic after the TCP 3-way handshake has been es...
+                        description: Proxy traffic after the TCP 3-way handshake has been established
                         choices:
                             - 'disable'
                             - 'enable'
-                    revoked-server-cert:
+                    revoked_server_cert:
                         type: str
-                        description: Deprecated, please rename it to revoked_server_cert. Action based on server certificate is revoked.
+                        description: Action based on server certificate is revoked.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    sni-server-cert-check:
+                    sni_server_cert_check:
                         type: str
-                        description: Deprecated, please rename it to sni_server_cert_check. Check the SNI in the client hello message with the CN or SA...
+                        description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                         choices:
                             - 'enable'
                             - 'strict'
@@ -1227,35 +1227,35 @@ options:
                         choices:
                             - 'disable'
                             - 'deep-inspection'
-                    unsupported-ssl-cipher:
+                    unsupported_ssl_cipher:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_cipher. Action based on the SSL cipher used being unsupported.
+                        description: Action based on the SSL cipher used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
-                    unsupported-ssl-negotiation:
+                    unsupported_ssl_negotiation:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_negotiation. Action based on the SSL negotiation used being unsupp...
+                        description: Action based on the SSL negotiation used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
-                    untrusted-server-cert:
+                    untrusted_server_cert:
                         type: str
-                        description: Deprecated, please rename it to untrusted_server_cert. Action based on server certificate is not issued by a trust...
+                        description: Action based on server certificate is not issued by a trusted CA.
                         choices:
                             - 'allow'
                             - 'block'
                             - 'ignore'
-                    unsupported-ssl-version:
+                    unsupported_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to unsupported_ssl_version. Action based on the SSL version used being unsupported.
+                        description: Action based on the SSL version used being unsupported.
                         choices:
                             - 'block'
                             - 'allow'
                             - 'inspect'
-                    min-allowed-ssl-version:
+                    min_allowed_ssl_version:
                         type: str
-                        description: Deprecated, please rename it to min_allowed_ssl_version. Min allowed ssl version.
+                        description: Min allowed ssl version.
                         choices:
                             - 'ssl-3.0'
                             - 'tls-1.0'
@@ -1271,48 +1271,48 @@ options:
                             - 'bypass'
                             - 'block'
                             - 'inspect'
-            supported-alpn:
+            supported_alpn:
                 type: str
-                description: Deprecated, please rename it to supported_alpn. Configure ALPN option.
+                description: Configure ALPN option.
                 choices:
                     - 'none'
                     - 'http1-1'
                     - 'http2'
                     - 'all'
-            ssl-anomaly-log:
+            ssl_anomaly_log:
                 type: str
-                description: Deprecated, please rename it to ssl_anomaly_log. Enable/disable logging of SSL anomalies.
+                description: Enable/disable logging of SSL anomalies.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-exemption-ip-rating:
+            ssl_exemption_ip_rating:
                 type: str
-                description: Deprecated, please rename it to ssl_exemption_ip_rating. Enable/disable IP based URL rating.
+                description: Enable/disable IP based URL rating.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-exemption-log:
+            ssl_exemption_log:
                 type: str
-                description: Deprecated, please rename it to ssl_exemption_log. Enable/disable logging SSL exemptions.
+                description: Enable/disable logging SSL exemptions.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-handshake-log:
+            ssl_handshake_log:
                 type: str
-                description: Deprecated, please rename it to ssl_handshake_log. Enable/disable logging of TLS handshakes.
+                description: Enable/disable logging of TLS handshakes.
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-server-cert-log:
+            ssl_server_cert_log:
                 type: str
-                description: Deprecated, please rename it to ssl_server_cert_log. Enable/disable logging of server certificate information.
+                description: Enable/disable logging of server certificate information.
                 choices:
                     - 'disable'
                     - 'enable'
-            ech-outer-sni:
+            ech_outer_sni:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to ech_outer_sni. Ech outer sni.
+                description: Ech outer sni.
                 suboptions:
                     name:
                         type: str
@@ -1402,23 +1402,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile',
         '/pm/config/global/obj/firewall/ssl-ssh-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}',
-        '/pm/config/global/obj/firewall/ssl-ssh-profile/{ssl-ssh-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -1473,37 +1465,37 @@ def main():
                 'use-ssl-server': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'whitelist': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'block-blacklisted-certificates': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'certname': {'v_range': [['6.2.0', '6.2.12']], 'type': 'str'},
-                'ssl-invalid-server-cert-log': {'v_range': [['6.2.0', '6.2.12']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'certname': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
+                'ssl-invalid-server-cert-log': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-negotiation-log': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ftps': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
                             'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'],
@@ -1513,38 +1505,38 @@ def main():
                     }
                 },
                 'https': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
                         'status': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'certificate-inspection', 'deep-inspection'],
                             'type': 'str'
                         },
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-probe-failure': {'v_range': [['7.0.0', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1557,34 +1549,34 @@ def main():
                     }
                 },
                 'imaps': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1594,34 +1586,34 @@ def main():
                     }
                 },
                 'pop3s': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1631,34 +1623,34 @@ def main():
                     }
                 },
                 'smtps': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1668,25 +1660,25 @@ def main():
                     }
                 },
                 'ssh': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
-                        'inspect-all': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
-                        'ports': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'type': 'raw'},
+                        'inspect-all': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ssh-algorithm': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['compatible', 'high-encryption'], 'type': 'str'},
-                        'ssh-tun-policy-check': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
-                        'unsupported-version': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['block', 'bypass'], 'type': 'str'},
-                        'ssh-policy-check': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ssh-algorithm': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['compatible', 'high-encryption'], 'type': 'str'},
+                        'ssh-tun-policy-check': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'deep-inspection'], 'type': 'str'},
+                        'unsupported-version': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['block', 'bypass'], 'type': 'str'},
+                        'ssh-policy-check': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'block': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '6.4.15']],
                             'type': 'list',
                             'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                             'elements': 'str'
                         },
                         'log': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '6.4.14']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '6.4.15']],
                             'type': 'list',
                             'choices': ['x11-filter', 'ssh-shell', 'exec', 'port-forward'],
                             'elements': 'str'
@@ -1694,7 +1686,7 @@ def main():
                     }
                 },
                 'ssl': {
-                    'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                    'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                     'type': 'dict',
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1702,28 +1694,28 @@ def main():
                         'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'inspect-all': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'certificate-inspection', 'deep-inspection'],
                             'type': 'str'
                         },
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'sni-server-cert-check': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': ['disable', 'enable', 'strict'],
                             'type': 'str'
                         },
                         'unsupported-ssl-cipher': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'unsupported-ssl-negotiation': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
-                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'client-cert-request': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                        'untrusted-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'unsupported-ssl': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-cert-request': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.12'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-probe-failure': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1773,7 +1765,6 @@ def main():
                     'elements': 'dict'
                 }
             }
-
         }
     }
 
@@ -1787,9 +1778,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

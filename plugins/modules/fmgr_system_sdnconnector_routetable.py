@@ -107,15 +107,15 @@ options:
                     name:
                         type: str
                         description: Route name.
-                    next-hop:
+                    next_hop:
                         type: str
-                        description: Deprecated, please rename it to next_hop. Next hop address.
-            resource-group:
+                        description: Next hop address.
+            resource_group:
                 type: str
-                description: Deprecated, please rename it to resource_group. Resource group of Azure route table.
-            subscription-id:
+                description: Resource group of Azure route table.
+            subscription_id:
                 type: str
-                description: Deprecated, please rename it to subscription_id. Subscription ID of Azure route table.
+                description: Subscription ID of Azure route table.
 '''
 
 EXAMPLES = '''
@@ -199,23 +199,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table',
         '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}',
-        '/pm/config/global/obj/system/sdn-connector/{sdn-connector}/route-table/{route-table}'
-    ]
-
     url_params = ['adom', 'sdn-connector']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -229,9 +221,8 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'route': {'type': 'list', 'options': {'name': {'type': 'str'}, 'next-hop': {'type': 'str'}}, 'elements': 'dict'},
                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                'subscription-id': {'v_range': [['6.2.6', '6.2.12'], ['6.4.1', '']], 'type': 'str'}
+                'subscription-id': {'v_range': [['6.2.6', '6.2.13'], ['6.4.1', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -245,9 +236,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

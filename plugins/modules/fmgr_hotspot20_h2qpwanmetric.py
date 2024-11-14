@@ -89,44 +89,44 @@ options:
         required: false
         type: dict
         suboptions:
-            downlink-load:
+            downlink_load:
                 type: int
-                description: Deprecated, please rename it to downlink_load. Downlink load.
-            downlink-speed:
+                description: Downlink load.
+            downlink_speed:
                 type: int
-                description: Deprecated, please rename it to downlink_speed. Downlink speed
-            link-at-capacity:
+                description: Downlink speed
+            link_at_capacity:
                 type: str
-                description: Deprecated, please rename it to link_at_capacity. Link at capacity.
+                description: Link at capacity.
                 choices:
                     - 'disable'
                     - 'enable'
-            link-status:
+            link_status:
                 type: str
-                description: Deprecated, please rename it to link_status. Link status.
+                description: Link status.
                 choices:
                     - 'down'
                     - 'up'
                     - 'in-test'
-            load-measurement-duration:
+            load_measurement_duration:
                 type: int
-                description: Deprecated, please rename it to load_measurement_duration. Load measurement duration
+                description: Load measurement duration
             name:
                 type: str
                 description: WAN metric name.
                 required: true
-            symmetric-wan-link:
+            symmetric_wan_link:
                 type: str
-                description: Deprecated, please rename it to symmetric_wan_link. WAN link symmetry.
+                description: WAN link symmetry.
                 choices:
                     - 'asymmetric'
                     - 'symmetric'
-            uplink-load:
+            uplink_load:
                 type: int
-                description: Deprecated, please rename it to uplink_load. Uplink load.
-            uplink-speed:
+                description: Uplink load.
+            uplink_speed:
                 type: int
-                description: Deprecated, please rename it to uplink_speed. Uplink speed
+                description: Uplink speed
 '''
 
 EXAMPLES = '''
@@ -200,23 +200,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-wan-metric',
         '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-wan-metric'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/wireless-controller/hotspot20/h2qp-wan-metric/{h2qp-wan-metric}',
-        '/pm/config/global/obj/wireless-controller/hotspot20/h2qp-wan-metric/{h2qp-wan-metric}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -235,7 +227,6 @@ def main():
                 'uplink-load': {'type': 'int'},
                 'uplink-speed': {'type': 'int'}
             }
-
         }
     }
 
@@ -249,9 +240,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

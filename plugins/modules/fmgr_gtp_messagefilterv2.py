@@ -89,51 +89,51 @@ options:
         required: false
         type: dict
         suboptions:
-            bearer-resource-cmd-fail:
+            bearer_resource_cmd_fail:
                 type: str
-                description: Deprecated, please rename it to bearer_resource_cmd_fail. Bearer resource
+                description: Bearer resource
                 choices:
                     - 'allow'
                     - 'deny'
-            change-notification:
+            change_notification:
                 type: str
-                description: Deprecated, please rename it to change_notification. Change notification
+                description: Change notification
                 choices:
                     - 'allow'
                     - 'deny'
-            create-bearer:
+            create_bearer:
                 type: str
-                description: Deprecated, please rename it to create_bearer. Create bearer
+                description: Create bearer
                 choices:
                     - 'allow'
                     - 'deny'
-            create-session:
+            create_session:
                 type: str
-                description: Deprecated, please rename it to create_session. Create session
+                description: Create session
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-bearer-cmd-fail:
+            delete_bearer_cmd_fail:
                 type: str
-                description: Deprecated, please rename it to delete_bearer_cmd_fail. Delete bearer
+                description: Delete bearer
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-bearer-req-resp:
+            delete_bearer_req_resp:
                 type: str
-                description: Deprecated, please rename it to delete_bearer_req_resp. Delete bearer
+                description: Delete bearer
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-pdn-connection-set:
+            delete_pdn_connection_set:
                 type: str
-                description: Deprecated, please rename it to delete_pdn_connection_set. Delete PDN connection set
+                description: Delete PDN connection set
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-session:
+            delete_session:
                 type: str
-                description: Deprecated, please rename it to delete_session. Delete session
+                description: Delete session
                 choices:
                     - 'allow'
                     - 'deny'
@@ -143,15 +143,15 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            modify-bearer-cmd-fail:
+            modify_bearer_cmd_fail:
                 type: str
-                description: Deprecated, please rename it to modify_bearer_cmd_fail. Modify bearer
+                description: Modify bearer
                 choices:
                     - 'allow'
                     - 'deny'
-            modify-bearer-req-resp:
+            modify_bearer_req_resp:
                 type: str
-                description: Deprecated, please rename it to modify_bearer_req_resp. Modify bearer
+                description: Modify bearer
                 choices:
                     - 'allow'
                     - 'deny'
@@ -171,210 +171,210 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
-            trace-session:
+            trace_session:
                 type: str
-                description: Deprecated, please rename it to trace_session. Trace session
+                description: Trace session
                 choices:
                     - 'allow'
                     - 'deny'
-            unknown-message:
+            unknown_message:
                 type: str
-                description: Deprecated, please rename it to unknown_message. Allow or Deny unknown messages.
+                description: Allow or Deny unknown messages.
                 choices:
                     - 'allow'
                     - 'deny'
-            unknown-message-white-list:
+            unknown_message_white_list:
                 type: raw
-                description: (list) Deprecated, please rename it to unknown_message_white_list. White list
-            update-bearer:
+                description: (list) White list
+            update_bearer:
                 type: str
-                description: Deprecated, please rename it to update_bearer. Update bearer
+                description: Update bearer
                 choices:
                     - 'allow'
                     - 'deny'
-            update-pdn-connection-set:
+            update_pdn_connection_set:
                 type: str
-                description: Deprecated, please rename it to update_pdn_connection_set. Update PDN connection set
+                description: Update PDN connection set
                 choices:
                     - 'allow'
                     - 'deny'
-            version-not-support:
+            version_not_support:
                 type: str
-                description: Deprecated, please rename it to version_not_support. Version not supported
+                description: Version not supported
                 choices:
                     - 'allow'
                     - 'deny'
-            context-req-res-ack:
+            context_req_res_ack:
                 type: str
-                description: Deprecated, please rename it to context_req_res_ack. Context request/response/acknowledge
+                description: Context request/response/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            forward-relocation-cmp-notif-ack:
+            forward_relocation_cmp_notif_ack:
                 type: str
-                description: Deprecated, please rename it to forward_relocation_cmp_notif_ack. Forward relocation complete notification/acknowledge
+                description: Forward relocation complete notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            forward-relocation-req-res:
+            forward_relocation_req_res:
                 type: str
-                description: Deprecated, please rename it to forward_relocation_req_res. Forward relocation request/response
+                description: Forward relocation request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            alert-mme-notif-ack:
+            alert_mme_notif_ack:
                 type: str
-                description: Deprecated, please rename it to alert_mme_notif_ack. Alert MME notification/acknowledge
+                description: Alert MME notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            configuration-transfer-tunnel:
+            configuration_transfer_tunnel:
                 type: str
-                description: Deprecated, please rename it to configuration_transfer_tunnel. Configuration transfer tunnel
+                description: Configuration transfer tunnel
                 choices:
                     - 'allow'
                     - 'deny'
-            create-forwarding-tunnel-req-resp:
+            create_forwarding_tunnel_req_resp:
                 type: str
-                description: Deprecated, please rename it to create_forwarding_tunnel_req_resp. Create forwarding tunnel request/response
+                description: Create forwarding tunnel request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            create-indirect-forwarding-tunnel-req-resp:
+            create_indirect_forwarding_tunnel_req_resp:
                 type: str
-                description: Deprecated, please rename it to create_indirect_forwarding_tunnel_req_resp. Create indirect data forwarding tunnel request...
+                description: Create indirect data forwarding tunnel request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            cs-paging:
+            cs_paging:
                 type: str
-                description: Deprecated, please rename it to cs_paging. CS paging indication
+                description: CS paging indication
                 choices:
                     - 'allow'
                     - 'deny'
-            delete-indirect-forwarding-tunnel-req-resp:
+            delete_indirect_forwarding_tunnel_req_resp:
                 type: str
-                description: Deprecated, please rename it to delete_indirect_forwarding_tunnel_req_resp. Delete indirect data forwarding tunnel request...
+                description: Delete indirect data forwarding tunnel request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            detach-notif-ack:
+            detach_notif_ack:
                 type: str
-                description: Deprecated, please rename it to detach_notif_ack. Detach notification/acknowledge
+                description: Detach notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            dlink-data-notif-ack:
+            dlink_data_notif_ack:
                 type: str
-                description: Deprecated, please rename it to dlink_data_notif_ack. Downlink data notification/acknowledge
+                description: Downlink data notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            dlink-notif-failure:
+            dlink_notif_failure:
                 type: str
-                description: Deprecated, please rename it to dlink_notif_failure. Downlink data notification failure indication
+                description: Downlink data notification failure indication
                 choices:
                     - 'allow'
                     - 'deny'
-            forward-access-notif-ack:
+            forward_access_notif_ack:
                 type: str
-                description: Deprecated, please rename it to forward_access_notif_ack. Forward access context notification/acknowledge
+                description: Forward access context notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            identification-req-resp:
+            identification_req_resp:
                 type: str
-                description: Deprecated, please rename it to identification_req_resp. Identification request/response
+                description: Identification request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            isr-status:
+            isr_status:
                 type: str
-                description: Deprecated, please rename it to isr_status. ISR status indication
+                description: ISR status indication
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-start-req-resp:
+            mbms_session_start_req_resp:
                 type: str
-                description: Deprecated, please rename it to mbms_session_start_req_resp. MBMS session start request/response
+                description: MBMS session start request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-stop-req-resp:
+            mbms_session_stop_req_resp:
                 type: str
-                description: Deprecated, please rename it to mbms_session_stop_req_resp. MBMS session stop request/response
+                description: MBMS session stop request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            mbms-session-update-req-resp:
+            mbms_session_update_req_resp:
                 type: str
-                description: Deprecated, please rename it to mbms_session_update_req_resp. MBMS session update request/response
+                description: MBMS session update request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            modify-access-req-resp:
+            modify_access_req_resp:
                 type: str
-                description: Deprecated, please rename it to modify_access_req_resp. Modify access bearers request/response
+                description: Modify access bearers request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            pgw-dlink-notif-ack:
+            pgw_dlink_notif_ack:
                 type: str
-                description: Deprecated, please rename it to pgw_dlink_notif_ack. PGW downlink triggering notification/acknowledge
+                description: PGW downlink triggering notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            pgw-restart-notif-ack:
+            pgw_restart_notif_ack:
                 type: str
-                description: Deprecated, please rename it to pgw_restart_notif_ack. PGW restart notification/acknowledge
+                description: PGW restart notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            ran-info-relay:
+            ran_info_relay:
                 type: str
-                description: Deprecated, please rename it to ran_info_relay. RAN information relay
+                description: RAN information relay
                 choices:
                     - 'allow'
                     - 'deny'
-            release-access-bearer-req-resp:
+            release_access_bearer_req_resp:
                 type: str
-                description: Deprecated, please rename it to release_access_bearer_req_resp. Release access bearers request/response
+                description: Release access bearers request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            relocation-cancel-req-resp:
+            relocation_cancel_req_resp:
                 type: str
-                description: Deprecated, please rename it to relocation_cancel_req_resp. Relocation cancel request/response
+                description: Relocation cancel request/response
                 choices:
                     - 'allow'
                     - 'deny'
-            remote-ue-report-notif-ack:
+            remote_ue_report_notif_ack:
                 type: str
-                description: Deprecated, please rename it to remote_ue_report_notif_ack. Remote UE report notification/acknowledge
+                description: Remote UE report notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            reserved-for-earlier-version:
+            reserved_for_earlier_version:
                 type: str
-                description: Deprecated, please rename it to reserved_for_earlier_version. Reserved for earlier version of the GTP specification
+                description: Reserved for earlier version of the GTP specification
                 choices:
                     - 'allow'
                     - 'deny'
-            stop-paging-indication:
+            stop_paging_indication:
                 type: str
-                description: Deprecated, please rename it to stop_paging_indication. Stop Paging Indication
+                description: Stop Paging Indication
                 choices:
                     - 'allow'
                     - 'deny'
-            ue-activity-notif-ack:
+            ue_activity_notif_ack:
                 type: str
-                description: Deprecated, please rename it to ue_activity_notif_ack. UE activity notification/acknowledge
+                description: UE activity notification/acknowledge
                 choices:
                     - 'allow'
                     - 'deny'
-            ue-registration-query-req-resp:
+            ue_registration_query_req_resp:
                 type: str
-                description: Deprecated, please rename it to ue_registration_query_req_resp. UE registration query request/response
+                description: UE registration query request/response
                 choices:
                     - 'allow'
                     - 'deny'
@@ -491,23 +491,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/gtp/message-filter-v2',
         '/pm/config/global/obj/gtp/message-filter-v2'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/gtp/message-filter-v2/{message-filter-v2}',
-        '/pm/config/global/obj/gtp/message-filter-v2/{message-filter-v2}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -566,7 +558,6 @@ def main():
                 'ue-activity-notif-ack': {'v_range': [['7.2.1', '']], 'choices': ['allow', 'deny'], 'type': 'str'},
                 'ue-registration-query-req-resp': {'v_range': [['7.2.1', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
             }
-
         }
     }
 
@@ -580,9 +571,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

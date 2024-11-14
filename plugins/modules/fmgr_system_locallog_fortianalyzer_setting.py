@@ -85,19 +85,18 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            secure-connection:
+            secure_connection:
                 type: str
                 description:
-                    - Deprecated, please rename it to secure_connection.
                     - Enable/disable connection secured by TLS/SSL.
                     - disable - Disable SSL connection.
                     - enable - Enable SSL connection.
                 choices:
                     - 'disable'
                     - 'enable'
-            server-ip:
+            server_ip:
                 type: str
-                description: Deprecated, please rename it to server_ip. Remote FortiAnalyzer server IP address.
+                description: Remote FortiAnalyzer server IP address.
             severity:
                 type: str
                 description:
@@ -130,15 +129,15 @@ options:
                     - 'disable'
                     - 'realtime'
                     - 'upload'
-            upload-time:
+            upload_time:
                 type: raw
-                description: (list) Deprecated, please rename it to upload_time. Time to upload local log files
+                description: (list) Time to upload local log files
             server:
                 type: str
                 description: Remote FortiAnalyzer server FQDN, hostname, or IP address
-            peer-cert-cn:
+            peer_cert_cn:
                 type: str
-                description: Deprecated, please rename it to peer_cert_cn. Certificate common name of remote fortianalyzer.
+                description: Certificate common name of remote fortianalyzer.
 '''
 
 EXAMPLES = '''
@@ -209,21 +208,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/locallog/fortianalyzer/setting'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/locallog/fortianalyzer/setting/{setting}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -240,7 +232,6 @@ def main():
                 'server': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'peer-cert-cn': {'v_range': [['7.0.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -254,9 +245,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

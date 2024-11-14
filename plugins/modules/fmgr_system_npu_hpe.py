@@ -80,75 +80,75 @@ options:
         required: false
         type: dict
         suboptions:
-            all-protocol:
+            all_protocol:
                 type: int
-                description: Deprecated, please rename it to all_protocol. Maximum packet rate of each host queue except high priority traffic
-            arp-max:
+                description: Maximum packet rate of each host queue except high priority traffic
+            arp_max:
                 type: int
-                description: Deprecated, please rename it to arp_max. Maximum ARP packet rate
-            enable-shaper:
+                description: Maximum ARP packet rate
+            enable_shaper:
                 type: str
-                description: Deprecated, please rename it to enable_shaper. Enable/Disable NPU Host Protection Engine
+                description: Enable/Disable NPU Host Protection Engine
                 choices:
                     - 'disable'
                     - 'enable'
-            esp-max:
+            esp_max:
                 type: int
-                description: Deprecated, please rename it to esp_max. Maximum ESP packet rate
-            high-priority:
+                description: Maximum ESP packet rate
+            high_priority:
                 type: int
-                description: Deprecated, please rename it to high_priority. Maximum packet rate for high priority traffic packets
-            icmp-max:
+                description: Maximum packet rate for high priority traffic packets
+            icmp_max:
                 type: int
-                description: Deprecated, please rename it to icmp_max. Maximum ICMP packet rate
-            ip-frag-max:
+                description: Maximum ICMP packet rate
+            ip_frag_max:
                 type: int
-                description: Deprecated, please rename it to ip_frag_max. Maximum fragmented IP packet rate
-            ip-others-max:
+                description: Maximum fragmented IP packet rate
+            ip_others_max:
                 type: int
-                description: Deprecated, please rename it to ip_others_max. Maximum IP packet rate for other packets
-            l2-others-max:
+                description: Maximum IP packet rate for other packets
+            l2_others_max:
                 type: int
-                description: Deprecated, please rename it to l2_others_max. Maximum L2 packet rate for L2 packets that are not ARP packets
-            pri-type-max:
+                description: Maximum L2 packet rate for L2 packets that are not ARP packets
+            pri_type_max:
                 type: int
-                description: Deprecated, please rename it to pri_type_max. Maximum overflow rate of priority type traffic
-            sctp-max:
+                description: Maximum overflow rate of priority type traffic
+            sctp_max:
                 type: int
-                description: Deprecated, please rename it to sctp_max. Maximum SCTP packet rate
-            tcp-max:
+                description: Maximum SCTP packet rate
+            tcp_max:
                 type: int
-                description: Deprecated, please rename it to tcp_max. Maximum TCP packet rate
-            tcpfin-rst-max:
+                description: Maximum TCP packet rate
+            tcpfin_rst_max:
                 type: int
-                description: Deprecated, please rename it to tcpfin_rst_max. Maximum TCP carries FIN or RST flags packet rate
-            tcpsyn-ack-max:
+                description: Maximum TCP carries FIN or RST flags packet rate
+            tcpsyn_ack_max:
                 type: int
-                description: Deprecated, please rename it to tcpsyn_ack_max. Maximum TCP carries SYN and ACK flags packet rate
-            tcpsyn-max:
+                description: Maximum TCP carries SYN and ACK flags packet rate
+            tcpsyn_max:
                 type: int
-                description: Deprecated, please rename it to tcpsyn_max. Maximum TCP SYN packet rate
-            udp-max:
+                description: Maximum TCP SYN packet rate
+            udp_max:
                 type: int
-                description: Deprecated, please rename it to udp_max. Maximum UDP packet rate
-            enable-queue-shaper:
+                description: Maximum UDP packet rate
+            enable_queue_shaper:
                 type: str
-                description: Deprecated, please rename it to enable_queue_shaper. Enable/Disable NPU host protection engine
+                description: Enable/Disable NPU host protection engine
                 choices:
                     - 'disable'
                     - 'enable'
-            exception-code:
+            exception_code:
                 type: int
-                description: Deprecated, please rename it to exception_code. Maximum exception code rate of traffic
-            fragment-with-sess:
+                description: Maximum exception code rate of traffic
+            fragment_with_sess:
                 type: int
-                description: Deprecated, please rename it to fragment_with_sess. Maximum fragment with session rate of traffic
-            fragment-without-session:
+                description: Maximum fragment with session rate of traffic
+            fragment_without_session:
                 type: int
-                description: Deprecated, please rename it to fragment_without_session. Maximum fragment without session rate of traffic
-            queue-shaper-max:
+                description: Maximum fragment without session rate of traffic
+            queue_shaper_max:
                 type: int
-                description: Deprecated, please rename it to queue_shaper_max. Maximum per queue byte rate of traffic
+                description: Maximum per queue byte rate of traffic
 '''
 
 EXAMPLES = '''
@@ -233,58 +233,49 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/hpe',
         '/pm/config/global/obj/system/npu/hpe'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/hpe/{hpe}',
-        '/pm/config/global/obj/system/npu/hpe/{hpe}'
-    ]
-
     url_params = ['adom']
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu_hpe': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'all-protocol': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'arp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'enable-shaper': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'esp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'high-priority': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'icmp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'ip-frag-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'ip-others-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'l2-others-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'pri-type-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'sctp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'tcp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'tcpfin-rst-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'tcpsyn-ack-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'tcpsyn-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'udp-max': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
+                'all-protocol': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'arp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'enable-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'esp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'high-priority': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'icmp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'ip-frag-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'ip-others-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'l2-others-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'pri-type-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'sctp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'tcp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'tcpfin-rst-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'tcpsyn-ack-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'tcpsyn-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'udp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'enable-queue-shaper': {
-                    'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'exception-code': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                'fragment-with-sess': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                'fragment-without-session': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'},
-                'queue-shaper-max': {'v_range': [['7.0.9', '7.0.12'], ['7.2.4', '7.2.5'], ['7.4.2', '']], 'type': 'int'}
+                'exception-code': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'fragment-with-sess': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'fragment-without-session': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'queue-shaper-max': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -298,9 +289,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

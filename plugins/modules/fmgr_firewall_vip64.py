@@ -89,9 +89,9 @@ options:
         required: false
         type: dict
         suboptions:
-            arp-reply:
+            arp_reply:
                 type: str
-                description: Deprecated, please rename it to arp_reply. Enable ARP reply.
+                description: Enable ARP reply.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -117,9 +117,9 @@ options:
                             vdom:
                                 type: str
                                 description: Vdom.
-                    arp-reply:
+                    arp_reply:
                         type: str
-                        description: Deprecated, please rename it to arp_reply. Arp reply.
+                        description: Arp reply.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -138,9 +138,9 @@ options:
                     id:
                         type: int
                         description: Id.
-                    ldb-method:
+                    ldb_method:
                         type: str
-                        description: Deprecated, please rename it to ldb_method. Ldb method.
+                        description: Ldb method.
                         choices:
                             - 'static'
                             - 'round-robin'
@@ -169,17 +169,17 @@ options:
                         choices:
                             - 'tcp'
                             - 'udp'
-                    server-type:
+                    server_type:
                         type: str
-                        description: Deprecated, please rename it to server_type. Server type.
+                        description: Server type.
                         choices:
                             - 'http'
                             - 'tcp'
                             - 'udp'
                             - 'ip'
-                    src-filter:
+                    src_filter:
                         type: raw
-                        description: (list) Deprecated, please rename it to src_filter. Src filter.
+                        description: (list) Src filter.
                     type:
                         type: str
                         description: Type.
@@ -198,9 +198,9 @@ options:
             id:
                 type: int
                 description: Custom defined id.
-            ldb-method:
+            ldb_method:
                 type: str
-                description: Deprecated, please rename it to ldb_method. Load balance method.
+                description: Load balance method.
                 choices:
                     - 'static'
                     - 'round-robin'
@@ -238,9 +238,9 @@ options:
                 elements: dict
                 description: Realservers.
                 suboptions:
-                    client-ip:
+                    client_ip:
                         type: str
-                        description: Deprecated, please rename it to client_ip. Restrict server to a client IP in this range.
+                        description: Restrict server to a client IP in this range.
                     healthcheck:
                         type: str
                         description: Per server health check.
@@ -248,18 +248,18 @@ options:
                             - 'disable'
                             - 'enable'
                             - 'vip'
-                    holddown-interval:
+                    holddown_interval:
                         type: int
-                        description: Deprecated, please rename it to holddown_interval. Hold down interval.
+                        description: Hold down interval.
                     id:
                         type: int
                         description: Real server ID.
                     ip:
                         type: str
                         description: Mapped server IP.
-                    max-connections:
+                    max_connections:
                         type: int
-                        description: Deprecated, please rename it to max_connections. Maximum number of connections allowed to server.
+                        description: Maximum number of connections allowed to server.
                     monitor:
                         type: raw
                         description: (list or str) Health monitors.
@@ -276,17 +276,17 @@ options:
                     weight:
                         type: int
                         description: Weight.
-            server-type:
+            server_type:
                 type: str
-                description: Deprecated, please rename it to server_type. Server type.
+                description: Server type.
                 choices:
                     - 'http'
                     - 'tcp'
                     - 'udp'
                     - 'ip'
-            src-filter:
+            src_filter:
                 type: raw
-                description: (list) Deprecated, please rename it to src_filter. Source IP6 filter
+                description: (list) Source IP6 filter
             type:
                 type: str
                 description: VIP type
@@ -378,23 +378,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/firewall/vip64',
         '/pm/config/global/obj/firewall/vip64'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/firewall/vip64/{vip64}',
-        '/pm/config/global/obj/firewall/vip64/{vip64}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -460,7 +452,6 @@ def main():
                 'type': {'choices': ['static-nat', 'server-load-balance'], 'type': 'str'},
                 'uuid': {'type': 'str'}
             }
-
         }
     }
 
@@ -474,9 +465,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

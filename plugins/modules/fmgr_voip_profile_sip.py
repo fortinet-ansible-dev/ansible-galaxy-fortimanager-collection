@@ -84,452 +84,452 @@ options:
         required: false
         type: dict
         suboptions:
-            ack-rate:
+            ack_rate:
                 type: int
-                description: Deprecated, please rename it to ack_rate. ACK request rate limit
-            block-ack:
+                description: ACK request rate limit
+            block_ack:
                 type: str
-                description: Deprecated, please rename it to block_ack. Enable/disable block ACK requests.
+                description: Enable/disable block ACK requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-bye:
+            block_bye:
                 type: str
-                description: Deprecated, please rename it to block_bye. Enable/disable block BYE requests.
+                description: Enable/disable block BYE requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-cancel:
+            block_cancel:
                 type: str
-                description: Deprecated, please rename it to block_cancel. Enable/disable block CANCEL requests.
+                description: Enable/disable block CANCEL requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-geo-red-options:
+            block_geo_red_options:
                 type: str
-                description: Deprecated, please rename it to block_geo_red_options. Enable/disable block OPTIONS requests, but OPTIONS requests still n...
+                description: Enable/disable block OPTIONS requests, but OPTIONS requests still notify for redundancy.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-info:
+            block_info:
                 type: str
-                description: Deprecated, please rename it to block_info. Enable/disable block INFO requests.
+                description: Enable/disable block INFO requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-invite:
+            block_invite:
                 type: str
-                description: Deprecated, please rename it to block_invite. Enable/disable block INVITE requests.
+                description: Enable/disable block INVITE requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-long-lines:
+            block_long_lines:
                 type: str
-                description: Deprecated, please rename it to block_long_lines. Enable/disable block requests with headers exceeding max-line-length.
+                description: Enable/disable block requests with headers exceeding max-line-length.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-message:
+            block_message:
                 type: str
-                description: Deprecated, please rename it to block_message. Enable/disable block MESSAGE requests.
+                description: Enable/disable block MESSAGE requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-notify:
+            block_notify:
                 type: str
-                description: Deprecated, please rename it to block_notify. Enable/disable block NOTIFY requests.
+                description: Enable/disable block NOTIFY requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-options:
+            block_options:
                 type: str
-                description: Deprecated, please rename it to block_options. Enable/disable block OPTIONS requests and no OPTIONS as notifying message f...
+                description: Enable/disable block OPTIONS requests and no OPTIONS as notifying message for redundancy either.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-prack:
+            block_prack:
                 type: str
-                description: Deprecated, please rename it to block_prack. Enable/disable block prack requests.
+                description: Enable/disable block prack requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-publish:
+            block_publish:
                 type: str
-                description: Deprecated, please rename it to block_publish. Enable/disable block PUBLISH requests.
+                description: Enable/disable block PUBLISH requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-refer:
+            block_refer:
                 type: str
-                description: Deprecated, please rename it to block_refer. Enable/disable block REFER requests.
+                description: Enable/disable block REFER requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-register:
+            block_register:
                 type: str
-                description: Deprecated, please rename it to block_register. Enable/disable block REGISTER requests.
+                description: Enable/disable block REGISTER requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-subscribe:
+            block_subscribe:
                 type: str
-                description: Deprecated, please rename it to block_subscribe. Enable/disable block SUBSCRIBE requests.
+                description: Enable/disable block SUBSCRIBE requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            block-unknown:
+            block_unknown:
                 type: str
-                description: Deprecated, please rename it to block_unknown. Block unrecognized SIP requests
+                description: Block unrecognized SIP requests
                 choices:
                     - 'disable'
                     - 'enable'
-            block-update:
+            block_update:
                 type: str
-                description: Deprecated, please rename it to block_update. Enable/disable block UPDATE requests.
+                description: Enable/disable block UPDATE requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            bye-rate:
+            bye_rate:
                 type: int
-                description: Deprecated, please rename it to bye_rate. BYE request rate limit
-            call-keepalive:
+                description: BYE request rate limit
+            call_keepalive:
                 type: int
-                description: Deprecated, please rename it to call_keepalive. Continue tracking calls with no RTP for this many minutes.
-            cancel-rate:
+                description: Continue tracking calls with no RTP for this many minutes.
+            cancel_rate:
                 type: int
-                description: Deprecated, please rename it to cancel_rate. CANCEL request rate limit
-            contact-fixup:
+                description: CANCEL request rate limit
+            contact_fixup:
                 type: str
-                description: Deprecated, please rename it to contact_fixup. Fixup contact anyway even if contacts IP
+                description: Fixup contact anyway even if contacts IP
                 choices:
                     - 'disable'
                     - 'enable'
-            hnt-restrict-source-ip:
+            hnt_restrict_source_ip:
                 type: str
-                description: Deprecated, please rename it to hnt_restrict_source_ip. Enable/disable restrict RTP source IP to be the same as SIP source...
+                description: Enable/disable restrict RTP source IP to be the same as SIP source IP when HNT is enabled.
                 choices:
                     - 'disable'
                     - 'enable'
-            hosted-nat-traversal:
+            hosted_nat_traversal:
                 type: str
-                description: Deprecated, please rename it to hosted_nat_traversal. Hosted NAT Traversal
+                description: Hosted NAT Traversal
                 choices:
                     - 'disable'
                     - 'enable'
-            info-rate:
+            info_rate:
                 type: int
-                description: Deprecated, please rename it to info_rate. INFO request rate limit
-            invite-rate:
+                description: INFO request rate limit
+            invite_rate:
                 type: int
-                description: Deprecated, please rename it to invite_rate. INVITE request rate limit
-            ips-rtp:
+                description: INVITE request rate limit
+            ips_rtp:
                 type: str
-                description: Deprecated, please rename it to ips_rtp. Enable/disable allow IPS on RTP.
+                description: Enable/disable allow IPS on RTP.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-call-summary:
+            log_call_summary:
                 type: str
-                description: Deprecated, please rename it to log_call_summary. Enable/disable logging of SIP call summary.
+                description: Enable/disable logging of SIP call summary.
                 choices:
                     - 'disable'
                     - 'enable'
-            log-violations:
+            log_violations:
                 type: str
-                description: Deprecated, please rename it to log_violations. Enable/disable logging of SIP violations.
+                description: Enable/disable logging of SIP violations.
                 choices:
                     - 'disable'
                     - 'enable'
-            malformed-header-allow:
+            malformed_header_allow:
                 type: str
-                description: Deprecated, please rename it to malformed_header_allow. Action for malformed Allow header.
+                description: Action for malformed Allow header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-call-id:
+            malformed_header_call_id:
                 type: str
-                description: Deprecated, please rename it to malformed_header_call_id. Action for malformed Call-ID header.
+                description: Action for malformed Call-ID header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-contact:
+            malformed_header_contact:
                 type: str
-                description: Deprecated, please rename it to malformed_header_contact. Action for malformed Contact header.
+                description: Action for malformed Contact header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-content-length:
+            malformed_header_content_length:
                 type: str
-                description: Deprecated, please rename it to malformed_header_content_length. Action for malformed Content-Length header.
+                description: Action for malformed Content-Length header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-content-type:
+            malformed_header_content_type:
                 type: str
-                description: Deprecated, please rename it to malformed_header_content_type. Action for malformed Content-Type header.
+                description: Action for malformed Content-Type header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-cseq:
+            malformed_header_cseq:
                 type: str
-                description: Deprecated, please rename it to malformed_header_cseq. Action for malformed CSeq header.
+                description: Action for malformed CSeq header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-expires:
+            malformed_header_expires:
                 type: str
-                description: Deprecated, please rename it to malformed_header_expires. Action for malformed Expires header.
+                description: Action for malformed Expires header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-from:
+            malformed_header_from:
                 type: str
-                description: Deprecated, please rename it to malformed_header_from. Action for malformed From header.
+                description: Action for malformed From header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-max-forwards:
+            malformed_header_max_forwards:
                 type: str
-                description: Deprecated, please rename it to malformed_header_max_forwards. Action for malformed Max-Forwards header.
+                description: Action for malformed Max-Forwards header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-p-asserted-identity:
+            malformed_header_p_asserted_identity:
                 type: str
-                description: Deprecated, please rename it to malformed_header_p_asserted_identity. Action for malformed P-Asserted-Identity header.
+                description: Action for malformed P-Asserted-Identity header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-rack:
+            malformed_header_rack:
                 type: str
-                description: Deprecated, please rename it to malformed_header_rack. Action for malformed RAck header.
+                description: Action for malformed RAck header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-record-route:
+            malformed_header_record_route:
                 type: str
-                description: Deprecated, please rename it to malformed_header_record_route. Action for malformed Record-Route header.
+                description: Action for malformed Record-Route header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-route:
+            malformed_header_route:
                 type: str
-                description: Deprecated, please rename it to malformed_header_route. Action for malformed Route header.
+                description: Action for malformed Route header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-rseq:
+            malformed_header_rseq:
                 type: str
-                description: Deprecated, please rename it to malformed_header_rseq. Action for malformed RSeq header.
+                description: Action for malformed RSeq header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-a:
+            malformed_header_sdp_a:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_a. Action for malformed SDP a line.
+                description: Action for malformed SDP a line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-b:
+            malformed_header_sdp_b:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_b. Action for malformed SDP b line.
+                description: Action for malformed SDP b line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-c:
+            malformed_header_sdp_c:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_c. Action for malformed SDP c line.
+                description: Action for malformed SDP c line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-i:
+            malformed_header_sdp_i:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_i. Action for malformed SDP i line.
+                description: Action for malformed SDP i line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-k:
+            malformed_header_sdp_k:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_k. Action for malformed SDP k line.
+                description: Action for malformed SDP k line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-m:
+            malformed_header_sdp_m:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_m. Action for malformed SDP m line.
+                description: Action for malformed SDP m line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-o:
+            malformed_header_sdp_o:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_o. Action for malformed SDP o line.
+                description: Action for malformed SDP o line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-r:
+            malformed_header_sdp_r:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_r. Action for malformed SDP r line.
+                description: Action for malformed SDP r line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-s:
+            malformed_header_sdp_s:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_s. Action for malformed SDP s line.
+                description: Action for malformed SDP s line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-t:
+            malformed_header_sdp_t:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_t. Action for malformed SDP t line.
+                description: Action for malformed SDP t line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-v:
+            malformed_header_sdp_v:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_v. Action for malformed SDP v line.
+                description: Action for malformed SDP v line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-sdp-z:
+            malformed_header_sdp_z:
                 type: str
-                description: Deprecated, please rename it to malformed_header_sdp_z. Action for malformed SDP z line.
+                description: Action for malformed SDP z line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-to:
+            malformed_header_to:
                 type: str
-                description: Deprecated, please rename it to malformed_header_to. Action for malformed To header.
+                description: Action for malformed To header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-via:
+            malformed_header_via:
                 type: str
-                description: Deprecated, please rename it to malformed_header_via. Action for malformed VIA header.
+                description: Action for malformed VIA header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-request-line:
+            malformed_request_line:
                 type: str
-                description: Deprecated, please rename it to malformed_request_line. Action for malformed request line.
+                description: Action for malformed request line.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            max-body-length:
+            max_body_length:
                 type: int
-                description: Deprecated, please rename it to max_body_length. Maximum SIP message body length
-            max-dialogs:
+                description: Maximum SIP message body length
+            max_dialogs:
                 type: int
-                description: Deprecated, please rename it to max_dialogs. Maximum number of concurrent calls/dialogs
-            max-idle-dialogs:
+                description: Maximum number of concurrent calls/dialogs
+            max_idle_dialogs:
                 type: int
-                description: Deprecated, please rename it to max_idle_dialogs. Maximum number established but idle dialogs to retain
-            max-line-length:
+                description: Maximum number established but idle dialogs to retain
+            max_line_length:
                 type: int
-                description: Deprecated, please rename it to max_line_length. Maximum SIP header line length
-            message-rate:
+                description: Maximum SIP header line length
+            message_rate:
                 type: int
-                description: Deprecated, please rename it to message_rate. MESSAGE request rate limit
-            nat-trace:
+                description: MESSAGE request rate limit
+            nat_trace:
                 type: str
-                description: Deprecated, please rename it to nat_trace. Enable/disable preservation of original IP in SDP i line.
+                description: Enable/disable preservation of original IP in SDP i line.
                 choices:
                     - 'disable'
                     - 'enable'
-            no-sdp-fixup:
+            no_sdp_fixup:
                 type: str
-                description: Deprecated, please rename it to no_sdp_fixup. Enable/disable no SDP fix-up.
+                description: Enable/disable no SDP fix-up.
                 choices:
                     - 'disable'
                     - 'enable'
-            notify-rate:
+            notify_rate:
                 type: int
-                description: Deprecated, please rename it to notify_rate. NOTIFY request rate limit
-            open-contact-pinhole:
+                description: NOTIFY request rate limit
+            open_contact_pinhole:
                 type: str
-                description: Deprecated, please rename it to open_contact_pinhole. Enable/disable open pinhole for non-REGISTER Contact port.
+                description: Enable/disable open pinhole for non-REGISTER Contact port.
                 choices:
                     - 'disable'
                     - 'enable'
-            open-record-route-pinhole:
+            open_record_route_pinhole:
                 type: str
-                description: Deprecated, please rename it to open_record_route_pinhole. Enable/disable open pinhole for Record-Route port.
+                description: Enable/disable open pinhole for Record-Route port.
                 choices:
                     - 'disable'
                     - 'enable'
-            open-register-pinhole:
+            open_register_pinhole:
                 type: str
-                description: Deprecated, please rename it to open_register_pinhole. Enable/disable open pinhole for REGISTER Contact port.
+                description: Enable/disable open pinhole for REGISTER Contact port.
                 choices:
                     - 'disable'
                     - 'enable'
-            open-via-pinhole:
+            open_via_pinhole:
                 type: str
-                description: Deprecated, please rename it to open_via_pinhole. Enable/disable open pinhole for Via port.
+                description: Enable/disable open pinhole for Via port.
                 choices:
                     - 'disable'
                     - 'enable'
-            options-rate:
+            options_rate:
                 type: int
-                description: Deprecated, please rename it to options_rate. OPTIONS request rate limit
-            prack-rate:
+                description: OPTIONS request rate limit
+            prack_rate:
                 type: int
-                description: Deprecated, please rename it to prack_rate. PRACK request rate limit
-            preserve-override:
+                description: PRACK request rate limit
+            preserve_override:
                 type: str
-                description: Deprecated, please rename it to preserve_override. Override i line to preserve original IPS
+                description: Override i line to preserve original IPS
                 choices:
                     - 'disable'
                     - 'enable'
-            provisional-invite-expiry-time:
+            provisional_invite_expiry_time:
                 type: int
-                description: Deprecated, please rename it to provisional_invite_expiry_time. Expiry time for provisional INVITE
-            publish-rate:
+                description: Expiry time for provisional INVITE
+            publish_rate:
                 type: int
-                description: Deprecated, please rename it to publish_rate. PUBLISH request rate limit
-            refer-rate:
+                description: PUBLISH request rate limit
+            refer_rate:
                 type: int
-                description: Deprecated, please rename it to refer_rate. REFER request rate limit
-            register-contact-trace:
+                description: REFER request rate limit
+            register_contact_trace:
                 type: str
-                description: Deprecated, please rename it to register_contact_trace. Enable/disable trace original IP/port within the contact header of...
+                description: Enable/disable trace original IP/port within the contact header of REGISTER requests.
                 choices:
                     - 'disable'
                     - 'enable'
-            register-rate:
+            register_rate:
                 type: int
-                description: Deprecated, please rename it to register_rate. REGISTER request rate limit
-            rfc2543-branch:
+                description: REGISTER request rate limit
+            rfc2543_branch:
                 type: str
-                description: Deprecated, please rename it to rfc2543_branch. Enable/disable support via branch compliant with RFC 2543.
+                description: Enable/disable support via branch compliant with RFC 2543.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -539,215 +539,215 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-algorithm:
+            ssl_algorithm:
                 type: str
-                description: Deprecated, please rename it to ssl_algorithm. Relative strength of encryption algorithms accepted in negotiation.
+                description: Relative strength of encryption algorithms accepted in negotiation.
                 choices:
                     - 'high'
                     - 'medium'
                     - 'low'
-            ssl-auth-client:
+            ssl_auth_client:
                 type: str
-                description: Deprecated, please rename it to ssl_auth_client. Require a client certificate and authenticate it with the peer/peergrp.
-            ssl-auth-server:
+                description: Require a client certificate and authenticate it with the peer/peergrp.
+            ssl_auth_server:
                 type: str
-                description: Deprecated, please rename it to ssl_auth_server. Authenticate the servers certificate with the peer/peergrp.
-            ssl-client-certificate:
+                description: Authenticate the servers certificate with the peer/peergrp.
+            ssl_client_certificate:
                 type: str
-                description: Deprecated, please rename it to ssl_client_certificate. Name of Certificate to offer to server if requested.
-            ssl-client-renegotiation:
+                description: Name of Certificate to offer to server if requested.
+            ssl_client_renegotiation:
                 type: str
-                description: Deprecated, please rename it to ssl_client_renegotiation. Allow/block client renegotiation by server.
+                description: Allow/block client renegotiation by server.
                 choices:
                     - 'allow'
                     - 'deny'
                     - 'secure'
-            ssl-max-version:
+            ssl_max_version:
                 type: str
-                description: Deprecated, please rename it to ssl_max_version. Highest SSL/TLS version to negotiate.
+                description: Highest SSL/TLS version to negotiate.
                 choices:
                     - 'ssl-3.0'
                     - 'tls-1.0'
                     - 'tls-1.1'
                     - 'tls-1.2'
                     - 'tls-1.3'
-            ssl-min-version:
+            ssl_min_version:
                 type: str
-                description: Deprecated, please rename it to ssl_min_version. Lowest SSL/TLS version to negotiate.
+                description: Lowest SSL/TLS version to negotiate.
                 choices:
                     - 'ssl-3.0'
                     - 'tls-1.0'
                     - 'tls-1.1'
                     - 'tls-1.2'
                     - 'tls-1.3'
-            ssl-mode:
+            ssl_mode:
                 type: str
-                description: Deprecated, please rename it to ssl_mode. SSL/TLS mode for encryption & decryption of traffic.
+                description: SSL/TLS mode for encryption & decryption of traffic.
                 choices:
                     - 'off'
                     - 'full'
-            ssl-pfs:
+            ssl_pfs:
                 type: str
-                description: Deprecated, please rename it to ssl_pfs. SSL Perfect Forward Secrecy.
+                description: SSL Perfect Forward Secrecy.
                 choices:
                     - 'require'
                     - 'deny'
                     - 'allow'
-            ssl-send-empty-frags:
+            ssl_send_empty_frags:
                 type: str
-                description: Deprecated, please rename it to ssl_send_empty_frags. Send empty fragments to avoid attack on CBC IV
+                description: Send empty fragments to avoid attack on CBC IV
                 choices:
                     - 'disable'
                     - 'enable'
-            ssl-server-certificate:
+            ssl_server_certificate:
                 type: str
-                description: Deprecated, please rename it to ssl_server_certificate. Name of Certificate return to the client in every SSL connection.
+                description: Name of Certificate return to the client in every SSL connection.
             status:
                 type: str
                 description: Enable/disable SIP.
                 choices:
                     - 'disable'
                     - 'enable'
-            strict-register:
+            strict_register:
                 type: str
-                description: Deprecated, please rename it to strict_register. Enable/disable only allow the registrar to connect.
+                description: Enable/disable only allow the registrar to connect.
                 choices:
                     - 'disable'
                     - 'enable'
-            subscribe-rate:
+            subscribe_rate:
                 type: int
-                description: Deprecated, please rename it to subscribe_rate. SUBSCRIBE request rate limit
-            unknown-header:
+                description: SUBSCRIBE request rate limit
+            unknown_header:
                 type: str
-                description: Deprecated, please rename it to unknown_header. Action for unknown SIP header.
+                description: Action for unknown SIP header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            update-rate:
+            update_rate:
                 type: int
-                description: Deprecated, please rename it to update_rate. UPDATE request rate limit
-            nat-port-range:
+                description: UPDATE request rate limit
+            nat_port_range:
                 type: str
-                description: Deprecated, please rename it to nat_port_range. RTP NAT port range.
-            ack-rate-track:
+                description: RTP NAT port range.
+            ack_rate_track:
                 type: str
-                description: Deprecated, please rename it to ack_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            bye-rate-track:
+            bye_rate_track:
                 type: str
-                description: Deprecated, please rename it to bye_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            cancel-rate-track:
+            cancel_rate_track:
                 type: str
-                description: Deprecated, please rename it to cancel_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            info-rate-track:
+            info_rate_track:
                 type: str
-                description: Deprecated, please rename it to info_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            invite-rate-track:
+            invite_rate_track:
                 type: str
-                description: Deprecated, please rename it to invite_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            malformed-header-no-proxy-require:
+            malformed_header_no_proxy_require:
                 type: str
-                description: Deprecated, please rename it to malformed_header_no_proxy_require. Action for malformed SIP messages without Proxy-Require...
+                description: Action for malformed SIP messages without Proxy-Require header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            malformed-header-no-require:
+            malformed_header_no_require:
                 type: str
-                description: Deprecated, please rename it to malformed_header_no_require. Action for malformed SIP messages without Require header.
+                description: Action for malformed SIP messages without Require header.
                 choices:
                     - 'pass'
                     - 'discard'
                     - 'respond'
-            message-rate-track:
+            message_rate_track:
                 type: str
-                description: Deprecated, please rename it to message_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            notify-rate-track:
+            notify_rate_track:
                 type: str
-                description: Deprecated, please rename it to notify_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            options-rate-track:
+            options_rate_track:
                 type: str
-                description: Deprecated, please rename it to options_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            prack-rate-track:
+            prack_rate_track:
                 type: str
-                description: Deprecated, please rename it to prack_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            publish-rate-track:
+            publish_rate_track:
                 type: str
-                description: Deprecated, please rename it to publish_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            refer-rate-track:
+            refer_rate_track:
                 type: str
-                description: Deprecated, please rename it to refer_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            register-rate-track:
+            register_rate_track:
                 type: str
-                description: Deprecated, please rename it to register_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            subscribe-rate-track:
+            subscribe_rate_track:
                 type: str
-                description: Deprecated, please rename it to subscribe_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            update-rate-track:
+            update_rate_track:
                 type: str
-                description: Deprecated, please rename it to update_rate_track. Track the packet protocol field.
+                description: Track the packet protocol field.
                 choices:
                     - 'none'
                     - 'src-ip'
                     - 'dest-ip'
-            call-id-regex:
+            call_id_regex:
                 type: str
-                description: Deprecated, please rename it to call_id_regex. Validate PCRE regular expression for Call-Id header value.
-            content-type-regex:
+                description: Validate PCRE regular expression for Call-Id header value.
+            content_type_regex:
                 type: str
-                description: Deprecated, please rename it to content_type_regex. Validate PCRE regular expression for Content-Type header value.
+                description: Validate PCRE regular expression for Content-Type header value.
 '''
 
 EXAMPLES = '''
@@ -927,23 +927,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sip',
         '/pm/config/global/obj/voip/profile/{profile}/sip'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/voip/profile/{profile}/sip/{sip}',
-        '/pm/config/global/obj/voip/profile/{profile}/sip/{sip}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = None
     module_arg_spec = {
@@ -1069,7 +1061,6 @@ def main():
                 'call-id-regex': {'v_range': [['7.2.3', '']], 'type': 'str'},
                 'content-type-regex': {'v_range': [['7.2.3', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -1083,9 +1074,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

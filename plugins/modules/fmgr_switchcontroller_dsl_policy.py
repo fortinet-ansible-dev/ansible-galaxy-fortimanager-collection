@@ -95,15 +95,15 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            cpe-aele:
+            cpe_aele:
                 type: str
-                description: Deprecated, please rename it to cpe_aele. Cpe AELE.
+                description: Cpe AELE.
                 choices:
                     - 'disable'
                     - 'enable'
-            cpe-aele-mode:
+            cpe_aele_mode:
                 type: str
-                description: Deprecated, please rename it to cpe_aele_mode. Cpe AELE-Mode with given string.
+                description: Cpe AELE-Mode with given string.
                 choices:
                     - 'ELE_M0'
                     - 'ELE_DS'
@@ -118,9 +118,9 @@ options:
                     - 'B43'
                     - 'A43C'
                     - 'V43'
-            ds-bitswap:
+            ds_bitswap:
                 type: str
-                description: Deprecated, please rename it to ds_bitswap. Enable/disable bitswap.
+                description: Enable/disable bitswap.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -128,9 +128,9 @@ options:
                 type: str
                 description: Policy name.
                 required: true
-            pause-frame:
+            pause_frame:
                 type: str
-                description: Deprecated, please rename it to pause_frame. Device pause frame configuration.
+                description: Device pause frame configuration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -147,9 +147,9 @@ options:
                 choices:
                     - 'Procend'
                     - 'Proscend'
-            us-bitswap:
+            us_bitswap:
                 type: str
-                description: Deprecated, please rename it to us_bitswap. Enable/disable bitswap.
+                description: Enable/disable bitswap.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -178,10 +178,10 @@ EXAMPLES = '''
           cpe_aele: <value in [disable, enable]>
           cpe_aele_mode: <value in [ELE_M0, ELE_DS, ELE_PB, ...]>
           cs:
-            - A43
-            - B43
-            - A43C
-            - V43
+            - "A43"
+            - "B43"
+            - "A43C"
+            - "V43"
           ds_bitswap: <value in [disable, enable]>
           name: <string>
           pause_frame: <value in [disable, enable]>
@@ -231,23 +231,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy',
         '/pm/config/global/obj/switch-controller/dsl/policy'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/dsl/policy/{policy}',
-        '/pm/config/global/obj/switch-controller/dsl/policy/{policy}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -267,7 +259,6 @@ def main():
                 'type': {'v_range': [['7.0.3', '']], 'choices': ['Procend', 'Proscend'], 'type': 'str'},
                 'us-bitswap': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -281,9 +272,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

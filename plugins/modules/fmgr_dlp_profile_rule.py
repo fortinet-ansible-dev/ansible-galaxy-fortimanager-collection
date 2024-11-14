@@ -110,15 +110,15 @@ options:
             expiry:
                 type: str
                 description: Quarantine duration in days, hours, minutes
-            file-size:
+            file_size:
                 type: int
-                description: Deprecated, please rename it to file_size. Match files this size or larger
-            file-type:
+                description: Match files this size or larger
+            file_type:
                 type: str
-                description: Deprecated, please rename it to file_type. Select the number of a DLP file pattern table to match.
-            filter-by:
+                description: Select the number of a DLP file pattern table to match.
+            filter_by:
                 type: str
-                description: Deprecated, please rename it to filter_by. Select the type of content to match.
+                description: Select the type of content to match.
                 choices:
                     - 'fingerprint'
                     - 'sensor'
@@ -132,9 +132,9 @@ options:
             label:
                 type: str
                 description: MIP label dictionary.
-            match-percentage:
+            match_percentage:
                 type: int
-                description: Deprecated, please rename it to match_percentage. Percentage of fingerprints in the fingerprint databases designated with ...
+                description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
             name:
                 type: str
                 description: Filter name.
@@ -207,16 +207,16 @@ EXAMPLES = '''
           match_percentage: <integer>
           name: <string>
           proto:
-            - smtp
-            - pop3
-            - imap
-            - http-post
-            - http-get
-            - ftp
-            - nntp
-            - mapi
-            - ssh
-            - cifs
+            - "smtp"
+            - "pop3"
+            - "imap"
+            - "http-post"
+            - "http-get"
+            - "ftp"
+            - "nntp"
+            - "mapi"
+            - "ssh"
+            - "cifs"
           sensitivity: <list or string>
           sensor: <list or string>
           severity: <value in [info, low, medium, ...]>
@@ -264,23 +264,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule',
         '/pm/config/global/obj/dlp/profile/{profile}/rule'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dlp/profile/{profile}/rule/{rule}',
-        '/pm/config/global/obj/dlp/profile/{profile}/rule/{rule}'
-    ]
-
     url_params = ['adom', 'profile']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -311,7 +303,6 @@ def main():
                 'severity': {'v_range': [['7.2.0', '']], 'choices': ['info', 'low', 'medium', 'high', 'critical'], 'type': 'str'},
                 'type': {'v_range': [['7.2.0', '']], 'choices': ['file', 'message'], 'type': 'str'}
             }
-
         }
     }
 
@@ -325,9 +316,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

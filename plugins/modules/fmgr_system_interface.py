@@ -120,14 +120,13 @@ options:
                 type: dict
                 description: Ipv6.
                 suboptions:
-                    ip6-address:
+                    ip6_address:
                         type: str
-                        description: Deprecated, please rename it to ip6_address. IPv6 address/prefix of interface.
-                    ip6-allowaccess:
+                        description: IPv6 address/prefix of interface.
+                    ip6_allowaccess:
                         type: list
                         elements: str
                         description:
-                            - Deprecated, please rename it to ip6_allowaccess.
                             - Allow management access to interface.
                             - ping - PING access.
                             - https - HTTPS access.
@@ -145,10 +144,9 @@ options:
                             - 'webservice'
                             - 'https-logging'
                             - 'fabric'
-                    ip6-autoconf:
+                    ip6_autoconf:
                         type: str
                         description:
-                            - Deprecated, please rename it to ip6_autoconf.
                             - Enable/disable address auto config
                             - disable - Disable setting.
                             - enable - Enable setting.
@@ -218,54 +216,51 @@ options:
                     - 'up'
                     - 'disable'
                     - 'enable'
-            rating-service-ip:
+            rating_service_ip:
                 type: str
-                description: Deprecated, please rename it to rating_service_ip. IP address for fgt rating service, must be same subnet with interface ip.
-            update-service-ip:
+                description: IP address for fgt rating service, must be same subnet with interface ip.
+            update_service_ip:
                 type: str
-                description: Deprecated, please rename it to update_service_ip. IP address for fgt/fct update service, must be same subnet with interfa...
+                description: IP address for fgt/fct update service, must be same subnet with interface ip.
             aggregate:
                 type: str
                 description: Aggregate interface.
             interface:
                 type: str
                 description: Underlying interface name.
-            lacp-mode:
+            lacp_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to lacp_mode.
                     - LACP mode.
                     - active - Actively use LACP to negotiate 802.
                 choices:
                     - 'active'
-            lacp-speed:
+            lacp_speed:
                 type: str
                 description:
-                    - Deprecated, please rename it to lacp_speed.
                     - How often the interface sends LACP messages.
                     - slow - Send LACP message every 30 seconds.
                     - fast - Send LACP message every second.
                 choices:
                     - 'slow'
                     - 'fast'
-            link-up-delay:
+            link_up_delay:
                 type: int
-                description: Deprecated, please rename it to link_up_delay. Number of milliseconds to wait before considering a link is up.
+                description: Number of milliseconds to wait before considering a link is up.
             member:
                 type: list
                 elements: dict
                 description: Member.
                 suboptions:
-                    interface-name:
+                    interface_name:
                         type: str
-                        description: Deprecated, please rename it to interface_name. Physical interface name.
-            min-links:
+                        description: Physical interface name.
+            min_links:
                 type: int
-                description: Deprecated, please rename it to min_links. Minimum number of aggregated ports that must be up.
-            min-links-down:
+                description: Minimum number of aggregated ports that must be up.
+            min_links_down:
                 type: str
                 description:
-                    - Deprecated, please rename it to min_links_down.
                     - Action to take when less than the configured minimum number of links are active.
                     - operational - Set the aggregate operationally down.
                     - administrative - Set the aggregate administratively down.
@@ -283,10 +278,9 @@ options:
                     - 'vlan'
                     - 'physical'
                     - 'aggregate'
-            vlan-protocol:
+            vlan_protocol:
                 type: str
                 description:
-                    - Deprecated, please rename it to vlan_protocol.
                     - Ethernet protocol of VLAN.
                     - 8021q - IEEE 802.
                     - 8021ad - IEEE 802.
@@ -314,13 +308,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            dhcp-client-identifier:
+            dhcp_client_identifier:
                 type: str
-                description: Deprecated, please rename it to dhcp_client_identifier. DHCP client identifier.
-            dns-server-override:
+                description: DHCP client identifier.
+            dns_server_override:
                 type: str
                 description:
-                    - Deprecated, please rename it to dns_server_override.
                     - Enable/disable use DNS acquired by DHCP or PPPoE.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -336,10 +329,9 @@ options:
                 choices:
                     - 'static'
                     - 'dhcp'
-            mtu-override:
+            mtu_override:
                 type: str
                 description:
-                    - Deprecated, please rename it to mtu_override.
                     - Enable/disable use MTU acquired by DHCP or PPPoE.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -430,21 +422,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/interface'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/interface/{interface}'
-    ]
-
     url_params = []
     module_primary_key = 'name'
     module_arg_spec = {
@@ -508,7 +493,6 @@ def main():
                 'mode': {'v_range': [['7.4.2', '']], 'choices': ['static', 'dhcp'], 'type': 'str'},
                 'mtu-override': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -522,9 +506,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

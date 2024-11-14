@@ -89,53 +89,53 @@ options:
         required: false
         type: dict
         suboptions:
-            cmd-flags-reserve-set:
+            cmd_flags_reserve_set:
                 type: str
-                description: Deprecated, please rename it to cmd_flags_reserve_set. Action to be taken for messages with cmd flag reserve bits set.
+                description: Action to be taken for messages with cmd flag reserve bits set.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            command-code-invalid:
+            command_code_invalid:
                 type: str
-                description: Deprecated, please rename it to command_code_invalid. Action to be taken for messages with invalid command code.
+                description: Action to be taken for messages with invalid command code.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            command-code-range:
+            command_code_range:
                 type: str
-                description: Deprecated, please rename it to command_code_range. Valid range for command codes
+                description: Valid range for command codes
             comment:
                 type: str
                 description: Comment.
-            log-packet:
+            log_packet:
                 type: str
-                description: Deprecated, please rename it to log_packet. Enable/disable packet log for triggered diameter settings.
+                description: Enable/disable packet log for triggered diameter settings.
                 choices:
                     - 'disable'
                     - 'enable'
-            message-length-invalid:
+            message_length_invalid:
                 type: str
-                description: Deprecated, please rename it to message_length_invalid. Action to be taken for invalid message length.
+                description: Action to be taken for invalid message length.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            missing-request-action:
+            missing_request_action:
                 type: str
-                description: Deprecated, please rename it to missing_request_action. Action to be taken for answers without corresponding request.
+                description: Action to be taken for answers without corresponding request.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            monitor-all-messages:
+            monitor_all_messages:
                 type: str
-                description: Deprecated, please rename it to monitor_all_messages. Enable/disable logging for all User Name and Result Code AVP messages.
+                description: Enable/disable logging for all User Name and Result Code AVP messages.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -143,25 +143,25 @@ options:
                 type: str
                 description: Profile name.
                 required: true
-            protocol-version-invalid:
+            protocol_version_invalid:
                 type: str
-                description: Deprecated, please rename it to protocol_version_invalid. Action to be taken for invalid protocol version.
+                description: Action to be taken for invalid protocol version.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            request-error-flag-set:
+            request_error_flag_set:
                 type: str
-                description: Deprecated, please rename it to request_error_flag_set. Action to be taken for request messages with error flag set.
+                description: Action to be taken for request messages with error flag set.
                 choices:
                     - 'block'
                     - 'reset'
                     - 'monitor'
                     - 'allow'
-            track-requests-answers:
+            track_requests_answers:
                 type: str
-                description: Deprecated, please rename it to track_requests_answers. Enable/disable validation that each answer has a corresponding req...
+                description: Enable/disable validation that each answer has a corresponding request.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -241,23 +241,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/diameter-filter/profile',
         '/pm/config/global/obj/diameter-filter/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/diameter-filter/profile/{profile}',
-        '/pm/config/global/obj/diameter-filter/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -279,7 +271,6 @@ def main():
                 'request-error-flag-set': {'v_range': [['7.4.2', '']], 'choices': ['block', 'reset', 'monitor', 'allow'], 'type': 'str'},
                 'track-requests-answers': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -293,9 +284,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

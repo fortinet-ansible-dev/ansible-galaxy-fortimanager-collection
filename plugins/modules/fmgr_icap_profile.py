@@ -107,59 +107,59 @@ options:
                 type: str
                 description: ICAP profile name.
                 required: true
-            replacemsg-group:
+            replacemsg_group:
                 type: str
-                description: Deprecated, please rename it to replacemsg_group. Replacement message group.
+                description: Replacement message group.
             request:
                 type: str
                 description: Enable/disable whether an HTTP request is passed to an ICAP server.
                 choices:
                     - 'disable'
                     - 'enable'
-            request-failure:
+            request_failure:
                 type: str
-                description: Deprecated, please rename it to request_failure. Action to take if the ICAP server cannot be contacted when processing an ...
+                description: Action to take if the ICAP server cannot be contacted when processing an HTTP request.
                 choices:
                     - 'error'
                     - 'bypass'
-            request-path:
+            request_path:
                 type: str
-                description: Deprecated, please rename it to request_path. Path component of the ICAP URI that identifies the HTTP request processing s...
-            request-server:
+                description: Path component of the ICAP URI that identifies the HTTP request processing service.
+            request_server:
                 type: str
-                description: Deprecated, please rename it to request_server. ICAP server to use for an HTTP request.
+                description: ICAP server to use for an HTTP request.
             response:
                 type: str
                 description: Enable/disable whether an HTTP response is passed to an ICAP server.
                 choices:
                     - 'disable'
                     - 'enable'
-            response-failure:
+            response_failure:
                 type: str
-                description: Deprecated, please rename it to response_failure. Action to take if the ICAP server cannot be contacted when processing an...
+                description: Action to take if the ICAP server cannot be contacted when processing an HTTP response.
                 choices:
                     - 'error'
                     - 'bypass'
-            response-path:
+            response_path:
                 type: str
-                description: Deprecated, please rename it to response_path. Path component of the ICAP URI that identifies the HTTP response processing...
-            response-server:
+                description: Path component of the ICAP URI that identifies the HTTP response processing service.
+            response_server:
                 type: str
-                description: Deprecated, please rename it to response_server. ICAP server to use for an HTTP response.
-            streaming-content-bypass:
+                description: ICAP server to use for an HTTP response.
+            streaming_content_bypass:
                 type: str
-                description: Deprecated, please rename it to streaming_content_bypass. Enable/disable bypassing of ICAP server for streaming content.
+                description: Enable/disable bypassing of ICAP server for streaming content.
                 choices:
                     - 'disable'
                     - 'enable'
-            icap-headers:
+            icap_headers:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to icap_headers. Icap headers.
+                description: Icap headers.
                 suboptions:
-                    base64-encoding:
+                    base64_encoding:
                         type: str
-                        description: Deprecated, please rename it to base64_encoding. Enable/disable use of base64 encoding of HTTP content.
+                        description: Enable/disable use of base64 encoding of HTTP content.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -178,25 +178,25 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            preview-data-length:
+            preview_data_length:
                 type: int
-                description: Deprecated, please rename it to preview_data_length. Preview data length to be sent to ICAP server.
-            response-req-hdr:
+                description: Preview data length to be sent to ICAP server.
+            response_req_hdr:
                 type: str
-                description: Deprecated, please rename it to response_req_hdr. Enable/disable addition of req-hdr for ICAP response modification
+                description: Enable/disable addition of req-hdr for ICAP response modification
                 choices:
                     - 'disable'
                     - 'enable'
-            respmod-default-action:
+            respmod_default_action:
                 type: str
-                description: Deprecated, please rename it to respmod_default_action. Default action to ICAP response modification
+                description: Default action to ICAP response modification
                 choices:
                     - 'bypass'
                     - 'forward'
-            respmod-forward-rules:
+            respmod_forward_rules:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to respmod_forward_rules. Respmod forward rules.
+                description: Respmod forward rules.
                 suboptions:
                     action:
                         type: str
@@ -204,84 +204,84 @@ options:
                         choices:
                             - 'bypass'
                             - 'forward'
-                    header-group:
+                    header_group:
                         type: list
                         elements: dict
-                        description: Deprecated, please rename it to header_group. Header group.
+                        description: Header group.
                         suboptions:
-                            case-sensitivity:
+                            case_sensitivity:
                                 type: str
-                                description: Deprecated, please rename it to case_sensitivity. Enable/disable case sensitivity when matching header.
+                                description: Enable/disable case sensitivity when matching header.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             header:
                                 type: str
                                 description: HTTP header regular expression.
-                            header-name:
+                            header_name:
                                 type: str
-                                description: Deprecated, please rename it to header_name. HTTP header.
+                                description: HTTP header.
                             id:
                                 type: int
                                 description: ID.
                     host:
                         type: str
                         description: Address object for the host.
-                    http-resp-status-code:
+                    http_resp_status_code:
                         type: raw
-                        description: (list) Deprecated, please rename it to http_resp_status_code. HTTP response status code.
+                        description: (list) HTTP response status code.
                     name:
                         type: str
                         description: Address name.
-            204-response:
+            204_response:
                 type: str
-                description: Deprecated, please rename it to 204_response. Enable/disable allowance of 204 response from ICAP server.
+                description: Enable/disable allowance of 204 response from ICAP server.
                 choices:
                     - 'disable'
                     - 'enable'
-            204-size-limit:
+            204_size_limit:
                 type: int
-                description: Deprecated, please rename it to 204_size_limit. 204 response size limit to be saved by ICAP client in megabytes
-            chunk-encap:
+                description: 204 response size limit to be saved by ICAP client in megabytes
+            chunk_encap:
                 type: str
-                description: Deprecated, please rename it to chunk_encap. Enable/disable chunked encapsulation
+                description: Enable/disable chunked encapsulation
                 choices:
                     - 'disable'
                     - 'enable'
-            extension-feature:
+            extension_feature:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to extension_feature. Enable/disable ICAP extension features.
+                description: Enable/disable ICAP extension features.
                 choices:
                     - 'scan-progress'
-            file-transfer:
+            file_transfer:
                 type: list
                 elements: str
-                description: Deprecated, please rename it to file_transfer. Configure the file transfer protocols to pass transferred files to an ICAP ...
+                description: Configure the file transfer protocols to pass transferred files to an ICAP server as REQMOD.
                 choices:
                     - 'ssh'
                     - 'ftp'
-            file-transfer-failure:
+            file_transfer_failure:
                 type: str
-                description: Deprecated, please rename it to file_transfer_failure. Action to take if the ICAP server cannot be contacted when processi...
+                description: Action to take if the ICAP server cannot be contacted when processing a file transfer.
                 choices:
                     - 'error'
                     - 'bypass'
-            file-transfer-path:
+            file_transfer_path:
                 type: str
-                description: Deprecated, please rename it to file_transfer_path. Path component of the ICAP URI that identifies the file transfer proce...
-            file-transfer-server:
+                description: Path component of the ICAP URI that identifies the file transfer processing service.
+            file_transfer_server:
                 type: str
-                description: Deprecated, please rename it to file_transfer_server. ICAP server to use for a file transfer.
-            icap-block-log:
+                description: ICAP server to use for a file transfer.
+            icap_block_log:
                 type: str
-                description: Deprecated, please rename it to icap_block_log. Enable/disable UTM log when infection found
+                description: Enable/disable UTM log when infection found
                 choices:
                     - 'disable'
                     - 'enable'
-            scan-progress-interval:
+            scan_progress_interval:
                 type: int
-                description: Deprecated, please rename it to scan_progress_interval. Scan progress interval value.
+                description: Scan progress interval value.
             timeout:
                 type: int
                 description: Time
@@ -310,15 +310,15 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         icap_profile:
           methods:
-            - delete
-            - get
-            - head
-            - options
-            - post
-            - put
-            - trace
-            - other
-            - connect
+            - "delete"
+            - "get"
+            - "head"
+            - "options"
+            - "post"
+            - "put"
+            - "trace"
+            - "other"
+            - "connect"
           name: <string>
           replacemsg_group: <string>
           request: <value in [disable, enable]>
@@ -356,10 +356,10 @@ EXAMPLES = '''
           204_size_limit: <integer>
           chunk_encap: <value in [disable, enable]>
           extension_feature:
-            - scan-progress
+            - "scan-progress"
           file_transfer:
-            - ssh
-            - ftp
+            - "ssh"
+            - "ftp"
           file_transfer_failure: <value in [error, bypass]>
           file_transfer_path: <string>
           file_transfer_server: <string>
@@ -410,23 +410,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/icap/profile',
         '/pm/config/global/obj/icap/profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/icap/profile/{profile}',
-        '/pm/config/global/obj/icap/profile/{profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -501,7 +493,6 @@ def main():
                 'timeout': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'comment': {'v_range': [['7.2.2', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -515,9 +506,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

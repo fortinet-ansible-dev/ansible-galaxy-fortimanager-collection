@@ -79,15 +79,15 @@ options:
             clusterid:
                 type: int
                 description: Cluster ID range
-            file-quota:
+            file_quota:
                 type: int
-                description: Deprecated, please rename it to file_quota. File quota in MB
-            hb-interval:
+                description: File quota in MB
+            hb_interval:
                 type: int
-                description: Deprecated, please rename it to hb_interval. Heartbeat interval
-            hb-lost-threshold:
+                description: Heartbeat interval
+            hb_lost_threshold:
                 type: int
-                description: Deprecated, please rename it to hb_lost_threshold. Heartbeat lost threshold
+                description: Heartbeat lost threshold
             mode:
                 type: str
                 description:
@@ -118,9 +118,9 @@ options:
                     ip6:
                         type: str
                         description: IP address
-                    serial-number:
+                    serial_number:
                         type: str
-                        description: Deprecated, please rename it to serial_number. Serial number of peer.
+                        description: Serial number of peer.
                     status:
                         type: str
                         description:
@@ -130,31 +130,30 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
-            local-cert:
+            local_cert:
                 type: str
-                description: Deprecated, please rename it to local_cert. Set the ha local certificate.
-            failover-mode:
+                description: Set the ha local certificate.
+            failover_mode:
                 type: str
                 description:
-                    - Deprecated, please rename it to failover_mode.
                     - HA failover mode.
                     - manual - Manual Failove
                     - vrrp - Use VRRP
                 choices:
                     - 'manual'
                     - 'vrrp'
-            monitored-interfaces:
+            monitored_interfaces:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to monitored_interfaces. Monitored interfaces.
+                description: Monitored interfaces.
                 suboptions:
-                    interface-name:
+                    interface_name:
                         type: str
-                        description: Deprecated, please rename it to interface_name. Interface name.
-            monitored-ips:
+                        description: Interface name.
+            monitored_ips:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to monitored_ips. Monitored ips.
+                description: Monitored ips.
                 suboptions:
                     id:
                         type: int
@@ -180,15 +179,15 @@ options:
             vip:
                 type: str
                 description: Virtual IP.
-            vrrp-adv-interval:
+            vrrp_adv_interval:
                 type: int
-                description: Deprecated, please rename it to vrrp_adv_interval. VRRP advert interval [1 - 30 seconnds]
-            vrrp-interface:
+                description: VRRP advert interval [1 - 30 seconnds]
+            vrrp_interface:
                 type: str
-                description: Deprecated, please rename it to vrrp_interface. VRRP and vip interface.
-            vip-interface:
+                description: VRRP and vip interface.
+            vip_interface:
                 type: str
-                description: Deprecated, please rename it to vip_interface. Vip interface.
+                description: Vip interface.
 '''
 
 EXAMPLES = '''
@@ -280,21 +279,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/ha'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/ha/{ha}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -342,9 +334,8 @@ def main():
                 'vip': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'vrrp-adv-interval': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'vrrp-interface': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'vip-interface': {'v_range': [['7.2.4', '7.2.5'], ['7.4.1', '']], 'type': 'str'}
+                'vip-interface': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'str'}
             }
-
         }
     }
 
@@ -358,9 +349,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

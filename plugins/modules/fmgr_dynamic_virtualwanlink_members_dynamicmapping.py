@@ -110,47 +110,47 @@ options:
             cost:
                 type: int
                 description: Cost.
-            detect-failtime:
+            detect_failtime:
                 type: int
-                description: Deprecated, please rename it to detect_failtime. Detect failtime.
-            detect-http-get:
+                description: Detect failtime.
+            detect_http_get:
                 type: str
-                description: Deprecated, please rename it to detect_http_get. Detect http get.
-            detect-http-match:
+                description: Detect http get.
+            detect_http_match:
                 type: str
-                description: Deprecated, please rename it to detect_http_match. Detect http match.
-            detect-http-port:
+                description: Detect http match.
+            detect_http_port:
                 type: int
-                description: Deprecated, please rename it to detect_http_port. Detect http port.
-            detect-interval:
+                description: Detect http port.
+            detect_interval:
                 type: int
-                description: Deprecated, please rename it to detect_interval. Detect interval.
-            detect-protocol:
+                description: Detect interval.
+            detect_protocol:
                 type: str
-                description: Deprecated, please rename it to detect_protocol. Detect protocol.
+                description: Detect protocol.
                 choices:
                     - 'ping'
                     - 'tcp-echo'
                     - 'udp-echo'
                     - 'http'
-            detect-recoverytime:
+            detect_recoverytime:
                 type: int
-                description: Deprecated, please rename it to detect_recoverytime. Detect recoverytime.
-            detect-server:
+                description: Detect recoverytime.
+            detect_server:
                 type: str
-                description: Deprecated, please rename it to detect_server. Detect server.
-            detect-timeout:
+                description: Detect server.
+            detect_timeout:
                 type: int
-                description: Deprecated, please rename it to detect_timeout. Detect timeout.
+                description: Detect timeout.
             gateway:
                 type: str
                 description: Gateway.
             gateway6:
                 type: str
                 description: Gateway6.
-            ingress-spillover-threshold:
+            ingress_spillover_threshold:
                 type: int
-                description: Deprecated, please rename it to ingress_spillover_threshold. Ingress spillover threshold.
+                description: Ingress spillover threshold.
             interface:
                 type: str
                 description: Interface.
@@ -163,18 +163,18 @@ options:
             source6:
                 type: str
                 description: Source6.
-            spillover-threshold:
+            spillover_threshold:
                 type: int
-                description: Deprecated, please rename it to spillover_threshold. Spillover threshold.
+                description: Spillover threshold.
             status:
                 type: str
                 description: Status.
                 choices:
                     - 'disable'
                     - 'enable'
-            volume-ratio:
+            volume_ratio:
                 type: int
-                description: Deprecated, please rename it to volume_ratio. Volume ratio.
+                description: Volume ratio.
             weight:
                 type: int
                 description: Weight.
@@ -269,23 +269,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping',
         '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}',
-        '/pm/config/global/obj/dynamic/virtual-wan-link/members/{members}/dynamic_mapping/{dynamic_mapping}'
-    ]
-
     url_params = ['adom', 'members']
     module_primary_key = 'complex:{{module}}["_scope"][0]["name"]+"/"+{{module}}["_scope"][0]["vdom"]'
     module_arg_spec = {
@@ -293,38 +285,37 @@ def main():
         'members': {'required': True, 'type': 'str'},
         'dynamic_virtualwanlink_members_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['6.0.0', '6.4.14']],
+            'v_range': [['6.0.0', '6.4.15']],
             'options': {
                 '_scope': {
-                    'v_range': [['6.0.0', '6.4.14']],
+                    'v_range': [['6.0.0', '6.4.15']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'}},
+                    'options': {'name': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'}, 'vdom': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'comment': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'cost': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'detect-failtime': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'detect-http-get': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'detect-http-match': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'detect-http-port': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'detect-interval': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'detect-protocol': {'v_range': [['6.0.0', '6.4.14']], 'choices': ['ping', 'tcp-echo', 'udp-echo', 'http'], 'type': 'str'},
-                'detect-recoverytime': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'detect-server': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'detect-timeout': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'gateway': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'gateway6': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'ingress-spillover-threshold': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
+                'comment': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'cost': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'detect-failtime': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'detect-http-get': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'detect-http-match': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'detect-http-port': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'detect-interval': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'detect-protocol': {'v_range': [['6.0.0', '6.4.15']], 'choices': ['ping', 'tcp-echo', 'udp-echo', 'http'], 'type': 'str'},
+                'detect-recoverytime': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'detect-server': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'detect-timeout': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'gateway': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'gateway6': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'ingress-spillover-threshold': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
                 'interface': {'v_range': [['6.0.0', '6.4.0']], 'type': 'str'},
-                'priority': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'source': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'source6': {'v_range': [['6.0.0', '6.4.14']], 'type': 'str'},
-                'spillover-threshold': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'status': {'v_range': [['6.0.0', '6.4.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'volume-ratio': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'},
-                'weight': {'v_range': [['6.0.0', '6.4.14']], 'type': 'int'}
+                'priority': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'source': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'source6': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
+                'spillover-threshold': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'status': {'v_range': [['6.0.0', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'volume-ratio': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'},
+                'weight': {'v_range': [['6.0.0', '6.4.15']], 'type': 'int'}
             }
-
         }
     }
 
@@ -338,9 +329,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

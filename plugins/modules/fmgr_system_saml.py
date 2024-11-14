@@ -76,31 +76,30 @@ options:
         required: false
         type: dict
         suboptions:
-            acs-url:
+            acs_url:
                 type: str
-                description: Deprecated, please rename it to acs_url. SP ACS
+                description: SP ACS
             cert:
                 type: str
                 description: Certificate name.
-            entity-id:
+            entity_id:
                 type: str
-                description: Deprecated, please rename it to entity_id. SP entity ID.
-            idp-cert:
+                description: SP entity ID.
+            idp_cert:
                 type: str
-                description: Deprecated, please rename it to idp_cert. IDP Certificate name.
-            idp-entity-id:
+                description: IDP Certificate name.
+            idp_entity_id:
                 type: str
-                description: Deprecated, please rename it to idp_entity_id. IDP entity ID.
-            idp-single-logout-url:
+                description: IDP entity ID.
+            idp_single_logout_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-            idp-single-sign-on-url:
+                description: IDP single logout url.
+            idp_single_sign_on_url:
                 type: str
-                description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
-            login-auto-redirect:
+                description: IDP single sign-on URL.
+            login_auto_redirect:
                 type: str
                 description:
-                    - Deprecated, please rename it to login_auto_redirect.
                     - Enable/Disable auto redirect to IDP login page.
                     - disable - Disable auto redirect to IDP Login Page.
                     - enable - Enable auto redirect to IDP Login Page.
@@ -117,50 +116,50 @@ options:
                     - 'IDP'
                     - 'SP'
                     - 'FAB-SP'
-            server-address:
+            server_address:
                 type: str
-                description: Deprecated, please rename it to server_address. Server address.
-            service-providers:
+                description: Server address.
+            service_providers:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to service_providers. Service providers.
+                description: Service providers.
                 suboptions:
-                    idp-entity-id:
+                    idp_entity_id:
                         type: str
-                        description: Deprecated, please rename it to idp_entity_id. IDP Entity ID.
-                    idp-single-logout-url:
+                        description: IDP Entity ID.
+                    idp_single_logout_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-                    idp-single-sign-on-url:
+                        description: IDP single logout url.
+                    idp_single_sign_on_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
+                        description: IDP single sign-on URL.
                     name:
                         type: str
                         description: Name.
                     prefix:
                         type: str
                         description: Prefix.
-                    sp-cert:
+                    sp_cert:
                         type: str
-                        description: Deprecated, please rename it to sp_cert. SP certificate name.
-                    sp-entity-id:
+                        description: SP certificate name.
+                    sp_entity_id:
                         type: str
-                        description: Deprecated, please rename it to sp_entity_id. SP Entity ID.
-                    sp-single-logout-url:
+                        description: SP Entity ID.
+                    sp_single_logout_url:
                         type: str
-                        description: Deprecated, please rename it to sp_single_logout_url. SP single logout URL.
-                    sp-single-sign-on-url:
+                        description: SP single logout URL.
+                    sp_single_sign_on_url:
                         type: str
-                        description: Deprecated, please rename it to sp_single_sign_on_url. SP single sign-on URL.
-                    sp-adom:
+                        description: SP single sign-on URL.
+                    sp_adom:
                         type: str
-                        description: Deprecated, please rename it to sp_adom. SP adom name.
-                    sp-profile:
+                        description: SP adom name.
+                    sp_profile:
                         type: str
-                        description: Deprecated, please rename it to sp_profile. SP profile name.
-            sls-url:
+                        description: SP profile name.
+            sls_url:
                 type: str
-                description: Deprecated, please rename it to sls_url. SP SLS
+                description: SP SLS
             status:
                 type: str
                 description:
@@ -170,73 +169,68 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            default-profile:
+            default_profile:
                 type: str
-                description: Deprecated, please rename it to default_profile. Default Profile Name.
-            fabric-idp:
+                description: Default Profile Name.
+            fabric_idp:
                 type: list
                 elements: dict
-                description: Deprecated, please rename it to fabric_idp. Fabric idp.
+                description: Fabric idp.
                 suboptions:
-                    dev-id:
+                    dev_id:
                         type: str
-                        description: Deprecated, please rename it to dev_id. IDP Device ID.
-                    idp-cert:
+                        description: IDP Device ID.
+                    idp_cert:
                         type: str
-                        description: Deprecated, please rename it to idp_cert. IDP Certificate name.
-                    idp-entity-id:
+                        description: IDP Certificate name.
+                    idp_entity_id:
                         type: str
-                        description: Deprecated, please rename it to idp_entity_id. IDP entity ID.
-                    idp-single-logout-url:
+                        description: IDP entity ID.
+                    idp_single_logout_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_logout_url. IDP single logout url.
-                    idp-single-sign-on-url:
+                        description: IDP single logout url.
+                    idp_single_sign_on_url:
                         type: str
-                        description: Deprecated, please rename it to idp_single_sign_on_url. IDP single sign-on URL.
-                    idp-status:
+                        description: IDP single sign-on URL.
+                    idp_status:
                         type: str
                         description:
-                            - Deprecated, please rename it to idp_status.
                             - Enable/disable SAML authentication
                             - disable - Disable SAML authentication.
                             - enable - Enabld SAML authentication.
                         choices:
                             - 'disable'
                             - 'enable'
-            forticloud-sso:
+            forticloud_sso:
                 type: str
                 description:
-                    - Deprecated, please rename it to forticloud_sso.
                     - Enable/disable FortiCloud SSO
                     - disable - Disable Forticloud SSO.
                     - enable - Enabld Forticloud SSO.
                 choices:
                     - 'disable'
                     - 'enable'
-            user-auto-create:
+            user_auto_create:
                 type: str
                 description:
-                    - Deprecated, please rename it to user_auto_create.
                     - Enable/disable user auto creation
                     - disable - Disable auto create user.
                     - enable - Enable auto create user.
                 choices:
                     - 'disable'
                     - 'enable'
-            auth-request-signed:
+            auth_request_signed:
                 type: str
                 description:
-                    - Deprecated, please rename it to auth_request_signed.
                     - Enable/Disable auth request signed.
                     - disable - Disable setting.
                     - enable - Enable setting.
                 choices:
                     - 'disable'
                     - 'enable'
-            want-assertions-signed:
+            want_assertions_signed:
                 type: str
                 description:
-                    - Deprecated, please rename it to want_assertions_signed.
                     - Enable/Disable want assertions signed.
                     - disable - Disable setting.
                     - enable - Enable setting.
@@ -343,21 +337,14 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/cli/global/system/saml'
     ]
-
-    perobject_jrpc_urls = [
-        '/cli/global/system/saml/{saml}'
-    ]
-
     url_params = []
     module_primary_key = None
     module_arg_spec = {
@@ -413,7 +400,6 @@ def main():
                 'auth-request-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'want-assertions-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -427,9 +413,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

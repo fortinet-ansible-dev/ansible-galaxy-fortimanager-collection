@@ -71,6 +71,7 @@ class HttpApi(HttpApiBase):
         self._prelocking_user_params = list()
         self._access_token = None
         self._login_method = None
+        self._status = {}
         self.customer_options = {}
 
     def set_customer_option(self, key, value):
@@ -269,8 +270,12 @@ class HttpApi(HttpApiBase):
         Returns the system status page from the FortiManager, for logging and other uses.
         return: status
         """
-        rc, status = self.send_request("get", self._tools.format_request("get", "sys/status"))
-        return rc, status
+        if not self.connection._connected:
+            self.connection._connect()
+        if self._status:
+            return 0, self._status
+        rc, self._status = self.send_request("get", self._tools.format_request("get", "/cli/global/system/status"))
+        return rc, self._status
 
     def process_workspace_locking_internal(self, param):
         if not self._uses_workspace or not self._logged:

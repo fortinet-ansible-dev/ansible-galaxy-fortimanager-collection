@@ -84,18 +84,18 @@ options:
         required: false
         type: dict
         suboptions:
-            dst-ip-prefix:
+            dst_ip_prefix:
                 type: str
-                description: Deprecated, please rename it to dst_ip_prefix. Destination IP address to be matched.
-            dst-mac:
+                description: Destination IP address to be matched.
+            dst_mac:
                 type: str
-                description: Deprecated, please rename it to dst_mac. Destination MAC address to be matched.
-            src-ip-prefix:
+                description: Destination MAC address to be matched.
+            src_ip_prefix:
                 type: str
-                description: Deprecated, please rename it to src_ip_prefix. Source IP address to be matched.
-            src-mac:
+                description: Source IP address to be matched.
+            src_mac:
                 type: str
-                description: Deprecated, please rename it to src_mac. Source MAC address to be matched.
+                description: Source MAC address to be matched.
             vlan:
                 type: int
                 description: VLAN ID to be matched.
@@ -168,23 +168,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/classifier',
         '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/classifier'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/acl/ingress/{ingress}/classifier/{classifier}',
-        '/pm/config/global/obj/switch-controller/acl/ingress/{ingress}/classifier/{classifier}'
-    ]
-
     url_params = ['adom', 'ingress']
     module_primary_key = None
     module_arg_spec = {
@@ -200,7 +192,6 @@ def main():
                 'src-mac': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'vlan': {'v_range': [['7.4.0', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -214,9 +205,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('partial crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_partial_curd(argument_specs=module_arg_spec)
+    fmgr.process_partial_crud()
 
     module.exit_json(meta=module.params)
 

@@ -123,21 +123,21 @@ options:
             name:
                 type: str
                 description: SNMP community name.
-            query-v1-port:
+            query_v1_port:
                 type: int
-                description: Deprecated, please rename it to query_v1_port. SNMP v1 query port
-            query-v1-status:
+                description: SNMP v1 query port
+            query_v1_status:
                 type: str
-                description: Deprecated, please rename it to query_v1_status. Enable/disable SNMP v1 queries.
+                description: Enable/disable SNMP v1 queries.
                 choices:
                     - 'disable'
                     - 'enable'
-            query-v2c-port:
+            query_v2c_port:
                 type: int
-                description: Deprecated, please rename it to query_v2c_port. SNMP v2c query port
-            query-v2c-status:
+                description: SNMP v2c query port
+            query_v2c_status:
                 type: str
-                description: Deprecated, please rename it to query_v2c_status. Enable/disable SNMP v2c queries.
+                description: Enable/disable SNMP v2c queries.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -147,27 +147,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
-            trap-v1-lport:
+            trap_v1_lport:
                 type: int
-                description: Deprecated, please rename it to trap_v1_lport. SNMP v2c trap local port
-            trap-v1-rport:
+                description: SNMP v2c trap local port
+            trap_v1_rport:
                 type: int
-                description: Deprecated, please rename it to trap_v1_rport. SNMP v2c trap remote port
-            trap-v1-status:
+                description: SNMP v2c trap remote port
+            trap_v1_status:
                 type: str
-                description: Deprecated, please rename it to trap_v1_status. Enable/disable SNMP v1 traps.
+                description: Enable/disable SNMP v1 traps.
                 choices:
                     - 'disable'
                     - 'enable'
-            trap-v2c-lport:
+            trap_v2c_lport:
                 type: int
-                description: Deprecated, please rename it to trap_v2c_lport. SNMP v2c trap local port
-            trap-v2c-rport:
+                description: SNMP v2c trap local port
+            trap_v2c_rport:
                 type: int
-                description: Deprecated, please rename it to trap_v2c_rport. SNMP v2c trap remote port
-            trap-v2c-status:
+                description: SNMP v2c trap remote port
+            trap_v2c_status:
                 type: str
-                description: Deprecated, please rename it to trap_v2c_status. Enable/disable SNMP v2c traps.
+                description: Enable/disable SNMP v2c traps.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -194,11 +194,11 @@ EXAMPLES = '''
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_snmpcommunity:
           events:
-            - cpu-high
-            - mem-low
-            - log-full
-            - intf-ip
-            - ent-conf-change
+            - "cpu-high"
+            - "mem-low"
+            - "log-full"
+            - "intf-ip"
+            - "ent-conf-change"
           hosts:
             -
               id: <integer>
@@ -259,23 +259,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community',
         '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}',
-        '/pm/config/global/obj/switch-controller/managed-switch/{managed-switch}/snmp-community/{snmp-community}'
-    ]
-
     url_params = ['adom', 'managed-switch']
     module_primary_key = 'id'
     module_arg_spec = {
@@ -312,7 +304,6 @@ def main():
                 'trap-v2c-rport': {'v_range': [['6.2.1', '6.2.3']], 'type': 'int'},
                 'trap-v2c-status': {'v_range': [['6.2.1', '6.2.3']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -326,9 +317,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

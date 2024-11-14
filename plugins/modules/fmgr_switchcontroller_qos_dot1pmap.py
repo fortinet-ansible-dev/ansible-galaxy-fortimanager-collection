@@ -96,9 +96,9 @@ options:
                 type: str
                 description: Dot1p map name.
                 required: true
-            priority-0:
+            priority_0:
                 type: str
-                description: Deprecated, please rename it to priority_0. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -108,9 +108,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-1:
+            priority_1:
                 type: str
-                description: Deprecated, please rename it to priority_1. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -120,9 +120,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-2:
+            priority_2:
                 type: str
-                description: Deprecated, please rename it to priority_2. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -132,9 +132,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-3:
+            priority_3:
                 type: str
-                description: Deprecated, please rename it to priority_3. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -144,9 +144,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-4:
+            priority_4:
                 type: str
-                description: Deprecated, please rename it to priority_4. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -156,9 +156,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-5:
+            priority_5:
                 type: str
-                description: Deprecated, please rename it to priority_5. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -168,9 +168,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-6:
+            priority_6:
                 type: str
-                description: Deprecated, please rename it to priority_6. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -180,9 +180,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            priority-7:
+            priority_7:
                 type: str
-                description: Deprecated, please rename it to priority_7. COS queue mapped to dot1p priority number.
+                description: COS queue mapped to dot1p priority number.
                 choices:
                     - 'queue-0'
                     - 'queue-1'
@@ -192,9 +192,9 @@ options:
                     - 'queue-5'
                     - 'queue-6'
                     - 'queue-7'
-            egress-pri-tagging:
+            egress_pri_tagging:
                 type: str
-                description: Deprecated, please rename it to egress_pri_tagging. Enable/disable egress priority-tag frame.
+                description: Enable/disable egress priority-tag frame.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -273,23 +273,15 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/switch-controller/qos/dot1p-map',
         '/pm/config/global/obj/switch-controller/qos/dot1p-map'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/switch-controller/qos/dot1p-map/{dot1p-map}',
-        '/pm/config/global/obj/switch-controller/qos/dot1p-map/{dot1p-map}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'name'
     module_arg_spec = {
@@ -310,7 +302,6 @@ def main():
                 'priority-7': {'choices': ['queue-0', 'queue-1', 'queue-2', 'queue-3', 'queue-4', 'queue-5', 'queue-6', 'queue-7'], 'type': 'str'},
                 'egress-pri-tagging': {'v_range': [['6.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
-
         }
     }
 
@@ -324,9 +315,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

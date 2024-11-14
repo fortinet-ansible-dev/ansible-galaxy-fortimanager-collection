@@ -89,28 +89,28 @@ options:
         required: false
         type: dict
         suboptions:
-            close-wait:
+            close_wait:
                 type: int
-                description: Deprecated, please rename it to close_wait. Set close-wait timeout
-            fin-wait:
+                description: Set close-wait timeout
+            fin_wait:
                 type: int
-                description: Deprecated, please rename it to fin_wait. Set fin-wait timeout
+                description: Set fin-wait timeout
             id:
                 type: int
                 description: Timeout profile ID
                 required: true
-            syn-sent:
+            syn_sent:
                 type: int
-                description: Deprecated, please rename it to syn_sent. Set syn-sent timeout
-            syn-wait:
+                description: Set syn-sent timeout
+            syn_wait:
                 type: int
-                description: Deprecated, please rename it to syn_wait. Set syn-wait timeout
-            tcp-idle:
+                description: Set syn-wait timeout
+            tcp_idle:
                 type: int
-                description: Deprecated, please rename it to tcp_idle. Set TCP establish timeout
-            time-wait:
+                description: Set TCP establish timeout
+            time_wait:
                 type: int
-                description: Deprecated, please rename it to time_wait. Set time-wait timeout
+                description: Set time-wait timeout
 '''
 
 EXAMPLES = '''
@@ -182,40 +182,31 @@ version_check_warning:
 '''
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_galaxy_version
-from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
 
 
 def main():
-    jrpc_urls = [
+    urls_list = [
         '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile',
         '/pm/config/global/obj/system/npu/tcp-timeout-profile'
     ]
-
-    perobject_jrpc_urls = [
-        '/pm/config/adom/{adom}/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}',
-        '/pm/config/global/obj/system/npu/tcp-timeout-profile/{tcp-timeout-profile}'
-    ]
-
     url_params = ['adom']
     module_primary_key = 'id'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'system_npu_tcptimeoutprofile': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
             'options': {
-                'close-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'fin-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'required': True, 'type': 'int'},
-                'syn-sent': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'syn-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'tcp-idle': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'},
-                'time-wait': {'v_range': [['6.4.7', '6.4.14'], ['7.0.1', '']], 'type': 'int'}
+                'close-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'fin-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'required': True, 'type': 'int'},
+                'syn-sent': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'syn-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'tcp-idle': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
+                'time-wait': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'}
             }
-
         }
     }
 
@@ -229,9 +220,10 @@ def main():
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager(jrpc_urls, perobject_jrpc_urls, module_primary_key, url_params, module, connection, top_level_schema_name='data')
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_curd(argument_specs=module_arg_spec)
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 
