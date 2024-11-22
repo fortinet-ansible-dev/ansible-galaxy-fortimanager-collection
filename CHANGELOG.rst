@@ -5,6 +5,19 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.8.1
+======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.8.1
+
+Bugfixes
+--------
+
+- Fixed a bug where rc_failed and rc_succeeded did not work.
+
 v2.8.0
 ======
 

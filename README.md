@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.8.0 - configuring FortiManager
+# fortinet.fortimanager:2.8.1 - configuring FortiManager
 
 ## Description
 

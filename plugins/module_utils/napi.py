@@ -1185,7 +1185,6 @@ class NAPIManager(object):
             changed = self.diff_data["before"] != self.diff_data["after"]
         if result is None:
             result = {}
-        return_response = {"rc": rc, "failed": failed, "changed": changed}
         if "response_code" in result:
             if self.module.params.get("rc_failed", []):
                 for rc_code in self.module.params["rc_failed"]:
@@ -1199,7 +1198,7 @@ class NAPIManager(object):
                         result["result_code_overriding"] = "rc code:%s is overridden to success" % (rc_code)
         if self.system_status:
             result["system_information"] = self.system_status
-        return_response["meta"] = result
+        return_response = {"rc": rc, "failed": failed, "changed": changed, "meta": result}
         if message:
             return_response["message"] = message
         if self.module.check_mode:
