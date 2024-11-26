@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             arp_reply:
+                aliases: ['arp-reply']
                 type: str
                 description: Enable ARP reply.
                 choices:
@@ -118,6 +119,7 @@ options:
                                 type: str
                                 description: Vdom.
                     arp_reply:
+                        aliases: ['arp-reply']
                         type: str
                         description: Arp reply.
                         choices:
@@ -139,6 +141,7 @@ options:
                         type: int
                         description: Id.
                     ldb_method:
+                        aliases: ['ldb-method']
                         type: str
                         description: Ldb method.
                         choices:
@@ -170,6 +173,7 @@ options:
                             - 'tcp'
                             - 'udp'
                     server_type:
+                        aliases: ['server-type']
                         type: str
                         description: Server type.
                         choices:
@@ -178,6 +182,7 @@ options:
                             - 'udp'
                             - 'ip'
                     src_filter:
+                        aliases: ['src-filter']
                         type: raw
                         description: (list) Src filter.
                     type:
@@ -190,6 +195,7 @@ options:
                         type: str
                         description: Uuid.
                     srcintf_filter:
+                        aliases: ['srcintf-filter']
                         type: raw
                         description: (list or str) Interfaces to which the VIP46 applies.
             extip:
@@ -202,6 +208,7 @@ options:
                 type: int
                 description: Custom defined id.
             ldb_method:
+                aliases: ['ldb-method']
                 type: str
                 description: Load balance method.
                 choices:
@@ -242,6 +249,7 @@ options:
                 description: Realservers.
                 suboptions:
                     client_ip:
+                        aliases: ['client-ip']
                         type: str
                         description: Restrict server to a client IP in this range.
                     healthcheck:
@@ -252,6 +260,7 @@ options:
                             - 'enable'
                             - 'vip'
                     holddown_interval:
+                        aliases: ['holddown-interval']
                         type: int
                         description: Hold down interval.
                     id:
@@ -261,6 +270,7 @@ options:
                         type: str
                         description: Mapped server IPv6.
                     max_connections:
+                        aliases: ['max-connections']
                         type: int
                         description: Maximum number of connections allowed to server.
                     monitor:
@@ -280,6 +290,7 @@ options:
                         type: int
                         description: Weight.
             server_type:
+                aliases: ['server-type']
                 type: str
                 description: Server type.
                 choices:
@@ -288,6 +299,7 @@ options:
                     - 'udp'
                     - 'ip'
             src_filter:
+                aliases: ['src-filter']
                 type: raw
                 description: (list) Source IP filter
             type:
@@ -300,6 +312,7 @@ options:
                 type: str
                 description: Universally Unique Identifier
             srcintf_filter:
+                aliases: ['srcintf-filter']
                 type: raw
                 description: (list or str) Interfaces to which the VIP46 applies.
 '''

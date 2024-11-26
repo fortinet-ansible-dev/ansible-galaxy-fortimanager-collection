@@ -101,6 +101,7 @@ options:
                     - 'block'
                     - 'exempt'
             fortiguard_category:
+                aliases: ['fortiguard-category']
                 type: raw
                 description: (list) FortiGuard category to match.
             name:

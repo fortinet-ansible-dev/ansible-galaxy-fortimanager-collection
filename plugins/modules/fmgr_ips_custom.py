@@ -111,6 +111,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_packet:
+                aliases: ['log-packet']
                 type: str
                 description: Enable/disable packet logging.
                 choices:
@@ -123,12 +124,14 @@ options:
                 type: str
                 description: Protocol
             rule_id:
+                aliases: ['rule-id']
                 type: int
                 description: Rule id.
             severity:
                 type: str
                 description: Relative severity of the signature, from info to critical.
             sig_name:
+                aliases: ['sig-name']
                 type: str
                 description: Sig name.
             signature:

@@ -81,72 +81,93 @@ options:
         type: dict
         suboptions:
             all_protocol:
+                aliases: ['all-protocol']
                 type: int
                 description: Maximum packet rate of each host queue except high priority traffic
             arp_max:
+                aliases: ['arp-max']
                 type: int
                 description: Maximum ARP packet rate
             enable_shaper:
+                aliases: ['enable-shaper']
                 type: str
                 description: Enable/Disable NPU Host Protection Engine
                 choices:
                     - 'disable'
                     - 'enable'
             esp_max:
+                aliases: ['esp-max']
                 type: int
                 description: Maximum ESP packet rate
             high_priority:
+                aliases: ['high-priority']
                 type: int
                 description: Maximum packet rate for high priority traffic packets
             icmp_max:
+                aliases: ['icmp-max']
                 type: int
                 description: Maximum ICMP packet rate
             ip_frag_max:
+                aliases: ['ip-frag-max']
                 type: int
                 description: Maximum fragmented IP packet rate
             ip_others_max:
+                aliases: ['ip-others-max']
                 type: int
                 description: Maximum IP packet rate for other packets
             l2_others_max:
+                aliases: ['l2-others-max']
                 type: int
                 description: Maximum L2 packet rate for L2 packets that are not ARP packets
             pri_type_max:
+                aliases: ['pri-type-max']
                 type: int
                 description: Maximum overflow rate of priority type traffic
             sctp_max:
+                aliases: ['sctp-max']
                 type: int
                 description: Maximum SCTP packet rate
             tcp_max:
+                aliases: ['tcp-max']
                 type: int
                 description: Maximum TCP packet rate
             tcpfin_rst_max:
+                aliases: ['tcpfin-rst-max']
                 type: int
                 description: Maximum TCP carries FIN or RST flags packet rate
             tcpsyn_ack_max:
+                aliases: ['tcpsyn-ack-max']
                 type: int
                 description: Maximum TCP carries SYN and ACK flags packet rate
             tcpsyn_max:
+                aliases: ['tcpsyn-max']
                 type: int
                 description: Maximum TCP SYN packet rate
             udp_max:
+                aliases: ['udp-max']
                 type: int
                 description: Maximum UDP packet rate
             enable_queue_shaper:
+                aliases: ['enable-queue-shaper']
                 type: str
                 description: Enable/Disable NPU host protection engine
                 choices:
                     - 'disable'
                     - 'enable'
             exception_code:
+                aliases: ['exception-code']
                 type: int
                 description: Maximum exception code rate of traffic
             fragment_with_sess:
+                aliases: ['fragment-with-sess']
                 type: int
                 description: Maximum fragment with session rate of traffic
             fragment_without_session:
+                aliases: ['fragment-without-session']
                 type: int
                 description: Maximum fragment without session rate of traffic
             queue_shaper_max:
+                aliases: ['queue-shaper-max']
                 type: int
                 description: Maximum per queue byte rate of traffic
 '''

@@ -90,36 +90,43 @@ options:
         type: dict
         suboptions:
             app_category:
+                aliases: ['app-category']
                 type: raw
                 description: (list or str) App category.
             app_group:
+                aliases: ['app-group']
                 type: raw
                 description: (list or str) App group.
             application:
                 type: raw
                 description: (list) Application.
             class_id:
+                aliases: ['class-id']
                 type: raw
                 description: (int or str) Class id.
             comment:
                 type: str
                 description: Comment.
             diffserv_forward:
+                aliases: ['diffserv-forward']
                 type: str
                 description: Diffserv forward.
                 choices:
                     - 'disable'
                     - 'enable'
             diffserv_reverse:
+                aliases: ['diffserv-reverse']
                 type: str
                 description: Diffserv reverse.
                 choices:
                     - 'disable'
                     - 'enable'
             diffservcode_forward:
+                aliases: ['diffservcode-forward']
                 type: str
                 description: Diffservcode forward.
             diffservcode_rev:
+                aliases: ['diffservcode-rev']
                 type: str
                 description: Diffservcode rev.
             dstaddr:
@@ -139,48 +146,60 @@ options:
                 description: Id.
                 required: true
             internet_service:
+                aliases: ['internet-service']
                 type: str
                 description: Internet service.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_custom:
+                aliases: ['internet-service-custom']
                 type: raw
                 description: (list or str) Internet service custom.
             internet_service_custom_group:
+                aliases: ['internet-service-custom-group']
                 type: raw
                 description: (list or str) Internet service custom group.
             internet_service_group:
+                aliases: ['internet-service-group']
                 type: raw
                 description: (list or str) Internet service group.
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: raw
                 description: (list or str) Internet service id.
             internet_service_src:
+                aliases: ['internet-service-src']
                 type: str
                 description: Internet service src.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src_custom:
+                aliases: ['internet-service-src-custom']
                 type: raw
                 description: (list or str) Internet service src custom.
             internet_service_src_custom_group:
+                aliases: ['internet-service-src-custom-group']
                 type: raw
                 description: (list or str) Internet service src custom group.
             internet_service_src_group:
+                aliases: ['internet-service-src-group']
                 type: raw
                 description: (list or str) Internet service src group.
             internet_service_src_id:
+                aliases: ['internet-service-src-id']
                 type: raw
                 description: (list or str) Internet service src id.
             ip_version:
+                aliases: ['ip-version']
                 type: str
                 description: Ip version.
                 choices:
                     - '4'
                     - '6'
             per_ip_shaper:
+                aliases: ['per-ip-shaper']
                 type: str
                 description: Per ip shaper.
             schedule:
@@ -208,21 +227,26 @@ options:
                 type: str
                 description: Tos.
             tos_mask:
+                aliases: ['tos-mask']
                 type: str
                 description: Tos mask.
             tos_negate:
+                aliases: ['tos-negate']
                 type: str
                 description: Tos negate.
                 choices:
                     - 'disable'
                     - 'enable'
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Traffic shaper reverse.
             url_category:
+                aliases: ['url-category']
                 type: raw
                 description: (list or str) Url category.
             users:
@@ -232,30 +256,37 @@ options:
                 type: str
                 description: Uuid.
             internet_service_name:
+                aliases: ['internet-service-name']
                 type: raw
                 description: (list or str) Internet service name.
             internet_service_src_name:
+                aliases: ['internet-service-src-name']
                 type: raw
                 description: (list or str) Internet service src name.
             class_id_reverse:
+                aliases: ['class-id-reverse']
                 type: int
                 description: Class id reverse.
             service_type:
+                aliases: ['service-type']
                 type: str
                 description: Service type.
                 choices:
                     - 'service'
                     - 'internet-service'
             uuid_idx:
+                aliases: ['uuid-idx']
                 type: int
                 description: Uuid idx.
             cos:
                 type: str
                 description: VLAN CoS bit pattern.
             cos_mask:
+                aliases: ['cos-mask']
                 type: str
                 description: VLAN CoS evaluated bits.
             traffic_type:
+                aliases: ['traffic-type']
                 type: str
                 description: Traffic type.
                 choices:

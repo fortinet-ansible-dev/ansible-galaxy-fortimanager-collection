@@ -96,6 +96,7 @@ options:
                     - '6'
                     - '7'
             severity_level:
+                aliases: ['severity-level']
                 type: list
                 elements: str
                 description:

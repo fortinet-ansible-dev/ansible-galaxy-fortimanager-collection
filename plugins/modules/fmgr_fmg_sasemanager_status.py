@@ -81,12 +81,15 @@ options:
         type: dict
         suboptions:
             forticlient_ver:
+                aliases: ['forticlient-ver']
                 type: str
                 description: Forticlient ver.
             forticloud_id:
+                aliases: ['forticloud-id']
                 type: int
                 description: Forticloud id.
             license_type:
+                aliases: ['license-type']
                 type: str
                 description: License type.
                 choices:
@@ -94,6 +97,7 @@ options:
                     - 'advanced_license'
                     - 'comprehensive_license'
             spa_hubs:
+                aliases: ['spa-hubs']
                 type: int
                 description: Spa hubs.
 '''

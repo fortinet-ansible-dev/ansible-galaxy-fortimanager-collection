@@ -99,9 +99,11 @@ options:
                     - 'disable'
                     - 'enable'
             disconnect_period:
+                aliases: ['disconnect-period']
                 type: int
                 description: Automatically switch based on disconnect period.
             disconnect_threshold:
+                aliases: ['disconnect-threshold']
                 type: int
                 description: Automatically switch based on disconnect threshold.
             signal:
@@ -111,6 +113,7 @@ options:
                     - 'disable'
                     - 'enable'
             switch_back:
+                aliases: ['switch-back']
                 type: list
                 elements: str
                 description: Auto switch with switch back multi-options.
@@ -118,9 +121,11 @@ options:
                     - 'time'
                     - 'timer'
             switch_back_time:
+                aliases: ['switch-back-time']
                 type: str
                 description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
             switch_back_timer:
+                aliases: ['switch-back-timer']
                 type: int
                 description: Automatically switch over to preferred SIM/carrier after the given time
 '''

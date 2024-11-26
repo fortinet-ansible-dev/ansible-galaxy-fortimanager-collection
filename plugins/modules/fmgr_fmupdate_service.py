@@ -86,6 +86,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_antispam:
+                aliases: ['query-antispam']
                 type: str
                 description:
                     - Enable/disable antispam service
@@ -95,6 +96,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_antivirus:
+                aliases: ['query-antivirus']
                 type: str
                 description:
                     - Enable/disable antivirus query service
@@ -104,6 +106,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_filequery:
+                aliases: ['query-filequery']
                 type: str
                 description:
                     - Enable/disable file query service
@@ -113,6 +116,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_geoip:
+                aliases: ['query-geoip']
                 type: str
                 description:
                     - Enable/disable geoip service
@@ -122,6 +126,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_outbreak_prevention:
+                aliases: ['query-outbreak-prevention']
                 type: str
                 description:
                     - Enable/disable  outbreak prevention query service
@@ -131,6 +136,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_webfilter:
+                aliases: ['query-webfilter']
                 type: str
                 description:
                     - Enable/disable Web Filter service
@@ -140,6 +146,7 @@ options:
                     - 'disable'
                     - 'enable'
             webfilter_https_traversal:
+                aliases: ['webfilter-https-traversal']
                 type: str
                 description:
                     - Enable/disable Web Filter HTTPS traversal
@@ -149,6 +156,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_iot:
+                aliases: ['query-iot']
                 type: str
                 description:
                     - Enable/disable file query service
@@ -158,6 +166,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_iot_collection:
+                aliases: ['query-iot-collection']
                 type: str
                 description:
                     - Enable/disable IoT Collection Query service
@@ -167,6 +176,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_iot_vulnerability:
+                aliases: ['query-iot-vulnerability']
                 type: str
                 description:
                     - Enable/disable IoT Vulnerability Query service
@@ -176,6 +186,7 @@ options:
                     - 'disable'
                     - 'enable'
             query_ioc:
+                aliases: ['query-ioc']
                 type: str
                 description:
                     - Enable/disable the built-in FortiGuard to provide IoC query

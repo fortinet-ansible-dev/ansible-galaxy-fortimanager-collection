@@ -94,6 +94,7 @@ options:
                 description: Policy name.
                 required: true
             policy_type:
+                aliases: ['policy-type']
                 type: str
                 description: Policy type.
                 choices:

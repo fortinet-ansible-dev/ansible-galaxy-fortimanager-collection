@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             managed_sn:
+                aliases: ['managed-sn']
                 type: str
                 description: Managed sn.
             target:
@@ -96,9 +97,11 @@ options:
                     - 'managed'
                     - 'others'
             target_ip:
+                aliases: ['target-ip']
                 type: str
                 description: Target ip.
             target_sn:
+                aliases: ['target-sn']
                 type: raw
                 description: (list) Target sn.
 '''

@@ -77,9 +77,11 @@ options:
         type: dict
         suboptions:
             ip6_primary:
+                aliases: ['ip6-primary']
                 type: str
                 description: IPv6 primary DNS IP.
             ip6_secondary:
+                aliases: ['ip6-secondary']
                 type: str
                 description: IPv6 secondary DNS IP.
             primary:

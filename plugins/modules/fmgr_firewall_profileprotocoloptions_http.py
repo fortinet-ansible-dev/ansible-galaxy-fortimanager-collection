@@ -87,30 +87,37 @@ options:
         type: dict
         suboptions:
             block_page_status_code:
+                aliases: ['block-page-status-code']
                 type: int
                 description: Code number returned for blocked HTTP pages
             comfort_amount:
+                aliases: ['comfort-amount']
                 type: int
                 description: Amount of data to send in a transmission for client comforting
             comfort_interval:
+                aliases: ['comfort-interval']
                 type: int
                 description: Period of time between start, or last transmission, and the next client comfort transmission of data
             fortinet_bar:
+                aliases: ['fortinet-bar']
                 type: str
                 description: Enable/disable Fortinet bar on HTML content.
                 choices:
                     - 'disable'
                     - 'enable'
             fortinet_bar_port:
+                aliases: ['fortinet-bar-port']
                 type: int
                 description: Port for use by Fortinet Bar
             http_policy:
+                aliases: ['http-policy']
                 type: str
                 description: Enable/disable HTTP policy check.
                 choices:
                     - 'disable'
                     - 'enable'
             inspect_all:
+                aliases: ['inspect-all']
                 type: str
                 description: Enable/disable the inspection of all ports for the protocol.
                 choices:
@@ -127,12 +134,14 @@ options:
                     - 'no-content-summary'
                     - 'servercomfort'
             oversize_limit:
+                aliases: ['oversize-limit']
                 type: int
                 description: Maximum in-memory file size that can be scanned
             ports:
                 type: raw
                 description: (list) Ports to scan for content
             post_lang:
+                aliases: ['post-lang']
                 type: list
                 elements: str
                 description: ID codes for character sets to be used to convert to UTF-8 for banned words and DLP on HTTP posts
@@ -159,15 +168,18 @@ options:
                     - 'cp1252'
                     - 'cp1251'
             range_block:
+                aliases: ['range-block']
                 type: str
                 description: Enable/disable blocking of partial downloads.
                 choices:
                     - 'disable'
                     - 'enable'
             retry_count:
+                aliases: ['retry-count']
                 type: int
                 description: Number of attempts to retry HTTP connection
             scan_bzip2:
+                aliases: ['scan-bzip2']
                 type: str
                 description: Enable/disable scanning of BZip2 compressed files.
                 choices:
@@ -180,39 +192,48 @@ options:
                     - 'disable'
                     - 'enable'
             streaming_content_bypass:
+                aliases: ['streaming-content-bypass']
                 type: str
                 description: Enable/disable bypassing of streaming content from buffering.
                 choices:
                     - 'disable'
                     - 'enable'
             strip_x_forwarded_for:
+                aliases: ['strip-x-forwarded-for']
                 type: str
                 description: Enable/disable stripping of HTTP X-Forwarded-For header.
                 choices:
                     - 'disable'
                     - 'enable'
             switching_protocols:
+                aliases: ['switching-protocols']
                 type: str
                 description: Bypass from scanning, or block a connection that attempts to switch protocol.
                 choices:
                     - 'bypass'
                     - 'block'
             uncompressed_nest_limit:
+                aliases: ['uncompressed-nest-limit']
                 type: int
                 description: Maximum nested levels of compression that can be uncompressed and scanned
             uncompressed_oversize_limit:
+                aliases: ['uncompressed-oversize-limit']
                 type: int
                 description: Maximum in-memory uncompressed file size that can be scanned
             tcp_window_maximum:
+                aliases: ['tcp-window-maximum']
                 type: int
                 description: Maximum dynamic TCP window size
             tcp_window_minimum:
+                aliases: ['tcp-window-minimum']
                 type: int
                 description: Minimum dynamic TCP window size
             tcp_window_size:
+                aliases: ['tcp-window-size']
                 type: int
                 description: Set TCP static window size
             tcp_window_type:
+                aliases: ['tcp-window-type']
                 type: str
                 description: Specify type of TCP window to use for this protocol.
                 choices:
@@ -221,27 +242,32 @@ options:
                     - 'dynamic'
                     - 'auto-tuning'
             ssl_offloaded:
+                aliases: ['ssl-offloaded']
                 type: str
                 description: SSL decryption and encryption performed by an external device.
                 choices:
                     - 'no'
                     - 'yes'
             stream_based_uncompressed_limit:
+                aliases: ['stream-based-uncompressed-limit']
                 type: int
                 description: Maximum stream-based uncompressed data size that will be scanned
             proxy_after_tcp_handshake:
+                aliases: ['proxy-after-tcp-handshake']
                 type: str
                 description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_non_http:
+                aliases: ['tunnel-non-http']
                 type: str
                 description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
                 choices:
                     - 'disable'
                     - 'enable'
             unknown_http_version:
+                aliases: ['unknown-http-version']
                 type: str
                 description: How to handle HTTP sessions that do not comply with HTTP 0.
                 choices:
@@ -249,6 +275,7 @@ options:
                     - 'reject'
                     - 'tunnel'
             address_ip_rating:
+                aliases: ['address-ip-rating']
                 type: str
                 description: Enable/disable IP based URL rating.
                 choices:
@@ -261,12 +288,14 @@ options:
                     - 'disable'
                     - 'enable'
             verify_dns_for_policy_matching:
+                aliases: ['verify-dns-for-policy-matching']
                 type: str
                 description: Enable/disable verification of DNS for policy matching.
                 choices:
                     - 'disable'
                     - 'enable'
             unknown_content_encoding:
+                aliases: ['unknown-content-encoding']
                 type: str
                 description: Configure the action the FortiGate unit will take on unknown content-encoding.
                 choices:
@@ -274,6 +303,7 @@ options:
                     - 'inspect'
                     - 'bypass'
             domain_fronting:
+                aliases: ['domain-fronting']
                 type: str
                 description: Configure HTTP domain fronting
                 choices:

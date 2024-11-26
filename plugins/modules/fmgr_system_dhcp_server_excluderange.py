@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: End of IP range.
             id:
@@ -101,27 +102,33 @@ options:
                 description: ID.
                 required: true
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: Start of IP range.
             vci_match:
+                aliases: ['vci-match']
                 type: str
                 description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
             vci_string:
+                aliases: ['vci-string']
                 type: raw
                 description: (list) One or more VCI strings in quotes separated by spaces.
             lease_time:
+                aliases: ['lease-time']
                 type: int
                 description: Lease time in seconds, 0 means default lease time.
             uci_match:
+                aliases: ['uci-match']
                 type: str
                 description: Enable/disable user class identifier
                 choices:
                     - 'disable'
                     - 'enable'
             uci_string:
+                aliases: ['uci-string']
                 type: raw
                 description: (list) One or more UCI strings in quotes separated by spaces.
 '''

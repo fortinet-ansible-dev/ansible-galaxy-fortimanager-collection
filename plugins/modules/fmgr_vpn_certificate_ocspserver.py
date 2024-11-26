@@ -97,15 +97,19 @@ options:
                 description: OCSP server entry name.
                 required: true
             secondary_cert:
+                aliases: ['secondary-cert']
                 type: str
                 description: Secondary OCSP server certificate.
             secondary_url:
+                aliases: ['secondary-url']
                 type: str
                 description: Secondary OCSP server URL.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP address for communications to the OCSP server.
             unavail_action:
+                aliases: ['unavail-action']
                 type: str
                 description: Action when server is unavailable
                 choices:

@@ -99,6 +99,7 @@ options:
                     - 'disable'
                     - 'enable'
             fortiguard_category:
+                aliases: ['fortiguard-category']
                 type: dict
                 description: Fortiguard category.
                 suboptions:
@@ -116,6 +117,7 @@ options:
                                     - 'monitor'
                                     - 'allow'
                             category_id:
+                                aliases: ['category-id']
                                 type: int
                                 description: Category ID.
                             id:
@@ -138,6 +140,7 @@ options:
                     - 'disable'
                     - 'enable'
             vimeo_restrict:
+                aliases: ['vimeo-restrict']
                 type: str
                 description: Set Vimeo-restrict
             youtube:
@@ -147,9 +150,11 @@ options:
                     - 'disable'
                     - 'enable'
             youtube_channel_filter:
+                aliases: ['youtube-channel-filter']
                 type: str
                 description: Set YouTube channel filter.
             youtube_restrict:
+                aliases: ['youtube-restrict']
                 type: str
                 description: Set YouTube-restrict mode.
                 choices:
@@ -157,9 +162,11 @@ options:
                     - 'none'
                     - 'moderate'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             default_action:
+                aliases: ['default-action']
                 type: str
                 description: Video filter default action.
                 choices:

@@ -101,6 +101,7 @@ options:
                 description: ID.
                 required: true
             rate_limit:
+                aliases: ['rate-limit']
                 type: int
                 description: Rate limit
             version:

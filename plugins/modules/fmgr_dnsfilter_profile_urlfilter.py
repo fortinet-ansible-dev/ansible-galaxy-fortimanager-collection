@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             urlfilter_table:
+                aliases: ['urlfilter-table']
                 type: int
                 description: DNS URL filter table ID.
 '''

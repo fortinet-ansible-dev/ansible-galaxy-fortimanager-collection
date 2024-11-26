@@ -107,6 +107,7 @@ options:
                 type: str
                 description: Name.
             ref_id:
+                aliases: ['ref-id']
                 type: str
                 description: Ref id.
 '''

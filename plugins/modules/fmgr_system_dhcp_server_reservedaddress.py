@@ -114,18 +114,22 @@ options:
                 type: str
                 description: MAC address of the client that will get the reserved IP address.
             circuit_id:
+                aliases: ['circuit-id']
                 type: str
                 description: Option 82 circuit-ID of the client that will get the reserved IP address.
             circuit_id_type:
+                aliases: ['circuit-id-type']
                 type: str
                 description: DHCP option type.
                 choices:
                     - 'hex'
                     - 'string'
             remote_id:
+                aliases: ['remote-id']
                 type: str
                 description: Option 82 remote-ID of the client that will get the reserved IP address.
             remote_id_type:
+                aliases: ['remote-id-type']
                 type: str
                 description: DHCP option type.
                 choices:

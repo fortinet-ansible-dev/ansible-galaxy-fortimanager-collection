@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             access_rule:
+                aliases: ['access-rule']
                 type: list
                 elements: dict
                 description: Access rule.
@@ -121,6 +122,7 @@ options:
                         type: str
                         description: Name.
             custom_control:
+                aliases: ['custom-control']
                 type: list
                 elements: dict
                 description: Custom control.
@@ -137,16 +139,19 @@ options:
                                 type: str
                                 description: Name.
                             user_input:
+                                aliases: ['user-input']
                                 type: list
                                 elements: str
                                 description: User input.
             domain_control:
+                aliases: ['domain-control']
                 type: str
                 description: Domain control.
                 choices:
                     - 'disable'
                     - 'enable'
             domain_control_domains:
+                aliases: ['domain-control-domains']
                 type: list
                 elements: str
                 description: Domain control domains.
@@ -161,22 +166,26 @@ options:
                 description: Name.
                 required: true
             safe_search:
+                aliases: ['safe-search']
                 type: str
                 description: Safe search.
                 choices:
                     - 'disable'
                     - 'enable'
             safe_search_control:
+                aliases: ['safe-search-control']
                 type: list
                 elements: str
                 description: Safe search control.
             tenant_control:
+                aliases: ['tenant-control']
                 type: str
                 description: Tenant control.
                 choices:
                     - 'disable'
                     - 'enable'
             tenant_control_tenants:
+                aliases: ['tenant-control-tenants']
                 type: list
                 elements: str
                 description: Tenant control tenants.

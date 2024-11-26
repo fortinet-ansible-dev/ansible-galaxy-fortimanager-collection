@@ -93,6 +93,7 @@ options:
                 type: str
                 description: The host name.
             host_type:
+                aliases: ['host-type']
                 type: str
                 description: Type of host pattern.
                 choices:
@@ -103,9 +104,11 @@ options:
                 description: Virtual host name.
                 required: true
             ssl_certificate:
+                aliases: ['ssl-certificate']
                 type: str
                 description: SSL certificate for this host.
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Access-proxy-virtual-host replacement message override group.
 '''

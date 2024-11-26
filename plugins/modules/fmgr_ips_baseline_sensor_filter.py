@@ -105,12 +105,14 @@ options:
                 type: raw
                 description: (list) Vulnerable application filter.
             application_real:
+                aliases: ['application(real)']
                 type: str
                 description: Application
             location:
                 type: raw
                 description: (list) Vulnerability location filter.
             location_real:
+                aliases: ['location(real)']
                 type: str
                 description: Location
             log:
@@ -121,6 +123,7 @@ options:
                     - 'enable'
                     - 'default'
             log_packet:
+                aliases: ['log-packet']
                 type: str
                 description: Enable/disable packet logging of selected rules.
                 choices:
@@ -135,12 +138,14 @@ options:
                 type: raw
                 description: (list) Vulnerable OS filter.
             os_real:
+                aliases: ['os(real)']
                 type: str
                 description: Os
             protocol:
                 type: raw
                 description: (list) Vulnerable protocol filter.
             protocol_real:
+                aliases: ['protocol(real)']
                 type: str
                 description: Protocol
             quarantine:
@@ -152,9 +157,11 @@ options:
                     - 'both'
                     - 'interface'
             quarantine_expiry:
+                aliases: ['quarantine-expiry']
                 type: int
                 description: Duration of quarantine in minute.
             quarantine_log:
+                aliases: ['quarantine-log']
                 type: str
                 description: Enable/disable logging of selected quarantine.
                 choices:
@@ -164,6 +171,7 @@ options:
                 type: raw
                 description: (list) Vulnerability severity filter.
             severity_real:
+                aliases: ['severity(real)']
                 type: str
                 description: Severity
             status:

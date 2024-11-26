@@ -77,9 +77,11 @@ options:
         type: dict
         suboptions:
             retention_days:
+                aliases: ['retention-days']
                 type: int
                 description: Number of days for FortiOS policy stats data storage.
             sampling_interval:
+                aliases: ['sampling-interval']
                 type: int
                 description: Interval to request policy stats data from FortiOS in minutes.
             status:

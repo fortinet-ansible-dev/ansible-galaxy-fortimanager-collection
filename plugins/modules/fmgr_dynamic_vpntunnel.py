@@ -109,6 +109,7 @@ options:
                                 type: str
                                 description: Vdom.
                     local_ipsec:
+                        aliases: ['local-ipsec']
                         type: str
                         description: Local ipsec.
             name:

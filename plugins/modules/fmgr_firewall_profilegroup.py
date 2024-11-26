@@ -90,24 +90,31 @@ options:
         type: dict
         suboptions:
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Name of an existing Application list.
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Name of an existing Antivirus profile.
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: Name of an existing DLP sensor.
             dnsfilter_profile:
+                aliases: ['dnsfilter-profile']
                 type: str
                 description: Name of an existing DNS filter profile.
             icap_profile:
+                aliases: ['icap-profile']
                 type: str
                 description: Name of an existing ICAP profile.
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: Name of an existing IPS sensor.
             mms_profile:
+                aliases: ['mms-profile']
                 type: str
                 description: Name of an existing MMS profile.
             name:
@@ -115,57 +122,75 @@ options:
                 description: Profile group name.
                 required: true
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: str
                 description: Name of an existing Protocol options profile.
             spamfilter_profile:
+                aliases: ['spamfilter-profile']
                 type: str
                 description: Name of an existing Spam filter profile.
             ssh_filter_profile:
+                aliases: ['ssh-filter-profile']
                 type: str
                 description: Name of an existing SSH filter profile.
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: str
                 description: Name of an existing SSL SSH profile.
             voip_profile:
+                aliases: ['voip-profile']
                 type: str
                 description: Name of an existing VoIP profile.
             waf_profile:
+                aliases: ['waf-profile']
                 type: str
                 description: Name of an existing Web application firewall profile.
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Name of an existing Web filter profile.
             cifs_profile:
+                aliases: ['cifs-profile']
                 type: str
                 description: Name of an existing CIFS profile.
             emailfilter_profile:
+                aliases: ['emailfilter-profile']
                 type: str
                 description: Name of an existing email filter profile.
             casi_profile:
+                aliases: ['casi-profile']
                 type: str
                 description: CASI profile.
             file_filter_profile:
+                aliases: ['file-filter-profile']
                 type: str
                 description: Name of an existing file-filter profile.
             videofilter_profile:
+                aliases: ['videofilter-profile']
                 type: str
                 description: Name of an existing VideoFilter profile.
             dlp_profile:
+                aliases: ['dlp-profile']
                 type: str
                 description: Name of an existing DLP profile.
             sctp_filter_profile:
+                aliases: ['sctp-filter-profile']
                 type: str
                 description: Name of an existing SCTP filter profile.
             ips_voip_filter:
+                aliases: ['ips-voip-filter']
                 type: str
                 description: Name of an existing VoIP
             casb_profile:
+                aliases: ['casb-profile']
                 type: str
                 description: Name of an existing CASB profile.
             virtual_patch_profile:
+                aliases: ['virtual-patch-profile']
                 type: str
                 description: Name of an existing virtual-patch profile.
             diameter_filter_profile:
+                aliases: ['diameter-filter-profile']
                 type: str
                 description: Name of an existing Diameter filter profile.
 '''

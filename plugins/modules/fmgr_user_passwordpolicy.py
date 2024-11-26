@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             expire_days:
+                aliases: ['expire-days']
                 type: int
                 description: Time in days before the users password expires.
             name:
@@ -97,45 +98,56 @@ options:
                 description: Password policy name.
                 required: true
             warn_days:
+                aliases: ['warn-days']
                 type: int
                 description: Time in days before a password expiration warning message is displayed to the user upon login.
             expired_password_renewal:
+                aliases: ['expired-password-renewal']
                 type: str
                 description: Enable/disable renewal of a password that already is expired.
                 choices:
                     - 'disable'
                     - 'enable'
             expire_status:
+                aliases: ['expire-status']
                 type: str
                 description: Enable/disable password expiration.
                 choices:
                     - 'disable'
                     - 'enable'
             min_change_characters:
+                aliases: ['min-change-characters']
                 type: int
                 description: Minimum number of unique characters in new password which do not exist in old password
             min_lower_case_letter:
+                aliases: ['min-lower-case-letter']
                 type: int
                 description: Minimum number of lowercase characters in password
             min_non_alphanumeric:
+                aliases: ['min-non-alphanumeric']
                 type: int
                 description: Minimum number of non-alphanumeric characters in password
             min_number:
+                aliases: ['min-number']
                 type: int
                 description: Minimum number of numeric characters in password
             min_upper_case_letter:
+                aliases: ['min-upper-case-letter']
                 type: int
                 description: Minimum number of uppercase characters in password
             minimum_length:
+                aliases: ['minimum-length']
                 type: int
                 description: Minimum password length
             reuse_password:
+                aliases: ['reuse-password']
                 type: str
                 description: Enable/disable reuse of password.
                 choices:
                     - 'disable'
                     - 'enable'
             reuse_password_limit:
+                aliases: ['reuse-password-limit']
                 type: int
                 description: Number of times passwords can be reused
 '''

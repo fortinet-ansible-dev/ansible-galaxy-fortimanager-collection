@@ -93,15 +93,18 @@ options:
                     - 'low'
                     - 'medium'
             auth_session_check_source_ip:
+                aliases: ['auth-session-check-source-ip']
                 type: str
                 description: Enable/disable checking of source IP for authentication session.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_timeout:
+                aliases: ['auth-timeout']
                 type: int
                 description: SSL VPN authentication timeout
             authentication_rule:
+                aliases: ['authentication-rule']
                 type: list
                 elements: dict
                 description: Authentication rule.
@@ -124,6 +127,7 @@ options:
                             - 'high'
                             - 'medium'
                     client_cert:
+                        aliases: ['client-cert']
                         type: str
                         description: Enable/disable SSL VPN client certificate restrictive.
                         choices:
@@ -142,39 +146,47 @@ options:
                         type: str
                         description: SSL VPN realm.
                     source_address:
+                        aliases: ['source-address']
                         type: raw
                         description: (list or str) Source address of incoming traffic.
                     source_address_negate:
+                        aliases: ['source-address-negate']
                         type: str
                         description: Enable/disable negated source address match.
                         choices:
                             - 'disable'
                             - 'enable'
                     source_address6:
+                        aliases: ['source-address6']
                         type: raw
                         description: (list or str) IPv6 source address of incoming traffic.
                     source_address6_negate:
+                        aliases: ['source-address6-negate']
                         type: str
                         description: Enable/disable negated source IPv6 address match.
                         choices:
                             - 'disable'
                             - 'enable'
                     source_interface:
+                        aliases: ['source-interface']
                         type: raw
                         description: (list or str) SSL VPN source interface of incoming traffic.
                     user_peer:
+                        aliases: ['user-peer']
                         type: str
                         description: Name of user peer.
                     users:
                         type: raw
                         description: (list or str) User name.
             auto_tunnel_static_route:
+                aliases: ['auto-tunnel-static-route']
                 type: str
                 description: Enable/disable to auto-create static routes for the SSL VPN tunnel IP addresses.
                 choices:
                     - 'disable'
                     - 'enable'
             banned_cipher:
+                aliases: ['banned-cipher']
                 type: list
                 elements: str
                 description: Select one or more cipher technologies that cannot be used in SSL VPN negotiations.
@@ -198,69 +210,84 @@ options:
                     - 'ARIA'
                     - 'AESCCM'
             check_referer:
+                aliases: ['check-referer']
                 type: str
                 description: Enable/disable verification of referer field in HTTP request header.
                 choices:
                     - 'disable'
                     - 'enable'
             default_portal:
+                aliases: ['default-portal']
                 type: str
                 description: Default SSL VPN portal.
             deflate_compression_level:
+                aliases: ['deflate-compression-level']
                 type: int
                 description: Compression level
             deflate_min_data_size:
+                aliases: ['deflate-min-data-size']
                 type: int
                 description: Minimum amount of data that triggers compression
             dns_server1:
+                aliases: ['dns-server1']
                 type: str
                 description: DNS server 1.
             dns_server2:
+                aliases: ['dns-server2']
                 type: str
                 description: DNS server 2.
             dns_suffix:
+                aliases: ['dns-suffix']
                 type: str
                 description: DNS suffix used for SSL VPN clients.
             dtls_hello_timeout:
+                aliases: ['dtls-hello-timeout']
                 type: int
                 description: SSLVPN maximum DTLS hello timeout
             dtls_max_proto_ver:
+                aliases: ['dtls-max-proto-ver']
                 type: str
                 description: DTLS maximum protocol version.
                 choices:
                     - 'dtls1-0'
                     - 'dtls1-2'
             dtls_min_proto_ver:
+                aliases: ['dtls-min-proto-ver']
                 type: str
                 description: DTLS minimum protocol version.
                 choices:
                     - 'dtls1-0'
                     - 'dtls1-2'
             dtls_tunnel:
+                aliases: ['dtls-tunnel']
                 type: str
                 description: Enable/disable DTLS to prevent eavesdropping, tampering, or message forgery.
                 choices:
                     - 'disable'
                     - 'enable'
             encode_2f_sequence:
+                aliases: ['encode-2f-sequence']
                 type: str
                 description: Encode 2F sequence to forward slash in URLs.
                 choices:
                     - 'disable'
                     - 'enable'
             encrypt_and_store_password:
+                aliases: ['encrypt-and-store-password']
                 type: str
                 description: Encrypt and store user passwords for SSL VPN web sessions.
                 choices:
                     - 'disable'
                     - 'enable'
             force_two_factor_auth:
+                aliases: ['force-two-factor-auth']
                 type: str
                 description: Enable/disable only PKI users with two-factor authentication for SSL VPNs.
                 choices:
                     - 'disable'
                     - 'enable'
             header_x_forwarded_for:
+                aliases: ['header-x-forwarded-for']
                 type: str
                 description: Forward the same, add, or remove HTTP header.
                 choices:
@@ -268,63 +295,78 @@ options:
                     - 'add'
                     - 'remove'
             hsts_include_subdomains:
+                aliases: ['hsts-include-subdomains']
                 type: str
                 description: Add HSTS includeSubDomains response header.
                 choices:
                     - 'disable'
                     - 'enable'
             http_compression:
+                aliases: ['http-compression']
                 type: str
                 description: Enable/disable to allow HTTP compression over SSL VPN tunnels.
                 choices:
                     - 'disable'
                     - 'enable'
             http_only_cookie:
+                aliases: ['http-only-cookie']
                 type: str
                 description: Enable/disable SSL VPN support for HttpOnly cookies.
                 choices:
                     - 'disable'
                     - 'enable'
             http_request_body_timeout:
+                aliases: ['http-request-body-timeout']
                 type: int
                 description: SSL VPN session is disconnected if an HTTP request body is not received within this time
             http_request_header_timeout:
+                aliases: ['http-request-header-timeout']
                 type: int
                 description: SSL VPN session is disconnected if an HTTP request header is not received within this time
             https_redirect:
+                aliases: ['https-redirect']
                 type: str
                 description: Enable/disable redirect of port 80 to SSL VPN port.
                 choices:
                     - 'disable'
                     - 'enable'
             idle_timeout:
+                aliases: ['idle-timeout']
                 type: int
                 description: SSL VPN disconnects if idle for specified time in seconds.
             ipv6_dns_server1:
+                aliases: ['ipv6-dns-server1']
                 type: str
                 description: IPv6 DNS server 1.
             ipv6_dns_server2:
+                aliases: ['ipv6-dns-server2']
                 type: str
                 description: IPv6 DNS server 2.
             ipv6_wins_server1:
+                aliases: ['ipv6-wins-server1']
                 type: str
                 description: IPv6 WINS server 1.
             ipv6_wins_server2:
+                aliases: ['ipv6-wins-server2']
                 type: str
                 description: IPv6 WINS server 2.
             login_attempt_limit:
+                aliases: ['login-attempt-limit']
                 type: int
                 description: SSL VPN maximum login attempt times before block
             login_block_time:
+                aliases: ['login-block-time']
                 type: int
                 description: Time for which a user is blocked from logging in after too many failed login attempts
             login_timeout:
+                aliases: ['login-timeout']
                 type: int
                 description: SSLVPN maximum login timeout
             port:
                 type: int
                 description: SSL VPN access port
             port_precedence:
+                aliases: ['port-precedence']
                 type: str
                 description: Enable/disable, Enable means that if SSL VPN connections are allowed on an interface admin GUI connections are blocked on ...
                 choices:
@@ -337,6 +379,7 @@ options:
                     - 'disable'
                     - 'enable'
             route_source_interface:
+                aliases: ['route-source-interface']
                 type: str
                 description: Enable/disable to allow SSL VPN sessions to bypass routing and bind to the incoming interface.
                 choices:
@@ -346,39 +389,47 @@ options:
                 type: str
                 description: Name of the server certificate to be used for SSL VPNs.
             source_address:
+                aliases: ['source-address']
                 type: raw
                 description: (list or str) Source address of incoming traffic.
             source_address_negate:
+                aliases: ['source-address-negate']
                 type: str
                 description: Enable/disable negated source address match.
                 choices:
                     - 'disable'
                     - 'enable'
             source_address6:
+                aliases: ['source-address6']
                 type: raw
                 description: (list or str) IPv6 source address of incoming traffic.
             source_address6_negate:
+                aliases: ['source-address6-negate']
                 type: str
                 description: Enable/disable negated source IPv6 address match.
                 choices:
                     - 'disable'
                     - 'enable'
             source_interface:
+                aliases: ['source-interface']
                 type: raw
                 description: (list or str) SSL VPN source interface of incoming traffic.
             ssl_client_renegotiation:
+                aliases: ['ssl-client-renegotiation']
                 type: str
                 description: Enable/disable to allow client renegotiation by the server if the tunnel goes down.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_insert_empty_fragment:
+                aliases: ['ssl-insert-empty-fragment']
                 type: str
                 description: Enable/disable insertion of empty fragment.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_max_proto_ver:
+                aliases: ['ssl-max-proto-ver']
                 type: str
                 description: SSL maximum protocol version.
                 choices:
@@ -387,6 +438,7 @@ options:
                     - 'tls1-2'
                     - 'tls1-3'
             ssl_min_proto_ver:
+                aliases: ['ssl-min-proto-ver']
                 type: str
                 description: SSL minimum protocol version.
                 choices:
@@ -395,72 +447,87 @@ options:
                     - 'tls1-2'
                     - 'tls1-3'
             tlsv1_0:
+                aliases: ['tlsv1-0']
                 type: str
                 description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
             tlsv1_1:
+                aliases: ['tlsv1-1']
                 type: str
                 description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
             tlsv1_2:
+                aliases: ['tlsv1-2']
                 type: str
                 description: Enable/disable TLSv1.
                 choices:
                     - 'disable'
                     - 'enable'
             tlsv1_3:
+                aliases: ['tlsv1-3']
                 type: str
                 description: Tlsv1 3.
                 choices:
                     - 'disable'
                     - 'enable'
             transform_backward_slashes:
+                aliases: ['transform-backward-slashes']
                 type: str
                 description: Transform backward slashes to forward slashes in URLs.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_connect_without_reauth:
+                aliases: ['tunnel-connect-without-reauth']
                 type: str
                 description: Enable/disable tunnel connection without re-authorization if previous connection dropped.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_ip_pools:
+                aliases: ['tunnel-ip-pools']
                 type: raw
                 description: (list or str) Names of the IPv4 IP Pool firewall objects that define the IP addresses reserved for remote clients.
             tunnel_ipv6_pools:
+                aliases: ['tunnel-ipv6-pools']
                 type: raw
                 description: (list or str) Names of the IPv6 IP Pool firewall objects that define the IP addresses reserved for remote clients.
             tunnel_user_session_timeout:
+                aliases: ['tunnel-user-session-timeout']
                 type: int
                 description: Time out value to clean up user session after tunnel connection is dropped
             unsafe_legacy_renegotiation:
+                aliases: ['unsafe-legacy-renegotiation']
                 type: str
                 description: Enable/disable unsafe legacy re-negotiation.
                 choices:
                     - 'disable'
                     - 'enable'
             url_obscuration:
+                aliases: ['url-obscuration']
                 type: str
                 description: Enable/disable to obscure the host name of the URL of the web browser display.
                 choices:
                     - 'disable'
                     - 'enable'
             user_peer:
+                aliases: ['user-peer']
                 type: str
                 description: Name of user peer.
             wins_server1:
+                aliases: ['wins-server1']
                 type: str
                 description: WINS server 1.
             wins_server2:
+                aliases: ['wins-server2']
                 type: str
                 description: WINS server 2.
             x_content_type_options:
+                aliases: ['x-content-type-options']
                 type: str
                 description: Add HTTP X-Content-Type-Options header.
                 choices:
@@ -473,12 +540,14 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_big_buffer:
+                aliases: ['ssl-big-buffer']
                 type: str
                 description: Disable using the big SSLv3 buffer feature to save memory and force higher security.
                 choices:
                     - 'disable'
                     - 'enable'
             client_sigalgs:
+                aliases: ['client-sigalgs']
                 type: str
                 description: Set signature algorithms related to client authentication.
                 choices:
@@ -495,24 +564,28 @@ options:
                     - 'TLS-AES-128-CCM-SHA256'
                     - 'TLS-AES-128-CCM-8-SHA256'
             dual_stack_mode:
+                aliases: ['dual-stack-mode']
                 type: str
                 description: Tunnel mode
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_addr_assigned_method:
+                aliases: ['tunnel-addr-assigned-method']
                 type: str
                 description: Method used for assigning address for tunnel.
                 choices:
                     - 'first-available'
                     - 'round-robin'
             browser_language_detection:
+                aliases: ['browser-language-detection']
                 type: str
                 description: Enable/disable overriding the configured system language based on the preferred language of the browser.
                 choices:
                     - 'disable'
                     - 'enable'
             saml_redirect_port:
+                aliases: ['saml-redirect-port']
                 type: int
                 description: SAML local redirect port in the machine running FortiClient
             status:
@@ -522,27 +595,33 @@ options:
                     - 'disable'
                     - 'enable'
             web_mode_snat:
+                aliases: ['web-mode-snat']
                 type: str
                 description: Enable/disable use of IP pools defined in firewall policy while using web-mode.
                 choices:
                     - 'disable'
                     - 'enable'
             ztna_trusted_client:
+                aliases: ['ztna-trusted-client']
                 type: str
                 description: Enable/disable verification of device certificate for SSLVPN ZTNA session.
                 choices:
                     - 'disable'
                     - 'enable'
             dtls_heartbeat_fail_count:
+                aliases: ['dtls-heartbeat-fail-count']
                 type: int
                 description: Number of missing heartbeats before the connection is considered dropped.
             dtls_heartbeat_idle_timeout:
+                aliases: ['dtls-heartbeat-idle-timeout']
                 type: int
                 description: Idle timeout before DTLS heartbeat is sent.
             dtls_heartbeat_interval:
+                aliases: ['dtls-heartbeat-interval']
                 type: int
                 description: Interval between DTLS heartbeat.
             server_hostname:
+                aliases: ['server-hostname']
                 type: str
                 description: Server hostname for HTTPS.
 '''

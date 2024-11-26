@@ -90,30 +90,39 @@ options:
         type: dict
         suboptions:
             availability_zones:
+                aliases: ['availability-zones']
                 type: str
                 description: Availability zones.
             bgp_asn:
+                aliases: ['bgp-asn']
                 type: int
                 description: Bgp asn.
             custom_asset_container:
+                aliases: ['custom-asset-container']
                 type: str
                 description: Custom asset container.
             custom_asset_directory:
+                aliases: ['custom-asset-directory']
                 type: str
                 description: Custom asset directory.
             custom_identifier:
+                aliases: ['custom-identifier']
                 type: str
                 description: Custom identifier.
             faz_autoscale_admin_password:
+                aliases: ['faz-autoscale-admin-password']
                 type: raw
                 description: (list) Faz autoscale admin password.
             faz_autoscale_admin_username:
+                aliases: ['faz-autoscale-admin-username']
                 type: str
                 description: Faz autoscale admin username.
             faz_custom_private_ipaddress:
+                aliases: ['faz-custom-private-ipaddress']
                 type: str
                 description: Faz custom private ipaddress.
             faz_instance_type:
+                aliases: ['faz-instance-type']
                 type: str
                 description: Faz instance type.
                 choices:
@@ -129,21 +138,26 @@ options:
                     - 't2.large'
                     - 't2.xlarge'
             faz_integration_options:
+                aliases: ['faz-integration-options']
                 type: str
                 description: Faz integration options.
                 choices:
                     - 'no'
                     - 'yes'
             faz_version:
+                aliases: ['faz-version']
                 type: str
                 description: Faz version.
             fgt_admin_cidr:
+                aliases: ['fgt-admin-cidr']
                 type: str
                 description: Fgt admin cidr.
             fgt_admin_port:
+                aliases: ['fgt-admin-port']
                 type: int
                 description: Fgt admin port.
             fgt_instance_type:
+                aliases: ['fgt-instance-type']
                 type: str
                 description: Fgt instance type.
                 choices:
@@ -154,57 +168,75 @@ options:
                     - 'c5.4xlarge'
                     - 'c5.9xlarge'
             fgt_psk_secret:
+                aliases: ['fgt-psk-secret']
                 type: str
                 description: Fgt psk secret.
             fgtasg_cool_down:
+                aliases: ['fgtasg-cool-down']
                 type: int
                 description: Fgtasg cool down.
             fgtasg_desired_capacity_byol:
+                aliases: ['fgtasg-desired-capacity-byol']
                 type: int
                 description: Fgtasg desired capacity byol.
             fgtasg_desired_capacity_payg:
+                aliases: ['fgtasg-desired-capacity-payg']
                 type: int
                 description: Fgtasg desired capacity payg.
             fgtasg_health_check_grace_period:
+                aliases: ['fgtasg-health-check-grace-period']
                 type: int
                 description: Fgtasg health check grace period.
             fgtasg_max_size_byol:
+                aliases: ['fgtasg-max-size-byol']
                 type: int
                 description: Fgtasg max size byol.
             fgtasg_max_size_payg:
+                aliases: ['fgtasg-max-size-payg']
                 type: int
                 description: Fgtasg max size payg.
             fgtasg_min_size_byol:
+                aliases: ['fgtasg-min-size-byol']
                 type: int
                 description: Fgtasg min size byol.
             fgtasg_min_size_payg:
+                aliases: ['fgtasg-min-size-payg']
                 type: int
                 description: Fgtasg min size payg.
             fgtasg_scale_in_threshold:
+                aliases: ['fgtasg-scale-in-threshold']
                 type: int
                 description: Fgtasg scale in threshold.
             fgtasg_scale_out_threshold:
+                aliases: ['fgtasg-scale-out-threshold']
                 type: int
                 description: Fgtasg scale out threshold.
             fos_version:
+                aliases: ['fos-version']
                 type: str
                 description: Fos version.
             get_license_grace_period:
+                aliases: ['get-license-grace-period']
                 type: int
                 description: Get license grace period.
             heartbeat_delay_allowance:
+                aliases: ['heartbeat-delay-allowance']
                 type: int
                 description: Heartbeat delay allowance.
             heartbeat_interval:
+                aliases: ['heartbeat-interval']
                 type: int
                 description: Heartbeat interval.
             heartbeat_loss_count:
+                aliases: ['heartbeat-loss-count']
                 type: int
                 description: Heartbeat loss count.
             key_pair_name:
+                aliases: ['key-pair-name']
                 type: str
                 description: Key pair name.
             lifecycle_hook_timeout:
+                aliases: ['lifecycle-hook-timeout']
                 type: int
                 description: Lifecycle hook timeout.
             name:
@@ -212,51 +244,64 @@ options:
                 description: Name.
                 required: true
             notification_email:
+                aliases: ['notification-email']
                 type: str
                 description: Notification email.
             primary_election_timeout:
+                aliases: ['primary-election-timeout']
                 type: int
                 description: Primary election timeout.
             public_subnet1_cidr:
+                aliases: ['public-subnet1-cidr']
                 type: str
                 description: Public subnet1 cidr.
             public_subnet2_cidr:
+                aliases: ['public-subnet2-cidr']
                 type: str
                 description: Public subnet2 cidr.
             resource_tag_prefix:
+                aliases: ['resource-tag-prefix']
                 type: str
                 description: Resource tag prefix.
             s3_bucket_name:
+                aliases: ['s3-bucket-name']
                 type: str
                 description: S3 bucket name.
             s3_key_prefix:
+                aliases: ['s3-key-prefix']
                 type: str
                 description: S3 key prefix.
             sync_recovery_count:
+                aliases: ['sync-recovery-count']
                 type: int
                 description: Sync recovery count.
             terminate_unhealthy_vm:
+                aliases: ['terminate-unhealthy-vm']
                 type: str
                 description: Terminate unhealthy vm.
                 choices:
                     - 'no'
                     - 'yes'
             transit_gateway_id:
+                aliases: ['transit-gateway-id']
                 type: str
                 description: Transit gateway id.
             transit_gateway_support_options:
+                aliases: ['transit-gateway-support-options']
                 type: str
                 description: Transit gateway support options.
                 choices:
                     - 'create one'
                     - 'use an existing one'
             use_custom_asset_location:
+                aliases: ['use-custom-asset-location']
                 type: str
                 description: Use custom asset location.
                 choices:
                     - 'no'
                     - 'yes'
             vpc_cidr:
+                aliases: ['vpc-cidr']
                 type: str
                 description: Vpc cidr.
 '''

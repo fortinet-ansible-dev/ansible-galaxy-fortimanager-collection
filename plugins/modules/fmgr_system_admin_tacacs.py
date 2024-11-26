@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             authen_type:
+                aliases: ['authen-type']
                 type: str
                 description:
                     - Authentication type.
@@ -120,18 +121,22 @@ options:
                 type: int
                 description: Port number of TACACS+ server.
             secondary_key:
+                aliases: ['secondary-key']
                 type: raw
                 description: (list) No description
             secondary_server:
+                aliases: ['secondary-server']
                 type: str
                 description: No description
             server:
                 type: str
                 description: No description
             tertiary_key:
+                aliases: ['tertiary-key']
                 type: raw
                 description: (list) No description
             tertiary_server:
+                aliases: ['tertiary-server']
                 type: str
                 description: No description
 '''

@@ -105,18 +105,22 @@ options:
                         type: str
                         description: Vdom.
             account_key_filter:
+                aliases: ['account-key-filter']
                 type: str
                 description: Account key filter.
             account_key_name:
+                aliases: ['account-key-name']
                 type: str
                 description: Account key name.
             account_key_processing:
+                aliases: ['account-key-processing']
                 type: str
                 description: Account key processing.
                 choices:
                     - 'same'
                     - 'strip'
             ca_cert:
+                aliases: ['ca-cert']
                 type: str
                 description: Ca cert.
             cnid:
@@ -132,9 +136,11 @@ options:
                 type: str
                 description: Group.
             group_filter:
+                aliases: ['group-filter']
                 type: str
                 description: Group filter.
             group_member_check:
+                aliases: ['group-member-check']
                 type: str
                 description: Group member check.
                 choices:
@@ -142,18 +148,23 @@ options:
                     - 'group-object'
                     - 'posix-group-object'
             group_object_filter:
+                aliases: ['group-object-filter']
                 type: str
                 description: Group object filter.
             group_object_search_base:
+                aliases: ['group-object-search-base']
                 type: str
                 description: Group object search base.
             group_search_base:
+                aliases: ['group-search-base']
                 type: str
                 description: Group search base.
             member_attr:
+                aliases: ['member-attr']
                 type: str
                 description: Member attr.
             obtain_user_info:
+                aliases: ['obtain-user-info']
                 type: str
                 description: Obtain user info.
                 choices:
@@ -163,12 +174,14 @@ options:
                 type: raw
                 description: (list) Password.
             password_expiry_warning:
+                aliases: ['password-expiry-warning']
                 type: str
                 description: Password expiry warning.
                 choices:
                     - 'disable'
                     - 'enable'
             password_renewal:
+                aliases: ['password-renewal']
                 type: str
                 description: Password renewal.
                 choices:
@@ -178,9 +191,11 @@ options:
                 type: int
                 description: Port.
             retrieve_protection_profile:
+                aliases: ['retrieve-protection-profile']
                 type: str
                 description: Retrieve protection profile.
             search_type:
+                aliases: ['search-type']
                 type: list
                 elements: str
                 description: Search type.
@@ -188,6 +203,7 @@ options:
                     - 'nested'
                     - 'recursive'
             secondary_server:
+                aliases: ['secondary-server']
                 type: str
                 description: Secondary server.
             secure:
@@ -201,15 +217,18 @@ options:
                 type: str
                 description: Server.
             server_identity_check:
+                aliases: ['server-identity-check']
                 type: str
                 description: Server identity check.
                 choices:
                     - 'disable'
                     - 'enable'
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source ip.
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Ssl min proto version.
                 choices:
@@ -220,6 +239,7 @@ options:
                     - 'SSLv3'
                     - 'TLSv1-3'
             tertiary_server:
+                aliases: ['tertiary-server']
                 type: str
                 description: Tertiary server.
             type:
@@ -230,12 +250,14 @@ options:
                     - 'anonymous'
                     - 'regular'
             user_info_exchange_server:
+                aliases: ['user-info-exchange-server']
                 type: str
                 description: User info exchange server.
             username:
                 type: str
                 description: Username.
             two_factor:
+                aliases: ['two-factor']
                 type: str
                 description: Two factor.
                 choices:
@@ -245,6 +267,7 @@ options:
                 type: str
                 description: Interface.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Interface select method.
                 choices:
@@ -252,6 +275,7 @@ options:
                     - 'sdwan'
                     - 'specify'
             two_factor_authentication:
+                aliases: ['two-factor-authentication']
                 type: str
                 description: Two factor authentication.
                 choices:
@@ -259,6 +283,7 @@ options:
                     - 'email'
                     - 'sms'
             two_factor_notification:
+                aliases: ['two-factor-notification']
                 type: str
                 description: Two factor notification.
                 choices:
@@ -271,27 +296,34 @@ options:
                     - 'disable'
                     - 'enable'
             password_attr:
+                aliases: ['password-attr']
                 type: str
                 description: Name of attribute to get password hash.
             source_port:
+                aliases: ['source-port']
                 type: int
                 description: Source port to be used for communication with the LDAP server.
             client_cert:
+                aliases: ['client-cert']
                 type: str
                 description: Client certificate name.
             client_cert_auth:
+                aliases: ['client-cert-auth']
                 type: str
                 description: Enable/disable using client certificate for TLS authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Max connections.
             two_factor_filter:
+                aliases: ['two-factor-filter']
                 type: str
                 description: Filter used to synchronize users to FortiToken Cloud.
             account_key_upn_san:
+                aliases: ['account-key-upn-san']
                 type: str
                 description: Define SAN in certificate for user principle name matching.
                 choices:
@@ -299,6 +331,7 @@ options:
                     - 'rfc822name'
                     - 'dnsname'
             account_key_cert_field:
+                aliases: ['account-key-cert-field']
                 type: str
                 description: Define subject identity field in certificate for user access right checking.
                 choices:
@@ -307,12 +340,15 @@ options:
                     - 'dnsname'
                     - 'cn'
             status_ttl:
+                aliases: ['status-ttl']
                 type: int
                 description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
             source_ip_interface:
+                aliases: ['source-ip-interface']
                 type: raw
                 description: (list) Source interface for communication with the LDAP server.
             ssl_max_proto_version:
+                aliases: ['ssl-max-proto-version']
                 type: str
                 description: Ssl max proto version.
                 choices:

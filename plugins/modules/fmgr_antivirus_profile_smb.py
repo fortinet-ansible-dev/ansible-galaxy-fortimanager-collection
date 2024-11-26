@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             archive_block:
+                aliases: ['archive-block']
                 type: list
                 elements: str
                 description: Select the archive types to block.
@@ -99,6 +100,7 @@ options:
                     - 'fileslimit'
                     - 'timeout'
             archive_log:
+                aliases: ['archive-log']
                 type: list
                 elements: str
                 description: Select the archive types to log.
@@ -128,6 +130,7 @@ options:
                     - 'avquery'
                     - 'avmonitor'
             outbreak_prevention:
+                aliases: ['outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:

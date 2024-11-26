@@ -120,6 +120,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_packet:
+                aliases: ['log-packet']
                 type: str
                 description: Enable/disable packet logging.
                 choices:
@@ -151,6 +152,7 @@ options:
                                 type: str
                                 description: Parameter value.
             per_ip_shaper:
+                aliases: ['per-ip-shaper']
                 type: str
                 description: Per-IP traffic shaper.
             popularity:
@@ -173,27 +175,33 @@ options:
                     - 'none'
                     - 'attacker'
             quarantine_expiry:
+                aliases: ['quarantine-expiry']
                 type: str
                 description: Duration of quarantine.
             quarantine_log:
+                aliases: ['quarantine-log']
                 type: str
                 description: Enable/disable quarantine logging.
                 choices:
                     - 'disable'
                     - 'enable'
             rate_count:
+                aliases: ['rate-count']
                 type: int
                 description: Count of the rate.
             rate_duration:
+                aliases: ['rate-duration']
                 type: int
                 description: Duration
             rate_mode:
+                aliases: ['rate-mode']
                 type: str
                 description: Rate limit mode.
                 choices:
                     - 'periodical'
                     - 'continuous'
             rate_track:
+                aliases: ['rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -206,15 +214,18 @@ options:
                 type: raw
                 description: (list) Risk, or impact, of allowing traffic from this application to occur
             session_ttl:
+                aliases: ['session-ttl']
                 type: int
                 description: Session TTL
             shaper:
                 type: str
                 description: Traffic shaper.
             shaper_reverse:
+                aliases: ['shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             sub_category:
+                aliases: ['sub-category']
                 type: raw
                 description: (list) Application Sub-category ID list.
             technology:

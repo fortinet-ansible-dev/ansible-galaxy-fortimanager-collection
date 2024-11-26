@@ -84,6 +84,7 @@ options:
                 type: int
                 description: Id.
             mac_number:
+                aliases: ['mac-number']
                 type: int
                 description: Mac number.
             name:

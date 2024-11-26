@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             domain_controller:
+                aliases: ['domain-controller']
                 type: str
                 description: Domain for which to decrypt CIFS traffic.
             name:
@@ -97,6 +98,7 @@ options:
                 description: Profile name.
                 required: true
             server_credential_type:
+                aliases: ['server-credential-type']
                 type: str
                 description: CIFS server credential type.
                 choices:
@@ -104,6 +106,7 @@ options:
                     - 'credential-replication'
                     - 'credential-keytab'
             server_keytab:
+                aliases: ['server-keytab']
                 type: list
                 elements: dict
                 description: Server keytab.
@@ -118,6 +121,7 @@ options:
                         type: raw
                         description: (list) Password for keytab.
             file_filter:
+                aliases: ['file-filter']
                 type: dict
                 description: File filter.
                 suboptions:
@@ -143,6 +147,7 @@ options:
                                     - 'outgoing'
                                     - 'any'
                             file_type:
+                                aliases: ['file-type']
                                 type: raw
                                 description: (list or str) Select file type.
                             filter:

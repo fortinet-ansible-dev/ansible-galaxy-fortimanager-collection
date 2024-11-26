@@ -98,6 +98,7 @@ options:
                 description: ID.
                 required: true
             remove_ies:
+                aliases: ['remove-ies']
                 type: list
                 elements: str
                 description: GTP IEs to be removed.
@@ -108,9 +109,11 @@ options:
                     - 'uli'
                     - 'imei'
             sgsn_addr:
+                aliases: ['sgsn-addr']
                 type: str
                 description: SGSN address name.
             sgsn_addr6:
+                aliases: ['sgsn-addr6']
                 type: str
                 description: SGSN IPv6 address name.
 '''

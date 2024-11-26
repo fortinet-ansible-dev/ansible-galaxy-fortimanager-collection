@@ -105,9 +105,11 @@ options:
                     - 'block'
                     - 'reserved'
             circuit_id:
+                aliases: ['circuit-id']
                 type: str
                 description: Circuit id.
             circuit_id_type:
+                aliases: ['circuit-id-type']
                 type: str
                 description: Circuit id type.
                 choices:
@@ -127,9 +129,11 @@ options:
                 type: str
                 description: Mac.
             remote_id:
+                aliases: ['remote-id']
                 type: str
                 description: Remote id.
             remote_id_type:
+                aliases: ['remote-id-type']
                 type: str
                 description: Remote id type.
                 choices:

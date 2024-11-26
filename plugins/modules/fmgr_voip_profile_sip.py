@@ -85,162 +85,192 @@ options:
         type: dict
         suboptions:
             ack_rate:
+                aliases: ['ack-rate']
                 type: int
                 description: ACK request rate limit
             block_ack:
+                aliases: ['block-ack']
                 type: str
                 description: Enable/disable block ACK requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_bye:
+                aliases: ['block-bye']
                 type: str
                 description: Enable/disable block BYE requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_cancel:
+                aliases: ['block-cancel']
                 type: str
                 description: Enable/disable block CANCEL requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_geo_red_options:
+                aliases: ['block-geo-red-options']
                 type: str
                 description: Enable/disable block OPTIONS requests, but OPTIONS requests still notify for redundancy.
                 choices:
                     - 'disable'
                     - 'enable'
             block_info:
+                aliases: ['block-info']
                 type: str
                 description: Enable/disable block INFO requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_invite:
+                aliases: ['block-invite']
                 type: str
                 description: Enable/disable block INVITE requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_long_lines:
+                aliases: ['block-long-lines']
                 type: str
                 description: Enable/disable block requests with headers exceeding max-line-length.
                 choices:
                     - 'disable'
                     - 'enable'
             block_message:
+                aliases: ['block-message']
                 type: str
                 description: Enable/disable block MESSAGE requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_notify:
+                aliases: ['block-notify']
                 type: str
                 description: Enable/disable block NOTIFY requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_options:
+                aliases: ['block-options']
                 type: str
                 description: Enable/disable block OPTIONS requests and no OPTIONS as notifying message for redundancy either.
                 choices:
                     - 'disable'
                     - 'enable'
             block_prack:
+                aliases: ['block-prack']
                 type: str
                 description: Enable/disable block prack requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_publish:
+                aliases: ['block-publish']
                 type: str
                 description: Enable/disable block PUBLISH requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_refer:
+                aliases: ['block-refer']
                 type: str
                 description: Enable/disable block REFER requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_register:
+                aliases: ['block-register']
                 type: str
                 description: Enable/disable block REGISTER requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_subscribe:
+                aliases: ['block-subscribe']
                 type: str
                 description: Enable/disable block SUBSCRIBE requests.
                 choices:
                     - 'disable'
                     - 'enable'
             block_unknown:
+                aliases: ['block-unknown']
                 type: str
                 description: Block unrecognized SIP requests
                 choices:
                     - 'disable'
                     - 'enable'
             block_update:
+                aliases: ['block-update']
                 type: str
                 description: Enable/disable block UPDATE requests.
                 choices:
                     - 'disable'
                     - 'enable'
             bye_rate:
+                aliases: ['bye-rate']
                 type: int
                 description: BYE request rate limit
             call_keepalive:
+                aliases: ['call-keepalive']
                 type: int
                 description: Continue tracking calls with no RTP for this many minutes.
             cancel_rate:
+                aliases: ['cancel-rate']
                 type: int
                 description: CANCEL request rate limit
             contact_fixup:
+                aliases: ['contact-fixup']
                 type: str
                 description: Fixup contact anyway even if contacts IP
                 choices:
                     - 'disable'
                     - 'enable'
             hnt_restrict_source_ip:
+                aliases: ['hnt-restrict-source-ip']
                 type: str
                 description: Enable/disable restrict RTP source IP to be the same as SIP source IP when HNT is enabled.
                 choices:
                     - 'disable'
                     - 'enable'
             hosted_nat_traversal:
+                aliases: ['hosted-nat-traversal']
                 type: str
                 description: Hosted NAT Traversal
                 choices:
                     - 'disable'
                     - 'enable'
             info_rate:
+                aliases: ['info-rate']
                 type: int
                 description: INFO request rate limit
             invite_rate:
+                aliases: ['invite-rate']
                 type: int
                 description: INVITE request rate limit
             ips_rtp:
+                aliases: ['ips-rtp']
                 type: str
                 description: Enable/disable allow IPS on RTP.
                 choices:
                     - 'disable'
                     - 'enable'
             log_call_summary:
+                aliases: ['log-call-summary']
                 type: str
                 description: Enable/disable logging of SIP call summary.
                 choices:
                     - 'disable'
                     - 'enable'
             log_violations:
+                aliases: ['log-violations']
                 type: str
                 description: Enable/disable logging of SIP violations.
                 choices:
                     - 'disable'
                     - 'enable'
             malformed_header_allow:
+                aliases: ['malformed-header-allow']
                 type: str
                 description: Action for malformed Allow header.
                 choices:
@@ -248,6 +278,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_call_id:
+                aliases: ['malformed-header-call-id']
                 type: str
                 description: Action for malformed Call-ID header.
                 choices:
@@ -255,6 +286,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_contact:
+                aliases: ['malformed-header-contact']
                 type: str
                 description: Action for malformed Contact header.
                 choices:
@@ -262,6 +294,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_content_length:
+                aliases: ['malformed-header-content-length']
                 type: str
                 description: Action for malformed Content-Length header.
                 choices:
@@ -269,6 +302,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_content_type:
+                aliases: ['malformed-header-content-type']
                 type: str
                 description: Action for malformed Content-Type header.
                 choices:
@@ -276,6 +310,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_cseq:
+                aliases: ['malformed-header-cseq']
                 type: str
                 description: Action for malformed CSeq header.
                 choices:
@@ -283,6 +318,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_expires:
+                aliases: ['malformed-header-expires']
                 type: str
                 description: Action for malformed Expires header.
                 choices:
@@ -290,6 +326,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_from:
+                aliases: ['malformed-header-from']
                 type: str
                 description: Action for malformed From header.
                 choices:
@@ -297,6 +334,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_max_forwards:
+                aliases: ['malformed-header-max-forwards']
                 type: str
                 description: Action for malformed Max-Forwards header.
                 choices:
@@ -304,6 +342,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_p_asserted_identity:
+                aliases: ['malformed-header-p-asserted-identity']
                 type: str
                 description: Action for malformed P-Asserted-Identity header.
                 choices:
@@ -311,6 +350,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_rack:
+                aliases: ['malformed-header-rack']
                 type: str
                 description: Action for malformed RAck header.
                 choices:
@@ -318,6 +358,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_record_route:
+                aliases: ['malformed-header-record-route']
                 type: str
                 description: Action for malformed Record-Route header.
                 choices:
@@ -325,6 +366,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_route:
+                aliases: ['malformed-header-route']
                 type: str
                 description: Action for malformed Route header.
                 choices:
@@ -332,6 +374,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_rseq:
+                aliases: ['malformed-header-rseq']
                 type: str
                 description: Action for malformed RSeq header.
                 choices:
@@ -339,6 +382,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_a:
+                aliases: ['malformed-header-sdp-a']
                 type: str
                 description: Action for malformed SDP a line.
                 choices:
@@ -346,6 +390,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_b:
+                aliases: ['malformed-header-sdp-b']
                 type: str
                 description: Action for malformed SDP b line.
                 choices:
@@ -353,6 +398,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_c:
+                aliases: ['malformed-header-sdp-c']
                 type: str
                 description: Action for malformed SDP c line.
                 choices:
@@ -360,6 +406,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_i:
+                aliases: ['malformed-header-sdp-i']
                 type: str
                 description: Action for malformed SDP i line.
                 choices:
@@ -367,6 +414,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_k:
+                aliases: ['malformed-header-sdp-k']
                 type: str
                 description: Action for malformed SDP k line.
                 choices:
@@ -374,6 +422,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_m:
+                aliases: ['malformed-header-sdp-m']
                 type: str
                 description: Action for malformed SDP m line.
                 choices:
@@ -381,6 +430,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_o:
+                aliases: ['malformed-header-sdp-o']
                 type: str
                 description: Action for malformed SDP o line.
                 choices:
@@ -388,6 +438,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_r:
+                aliases: ['malformed-header-sdp-r']
                 type: str
                 description: Action for malformed SDP r line.
                 choices:
@@ -395,6 +446,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_s:
+                aliases: ['malformed-header-sdp-s']
                 type: str
                 description: Action for malformed SDP s line.
                 choices:
@@ -402,6 +454,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_t:
+                aliases: ['malformed-header-sdp-t']
                 type: str
                 description: Action for malformed SDP t line.
                 choices:
@@ -409,6 +462,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_v:
+                aliases: ['malformed-header-sdp-v']
                 type: str
                 description: Action for malformed SDP v line.
                 choices:
@@ -416,6 +470,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_sdp_z:
+                aliases: ['malformed-header-sdp-z']
                 type: str
                 description: Action for malformed SDP z line.
                 choices:
@@ -423,6 +478,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_to:
+                aliases: ['malformed-header-to']
                 type: str
                 description: Action for malformed To header.
                 choices:
@@ -430,6 +486,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_via:
+                aliases: ['malformed-header-via']
                 type: str
                 description: Action for malformed VIA header.
                 choices:
@@ -437,6 +494,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_request_line:
+                aliases: ['malformed-request-line']
                 type: str
                 description: Action for malformed request line.
                 choices:
@@ -444,90 +502,111 @@ options:
                     - 'discard'
                     - 'respond'
             max_body_length:
+                aliases: ['max-body-length']
                 type: int
                 description: Maximum SIP message body length
             max_dialogs:
+                aliases: ['max-dialogs']
                 type: int
                 description: Maximum number of concurrent calls/dialogs
             max_idle_dialogs:
+                aliases: ['max-idle-dialogs']
                 type: int
                 description: Maximum number established but idle dialogs to retain
             max_line_length:
+                aliases: ['max-line-length']
                 type: int
                 description: Maximum SIP header line length
             message_rate:
+                aliases: ['message-rate']
                 type: int
                 description: MESSAGE request rate limit
             nat_trace:
+                aliases: ['nat-trace']
                 type: str
                 description: Enable/disable preservation of original IP in SDP i line.
                 choices:
                     - 'disable'
                     - 'enable'
             no_sdp_fixup:
+                aliases: ['no-sdp-fixup']
                 type: str
                 description: Enable/disable no SDP fix-up.
                 choices:
                     - 'disable'
                     - 'enable'
             notify_rate:
+                aliases: ['notify-rate']
                 type: int
                 description: NOTIFY request rate limit
             open_contact_pinhole:
+                aliases: ['open-contact-pinhole']
                 type: str
                 description: Enable/disable open pinhole for non-REGISTER Contact port.
                 choices:
                     - 'disable'
                     - 'enable'
             open_record_route_pinhole:
+                aliases: ['open-record-route-pinhole']
                 type: str
                 description: Enable/disable open pinhole for Record-Route port.
                 choices:
                     - 'disable'
                     - 'enable'
             open_register_pinhole:
+                aliases: ['open-register-pinhole']
                 type: str
                 description: Enable/disable open pinhole for REGISTER Contact port.
                 choices:
                     - 'disable'
                     - 'enable'
             open_via_pinhole:
+                aliases: ['open-via-pinhole']
                 type: str
                 description: Enable/disable open pinhole for Via port.
                 choices:
                     - 'disable'
                     - 'enable'
             options_rate:
+                aliases: ['options-rate']
                 type: int
                 description: OPTIONS request rate limit
             prack_rate:
+                aliases: ['prack-rate']
                 type: int
                 description: PRACK request rate limit
             preserve_override:
+                aliases: ['preserve-override']
                 type: str
                 description: Override i line to preserve original IPS
                 choices:
                     - 'disable'
                     - 'enable'
             provisional_invite_expiry_time:
+                aliases: ['provisional-invite-expiry-time']
                 type: int
                 description: Expiry time for provisional INVITE
             publish_rate:
+                aliases: ['publish-rate']
                 type: int
                 description: PUBLISH request rate limit
             refer_rate:
+                aliases: ['refer-rate']
                 type: int
                 description: REFER request rate limit
             register_contact_trace:
+                aliases: ['register-contact-trace']
                 type: str
                 description: Enable/disable trace original IP/port within the contact header of REGISTER requests.
                 choices:
                     - 'disable'
                     - 'enable'
             register_rate:
+                aliases: ['register-rate']
                 type: int
                 description: REGISTER request rate limit
             rfc2543_branch:
+                aliases: ['rfc2543-branch']
                 type: str
                 description: Enable/disable support via branch compliant with RFC 2543.
                 choices:
@@ -540,6 +619,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_algorithm:
+                aliases: ['ssl-algorithm']
                 type: str
                 description: Relative strength of encryption algorithms accepted in negotiation.
                 choices:
@@ -547,15 +627,19 @@ options:
                     - 'medium'
                     - 'low'
             ssl_auth_client:
+                aliases: ['ssl-auth-client']
                 type: str
                 description: Require a client certificate and authenticate it with the peer/peergrp.
             ssl_auth_server:
+                aliases: ['ssl-auth-server']
                 type: str
                 description: Authenticate the servers certificate with the peer/peergrp.
             ssl_client_certificate:
+                aliases: ['ssl-client-certificate']
                 type: str
                 description: Name of Certificate to offer to server if requested.
             ssl_client_renegotiation:
+                aliases: ['ssl-client-renegotiation']
                 type: str
                 description: Allow/block client renegotiation by server.
                 choices:
@@ -563,6 +647,7 @@ options:
                     - 'deny'
                     - 'secure'
             ssl_max_version:
+                aliases: ['ssl-max-version']
                 type: str
                 description: Highest SSL/TLS version to negotiate.
                 choices:
@@ -572,6 +657,7 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             ssl_min_version:
+                aliases: ['ssl-min-version']
                 type: str
                 description: Lowest SSL/TLS version to negotiate.
                 choices:
@@ -581,12 +667,14 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             ssl_mode:
+                aliases: ['ssl-mode']
                 type: str
                 description: SSL/TLS mode for encryption & decryption of traffic.
                 choices:
                     - 'off'
                     - 'full'
             ssl_pfs:
+                aliases: ['ssl-pfs']
                 type: str
                 description: SSL Perfect Forward Secrecy.
                 choices:
@@ -594,12 +682,14 @@ options:
                     - 'deny'
                     - 'allow'
             ssl_send_empty_frags:
+                aliases: ['ssl-send-empty-frags']
                 type: str
                 description: Send empty fragments to avoid attack on CBC IV
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_server_certificate:
+                aliases: ['ssl-server-certificate']
                 type: str
                 description: Name of Certificate return to the client in every SSL connection.
             status:
@@ -609,15 +699,18 @@ options:
                     - 'disable'
                     - 'enable'
             strict_register:
+                aliases: ['strict-register']
                 type: str
                 description: Enable/disable only allow the registrar to connect.
                 choices:
                     - 'disable'
                     - 'enable'
             subscribe_rate:
+                aliases: ['subscribe-rate']
                 type: int
                 description: SUBSCRIBE request rate limit
             unknown_header:
+                aliases: ['unknown-header']
                 type: str
                 description: Action for unknown SIP header.
                 choices:
@@ -625,12 +718,15 @@ options:
                     - 'discard'
                     - 'respond'
             update_rate:
+                aliases: ['update-rate']
                 type: int
                 description: UPDATE request rate limit
             nat_port_range:
+                aliases: ['nat-port-range']
                 type: str
                 description: RTP NAT port range.
             ack_rate_track:
+                aliases: ['ack-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -638,6 +734,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             bye_rate_track:
+                aliases: ['bye-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -645,6 +742,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             cancel_rate_track:
+                aliases: ['cancel-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -652,6 +750,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             info_rate_track:
+                aliases: ['info-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -659,6 +758,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             invite_rate_track:
+                aliases: ['invite-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -666,6 +766,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             malformed_header_no_proxy_require:
+                aliases: ['malformed-header-no-proxy-require']
                 type: str
                 description: Action for malformed SIP messages without Proxy-Require header.
                 choices:
@@ -673,6 +774,7 @@ options:
                     - 'discard'
                     - 'respond'
             malformed_header_no_require:
+                aliases: ['malformed-header-no-require']
                 type: str
                 description: Action for malformed SIP messages without Require header.
                 choices:
@@ -680,6 +782,7 @@ options:
                     - 'discard'
                     - 'respond'
             message_rate_track:
+                aliases: ['message-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -687,6 +790,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             notify_rate_track:
+                aliases: ['notify-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -694,6 +798,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             options_rate_track:
+                aliases: ['options-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -701,6 +806,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             prack_rate_track:
+                aliases: ['prack-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -708,6 +814,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             publish_rate_track:
+                aliases: ['publish-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -715,6 +822,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             refer_rate_track:
+                aliases: ['refer-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -722,6 +830,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             register_rate_track:
+                aliases: ['register-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -729,6 +838,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             subscribe_rate_track:
+                aliases: ['subscribe-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -736,6 +846,7 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             update_rate_track:
+                aliases: ['update-rate-track']
                 type: str
                 description: Track the packet protocol field.
                 choices:
@@ -743,9 +854,11 @@ options:
                     - 'src-ip'
                     - 'dest-ip'
             call_id_regex:
+                aliases: ['call-id-regex']
                 type: str
                 description: Validate PCRE regular expression for Call-Id header value.
             content_type_regex:
+                aliases: ['content-type-regex']
                 type: str
                 description: Validate PCRE regular expression for Content-Type header value.
 '''

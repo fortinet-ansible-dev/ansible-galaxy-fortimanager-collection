@@ -101,17 +101,20 @@ options:
                     - 'block'
                     - 'reset'
             exempt_ip:
+                aliases: ['exempt-ip']
                 type: list
                 elements: dict
                 description: Exempt ip.
                 suboptions:
                     dst_ip:
+                        aliases: ['dst-ip']
                         type: str
                         description: Destination IP address and netmask.
                     id:
                         type: int
                         description: Exempt IP ID.
                     src_ip:
+                        aliases: ['src-ip']
                         type: str
                         description: Source IP address and netmask.
             log:
@@ -121,6 +124,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_packet:
+                aliases: ['log-packet']
                 type: str
                 description: Enable/disable packet logging.
                 choices:
@@ -135,15 +139,18 @@ options:
                     - 'both'
                     - 'interface'
             quarantine_expiry:
+                aliases: ['quarantine-expiry']
                 type: int
                 description: Duration of quarantine in minute.
             quarantine_log:
+                aliases: ['quarantine-log']
                 type: str
                 description: Enable/disable logging of selected quarantine.
                 choices:
                     - 'disable'
                     - 'enable'
             rule_id:
+                aliases: ['rule-id']
                 type: int
                 description: Override rule ID.
             status:

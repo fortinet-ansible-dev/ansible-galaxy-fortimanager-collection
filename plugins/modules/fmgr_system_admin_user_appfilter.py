@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             app_filter_name:
+                aliases: ['app-filter-name']
                 type: str
                 description: App filter name.
                 required: true

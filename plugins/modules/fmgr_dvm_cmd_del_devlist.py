@@ -73,6 +73,7 @@ options:
                 type: str
                 description: Name or ID of the ADOM where the command is to be executed on.
             del_dev_member_list:
+                aliases: ['del-dev-member-list']
                 type: list
                 elements: dict
                 description: Del dev member list.

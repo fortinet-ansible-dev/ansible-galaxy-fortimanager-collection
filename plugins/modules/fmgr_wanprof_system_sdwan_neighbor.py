@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             health_check:
+                aliases: ['health-check']
                 type: str
                 description: SD-WAN health-check name.
             ip:
@@ -110,9 +111,11 @@ options:
                     - 'secondary'
                     - 'standalone'
             sla_id:
+                aliases: ['sla-id']
                 type: int
                 description: SLA ID.
             minimum_sla_meet_members:
+                aliases: ['minimum-sla-meet-members']
                 type: int
                 description: Minimum number of members which meet SLA when the neighbor is preferred.
             mode:
@@ -122,6 +125,7 @@ options:
                     - 'sla'
                     - 'speedtest'
             service_id:
+                aliases: ['service-id']
                 type: str
                 description: SD-WAN service ID to work with the neighbor.
 '''

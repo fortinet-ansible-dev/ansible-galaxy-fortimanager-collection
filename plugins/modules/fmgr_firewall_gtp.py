@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             addr_notify:
+                aliases: ['addr-notify']
                 type: str
                 description: Overbilling notify address
             apn:
@@ -110,6 +111,7 @@ options:
                         type: int
                         description: ID.
                     selection_mode:
+                        aliases: ['selection-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
@@ -118,111 +120,134 @@ options:
                             - 'net'
                             - 'vrf'
             apn_filter:
+                aliases: ['apn-filter']
                 type: str
                 description: Apn filter
                 choices:
                     - 'disable'
                     - 'enable'
             authorized_ggsns:
+                aliases: ['authorized-ggsns']
                 type: str
                 description: Authorized GGSN group
             authorized_sgsns:
+                aliases: ['authorized-sgsns']
                 type: str
                 description: Authorized SGSN group
             comment:
                 type: str
                 description: Comment.
             context_id:
+                aliases: ['context-id']
                 type: int
                 description: Overbilling context.
             control_plane_message_rate_limit:
+                aliases: ['control-plane-message-rate-limit']
                 type: int
                 description: Control plane message rate limit
             default_apn_action:
+                aliases: ['default-apn-action']
                 type: str
                 description: Default apn action
                 choices:
                     - 'allow'
                     - 'deny'
             default_imsi_action:
+                aliases: ['default-imsi-action']
                 type: str
                 description: Default imsi action
                 choices:
                     - 'allow'
                     - 'deny'
             default_ip_action:
+                aliases: ['default-ip-action']
                 type: str
                 description: Default action for encapsulated IP traffic
                 choices:
                     - 'allow'
                     - 'deny'
             default_noip_action:
+                aliases: ['default-noip-action']
                 type: str
                 description: Default action for encapsulated non-IP traffic
                 choices:
                     - 'allow'
                     - 'deny'
             default_policy_action:
+                aliases: ['default-policy-action']
                 type: str
                 description: Default advanced policy action
                 choices:
                     - 'allow'
                     - 'deny'
             denied_log:
+                aliases: ['denied-log']
                 type: str
                 description: Log denied
                 choices:
                     - 'disable'
                     - 'enable'
             echo_request_interval:
+                aliases: ['echo-request-interval']
                 type: int
                 description: Echo request interval
             extension_log:
+                aliases: ['extension-log']
                 type: str
                 description: Log in extension format
                 choices:
                     - 'disable'
                     - 'enable'
             forwarded_log:
+                aliases: ['forwarded-log']
                 type: str
                 description: Log forwarded
                 choices:
                     - 'disable'
                     - 'enable'
             global_tunnel_limit:
+                aliases: ['global-tunnel-limit']
                 type: str
                 description: Global tunnel limit.
             gtp_in_gtp:
+                aliases: ['gtp-in-gtp']
                 type: str
                 description: Gtp in gtp
                 choices:
                     - 'allow'
                     - 'deny'
             gtpu_denied_log:
+                aliases: ['gtpu-denied-log']
                 type: str
                 description: Enable/disable logging of denied GTP-U packets.
                 choices:
                     - 'disable'
                     - 'enable'
             gtpu_forwarded_log:
+                aliases: ['gtpu-forwarded-log']
                 type: str
                 description: Enable/disable logging of forwarded GTP-U packets.
                 choices:
                     - 'disable'
                     - 'enable'
             gtpu_log_freq:
+                aliases: ['gtpu-log-freq']
                 type: int
                 description: Logging of frequency of GTP-U packets.
             half_close_timeout:
+                aliases: ['half-close-timeout']
                 type: int
                 description: Half-close tunnel timeout
             half_open_timeout:
+                aliases: ['half-open-timeout']
                 type: int
                 description: Half-open tunnel timeout
             handover_group:
+                aliases: ['handover-group']
                 type: str
                 description: Handover SGSN group
             ie_remove_policy:
+                aliases: ['ie-remove-policy']
                 type: list
                 elements: dict
                 description: Ie remove policy.
@@ -231,6 +256,7 @@ options:
                         type: int
                         description: ID.
                     remove_ies:
+                        aliases: ['remove-ies']
                         type: list
                         elements: str
                         description: GTP IEs to be removed.
@@ -241,21 +267,26 @@ options:
                             - 'uli'
                             - 'imei'
                     sgsn_addr:
+                        aliases: ['sgsn-addr']
                         type: str
                         description: SGSN address name.
                     sgsn_addr6:
+                        aliases: ['sgsn-addr6']
                         type: str
                         description: SGSN IPv6 address name.
             ie_remover:
+                aliases: ['ie-remover']
                 type: str
                 description: IE removal policy.
                 choices:
                     - 'disable'
                     - 'enable'
             ie_white_list_v0v1:
+                aliases: ['ie-white-list-v0v1']
                 type: str
                 description: IE white list.
             ie_white_list_v2:
+                aliases: ['ie-white-list-v2']
                 type: str
                 description: IE white list.
             imsi:
@@ -276,12 +307,15 @@ options:
                         type: int
                         description: ID.
                     mcc_mnc:
+                        aliases: ['mcc-mnc']
                         type: str
                         description: MCC MNC.
                     msisdn_prefix:
+                        aliases: ['msisdn-prefix']
                         type: str
                         description: MSISDN prefix.
                     selection_mode:
+                        aliases: ['selection-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
@@ -290,30 +324,36 @@ options:
                             - 'net'
                             - 'vrf'
             imsi_filter:
+                aliases: ['imsi-filter']
                 type: str
                 description: Imsi filter
                 choices:
                     - 'disable'
                     - 'enable'
             interface_notify:
+                aliases: ['interface-notify']
                 type: str
                 description: Overbilling interface
             invalid_reserved_field:
+                aliases: ['invalid-reserved-field']
                 type: str
                 description: Invalid reserved field in GTP header
                 choices:
                     - 'allow'
                     - 'deny'
             invalid_sgsns_to_log:
+                aliases: ['invalid-sgsns-to-log']
                 type: str
                 description: Invalid SGSN group to be logged
             ip_filter:
+                aliases: ['ip-filter']
                 type: str
                 description: IP filter for encapsulted traffic
                 choices:
                     - 'disable'
                     - 'enable'
             ip_policy:
+                aliases: ['ip-policy']
                 type: list
                 elements: dict
                 description: Ip policy.
@@ -340,36 +380,46 @@ options:
                         type: str
                         description: Source IPv6 address name.
             log_freq:
+                aliases: ['log-freq']
                 type: int
                 description: Logging of frequency of GTP-C packets.
             log_gtpu_limit:
+                aliases: ['log-gtpu-limit']
                 type: int
                 description: The user data log limit
             log_imsi_prefix:
+                aliases: ['log-imsi-prefix']
                 type: str
                 description: IMSI prefix for selective logging.
             log_msisdn_prefix:
+                aliases: ['log-msisdn-prefix']
                 type: str
                 description: The msisdn prefix for selective logging
             max_message_length:
+                aliases: ['max-message-length']
                 type: int
                 description: Max message length
             message_filter_v0v1:
+                aliases: ['message-filter-v0v1']
                 type: str
                 description: Message filter.
             message_filter_v2:
+                aliases: ['message-filter-v2']
                 type: str
                 description: Message filter.
             min_message_length:
+                aliases: ['min-message-length']
                 type: int
                 description: Min message length
             miss_must_ie:
+                aliases: ['miss-must-ie']
                 type: str
                 description: Missing mandatory information element
                 choices:
                     - 'allow'
                     - 'deny'
             monitor_mode:
+                aliases: ['monitor-mode']
                 type: str
                 description: GTP monitor mode
                 choices:
@@ -381,12 +431,14 @@ options:
                 description: Profile name.
                 required: true
             noip_filter:
+                aliases: ['noip-filter']
                 type: str
                 description: Non-IP filter for encapsulted traffic
                 choices:
                     - 'disable'
                     - 'enable'
             noip_policy:
+                aliases: ['noip-policy']
                 type: list
                 elements: dict
                 description: Noip policy.
@@ -413,18 +465,21 @@ options:
                             - 'etsi'
                             - 'ietf'
             out_of_state_ie:
+                aliases: ['out-of-state-ie']
                 type: str
                 description: Out of state information element.
                 choices:
                     - 'allow'
                     - 'deny'
             out_of_state_message:
+                aliases: ['out-of-state-message']
                 type: str
                 description: Out of state GTP message
                 choices:
                     - 'allow'
                     - 'deny'
             per_apn_shaper:
+                aliases: ['per-apn-shaper']
                 type: list
                 elements: dict
                 description: Per apn shaper.
@@ -436,6 +491,7 @@ options:
                         type: int
                         description: ID.
                     rate_limit:
+                        aliases: ['rate-limit']
                         type: int
                         description: Rate limit
                     version:
@@ -453,6 +509,7 @@ options:
                             - 'allow'
                             - 'deny'
                     apn_sel_mode:
+                        aliases: ['apn-sel-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
@@ -473,6 +530,7 @@ options:
                         type: str
                         description: IMSI prefix.
                     max_apn_restriction:
+                        aliases: ['max-apn-restriction']
                         type: str
                         description: Maximum APN restriction value.
                         choices:
@@ -497,6 +555,7 @@ options:
                         type: str
                         description: RAI pattern.
                     rat_type:
+                        aliases: ['rat-type']
                         type: list
                         elements: str
                         description: RAT Type.
@@ -514,24 +573,29 @@ options:
                         type: str
                         description: ULI pattern.
                     imsi_prefix:
+                        aliases: ['imsi-prefix']
                         type: str
                         description: IMSI prefix.
                     msisdn_prefix:
+                        aliases: ['msisdn-prefix']
                         type: str
                         description: MSISDN prefix.
                     apn:
                         type: str
                         description: APN subfix.
             policy_filter:
+                aliases: ['policy-filter']
                 type: str
                 description: Advanced policy filter
                 choices:
                     - 'disable'
                     - 'enable'
             port_notify:
+                aliases: ['port-notify']
                 type: int
                 description: Overbilling notify port
             rate_limit_mode:
+                aliases: ['rate-limit-mode']
                 type: str
                 description: GTP rate limit mode.
                 choices:
@@ -539,87 +603,104 @@ options:
                     - 'per-stream'
                     - 'per-apn'
             rate_limited_log:
+                aliases: ['rate-limited-log']
                 type: str
                 description: Log rate limited
                 choices:
                     - 'disable'
                     - 'enable'
             rate_sampling_interval:
+                aliases: ['rate-sampling-interval']
                 type: int
                 description: Rate sampling interval
             remove_if_echo_expires:
+                aliases: ['remove-if-echo-expires']
                 type: str
                 description: Remove if echo response expires
                 choices:
                     - 'disable'
                     - 'enable'
             remove_if_recovery_differ:
+                aliases: ['remove-if-recovery-differ']
                 type: str
                 description: Remove upon different Recovery IE
                 choices:
                     - 'disable'
                     - 'enable'
             reserved_ie:
+                aliases: ['reserved-ie']
                 type: str
                 description: Reserved information element
                 choices:
                     - 'allow'
                     - 'deny'
             send_delete_when_timeout:
+                aliases: ['send-delete-when-timeout']
                 type: str
                 description: Send DELETE request to path endpoints when GTPv0/v1 tunnel timeout.
                 choices:
                     - 'disable'
                     - 'enable'
             send_delete_when_timeout_v2:
+                aliases: ['send-delete-when-timeout-v2']
                 type: str
                 description: Send DELETE request to path endpoints when GTPv2 tunnel timeout.
                 choices:
                     - 'disable'
                     - 'enable'
             spoof_src_addr:
+                aliases: ['spoof-src-addr']
                 type: str
                 description: Spoofed source address for Mobile Station.
                 choices:
                     - 'allow'
                     - 'deny'
             state_invalid_log:
+                aliases: ['state-invalid-log']
                 type: str
                 description: Log state invalid
                 choices:
                     - 'disable'
                     - 'enable'
             traffic_count_log:
+                aliases: ['traffic-count-log']
                 type: str
                 description: Log tunnel traffic counter
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_limit:
+                aliases: ['tunnel-limit']
                 type: int
                 description: Tunnel limit
             tunnel_limit_log:
+                aliases: ['tunnel-limit-log']
                 type: str
                 description: Tunnel limit
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_timeout:
+                aliases: ['tunnel-timeout']
                 type: int
                 description: Established tunnel timeout
             unknown_version_action:
+                aliases: ['unknown-version-action']
                 type: str
                 description: Action for unknown gtp version
                 choices:
                     - 'allow'
                     - 'deny'
             user_plane_message_rate_limit:
+                aliases: ['user-plane-message-rate-limit']
                 type: int
                 description: User plane message rate limit
             warning_threshold:
+                aliases: ['warning-threshold']
                 type: int
                 description: Warning threshold for rate limiting
             policy_v2:
+                aliases: ['policy-v2']
                 type: list
                 elements: dict
                 description: Policy v2.
@@ -631,6 +712,7 @@ options:
                             - 'deny'
                             - 'allow'
                     apn_sel_mode:
+                        aliases: ['apn-sel-mode']
                         type: list
                         elements: str
                         description: APN selection mode.
@@ -645,9 +727,11 @@ options:
                         type: int
                         description: ID.
                     imsi_prefix:
+                        aliases: ['imsi-prefix']
                         type: str
                         description: IMSI prefix.
                     max_apn_restriction:
+                        aliases: ['max-apn-restriction']
                         type: str
                         description: Maximum APN restriction value.
                         choices:
@@ -669,9 +753,11 @@ options:
                             - 'modify-bearer-req'
                             - 'modify-bearer-res'
                     msisdn_prefix:
+                        aliases: ['msisdn-prefix']
                         type: str
                         description: MSISDN prefix.
                     rat_type:
+                        aliases: ['rat-type']
                         type: list
                         elements: str
                         description: RAT Type.
@@ -691,6 +777,7 @@ options:
                         type: raw
                         description: (list) GTPv2 ULI patterns
             sub_second_interval:
+                aliases: ['sub-second-interval']
                 type: str
                 description: Sub-second interval
                 choices:
@@ -698,52 +785,63 @@ options:
                     - '0.25'
                     - '0.5'
             sub_second_sampling:
+                aliases: ['sub-second-sampling']
                 type: str
                 description: Enable/disable sub-second sampling.
                 choices:
                     - 'disable'
                     - 'enable'
             authorized_ggsns6:
+                aliases: ['authorized-ggsns6']
                 type: str
                 description: Authorized GGSN/PGW IPv6 group.
             authorized_sgsns6:
+                aliases: ['authorized-sgsns6']
                 type: str
                 description: Authorized SGSN/SGW IPv6 group.
             handover_group6:
+                aliases: ['handover-group6']
                 type: str
                 description: Handover SGSN/SGW IPv6 group.
             invalid_sgsns6_to_log:
+                aliases: ['invalid-sgsns6-to-log']
                 type: str
                 description: Invalid SGSN IPv6 group to be logged.
             ie_validation:
+                aliases: ['ie-validation']
                 type: dict
                 description: Ie validation.
                 suboptions:
                     apn_restriction:
+                        aliases: ['apn-restriction']
                         type: str
                         description: Validate APN restriction.
                         choices:
                             - 'disable'
                             - 'enable'
                     charging_ID:
+                        aliases: ['charging-ID']
                         type: str
                         description: Validate charging ID.
                         choices:
                             - 'disable'
                             - 'enable'
                     charging_gateway_addr:
+                        aliases: ['charging-gateway-addr']
                         type: str
                         description: Validate charging gateway address.
                         choices:
                             - 'disable'
                             - 'enable'
                     end_user_addr:
+                        aliases: ['end-user-addr']
                         type: str
                         description: Validate end user address.
                         choices:
                             - 'disable'
                             - 'enable'
                     gsn_addr:
+                        aliases: ['gsn-addr']
                         type: str
                         description: Validate GSN address.
                         choices:
@@ -762,18 +860,21 @@ options:
                             - 'disable'
                             - 'enable'
                     mm_context:
+                        aliases: ['mm-context']
                         type: str
                         description: Validate MM context.
                         choices:
                             - 'disable'
                             - 'enable'
                     ms_tzone:
+                        aliases: ['ms-tzone']
                         type: str
                         description: Validate MS time zone.
                         choices:
                             - 'disable'
                             - 'enable'
                     ms_validated:
+                        aliases: ['ms-validated']
                         type: str
                         description: Validate MS validated.
                         choices:
@@ -792,12 +893,14 @@ options:
                             - 'disable'
                             - 'enable'
                     pdp_context:
+                        aliases: ['pdp-context']
                         type: str
                         description: Validate PDP context.
                         choices:
                             - 'disable'
                             - 'enable'
                     qos_profile:
+                        aliases: ['qos-profile']
                         type: str
                         description: Validate Quality of Service
                         choices:
@@ -810,18 +913,21 @@ options:
                             - 'disable'
                             - 'enable'
                     rat_type:
+                        aliases: ['rat-type']
                         type: str
                         description: Validate RAT type.
                         choices:
                             - 'disable'
                             - 'enable'
                     reordering_required:
+                        aliases: ['reordering-required']
                         type: str
                         description: Validate re-ordering required.
                         choices:
                             - 'disable'
                             - 'enable'
                     selection_mode:
+                        aliases: ['selection-mode']
                         type: str
                         description: Validate selection mode.
                         choices:
@@ -834,275 +940,358 @@ options:
                             - 'disable'
                             - 'enable'
             message_rate_limit:
+                aliases: ['message-rate-limit']
                 type: dict
                 description: Message rate limit.
                 suboptions:
                     create_aa_pdp_request:
+                        aliases: ['create-aa-pdp-request']
                         type: int
                         description: Rate limit for create AA PDP context request
                     create_aa_pdp_response:
+                        aliases: ['create-aa-pdp-response']
                         type: int
                         description: Rate limit for create AA PDP context response
                     create_mbms_request:
+                        aliases: ['create-mbms-request']
                         type: int
                         description: Rate limit for create MBMS context request
                     create_mbms_response:
+                        aliases: ['create-mbms-response']
                         type: int
                         description: Rate limit for create MBMS context response
                     create_pdp_request:
+                        aliases: ['create-pdp-request']
                         type: int
                         description: Rate limit for create PDP context request
                     create_pdp_response:
+                        aliases: ['create-pdp-response']
                         type: int
                         description: Rate limit for create PDP context response
                     delete_aa_pdp_request:
+                        aliases: ['delete-aa-pdp-request']
                         type: int
                         description: Rate limit for delete AA PDP context request
                     delete_aa_pdp_response:
+                        aliases: ['delete-aa-pdp-response']
                         type: int
                         description: Rate limit for delete AA PDP context response
                     delete_mbms_request:
+                        aliases: ['delete-mbms-request']
                         type: int
                         description: Rate limit for delete MBMS context request
                     delete_mbms_response:
+                        aliases: ['delete-mbms-response']
                         type: int
                         description: Rate limit for delete MBMS context response
                     delete_pdp_request:
+                        aliases: ['delete-pdp-request']
                         type: int
                         description: Rate limit for delete PDP context request
                     delete_pdp_response:
+                        aliases: ['delete-pdp-response']
                         type: int
                         description: Rate limit for delete PDP context response
                     echo_reponse:
+                        aliases: ['echo-reponse']
                         type: int
                         description: Rate limit for echo response
                     echo_request:
+                        aliases: ['echo-request']
                         type: int
                         description: Rate limit for echo requests
                     error_indication:
+                        aliases: ['error-indication']
                         type: int
                         description: Rate limit for error indication
                     failure_report_request:
+                        aliases: ['failure-report-request']
                         type: int
                         description: Rate limit for failure report request
                     failure_report_response:
+                        aliases: ['failure-report-response']
                         type: int
                         description: Rate limit for failure report response
                     fwd_reloc_complete_ack:
+                        aliases: ['fwd-reloc-complete-ack']
                         type: int
                         description: Rate limit for forward relocation complete acknowledge
                     fwd_relocation_complete:
+                        aliases: ['fwd-relocation-complete']
                         type: int
                         description: Rate limit for forward relocation complete
                     fwd_relocation_request:
+                        aliases: ['fwd-relocation-request']
                         type: int
                         description: Rate limit for forward relocation request
                     fwd_relocation_response:
+                        aliases: ['fwd-relocation-response']
                         type: int
                         description: Rate limit for forward relocation response
                     fwd_srns_context:
+                        aliases: ['fwd-srns-context']
                         type: int
                         description: Rate limit for forward SRNS context
                     fwd_srns_context_ack:
+                        aliases: ['fwd-srns-context-ack']
                         type: int
                         description: Rate limit for forward SRNS context acknowledge
                     g_pdu:
+                        aliases: ['g-pdu']
                         type: int
                         description: Rate limit for G-PDU
                     identification_request:
+                        aliases: ['identification-request']
                         type: int
                         description: Rate limit for identification request
                     identification_response:
+                        aliases: ['identification-response']
                         type: int
                         description: Rate limit for identification response
                     mbms_de_reg_request:
+                        aliases: ['mbms-de-reg-request']
                         type: int
                         description: Rate limit for MBMS de-registration request
                     mbms_de_reg_response:
+                        aliases: ['mbms-de-reg-response']
                         type: int
                         description: Rate limit for MBMS de-registration response
                     mbms_notify_rej_request:
+                        aliases: ['mbms-notify-rej-request']
                         type: int
                         description: Rate limit for MBMS notification reject request
                     mbms_notify_rej_response:
+                        aliases: ['mbms-notify-rej-response']
                         type: int
                         description: Rate limit for MBMS notification reject response
                     mbms_notify_request:
+                        aliases: ['mbms-notify-request']
                         type: int
                         description: Rate limit for MBMS notification request
                     mbms_notify_response:
+                        aliases: ['mbms-notify-response']
                         type: int
                         description: Rate limit for MBMS notification response
                     mbms_reg_request:
+                        aliases: ['mbms-reg-request']
                         type: int
                         description: Rate limit for MBMS registration request
                     mbms_reg_response:
+                        aliases: ['mbms-reg-response']
                         type: int
                         description: Rate limit for MBMS registration response
                     mbms_ses_start_request:
+                        aliases: ['mbms-ses-start-request']
                         type: int
                         description: Rate limit for MBMS session start request
                     mbms_ses_start_response:
+                        aliases: ['mbms-ses-start-response']
                         type: int
                         description: Rate limit for MBMS session start response
                     mbms_ses_stop_request:
+                        aliases: ['mbms-ses-stop-request']
                         type: int
                         description: Rate limit for MBMS session stop request
                     mbms_ses_stop_response:
+                        aliases: ['mbms-ses-stop-response']
                         type: int
                         description: Rate limit for MBMS session stop response
                     note_ms_request:
+                        aliases: ['note-ms-request']
                         type: int
                         description: Rate limit for note MS GPRS present request
                     note_ms_response:
+                        aliases: ['note-ms-response']
                         type: int
                         description: Rate limit for note MS GPRS present response
                     pdu_notify_rej_request:
+                        aliases: ['pdu-notify-rej-request']
                         type: int
                         description: Rate limit for PDU notify reject request
                     pdu_notify_rej_response:
+                        aliases: ['pdu-notify-rej-response']
                         type: int
                         description: Rate limit for PDU notify reject response
                     pdu_notify_request:
+                        aliases: ['pdu-notify-request']
                         type: int
                         description: Rate limit for PDU notify request
                     pdu_notify_response:
+                        aliases: ['pdu-notify-response']
                         type: int
                         description: Rate limit for PDU notify response
                     ran_info:
+                        aliases: ['ran-info']
                         type: int
                         description: Rate limit for RAN information relay
                     relocation_cancel_request:
+                        aliases: ['relocation-cancel-request']
                         type: int
                         description: Rate limit for relocation cancel request
                     relocation_cancel_response:
+                        aliases: ['relocation-cancel-response']
                         type: int
                         description: Rate limit for relocation cancel response
                     send_route_request:
+                        aliases: ['send-route-request']
                         type: int
                         description: Rate limit for send routing information for GPRS request
                     send_route_response:
+                        aliases: ['send-route-response']
                         type: int
                         description: Rate limit for send routing information for GPRS response
                     sgsn_context_ack:
+                        aliases: ['sgsn-context-ack']
                         type: int
                         description: Rate limit for SGSN context acknowledgement
                     sgsn_context_request:
+                        aliases: ['sgsn-context-request']
                         type: int
                         description: Rate limit for SGSN context request
                     sgsn_context_response:
+                        aliases: ['sgsn-context-response']
                         type: int
                         description: Rate limit for SGSN context response
                     support_ext_hdr_notify:
+                        aliases: ['support-ext-hdr-notify']
                         type: int
                         description: Rate limit for support extension headers notification
                     update_mbms_request:
+                        aliases: ['update-mbms-request']
                         type: int
                         description: Rate limit for update MBMS context request
                     update_mbms_response:
+                        aliases: ['update-mbms-response']
                         type: int
                         description: Rate limit for update MBMS context response
                     update_pdp_request:
+                        aliases: ['update-pdp-request']
                         type: int
                         description: Rate limit for update PDP context request
                     update_pdp_response:
+                        aliases: ['update-pdp-response']
                         type: int
                         description: Rate limit for update PDP context response
                     version_not_support:
+                        aliases: ['version-not-support']
                         type: int
                         description: Rate limit for version not supported
                     echo_response:
+                        aliases: ['echo-response']
                         type: int
                         description: Rate limit for echo response
             message_rate_limit_v0:
+                aliases: ['message-rate-limit-v0']
                 type: dict
                 description: Message rate limit v0.
                 suboptions:
                     create_pdp_request:
+                        aliases: ['create-pdp-request']
                         type: int
                         description: Rate limit
                     delete_pdp_request:
+                        aliases: ['delete-pdp-request']
                         type: int
                         description: Rate limit
                     echo_request:
+                        aliases: ['echo-request']
                         type: int
                         description: Rate limit
             message_rate_limit_v1:
+                aliases: ['message-rate-limit-v1']
                 type: dict
                 description: Message rate limit v1.
                 suboptions:
                     create_pdp_request:
+                        aliases: ['create-pdp-request']
                         type: int
                         description: Rate limit
                     delete_pdp_request:
+                        aliases: ['delete-pdp-request']
                         type: int
                         description: Rate limit
                     echo_request:
+                        aliases: ['echo-request']
                         type: int
                         description: Rate limit
             message_rate_limit_v2:
+                aliases: ['message-rate-limit-v2']
                 type: dict
                 description: Message rate limit v2.
                 suboptions:
                     create_session_request:
+                        aliases: ['create-session-request']
                         type: int
                         description: Rate limit
                     delete_session_request:
+                        aliases: ['delete-session-request']
                         type: int
                         description: Rate limit
                     echo_request:
+                        aliases: ['echo-request']
                         type: int
                         description: Rate limit
             ie_allow_list_v0v1:
+                aliases: ['ie-allow-list-v0v1']
                 type: str
                 description: IE allow list.
             ie_allow_list_v2:
+                aliases: ['ie-allow-list-v2']
                 type: str
                 description: IE allow list.
             rat_timeout_profile:
+                aliases: ['rat-timeout-profile']
                 type: str
                 description: RAT timeout profile.
             message_filter:
+                aliases: ['message-filter']
                 type: dict
                 description: Message filter.
                 suboptions:
                     create_aa_pdp:
+                        aliases: ['create-aa-pdp']
                         type: str
                         description: Create AA PDP.
                         choices:
                             - 'allow'
                             - 'deny'
                     create_mbms:
+                        aliases: ['create-mbms']
                         type: str
                         description: Create MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
                     create_pdp:
+                        aliases: ['create-pdp']
                         type: str
                         description: Create PDP.
                         choices:
                             - 'allow'
                             - 'deny'
                     data_record:
+                        aliases: ['data-record']
                         type: str
                         description: Data record.
                         choices:
                             - 'allow'
                             - 'deny'
                     delete_aa_pdp:
+                        aliases: ['delete-aa-pdp']
                         type: str
                         description: Delete AA PDP.
                         choices:
                             - 'allow'
                             - 'deny'
                     delete_mbms:
+                        aliases: ['delete-mbms']
                         type: str
                         description: Delete MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
                     delete_pdp:
+                        aliases: ['delete-pdp']
                         type: str
                         description: Delete PDP.
                         choices:
@@ -1115,30 +1304,35 @@ options:
                             - 'allow'
                             - 'deny'
                     error_indication:
+                        aliases: ['error-indication']
                         type: str
                         description: Error indication.
                         choices:
                             - 'allow'
                             - 'deny'
                     failure_report:
+                        aliases: ['failure-report']
                         type: str
                         description: Failure report.
                         choices:
                             - 'allow'
                             - 'deny'
                     fwd_relocation:
+                        aliases: ['fwd-relocation']
                         type: str
                         description: Forward relocation.
                         choices:
                             - 'allow'
                             - 'deny'
                     fwd_srns_context:
+                        aliases: ['fwd-srns-context']
                         type: str
                         description: Forward SRNS context.
                         choices:
                             - 'allow'
                             - 'deny'
                     gtp_pdu:
+                        aliases: ['gtp-pdu']
                         type: str
                         description: GTP PDU.
                         choices:
@@ -1151,30 +1345,35 @@ options:
                             - 'allow'
                             - 'deny'
                     mbms_notification:
+                        aliases: ['mbms-notification']
                         type: str
                         description: MBMS notification.
                         choices:
                             - 'allow'
                             - 'deny'
                     node_alive:
+                        aliases: ['node-alive']
                         type: str
                         description: Node alive.
                         choices:
                             - 'allow'
                             - 'deny'
                     note_ms_present:
+                        aliases: ['note-ms-present']
                         type: str
                         description: Note MS present.
                         choices:
                             - 'allow'
                             - 'deny'
                     pdu_notification:
+                        aliases: ['pdu-notification']
                         type: str
                         description: PDU notification.
                         choices:
                             - 'allow'
                             - 'deny'
                     ran_info:
+                        aliases: ['ran-info']
                         type: str
                         description: Ran info.
                         choices:
@@ -1187,48 +1386,56 @@ options:
                             - 'allow'
                             - 'deny'
                     relocation_cancel:
+                        aliases: ['relocation-cancel']
                         type: str
                         description: Relocation cancel.
                         choices:
                             - 'allow'
                             - 'deny'
                     send_route:
+                        aliases: ['send-route']
                         type: str
                         description: Send route.
                         choices:
                             - 'allow'
                             - 'deny'
                     sgsn_context:
+                        aliases: ['sgsn-context']
                         type: str
                         description: SGSN context.
                         choices:
                             - 'allow'
                             - 'deny'
                     support_extension:
+                        aliases: ['support-extension']
                         type: str
                         description: Support extension.
                         choices:
                             - 'allow'
                             - 'deny'
                     unknown_message_action:
+                        aliases: ['unknown-message-action']
                         type: str
                         description: Unknown message action.
                         choices:
                             - 'allow'
                             - 'deny'
                     update_mbms:
+                        aliases: ['update-mbms']
                         type: str
                         description: Update MBMS.
                         choices:
                             - 'allow'
                             - 'deny'
                     update_pdp:
+                        aliases: ['update-pdp']
                         type: str
                         description: Update PDP.
                         choices:
                             - 'allow'
                             - 'deny'
                     version_not_support:
+                        aliases: ['version-not-support']
                         type: str
                         description: Version not supported.
                         choices:

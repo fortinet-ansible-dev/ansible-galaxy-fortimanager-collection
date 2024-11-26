@@ -111,12 +111,15 @@ options:
                 type: str
                 description: Quarantine duration in days, hours, minutes
             file_size:
+                aliases: ['file-size']
                 type: int
                 description: Match files this size or larger
             file_type:
+                aliases: ['file-type']
                 type: str
                 description: Select the number of a DLP file pattern table to match.
             filter_by:
+                aliases: ['filter-by']
                 type: str
                 description: Select the type of content to match.
                 choices:
@@ -133,6 +136,7 @@ options:
                 type: str
                 description: MIP label dictionary.
             match_percentage:
+                aliases: ['match-percentage']
                 type: int
                 description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
             name:

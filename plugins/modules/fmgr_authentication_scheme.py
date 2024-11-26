@@ -90,18 +90,22 @@ options:
         type: dict
         suboptions:
             domain_controller:
+                aliases: ['domain-controller']
                 type: str
                 description: Domain controller setting.
             fsso_agent_for_ntlm:
+                aliases: ['fsso-agent-for-ntlm']
                 type: str
                 description: FSSO agent to use for NTLM authentication.
             fsso_guest:
+                aliases: ['fsso-guest']
                 type: str
                 description: Enable/disable user fsso-guest authentication
                 choices:
                     - 'disable'
                     - 'enable'
             kerberos_keytab:
+                aliases: ['kerberos-keytab']
                 type: str
                 description: Kerberos keytab setting.
             method:
@@ -126,36 +130,44 @@ options:
                 description: Authentication scheme name.
                 required: true
             negotiate_ntlm:
+                aliases: ['negotiate-ntlm']
                 type: str
                 description: Enable/disable negotiate authentication for NTLM
                 choices:
                     - 'disable'
                     - 'enable'
             require_tfa:
+                aliases: ['require-tfa']
                 type: str
                 description: Enable/disable two-factor authentication
                 choices:
                     - 'disable'
                     - 'enable'
             ssh_ca:
+                aliases: ['ssh-ca']
                 type: str
                 description: SSH CA name.
             user_database:
+                aliases: ['user-database']
                 type: raw
                 description: (list or str) Authentication server to contain user information; local
             ems_device_owner:
+                aliases: ['ems-device-owner']
                 type: str
                 description: Enable/disable SSH public-key authentication with device owner
                 choices:
                     - 'disable'
                     - 'enable'
             saml_server:
+                aliases: ['saml-server']
                 type: str
                 description: SAML configuration.
             saml_timeout:
+                aliases: ['saml-timeout']
                 type: int
                 description: SAML authentication timeout in seconds.
             user_cert:
+                aliases: ['user-cert']
                 type: str
                 description: Enable/disable authentication with user certificate
                 choices:

@@ -103,6 +103,7 @@ options:
                     - 'unknown'
                     - 'scp'
             default_command_log:
+                aliases: ['default-command-log']
                 type: str
                 description: Enable/disable logging unmatched shell commands.
                 choices:
@@ -126,6 +127,7 @@ options:
                 description: SSH filter profile name.
                 required: true
             shell_commands:
+                aliases: ['shell-commands']
                 type: list
                 elements: dict
                 description: Shell commands.
@@ -169,6 +171,7 @@ options:
                             - 'regex'
                             - 'simple'
             file_filter:
+                aliases: ['file-filter']
                 type: dict
                 description: File filter.
                 suboptions:
@@ -194,12 +197,14 @@ options:
                                     - 'incoming'
                                     - 'outgoing'
                             file_type:
+                                aliases: ['file-type']
                                 type: raw
                                 description: (list) Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
                             password_protected:
+                                aliases: ['password-protected']
                                 type: str
                                 description: Match password-protected files.
                                 choices:
@@ -218,6 +223,7 @@ options:
                             - 'disable'
                             - 'enable'
                     scan_archive_contents:
+                        aliases: ['scan-archive-contents']
                         type: str
                         description: Enable/disable file filter archive contents scan.
                         choices:

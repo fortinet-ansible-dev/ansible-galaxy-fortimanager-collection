@@ -77,9 +77,11 @@ options:
         type: dict
         suboptions:
             User_Agent:
+                aliases: ['User-Agent']
                 type: str
                 description: Configure the user agent string.
             fds_clt_ssl_protocol:
+                aliases: ['fds-clt-ssl-protocol']
                 type: str
                 description:
                     - The SSL protocols version for connecting fds server
@@ -94,6 +96,7 @@ options:
                     - 'tlsv1.2'
                     - 'tlsv1.3'
             fds_ssl_protocol:
+                aliases: ['fds-ssl-protocol']
                 type: str
                 description:
                     - The SSL protocols version for receiving fgt connection
@@ -108,6 +111,7 @@ options:
                     - 'tlsv1.2'
                     - 'tlsv1.3'
             fmtr_log:
+                aliases: ['fmtr-log']
                 type: str
                 description:
                     - fmtr log level
@@ -131,6 +135,7 @@ options:
                     - 'debug'
                     - 'disable'
             linkd_log:
+                aliases: ['linkd-log']
                 type: str
                 description:
                     - The linkd log level
@@ -154,12 +159,15 @@ options:
                     - 'debug'
                     - 'disable'
             max_av_ips_version:
+                aliases: ['max-av-ips-version']
                 type: int
                 description: The maximum number of downloadable, full version AV/IPS packages
             max_work:
+                aliases: ['max-work']
                 type: int
                 description: The maximum number of worker processing download requests
             push_override:
+                aliases: ['push-override']
                 type: dict
                 description: Push override.
                 suboptions:
@@ -179,10 +187,12 @@ options:
                             - 'disable'
                             - 'enable'
             push_override_to_client:
+                aliases: ['push-override-to-client']
                 type: dict
                 description: Push override to client.
                 suboptions:
                     announce_ip:
+                        aliases: ['announce-ip']
                         type: list
                         elements: dict
                         description: Announce ip.
@@ -224,6 +234,7 @@ options:
                     - 'disable'
                     - 'enable'
             server_override:
+                aliases: ['server-override']
                 type: dict
                 description: Server override.
                 suboptions:
@@ -245,6 +256,7 @@ options:
                                 type: int
                                 description: Port number to use when contacting FortiGuard
                             service_type:
+                                aliases: ['service-type']
                                 type: raw
                                 description:
                                     - (list or str)
@@ -265,6 +277,7 @@ options:
                             - 'disable'
                             - 'enable'
             system_support_fct:
+                aliases: ['system-support-fct']
                 type: list
                 elements: str
                 description:
@@ -287,6 +300,7 @@ options:
                     - '7.0'
                     - '7.2'
             system_support_fgt:
+                aliases: ['system-support-fgt']
                 type: list
                 elements: str
                 description:
@@ -306,6 +320,7 @@ options:
                     - '7.4'
                     - '7.6'
             system_support_fml:
+                aliases: ['system-support-fml']
                 type: list
                 elements: str
                 description:
@@ -324,6 +339,7 @@ options:
                     - '7.2'
                     - '7.x'
             system_support_fsa:
+                aliases: ['system-support-fsa']
                 type: list
                 elements: str
                 description:
@@ -340,6 +356,7 @@ options:
                     - '3.1'
                     - '3.2'
             system_support_fsw:
+                aliases: ['system-support-fsw']
                 type: list
                 elements: str
                 description:
@@ -358,6 +375,7 @@ options:
                     - '5.2'
                     - '6.4'
             umsvc_log:
+                aliases: ['umsvc-log']
                 type: str
                 description:
                     - The um_service log level
@@ -381,6 +399,7 @@ options:
                     - 'debug'
                     - 'disable'
             unreg_dev_option:
+                aliases: ['unreg-dev-option']
                 type: str
                 description:
                     - set the option for unregister devices
@@ -392,6 +411,7 @@ options:
                     - 'svc-only'
                     - 'add-service'
             update_schedule:
+                aliases: ['update-schedule']
                 type: dict
                 description: Update schedule.
                 suboptions:
@@ -438,6 +458,7 @@ options:
                         type: raw
                         description: (list) Time interval between updates, or the hour and minute when the update occurs
             wanip_query_mode:
+                aliases: ['wanip-query-mode']
                 type: str
                 description:
                     - public ip query mode
@@ -447,6 +468,7 @@ options:
                     - 'disable'
                     - 'ipify'
             fortiguard_anycast:
+                aliases: ['fortiguard-anycast']
                 type: str
                 description:
                     - Enable/disable use of FortiGuards anycast network
@@ -456,6 +478,7 @@ options:
                     - 'disable'
                     - 'enable'
             fortiguard_anycast_source:
+                aliases: ['fortiguard-anycast-source']
                 type: str
                 description:
                     - Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
@@ -465,6 +488,7 @@ options:
                     - 'fortinet'
                     - 'aws'
             system_support_fdc:
+                aliases: ['system-support-fdc']
                 type: list
                 elements: str
                 description:
@@ -477,6 +501,7 @@ options:
                     - '5.x'
                     - '6.x'
             system_support_fts:
+                aliases: ['system-support-fts']
                 type: list
                 elements: str
                 description:
@@ -489,6 +514,7 @@ options:
                     - '4.x'
                     - '7.x'
             system_support_faz:
+                aliases: ['system-support-faz']
                 type: list
                 elements: str
                 description:
@@ -499,6 +525,7 @@ options:
                     - '6.x'
                     - '7.x'
             system_support_fis:
+                aliases: ['system-support-fis']
                 type: list
                 elements: str
                 description:
@@ -509,6 +536,7 @@ options:
                     - '1.x'
                     - '2.x'
             system_support_fai:
+                aliases: ['system-support-fai']
                 type: list
                 elements: str
                 description:

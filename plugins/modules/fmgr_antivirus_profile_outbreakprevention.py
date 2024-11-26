@@ -85,12 +85,14 @@ options:
         type: dict
         suboptions:
             external_blocklist:
+                aliases: ['external-blocklist']
                 type: str
                 description: Enable/disable external malware blocklist.
                 choices:
                     - 'disable'
                     - 'enable'
             ftgd_service:
+                aliases: ['ftgd-service']
                 type: str
                 description: Enable/disable FortiGuard Virus outbreak prevention service.
                 choices:

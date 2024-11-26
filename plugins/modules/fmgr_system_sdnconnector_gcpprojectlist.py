@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             gcp_zone_list:
+                aliases: ['gcp-zone-list']
                 type: raw
                 description: (list) Configure GCP zone list.
             id:

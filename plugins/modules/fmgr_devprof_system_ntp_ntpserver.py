@@ -107,6 +107,7 @@ options:
                 type: raw
                 description: (list) Key for MD5 authentication.
             key_id:
+                aliases: ['key-id']
                 type: int
                 description: Key ID for authentication.
             ntpv3:
@@ -122,6 +123,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -129,6 +131,7 @@ options:
                     - 'sdwan'
                     - 'specify'
             ip_type:
+                aliases: ['ip-type']
                 type: str
                 description: Choose to connect to IPv4 or/and IPv6 NTP server.
                 choices:
@@ -136,6 +139,7 @@ options:
                     - 'IPv4'
                     - 'Both'
             key_type:
+                aliases: ['key-type']
                 type: str
                 description: Select NTP authentication type.
                 choices:

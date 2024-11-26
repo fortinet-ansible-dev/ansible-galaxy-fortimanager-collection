@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             exempt_quota:
+                aliases: ['exempt-quota']
                 type: raw
                 description: (list or str) Do not stop quota for these categories.
             filters:
@@ -101,6 +102,7 @@ options:
                             - 'warning'
                             - 'authenticate'
                     auth_usr_grp:
+                        aliases: ['auth-usr-grp']
                         type: raw
                         description: (list or str) Groups with permission to authenticate.
                     category:
@@ -116,24 +118,29 @@ options:
                             - 'disable'
                             - 'enable'
                     override_replacemsg:
+                        aliases: ['override-replacemsg']
                         type: str
                         description: Override replacement message.
                     warn_duration:
+                        aliases: ['warn-duration']
                         type: str
                         description: Duration of warnings.
                     warning_duration_type:
+                        aliases: ['warning-duration-type']
                         type: str
                         description: Re-display warning after closing browser or after a timeout.
                         choices:
                             - 'session'
                             - 'timeout'
                     warning_prompt:
+                        aliases: ['warning-prompt']
                         type: str
                         description: Warning prompts in each category or each domain.
                         choices:
                             - 'per-domain'
                             - 'per-category'
             max_quota_timeout:
+                aliases: ['max-quota-timeout']
                 type: int
                 description: Maximum FortiGuard quota used by single page view in seconds
             options:
@@ -168,6 +175,7 @@ options:
                         type: int
                         description: ID number.
                     override_replacemsg:
+                        aliases: ['override-replacemsg']
                         type: str
                         description: Override replacement message.
                     type:
@@ -188,30 +196,35 @@ options:
                         type: int
                         description: Traffic quota value.
             rate_crl_urls:
+                aliases: ['rate-crl-urls']
                 type: str
                 description: Enable/disable rating CRL by URL.
                 choices:
                     - 'disable'
                     - 'enable'
             rate_css_urls:
+                aliases: ['rate-css-urls']
                 type: str
                 description: Enable/disable rating CSS by URL.
                 choices:
                     - 'disable'
                     - 'enable'
             rate_image_urls:
+                aliases: ['rate-image-urls']
                 type: str
                 description: Enable/disable rating images by URL.
                 choices:
                     - 'disable'
                     - 'enable'
             rate_javascript_urls:
+                aliases: ['rate-javascript-urls']
                 type: str
                 description: Enable/disable rating JavaScript by URL.
                 choices:
                     - 'disable'
                     - 'enable'
             category_override:
+                aliases: ['category-override']
                 type: str
                 description: Local categories take precedence over FortiGuard categories.
 '''

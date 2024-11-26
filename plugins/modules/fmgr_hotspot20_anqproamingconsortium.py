@@ -94,6 +94,7 @@ options:
                 description: Roaming consortium name.
                 required: true
             oi_list:
+                aliases: ['oi-list']
                 type: list
                 elements: dict
                 description: Oi list.

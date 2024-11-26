@@ -100,6 +100,7 @@ options:
                     - 'deny'
                     - 'accept'
             active_auth_method:
+                aliases: ['active-auth-method']
                 type: str
                 description: Active authentication method.
                 choices:
@@ -110,12 +111,15 @@ options:
                     - 'none'
                     - 'negotiate'
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Application list.
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Antivirus profile.
             casi_profile:
+                aliases: ['casi-profile']
                 type: str
                 description: CASI profile.
             comments:
@@ -130,12 +134,14 @@ options:
                     - 'policy'
                     - 'user'
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: DLP sensor.
             dstaddr:
                 type: str
                 description: Destination address name.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: Enable/disable negated destination address match.
                 choices:
@@ -148,29 +154,36 @@ options:
                 type: str
                 description: Destination interface name.
             global_label:
+                aliases: ['global-label']
                 type: str
                 description: Label for global view.
             icap_profile:
+                aliases: ['icap-profile']
                 type: str
                 description: ICAP profile.
             identity_based:
+                aliases: ['identity-based']
                 type: str
                 description: Enable/disable identity-based policy.
                 choices:
                     - 'disable'
                     - 'enable'
             identity_based_policy:
+                aliases: ['identity-based-policy']
                 type: list
                 elements: dict
                 description: Identity based policy.
                 suboptions:
                     application_list:
+                        aliases: ['application-list']
                         type: str
                         description: Application list.
                     av_profile:
+                        aliases: ['av-profile']
                         type: str
                         description: Antivirus profile.
                     casi_profile:
+                        aliases: ['casi-profile']
                         type: str
                         description: CASI profile.
                     disclaimer:
@@ -182,18 +195,21 @@ options:
                             - 'policy'
                             - 'user'
                     dlp_sensor:
+                        aliases: ['dlp-sensor']
                         type: str
                         description: DLP sensor.
                     groups:
                         type: str
                         description: Group name.
                     icap_profile:
+                        aliases: ['icap-profile']
                         type: str
                         description: ICAP profile.
                     id:
                         type: int
                         description: ID.
                     ips_sensor:
+                        aliases: ['ips-sensor']
                         type: str
                         description: IPS sensor.
                     logtraffic:
@@ -204,30 +220,37 @@ options:
                             - 'all'
                             - 'utm'
                     logtraffic_start:
+                        aliases: ['logtraffic-start']
                         type: str
                         description: Enable/disable policy log traffic start.
                         choices:
                             - 'disable'
                             - 'enable'
                     mms_profile:
+                        aliases: ['mms-profile']
                         type: str
                         description: Mms profile
                     profile_group:
+                        aliases: ['profile-group']
                         type: str
                         description: Profile group
                     profile_protocol_options:
+                        aliases: ['profile-protocol-options']
                         type: str
                         description: Profile protocol options.
                     profile_type:
+                        aliases: ['profile-type']
                         type: str
                         description: Profile type
                         choices:
                             - 'single'
                             - 'group'
                     replacemsg_override_group:
+                        aliases: ['replacemsg-override-group']
                         type: str
                         description: Specify authentication replacement message override group.
                     scan_botnet_connections:
+                        aliases: ['scan-botnet-connections']
                         type: str
                         description: Enable/disable scanning of connections to Botnet servers.
                         choices:
@@ -238,33 +261,40 @@ options:
                         type: str
                         description: Schedule name.
                     spamfilter_profile:
+                        aliases: ['spamfilter-profile']
                         type: str
                         description: Spam filter profile.
                     ssl_ssh_profile:
+                        aliases: ['ssl-ssh-profile']
                         type: str
                         description: SSL SSH Profile.
                     users:
                         type: str
                         description: User name.
                     utm_status:
+                        aliases: ['utm-status']
                         type: str
                         description: Enable AV/web/IPS protection profile.
                         choices:
                             - 'disable'
                             - 'enable'
                     waf_profile:
+                        aliases: ['waf-profile']
                         type: str
                         description: Web application firewall profile.
                     webfilter_profile:
+                        aliases: ['webfilter-profile']
                         type: str
                         description: Web filter profile.
             ip_based:
+                aliases: ['ip-based']
                 type: str
                 description: Enable/disable IP-based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: IPS sensor.
             label:
@@ -278,12 +308,14 @@ options:
                     - 'all'
                     - 'utm'
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Enable/disable policy log traffic start.
                 choices:
                     - 'disable'
                     - 'enable'
             mms_profile:
+                aliases: ['mms-profile']
                 type: str
                 description: Mms profile
             policyid:
@@ -291,12 +323,15 @@ options:
                 description: Policy ID.
                 required: true
             profile_group:
+                aliases: ['profile-group']
                 type: str
                 description: Profile group
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: str
                 description: Profile protocol options.
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Profile type
                 choices:
@@ -310,15 +345,18 @@ options:
                     - 'ftp'
                     - 'wanopt'
             replacemsg_override_group:
+                aliases: ['replacemsg-override-group']
                 type: str
                 description: Specify authentication replacement message override group.
             require_tfa:
+                aliases: ['require-tfa']
                 type: str
                 description: Enable/disable requirement of 2-factor authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             scan_botnet_connections:
+                aliases: ['scan-botnet-connections']
                 type: str
                 description: Enable/disable scanning of connections to Botnet servers.
                 choices:
@@ -332,18 +370,21 @@ options:
                 type: str
                 description: Service name.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: Enable/disable negated service match.
                 choices:
                     - 'disable'
                     - 'enable'
             spamfilter_profile:
+                aliases: ['spamfilter-profile']
                 type: str
                 description: Spam filter profile.
             srcaddr:
                 type: str
                 description: Source address name.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: Enable/disable negated source address match.
                 choices:
@@ -353,9 +394,11 @@ options:
                 type: str
                 description: IPv6 source address
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: str
                 description: SSL SSH Profile.
             sso_auth_method:
+                aliases: ['sso-auth-method']
                 type: str
                 description: SSO authentication method.
                 choices:
@@ -372,6 +415,7 @@ options:
                 type: str
                 description: Applied object tags.
             transaction_based:
+                aliases: ['transaction-based']
                 type: str
                 description: Enable/disable transaction based authentication.
                 choices:
@@ -384,6 +428,7 @@ options:
                     - 'disable'
                     - 'enable'
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable AV/web/IPS protection profile.
                 choices:
@@ -393,9 +438,11 @@ options:
                 type: str
                 description: Universally Unique IDentifier.
             waf_profile:
+                aliases: ['waf-profile']
                 type: str
                 description: Web application firewall profile.
             web_auth_cookie:
+                aliases: ['web-auth-cookie']
                 type: str
                 description: Enable/disable Web authentication cookie.
                 choices:
@@ -408,6 +455,7 @@ options:
                     - 'disable'
                     - 'enable'
             webcache_https:
+                aliases: ['webcache-https']
                 type: str
                 description: Enable/disable web cache for HTTPS.
                 choices:
@@ -415,12 +463,15 @@ options:
                     - 'any'
                     - 'enable'
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Web filter profile.
             webproxy_forward_server:
+                aliases: ['webproxy-forward-server']
                 type: str
                 description: Web proxy forward server.
             webproxy_profile:
+                aliases: ['webproxy-profile']
                 type: str
                 description: Web proxy profile.
 '''

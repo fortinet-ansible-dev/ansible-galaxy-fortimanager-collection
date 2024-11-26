@@ -93,6 +93,7 @@ options:
                 type: int
                 description: Widgets column ID.
             diskio_content_type:
+                aliases: ['diskio-content-type']
                 type: str
                 description:
                     - Disk I/O Monitor widgets chart type.
@@ -104,6 +105,7 @@ options:
                     - 'iops'
                     - 'blks'
             diskio_period:
+                aliases: ['diskio-period']
                 type: str
                 description:
                     - Disk I/O Monitor widgets data period.
@@ -115,6 +117,7 @@ options:
                     - '8hour'
                     - '24hour'
             log_rate_period:
+                aliases: ['log-rate-period']
                 type: str
                 description:
                     - Log receive monitor widgets data period.
@@ -126,6 +129,7 @@ options:
                     - '1hour'
                     - '6hours'
             log_rate_topn:
+                aliases: ['log-rate-topn']
                 type: str
                 description:
                     - Log receive monitor widgets number of top items to display.
@@ -141,6 +145,7 @@ options:
                     - '4'
                     - '5'
             log_rate_type:
+                aliases: ['log-rate-type']
                 type: str
                 description:
                     - Log receive monitor widgets statistics breakdown options.
@@ -157,12 +162,15 @@ options:
                 type: str
                 description: Widget name.
             num_entries:
+                aliases: ['num-entries']
                 type: int
                 description: Number of entries.
             refresh_interval:
+                aliases: ['refresh-interval']
                 type: int
                 description: Widgets refresh interval.
             res_cpu_display:
+                aliases: ['res-cpu-display']
                 type: str
                 description:
                     - Widgets CPU display type.
@@ -172,6 +180,7 @@ options:
                     - 'average'
                     - 'each'
             res_period:
+                aliases: ['res-period']
                 type: str
                 description:
                     - Widgets data period.
@@ -183,6 +192,7 @@ options:
                     - 'hour'
                     - 'day'
             res_view_type:
+                aliases: ['res-view-type']
                 type: str
                 description:
                     - Widgets data view type.
@@ -204,6 +214,7 @@ options:
                 type: int
                 description: ID of tab where widget is displayed.
             time_period:
+                aliases: ['time-period']
                 type: str
                 description:
                     - Log Database Monitor widgets data period.
@@ -215,6 +226,7 @@ options:
                     - '8hour'
                     - '24hour'
             widget_type:
+                aliases: ['widget-type']
                 type: str
                 description:
                     - Widget type.

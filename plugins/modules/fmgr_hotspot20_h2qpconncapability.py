@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             esp_port:
+                aliases: ['esp-port']
                 type: str
                 description: Set ESP port service
                 choices:
@@ -97,6 +98,7 @@ options:
                     - 'open'
                     - 'unknown'
             ftp_port:
+                aliases: ['ftp-port']
                 type: str
                 description: Set FTP port service status.
                 choices:
@@ -104,6 +106,7 @@ options:
                     - 'open'
                     - 'unknown'
             http_port:
+                aliases: ['http-port']
                 type: str
                 description: Set HTTP port service status.
                 choices:
@@ -111,6 +114,7 @@ options:
                     - 'open'
                     - 'unknown'
             icmp_port:
+                aliases: ['icmp-port']
                 type: str
                 description: Set ICMP port service status.
                 choices:
@@ -118,6 +122,7 @@ options:
                     - 'open'
                     - 'unknown'
             ikev2_port:
+                aliases: ['ikev2-port']
                 type: str
                 description: Set IKEv2 port service for IPsec VPN status.
                 choices:
@@ -125,6 +130,7 @@ options:
                     - 'open'
                     - 'unknown'
             ikev2_xx_port:
+                aliases: ['ikev2-xx-port']
                 type: str
                 description: Set UDP port 4500
                 choices:
@@ -136,6 +142,7 @@ options:
                 description: Connection capability name.
                 required: true
             pptp_vpn_port:
+                aliases: ['pptp-vpn-port']
                 type: str
                 description: Set Point to Point Tunneling Protocol
                 choices:
@@ -143,6 +150,7 @@ options:
                     - 'open'
                     - 'unknown'
             ssh_port:
+                aliases: ['ssh-port']
                 type: str
                 description: Set SSH port service status.
                 choices:
@@ -150,6 +158,7 @@ options:
                     - 'open'
                     - 'unknown'
             tls_port:
+                aliases: ['tls-port']
                 type: str
                 description: Set TLS VPN
                 choices:
@@ -157,6 +166,7 @@ options:
                     - 'open'
                     - 'unknown'
             voip_tcp_port:
+                aliases: ['voip-tcp-port']
                 type: str
                 description: Set VoIP TCP port service status.
                 choices:
@@ -164,6 +174,7 @@ options:
                     - 'open'
                     - 'unknown'
             voip_udp_port:
+                aliases: ['voip-udp-port']
                 type: str
                 description: Set VoIP UDP port service status.
                 choices:

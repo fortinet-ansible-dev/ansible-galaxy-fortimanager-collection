@@ -105,6 +105,7 @@ options:
                 type: str
                 description: Currency code.
             info_file:
+                aliases: ['info-file']
                 type: str
                 description: Info file.
             lang:

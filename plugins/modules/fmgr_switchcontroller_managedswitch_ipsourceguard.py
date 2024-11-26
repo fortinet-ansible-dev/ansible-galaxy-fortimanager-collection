@@ -96,11 +96,13 @@ options:
         type: dict
         suboptions:
             binding_entry:
+                aliases: ['binding-entry']
                 type: list
                 elements: dict
                 description: Binding entry.
                 suboptions:
                     entry_name:
+                        aliases: ['entry-name']
                         type: str
                         description: Configure binding pair.
                     ip:

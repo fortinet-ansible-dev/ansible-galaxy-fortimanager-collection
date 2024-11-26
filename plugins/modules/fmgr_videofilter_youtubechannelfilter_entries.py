@@ -104,6 +104,7 @@ options:
                     - 'monitor'
                     - 'allow'
             channel_id:
+                aliases: ['channel-id']
                 type: str
                 description: Channel ID.
             comment:

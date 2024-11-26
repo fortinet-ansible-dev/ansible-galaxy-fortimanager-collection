@@ -105,6 +105,7 @@ options:
                 type: str
                 description: Interface.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Interface select method.
                 choices:
@@ -121,6 +122,7 @@ options:
                 type: str
                 description: Server.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source ip.
             status:

@@ -85,24 +85,29 @@ options:
         type: dict
         suboptions:
             cache_notfound_responses:
+                aliases: ['cache-notfound-responses']
                 type: str
                 description: Enable/disable response from the DNS server when a record is not in cache.
                 choices:
                     - 'disable'
                     - 'enable'
             dns_cache_limit:
+                aliases: ['dns-cache-limit']
                 type: int
                 description: Maximum number of records in the DNS cache.
             dns_cache_ttl:
+                aliases: ['dns-cache-ttl']
                 type: int
                 description: Duration in seconds that the DNS cache retains information.
             domain:
                 type: raw
                 description: (list or str) Domain name suffix for the IP addresses of the DNS server.
             ip6_primary:
+                aliases: ['ip6-primary']
                 type: str
                 description: Primary DNS server IPv6 address.
             ip6_secondary:
+                aliases: ['ip6-secondary']
                 type: str
                 description: Secondary DNS server IPv6 address.
             primary:
@@ -112,6 +117,7 @@ options:
                 type: str
                 description: Secondary DNS server IP address.
             dns_over_tls:
+                aliases: ['dns-over-tls']
                 type: str
                 description: Enable/disable/enforce DNS over TLS.
                 choices:
@@ -122,9 +128,11 @@ options:
                 type: int
                 description: Number of times to retry
             server_hostname:
+                aliases: ['server-hostname']
                 type: raw
                 description: (list) DNS server host name list.
             ssl_certificate:
+                aliases: ['ssl-certificate']
                 type: str
                 description: Name of local certificate for SSL connections.
             timeout:
@@ -134,6 +142,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:

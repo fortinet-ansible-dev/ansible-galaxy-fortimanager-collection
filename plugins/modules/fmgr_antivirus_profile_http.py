@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             archive_block:
+                aliases: ['archive-block']
                 type: list
                 elements: str
                 description: Select the archive types to block.
@@ -99,6 +100,7 @@ options:
                     - 'fileslimit'
                     - 'timeout'
             archive_log:
+                aliases: ['archive-log']
                 type: list
                 elements: str
                 description: Select the archive types to log.
@@ -113,6 +115,7 @@ options:
                     - 'fileslimit'
                     - 'timeout'
             content_disarm:
+                aliases: ['content-disarm']
                 type: str
                 description: Enable Content Disarm and Reconstruction for this protocol.
                 choices:
@@ -136,6 +139,7 @@ options:
                     - 'avmonitor'
                     - 'strict-file'
             outbreak_prevention:
+                aliases: ['outbreak-prevention']
                 type: str
                 description: Enable FortiGuard Virus Outbreak Prevention service.
                 choices:
@@ -146,12 +150,14 @@ options:
                     - 'block'
                     - 'monitor'
             av_optimize:
+                aliases: ['av-optimize']
                 type: str
                 description: Enable/disable AV optimization for this protocol.
                 choices:
                     - 'disable'
                     - 'enable'
             av_scan:
+                aliases: ['av-scan']
                 type: str
                 description: Enable AntiVirus scan service.
                 choices:
@@ -159,6 +165,7 @@ options:
                     - 'monitor'
                     - 'block'
             external_blocklist:
+                aliases: ['external-blocklist']
                 type: str
                 description: Enable external-blocklist.
                 choices:
@@ -193,6 +200,7 @@ options:
                     - 'monitor'
                     - 'block'
             unknown_content_encoding:
+                aliases: ['unknown-content-encoding']
                 type: str
                 description: Configure the action the FortiGate unit will take on unknown content-encoding.
                 choices:

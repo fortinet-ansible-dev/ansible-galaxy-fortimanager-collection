@@ -96,6 +96,7 @@ options:
                 type: str
                 description: IP address
             serial_number:
+                aliases: ['serial-number']
                 type: str
                 description: Serial number of peer.
 '''

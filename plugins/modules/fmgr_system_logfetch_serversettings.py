@@ -77,12 +77,15 @@ options:
         type: dict
         suboptions:
             max_conn_per_session:
+                aliases: ['max-conn-per-session']
                 type: int
                 description: Max concurrent file download connections per session.
             max_sessions:
+                aliases: ['max-sessions']
                 type: int
                 description: Max concurrent fetch sessions.
             session_timeout:
+                aliases: ['session-timeout']
                 type: int
                 description: Fetch session timeout in minute.
 '''

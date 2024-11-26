@@ -86,12 +86,15 @@ options:
                     - 'overwrite'
                     - 'nolog'
             log_disk_full_percentage:
+                aliases: ['log-disk-full-percentage']
                 type: int
                 description: Consider log disk as full at this usage percentage.
             max_log_file_size:
+                aliases: ['max-log-file-size']
                 type: int
                 description: Maximum log file size before rolling.
             roll_day:
+                aliases: ['roll-day']
                 type: list
                 elements: str
                 description:
@@ -112,6 +115,7 @@ options:
                     - 'friday'
                     - 'saturday'
             roll_schedule:
+                aliases: ['roll-schedule']
                 type: str
                 description:
                     - Frequency to check log file for rolling.
@@ -123,9 +127,11 @@ options:
                     - 'daily'
                     - 'weekly'
             roll_time:
+                aliases: ['roll-time']
                 type: raw
                 description: (list or str) Time to roll logs
             server_type:
+                aliases: ['server-type']
                 type: str
                 description:
                     - Server type.
@@ -176,6 +182,7 @@ options:
                     - 'disable'
                     - 'enable'
             upload_delete_files:
+                aliases: ['upload-delete-files']
                 type: str
                 description:
                     - Delete log files after uploading
@@ -185,6 +192,7 @@ options:
                     - 'disable'
                     - 'enable'
             upload_time:
+                aliases: ['upload-time']
                 type: raw
                 description: (list or str) Time to upload logs
             uploaddir:
@@ -229,9 +237,11 @@ options:
                     - 'disable'
                     - 'enable'
             log_disk_quota:
+                aliases: ['log-disk-quota']
                 type: int
                 description: Quota for controlling local log size.
             max_log_file_num:
+                aliases: ['max-log-file-num']
                 type: int
                 description: Maximum number of log files before rolling.
 '''

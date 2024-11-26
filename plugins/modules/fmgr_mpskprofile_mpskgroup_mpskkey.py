@@ -105,6 +105,7 @@ options:
                 type: str
                 description: Comment.
             concurrent_client_limit_type:
+                aliases: ['concurrent-client-limit-type']
                 type: str
                 description: MPSK client limit type options.
                 choices:
@@ -112,12 +113,14 @@ options:
                     - 'unlimited'
                     - 'specified'
             concurrent_clients:
+                aliases: ['concurrent-clients']
                 type: int
                 description: Number of clients that can connect using this pre-shared key
             mac:
                 type: str
                 description: MAC address.
             mpsk_schedules:
+                aliases: ['mpsk-schedules']
                 type: raw
                 description: (list or str) Firewall schedule for MPSK passphrase.
             name:
@@ -131,21 +134,25 @@ options:
                 type: raw
                 description: (list) WPA PMK.
             key_type:
+                aliases: ['key-type']
                 type: str
                 description: Select the type of the key.
                 choices:
                     - 'wpa2-personal'
                     - 'wpa3-sae'
             sae_password:
+                aliases: ['sae-password']
                 type: raw
                 description: (list) WPA3 SAE password.
             sae_pk:
+                aliases: ['sae-pk']
                 type: str
                 description: Enable/disable WPA3 SAE-PK
                 choices:
                     - 'disable'
                     - 'enable'
             sae_private_key:
+                aliases: ['sae-private-key']
                 type: str
                 description: Private key used for WPA3 SAE-PK authentication.
 '''

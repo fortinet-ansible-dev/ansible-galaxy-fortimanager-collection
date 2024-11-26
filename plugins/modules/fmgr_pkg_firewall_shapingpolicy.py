@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             app_category:
+                aliases: ['app-category']
                 type: raw
                 description: (list or str) IDs of one or more application categories that this shaper applies application control traffic shaping to.
             application:
@@ -116,12 +117,14 @@ options:
                 description: Shaping policy ID.
                 required: true
             ip_version:
+                aliases: ['ip-version']
                 type: str
                 description: Apply this traffic shaping policy to IPv4 or IPv6 traffic.
                 choices:
                     - '4'
                     - '6'
             per_ip_shaper:
+                aliases: ['per-ip-shaper']
                 type: str
                 description: Per-IP traffic shaper to apply with this policy.
             schedule:
@@ -143,78 +146,97 @@ options:
                     - 'disable'
                     - 'enable'
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper to apply to traffic forwarded by the firewall policy.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Traffic shaper to apply to response traffic received by the firewall policy.
             url_category:
+                aliases: ['url-category']
                 type: raw
                 description: (list or str) IDs of one or more FortiGuard Web Filtering categories that this shaper applies traffic shaping to.
             users:
                 type: raw
                 description: (list or str) Apply this traffic shaping policy to individual users that have authenticated with the FortiGate.
             app_group:
+                aliases: ['app-group']
                 type: raw
                 description: (list or str) One or more application group names.
             class_id:
+                aliases: ['class-id']
                 type: raw
                 description: (int or str) Traffic class ID.
             comment:
                 type: str
                 description: Comments.
             diffserv_forward:
+                aliases: ['diffserv-forward']
                 type: str
                 description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
                 choices:
                     - 'disable'
                     - 'enable'
             diffserv_reverse:
+                aliases: ['diffserv-reverse']
                 type: str
                 description: Enable to change packets reverse
                 choices:
                     - 'disable'
                     - 'enable'
             diffservcode_forward:
+                aliases: ['diffservcode-forward']
                 type: str
                 description: Change packets DiffServ to this value.
             diffservcode_rev:
+                aliases: ['diffservcode-rev']
                 type: str
                 description: Change packets reverse
             internet_service:
+                aliases: ['internet-service']
                 type: str
                 description: Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_custom:
+                aliases: ['internet-service-custom']
                 type: raw
                 description: (list or str) Custom Internet Service name.
             internet_service_custom_group:
+                aliases: ['internet-service-custom-group']
                 type: raw
                 description: (list or str) Custom Internet Service group name.
             internet_service_group:
+                aliases: ['internet-service-group']
                 type: raw
                 description: (list or str) Internet Service group name.
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: raw
                 description: (list or str) Internet Service ID.
             internet_service_src:
+                aliases: ['internet-service-src']
                 type: str
                 description: Enable/disable use of Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src_custom:
+                aliases: ['internet-service-src-custom']
                 type: raw
                 description: (list or str) Custom Internet Service source name.
             internet_service_src_custom_group:
+                aliases: ['internet-service-src-custom-group']
                 type: raw
                 description: (list or str) Custom Internet Service source group name.
             internet_service_src_group:
+                aliases: ['internet-service-src-group']
                 type: raw
                 description: (list or str) Internet Service source group name.
             internet_service_src_id:
+                aliases: ['internet-service-src-id']
                 type: raw
                 description: (list or str) Internet Service source ID.
             name:
@@ -227,9 +249,11 @@ options:
                 type: str
                 description: ToS
             tos_mask:
+                aliases: ['tos-mask']
                 type: str
                 description: Non-zero bit positions are used for comparison while zero bit positions are ignored.
             tos_negate:
+                aliases: ['tos-negate']
                 type: str
                 description: Enable negated TOS match.
                 choices:
@@ -239,18 +263,22 @@ options:
                 type: str
                 description: Universally Unique Identifier
             internet_service_name:
+                aliases: ['internet-service-name']
                 type: raw
                 description: (list or str) Internet Service ID.
             internet_service_src_name:
+                aliases: ['internet-service-src-name']
                 type: raw
                 description: (list or str) Internet Service source name.
             cos:
                 type: str
                 description: VLAN CoS bit pattern.
             cos_mask:
+                aliases: ['cos-mask']
                 type: str
                 description: VLAN CoS evaluated bits.
             traffic_type:
+                aliases: ['traffic-type']
                 type: str
                 description: Traffic type.
                 choices:

@@ -96,9 +96,11 @@ options:
                 description: Name.
                 required: true
             http_url:
+                aliases: ['http-url']
                 type: str
                 description: HTTP server URL for CRL auto-update
             update_interval:
+                aliases: ['update-interval']
                 type: int
                 description: CRL auto-update interval
 '''

@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: End ip.
             id:
@@ -101,6 +102,7 @@ options:
                 description: Id.
                 required: true
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: Start ip.
 '''

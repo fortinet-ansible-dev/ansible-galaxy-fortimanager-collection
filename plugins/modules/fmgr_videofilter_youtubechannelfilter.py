@@ -106,6 +106,7 @@ options:
                             - 'monitor'
                             - 'allow'
                     channel_id:
+                        aliases: ['channel-id']
                         type: str
                         description: Channel ID.
                     comment:
@@ -122,6 +123,7 @@ options:
                 type: str
                 description: Name.
             default_action:
+                aliases: ['default-action']
                 type: str
                 description: YouTube channel filter default action.
                 choices:
@@ -135,6 +137,7 @@ options:
                     - 'disable'
                     - 'enable'
             override_category:
+                aliases: ['override-category']
                 type: str
                 description: Enable/disable overriding category filtering result.
                 choices:

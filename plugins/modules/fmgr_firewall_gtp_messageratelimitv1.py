@@ -85,12 +85,15 @@ options:
         type: dict
         suboptions:
             create_pdp_request:
+                aliases: ['create-pdp-request']
                 type: int
                 description: Rate limit
             delete_pdp_request:
+                aliases: ['delete-pdp-request']
                 type: int
                 description: Rate limit
             echo_request:
+                aliases: ['echo-request']
                 type: int
                 description: Rate limit
 '''

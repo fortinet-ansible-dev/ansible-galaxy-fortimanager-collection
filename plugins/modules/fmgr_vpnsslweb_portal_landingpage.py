@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             form_data:
+                aliases: ['form-data']
                 type: list
                 elements: dict
                 description: Form data.
@@ -96,6 +97,7 @@ options:
                         type: str
                         description: Value.
             logout_url:
+                aliases: ['logout-url']
                 type: str
                 description: Landing page log out URL.
             sso:
@@ -106,15 +108,18 @@ options:
                     - 'static'
                     - 'auto'
             sso_credential:
+                aliases: ['sso-credential']
                 type: str
                 description: Single sign-on credentials.
                 choices:
                     - 'sslvpn-login'
                     - 'alternative'
             sso_password:
+                aliases: ['sso-password']
                 type: raw
                 description: (list) SSO password.
             sso_username:
+                aliases: ['sso-username']
                 type: str
                 description: SSO user name.
             url:

@@ -93,12 +93,15 @@ options:
                 type: str
                 description: Comment.
             darrp_optimize:
+                aliases: ['darrp-optimize']
                 type: int
                 description: Time for running Dynamic Automatic Radio Resource Provisioning
             darrp_optimize_schedules:
+                aliases: ['darrp-optimize-schedules']
                 type: raw
                 description: (list) Firewall schedules for DARRP running time.
             include_dfs_channel:
+                aliases: ['include-dfs-channel']
                 type: str
                 description: Enable/disable use of DFS channel in DARRP channel selection phase 1
                 choices:
@@ -107,6 +110,7 @@ options:
                     - 'yes'
                     - 'enable'
             include_weather_channel:
+                aliases: ['include-weather-channel']
                 type: str
                 description: Enable/disable use of weather channel in DARRP channel selection phase 1
                 choices:
@@ -115,6 +119,7 @@ options:
                     - 'yes'
                     - 'enable'
             monitor_period:
+                aliases: ['monitor-period']
                 type: int
                 description: Period in seconds to measure average transmit retries and receive errors
             name:
@@ -122,51 +127,66 @@ options:
                 description: WiFi ARRP profile name.
                 required: true
             override_darrp_optimize:
+                aliases: ['override-darrp-optimize']
                 type: str
                 description: Enable to override setting darrp-optimize and darrp-optimize-schedules
                 choices:
                     - 'disable'
                     - 'enable'
             selection_period:
+                aliases: ['selection-period']
                 type: int
                 description: Period in seconds to measure average channel load, noise floor, spectral RSSI
             threshold_ap:
+                aliases: ['threshold-ap']
                 type: int
                 description: Threshold to reject channel in DARRP channel selection phase 1 due to surrounding APs
             threshold_channel_load:
+                aliases: ['threshold-channel-load']
                 type: int
                 description: Threshold in percentage to reject channel in DARRP channel selection phase 1 due to channel load
             threshold_noise_floor:
+                aliases: ['threshold-noise-floor']
                 type: str
                 description: Threshold in dBm to reject channel in DARRP channel selection phase 1 due to noise floor
             threshold_rx_errors:
+                aliases: ['threshold-rx-errors']
                 type: int
                 description: Threshold in percentage for receive errors to trigger channel reselection in DARRP monitor stage
             threshold_spectral_rssi:
+                aliases: ['threshold-spectral-rssi']
                 type: str
                 description: Threshold in dBm to reject channel in DARRP channel selection phase 1 due to spectral RSSI
             threshold_tx_retries:
+                aliases: ['threshold-tx-retries']
                 type: int
                 description: Threshold in percentage for transmit retries to trigger channel reselection in DARRP monitor stage
             weight_channel_load:
+                aliases: ['weight-channel-load']
                 type: int
                 description: Weight in DARRP channel score calculation for channel load
             weight_dfs_channel:
+                aliases: ['weight-dfs-channel']
                 type: int
                 description: Weight in DARRP channel score calculation for DFS channel
             weight_managed_ap:
+                aliases: ['weight-managed-ap']
                 type: int
                 description: Weight in DARRP channel score calculation for managed APs
             weight_noise_floor:
+                aliases: ['weight-noise-floor']
                 type: int
                 description: Weight in DARRP channel score calculation for noise floor
             weight_rogue_ap:
+                aliases: ['weight-rogue-ap']
                 type: int
                 description: Weight in DARRP channel score calculation for rogue APs
             weight_spectral_rssi:
+                aliases: ['weight-spectral-rssi']
                 type: int
                 description: Weight in DARRP channel score calculation for spectral RSSI
             weight_weather_channel:
+                aliases: ['weight-weather-channel']
                 type: int
                 description: Weight in DARRP channel score calculation for weather channel
 '''

@@ -70,6 +70,7 @@ options:
         type: dict
         suboptions:
             add_dev_list:
+                aliases: ['add-dev-list']
                 type: list
                 elements: dict
                 description: A list of device objects to be added.
@@ -84,18 +85,21 @@ options:
                         type: str
                         description: Available for all operations.
                     device_action:
+                        aliases: ['device action']
                         type: str
                         description:
                             - Specify add device operations, or leave blank to add real device
                             - add_model - add a model device.
                             - promote_unreg - promote an unregistered device to be managed by FortiManager using information from database.
                     faz_quota:
+                        aliases: ['faz.quota']
                         type: int
                         description: Available for all operations.
                     ip:
                         type: str
                         description: Add real device only.
                     meta_fields:
+                        aliases: ['meta fields']
                         type: raw
                         description: (dict or str) Add real and model device.
                     mgmt_mode:
@@ -156,9 +160,11 @@ options:
                         type: str
                         description: Add model device only.
                     device_blueprint:
+                        aliases: ['device blueprint']
                         type: str
                         description: Add model device only.
                     authorization_template:
+                        aliases: ['authorization template']
                         type: str
                         description: Add model device only.
             adom:

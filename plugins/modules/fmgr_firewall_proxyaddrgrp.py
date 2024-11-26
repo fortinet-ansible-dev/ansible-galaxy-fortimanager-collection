@@ -135,6 +135,7 @@ options:
                 type: str
                 description: Names of object-tags
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
 '''

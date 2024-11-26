@@ -94,24 +94,29 @@ options:
         type: dict
         suboptions:
             address_type:
+                aliases: ['address-type']
                 type: str
                 description: Address type.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Application list name.
             application_list_status:
+                aliases: ['application-list-status']
                 type: str
                 description: Enable/disable application control.
                 choices:
                     - 'disable'
                     - 'enable'
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Antivirus profile.
             av_profile_status:
+                aliases: ['av-profile-status']
                 type: str
                 description: Enable/disable antivirus.
                 choices:
@@ -121,9 +126,11 @@ options:
                 type: str
                 description: Comments.
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: DLP sensor name.
             dlp_sensor_status:
+                aliases: ['dlp-sensor-status']
                 type: str
                 description: Enable/disable DLP.
                 choices:
@@ -142,9 +149,11 @@ options:
                 type: str
                 description: Monitored interface name from available interfaces.
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: IPS sensor name.
             ips_sensor_status:
+                aliases: ['ips-sensor-status']
                 type: str
                 description: Enable/disable IPS.
                 choices:
@@ -165,6 +174,7 @@ options:
                 description: Policy ID.
                 required: true
             scan_botnet_connections:
+                aliases: ['scan-botnet-connections']
                 type: str
                 description: Enable/disable scanning for connections to Botnet servers.
                 choices:
@@ -175,9 +185,11 @@ options:
                 type: raw
                 description: (list or str) Service name.
             spamfilter_profile:
+                aliases: ['spamfilter-profile']
                 type: str
                 description: Antispam profile.
             spamfilter_profile_status:
+                aliases: ['spamfilter-profile-status']
                 type: str
                 description: Enable/disable antispam.
                 choices:
@@ -193,18 +205,22 @@ options:
                     - 'disable'
                     - 'enable'
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Web filter profile.
             webfilter_profile_status:
+                aliases: ['webfilter-profile-status']
                 type: str
                 description: Enable/disable web filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             emailfilter_profile:
+                aliases: ['emailfilter-profile']
                 type: str
                 description: Email filter profile.
             emailfilter_profile_status:
+                aliases: ['emailfilter-profile-status']
                 type: str
                 description: Enable/disable email filter.
                 choices:
@@ -214,27 +230,33 @@ options:
                 type: str
                 description: Universally Unique Identifier
             casi_profile:
+                aliases: ['casi-profile']
                 type: str
                 description: CASI profile name.
             casi_profile_status:
+                aliases: ['casi-profile-status']
                 type: str
                 description: Enable/disable CASI.
                 choices:
                     - 'disable'
                     - 'enable'
             dlp_profile:
+                aliases: ['dlp-profile']
                 type: str
                 description: DLP profile name.
             dlp_profile_status:
+                aliases: ['dlp-profile-status']
                 type: str
                 description: Enable/disable DLP.
                 choices:
                     - 'disable'
                     - 'enable'
             casb_profile:
+                aliases: ['casb-profile']
                 type: raw
                 description: (list) CASB profile.
             casb_profile_status:
+                aliases: ['casb-profile-status']
                 type: str
                 description: Enable/disable CASB.
                 choices:

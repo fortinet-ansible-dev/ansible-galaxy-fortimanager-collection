@@ -98,9 +98,11 @@ options:
                     - 'eddystone-uid'
                     - 'eddystone-url'
             beacon_interval:
+                aliases: ['beacon-interval']
                 type: int
                 description: Beacon interval
             ble_scanning:
+                aliases: ['ble-scanning']
                 type: str
                 description: Enable/disable Bluetooth Low Energy
                 choices:
@@ -110,24 +112,31 @@ options:
                 type: str
                 description: Comment.
             eddystone_instance:
+                aliases: ['eddystone-instance']
                 type: str
                 description: Eddystone instance ID.
             eddystone_namespace:
+                aliases: ['eddystone-namespace']
                 type: str
                 description: Eddystone namespace ID.
             eddystone_url:
+                aliases: ['eddystone-url']
                 type: str
                 description: Eddystone URL.
             eddystone_url_encode_hex:
+                aliases: ['eddystone-url-encode-hex']
                 type: str
                 description: Eddystone encoded URL hexadecimal string
             ibeacon_uuid:
+                aliases: ['ibeacon-uuid']
                 type: str
                 description: Universally Unique Identifier
             major_id:
+                aliases: ['major-id']
                 type: int
                 description: Major ID.
             minor_id:
+                aliases: ['minor-id']
                 type: int
                 description: Minor ID.
             name:
@@ -152,24 +161,30 @@ options:
                     - '11'
                     - '12'
             scan_interval:
+                aliases: ['scan-interval']
                 type: int
                 description: Scan Interval
             scan_period:
+                aliases: ['scan-period']
                 type: int
                 description: Scan Period
             scan_threshold:
+                aliases: ['scan-threshold']
                 type: str
                 description: Minimum signal level/threshold in dBm required for the AP to report detected BLE device
             scan_time:
+                aliases: ['scan-time']
                 type: int
                 description: Scan Time
             scan_type:
+                aliases: ['scan-type']
                 type: str
                 description: Scan Type
                 choices:
                     - 'active'
                     - 'passive'
             scan_window:
+                aliases: ['scan-window']
                 type: int
                 description: Scan Windows
 '''

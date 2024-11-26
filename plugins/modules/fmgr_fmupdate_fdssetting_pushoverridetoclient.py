@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             announce_ip:
+                aliases: ['announce-ip']
                 type: list
                 elements: dict
                 description: Announce ip.

@@ -95,12 +95,15 @@ options:
                 type: str
                 description: Sender email address to use in alert emails.
             smtp_name:
+                aliases: ['smtp-name']
                 type: str
                 description: SMTP server name.
             snmp_name:
+                aliases: ['snmp-name']
                 type: str
                 description: SNMP trap name.
             syslog_name:
+                aliases: ['syslog-name']
                 type: str
                 description: Syslog server name.
             to:

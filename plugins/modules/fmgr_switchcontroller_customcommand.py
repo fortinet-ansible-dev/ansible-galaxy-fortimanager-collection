@@ -93,6 +93,7 @@ options:
                 type: str
                 description: String of commands to send to FortiSwitch devices
             command_name:
+                aliases: ['command-name']
                 type: str
                 description: Command name called by the FortiGate switch controller in the execute command.
             description:

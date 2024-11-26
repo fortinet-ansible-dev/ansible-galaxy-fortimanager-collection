@@ -100,6 +100,7 @@ options:
                     - 'deny'
                     - 'accept'
             auto_asic_offload:
+                aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable offloading policy traffic for hardware acceleration.
                 choices:
@@ -112,6 +113,7 @@ options:
                 type: str
                 description: IPv6 destination interface name.
             end_port:
+                aliases: ['end-port']
                 type: int
                 description: Integer value for ending TCP/UDP/SCTP destination port in range
             id:
@@ -136,6 +138,7 @@ options:
                 type: str
                 description: IPv6 source interface name.
             start_port:
+                aliases: ['start-port']
                 type: int
                 description: Integer value for starting TCP/UDP/SCTP destination port in range
             status:
@@ -154,9 +157,11 @@ options:
                 type: str
                 description: Universally Unique Identifier
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: Name of an existing IPS sensor.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable to add an IPS security profile to the policy.
                 choices:

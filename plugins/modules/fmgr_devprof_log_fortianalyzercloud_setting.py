@@ -88,6 +88,7 @@ options:
                 type: int
                 description: Hidden attribute.
             access_config:
+                aliases: ['access-config']
                 type: str
                 description: Enable/disable FortiAnalyzer access to configuration and data.
                 choices:
@@ -97,9 +98,11 @@ options:
                 type: str
                 description: Certificate used to communicate with FortiAnalyzer.
             conn_timeout:
+                aliases: ['conn-timeout']
                 type: int
                 description: FortiAnalyzer connection time-out in seconds
             enc_algorithm:
+                aliases: ['enc-algorithm']
                 type: str
                 description: Configure the level of SSL protection for secure communication with FortiAnalyzer.
                 choices:
@@ -108,27 +111,33 @@ options:
                     - 'high-medium'
                     - 'low-medium'
             hmac_algorithm:
+                aliases: ['hmac-algorithm']
                 type: str
                 description: FortiAnalyzer IPsec tunnel HMAC algorithm.
                 choices:
                     - 'sha256'
                     - 'sha1'
             ips_archive:
+                aliases: ['ips-archive']
                 type: str
                 description: Enable/disable IPS packet archive logging.
                 choices:
                     - 'disable'
                     - 'enable'
             monitor_failure_retry_period:
+                aliases: ['monitor-failure-retry-period']
                 type: int
                 description: Time between FortiAnalyzer connection retries in seconds
             monitor_keepalive_period:
+                aliases: ['monitor-keepalive-period']
                 type: int
                 description: Time between OFTP keepalives in seconds
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IPv4 or IPv6 address used to communicate with FortiAnalyzer.
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for SSL/TLS connections
                 choices:
@@ -145,9 +154,11 @@ options:
                     - 'disable'
                     - 'enable'
             upload_day:
+                aliases: ['upload-day']
                 type: str
                 description: Day of week
             upload_interval:
+                aliases: ['upload-interval']
                 type: str
                 description: Frequency to upload log files to FortiAnalyzer.
                 choices:
@@ -155,6 +166,7 @@ options:
                     - 'weekly'
                     - 'monthly'
             upload_option:
+                aliases: ['upload-option']
                 type: str
                 description: Enable/disable logging to hard disk and then uploading to FortiAnalyzer.
                 choices:
@@ -163,9 +175,11 @@ options:
                     - '1-minute'
                     - '5-minute'
             upload_time:
+                aliases: ['upload-time']
                 type: str
                 description: Time to upload logs
             max_log_rate:
+                aliases: ['max-log-rate']
                 type: int
                 description: FortiAnalyzer maximum log rate in MBps
             priority:
@@ -178,6 +192,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -185,9 +200,11 @@ options:
                     - 'sdwan'
                     - 'specify'
             preshared_key:
+                aliases: ['preshared-key']
                 type: str
                 description: Preshared-key used for auto-authorization on FortiAnalyzer.
             certificate_verification:
+                aliases: ['certificate-verification']
                 type: str
                 description: Enable/disable identity verification of FortiAnalyzer by use of certificate.
                 choices:

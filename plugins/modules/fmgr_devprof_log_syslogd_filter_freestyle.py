@@ -120,6 +120,7 @@ options:
                 type: str
                 description: Free style filter string.
             filter_type:
+                aliases: ['filter-type']
                 type: str
                 description: Include/exclude logs that match the filter.
                 choices:

@@ -106,6 +106,7 @@ options:
                 type: str
                 description: Description for the NAC policy matching pattern.
             ems_tag:
+                aliases: ['ems-tag']
                 type: str
                 description: NAC policy matching EMS tag.
             family:
@@ -115,9 +116,11 @@ options:
                 type: str
                 description: NAC policy matching host.
             hw_vendor:
+                aliases: ['hw-vendor']
                 type: str
                 description: NAC policy matching hardware vendor.
             hw_version:
+                aliases: ['hw-version']
                 type: str
                 description: NAC policy matching hardware version.
             mac:
@@ -134,6 +137,7 @@ options:
                 type: str
                 description: NAC policy matching source.
             ssid_policy:
+                aliases: ['ssid-policy']
                 type: str
                 description: SSID policy to be applied on the matched NAC policy.
             status:
@@ -143,6 +147,7 @@ options:
                     - 'disable'
                     - 'enable'
             sw_version:
+                aliases: ['sw-version']
                 type: str
                 description: NAC policy matching software version.
             type:
@@ -152,48 +157,59 @@ options:
                 type: str
                 description: NAC policy matching user.
             user_group:
+                aliases: ['user-group']
                 type: str
                 description: NAC policy matching user group.
             severity:
                 type: raw
                 description: (list) NAC policy matching devices vulnerability severity lists.
             firewall_address:
+                aliases: ['firewall-address']
                 type: raw
                 description: (list) Dynamic firewall address to associate MAC which match this policy.
             fortivoice_tag:
+                aliases: ['fortivoice-tag']
                 type: raw
                 description: (list) NAC policy matching FortiVoice tag.
             match_period:
+                aliases: ['match-period']
                 type: int
                 description: Number of days the matched devices will be retained
             match_type:
+                aliases: ['match-type']
                 type: str
                 description: Match and retain the devices based on the type.
                 choices:
                     - 'dynamic'
                     - 'override'
             switch_fortilink:
+                aliases: ['switch-fortilink']
                 type: raw
                 description:
                     - (list)
                     - Support meta variable
                     - FortiLink interface for which this NAC policy belongs to.
             switch_group:
+                aliases: ['switch-group']
                 type: raw
                 description:
                     - (list)
                     - Support meta variable
                     - List of managed FortiSwitch groups on which NAC policy can be applied.
             switch_mac_policy:
+                aliases: ['switch-mac-policy']
                 type: raw
                 description: (list) Switch MAC policy action to be applied on the matched NAC policy.
             switch_scope:
+                aliases: ['switch-scope']
                 type: raw
                 description: (list) List of managed FortiSwitches on which NAC policy can be applied.
             switch_port_policy:
+                aliases: ['switch-port-policy']
                 type: raw
                 description: (list) Switch-port-policy to be applied on the matched NAC policy.
             switch_auto_auth:
+                aliases: ['switch-auto-auth']
                 type: str
                 description: NAC device auto authorization when discovered and nac-policy matched.
                 choices:

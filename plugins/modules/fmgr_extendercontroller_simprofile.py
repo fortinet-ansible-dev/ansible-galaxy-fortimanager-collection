@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             auto_switch_profile:
+                aliases: ['auto-switch_profile']
                 type: dict
                 description: Auto switch profile.
                 suboptions:
@@ -106,9 +107,11 @@ options:
                             - 'disable'
                             - 'enable'
                     disconnect_period:
+                        aliases: ['disconnect-period']
                         type: int
                         description: Disconnect period.
                     disconnect_threshold:
+                        aliases: ['disconnect-threshold']
                         type: int
                         description: Disconnect threshold.
                     signal:
@@ -124,6 +127,7 @@ options:
                             - 'disable'
                             - 'enable'
                     switch_back:
+                        aliases: ['switch-back']
                         type: list
                         elements: str
                         description: Switch back.
@@ -131,15 +135,19 @@ options:
                             - 'time'
                             - 'timer'
                     switch_back_time:
+                        aliases: ['switch-back-time']
                         type: str
                         description: Switch back time.
                     switch_back_timer:
+                        aliases: ['switch-back-timer']
                         type: int
                         description: Switch back timer.
             conn_status:
+                aliases: ['conn-status']
                 type: int
                 description: Conn status.
             default_sim:
+                aliases: ['default-sim']
                 type: str
                 description: Default sim.
                 choices:
@@ -157,6 +165,7 @@ options:
                     - 'disable'
                     - 'enable'
             modem_id:
+                aliases: ['modem-id']
                 type: int
                 description: Modem id.
             name:
@@ -164,33 +173,40 @@ options:
                 description: Name.
                 required: true
             preferred_carrier:
+                aliases: ['preferred-carrier']
                 type: str
                 description: Preferred carrier.
             redundant_intf:
+                aliases: ['redundant-intf']
                 type: str
                 description: Redundant intf.
             redundant_mode:
+                aliases: ['redundant-mode']
                 type: str
                 description: Redundant mode.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1_pin:
+                aliases: ['sim1-pin']
                 type: str
                 description: Sim1 pin.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1_pin_code:
+                aliases: ['sim1-pin-code']
                 type: raw
                 description: (list) Sim1 pin code.
             sim2_pin:
+                aliases: ['sim2-pin']
                 type: str
                 description: Sim2 pin.
                 choices:
                     - 'disable'
                     - 'enable'
             sim2_pin_code:
+                aliases: ['sim2-pin-code']
                 type: raw
                 description: (list) Sim2 pin code.
             status:

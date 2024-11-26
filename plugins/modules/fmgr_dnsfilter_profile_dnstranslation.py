@@ -113,6 +113,7 @@ options:
                     - 'disable'
                     - 'enable'
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: DNS translation type
                 choices:

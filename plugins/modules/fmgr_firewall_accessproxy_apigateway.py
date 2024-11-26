@@ -96,30 +96,37 @@ options:
         type: dict
         suboptions:
             http_cookie_age:
+                aliases: ['http-cookie-age']
                 type: int
                 description: Time in minutes that client web browsers should keep a cookie.
             http_cookie_domain:
+                aliases: ['http-cookie-domain']
                 type: str
                 description: Domain that HTTP cookie persistence should apply to.
             http_cookie_domain_from_host:
+                aliases: ['http-cookie-domain-from-host']
                 type: str
                 description: Enable/disable use of HTTP cookie domain from host field in HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             http_cookie_generation:
+                aliases: ['http-cookie-generation']
                 type: int
                 description: Generation of HTTP cookie to be accepted.
             http_cookie_path:
+                aliases: ['http-cookie-path']
                 type: str
                 description: Limit HTTP cookie persistence to the specified path.
             http_cookie_share:
+                aliases: ['http-cookie-share']
                 type: str
                 description: Control sharing of cookies across API Gateway.
                 choices:
                     - 'disable'
                     - 'same-ip'
             https_cookie_secure:
+                aliases: ['https-cookie-secure']
                 type: str
                 description: Enable/disable verification that inserted HTTPS cookies are secure.
                 choices:
@@ -130,6 +137,7 @@ options:
                 description: API Gateway ID.
                 required: true
             ldb_method:
+                aliases: ['ldb-method']
                 type: str
                 description: Method used to distribute sessions to real servers.
                 choices:
@@ -155,12 +163,14 @@ options:
                         type: str
                         description: Address or address group of the real server.
                     health_check:
+                        aliases: ['health-check']
                         type: str
                         description: Enable to check the responsiveness of the real server before forwarding traffic.
                         choices:
                             - 'disable'
                             - 'enable'
                     health_check_proto:
+                        aliases: ['health-check-proto']
                         type: str
                         description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
                         choices:
@@ -168,6 +178,7 @@ options:
                             - 'http'
                             - 'tcp-connect'
                     http_host:
+                        aliases: ['http-host']
                         type: str
                         description: HTTP server domain name in HTTP header.
                     id:
@@ -193,6 +204,7 @@ options:
                         type: int
                         description: Weight of the real server.
                     addr_type:
+                        aliases: ['addr-type']
                         type: str
                         description: Type of address.
                         choices:
@@ -202,18 +214,22 @@ options:
                         type: str
                         description: Wildcard domain name of the real server.
                     holddown_interval:
+                        aliases: ['holddown-interval']
                         type: str
                         description: Enable/disable holddown timer.
                         choices:
                             - 'disable'
                             - 'enable'
                     ssh_client_cert:
+                        aliases: ['ssh-client-cert']
                         type: str
                         description: Set access-proxy SSH client certificate profile.
                     ssh_host_key:
+                        aliases: ['ssh-host-key']
                         type: raw
                         description: (list or str) One or more server host key.
                     ssh_host_key_validation:
+                        aliases: ['ssh-host-key-validation']
                         type: str
                         description: Enable/disable SSH real server host key validation.
                         choices:
@@ -226,24 +242,28 @@ options:
                             - 'tcp-forwarding'
                             - 'ssh'
                     translate_host:
+                        aliases: ['translate-host']
                         type: str
                         description: Enable/disable translation of hostname/IP from virtual server to real server.
                         choices:
                             - 'disable'
                             - 'enable'
                     external_auth:
+                        aliases: ['external-auth']
                         type: str
                         description: Enable/disable use of external browser as user-agent for SAML user authentication.
                         choices:
                             - 'disable'
                             - 'enable'
                     tunnel_encryption:
+                        aliases: ['tunnel-encryption']
                         type: str
                         description: Tunnel encryption.
                         choices:
                             - 'disable'
                             - 'enable'
             saml_server:
+                aliases: ['saml-server']
                 type: str
                 description: SAML service provider configuration for VIP authentication.
             service:
@@ -257,6 +277,7 @@ options:
                     - 'web-portal'
                     - 'saas'
             ssl_algorithm:
+                aliases: ['ssl-algorithm']
                 type: str
                 description: Permitted encryption algorithms for the server side of SSL full mode sessions according to encryption strength.
                 choices:
@@ -265,6 +286,7 @@ options:
                     - 'low'
                     - 'custom'
             ssl_cipher_suites:
+                aliases: ['ssl-cipher-suites']
                 type: list
                 elements: dict
                 description: Ssl cipher suites.
@@ -357,6 +379,7 @@ options:
                             - 'tls-1.2'
                             - 'tls-1.3'
             ssl_dh_bits:
+                aliases: ['ssl-dh-bits']
                 type: str
                 description: Number of bits to use in the Diffie-Hellman exchange for RSA encryption of SSL sessions.
                 choices:
@@ -367,6 +390,7 @@ options:
                     - '3072'
                     - '4096'
             ssl_max_version:
+                aliases: ['ssl-max-version']
                 type: str
                 description: Highest SSL/TLS version acceptable from a server.
                 choices:
@@ -375,6 +399,7 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             ssl_min_version:
+                aliases: ['ssl-min-version']
                 type: str
                 description: Lowest SSL/TLS version acceptable from a server.
                 choices:
@@ -383,9 +408,11 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             url_map:
+                aliases: ['url-map']
                 type: str
                 description: URL pattern to match.
             url_map_type:
+                aliases: ['url-map-type']
                 type: str
                 description: Type of url-map.
                 choices:
@@ -393,33 +420,39 @@ options:
                     - 'wildcard'
                     - 'regex'
             virtual_host:
+                aliases: ['virtual-host']
                 type: str
                 description: Virtual host.
             saml_redirect:
+                aliases: ['saml-redirect']
                 type: str
                 description: Enable/disable SAML redirection after successful authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_vpn_web_portal:
+                aliases: ['ssl-vpn-web-portal']
                 type: str
                 description: SSL-VPN web portal.
             application:
                 type: raw
                 description: (list) SaaS application controlled by this Access Proxy.
             ssl_renegotiation:
+                aliases: ['ssl-renegotiation']
                 type: str
                 description: Enable/disable secure renegotiation to comply with RFC 5746.
                 choices:
                     - 'disable'
                     - 'enable'
             h2_support:
+                aliases: ['h2-support']
                 type: str
                 description: HTTP2 support, default=Enable.
                 choices:
                     - 'disable'
                     - 'enable'
             h3_support:
+                aliases: ['h3-support']
                 type: str
                 description: HTTP3/QUIC support, default=Disable.
                 choices:
@@ -430,33 +463,41 @@ options:
                 description: Quic.
                 suboptions:
                     ack_delay_exponent:
+                        aliases: ['ack-delay-exponent']
                         type: int
                         description: ACK delay exponent
                     active_connection_id_limit:
+                        aliases: ['active-connection-id-limit']
                         type: int
                         description: Active connection ID limit
                     active_migration:
+                        aliases: ['active-migration']
                         type: str
                         description: Enable/disable active migration
                         choices:
                             - 'disable'
                             - 'enable'
                     grease_quic_bit:
+                        aliases: ['grease-quic-bit']
                         type: str
                         description: Enable/disable grease QUIC bit
                         choices:
                             - 'disable'
                             - 'enable'
                     max_ack_delay:
+                        aliases: ['max-ack-delay']
                         type: int
                         description: Maximum ACK delay in milliseconds
                     max_datagram_frame_size:
+                        aliases: ['max-datagram-frame-size']
                         type: int
                         description: Maximum datagram frame size in bytes
                     max_idle_timeout:
+                        aliases: ['max-idle-timeout']
                         type: int
                         description: Maximum idle timeout milliseconds
                     max_udp_payload_size:
+                        aliases: ['max-udp-payload-size']
                         type: int
                         description: Maximum UDP payload size in bytes
 '''

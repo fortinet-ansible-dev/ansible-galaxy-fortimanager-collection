@@ -77,9 +77,11 @@ options:
         type: dict
         suboptions:
             max_depth:
+                aliases: ['max-depth']
                 type: int
                 description: Maximum descend levels below this device.
             max_depth_share:
+                aliases: ['max-depth-share']
                 type: int
                 description: Maximum descend levels below this device to share with upstream.
 '''

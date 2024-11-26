@@ -94,6 +94,7 @@ options:
                 description: Friendly name ID.
                 required: true
             value_list:
+                aliases: ['value-list']
                 type: list
                 elements: dict
                 description: Value list.

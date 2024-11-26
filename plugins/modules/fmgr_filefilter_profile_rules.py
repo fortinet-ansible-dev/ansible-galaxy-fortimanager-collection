@@ -110,6 +110,7 @@ options:
                     - 'incoming'
                     - 'outgoing'
             file_type:
+                aliases: ['file-type']
                 type: raw
                 description: (list) Select file type.
             name:
@@ -117,6 +118,7 @@ options:
                 description: File-filter rule name.
                 required: true
             password_protected:
+                aliases: ['password-protected']
                 type: str
                 description: Match password-protected files.
                 choices:

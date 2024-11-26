@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             bandwidth_admission_control:
+                aliases: ['bandwidth-admission-control']
                 type: str
                 description: Enable/disable WMM bandwidth admission control.
                 choices:
                     - 'disable'
                     - 'enable'
             bandwidth_capacity:
+                aliases: ['bandwidth-capacity']
                 type: int
                 description: Maximum bandwidth capacity allowed
             burst:
@@ -105,12 +107,14 @@ options:
                     - 'disable'
                     - 'enable'
             call_admission_control:
+                aliases: ['call-admission-control']
                 type: str
                 description: Enable/disable WMM call admission control.
                 choices:
                     - 'disable'
                     - 'enable'
             call_capacity:
+                aliases: ['call-capacity']
                 type: int
                 description: Maximum number of Voice over WLAN
             comment:
@@ -120,24 +124,30 @@ options:
                 type: int
                 description: Maximum downlink bandwidth for Virtual Access Points
             downlink_sta:
+                aliases: ['downlink-sta']
                 type: int
                 description: Maximum downlink bandwidth for clients
             dscp_wmm_be:
+                aliases: ['dscp-wmm-be']
                 type: raw
                 description: (list) DSCP mapping for best effort access
             dscp_wmm_bk:
+                aliases: ['dscp-wmm-bk']
                 type: raw
                 description: (list) DSCP mapping for background access
             dscp_wmm_mapping:
+                aliases: ['dscp-wmm-mapping']
                 type: str
                 description: Enable/disable Differentiated Services Code Point
                 choices:
                     - 'disable'
                     - 'enable'
             dscp_wmm_vi:
+                aliases: ['dscp-wmm-vi']
                 type: raw
                 description: (list) DSCP mapping for video access
             dscp_wmm_vo:
+                aliases: ['dscp-wmm-vo']
                 type: raw
                 description: (list) DSCP mapping for voice access
             name:
@@ -148,6 +158,7 @@ options:
                 type: int
                 description: Maximum uplink bandwidth for Virtual Access Points
             uplink_sta:
+                aliases: ['uplink-sta']
                 type: int
                 description: Maximum uplink bandwidth for clients
             wmm:
@@ -157,27 +168,33 @@ options:
                     - 'disable'
                     - 'enable'
             wmm_uapsd:
+                aliases: ['wmm-uapsd']
                 type: str
                 description: Enable/disable WMM Unscheduled Automatic Power Save Delivery
                 choices:
                     - 'disable'
                     - 'enable'
             wmm_be_dscp:
+                aliases: ['wmm-be-dscp']
                 type: int
                 description: DSCP marking for best effort access
             wmm_bk_dscp:
+                aliases: ['wmm-bk-dscp']
                 type: int
                 description: DSCP marking for background access
             wmm_dscp_marking:
+                aliases: ['wmm-dscp-marking']
                 type: str
                 description: Enable/disable WMM Differentiated Services Code Point
                 choices:
                     - 'disable'
                     - 'enable'
             wmm_vi_dscp:
+                aliases: ['wmm-vi-dscp']
                 type: int
                 description: DSCP marking for video access
             wmm_vo_dscp:
+                aliases: ['wmm-vo-dscp']
                 type: int
                 description: DSCP marking for voice access
 '''

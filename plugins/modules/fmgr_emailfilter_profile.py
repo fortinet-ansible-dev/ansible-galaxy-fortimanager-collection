@@ -125,45 +125,56 @@ options:
                     - 'spamfgurl'
                     - 'spamfgphish'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             spam_bwl_table:
+                aliases: ['spam-bwl-table']
                 type: str
                 description: Anti-spam black/white list table ID.
             spam_bword_table:
+                aliases: ['spam-bword-table']
                 type: str
                 description: Anti-spam banned word table ID.
             spam_bword_threshold:
+                aliases: ['spam-bword-threshold']
                 type: int
                 description: Spam banned word threshold.
             spam_filtering:
+                aliases: ['spam-filtering']
                 type: str
                 description: Enable/disable spam filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_iptrust_table:
+                aliases: ['spam-iptrust-table']
                 type: str
                 description: Anti-spam IP trust table ID.
             spam_log:
+                aliases: ['spam-log']
                 type: str
                 description: Enable/disable spam logging for email filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_log_fortiguard_response:
+                aliases: ['spam-log-fortiguard-response']
                 type: str
                 description: Enable/disable logging FortiGuard spam response.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_mheader_table:
+                aliases: ['spam-mheader-table']
                 type: str
                 description: Anti-spam MIME header table ID.
             spam_rbl_table:
+                aliases: ['spam-rbl-table']
                 type: str
                 description: Anti-spam DNSBL table ID.
             feature_set:
+                aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
                 choices:
@@ -180,6 +191,7 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
@@ -202,15 +214,18 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -235,12 +250,14 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
                             - 'disable'
                             - 'enable'
             msn_hotmail:
+                aliases: ['msn-hotmail']
                 type: dict
                 description: Msn hotmail.
                 suboptions:
@@ -251,16 +268,19 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
                             - 'disable'
                             - 'enable'
             other_webmails:
+                aliases: ['other-webmails']
                 type: dict
                 description: Other webmails.
                 suboptions:
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
@@ -283,15 +303,18 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -317,6 +340,7 @@ options:
                             - 'disable'
                             - 'enable'
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable/disable local filter to override SMTP remote check result.
                         choices:
@@ -329,15 +353,18 @@ options:
                             - 'disable'
                             - 'enable'
                     log_all:
+                        aliases: ['log-all']
                         type: str
                         description: Enable/disable logging of all email traffic.
                         choices:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -346,6 +373,7 @@ options:
                             - 'header'
                             - 'spaminfo'
             file_filter:
+                aliases: ['file-filter']
                 type: dict
                 description: File filter.
                 suboptions:
@@ -370,12 +398,14 @@ options:
                                     - 'any'
                                     - 'yes'
                             file_type:
+                                aliases: ['file-type']
                                 type: raw
                                 description: (list) Select file type.
                             filter:
                                 type: str
                                 description: Add a file filter.
                             password_protected:
+                                aliases: ['password-protected']
                                 type: str
                                 description: Match password-protected files.
                                 choices:
@@ -396,6 +426,7 @@ options:
                             - 'disable'
                             - 'enable'
                     scan_archive_contents:
+                        aliases: ['scan-archive-contents']
                         type: str
                         description: Enable/disable file filter archive contents scan.
                         choices:
@@ -408,6 +439,7 @@ options:
                             - 'disable'
                             - 'enable'
             spam_bal_table:
+                aliases: ['spam-bal-table']
                 type: str
                 description: Anti-spam block/allow list table ID.
 '''

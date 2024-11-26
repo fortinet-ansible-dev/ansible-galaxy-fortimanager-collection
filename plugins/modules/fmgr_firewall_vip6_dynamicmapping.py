@@ -105,6 +105,7 @@ options:
                         type: str
                         description: Vdom.
             arp_reply:
+                aliases: ['arp-reply']
                 type: str
                 description: Arp reply.
                 choices:
@@ -123,45 +124,55 @@ options:
                 type: str
                 description: Extport.
             http_cookie_age:
+                aliases: ['http-cookie-age']
                 type: int
                 description: Http cookie age.
             http_cookie_domain:
+                aliases: ['http-cookie-domain']
                 type: str
                 description: Http cookie domain.
             http_cookie_domain_from_host:
+                aliases: ['http-cookie-domain-from-host']
                 type: str
                 description: Http cookie domain from host.
                 choices:
                     - 'disable'
                     - 'enable'
             http_cookie_generation:
+                aliases: ['http-cookie-generation']
                 type: int
                 description: Http cookie generation.
             http_cookie_path:
+                aliases: ['http-cookie-path']
                 type: str
                 description: Http cookie path.
             http_cookie_share:
+                aliases: ['http-cookie-share']
                 type: str
                 description: Http cookie share.
                 choices:
                     - 'disable'
                     - 'same-ip'
             http_ip_header:
+                aliases: ['http-ip-header']
                 type: str
                 description: Http ip header.
                 choices:
                     - 'disable'
                     - 'enable'
             http_ip_header_name:
+                aliases: ['http-ip-header-name']
                 type: str
                 description: Http ip header name.
             http_multiplex:
+                aliases: ['http-multiplex']
                 type: str
                 description: Http multiplex.
                 choices:
                     - 'disable'
                     - 'enable'
             https_cookie_secure:
+                aliases: ['https-cookie-secure']
                 type: str
                 description: Https cookie secure.
                 choices:
@@ -171,6 +182,7 @@ options:
                 type: int
                 description: Id.
             ldb_method:
+                aliases: ['ldb-method']
                 type: str
                 description: Ldb method.
                 choices:
@@ -188,12 +200,14 @@ options:
                 type: str
                 description: Mappedport.
             max_embryonic_connections:
+                aliases: ['max-embryonic-connections']
                 type: int
                 description: Max embryonic connections.
             monitor:
                 type: raw
                 description: (list or str) Monitor.
             outlook_web_access:
+                aliases: ['outlook-web-access']
                 type: str
                 description: Outlook web access.
                 choices:
@@ -220,6 +234,7 @@ options:
                     - 'udp'
                     - 'sctp'
             server_type:
+                aliases: ['server-type']
                 type: str
                 description: Server type.
                 choices:
@@ -233,9 +248,11 @@ options:
                     - 'pop3s'
                     - 'smtps'
             src_filter:
+                aliases: ['src-filter']
                 type: raw
                 description: (list) Src filter.
             ssl_algorithm:
+                aliases: ['ssl-algorithm']
                 type: str
                 description: Ssl algorithm.
                 choices:
@@ -244,15 +261,18 @@ options:
                     - 'medium'
                     - 'custom'
             ssl_certificate:
+                aliases: ['ssl-certificate']
                 type: str
                 description: Ssl certificate.
             ssl_client_fallback:
+                aliases: ['ssl-client-fallback']
                 type: str
                 description: Ssl client fallback.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_client_renegotiation:
+                aliases: ['ssl-client-renegotiation']
                 type: str
                 description: Ssl client renegotiation.
                 choices:
@@ -260,12 +280,15 @@ options:
                     - 'allow'
                     - 'secure'
             ssl_client_session_state_max:
+                aliases: ['ssl-client-session-state-max']
                 type: int
                 description: Ssl client session state max.
             ssl_client_session_state_timeout:
+                aliases: ['ssl-client-session-state-timeout']
                 type: int
                 description: Ssl client session state timeout.
             ssl_client_session_state_type:
+                aliases: ['ssl-client-session-state-type']
                 type: str
                 description: Ssl client session state type.
                 choices:
@@ -274,6 +297,7 @@ options:
                     - 'count'
                     - 'both'
             ssl_dh_bits:
+                aliases: ['ssl-dh-bits']
                 type: str
                 description: Ssl dh bits.
                 choices:
@@ -284,6 +308,7 @@ options:
                     - '3072'
                     - '4096'
             ssl_hpkp:
+                aliases: ['ssl-hpkp']
                 type: str
                 description: Ssl hpkp.
                 choices:
@@ -291,51 +316,62 @@ options:
                     - 'enable'
                     - 'report-only'
             ssl_hpkp_age:
+                aliases: ['ssl-hpkp-age']
                 type: int
                 description: Ssl hpkp age.
             ssl_hpkp_backup:
+                aliases: ['ssl-hpkp-backup']
                 type: str
                 description: Ssl hpkp backup.
             ssl_hpkp_include_subdomains:
+                aliases: ['ssl-hpkp-include-subdomains']
                 type: str
                 description: Ssl hpkp include subdomains.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_hpkp_primary:
+                aliases: ['ssl-hpkp-primary']
                 type: str
                 description: Ssl hpkp primary.
             ssl_hpkp_report_uri:
+                aliases: ['ssl-hpkp-report-uri']
                 type: str
                 description: Ssl hpkp report uri.
             ssl_hsts:
+                aliases: ['ssl-hsts']
                 type: str
                 description: Ssl hsts.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_hsts_age:
+                aliases: ['ssl-hsts-age']
                 type: int
                 description: Ssl hsts age.
             ssl_hsts_include_subdomains:
+                aliases: ['ssl-hsts-include-subdomains']
                 type: str
                 description: Ssl hsts include subdomains.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_http_location_conversion:
+                aliases: ['ssl-http-location-conversion']
                 type: str
                 description: Ssl http location conversion.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_http_match_host:
+                aliases: ['ssl-http-match-host']
                 type: str
                 description: Ssl http match host.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_max_version:
+                aliases: ['ssl-max-version']
                 type: str
                 description: Ssl max version.
                 choices:
@@ -345,6 +381,7 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             ssl_min_version:
+                aliases: ['ssl-min-version']
                 type: str
                 description: Ssl min version.
                 choices:
@@ -354,12 +391,14 @@ options:
                     - 'tls-1.2'
                     - 'tls-1.3'
             ssl_mode:
+                aliases: ['ssl-mode']
                 type: str
                 description: Ssl mode.
                 choices:
                     - 'half'
                     - 'full'
             ssl_pfs:
+                aliases: ['ssl-pfs']
                 type: str
                 description: Ssl pfs.
                 choices:
@@ -367,12 +406,14 @@ options:
                     - 'deny'
                     - 'allow'
             ssl_send_empty_frags:
+                aliases: ['ssl-send-empty-frags']
                 type: str
                 description: Ssl send empty frags.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_server_algorithm:
+                aliases: ['ssl-server-algorithm']
                 type: str
                 description: Ssl server algorithm.
                 choices:
@@ -382,6 +423,7 @@ options:
                     - 'custom'
                     - 'client'
             ssl_server_max_version:
+                aliases: ['ssl-server-max-version']
                 type: str
                 description: Ssl server max version.
                 choices:
@@ -392,6 +434,7 @@ options:
                     - 'client'
                     - 'tls-1.3'
             ssl_server_min_version:
+                aliases: ['ssl-server-min-version']
                 type: str
                 description: Ssl server min version.
                 choices:
@@ -402,12 +445,15 @@ options:
                     - 'client'
                     - 'tls-1.3'
             ssl_server_session_state_max:
+                aliases: ['ssl-server-session-state-max']
                 type: int
                 description: Ssl server session state max.
             ssl_server_session_state_timeout:
+                aliases: ['ssl-server-session-state-timeout']
                 type: int
                 description: Ssl server session state timeout.
             ssl_server_session_state_type:
+                aliases: ['ssl-server-session-state-type']
                 type: str
                 description: Ssl server session state type.
                 choices:
@@ -426,48 +472,57 @@ options:
                 type: str
                 description: Uuid.
             weblogic_server:
+                aliases: ['weblogic-server']
                 type: str
                 description: Weblogic server.
                 choices:
                     - 'disable'
                     - 'enable'
             websphere_server:
+                aliases: ['websphere-server']
                 type: str
                 description: Websphere server.
                 choices:
                     - 'disable'
                     - 'enable'
             http_redirect:
+                aliases: ['http-redirect']
                 type: str
                 description: Http redirect.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_client_rekey_count:
+                aliases: ['ssl-client-rekey-count']
                 type: int
                 description: Ssl client rekey count.
             nat_source_vip:
+                aliases: ['nat-source-vip']
                 type: str
                 description: Nat source vip.
                 choices:
                     - 'disable'
                     - 'enable'
             add_nat64_route:
+                aliases: ['add-nat64-route']
                 type: str
                 description: Enable/disable adding NAT64 route.
                 choices:
                     - 'disable'
                     - 'enable'
             embedded_ipv4_address:
+                aliases: ['embedded-ipv4-address']
                 type: str
                 description: Enable/disable use of the lower 32 bits of the external IPv6 address as mapped IPv4 address.
                 choices:
                     - 'disable'
                     - 'enable'
             ipv4_mappedip:
+                aliases: ['ipv4-mappedip']
                 type: str
                 description: Range of mapped IP addresses.
             ipv4_mappedport:
+                aliases: ['ipv4-mappedport']
                 type: str
                 description: IPv4 port number range on the destination network to which the external port number range is mapped.
             nat64:
@@ -488,6 +543,7 @@ options:
                 description: Realservers.
                 suboptions:
                     client_ip:
+                        aliases: ['client-ip']
                         type: str
                         description: Only clients in this IP range can connect to this real server.
                     healthcheck:
@@ -498,9 +554,11 @@ options:
                             - 'enable'
                             - 'vip'
                     holddown_interval:
+                        aliases: ['holddown-interval']
                         type: int
                         description: Time in seconds that the health check monitor continues to monitor an unresponsive server that should be active.
                     http_host:
+                        aliases: ['http-host']
                         type: str
                         description: HTTP server domain name in HTTP header.
                     id:
@@ -510,6 +568,7 @@ options:
                         type: str
                         description: IP address of the real server.
                     max_connections:
+                        aliases: ['max-connections']
                         type: int
                         description: Max number of active connections that can directed to the real server.
                     monitor:
@@ -529,18 +588,21 @@ options:
                         type: int
                         description: Weight of the real server.
                     translate_host:
+                        aliases: ['translate-host']
                         type: str
                         description: Enable/disable translation of hostname/IP from virtual server to real server.
                         choices:
                             - 'disable'
                             - 'enable'
             ssl_accept_ffdhe_groups:
+                aliases: ['ssl-accept-ffdhe-groups']
                 type: str
                 description: Enable/disable FFDHE cipher suite for SSL key exchange.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_cipher_suites:
+                aliases: ['ssl-cipher-suites']
                 type: list
                 elements: dict
                 description: Ssl cipher suites.
@@ -634,30 +696,35 @@ options:
                             - 'tls-1.2'
                             - 'tls-1.3'
             ndp_reply:
+                aliases: ['ndp-reply']
                 type: str
                 description: Enable/disable this FortiGate units ability to respond to NDP requests for this virtual IP address
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_server_renegotiation:
+                aliases: ['ssl-server-renegotiation']
                 type: str
                 description: Enable/disable secure renegotiation to comply with RFC 5746.
                 choices:
                     - 'disable'
                     - 'enable'
             h2_support:
+                aliases: ['h2-support']
                 type: str
                 description: Enable/disable HTTP2 support
                 choices:
                     - 'disable'
                     - 'enable'
             h3_support:
+                aliases: ['h3-support']
                 type: str
                 description: Enable/disable HTTP3/QUIC support
                 choices:
                     - 'disable'
                     - 'enable'
             src_vip_filter:
+                aliases: ['src-vip-filter']
                 type: str
                 description: Enable/disable use of src-filter to match destinations for the reverse SNAT rule.
                 choices:

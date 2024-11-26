@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             app_category:
+                aliases: ['app-category']
                 type: raw
                 description: (list) Application category ID.
             app_service_type:
+                aliases: ['app-service-type']
                 type: str
                 description: Application service type.
                 choices:
@@ -106,6 +108,7 @@ options:
                 type: str
                 description: Service category.
             check_reset_range:
+                aliases: ['check-reset-range']
                 type: str
                 description: Configure the type of ICMP error message verification.
                 choices:
@@ -176,6 +179,7 @@ options:
                     - 'SOCKS-UDP'
                     - 'TCP/UDP/UDP-Lite/SCTP'
             protocol_number:
+                aliases: ['protocol-number']
                 type: int
                 description: IP protocol number.
             proxy:
@@ -185,27 +189,35 @@ options:
                     - 'disable'
                     - 'enable'
             sctp_portrange:
+                aliases: ['sctp-portrange']
                 type: str
                 description: Multiple SCTP port ranges.
             session_ttl:
+                aliases: ['session-ttl']
                 type: raw
                 description: (int or str) Session TTL
             tcp_halfclose_timer:
+                aliases: ['tcp-halfclose-timer']
                 type: int
                 description: Wait time to close a TCP session waiting for an unanswered FIN packet
             tcp_halfopen_timer:
+                aliases: ['tcp-halfopen-timer']
                 type: int
                 description: Wait time to close a TCP session waiting for an unanswered open session packet
             tcp_portrange:
+                aliases: ['tcp-portrange']
                 type: str
                 description: Multiple TCP port ranges.
             tcp_timewait_timer:
+                aliases: ['tcp-timewait-timer']
                 type: int
                 description: Set the length of the TCP TIME-WAIT state in seconds
             udp_idle_timer:
+                aliases: ['udp-idle-timer']
                 type: int
                 description: UDP half close timeout
             udp_portrange:
+                aliases: ['udp-portrange']
                 type: str
                 description: Multiple UDP port ranges.
             visibility:
@@ -215,27 +227,32 @@ options:
                     - 'disable'
                     - 'enable'
             explicit_proxy:
+                aliases: ['explicit-proxy']
                 type: str
                 description: Enable/disable explicit web proxy service.
                 choices:
                     - 'disable'
                     - 'enable'
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_rst_timer:
+                aliases: ['tcp-rst-timer']
                 type: int
                 description: Set the length of the TCP CLOSE state in seconds
             uuid:
                 type: str
                 description: Universally Unique Identifier
             udplite_portrange:
+                aliases: ['udplite-portrange']
                 type: str
                 description: Multiple UDP-Lite port ranges.
 '''

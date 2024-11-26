@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             default_cos:
+                aliases: ['default-cos']
                 type: int
                 description: Default cos queue for untagged packets.
             name:
@@ -97,12 +98,15 @@ options:
                 description: QoS policy name.
                 required: true
             queue_policy:
+                aliases: ['queue-policy']
                 type: str
                 description: QoS egress queue policy.
             trust_dot1p_map:
+                aliases: ['trust-dot1p-map']
                 type: str
                 description: QoS trust 802.
             trust_ip_dscp_map:
+                aliases: ['trust-ip-dscp-map']
                 type: str
                 description: QoS trust ip dscp map.
 '''

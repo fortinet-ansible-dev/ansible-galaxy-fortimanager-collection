@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Peer IP address.
             peer_host_id:
+                aliases: ['peer-host-id']
                 type: str
                 description: Peer host ID.
                 required: true

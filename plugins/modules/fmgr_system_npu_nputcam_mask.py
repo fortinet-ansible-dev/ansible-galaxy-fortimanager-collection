@@ -108,42 +108,52 @@ options:
                 type: str
                 description: Tcam mask ethertype.
             ext_tag:
+                aliases: ['ext-tag']
                 type: str
                 description: Tcam mask extension tag.
                 choices:
                     - 'disable'
                     - 'enable'
             frag_off:
+                aliases: ['frag-off']
                 type: int
                 description: Tcam data ip flag fragment offset.
             gen_buf_cnt:
+                aliases: ['gen-buf-cnt']
                 type: int
                 description: Tcam mask gen info buffer count.
             gen_iv:
+                aliases: ['gen-iv']
                 type: str
                 description: Tcam mask gen info iv.
                 choices:
                     - 'invalid'
                     - 'valid'
             gen_l3_flags:
+                aliases: ['gen-l3-flags']
                 type: int
                 description: Tcam mask gen info L3 flags.
             gen_l4_flags:
+                aliases: ['gen-l4-flags']
                 type: int
                 description: Tcam mask gen info L4 flags.
             gen_pkt_ctrl:
+                aliases: ['gen-pkt-ctrl']
                 type: int
                 description: Tcam mask gen info packet control.
             gen_pri:
+                aliases: ['gen-pri']
                 type: int
                 description: Tcam mask gen info priority.
             gen_pri_v:
+                aliases: ['gen-pri-v']
                 type: str
                 description: Tcam mask gen info priority valid.
                 choices:
                     - 'invalid'
                     - 'valid'
             gen_tv:
+                aliases: ['gen-tv']
                 type: str
                 description: Tcam mask gen info tv.
                 choices:
@@ -153,24 +163,30 @@ options:
                 type: int
                 description: Tcam mask ipv4 IHL.
             ip4_id:
+                aliases: ['ip4-id']
                 type: int
                 description: Tcam mask ipv4 id.
             ip6_fl:
+                aliases: ['ip6-fl']
                 type: int
                 description: Tcam mask ipv6 flow label.
             ipver:
                 type: int
                 description: Tcam mask ip header version.
             l4_wd10:
+                aliases: ['l4-wd10']
                 type: int
                 description: Tcam mask L4 word10.
             l4_wd11:
+                aliases: ['l4-wd11']
                 type: int
                 description: Tcam mask L4 word11.
             l4_wd8:
+                aliases: ['l4-wd8']
                 type: int
                 description: Tcam mask L4 word8.
             l4_wd9:
+                aliases: ['l4-wd9']
                 type: int
                 description: Tcam mask L4 word9.
             mf:
@@ -186,6 +202,7 @@ options:
                 type: int
                 description: Tcam mask sublink.
             smac_change:
+                aliases: ['smac-change']
                 type: str
                 description: Tcam mask source MAC change.
                 choices:
@@ -195,15 +212,18 @@ options:
                 type: int
                 description: Tcam mask source port.
             src_cfi:
+                aliases: ['src-cfi']
                 type: str
                 description: Tcam mask source cfi.
                 choices:
                     - 'disable'
                     - 'enable'
             src_prio:
+                aliases: ['src-prio']
                 type: int
                 description: Tcam mask source priority.
             src_updt:
+                aliases: ['src-updt']
                 type: str
                 description: Tcam mask source update.
                 choices:
@@ -225,69 +245,81 @@ options:
                 type: int
                 description: Tcam mask source vid.
             tcp_ack:
+                aliases: ['tcp-ack']
                 type: str
                 description: Tcam mask tcp flag ack.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_cwr:
+                aliases: ['tcp-cwr']
                 type: str
                 description: Tcam mask tcp flag cwr.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_ece:
+                aliases: ['tcp-ece']
                 type: str
                 description: Tcam mask tcp flag ece.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_fin:
+                aliases: ['tcp-fin']
                 type: str
                 description: Tcam mask tcp flag fin.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_push:
+                aliases: ['tcp-push']
                 type: str
                 description: Tcam mask tcp flag push.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_rst:
+                aliases: ['tcp-rst']
                 type: str
                 description: Tcam mask tcp flag rst.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_syn:
+                aliases: ['tcp-syn']
                 type: str
                 description: Tcam mask tcp flag syn.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_urg:
+                aliases: ['tcp-urg']
                 type: str
                 description: Tcam mask tcp flag urg.
                 choices:
                     - 'disable'
                     - 'enable'
             tgt_cfi:
+                aliases: ['tgt-cfi']
                 type: str
                 description: Tcam mask target cfi.
                 choices:
                     - 'disable'
                     - 'enable'
             tgt_prio:
+                aliases: ['tgt-prio']
                 type: int
                 description: Tcam mask target priority.
             tgt_updt:
+                aliases: ['tgt-updt']
                 type: str
                 description: Tcam mask target port update.
                 choices:
                     - 'disable'
                     - 'enable'
             tgt_v:
+                aliases: ['tgt-v']
                 type: str
                 description: Tcam mask target valid.
                 choices:

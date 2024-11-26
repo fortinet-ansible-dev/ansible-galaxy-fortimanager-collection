@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             max_alert_count:
+                aliases: ['max-alert-count']
                 type: int
                 description: Maximum number of alerts supported.
 '''

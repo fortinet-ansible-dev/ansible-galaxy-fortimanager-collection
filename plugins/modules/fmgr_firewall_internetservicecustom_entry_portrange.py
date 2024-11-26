@@ -100,6 +100,7 @@ options:
         type: dict
         suboptions:
             end_port:
+                aliases: ['end-port']
                 type: int
                 description: Integer value for ending TCP/UDP/SCTP destination port in range
             id:
@@ -107,6 +108,7 @@ options:
                 description: Custom entry port range ID.
                 required: true
             start_port:
+                aliases: ['start-port']
                 type: int
                 description: Integer value for starting TCP/UDP/SCTP destination port in range
 '''

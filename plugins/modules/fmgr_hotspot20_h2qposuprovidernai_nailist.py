@@ -100,6 +100,7 @@ options:
                 description: OSU NAI ID.
                 required: true
             osu_nai:
+                aliases: ['osu-nai']
                 type: str
                 description: OSU NAI.
 '''

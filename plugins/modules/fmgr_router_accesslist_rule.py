@@ -102,6 +102,7 @@ options:
                     - 'permit'
                     - 'deny'
             exact_match:
+                aliases: ['exact-match']
                 type: str
                 description: Enable/disable exact match.
                 choices:

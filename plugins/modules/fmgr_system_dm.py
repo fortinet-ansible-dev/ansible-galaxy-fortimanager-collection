@@ -77,27 +77,34 @@ options:
         type: dict
         suboptions:
             concurrent_install_image_limit:
+                aliases: ['concurrent-install-image-limit']
                 type: int
                 description: Maximum number of concurrent install image
             concurrent_install_limit:
+                aliases: ['concurrent-install-limit']
                 type: int
                 description: Maximum number of concurrent installs
             concurrent_install_script_limit:
+                aliases: ['concurrent-install-script-limit']
                 type: int
                 description: Maximum number of concurrent install scripts
             discover_timeout:
+                aliases: ['discover-timeout']
                 type: int
                 description: Check connection timeout when discover device
             dpm_logsize:
+                aliases: ['dpm-logsize']
                 type: int
                 description: Maximum dpm log size per device
             fgfm_sock_timeout:
+                aliases: ['fgfm-sock-timeout']
                 type: int
                 description: Maximum FGFM socket idle time
             fgfm_keepalive_itvl:
                 type: int
                 description: FGFM protocol keep alive interval
             force_remote_diff:
+                aliases: ['force-remote-diff']
                 type: str
                 description:
                     - Always use remote diff when installing.
@@ -107,24 +114,31 @@ options:
                     - 'disable'
                     - 'enable'
             fortiap_refresh_cnt:
+                aliases: ['fortiap-refresh-cnt']
                 type: int
                 description: Max auto refresh FortiAP number each time
             fortiap_refresh_itvl:
+                aliases: ['fortiap-refresh-itvl']
                 type: int
                 description: Auto refresh FortiAP status interval
             fortiext_refresh_cnt:
+                aliases: ['fortiext-refresh-cnt']
                 type: int
                 description: Max device number for FortiExtender auto refresh
             install_image_timeout:
+                aliases: ['install-image-timeout']
                 type: int
                 description: Maximum waiting time for image transfer and device upgrade
             install_tunnel_retry_itvl:
+                aliases: ['install-tunnel-retry-itvl']
                 type: int
                 description: Time to re-establish tunnel during install
             max_revs:
+                aliases: ['max-revs']
                 type: int
                 description: Maximum number of revisions saved
             nr_retry:
+                aliases: ['nr-retry']
                 type: int
                 description: Number of retries.
             retry:
@@ -137,9 +151,11 @@ options:
                     - 'disable'
                     - 'enable'
             retry_intvl:
+                aliases: ['retry-intvl']
                 type: int
                 description: Retry interval.
             rollback_allow_reboot:
+                aliases: ['rollback-allow-reboot']
                 type: str
                 description:
                     - Enable/disable FortiGate reboot to rollback when installing script/config.
@@ -149,9 +165,11 @@ options:
                     - 'disable'
                     - 'enable'
             script_logsize:
+                aliases: ['script-logsize']
                 type: int
                 description: Maximum script log size per device
             skip_scep_check:
+                aliases: ['skip-scep-check']
                 type: str
                 description:
                     - Enable/disable installing scep related objects even if scep url is configured.
@@ -161,6 +179,7 @@ options:
                     - 'disable'
                     - 'enable'
             skip_tunnel_fcp_req:
+                aliases: ['skip-tunnel-fcp-req']
                 type: str
                 description:
                     - Enable/disable skip the fcp request sent from fgfm tunnel
@@ -170,6 +189,7 @@ options:
                     - 'disable'
                     - 'enable'
             verify_install:
+                aliases: ['verify-install']
                 type: str
                 description:
                     - Verify install against remote configuration.
@@ -181,9 +201,11 @@ options:
                     - 'optimal'
                     - 'enable'
             fgfm_install_refresh_count:
+                aliases: ['fgfm-install-refresh-count']
                 type: int
                 description: Maximum FGFM install refresh attempt.
             conf_merge_after_script:
+                aliases: ['conf-merge-after-script']
                 type: str
                 description:
                     - Merge config after run script on remote device, instead of full retrieve.
@@ -193,6 +215,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_autoupdate:
+                aliases: ['log-autoupdate']
                 type: str
                 description:
                     - Enable/disable autoupdate debug logging.
@@ -202,9 +225,11 @@ options:
                     - 'disable'
                     - 'enable'
             fgfm_auto_retrieve_timeout:
+                aliases: ['fgfm-auto-retrieve-timeout']
                 type: int
                 description: Maximum waiting time for auto retrieve
             install_fds_timeout:
+                aliases: ['install-fds-timeout']
                 type: int
                 description: Maximum waiting time for fgt update during install
 '''

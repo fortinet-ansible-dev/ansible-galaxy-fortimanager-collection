@@ -96,12 +96,14 @@ options:
                     - 'disable'
                     - 'enable'
             cpe_aele:
+                aliases: ['cpe-aele']
                 type: str
                 description: Cpe AELE.
                 choices:
                     - 'disable'
                     - 'enable'
             cpe_aele_mode:
+                aliases: ['cpe-aele-mode']
                 type: str
                 description: Cpe AELE-Mode with given string.
                 choices:
@@ -119,6 +121,7 @@ options:
                     - 'A43C'
                     - 'V43'
             ds_bitswap:
+                aliases: ['ds-bitswap']
                 type: str
                 description: Enable/disable bitswap.
                 choices:
@@ -129,6 +132,7 @@ options:
                 description: Policy name.
                 required: true
             pause_frame:
+                aliases: ['pause-frame']
                 type: str
                 description: Device pause frame configuration.
                 choices:
@@ -148,6 +152,7 @@ options:
                     - 'Procend'
                     - 'Proscend'
             us_bitswap:
+                aliases: ['us-bitswap']
                 type: str
                 description: Enable/disable bitswap.
                 choices:

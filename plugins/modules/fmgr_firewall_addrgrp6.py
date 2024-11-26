@@ -133,12 +133,15 @@ options:
                             - 'disable'
                             - 'enable'
                     _image_base64:
+                        aliases: ['_image-base64']
                         type: str
                         description: Image base64.
                     global_object:
+                        aliases: ['global-object']
                         type: int
                         description: Global object.
                     fabric_object:
+                        aliases: ['fabric-object']
                         type: str
                         description: Security Fabric global object setting.
                         choices:
@@ -151,6 +154,7 @@ options:
                             - 'disable'
                             - 'enable'
                     exclude_member:
+                        aliases: ['exclude-member']
                         type: raw
                         description: (list) Address6 exclusion member.
             member:
@@ -187,12 +191,15 @@ options:
                 type: str
                 description: Names of object-tags applied to address.
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:
@@ -205,6 +212,7 @@ options:
                     - 'disable'
                     - 'enable'
             exclude_member:
+                aliases: ['exclude-member']
                 type: raw
                 description: (list) Address6 exclusion member.
 '''

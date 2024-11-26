@@ -100,15 +100,18 @@ options:
                 description: Server ID.
                 required: true
             ip_address:
+                aliases: ['ip-address']
                 type: str
                 description: Domain controller IP address.
             port:
                 type: int
                 description: Port to be used for communication with the domain controller
             source_ip_address:
+                aliases: ['source-ip-address']
                 type: str
                 description: FortiGate IPv4 address to be used for communication with the domain controller.
             source_port:
+                aliases: ['source-port']
                 type: int
                 description: Source port to be used for communication with the domain controller.
 '''

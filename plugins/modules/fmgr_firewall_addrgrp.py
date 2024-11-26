@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             allow_routing:
+                aliases: ['allow-routing']
                 type: str
                 description: Enable/disable use of this group in the static route configuration.
                 choices:
@@ -118,6 +119,7 @@ options:
                                 type: str
                                 description: Vdom.
                     allow_routing:
+                        aliases: ['allow-routing']
                         type: str
                         description: Allow routing.
                         choices:
@@ -136,6 +138,7 @@ options:
                             - 'disable'
                             - 'enable'
                     exclude_member:
+                        aliases: ['exclude-member']
                         type: raw
                         description: (list or str) Exclude member.
                     member:
@@ -155,9 +158,11 @@ options:
                             - 'disable'
                             - 'enable'
                     _image_base64:
+                        aliases: ['_image-base64']
                         type: str
                         description: Image base64.
                     global_object:
+                        aliases: ['global-object']
                         type: int
                         description: Global object.
                     type:
@@ -168,6 +173,7 @@ options:
                             - 'array'
                             - 'folder'
                     fabric_object:
+                        aliases: ['fabric-object']
                         type: str
                         description: Security Fabric global object setting.
                         choices:
@@ -218,15 +224,18 @@ options:
                     - 'disable'
                     - 'enable'
             exclude_member:
+                aliases: ['exclude-member']
                 type: raw
                 description: (list or str) Address exclusion member.
             tags:
                 type: str
                 description: Name
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             type:
@@ -237,6 +246,7 @@ options:
                     - 'array'
                     - 'folder'
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:

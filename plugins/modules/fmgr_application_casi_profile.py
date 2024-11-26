@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             app_replacemsg:
+                aliases: ['app-replacemsg']
                 type: str
                 description: Enable/disable replacement messages for blocked applications.
                 choices:
@@ -127,6 +128,7 @@ options:
                 description: Profile name.
                 required: true
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
 '''

@@ -90,11 +90,13 @@ options:
         type: dict
         suboptions:
             friendly_name:
+                aliases: ['friendly-name']
                 type: list
                 elements: dict
                 description: Friendly name.
                 suboptions:
                     friendly_name:
+                        aliases: ['friendly-name']
                         type: str
                         description: OSU provider friendly name.
                     index:
@@ -111,6 +113,7 @@ options:
                 description: OSU provider ID.
                 required: true
             osu_method:
+                aliases: ['osu-method']
                 type: list
                 elements: str
                 description: OSU method list.
@@ -119,12 +122,15 @@ options:
                     - 'soap-xml-spp'
                     - 'reserved'
             osu_nai:
+                aliases: ['osu-nai']
                 type: str
                 description: OSU NAI.
             server_uri:
+                aliases: ['server-uri']
                 type: str
                 description: Server URI.
             service_description:
+                aliases: ['service-description']
                 type: list
                 elements: dict
                 description: Service description.
@@ -133,9 +139,11 @@ options:
                         type: str
                         description: Language code.
                     service_description:
+                        aliases: ['service-description']
                         type: str
                         description: Service description.
                     service_id:
+                        aliases: ['service-id']
                         type: int
                         description: OSU service ID.
 '''

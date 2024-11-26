@@ -102,6 +102,7 @@ options:
         type: dict
         suboptions:
             entry_name:
+                aliases: ['entry-name']
                 type: str
                 description: Configure binding pair.
             ip:

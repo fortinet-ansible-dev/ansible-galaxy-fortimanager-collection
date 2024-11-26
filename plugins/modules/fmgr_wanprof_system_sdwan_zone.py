@@ -98,6 +98,7 @@ options:
                 description: Zone name.
                 required: true
             service_sla_tie_break:
+                aliases: ['service-sla-tie-break']
                 type: str
                 description: Method of selecting member if more than one meets the SLA.
                 choices:
@@ -105,12 +106,15 @@ options:
                     - 'fib-best-match'
                     - 'input-device'
             minimum_sla_meet_members:
+                aliases: ['minimum-sla-meet-members']
                 type: int
                 description: Minimum number of members which meet SLA when the neighbor is preferred.
             advpn_health_check:
+                aliases: ['advpn-health-check']
                 type: str
                 description: Health check for ADVPN local overlay link quality.
             advpn_select:
+                aliases: ['advpn-select']
                 type: str
                 description: Enable/disable selection of ADVPN based on SDWAN information.
                 choices:

@@ -103,6 +103,7 @@ options:
                     - 'monitor'
                     - 'pass'
             dns_address_family:
+                aliases: ['dns-address-family']
                 type: str
                 description: Resolve IPv4 address, IPv6 address, or both from DNS server.
                 choices:
@@ -129,6 +130,7 @@ options:
                 description: Id.
                 required: true
             referrer_host:
+                aliases: ['referrer-host']
                 type: str
                 description: Referrer host name.
             status:
@@ -148,9 +150,11 @@ options:
                 type: str
                 description: URL to be filtered.
             web_proxy_profile:
+                aliases: ['web-proxy-profile']
                 type: str
                 description: Web proxy profile.
             antiphish_action:
+                aliases: ['antiphish-action']
                 type: str
                 description: Action to take for AntiPhishing matches.
                 choices:

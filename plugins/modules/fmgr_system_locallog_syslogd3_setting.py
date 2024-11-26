@@ -169,6 +169,7 @@ options:
                     - 'disable'
                     - 'enable'
             syslog_name:
+                aliases: ['syslog-name']
                 type: str
                 description: Remote syslog server name.
             cert:
@@ -184,6 +185,7 @@ options:
                     - 'disable'
                     - 'enable'
             secure_connection:
+                aliases: ['secure-connection']
                 type: str
                 description:
                     - Enable/disable connection secured by TLS/SSL.

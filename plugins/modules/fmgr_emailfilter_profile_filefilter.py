@@ -105,12 +105,14 @@ options:
                             - 'any'
                             - 'yes'
                     file_type:
+                        aliases: ['file-type']
                         type: raw
                         description: (list) Select file type.
                     filter:
                         type: str
                         description: Add a file filter.
                     password_protected:
+                        aliases: ['password-protected']
                         type: str
                         description: Match password-protected files.
                         choices:
@@ -131,6 +133,7 @@ options:
                     - 'disable'
                     - 'enable'
             scan_archive_contents:
+                aliases: ['scan-archive-contents']
                 type: str
                 description: Enable/disable file filter archive contents scan.
                 choices:

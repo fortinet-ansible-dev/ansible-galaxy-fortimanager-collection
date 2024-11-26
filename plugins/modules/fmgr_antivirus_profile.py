@@ -90,27 +90,33 @@ options:
         type: dict
         suboptions:
             analytics_bl_filetype:
+                aliases: ['analytics-bl-filetype']
                 type: str
                 description: Only submit files matching this DLP file-pattern to FortiSandbox.
             analytics_db:
+                aliases: ['analytics-db']
                 type: str
                 description: Enable/disable using the FortiSandbox signature database to supplement the AV signature databases.
                 choices:
                     - 'disable'
                     - 'enable'
             analytics_max_upload:
+                aliases: ['analytics-max-upload']
                 type: int
                 description: Maximum size of files that can be uploaded to FortiSandbox
             analytics_wl_filetype:
+                aliases: ['analytics-wl-filetype']
                 type: str
                 description: Do not submit files matching this DLP file-pattern to FortiSandbox.
             av_block_log:
+                aliases: ['av-block-log']
                 type: str
                 description: Enable/disable logging for AntiVirus file blocking.
                 choices:
                     - 'disable'
                     - 'enable'
             av_virus_log:
+                aliases: ['av-virus-log']
                 type: str
                 description: Enable/disable AntiVirus logging.
                 choices:
@@ -120,12 +126,14 @@ options:
                 type: str
                 description: Comment.
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging for antivirus.
                 choices:
                     - 'disable'
                     - 'enable'
             ftgd_analytics:
+                aliases: ['ftgd-analytics']
                 type: str
                 description: Settings to control which files are uploaded to FortiSandbox.
                 choices:
@@ -133,12 +141,14 @@ options:
                     - 'suspicious'
                     - 'everything'
             inspection_mode:
+                aliases: ['inspection-mode']
                 type: str
                 description: Inspection mode.
                 choices:
                     - 'proxy'
                     - 'flow-based'
             mobile_malware_db:
+                aliases: ['mobile-malware-db']
                 type: str
                 description: Enable/disable using the mobile malware signature database.
                 choices:
@@ -149,9 +159,11 @@ options:
                 description: Profile name.
                 required: true
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group customized for this profile.
             scan_mode:
+                aliases: ['scan-mode']
                 type: str
                 description: Choose between full scan mode and quick scan mode.
                 choices:
@@ -160,6 +172,7 @@ options:
                     - 'legacy'
                     - 'default'
             feature_set:
+                aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
                 choices:
@@ -170,6 +183,7 @@ options:
                 description: Cifs.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -184,6 +198,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -212,6 +227,7 @@ options:
                             - 'quarantine'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -222,6 +238,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -229,6 +246,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -263,22 +281,26 @@ options:
                             - 'monitor'
                             - 'block'
             content_disarm:
+                aliases: ['content-disarm']
                 type: dict
                 description: Content disarm.
                 suboptions:
                     cover_page:
+                        aliases: ['cover-page']
                         type: str
                         description: Enable/disable inserting a cover page into the disarmed document.
                         choices:
                             - 'disable'
                             - 'enable'
                     detect_only:
+                        aliases: ['detect-only']
                         type: str
                         description: Enable/disable only detect disarmable files, do not alter content.
                         choices:
                             - 'disable'
                             - 'enable'
                     error_action:
+                        aliases: ['error-action']
                         type: str
                         description: Action to be taken if CDR engine encounters an unrecoverable error.
                         choices:
@@ -286,42 +308,49 @@ options:
                             - 'log-only'
                             - 'ignore'
                     office_action:
+                        aliases: ['office-action']
                         type: str
                         description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     office_dde:
+                        aliases: ['office-dde']
                         type: str
                         description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     office_embed:
+                        aliases: ['office-embed']
                         type: str
                         description: Enable/disable stripping of embedded objects in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     office_hylink:
+                        aliases: ['office-hylink']
                         type: str
                         description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     office_linked:
+                        aliases: ['office-linked']
                         type: str
                         description: Enable/disable stripping of linked objects in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     office_macro:
+                        aliases: ['office-macro']
                         type: str
                         description: Enable/disable stripping of macros in Microsoft Office documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     original_file_destination:
+                        aliases: ['original-file-destination']
                         type: str
                         description: Destination to send original file if active content is removed.
                         choices:
@@ -329,60 +358,70 @@ options:
                             - 'quarantine'
                             - 'discard'
                     pdf_act_form:
+                        aliases: ['pdf-act-form']
                         type: str
                         description: Enable/disable stripping of PDF document actions that submit data to other targets.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_act_gotor:
+                        aliases: ['pdf-act-gotor']
                         type: str
                         description: Enable/disable stripping of PDF document actions that access other PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_act_java:
+                        aliases: ['pdf-act-java']
                         type: str
                         description: Enable/disable stripping of PDF document actions that execute JavaScript code.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_act_launch:
+                        aliases: ['pdf-act-launch']
                         type: str
                         description: Enable/disable stripping of PDF document actions that launch other applications.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_act_movie:
+                        aliases: ['pdf-act-movie']
                         type: str
                         description: Enable/disable stripping of PDF document actions that play a movie.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_act_sound:
+                        aliases: ['pdf-act-sound']
                         type: str
                         description: Enable/disable stripping of PDF document actions that play a sound.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_embedfile:
+                        aliases: ['pdf-embedfile']
                         type: str
                         description: Enable/disable stripping of embedded files in PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_hyperlink:
+                        aliases: ['pdf-hyperlink']
                         type: str
                         description: Enable/disable stripping of hyperlinks from PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     pdf_javacode:
+                        aliases: ['pdf-javacode']
                         type: str
                         description: Enable/disable stripping of JavaScript code in PDF documents.
                         choices:
                             - 'disable'
                             - 'enable'
                     analytics_suspicious:
+                        aliases: ['analytics-suspicious']
                         type: str
                         description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
                         choices:
@@ -393,6 +432,7 @@ options:
                 description: Ftp.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -407,6 +447,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -437,6 +478,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -447,6 +489,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -454,6 +497,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -492,6 +536,7 @@ options:
                 description: Http.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -506,6 +551,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -520,6 +566,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     content_disarm:
+                        aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
@@ -543,6 +590,7 @@ options:
                             - 'avmonitor'
                             - 'strict-file'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -553,12 +601,14 @@ options:
                             - 'block'
                             - 'monitor'
                     av_optimize:
+                        aliases: ['av-optimize']
                         type: str
                         description: Av optimize.
                         choices:
                             - 'disable'
                             - 'enable'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -566,6 +616,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -600,6 +651,7 @@ options:
                             - 'monitor'
                             - 'block'
                     unknown_content_encoding:
+                        aliases: ['unknown-content-encoding']
                         type: str
                         description: Configure the action the FortiGate unit will take on unknown content-encoding.
                         choices:
@@ -611,6 +663,7 @@ options:
                 description: Imap.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -625,6 +678,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -639,6 +693,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     content_disarm:
+                        aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
@@ -667,6 +722,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -677,6 +733,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -684,6 +741,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -722,6 +780,7 @@ options:
                 description: Mapi.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -736,6 +795,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -771,6 +831,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -781,6 +842,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -788,6 +850,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -822,6 +885,7 @@ options:
                             - 'monitor'
                             - 'block'
             nac_quar:
+                aliases: ['nac-quar']
                 type: dict
                 description: Nac quar.
                 suboptions:
@@ -846,6 +910,7 @@ options:
                 description: Nntp.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -860,6 +925,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -890,6 +956,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -900,6 +967,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -907,6 +975,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -941,16 +1010,19 @@ options:
                             - 'monitor'
                             - 'block'
             outbreak_prevention:
+                aliases: ['outbreak-prevention']
                 type: dict
                 description: Outbreak prevention.
                 suboptions:
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable/disable external malware blocklist.
                         choices:
                             - 'disable'
                             - 'enable'
                     ftgd_service:
+                        aliases: ['ftgd-service']
                         type: str
                         description: Enable/disable FortiGuard Virus outbreak prevention service.
                         choices:
@@ -961,6 +1033,7 @@ options:
                 description: Pop3.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -975,6 +1048,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -989,6 +1063,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     content_disarm:
+                        aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
@@ -1017,6 +1092,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -1027,6 +1103,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -1034,6 +1111,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -1072,6 +1150,7 @@ options:
                 description: Smtp.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -1086,6 +1165,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -1100,6 +1180,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     content_disarm:
+                        aliases: ['content-disarm']
                         type: str
                         description: Enable Content Disarm and Reconstruction for this protocol.
                         choices:
@@ -1128,6 +1209,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -1138,6 +1220,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -1145,6 +1228,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -1183,6 +1267,7 @@ options:
                 description: Ssh.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -1197,6 +1282,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -1225,6 +1311,7 @@ options:
                             - 'quarantine'
                             - 'scan'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable Virus Outbreak Prevention service.
                         choices:
@@ -1235,6 +1322,7 @@ options:
                             - 'block'
                             - 'monitor'
                     av_scan:
+                        aliases: ['av-scan']
                         type: str
                         description: Enable AntiVirus scan service.
                         choices:
@@ -1242,6 +1330,7 @@ options:
                             - 'monitor'
                             - 'block'
                     external_blocklist:
+                        aliases: ['external-blocklist']
                         type: str
                         description: Enable external-blocklist.
                         choices:
@@ -1280,6 +1369,7 @@ options:
                 description: Smb.
                 suboptions:
                     archive_block:
+                        aliases: ['archive-block']
                         type: list
                         elements: str
                         description: Select the archive types to block.
@@ -1294,6 +1384,7 @@ options:
                             - 'fileslimit'
                             - 'timeout'
                     archive_log:
+                        aliases: ['archive-log']
                         type: list
                         elements: str
                         description: Select the archive types to log.
@@ -1323,6 +1414,7 @@ options:
                             - 'avquery'
                             - 'avmonitor'
                     outbreak_prevention:
+                        aliases: ['outbreak-prevention']
                         type: str
                         description: Enable FortiGuard Virus Outbreak Prevention service.
                         choices:
@@ -1330,39 +1422,47 @@ options:
                             - 'files'
                             - 'full-archive'
             analytics_accept_filetype:
+                aliases: ['analytics-accept-filetype']
                 type: str
                 description: Only submit files matching this DLP file-pattern to FortiSandbox.
             analytics_ignore_filetype:
+                aliases: ['analytics-ignore-filetype']
                 type: str
                 description: Do not submit files matching this DLP file-pattern to FortiSandbox.
             ems_threat_feed:
+                aliases: ['ems-threat-feed']
                 type: str
                 description: Enable/disable use of EMS threat feed when performing AntiVirus scan.
                 choices:
                     - 'disable'
                     - 'enable'
             external_blocklist:
+                aliases: ['external-blocklist']
                 type: raw
                 description: (list or str) One or more external malware block lists.
             external_blocklist_archive_scan:
+                aliases: ['external-blocklist-archive-scan']
                 type: str
                 description: Enable/disable external-blocklist archive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
             external_blocklist_enable_all:
+                aliases: ['external-blocklist-enable-all']
                 type: str
                 description: Enable/disable all external blocklists.
                 choices:
                     - 'disable'
                     - 'enable'
             outbreak_prevention_archive_scan:
+                aliases: ['outbreak-prevention-archive-scan']
                 type: str
                 description: Enable/disable outbreak-prevention archive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
             fortindr_error_action:
+                aliases: ['fortindr-error-action']
                 type: str
                 description: Action to take if FortiNDR encounters an error.
                 choices:
@@ -1370,6 +1470,7 @@ options:
                     - 'block'
                     - 'ignore'
             fortindr_timeout_action:
+                aliases: ['fortindr-timeout-action']
                 type: str
                 description: Action to take if FortiNDR encounters a scan timeout.
                 choices:
@@ -1377,6 +1478,7 @@ options:
                     - 'block'
                     - 'ignore'
             fortisandbox_error_action:
+                aliases: ['fortisandbox-error-action']
                 type: str
                 description: Action to take if FortiSandbox inline scan encounters an error.
                 choices:
@@ -1384,9 +1486,11 @@ options:
                     - 'block'
                     - 'ignore'
             fortisandbox_max_upload:
+                aliases: ['fortisandbox-max-upload']
                 type: int
                 description: Maximum size of files that can be uploaded to FortiSandbox.
             fortisandbox_mode:
+                aliases: ['fortisandbox-mode']
                 type: str
                 description: FortiSandbox scan modes.
                 choices:
@@ -1394,6 +1498,7 @@ options:
                     - 'analytics-suspicious'
                     - 'analytics-everything'
             fortisandbox_timeout_action:
+                aliases: ['fortisandbox-timeout-action']
                 type: str
                 description: Action to take if FortiSandbox inline scan encounters a scan timeout.
                 choices:
@@ -1401,6 +1506,7 @@ options:
                     - 'block'
                     - 'ignore'
             fortiai_error_action:
+                aliases: ['fortiai-error-action']
                 type: str
                 description: Action to take if FortiAI encounters an error.
                 choices:
@@ -1408,6 +1514,7 @@ options:
                     - 'log-only'
                     - 'ignore'
             fortiai_timeout_action:
+                aliases: ['fortiai-timeout-action']
                 type: str
                 description: Action to take if FortiAI encounters a scan timeout.
                 choices:

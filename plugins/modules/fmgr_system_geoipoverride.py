@@ -93,17 +93,20 @@ options:
                 type: str
                 description: Description.
             ip_range:
+                aliases: ['ip-range']
                 type: list
                 elements: dict
                 description: Ip range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: Final IP address, inclusive, of the address range
                     id:
                         type: int
                         description: ID number for individual entry in the IP-Range table.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Starting IP address, inclusive, of the address range
             name:
@@ -111,17 +114,20 @@ options:
                 description: Location name.
                 required: true
             ip6_range:
+                aliases: ['ip6-range']
                 type: list
                 elements: dict
                 description: Ip6 range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: Ending IP address, inclusive, of the address range
                     id:
                         type: int
                         description: ID of individual entry in the IPv6 range table.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Starting IP address, inclusive, of the address range
 '''

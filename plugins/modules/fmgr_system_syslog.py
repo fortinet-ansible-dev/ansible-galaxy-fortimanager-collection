@@ -96,9 +96,11 @@ options:
                 type: int
                 description: Syslog server port.
             local_cert:
+                aliases: ['local-cert']
                 type: str
                 description: Select local certificate used for secure connection.
             peer_cert_cn:
+                aliases: ['peer-cert-cn']
                 type: str
                 description: Certificate common name of syslog server.
             reliable:
@@ -111,6 +113,7 @@ options:
                     - 'disable'
                     - 'enable'
             secure_connection:
+                aliases: ['secure-connection']
                 type: str
                 description:
                     - Enable/disable connection secured by TLS/SSL.
@@ -120,6 +123,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_protocol:
+                aliases: ['ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for connection to syslog server.

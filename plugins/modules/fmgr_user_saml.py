@@ -93,21 +93,27 @@ options:
                 type: str
                 description: Certificate to sign SAML messages.
             entity_id:
+                aliases: ['entity-id']
                 type: str
                 description: SP entity ID.
             group_name:
+                aliases: ['group-name']
                 type: str
                 description: Group name in assertion statement.
             idp_cert:
+                aliases: ['idp-cert']
                 type: str
                 description: IDP Certificate name.
             idp_entity_id:
+                aliases: ['idp-entity-id']
                 type: str
                 description: IDP entity ID.
             idp_single_logout_url:
+                aliases: ['idp-single-logout-url']
                 type: str
                 description: IDP single logout url.
             idp_single_sign_on_url:
+                aliases: ['idp-single-sign-on-url']
                 type: str
                 description: IDP single sign-on URL.
             name:
@@ -115,27 +121,33 @@ options:
                 description: SAML server entry name.
                 required: true
             single_logout_url:
+                aliases: ['single-logout-url']
                 type: str
                 description: SP single logout URL.
             single_sign_on_url:
+                aliases: ['single-sign-on-url']
                 type: str
                 description: SP single sign-on URL.
             user_name:
+                aliases: ['user-name']
                 type: str
                 description: User name in assertion statement.
             adfs_claim:
+                aliases: ['adfs-claim']
                 type: str
                 description: Enable/disable ADFS Claim for user/group attribute in assertion statement
                 choices:
                     - 'disable'
                     - 'enable'
             digest_method:
+                aliases: ['digest-method']
                 type: str
                 description: Digest Method Algorithm.
                 choices:
                     - 'sha1'
                     - 'sha256'
             group_claim_type:
+                aliases: ['group-claim-type']
                 type: str
                 description: Group claim in assertion statement.
                 choices:
@@ -160,12 +172,14 @@ options:
                     - 'primary-sid'
                     - 'windows-account-name'
             limit_relaystate:
+                aliases: ['limit-relaystate']
                 type: str
                 description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
                 choices:
                     - 'disable'
                     - 'enable'
             user_claim_type:
+                aliases: ['user-claim-type']
                 type: str
                 description: User name claim in assertion statement.
                 choices:
@@ -190,6 +204,7 @@ options:
                     - 'primary-sid'
                     - 'windows-account-name'
             clock_tolerance:
+                aliases: ['clock-tolerance']
                 type: int
                 description: Clock skew tolerance in seconds
             dynamic_mapping:
@@ -209,6 +224,7 @@ options:
                                 type: str
                                 description: Vdom.
                     adfs_claim:
+                        aliases: ['adfs-claim']
                         type: str
                         description: Enable/disable ADFS Claim for user/group attribute in assertion statement
                         choices:
@@ -218,18 +234,22 @@ options:
                         type: str
                         description: Certificate to sign SAML messages.
                     clock_tolerance:
+                        aliases: ['clock-tolerance']
                         type: int
                         description: Clock skew tolerance in seconds
                     digest_method:
+                        aliases: ['digest-method']
                         type: str
                         description: Digest method algorithm
                         choices:
                             - 'sha1'
                             - 'sha256'
                     entity_id:
+                        aliases: ['entity-id']
                         type: str
                         description: SP entity ID.
                     group_claim_type:
+                        aliases: ['group-claim-type']
                         type: str
                         description: Group claim in assertion statement.
                         choices:
@@ -254,33 +274,42 @@ options:
                             - 'primary-sid'
                             - 'windows-account-name'
                     group_name:
+                        aliases: ['group-name']
                         type: str
                         description: Group name in assertion statement.
                     idp_cert:
+                        aliases: ['idp-cert']
                         type: str
                         description: IDP Certificate name.
                     idp_entity_id:
+                        aliases: ['idp-entity-id']
                         type: str
                         description: IDP entity ID.
                     idp_single_logout_url:
+                        aliases: ['idp-single-logout-url']
                         type: str
                         description: IDP single logout url.
                     idp_single_sign_on_url:
+                        aliases: ['idp-single-sign-on-url']
                         type: str
                         description: IDP single sign-on URL.
                     limit_relaystate:
+                        aliases: ['limit-relaystate']
                         type: str
                         description: Enable/disable limiting of relay-state parameter when it exceeds SAML 2.
                         choices:
                             - 'disable'
                             - 'enable'
                     single_logout_url:
+                        aliases: ['single-logout-url']
                         type: str
                         description: SP single logout URL.
                     single_sign_on_url:
+                        aliases: ['single-sign-on-url']
                         type: str
                         description: SP single sign-on URL.
                     user_claim_type:
+                        aliases: ['user-claim-type']
                         type: str
                         description: User name claim in assertion statement.
                         choices:
@@ -305,9 +334,11 @@ options:
                             - 'primary-sid'
                             - 'windows-account-name'
                     user_name:
+                        aliases: ['user-name']
                         type: str
                         description: User name in assertion statement.
                     auth_url:
+                        aliases: ['auth-url']
                         type: str
                         description: URL to verify authentication.
                     reauth:
@@ -317,9 +348,11 @@ options:
                             - 'disable'
                             - 'enable'
                     scim_client:
+                        aliases: ['scim-client']
                         type: raw
                         description: (list) SCIM client name.
             auth_url:
+                aliases: ['auth-url']
                 type: str
                 description: URL to verify authentication.
             reauth:
@@ -329,6 +362,7 @@ options:
                     - 'disable'
                     - 'enable'
             scim_client:
+                aliases: ['scim-client']
                 type: raw
                 description: (list) SCIM client name.
 '''

@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             policy_package_name:
+                aliases: ['policy-package-name']
                 type: str
                 description: Policy package names.
                 required: true

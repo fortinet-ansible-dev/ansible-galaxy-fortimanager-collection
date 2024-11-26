@@ -162,15 +162,19 @@ options:
                 type: int
                 description: Fap cnt.
             faz_full_act:
+                aliases: ['faz.full_act']
                 type: int
                 description: Faz.
             faz_perm:
+                aliases: ['faz.perm']
                 type: int
                 description: Faz.
             faz_quota:
+                aliases: ['faz.quota']
                 type: int
                 description: Faz.
             faz_used:
+                aliases: ['faz.used']
                 type: int
                 description: Faz.
             fex_cnt:
@@ -347,6 +351,7 @@ options:
                 type: int
                 description: Maxvdom.
             meta_fields:
+                aliases: ['meta fields']
                 type: dict
                 description: Default metafields
             mgmt_id:
@@ -461,6 +466,7 @@ options:
                         type: int
                         description: Vpn id.
                     meta_fields:
+                        aliases: ['meta fields']
                         type: dict
                         description: Meta fields.
                     vdom_type:
@@ -540,6 +546,7 @@ options:
                 type: str
                 description: Cluster worker.
             ha_vsn:
+                aliases: ['ha.vsn']
                 type: str
                 description: Ha.
             ha_upgrade_mode:

@@ -98,6 +98,7 @@ options:
         type: dict
         suboptions:
             health_check:
+                aliases: ['health-check']
                 type: str
                 description: SD-WAN health-check.
             id:

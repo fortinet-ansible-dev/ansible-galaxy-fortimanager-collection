@@ -94,12 +94,14 @@ options:
         type: dict
         suboptions:
             active_auth_method:
+                aliases: ['active-auth-method']
                 type: str
                 description: Select an active authentication method.
             comments:
                 type: str
                 description: Comment.
             ip_based:
+                aliases: ['ip-based']
                 type: str
                 description: Enable/disable IP-based authentication.
                 choices:
@@ -124,6 +126,7 @@ options:
                 type: raw
                 description: (list or str) Select an IPv6 source address.
             sso_auth_method:
+                aliases: ['sso-auth-method']
                 type: str
                 description: Select a single-sign on
             status:
@@ -133,18 +136,21 @@ options:
                     - 'disable'
                     - 'enable'
             transaction_based:
+                aliases: ['transaction-based']
                 type: str
                 description: Enable/disable transaction based authentication
                 choices:
                     - 'disable'
                     - 'enable'
             web_auth_cookie:
+                aliases: ['web-auth-cookie']
                 type: str
                 description: Enable/disable Web authentication cookies
                 choices:
                     - 'disable'
                     - 'enable'
             web_portal:
+                aliases: ['web-portal']
                 type: str
                 description: Enable/disable web portal for proxy transparent policy
                 choices:
@@ -160,15 +166,18 @@ options:
                 type: raw
                 description: (list or str) Incoming
             cors_depth:
+                aliases: ['cors-depth']
                 type: int
                 description: Depth to allow CORS access
             cors_stateful:
+                aliases: ['cors-stateful']
                 type: str
                 description: Enable/disable allowance of CORS access
                 choices:
                     - 'disable'
                     - 'enable'
             cert_auth_cookie:
+                aliases: ['cert-auth-cookie']
                 type: str
                 description: Enable/disable to use device certificate as authentication cookie
                 choices:

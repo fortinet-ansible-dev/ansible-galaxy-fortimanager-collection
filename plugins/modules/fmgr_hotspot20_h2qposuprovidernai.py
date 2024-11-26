@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             nai_list:
+                aliases: ['nai-list']
                 type: list
                 elements: dict
                 description: Nai list.
@@ -98,6 +99,7 @@ options:
                         type: str
                         description: OSU NAI ID.
                     osu_nai:
+                        aliases: ['osu-nai']
                         type: str
                         description: OSU NAI.
             name:

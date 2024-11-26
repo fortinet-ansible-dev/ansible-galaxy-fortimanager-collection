@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             auth_method:
+                aliases: ['auth-method']
                 type: str
                 description: Select certificate or pre-shared key authentication for this authentication group.
                 choices:
@@ -106,6 +107,7 @@ options:
                 type: str
                 description: If peer-accept is set to one, select the name of one peer to add to this authentication group.
             peer_accept:
+                aliases: ['peer-accept']
                 type: str
                 description: Determine if this auth group accepts, any peer, a list of defined peers, or just one peer.
                 choices:

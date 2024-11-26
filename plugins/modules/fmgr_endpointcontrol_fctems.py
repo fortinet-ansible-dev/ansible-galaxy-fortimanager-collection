@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             call_timeout:
+                aliases: ['call-timeout']
                 type: int
                 description: FortiClient EMS call timeout in seconds
             capabilities:
@@ -109,9 +110,11 @@ options:
                     - 'fgt-sysinfo-api'
                     - 'ztna-server-info'
             certificate_fingerprint:
+                aliases: ['certificate-fingerprint']
                 type: str
                 description: EMS certificate fingerprint.
             cloud_server_type:
+                aliases: ['cloud-server-type']
                 type: str
                 description: Cloud server type.
                 choices:
@@ -119,12 +122,14 @@ options:
                     - 'alpha'
                     - 'beta'
             fortinetone_cloud_authentication:
+                aliases: ['fortinetone-cloud-authentication']
                 type: str
                 description: Enable/disable authentication of FortiClient EMS Cloud through FortiCloud account.
                 choices:
                     - 'disable'
                     - 'enable'
             https_port:
+                aliases: ['https-port']
                 type: int
                 description: FortiClient EMS HTTPS access port number.
             name:
@@ -132,39 +137,46 @@ options:
                 description: FortiClient Enterprise Management Server
                 required: true
             out_of_sync_threshold:
+                aliases: ['out-of-sync-threshold']
                 type: int
                 description: Outdated resource threshold in seconds
             preserve_ssl_session:
+                aliases: ['preserve-ssl-session']
                 type: str
                 description: Enable/disable preservation of EMS SSL session connection.
                 choices:
                     - 'disable'
                     - 'enable'
             pull_avatars:
+                aliases: ['pull-avatars']
                 type: str
                 description: Enable/disable pulling avatars from EMS.
                 choices:
                     - 'disable'
                     - 'enable'
             pull_malware_hash:
+                aliases: ['pull-malware-hash']
                 type: str
                 description: Enable/disable pulling FortiClient malware hash from EMS.
                 choices:
                     - 'disable'
                     - 'enable'
             pull_sysinfo:
+                aliases: ['pull-sysinfo']
                 type: str
                 description: Enable/disable pulling SysInfo from EMS.
                 choices:
                     - 'disable'
                     - 'enable'
             pull_tags:
+                aliases: ['pull-tags']
                 type: str
                 description: Enable/disable pulling FortiClient user tags from EMS.
                 choices:
                     - 'disable'
                     - 'enable'
             pull_vulnerabilities:
+                aliases: ['pull-vulnerabilities']
                 type: str
                 description: Enable/disable pulling vulnerabilities from EMS.
                 choices:
@@ -174,33 +186,40 @@ options:
                 type: str
                 description: FortiClient EMS FQDN or IPv4 address.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: REST API call source IP.
             websocket_override:
+                aliases: ['websocket-override']
                 type: str
                 description: Enable/disable override behavior for how this FortiGate unit connects to EMS using a WebSocket connection.
                 choices:
                     - 'disable'
                     - 'enable'
             status_check_interval:
+                aliases: ['status-check-interval']
                 type: int
                 description: FortiClient EMS call timeout in seconds
             certificate:
                 type: str
                 description: FortiClient EMS certificate.
             admin_username:
+                aliases: ['admin-username']
                 type: str
                 description: FortiClient EMS admin username.
             serial_number:
+                aliases: ['serial-number']
                 type: str
                 description: FortiClient EMS Serial Number.
             admin_password:
+                aliases: ['admin-password']
                 type: raw
                 description: (list) FortiClient EMS admin password.
             interface:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -208,12 +227,14 @@ options:
                     - 'sdwan'
                     - 'specify'
             dirty_reason:
+                aliases: ['dirty-reason']
                 type: str
                 description: Dirty Reason for FortiClient EMS.
                 choices:
                     - 'none'
                     - 'mismatched-ems-sn'
             ems_id:
+                aliases: ['ems-id']
                 type: int
                 description: EMS ID in order
             status:
@@ -223,30 +244,37 @@ options:
                     - 'disable'
                     - 'enable'
             ca_cn_info:
+                aliases: ['ca-cn-info']
                 type: str
                 description: Ca cn info.
             trust_ca_cn:
+                aliases: ['trust-ca-cn']
                 type: str
                 description: Trust ca cn.
                 choices:
                     - 'disable'
                     - 'enable'
             tenant_id:
+                aliases: ['tenant-id']
                 type: str
                 description: EMS Tenant ID.
             send_tags_to_all_vdoms:
+                aliases: ['send-tags-to-all-vdoms']
                 type: str
                 description: Relax restrictions on tags to send all EMS tags to all VDOMs
                 choices:
                     - 'disable'
                     - 'enable'
             verified_cn:
+                aliases: ['verified-cn']
                 type: str
                 description: EMS certificate CN.
             verifying_ca:
+                aliases: ['verifying-ca']
                 type: str
                 description: Lowest CA cert on Fortigate in verified EMS cert chain.
             cloud_authentication_access_key:
+                aliases: ['cloud-authentication-access-key']
                 type: str
                 description: FortiClient EMS Cloud multitenancy access key
 '''

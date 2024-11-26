@@ -90,10 +90,12 @@ options:
         type: dict
         suboptions:
             chart_name:
+                aliases: ['chart-name']
                 type: str
                 description: Chart name.
                 required: true
             chart_replace:
+                aliases: ['chart-replace']
                 type: str
                 description: Chart replacement.
 '''

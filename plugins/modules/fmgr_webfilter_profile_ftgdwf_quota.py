@@ -104,6 +104,7 @@ options:
                 description: ID number.
                 required: true
             override_replacemsg:
+                aliases: ['override-replacemsg']
                 type: str
                 description: Override replacement message.
             type:

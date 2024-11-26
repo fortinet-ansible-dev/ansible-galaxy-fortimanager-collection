@@ -101,6 +101,7 @@ options:
                 type: str
                 description: MAC address.
             mac_filter_policy:
+                aliases: ['mac-filter-policy']
                 type: str
                 description: Deny or allow the client with this MAC address.
                 choices:

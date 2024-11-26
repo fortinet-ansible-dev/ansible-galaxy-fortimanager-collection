@@ -94,6 +94,7 @@ options:
                 description: Tunnel limiter name.
                 required: true
             tunnel_limit:
+                aliases: ['tunnel-limit']
                 type: int
                 description: Tunnel limit [1, 16000000].
 '''

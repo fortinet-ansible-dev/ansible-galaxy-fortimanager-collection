@@ -98,6 +98,7 @@ options:
                 description: VLAN name.
                 required: true
             vlan_id:
+                aliases: ['vlan-id']
                 type: int
                 description: VLAN ID.
 '''

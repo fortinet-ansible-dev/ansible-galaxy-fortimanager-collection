@@ -98,12 +98,14 @@ options:
         type: dict
         suboptions:
             accept_mode:
+                aliases: ['accept-mode']
                 type: str
                 description: Accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
             adv_interval:
+                aliases: ['adv-interval']
                 type: int
                 description: Adv interval.
             preempt:
@@ -116,6 +118,7 @@ options:
                 type: int
                 description: Priority.
             start_time:
+                aliases: ['start-time']
                 type: int
                 description: Start time.
             status:

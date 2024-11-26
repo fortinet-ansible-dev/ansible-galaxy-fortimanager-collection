@@ -118,6 +118,7 @@ options:
                         type: str
                         description: Startip.
                     add_nat46_route:
+                        aliases: ['add-nat46-route']
                         type: str
                         description: Enable/disable adding NAT46 route.
                         choices:
@@ -130,11 +131,13 @@ options:
                             - 'disable'
                             - 'enable'
                     external_prefix:
+                        aliases: ['external-prefix']
                         type: str
                         description:
                             - Support meta variable
                             - External NPTv6 prefix length
                     internal_prefix:
+                        aliases: ['internal-prefix']
                         type: str
                         description:
                             - Support meta variable
@@ -156,6 +159,7 @@ options:
                 type: str
                 description: First IPv6 address
             add_nat46_route:
+                aliases: ['add-nat46-route']
                 type: str
                 description: Enable/disable adding NAT46 route.
                 choices:
@@ -168,11 +172,13 @@ options:
                     - 'disable'
                     - 'enable'
             external_prefix:
+                aliases: ['external-prefix']
                 type: str
                 description:
                     - Support meta variable
                     - External NPTv6 prefix length
             internal_prefix:
+                aliases: ['internal-prefix']
                 type: str
                 description:
                     - Support meta variable

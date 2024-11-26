@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             add_smil:
+                aliases: ['add-smil']
                 type: str
                 description: Add message encapsulation
                 choices:
@@ -128,6 +129,7 @@ options:
                 type: str
                 description: From address
             from_sender:
+                aliases: ['from-sender']
                 type: str
                 description: Notification message sent from recipient
                 choices:
@@ -147,6 +149,7 @@ options:
                 type: str
                 description: Message text
             msg_type:
+                aliases: ['msg-type']
                 type: str
                 description: Message type.
                 required: true
@@ -159,6 +162,7 @@ options:
                     - 'high'
                     - 'not-included'
             rsp_status:
+                aliases: ['rsp-status']
                 type: str
                 description: Response status code
                 choices:
@@ -172,9 +176,11 @@ options:
                     - 'err-content-not-accept'
                     - 'err-unsupp-msg'
             rsp_text:
+                aliases: ['rsp-text']
                 type: str
                 description: Response text
             sender_visibility:
+                aliases: ['sender-visibility']
                 type: str
                 description: Sender visibility
                 choices:
@@ -182,6 +188,7 @@ options:
                     - 'show'
                     - 'not-specified'
             smil_part:
+                aliases: ['smil-part']
                 type: str
                 description: Message encapsulation text
             subject:

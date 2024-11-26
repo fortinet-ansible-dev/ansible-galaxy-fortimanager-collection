@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             access_pattern:
+                aliases: ['access-pattern']
                 type: list
                 elements: dict
                 description: Access pattern.

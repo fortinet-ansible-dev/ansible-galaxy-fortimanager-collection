@@ -96,6 +96,7 @@ options:
                 type: str
                 description: Peer certificate common name.
             cn_type:
+                aliases: ['cn-type']
                 type: str
                 description: Peer certificate common name type.
                 choices:
@@ -105,21 +106,26 @@ options:
                     - 'ipv4'
                     - 'ipv6'
             ldap_mode:
+                aliases: ['ldap-mode']
                 type: str
                 description: Mode for LDAP peer authentication.
                 choices:
                     - 'password'
                     - 'principal-name'
             ldap_password:
+                aliases: ['ldap-password']
                 type: raw
                 description: (list) Password for LDAP server bind.
             ldap_server:
+                aliases: ['ldap-server']
                 type: str
                 description: Name of an LDAP server defined under the user ldap command.
             ldap_username:
+                aliases: ['ldap-username']
                 type: str
                 description: Username for LDAP server bind.
             mandatory_ca_verify:
+                aliases: ['mandatory-ca-verify']
                 type: str
                 description: Determine what happens to the peer if the CA certificate is not installed.
                 choices:
@@ -130,6 +136,7 @@ options:
                 description: Peer name.
                 required: true
             ocsp_override_server:
+                aliases: ['ocsp-override-server']
                 type: str
                 description: Online Certificate Status Protocol
             passwd:
@@ -139,12 +146,14 @@ options:
                 type: str
                 description: Peer certificate name constraints.
             two_factor:
+                aliases: ['two-factor']
                 type: str
                 description: Enable/disable two-factor authentication, applying certificate and password-based authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             mfa_mode:
+                aliases: ['mfa-mode']
                 type: str
                 description: MFA mode for remote peer authentication/authorization.
                 choices:
@@ -152,12 +161,15 @@ options:
                     - 'password'
                     - 'subject-identity'
             mfa_password:
+                aliases: ['mfa-password']
                 type: raw
                 description: (list) Unified password for remote authentication.
             mfa_server:
+                aliases: ['mfa-server']
                 type: str
                 description: Name of a remote authenticator.
             mfa_username:
+                aliases: ['mfa-username']
                 type: str
                 description: Unified username for remote authentication.
 '''

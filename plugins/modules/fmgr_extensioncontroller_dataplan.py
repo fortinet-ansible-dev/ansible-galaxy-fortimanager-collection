@@ -93,6 +93,7 @@ options:
                 type: str
                 description: APN configuration.
             auth_type:
+                aliases: ['auth-type']
                 type: str
                 description: Authentication type.
                 choices:
@@ -100,6 +101,7 @@ options:
                     - 'pap'
                     - 'chap'
             billing_date:
+                aliases: ['billing-date']
                 type: int
                 description: Billing day of the month
             capacity:
@@ -112,6 +114,7 @@ options:
                 type: str
                 description: ICCID configuration.
             modem_id:
+                aliases: ['modem-id']
                 type: str
                 description: Dataplans modem specifics, if any.
                 choices:
@@ -119,6 +122,7 @@ options:
                     - 'modem1'
                     - 'modem2'
             monthly_fee:
+                aliases: ['monthly-fee']
                 type: int
                 description: Monthly fee of dataplan
             name:
@@ -142,18 +146,22 @@ options:
                     - 'ipv6-only'
                     - 'ipv4-ipv6'
             preferred_subnet:
+                aliases: ['preferred-subnet']
                 type: int
                 description: Preferred subnet mask
             private_network:
+                aliases: ['private-network']
                 type: str
                 description: Enable/disable dataplan private network support.
                 choices:
                     - 'disable'
                     - 'enable'
             signal_period:
+                aliases: ['signal-period']
                 type: int
                 description: Signal period
             signal_threshold:
+                aliases: ['signal-threshold']
                 type: int
                 description: Signal threshold.
             slot:

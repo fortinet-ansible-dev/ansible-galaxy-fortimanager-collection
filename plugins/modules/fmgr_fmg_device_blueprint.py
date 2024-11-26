@@ -96,6 +96,7 @@ options:
                 type: str
                 description: Description.
             dev_group:
+                aliases: ['dev-group']
                 type: raw
                 description: (list) Dev group.
             folder:
@@ -112,12 +113,15 @@ options:
                 type: str
                 description: Platform.
             prefer_img_ver:
+                aliases: ['prefer-img-ver']
                 type: str
                 description: Prefer img ver.
             prerun_cliprof:
+                aliases: ['prerun-cliprof']
                 type: raw
                 description: (list) Prerun cliprof.
             prov_type:
+                aliases: ['prov-type']
                 type: str
                 description: Prov type.
                 choices:
@@ -125,51 +129,62 @@ options:
                     - 'templates'
                     - 'template-group'
             template_group:
+                aliases: ['template-group']
                 type: str
                 description: Template group.
             templates:
                 type: raw
                 description: (list) Templates.
             enforce_device_config:
+                aliases: ['enforce-device-config']
                 type: str
                 description: Enforce device config.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_template:
+                aliases: ['auth-template']
                 type: raw
                 description: (list) Auth template.
             ha_config:
+                aliases: ['ha-config']
                 type: str
                 description: Ha config.
                 choices:
                     - 'disable'
                     - 'enable'
             ha_hbdev:
+                aliases: ['ha-hbdev']
                 type: str
                 description: Ha hbdev.
             ha_monitor:
+                aliases: ['ha-monitor']
                 type: raw
                 description: (list) Ha monitor.
             ha_password:
+                aliases: ['ha-password']
                 type: raw
                 description: (list) Ha password.
             linked_to_model:
+                aliases: ['linked-to-model']
                 type: str
                 description: Linked to model.
                 choices:
                     - 'disable'
                     - 'enable'
             port_provisioning:
+                aliases: ['port-provisioning']
                 type: int
                 description: Port provisioning.
             sdwan_management:
+                aliases: ['sdwan-management']
                 type: str
                 description: Sdwan management.
                 choices:
                     - 'disable'
                     - 'enable'
             split_switch_port:
+                aliases: ['split-switch-port']
                 type: str
                 description: Split switch port.
                 choices:

@@ -98,6 +98,7 @@ options:
         type: dict
         suboptions:
             health_check:
+                aliases: ['health-check']
                 type: str
                 description: Virtual WAN Link health-check.
             id:

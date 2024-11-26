@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             auth_concurrent_override:
+                aliases: ['auth-concurrent-override']
                 type: str
                 description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_concurrent_value:
+                aliases: ['auth-concurrent-value']
                 type: int
                 description: Maximum number of concurrent authenticated connections per user
             authtimeout:
@@ -118,12 +120,14 @@ options:
                 type: int
                 description: Time in seconds before guest user accounts expire.
             expire_type:
+                aliases: ['expire-type']
                 type: str
                 description: Determine when the expiration countdown begins.
                 choices:
                     - 'immediately'
                     - 'first-successful-login'
             group_type:
+                aliases: ['group-type']
                 type: str
                 description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
                 choices:
@@ -150,6 +154,7 @@ options:
                         type: str
                         description: Expire time.
                     mobile_phone:
+                        aliases: ['mobile-phone']
                         type: str
                         description: Mobile phone.
                     name:
@@ -162,6 +167,7 @@ options:
                         type: str
                         description: Set the action for the sponsor guest user field.
                     user_id:
+                        aliases: ['user-id']
                         type: str
                         description: Guest ID.
                     group:
@@ -171,6 +177,7 @@ options:
                         type: int
                         description: Guest ID.
             http_digest_realm:
+                aliases: ['http-digest-realm']
                 type: str
                 description: Realm attribute for MD5-digest authentication.
             id:
@@ -185,15 +192,18 @@ options:
                         type: str
                         description: Gui meta.
                     group_name:
+                        aliases: ['group-name']
                         type: str
                         description: Name of matching group on remote authentication server.
                     id:
                         type: int
                         description: ID.
                     server_name:
+                        aliases: ['server-name']
                         type: str
                         description: Name of remote auth server.
             max_accounts:
+                aliases: ['max-accounts']
                 type: int
                 description: Maximum number of guest accounts that can be created for this group
             member:
@@ -201,12 +211,14 @@ options:
                 elements: str
                 description: Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
             mobile_phone:
+                aliases: ['mobile-phone']
                 type: str
                 description: Enable/disable the guest user mobile phone number field.
                 choices:
                     - 'disable'
                     - 'enable'
             multiple_guest_add:
+                aliases: ['multiple-guest-add']
                 type: str
                 description: Enable/disable addition of multiple guests.
                 choices:
@@ -224,9 +236,11 @@ options:
                     - 'specify'
                     - 'disable'
             sms_custom_server:
+                aliases: ['sms-custom-server']
                 type: str
                 description: SMS server.
             sms_server:
+                aliases: ['sms-server']
                 type: str
                 description: Send SMS through FortiGuard or other external server.
                 choices:
@@ -240,9 +254,11 @@ options:
                     - 'mandatory'
                     - 'disabled'
             sso_attribute_value:
+                aliases: ['sso-attribute-value']
                 type: str
                 description: Name of the RADIUS user group that this local user group represents.
             user_id:
+                aliases: ['user-id']
                 type: str
                 description: Guest user ID type.
                 choices:
@@ -250,6 +266,7 @@ options:
                     - 'auto-generate'
                     - 'specify'
             user_name:
+                aliases: ['user-name']
                 type: str
                 description: Enable/disable the guest user name entry.
                 choices:
@@ -272,12 +289,14 @@ options:
                                 type: str
                                 description: Vdom.
                     auth_concurrent_override:
+                        aliases: ['auth-concurrent-override']
                         type: str
                         description: Enable/disable overriding the global number of concurrent authentication sessions for this user group.
                         choices:
                             - 'disable'
                             - 'enable'
                     auth_concurrent_value:
+                        aliases: ['auth-concurrent-value']
                         type: int
                         description: Maximum number of concurrent authenticated connections per user
                     authtimeout:
@@ -300,12 +319,14 @@ options:
                         type: int
                         description: Time in seconds before guest user accounts expire
                     expire_type:
+                        aliases: ['expire-type']
                         type: str
                         description: Determine when the expiration countdown begins.
                         choices:
                             - 'immediately'
                             - 'first-successful-login'
                     group_type:
+                        aliases: ['group-type']
                         type: str
                         description: Set the group to be for firewall authentication, FSSO, RSSO, or guest users.
                         choices:
@@ -338,6 +359,7 @@ options:
                                 type: int
                                 description: Guest ID.
                             mobile_phone:
+                                aliases: ['mobile-phone']
                                 type: str
                                 description: Mobile phone.
                             name:
@@ -350,18 +372,22 @@ options:
                                 type: str
                                 description: Set the action for the sponsor guest user field.
                             user_id:
+                                aliases: ['user-id']
                                 type: str
                                 description: Guest ID.
                     http_digest_realm:
+                        aliases: ['http-digest-realm']
                         type: str
                         description: Realm attribute for MD5-digest authentication.
                     id:
                         type: int
                         description: Group ID.
                     ldap_memberof:
+                        aliases: ['ldap-memberof']
                         type: str
                         description: Ldap memberof.
                     logic_type:
+                        aliases: ['logic-type']
                         type: str
                         description: Logic type.
                         choices:
@@ -376,27 +402,32 @@ options:
                                 type: str
                                 description: Gui meta.
                             group_name:
+                                aliases: ['group-name']
                                 type: str
                                 description: Name of matching user or group on remote authentication server.
                             id:
                                 type: int
                                 description: ID.
                             server_name:
+                                aliases: ['server-name']
                                 type: str
                                 description: Name of remote auth server.
                     max_accounts:
+                        aliases: ['max-accounts']
                         type: int
                         description: Maximum number of guest accounts that can be created for this group
                     member:
                         type: raw
                         description: (list or str) Names of users, peers, LDAP severs, or RADIUS servers to add to the user group.
                     mobile_phone:
+                        aliases: ['mobile-phone']
                         type: str
                         description: Enable/disable the guest user mobile phone number field.
                         choices:
                             - 'disable'
                             - 'enable'
                     multiple_guest_add:
+                        aliases: ['multiple-guest-add']
                         type: str
                         description: Enable/disable addition of multiple guests.
                         choices:
@@ -410,12 +441,15 @@ options:
                             - 'specify'
                             - 'disable'
                     redir_url:
+                        aliases: ['redir-url']
                         type: str
                         description: Redir url.
                     sms_custom_server:
+                        aliases: ['sms-custom-server']
                         type: str
                         description: SMS server.
                     sms_server:
+                        aliases: ['sms-server']
                         type: str
                         description: Send SMS through FortiGuard or other external server.
                         choices:
@@ -429,15 +463,18 @@ options:
                             - 'mandatory'
                             - 'disabled'
                     sslvpn_bookmarks_group:
+                        aliases: ['sslvpn-bookmarks-group']
                         type: raw
                         description: (list or str) Sslvpn bookmarks group.
                     sslvpn_cache_cleaner:
+                        aliases: ['sslvpn-cache-cleaner']
                         type: str
                         description: Sslvpn cache cleaner.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_client_check:
+                        aliases: ['sslvpn-client-check']
                         type: list
                         elements: str
                         description: Sslvpn client check.
@@ -448,24 +485,28 @@ options:
                             - '3rdAV'
                             - '3rdFW'
                     sslvpn_ftp:
+                        aliases: ['sslvpn-ftp']
                         type: str
                         description: Sslvpn ftp.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_http:
+                        aliases: ['sslvpn-http']
                         type: str
                         description: Sslvpn http.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_os_check:
+                        aliases: ['sslvpn-os-check']
                         type: str
                         description: Sslvpn os check.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_os_check_list:
+                        aliases: ['sslvpn-os-check-list']
                         type: dict
                         description: Sslvpn os check list.
                         suboptions:
@@ -477,6 +518,7 @@ options:
                                     - 'check-up-to-date'
                                     - 'deny'
                             latest_patch_level:
+                                aliases: ['latest-patch-level']
                                 type: str
                                 description: Latest patch level.
                             name:
@@ -486,81 +528,97 @@ options:
                                 type: int
                                 description: Tolerance.
                     sslvpn_portal:
+                        aliases: ['sslvpn-portal']
                         type: raw
                         description: (list or str) Sslvpn portal.
                     sslvpn_portal_heading:
+                        aliases: ['sslvpn-portal-heading']
                         type: str
                         description: Sslvpn portal heading.
                     sslvpn_rdp:
+                        aliases: ['sslvpn-rdp']
                         type: str
                         description: Sslvpn rdp.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_samba:
+                        aliases: ['sslvpn-samba']
                         type: str
                         description: Sslvpn samba.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_split_tunneling:
+                        aliases: ['sslvpn-split-tunneling']
                         type: str
                         description: Sslvpn split tunneling.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_ssh:
+                        aliases: ['sslvpn-ssh']
                         type: str
                         description: Sslvpn ssh.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_telnet:
+                        aliases: ['sslvpn-telnet']
                         type: str
                         description: Sslvpn telnet.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_tunnel:
+                        aliases: ['sslvpn-tunnel']
                         type: str
                         description: Sslvpn tunnel.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_tunnel_endip:
+                        aliases: ['sslvpn-tunnel-endip']
                         type: str
                         description: Sslvpn tunnel endip.
                     sslvpn_tunnel_ip_mode:
+                        aliases: ['sslvpn-tunnel-ip-mode']
                         type: str
                         description: Sslvpn tunnel ip mode.
                         choices:
                             - 'range'
                             - 'usrgrp'
                     sslvpn_tunnel_startip:
+                        aliases: ['sslvpn-tunnel-startip']
                         type: str
                         description: Sslvpn tunnel startip.
                     sslvpn_virtual_desktop:
+                        aliases: ['sslvpn-virtual-desktop']
                         type: str
                         description: Sslvpn virtual desktop.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_vnc:
+                        aliases: ['sslvpn-vnc']
                         type: str
                         description: Sslvpn vnc.
                         choices:
                             - 'disable'
                             - 'enable'
                     sslvpn_webapp:
+                        aliases: ['sslvpn-webapp']
                         type: str
                         description: Sslvpn webapp.
                         choices:
                             - 'disable'
                             - 'enable'
                     sso_attribute_value:
+                        aliases: ['sso-attribute-value']
                         type: str
                         description: Name of the RADIUS user group that this local user group represents.
                     user_id:
+                        aliases: ['user-id']
                         type: str
                         description: Guest user ID type.
                         choices:
@@ -568,6 +626,7 @@ options:
                             - 'auto-generate'
                             - 'specify'
                     user_name:
+                        aliases: ['user-name']
                         type: str
                         description: Enable/disable the guest user name entry.
                         choices:

@@ -100,6 +100,7 @@ options:
                 description: Name.
                 required: true
             traffic_source:
+                aliases: ['traffic-source']
                 type: str
                 description: Source of decrypted traffic to be mirrored.
                 choices:
@@ -107,6 +108,7 @@ options:
                     - 'server'
                     - 'both'
             traffic_type:
+                aliases: ['traffic-type']
                 type: list
                 elements: str
                 description: Types of decrypted traffic to be mirrored.

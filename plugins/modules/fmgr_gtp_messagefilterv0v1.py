@@ -90,36 +90,42 @@ options:
         type: dict
         suboptions:
             create_mbms:
+                aliases: ['create-mbms']
                 type: str
                 description: GTPv1 create MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
             create_pdp:
+                aliases: ['create-pdp']
                 type: str
                 description: Create PDP context
                 choices:
                     - 'allow'
                     - 'deny'
             data_record:
+                aliases: ['data-record']
                 type: str
                 description: Data record transfer
                 choices:
                     - 'allow'
                     - 'deny'
             delete_aa_pdp:
+                aliases: ['delete-aa-pdp']
                 type: str
                 description: GTPv0 delete AA PDP context
                 choices:
                     - 'allow'
                     - 'deny'
             delete_mbms:
+                aliases: ['delete-mbms']
                 type: str
                 description: GTPv1 delete MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
             delete_pdp:
+                aliases: ['delete-pdp']
                 type: str
                 description: Delete PDP context
                 choices:
@@ -132,36 +138,42 @@ options:
                     - 'allow'
                     - 'deny'
             end_marker:
+                aliases: ['end-marker']
                 type: str
                 description: GTPv1 End marker
                 choices:
                     - 'allow'
                     - 'deny'
             error_indication:
+                aliases: ['error-indication']
                 type: str
                 description: Error indication
                 choices:
                     - 'allow'
                     - 'deny'
             failure_report:
+                aliases: ['failure-report']
                 type: str
                 description: Failure report
                 choices:
                     - 'allow'
                     - 'deny'
             fwd_relocation:
+                aliases: ['fwd-relocation']
                 type: str
                 description: GTPv1 forward relocation
                 choices:
                     - 'allow'
                     - 'deny'
             fwd_srns_context:
+                aliases: ['fwd-srns-context']
                 type: str
                 description: GTPv1 forward SRNS
                 choices:
                     - 'allow'
                     - 'deny'
             gtp_pdu:
+                aliases: ['gtp-pdu']
                 type: str
                 description: PDU
                 choices:
@@ -174,42 +186,49 @@ options:
                     - 'allow'
                     - 'deny'
             mbms_de_registration:
+                aliases: ['mbms-de-registration']
                 type: str
                 description: GTPv1 MBMS de-registration
                 choices:
                     - 'allow'
                     - 'deny'
             mbms_notification:
+                aliases: ['mbms-notification']
                 type: str
                 description: GTPv1 MBMS notification
                 choices:
                     - 'allow'
                     - 'deny'
             mbms_registration:
+                aliases: ['mbms-registration']
                 type: str
                 description: GTPv1 MBMS registration
                 choices:
                     - 'allow'
                     - 'deny'
             mbms_session_start:
+                aliases: ['mbms-session-start']
                 type: str
                 description: GTPv1 MBMS session start
                 choices:
                     - 'allow'
                     - 'deny'
             mbms_session_stop:
+                aliases: ['mbms-session-stop']
                 type: str
                 description: GTPv1 MBMS session stop
                 choices:
                     - 'allow'
                     - 'deny'
             mbms_session_update:
+                aliases: ['mbms-session-update']
                 type: str
                 description: GTPv1 MBMS session update
                 choices:
                     - 'allow'
                     - 'deny'
             ms_info_change_notif:
+                aliases: ['ms-info-change-notif']
                 type: str
                 description: GTPv1 MS info change notification
                 choices:
@@ -220,24 +239,28 @@ options:
                 description: Message filter name.
                 required: true
             node_alive:
+                aliases: ['node-alive']
                 type: str
                 description: Node alive
                 choices:
                     - 'allow'
                     - 'deny'
             note_ms_present:
+                aliases: ['note-ms-present']
                 type: str
                 description: Note MS GPRS present
                 choices:
                     - 'allow'
                     - 'deny'
             pdu_notification:
+                aliases: ['pdu-notification']
                 type: str
                 description: PDU notification
                 choices:
                     - 'allow'
                     - 'deny'
             ran_info:
+                aliases: ['ran-info']
                 type: str
                 description: GTPv1 RAN information relay
                 choices:
@@ -250,69 +273,81 @@ options:
                     - 'allow'
                     - 'deny'
             relocation_cancel:
+                aliases: ['relocation-cancel']
                 type: str
                 description: GTPv1 relocation cancel
                 choices:
                     - 'allow'
                     - 'deny'
             send_route:
+                aliases: ['send-route']
                 type: str
                 description: Send routing information for GPRS
                 choices:
                     - 'allow'
                     - 'deny'
             sgsn_context:
+                aliases: ['sgsn-context']
                 type: str
                 description: SGSN context
                 choices:
                     - 'allow'
                     - 'deny'
             support_extension:
+                aliases: ['support-extension']
                 type: str
                 description: GTPv1 supported extension headers notify
                 choices:
                     - 'allow'
                     - 'deny'
             unknown_message:
+                aliases: ['unknown-message']
                 type: str
                 description: Allow or Deny unknown messages.
                 choices:
                     - 'allow'
                     - 'deny'
             unknown_message_white_list:
+                aliases: ['unknown-message-white-list']
                 type: raw
                 description: (list) White list
             update_mbms:
+                aliases: ['update-mbms']
                 type: str
                 description: GTPv1 update MBMS context
                 choices:
                     - 'allow'
                     - 'deny'
             update_pdp:
+                aliases: ['update-pdp']
                 type: str
                 description: Update PDP context
                 choices:
                     - 'allow'
                     - 'deny'
             v0_create_aa_pdp__v1_init_pdp_ctx:
+                aliases: ['v0-create-aa-pdp--v1-init-pdp-ctx']
                 type: str
                 description: GTPv0 create AA PDP context
                 choices:
                     - 'deny'
                     - 'allow'
             version_not_support:
+                aliases: ['version-not-support']
                 type: str
                 description: Version not supported
                 choices:
                     - 'allow'
                     - 'deny'
             create_aa_pdp|init_pdp_ctx:
+                aliases: ['create-aa-pdp|init-pdp-ctx']
                 type: str
                 description: GTPv0 create AA PDP context
                 choices:
                     - 'allow'
                     - 'deny'
             ue_registration_query:
+                aliases: ['ue-registration-query']
                 type: str
                 description: UE Registration Query
                 choices:

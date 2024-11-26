@@ -102,6 +102,7 @@ options:
         type: dict
         suboptions:
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: End IP address.
             id:
@@ -109,6 +110,7 @@ options:
                 description: Disable entry range ID.
                 required: true
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: Start IP address.
 '''

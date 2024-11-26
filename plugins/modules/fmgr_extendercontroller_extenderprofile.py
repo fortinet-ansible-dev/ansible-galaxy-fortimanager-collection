@@ -101,6 +101,7 @@ options:
                     - 'http'
                     - 'telnet'
             bandwidth_limit:
+                aliases: ['bandwidth-limit']
                 type: int
                 description: FortiExtender LAN extension bandwidth limit
             cellular:
@@ -108,6 +109,7 @@ options:
                 description: Cellular.
                 suboptions:
                     controller_report:
+                        aliases: ['controller-report']
                         type: dict
                         description: Controller report.
                         suboptions:
@@ -115,6 +117,7 @@ options:
                                 type: int
                                 description: Controller report interval.
                             signal_threshold:
+                                aliases: ['signal-threshold']
                                 type: int
                                 description: Controller report signal threshold.
                             status:
@@ -131,6 +134,7 @@ options:
                         description: Modem1.
                         suboptions:
                             auto_switch:
+                                aliases: ['auto-switch']
                                 type: dict
                                 description: Auto switch.
                                 suboptions:
@@ -147,9 +151,11 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     disconnect_period:
+                                        aliases: ['disconnect-period']
                                         type: int
                                         description: Automatically switch based on disconnect period.
                                     disconnect_threshold:
+                                        aliases: ['disconnect-threshold']
                                         type: int
                                         description: Automatically switch based on disconnect threshold.
                                     signal:
@@ -159,6 +165,7 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     switch_back:
+                                        aliases: ['switch-back']
                                         type: list
                                         elements: str
                                         description: Auto switch with switch back multi-options.
@@ -166,15 +173,19 @@ options:
                                             - 'time'
                                             - 'timer'
                                     switch_back_time:
+                                        aliases: ['switch-back-time']
                                         type: str
                                         description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
                                     switch_back_timer:
+                                        aliases: ['switch-back-timer']
                                         type: int
                                         description: Automatically switch over to preferred SIM/carrier after the given time
                             conn_status:
+                                aliases: ['conn-status']
                                 type: int
                                 description: Conn status.
                             default_sim:
+                                aliases: ['default-sim']
                                 type: str
                                 description: Default SIM selection.
                                 choices:
@@ -189,36 +200,44 @@ options:
                                     - 'disable'
                                     - 'enable'
                             modem_id:
+                                aliases: ['modem-id']
                                 type: int
                                 description: Modem ID.
                             preferred_carrier:
+                                aliases: ['preferred-carrier']
                                 type: str
                                 description: Preferred carrier.
                             redundant_intf:
+                                aliases: ['redundant-intf']
                                 type: str
                                 description: Redundant interface.
                             redundant_mode:
+                                aliases: ['redundant-mode']
                                 type: str
                                 description: FortiExtender mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim1_pin:
+                                aliases: ['sim1-pin']
                                 type: str
                                 description: SIM #1 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim1_pin_code:
+                                aliases: ['sim1-pin-code']
                                 type: raw
                                 description: (list) SIM #1 PIN password.
                             sim2_pin:
+                                aliases: ['sim2-pin']
                                 type: str
                                 description: SIM #2 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim2_pin_code:
+                                aliases: ['sim2-pin-code']
                                 type: raw
                                 description: (list) SIM #2 PIN password.
                     modem2:
@@ -226,6 +245,7 @@ options:
                         description: Modem2.
                         suboptions:
                             auto_switch:
+                                aliases: ['auto-switch']
                                 type: dict
                                 description: Auto switch.
                                 suboptions:
@@ -242,9 +262,11 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     disconnect_period:
+                                        aliases: ['disconnect-period']
                                         type: int
                                         description: Automatically switch based on disconnect period.
                                     disconnect_threshold:
+                                        aliases: ['disconnect-threshold']
                                         type: int
                                         description: Automatically switch based on disconnect threshold.
                                     signal:
@@ -254,6 +276,7 @@ options:
                                             - 'disable'
                                             - 'enable'
                                     switch_back:
+                                        aliases: ['switch-back']
                                         type: list
                                         elements: str
                                         description: Auto switch with switch back multi-options.
@@ -261,15 +284,19 @@ options:
                                             - 'time'
                                             - 'timer'
                                     switch_back_time:
+                                        aliases: ['switch-back-time']
                                         type: str
                                         description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
                                     switch_back_timer:
+                                        aliases: ['switch-back-timer']
                                         type: int
                                         description: Automatically switch over to preferred SIM/carrier after the given time
                             conn_status:
+                                aliases: ['conn-status']
                                 type: int
                                 description: Conn status.
                             default_sim:
+                                aliases: ['default-sim']
                                 type: str
                                 description: Default SIM selection.
                                 choices:
@@ -284,39 +311,48 @@ options:
                                     - 'disable'
                                     - 'enable'
                             modem_id:
+                                aliases: ['modem-id']
                                 type: int
                                 description: Modem ID.
                             preferred_carrier:
+                                aliases: ['preferred-carrier']
                                 type: str
                                 description: Preferred carrier.
                             redundant_intf:
+                                aliases: ['redundant-intf']
                                 type: str
                                 description: Redundant interface.
                             redundant_mode:
+                                aliases: ['redundant-mode']
                                 type: str
                                 description: FortiExtender mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim1_pin:
+                                aliases: ['sim1-pin']
                                 type: str
                                 description: SIM #1 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim1_pin_code:
+                                aliases: ['sim1-pin-code']
                                 type: raw
                                 description: (list) SIM #1 PIN password.
                             sim2_pin:
+                                aliases: ['sim2-pin']
                                 type: str
                                 description: SIM #2 PIN status.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sim2_pin_code:
+                                aliases: ['sim2-pin-code']
                                 type: raw
                                 description: (list) SIM #2 PIN password.
                     sms_notification:
+                        aliases: ['sms-notification']
                         type: dict
                         description: Sms notification.
                         suboptions:
@@ -325,24 +361,31 @@ options:
                                 description: Alert.
                                 suboptions:
                                     data_exhausted:
+                                        aliases: ['data-exhausted']
                                         type: str
                                         description: Display string when data exhausted.
                                     fgt_backup_mode_switch:
+                                        aliases: ['fgt-backup-mode-switch']
                                         type: str
                                         description: Display string when FortiGate backup mode switched.
                                     low_signal_strength:
+                                        aliases: ['low-signal-strength']
                                         type: str
                                         description: Display string when signal strength is low.
                                     mode_switch:
+                                        aliases: ['mode-switch']
                                         type: str
                                         description: Display string when mode is switched.
                                     os_image_fallback:
+                                        aliases: ['os-image-fallback']
                                         type: str
                                         description: Display string when falling back to a previous OS image.
                                     session_disconnect:
+                                        aliases: ['session-disconnect']
                                         type: str
                                         description: Display string when session disconnected.
                                     system_reboot:
+                                        aliases: ['system-reboot']
                                         type: str
                                         description: Display string when system rebooted.
                             receiver:
@@ -366,6 +409,7 @@ options:
                                         type: str
                                         description: FortiExtender SMS notification receiver name.
                                     phone_number:
+                                        aliases: ['phone-number']
                                         type: str
                                         description: Receiver phone number.
                                     status:
@@ -381,6 +425,7 @@ options:
                                     - 'disable'
                                     - 'enable'
             enforce_bandwidth:
+                aliases: ['enforce-bandwidth']
                 type: str
                 description: Enable/disable enforcement of bandwidth on LAN extension interface.
                 choices:
@@ -397,6 +442,7 @@ options:
                 description: ID.
                 required: true
             lan_extension:
+                aliases: ['lan-extension']
                 type: dict
                 description: Lan extension.
                 suboptions:
@@ -431,24 +477,30 @@ options:
                                 type: int
                                 description: WRR weight parameter.
                     backhaul_interface:
+                        aliases: ['backhaul-interface']
                         type: str
                         description: IPsec phase1 interface.
                     backhaul_ip:
+                        aliases: ['backhaul-ip']
                         type: str
                         description: IPsec phase1 IPv4/FQDN.
                     ipsec_tunnel:
+                        aliases: ['ipsec-tunnel']
                         type: str
                         description: IPsec tunnel name.
                     link_loadbalance:
+                        aliases: ['link-loadbalance']
                         type: str
                         description: LAN extension link load balance strategy.
                         choices:
                             - 'activebackup'
                             - 'loadbalance'
             login_password:
+                aliases: ['login-password']
                 type: raw
                 description: (list) Set the managed extenders administrator password.
             login_password_change:
+                aliases: ['login-password-change']
                 type: str
                 description: Change or reset the administrator password of a managed extender
                 choices:

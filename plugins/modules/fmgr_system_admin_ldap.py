@@ -91,21 +91,25 @@ options:
                 description: Adom.
                 suboptions:
                     adom_name:
+                        aliases: ['adom-name']
                         type: str
                         description: Admin domain names.
             adom_attr:
+                aliases: ['adom-attr']
                 type: str
                 description: Attribute used to retrieve adom
             attributes:
                 type: str
                 description: Attributes used for group searching.
             ca_cert:
+                aliases: ['ca-cert']
                 type: str
                 description: CA certificate name.
             cnid:
                 type: str
                 description: Common Name Identifier
             connect_timeout:
+                aliases: ['connect-timeout']
                 type: int
                 description: LDAP connection timeout
             dn:
@@ -118,6 +122,7 @@ options:
                 type: str
                 description: Full base DN used for group searching.
             memberof_attr:
+                aliases: ['memberof-attr']
                 type: str
                 description: Attribute used to retrieve memeberof.
             name:
@@ -131,9 +136,11 @@ options:
                 type: int
                 description: Port number of LDAP server
             profile_attr:
+                aliases: ['profile-attr']
                 type: str
                 description: Attribute used to retrieve admin profile.
             secondary_server:
+                aliases: ['secondary-server']
                 type: str
                 description: No description
             secure:
@@ -151,6 +158,7 @@ options:
                 type: str
                 description: No description
             tertiary_server:
+                aliases: ['tertiary-server']
                 type: str
                 description: No description
             type:
@@ -168,6 +176,7 @@ options:
                 type: str
                 description: Username
             adom_access:
+                aliases: ['adom-access']
                 type: str
                 description:
                     - set all or specify adom access type.
@@ -177,6 +186,7 @@ options:
                     - 'all'
                     - 'specify'
             ssl_protocol:
+                aliases: ['ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for connection to ldap server.

@@ -105,6 +105,7 @@ options:
                 description: Rules.
                 suboptions:
                     case_sensitive:
+                        aliases: ['case-sensitive']
                         type: str
                         description: CASB user activity match case sensitive.
                         choices:
@@ -115,12 +116,14 @@ options:
                         elements: str
                         description: CASB user activity domain list.
                     header_name:
+                        aliases: ['header-name']
                         type: str
                         description: CASB user activity rule header name.
                     id:
                         type: int
                         description: CASB user activity rule ID.
                     match_pattern:
+                        aliases: ['match-pattern']
                         type: str
                         description: CASB user activity rule match pattern.
                         choices:
@@ -128,6 +131,7 @@ options:
                             - 'substr'
                             - 'regexp'
                     match_value:
+                        aliases: ['match-value']
                         type: str
                         description: CASB user activity rule match value.
                     methods:

@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Comment.
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging.
                 choices:
@@ -109,11 +110,13 @@ options:
                 description: WAF Profile name.
                 required: true
             url_access:
+                aliases: ['url-access']
                 type: list
                 elements: dict
                 description: Url access.
                 suboptions:
                     access_pattern:
+                        aliases: ['access-pattern']
                         type: list
                         elements: dict
                         description: Access pattern.
@@ -166,13 +169,16 @@ options:
                             - 'medium'
                             - 'high'
             address_list:
+                aliases: ['address-list']
                 type: dict
                 description: Address list.
                 suboptions:
                     blocked_address:
+                        aliases: ['blocked-address']
                         type: raw
                         description: (list or str) Blocked address.
                     blocked_log:
+                        aliases: ['blocked-log']
                         type: str
                         description: Enable/disable logging on blocked addresses.
                         choices:
@@ -192,6 +198,7 @@ options:
                             - 'disable'
                             - 'enable'
                     trusted_address:
+                        aliases: ['trusted-address']
                         type: raw
                         description: (list or str) Trusted address.
             constraint:
@@ -199,6 +206,7 @@ options:
                 description: Constraint.
                 suboptions:
                     content_length:
+                        aliases: ['content-length']
                         type: dict
                         description: Content length.
                         suboptions:
@@ -239,12 +247,14 @@ options:
                                 type: str
                                 description: Host address.
                             content_length:
+                                aliases: ['content-length']
                                 type: str
                                 description: HTTP content length in request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             header_length:
+                                aliases: ['header-length']
                                 type: str
                                 description: HTTP header length in request.
                                 choices:
@@ -260,6 +270,7 @@ options:
                                 type: int
                                 description: Exception ID.
                             line_length:
+                                aliases: ['line-length']
                                 type: str
                                 description: HTTP line length in request.
                                 choices:
@@ -272,24 +283,28 @@ options:
                                     - 'disable'
                                     - 'enable'
                             max_cookie:
+                                aliases: ['max-cookie']
                                 type: str
                                 description: Maximum number of cookies in HTTP request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             max_header_line:
+                                aliases: ['max-header-line']
                                 type: str
                                 description: Maximum number of HTTP header line.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             max_range_segment:
+                                aliases: ['max-range-segment']
                                 type: str
                                 description: Maximum number of range segments in HTTP range line.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             max_url_param:
+                                aliases: ['max-url-param']
                                 type: str
                                 description: Maximum number of parameters in URL.
                                 choices:
@@ -302,6 +317,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             param_length:
+                                aliases: ['param-length']
                                 type: str
                                 description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
                                 choices:
@@ -317,6 +333,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             url_param_length:
+                                aliases: ['url-param-length']
                                 type: str
                                 description: Maximum length of parameter in URL.
                                 choices:
@@ -329,6 +346,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     header_length:
+                        aliases: ['header-length']
                         type: dict
                         description: Header length.
                         suboptions:
@@ -390,6 +408,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     line_length:
+                        aliases: ['line-length']
                         type: dict
                         description: Line length.
                         suboptions:
@@ -451,6 +470,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     max_cookie:
+                        aliases: ['max-cookie']
                         type: dict
                         description: Max cookie.
                         suboptions:
@@ -467,6 +487,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             max_cookie:
+                                aliases: ['max-cookie']
                                 type: int
                                 description: Maximum number of cookies in HTTP request
                             severity:
@@ -483,6 +504,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     max_header_line:
+                        aliases: ['max-header-line']
                         type: dict
                         description: Max header line.
                         suboptions:
@@ -499,6 +521,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             max_header_line:
+                                aliases: ['max-header-line']
                                 type: int
                                 description: Maximum number HTTP header lines
                             severity:
@@ -515,6 +538,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     max_range_segment:
+                        aliases: ['max-range-segment']
                         type: dict
                         description: Max range segment.
                         suboptions:
@@ -531,6 +555,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             max_range_segment:
+                                aliases: ['max-range-segment']
                                 type: int
                                 description: Maximum number of range segments in HTTP range line
                             severity:
@@ -547,6 +572,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     max_url_param:
+                        aliases: ['max-url-param']
                         type: dict
                         description: Max url param.
                         suboptions:
@@ -563,6 +589,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             max_url_param:
+                                aliases: ['max-url-param']
                                 type: int
                                 description: Maximum number of parameters in URL
                             severity:
@@ -608,6 +635,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     param_length:
+                        aliases: ['param-length']
                         type: dict
                         description: Param length.
                         suboptions:
@@ -640,6 +668,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     url_param_length:
+                        aliases: ['url-param-length']
                         type: dict
                         description: Url param length.
                         suboptions:
@@ -705,6 +734,7 @@ options:
                 description: Method.
                 suboptions:
                     default_allowed_methods:
+                        aliases: ['default-allowed-methods']
                         type: list
                         elements: str
                         description: Methods.
@@ -725,6 +755,7 @@ options:
                             - 'disable'
                             - 'enable'
                     method_policy:
+                        aliases: ['method-policy']
                         type: list
                         elements: dict
                         description: Method policy.
@@ -733,6 +764,7 @@ options:
                                 type: str
                                 description: Host address.
                             allowed_methods:
+                                aliases: ['allowed-methods']
                                 type: list
                                 elements: str
                                 description: Allowed Methods.
@@ -776,9 +808,11 @@ options:
                 description: Signature.
                 suboptions:
                     credit_card_detection_threshold:
+                        aliases: ['credit-card-detection-threshold']
                         type: int
                         description: The minimum number of Credit cards to detect violation.
                     custom_signature:
+                        aliases: ['custom-signature']
                         type: list
                         elements: dict
                         description: Custom signature.
@@ -791,6 +825,7 @@ options:
                                     - 'block'
                                     - 'erase'
                             case_sensitivity:
+                                aliases: ['case-sensitivity']
                                 type: str
                                 description: Case sensitivity in pattern.
                                 choices:
@@ -846,12 +881,15 @@ options:
                                     - 'resp-hdr'
                                     - 'resp-status'
                     disabled_signature:
+                        aliases: ['disabled-signature']
                         type: raw
                         description: (list or str) Disabled signatures
                     disabled_sub_class:
+                        aliases: ['disabled-sub-class']
                         type: raw
                         description: (list or str) Disabled signature subclasses.
                     main_class:
+                        aliases: ['main-class']
                         type: dict
                         description: Main class.
                         suboptions:

@@ -109,15 +109,18 @@ options:
                     - 'disable'
                     - 'enable'
             explicit_proxy:
+                aliases: ['explicit-proxy']
                 type: str
                 description: Enable/disable explicit web proxy service group.
                 choices:
                     - 'disable'
                     - 'enable'
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:

@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             policy_block_name:
+                aliases: ['policy-block-name']
                 type: str
                 description: Policy block names.
 '''

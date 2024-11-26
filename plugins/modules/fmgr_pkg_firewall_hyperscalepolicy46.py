@@ -100,6 +100,7 @@ options:
                     - 'deny'
                     - 'accept'
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             comments:
@@ -115,6 +116,7 @@ options:
                 type: str
                 description: Policy name.
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/disable offloading policy configuration to CP processors.
                 choices:
@@ -140,15 +142,19 @@ options:
                     - 'disable'
                     - 'enable'
             tcp_timeout_pid:
+                aliases: ['tcp-timeout-pid']
                 type: str
                 description: TCP timeout profile ID
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             udp_timeout_pid:
+                aliases: ['udp-timeout-pid']
                 type: str
                 description: UDP timeout profile ID
             uuid:

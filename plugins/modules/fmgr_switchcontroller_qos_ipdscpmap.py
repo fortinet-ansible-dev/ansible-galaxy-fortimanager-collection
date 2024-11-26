@@ -98,6 +98,7 @@ options:
                 description: Map.
                 suboptions:
                     cos_queue:
+                        aliases: ['cos-queue']
                         type: int
                         description: COS queue number.
                     diffserv:
@@ -127,6 +128,7 @@ options:
                             - 'CS6'
                             - 'CS7'
                     ip_precedence:
+                        aliases: ['ip-precedence']
                         type: list
                         elements: str
                         description: IP Precedence.

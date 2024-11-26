@@ -90,15 +90,18 @@ options:
         type: dict
         suboptions:
             cos_queue:
+                aliases: ['cos-queue']
                 type: int
                 description: COS queue
             description:
                 type: str
                 description: Description of the traffic policy.
             guaranteed_bandwidth:
+                aliases: ['guaranteed-bandwidth']
                 type: int
                 description: Guaranteed bandwidth in kbps
             guaranteed_burst:
+                aliases: ['guaranteed-burst']
                 type: int
                 description: Guaranteed burst size in bytes
             id:
@@ -106,12 +109,14 @@ options:
                 description: FSW Policer id
                 required: true
             maximum_burst:
+                aliases: ['maximum-burst']
                 type: int
                 description: Maximum burst size in bytes
             name:
                 type: str
                 description: Traffic policy name.
             policer_status:
+                aliases: ['policer-status']
                 type: str
                 description: Enable/disable policer config on the traffic policy.
                 choices:

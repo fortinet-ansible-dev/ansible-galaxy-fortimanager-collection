@@ -104,15 +104,18 @@ options:
                 description: Ports.
                 suboptions:
                     allowed_vlans:
+                        aliases: ['allowed-vlans']
                         type: raw
                         description: (list or str) Configure switch port tagged vlans
                     allowed_vlans_all:
+                        aliases: ['allowed-vlans-all']
                         type: str
                         description: Enable/disable all defined vlans on this port.
                         choices:
                             - 'disable'
                             - 'enable'
                     arp_inspection_trust:
+                        aliases: ['arp-inspection-trust']
                         type: str
                         description: Trusted or untrusted dynamic ARP inspection.
                         choices:
@@ -128,18 +131,21 @@ options:
                         type: str
                         description: Description for port.
                     dhcp_snoop_option82_trust:
+                        aliases: ['dhcp-snoop-option82-trust']
                         type: str
                         description: Enable/disable allowance of DHCP with option-82 on untrusted interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     dhcp_snooping:
+                        aliases: ['dhcp-snooping']
                         type: str
                         description: Trusted or untrusted DHCP-snooping interface.
                         choices:
                             - 'trusted'
                             - 'untrusted'
                     discard_mode:
+                        aliases: ['discard-mode']
                         type: str
                         description: Configure discard mode for port.
                         choices:
@@ -147,42 +153,50 @@ options:
                             - 'all-untagged'
                             - 'all-tagged'
                     edge_port:
+                        aliases: ['edge-port']
                         type: str
                         description: Enable/disable this interface as an edge port, bridging connections between workstations and/or computers.
                         choices:
                             - 'disable'
                             - 'enable'
                     igmp_snooping:
+                        aliases: ['igmp-snooping']
                         type: str
                         description: Set IGMP snooping mode for the physical port interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     igmps_flood_reports:
+                        aliases: ['igmps-flood-reports']
                         type: str
                         description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                         choices:
                             - 'disable'
                             - 'enable'
                     igmps_flood_traffic:
+                        aliases: ['igmps-flood-traffic']
                         type: str
                         description: Enable/disable flooding of IGMP snooping traffic to this interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     lacp_speed:
+                        aliases: ['lacp-speed']
                         type: str
                         description: End Link Aggregation Control Protocol
                         choices:
                             - 'slow'
                             - 'fast'
                     learning_limit:
+                        aliases: ['learning-limit']
                         type: int
                         description: Limit the number of dynamic MAC addresses on this Port
                     lldp_profile:
+                        aliases: ['lldp-profile']
                         type: str
                         description: LLDP port TLV profile.
                     lldp_status:
+                        aliases: ['lldp-status']
                         type: str
                         description: LLDP transmit and receive status.
                         choices:
@@ -191,15 +205,18 @@ options:
                             - 'tx-only'
                             - 'tx-rx'
                     loop_guard:
+                        aliases: ['loop-guard']
                         type: str
                         description: Enable/disable loop-guard on this interface, an STP optimization used to prevent network loops.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     loop_guard_timeout:
+                        aliases: ['loop-guard-timeout']
                         type: int
                         description: Loop-guard timeout
                     max_bundle:
+                        aliases: ['max-bundle']
                         type: int
                         description: Maximum size of LAG bundle
                     mclag:
@@ -209,6 +226,7 @@ options:
                             - 'disable'
                             - 'enable'
                     member_withdrawal_behavior:
+                        aliases: ['member-withdrawal-behavior']
                         type: str
                         description: Port behavior after it withdraws because of loss of control packets.
                         choices:
@@ -218,6 +236,7 @@ options:
                         type: raw
                         description: (list) Aggregated LAG bundle interfaces.
                     min_bundle:
+                        aliases: ['min-bundle']
                         type: int
                         description: Minimum size of LAG bundle
                     mode:
@@ -228,27 +247,33 @@ options:
                             - 'lacp-passive'
                             - 'lacp-active'
                     poe_pre_standard_detection:
+                        aliases: ['poe-pre-standard-detection']
                         type: str
                         description: Enable/disable PoE pre-standard detection.
                         choices:
                             - 'disable'
                             - 'enable'
                     poe_status:
+                        aliases: ['poe-status']
                         type: str
                         description: Enable/disable PoE status.
                         choices:
                             - 'disable'
                             - 'enable'
                     port_name:
+                        aliases: ['port-name']
                         type: str
                         description: Switch port name.
                     port_owner:
+                        aliases: ['port-owner']
                         type: str
                         description: Switch port name.
                     port_security_policy:
+                        aliases: ['port-security-policy']
                         type: str
                         description: Switch controller authentication policy to apply to this managed switch from available options.
                     port_selection_criteria:
+                        aliases: ['port-selection-criteria']
                         type: str
                         description: Algorithm for aggregate port selection.
                         choices:
@@ -259,9 +284,11 @@ options:
                             - 'dst-ip'
                             - 'src-dst-ip'
                     qos_policy:
+                        aliases: ['qos-policy']
                         type: str
                         description: Switch controller QoS policy from available options.
                     sample_direction:
+                        aliases: ['sample-direction']
                         type: str
                         description: SFlow sample direction.
                         choices:
@@ -269,33 +296,40 @@ options:
                             - 'tx'
                             - 'both'
                     sflow_counter_interval:
+                        aliases: ['sflow-counter-interval']
                         type: int
                         description: SFlow sampler counter polling interval
                     sflow_sample_rate:
+                        aliases: ['sflow-sample-rate']
                         type: int
                         description: SFlow sampler sample rate
                     sflow_sampler:
+                        aliases: ['sflow-sampler']
                         type: str
                         description: Enable/disable sFlow protocol on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     stp_bpdu_guard:
+                        aliases: ['stp-bpdu-guard']
                         type: str
                         description: Enable/disable STP BPDU guard on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     stp_bpdu_guard_timeout:
+                        aliases: ['stp-bpdu-guard-timeout']
                         type: int
                         description: BPDU Guard disabling protection
                     stp_root_guard:
+                        aliases: ['stp-root-guard']
                         type: str
                         description: Enable/disable STP root guard on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     stp_state:
+                        aliases: ['stp-state']
                         type: str
                         description: Enable/disable Spanning Tree Protocol
                         choices:
@@ -308,45 +342,55 @@ options:
                             - 'physical'
                             - 'trunk'
                     untagged_vlans:
+                        aliases: ['untagged-vlans']
                         type: raw
                         description: (list or str) Configure switch port untagged vlans
                     vlan:
                         type: str
                         description: Assign switch ports to a VLAN.
                     export_to_pool_flag:
+                        aliases: ['export-to-pool-flag']
                         type: int
                         description: Switch controller export port to pool-list.
                     mac_addr:
+                        aliases: ['mac-addr']
                         type: str
                         description: Port/Trunk MAC.
                     packet_sample_rate:
+                        aliases: ['packet-sample-rate']
                         type: int
                         description: Packet sampling rate
                     packet_sampler:
+                        aliases: ['packet-sampler']
                         type: str
                         description: Enable/disable packet sampling on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     sticky_mac:
+                        aliases: ['sticky-mac']
                         type: str
                         description: Enable or disable sticky-mac on the interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     storm_control_policy:
+                        aliases: ['storm-control-policy']
                         type: str
                         description: Switch controller storm control policy from available options.
                     dot1x_enable:
+                        aliases: ['dot1x-enable']
                         type: str
                         description: Dot1x enable.
                         choices:
                             - 'disable'
                             - 'enable'
                     max_miss_heartbeats:
+                        aliases: ['max-miss-heartbeats']
                         type: int
                         description: Maximum tolerant missed heartbeats.
                     access_mode:
+                        aliases: ['access-mode']
                         type: str
                         description: Access mode of the port.
                         choices:
@@ -355,30 +399,36 @@ options:
                             - 'dynamic'
                             - 'static'
                     ip_source_guard:
+                        aliases: ['ip-source-guard']
                         type: str
                         description: Enable/disable IP source guard.
                         choices:
                             - 'disable'
                             - 'enable'
                     mclag_icl_port:
+                        aliases: ['mclag-icl-port']
                         type: int
                         description: Mclag icl port.
                     p2p_port:
+                        aliases: ['p2p-port']
                         type: int
                         description: P2p port.
                     aggregator_mode:
+                        aliases: ['aggregator-mode']
                         type: str
                         description: LACP member select mode.
                         choices:
                             - 'bandwidth'
                             - 'count'
                     rpvst_port:
+                        aliases: ['rpvst-port']
                         type: str
                         description: Enable/disable inter-operability with rapid PVST on this interface.
                         choices:
                             - 'disabled'
                             - 'enabled'
                     flow_control:
+                        aliases: ['flow-control']
                         type: str
                         description: Flow control direction.
                         choices:
@@ -387,12 +437,15 @@ options:
                             - 'rx'
                             - 'both'
                     media_type:
+                        aliases: ['media-type']
                         type: str
                         description: Media type.
                     pause_meter:
+                        aliases: ['pause-meter']
                         type: int
                         description: Configure ingress pause metering rate, in kbps
                     pause_meter_resume:
+                        aliases: ['pause-meter-resume']
                         type: str
                         description: Resume threshold for resuming traffic on ingress port.
                         choices:
@@ -400,12 +453,15 @@ options:
                             - '50%'
                             - '75%'
                     trunk_member:
+                        aliases: ['trunk-member']
                         type: int
                         description: Trunk member.
                     fec_capable:
+                        aliases: ['fec-capable']
                         type: int
                         description: FEC capable.
                     fec_state:
+                        aliases: ['fec-state']
                         type: str
                         description: State of forward error correction.
                         choices:
@@ -414,12 +470,15 @@ options:
                             - 'cl91'
                             - 'detect-by-module'
                     matched_dpp_intf_tags:
+                        aliases: ['matched-dpp-intf-tags']
                         type: str
                         description: Matched interface tags in the dynamic port policy.
                     matched_dpp_policy:
+                        aliases: ['matched-dpp-policy']
                         type: str
                         description: Matched child policy in the dynamic port policy.
                     port_policy:
+                        aliases: ['port-policy']
                         type: str
                         description: Switch controller dynamic port policy from available options.
                     status:
@@ -429,15 +488,19 @@ options:
                             - 'down'
                             - 'up'
                     dsl_profile:
+                        aliases: ['dsl-profile']
                         type: str
                         description: DSL policy configuration.
                     flap_duration:
+                        aliases: ['flap-duration']
                         type: int
                         description: Period over which flap events are calculated
                     flap_rate:
+                        aliases: ['flap-rate']
                         type: int
                         description: Number of stage change events needed within flap-duration.
                     flap_timeout:
+                        aliases: ['flap-timeout']
                         type: int
                         description: Flap guard disabling protection
                     flapguard:
@@ -447,36 +510,44 @@ options:
                             - 'disable'
                             - 'enable'
                     interface_tags:
+                        aliases: ['interface-tags']
                         type: raw
                         description: (list or str) Tag
                     poe_max_power:
+                        aliases: ['poe-max-power']
                         type: str
                         description: Poe max power.
                     poe_standard:
+                        aliases: ['poe-standard']
                         type: str
                         description: Poe standard.
                     igmp_snooping_flood_reports:
+                        aliases: ['igmp-snooping-flood-reports']
                         type: str
                         description: Enable/disable flooding of IGMP reports to this interface when igmp-snooping enabled.
                         choices:
                             - 'disable'
                             - 'enable'
                     mcast_snooping_flood_traffic:
+                        aliases: ['mcast-snooping-flood-traffic']
                         type: str
                         description: Enable/disable flooding of IGMP snooping traffic to this interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     link_status:
+                        aliases: ['link-status']
                         type: str
                         description: Link status.
                         choices:
                             - 'down'
                             - 'up'
                     poe_mode_bt_cabable:
+                        aliases: ['poe-mode-bt-cabable']
                         type: int
                         description: PoE mode IEEE 802.
                     poe_port_mode:
+                        aliases: ['poe-port-mode']
                         type: str
                         description: Configure PoE port mode.
                         choices:
@@ -484,6 +555,7 @@ options:
                             - 'ieee802-3at'
                             - 'ieee802-3bt'
                     poe_port_power:
+                        aliases: ['poe-port-power']
                         type: str
                         description: Configure PoE port power.
                         choices:
@@ -491,6 +563,7 @@ options:
                             - 'perpetual'
                             - 'perpetual-fast'
                     poe_port_priority:
+                        aliases: ['poe-port-priority']
                         type: str
                         description: Configure PoE port priority.
                         choices:
@@ -499,92 +572,118 @@ options:
                             - 'low-priority'
                             - 'medium-priority'
                     acl_group:
+                        aliases: ['acl-group']
                         type: raw
                         description: (list) ACL groups on this port.
                     dhcp_snoop_option82_override:
+                        aliases: ['dhcp-snoop-option82-override']
                         type: list
                         elements: dict
                         description: Dhcp snoop option82 override.
                         suboptions:
                             circuit_id:
+                                aliases: ['circuit-id']
                                 type: str
                                 description: Circuit ID string.
                             remote_id:
+                                aliases: ['remote-id']
                                 type: str
                                 description: Remote ID string.
                             vlan_name:
+                                aliases: ['vlan-name']
                                 type: str
                                 description: DHCP snooping option 82 VLAN.
                     fortiswitch_acls:
+                        aliases: ['fortiswitch-acls']
                         type: raw
                         description: (list) ACLs on this port.
                     isl_peer_device_sn:
+                        aliases: ['isl-peer-device-sn']
                         type: str
                         description: Isl peer device sn.
                     authenticated_port:
+                        aliases: ['authenticated-port']
                         type: int
                         description: Authenticated port.
                     encrypted_port:
+                        aliases: ['encrypted-port']
                         type: int
                         description: Encrypted port.
                     ptp_status:
+                        aliases: ['ptp-status']
                         type: str
                         description: Enable/disable PTP policy on this FortiSwitch port.
                         choices:
                             - 'disable'
                             - 'enable'
                     restricted_auth_port:
+                        aliases: ['restricted-auth-port']
                         type: int
                         description: Restricted auth port.
                     allow_arp_monitor:
+                        aliases: ['allow-arp-monitor']
                         type: str
                         description: Enable/Disable allow ARP monitor.
                         choices:
                             - 'disable'
                             - 'enable'
                     export_to:
+                        aliases: ['export-to']
                         type: raw
                         description: (list) Export managed-switch port to a tenant VDOM.
                     export_to_pool:
+                        aliases: ['export-to-pool']
                         type: raw
                         description: (list) Switch controller export port to pool-list.
                     fallback_port:
+                        aliases: ['fallback-port']
                         type: str
                         description: LACP fallback port.
                     fgt_peer_device_name:
+                        aliases: ['fgt-peer-device-name']
                         type: str
                         description: Fgt peer device name.
                     fgt_peer_port_name:
+                        aliases: ['fgt-peer-port-name']
                         type: str
                         description: Fgt peer port name.
                     fiber_port:
+                        aliases: ['fiber-port']
                         type: int
                         description: Fiber port.
                     flags:
                         type: int
                         description: Flags.
                     fortilink_port:
+                        aliases: ['fortilink-port']
                         type: int
                         description: Fortilink port.
                     isl_local_trunk_name:
+                        aliases: ['isl-local-trunk-name']
                         type: str
                         description: Isl local trunk name.
                     isl_peer_device_name:
+                        aliases: ['isl-peer-device-name']
                         type: str
                         description: Isl peer device name.
                     isl_peer_port_name:
+                        aliases: ['isl-peer-port-name']
                         type: str
                         description: Isl peer port name.
                     poe_capable:
+                        aliases: ['poe-capable']
                         type: int
                         description: PoE capable.
                     port_number:
+                        aliases: ['port-number']
                         type: int
                         description: Port number.
                     port_prefix_type:
+                        aliases: ['port-prefix-type']
                         type: int
                         description: Port prefix type.
                     ptp_policy:
+                        aliases: ['ptp-policy']
                         type: raw
                         description: (list) PTP policy configuration.
                     speed:
@@ -628,64 +727,78 @@ options:
                             - '50000cr'
                             - '50000sr'
                     speed_mask:
+                        aliases: ['speed-mask']
                         type: int
                         description: Switch port speed mask.
                     stacking_port:
+                        aliases: ['stacking-port']
                         type: int
                         description: Stacking port.
                     switch_id:
+                        aliases: ['switch-id']
                         type: str
                         description: Switch id.
                     virtual_port:
+                        aliases: ['virtual-port']
                         type: int
                         description: Virtualized switch port.
                     export_tags:
+                        aliases: ['export-tags']
                         type: raw
                         description: (list) Configure export tag
                     log_mac_event:
+                        aliases: ['log-mac-event']
                         type: str
                         description: Enable/disable logging for dynamic MAC address events.
                         choices:
                             - 'disable'
                             - 'enable'
                     pd_capable:
+                        aliases: ['pd-capable']
                         type: int
                         description: Powered device capable.
                     qnq:
                         type: raw
                         description: (list) '802.'
             switch_id:
+                aliases: ['switch-id']
                 type: str
                 description: Managed-switch id.
                 required: true
             override_snmp_community:
+                aliases: ['override-snmp-community']
                 type: str
                 description: Enable/disable overriding the global SNMP communities.
                 choices:
                     - 'disable'
                     - 'enable'
             override_snmp_sysinfo:
+                aliases: ['override-snmp-sysinfo']
                 type: str
                 description: Enable/disable overriding the global SNMP system information.
                 choices:
                     - 'disable'
                     - 'enable'
             override_snmp_trap_threshold:
+                aliases: ['override-snmp-trap-threshold']
                 type: str
                 description: Enable/disable overriding the global SNMP trap threshold values.
                 choices:
                     - 'disable'
                     - 'enable'
             override_snmp_user:
+                aliases: ['override-snmp-user']
                 type: str
                 description: Enable/disable overriding the global SNMP users.
                 choices:
                     - 'disable'
                     - 'enable'
             poe_detection_type:
+                aliases: ['poe-detection-type']
                 type: int
                 description: Poe detection type.
             remote_log:
+                aliases: ['remote-log']
                 type: list
                 elements: dict
                 description: Remote log.
@@ -752,6 +865,7 @@ options:
                             - 'disable'
                             - 'enable'
             snmp_community:
+                aliases: ['snmp-community']
                 type: list
                 elements: dict
                 description: Snmp community.
@@ -785,18 +899,22 @@ options:
                         type: str
                         description: SNMP community name.
                     query_v1_port:
+                        aliases: ['query-v1-port']
                         type: int
                         description: SNMP v1 query port
                     query_v1_status:
+                        aliases: ['query-v1-status']
                         type: str
                         description: Enable/disable SNMP v1 queries.
                         choices:
                             - 'disable'
                             - 'enable'
                     query_v2c_port:
+                        aliases: ['query-v2c-port']
                         type: int
                         description: SNMP v2c query port
                     query_v2c_status:
+                        aliases: ['query-v2c-status']
                         type: str
                         description: Enable/disable SNMP v2c queries.
                         choices:
@@ -809,35 +927,43 @@ options:
                             - 'disable'
                             - 'enable'
                     trap_v1_lport:
+                        aliases: ['trap-v1-lport']
                         type: int
                         description: SNMP v2c trap local port
                     trap_v1_rport:
+                        aliases: ['trap-v1-rport']
                         type: int
                         description: SNMP v2c trap remote port
                     trap_v1_status:
+                        aliases: ['trap-v1-status']
                         type: str
                         description: Enable/disable SNMP v1 traps.
                         choices:
                             - 'disable'
                             - 'enable'
                     trap_v2c_lport:
+                        aliases: ['trap-v2c-lport']
                         type: int
                         description: SNMP v2c trap local port
                     trap_v2c_rport:
+                        aliases: ['trap-v2c-rport']
                         type: int
                         description: SNMP v2c trap remote port
                     trap_v2c_status:
+                        aliases: ['trap-v2c-status']
                         type: str
                         description: Enable/disable SNMP v2c traps.
                         choices:
                             - 'disable'
                             - 'enable'
             snmp_user:
+                aliases: ['snmp-user']
                 type: list
                 elements: dict
                 description: Snmp user.
                 suboptions:
                     auth_proto:
+                        aliases: ['auth-proto']
                         type: str
                         description: Authentication protocol.
                         choices:
@@ -849,12 +975,14 @@ options:
                             - 'sha512'
                             - 'sha224'
                     auth_pwd:
+                        aliases: ['auth-pwd']
                         type: raw
                         description: (list) Password for authentication protocol.
                     name:
                         type: str
                         description: SNMP user name.
                     priv_proto:
+                        aliases: ['priv-proto']
                         type: str
                         description: Privacy
                         choices:
@@ -866,6 +994,7 @@ options:
                             - 'aes192c'
                             - 'aes256c'
                     priv_pwd:
+                        aliases: ['priv-pwd']
                         type: raw
                         description: (list) Password for privacy
                     queries:
@@ -875,9 +1004,11 @@ options:
                             - 'disable'
                             - 'enable'
                     query_port:
+                        aliases: ['query-port']
                         type: int
                         description: SNMPv3 query port
                     security_level:
+                        aliases: ['security-level']
                         type: str
                         description: Security level for message authentication and encryption.
                         choices:
@@ -885,22 +1016,26 @@ options:
                             - 'auth-no-priv'
                             - 'auth-priv'
             mclag_igmp_snooping_aware:
+                aliases: ['mclag-igmp-snooping-aware']
                 type: str
                 description: Enable/disable MCLAG IGMP-snooping awareness.
                 choices:
                     - 'disable'
                     - 'enable'
             ip_source_guard:
+                aliases: ['ip-source-guard']
                 type: list
                 elements: dict
                 description: Ip source guard.
                 suboptions:
                     binding_entry:
+                        aliases: ['binding-entry']
                         type: list
                         elements: dict
                         description: Binding entry.
                         suboptions:
                             entry_name:
+                                aliases: ['entry-name']
                                 type: str
                                 description: Configure binding pair.
                             ip:
@@ -916,44 +1051,55 @@ options:
                         type: str
                         description: Ingress interface to which source guard is bound.
             l3_discovered:
+                aliases: ['l3-discovered']
                 type: int
                 description: L3 discovered.
             qos_drop_policy:
+                aliases: ['qos-drop-policy']
                 type: str
                 description: Set QoS drop-policy.
                 choices:
                     - 'taildrop'
                     - 'random-early-detection'
             qos_red_probability:
+                aliases: ['qos-red-probability']
                 type: int
                 description: Set QoS RED/WRED drop probability.
             switch_dhcp_opt43_key:
+                aliases: ['switch-dhcp_opt43_key']
                 type: str
                 description: DHCP option43 key.
             tdr_supported:
+                aliases: ['tdr-supported']
                 type: str
                 description: Tdr supported.
             custom_command:
+                aliases: ['custom-command']
                 type: list
                 elements: dict
                 description: Custom command.
                 suboptions:
                     command_entry:
+                        aliases: ['command-entry']
                         type: str
                         description: List of FortiSwitch commands.
                     command_name:
+                        aliases: ['command-name']
                         type: str
                         description: Names of commands to be pushed to this FortiSwitch device, as configured under config switch-controller custom-com...
             firmware_provision:
+                aliases: ['firmware-provision']
                 type: str
                 description: Enable/disable provisioning of firmware to FortiSwitches on join connection.
                 choices:
                     - 'disable'
                     - 'enable'
             firmware_provision_version:
+                aliases: ['firmware-provision-version']
                 type: str
                 description: Firmware version to provision to this FortiSwitch on bootup
             dhcp_server_access_list:
+                aliases: ['dhcp-server-access-list']
                 type: str
                 description: DHCP snooping server access list.
                 choices:
@@ -961,12 +1107,14 @@ options:
                     - 'enable'
                     - 'global'
             firmware_provision_latest:
+                aliases: ['firmware-provision-latest']
                 type: str
                 description: Enable/disable one-time automatic provisioning of the latest firmware version.
                 choices:
                     - 'disable'
                     - 'once'
             dhcp_snooping_static_client:
+                aliases: ['dhcp-snooping-static-client']
                 type: list
                 elements: dict
                 description: Dhcp snooping static client.
@@ -987,41 +1135,50 @@ options:
                         type: str
                         description: VLAN name.
             ptp_profile:
+                aliases: ['ptp-profile']
                 type: str
                 description: PTP profile configuration.
             ptp_status:
+                aliases: ['ptp-status']
                 type: str
                 description: Enable/disable PTP profile on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
             route_offload:
+                aliases: ['route-offload']
                 type: str
                 description: Enable/disable route offload on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
             route_offload_mclag:
+                aliases: ['route-offload-mclag']
                 type: str
                 description: Enable/disable route offload MCLAG on this FortiSwitch.
                 choices:
                     - 'disable'
                     - 'enable'
             route_offload_router:
+                aliases: ['route-offload-router']
                 type: list
                 elements: dict
                 description: Route offload router.
                 suboptions:
                     router_ip:
+                        aliases: ['router-ip']
                         type: str
                         description: Router IP address.
                     vlan_name:
+                        aliases: ['vlan-name']
                         type: str
                         description: VLAN name.
             mgmt_mode:
+                aliases: ['mgmt-mode']
                 type: int
                 description: FortiLink management mode.
             purdue_level:
+                aliases: ['purdue-level']
                 type: str
                 description: Purdue Level of this FortiSwitch.
                 choices:
@@ -1035,15 +1192,18 @@ options:
                     - '3.5'
                     - '5.5'
             radius_nas_ip:
+                aliases: ['radius-nas-ip']
                 type: str
                 description: NAS-IP address.
             radius_nas_ip_override:
+                aliases: ['radius-nas-ip-override']
                 type: str
                 description: Use locally defined NAS-IP.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_discovered:
+                aliases: ['tunnel-discovered']
                 type: int
                 description: Tunnel discovered.
             vlan:
@@ -1052,34 +1212,41 @@ options:
                 description: Vlan.
                 suboptions:
                     assignment_priority:
+                        aliases: ['assignment-priority']
                         type: int
                         description: '802.'
                     vlan_name:
+                        aliases: ['vlan-name']
                         type: str
                         description: VLAN name.
             802_1X_settings:
+                aliases: ['802-1X-settings']
                 type: dict
                 description: 802 1X settings.
                 suboptions:
                     link_down_auth:
+                        aliases: ['link-down-auth']
                         type: str
                         description: Authentication state to set if a link is down.
                         choices:
                             - 'set-unauth'
                             - 'no-action'
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable to override global 802.
                         choices:
                             - 'disable'
                             - 'enable'
                     mab_reauth:
+                        aliases: ['mab-reauth']
                         type: str
                         description: Enable or disable MAB reauthentication settings.
                         choices:
                             - 'disable'
                             - 'enable'
                     mac_called_station_delimiter:
+                        aliases: ['mac-called-station-delimiter']
                         type: str
                         description: MAC called station delimiter
                         choices:
@@ -1088,6 +1255,7 @@ options:
                             - 'colon'
                             - 'none'
                     mac_calling_station_delimiter:
+                        aliases: ['mac-calling-station-delimiter']
                         type: str
                         description: MAC calling station delimiter
                         choices:
@@ -1096,12 +1264,14 @@ options:
                             - 'colon'
                             - 'none'
                     mac_case:
+                        aliases: ['mac-case']
                         type: str
                         description: MAC case
                         choices:
                             - 'uppercase'
                             - 'lowercase'
                     mac_password_delimiter:
+                        aliases: ['mac-password-delimiter']
                         type: str
                         description: MAC authentication password delimiter
                         choices:
@@ -1110,6 +1280,7 @@ options:
                             - 'colon'
                             - 'none'
                     mac_username_delimiter:
+                        aliases: ['mac-username-delimiter']
                         type: str
                         description: MAC authentication username delimiter
                         choices:
@@ -1118,33 +1289,43 @@ options:
                             - 'colon'
                             - 'none'
                     max_reauth_attempt:
+                        aliases: ['max-reauth-attempt']
                         type: int
                         description: Maximum number of authentication attempts
                     reauth_period:
+                        aliases: ['reauth-period']
                         type: int
                         description: Reauthentication time interval
                     tx_period:
+                        aliases: ['tx-period']
                         type: int
                         description: '802.'
             access_profile:
+                aliases: ['access-profile']
                 type: raw
                 description: (list) FortiSwitch access profile.
             delayed_restart_trigger:
+                aliases: ['delayed-restart-trigger']
                 type: int
                 description: Delayed restart triggered for this FortiSwitch.
             directly_connected:
+                aliases: ['directly-connected']
                 type: int
                 description: Directly connected.
             dynamic_capability:
+                aliases: ['dynamic-capability']
                 type: str
                 description: List of features this FortiSwitch supports
             dynamically_discovered:
+                aliases: ['dynamically-discovered']
                 type: int
                 description: Dynamically discovered.
             flow_identity:
+                aliases: ['flow-identity']
                 type: str
                 description: Flow-tracking netflow ipfix switch identity in hex format
             fsw_wan1_admin:
+                aliases: ['fsw-wan1-admin']
                 type: str
                 description: FortiSwitch WAN1 admin status; enable to authorize the FortiSwitch as a managed switch.
                 choices:
@@ -1152,9 +1333,11 @@ options:
                     - 'enable'
                     - 'discovered'
             fsw_wan1_peer:
+                aliases: ['fsw-wan1-peer']
                 type: raw
                 description: (list) FortiSwitch WAN1 peer port.
             fsw_wan2_admin:
+                aliases: ['fsw-wan2-admin']
                 type: str
                 description: FortiSwitch WAN2 admin status; enable to authorize the FortiSwitch as a managed switch.
                 choices:
@@ -1162,22 +1345,27 @@ options:
                     - 'enable'
                     - 'discovered'
             fsw_wan2_peer:
+                aliases: ['fsw-wan2-peer']
                 type: str
                 description: FortiSwitch WAN2 peer port.
             igmp_snooping:
+                aliases: ['igmp-snooping']
                 type: dict
                 description: Igmp snooping.
                 suboptions:
                     aging_time:
+                        aliases: ['aging-time']
                         type: int
                         description: Maximum time to retain a multicast snooping entry for which no packets have been seen
                     flood_unknown_multicast:
+                        aliases: ['flood-unknown-multicast']
                         type: str
                         description: Enable/disable unknown multicast flooding.
                         choices:
                             - 'disable'
                             - 'enable'
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable/disable overriding the global IGMP snooping configuration.
                         choices:
@@ -1202,15 +1390,18 @@ options:
                                     - 'disable'
                                     - 'enable'
                             querier_addr:
+                                aliases: ['querier-addr']
                                 type: str
                                 description: IGMP snooping querier address.
                             version:
                                 type: int
                                 description: IGMP snooping querying version.
                             vlan_name:
+                                aliases: ['vlan-name']
                                 type: raw
                                 description: (list) List of FortiSwitch VLANs.
             max_allowed_trunk_members:
+                aliases: ['max-allowed-trunk-members']
                 type: int
                 description: FortiSwitch maximum allowed trunk members.
             mirror:
@@ -1225,9 +1416,11 @@ options:
                         type: str
                         description: Mirror name.
                     src_egress:
+                        aliases: ['src-egress']
                         type: raw
                         description: (list) Source egress interfaces.
                     src_ingress:
+                        aliases: ['src-ingress']
                         type: raw
                         description: (list) Source ingress interfaces.
                     status:
@@ -1237,37 +1430,44 @@ options:
                             - 'inactive'
                             - 'active'
                     switching_packet:
+                        aliases: ['switching-packet']
                         type: str
                         description: Enable/disable switching functionality when mirroring.
                         choices:
                             - 'disable'
                             - 'enable'
             owner_vdom:
+                aliases: ['owner-vdom']
                 type: str
                 description: VDOM which owner of port belongs to.
             poe_pre_standard_detection:
+                aliases: ['poe-pre-standard-detection']
                 type: str
                 description: Enable/disable PoE pre-standard detection.
                 choices:
                     - 'disable'
                     - 'enable'
             pre_provisioned:
+                aliases: ['pre-provisioned']
                 type: int
                 description: Pre-provisioned managed switch.
             sn:
                 type: str
                 description: Managed-switch serial number.
             snmp_sysinfo:
+                aliases: ['snmp-sysinfo']
                 type: dict
                 description: Snmp sysinfo.
                 suboptions:
                     contact_info:
+                        aliases: ['contact-info']
                         type: str
                         description: Contact information.
                     description:
                         type: str
                         description: System description.
                     engine_id:
+                        aliases: ['engine-id']
                         type: str
                         description: Local SNMP engine ID string
                     location:
@@ -1280,22 +1480,28 @@ options:
                             - 'disable'
                             - 'enable'
             snmp_trap_threshold:
+                aliases: ['snmp-trap-threshold']
                 type: dict
                 description: Snmp trap threshold.
                 suboptions:
                     trap_high_cpu_threshold:
+                        aliases: ['trap-high-cpu-threshold']
                         type: int
                         description: CPU usage when trap is sent.
                     trap_log_full_threshold:
+                        aliases: ['trap-log-full-threshold']
                         type: int
                         description: Log disk usage when trap is sent.
                     trap_low_memory_threshold:
+                        aliases: ['trap-low-memory-threshold']
                         type: int
                         description: Memory usage when trap is sent.
             staged_image_version:
+                aliases: ['staged-image-version']
                 type: str
                 description: Staged image version for FortiSwitch.
             static_mac:
+                aliases: ['static-mac']
                 type: list
                 elements: dict
                 description: Static mac.
@@ -1322,6 +1528,7 @@ options:
                         type: raw
                         description: (list) Vlan.
             storm_control:
+                aliases: ['storm-control']
                 type: dict
                 description: Storm control.
                 suboptions:
@@ -1332,6 +1539,7 @@ options:
                             - 'disable'
                             - 'enable'
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable to override global FortiSwitch storm control settings for this FortiSwitch.
                         choices:
@@ -1341,18 +1549,21 @@ options:
                         type: int
                         description: Rate in packets per second at which storm control drops excess traffic
                     unknown_multicast:
+                        aliases: ['unknown-multicast']
                         type: str
                         description: Enable/disable storm control to drop unknown multicast traffic.
                         choices:
                             - 'disable'
                             - 'enable'
                     unknown_unicast:
+                        aliases: ['unknown-unicast']
                         type: str
                         description: Enable/disable storm control to drop unknown unicast traffic.
                         choices:
                             - 'disable'
                             - 'enable'
             stp_instance:
+                aliases: ['stp-instance']
                 type: list
                 elements: dict
                 description: Stp instance.
@@ -1382,31 +1593,38 @@ options:
                             - '57344'
                             - '61440'
             stp_settings:
+                aliases: ['stp-settings']
                 type: dict
                 description: Stp settings.
                 suboptions:
                     forward_time:
+                        aliases: ['forward-time']
                         type: int
                         description: Period of time a port is in listening and learning state
                     hello_time:
+                        aliases: ['hello-time']
                         type: int
                         description: Period of time between successive STP frame Bridge Protocol Data Units
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable to configure local STP settings that override global STP settings.
                         choices:
                             - 'disable'
                             - 'enable'
                     max_age:
+                        aliases: ['max-age']
                         type: int
                         description: Maximum time before a bridge port saves its configuration BPDU information
                     max_hops:
+                        aliases: ['max-hops']
                         type: int
                         description: Maximum number of hops between the root bridge and the furthest bridge
                     name:
                         type: str
                         description: Name of local STP settings configuration.
                     pending_timer:
+                        aliases: ['pending-timer']
                         type: int
                         description: Pending time
                     revision:
@@ -1419,13 +1637,16 @@ options:
                             - 'disable'
                             - 'enable'
             switch_device_tag:
+                aliases: ['switch-device-tag']
                 type: str
                 description: User definable label/tag.
             switch_log:
+                aliases: ['switch-log']
                 type: dict
                 description: Switch log.
                 suboptions:
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable to configure local logging settings that override global logging settings.
                         choices:
@@ -1450,6 +1671,7 @@ options:
                             - 'disable'
                             - 'enable'
             switch_profile:
+                aliases: ['switch-profile']
                 type: raw
                 description: (list) FortiSwitch profile.
             type:
@@ -1462,6 +1684,7 @@ options:
                 type: int
                 description: FortiSwitch version.
             poe_lldp_detection:
+                aliases: ['poe-lldp-detection']
                 type: str
                 description: Enable/disable PoE LLDP detection.
                 choices:

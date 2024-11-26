@@ -104,12 +104,15 @@ options:
                 description: SLA ID.
                 required: true
             jitter_threshold:
+                aliases: ['jitter-threshold']
                 type: int
                 description: Jitter for SLA to make decision in milliseconds.
             latency_threshold:
+                aliases: ['latency-threshold']
                 type: int
                 description: Latency for SLA to make decision in milliseconds.
             link_cost_factor:
+                aliases: ['link-cost-factor']
                 type: list
                 elements: str
                 description: Criteria on which to base link selection.
@@ -118,6 +121,7 @@ options:
                     - 'jitter'
                     - 'packet-loss'
             packetloss_threshold:
+                aliases: ['packetloss-threshold']
                 type: int
                 description: Packet loss for SLA to make decision in percentage.
 '''

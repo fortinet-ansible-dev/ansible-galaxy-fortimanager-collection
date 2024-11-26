@@ -97,6 +97,7 @@ options:
                 type: int
                 description: SMTP server port.
             reply_to:
+                aliases: ['reply-to']
                 type: str
                 description: Reply-To email address.
             security:
@@ -110,12 +111,15 @@ options:
                 type: str
                 description: SMTP server IP address or hostname.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: SMTP server IPv4 source IP.
             source_ip6:
+                aliases: ['source-ip6']
                 type: str
                 description: SMTP server IPv6 source IP.
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for SSL/TLS connections
                 choices:
@@ -134,6 +138,7 @@ options:
                 type: str
                 description: SMTP server user name for authentication.
             validate_server:
+                aliases: ['validate-server']
                 type: str
                 description: Enable/disable validation of server certificate.
                 choices:
@@ -143,6 +148,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:

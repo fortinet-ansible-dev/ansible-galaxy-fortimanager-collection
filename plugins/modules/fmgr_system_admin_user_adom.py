@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             adom_name:
+                aliases: ['adom-name']
                 type: str
                 description: Admin domain names.
                 required: true

@@ -87,6 +87,7 @@ options:
         type: dict
         suboptions:
             auto_switch:
+                aliases: ['auto-switch']
                 type: dict
                 description: Auto switch.
                 suboptions:
@@ -103,9 +104,11 @@ options:
                             - 'disable'
                             - 'enable'
                     disconnect_period:
+                        aliases: ['disconnect-period']
                         type: int
                         description: Automatically switch based on disconnect period.
                     disconnect_threshold:
+                        aliases: ['disconnect-threshold']
                         type: int
                         description: Automatically switch based on disconnect threshold.
                     signal:
@@ -115,6 +118,7 @@ options:
                             - 'disable'
                             - 'enable'
                     switch_back:
+                        aliases: ['switch-back']
                         type: list
                         elements: str
                         description: Auto switch with switch back multi-options.
@@ -122,15 +126,19 @@ options:
                             - 'time'
                             - 'timer'
                     switch_back_time:
+                        aliases: ['switch-back-time']
                         type: str
                         description: Automatically switch over to preferred SIM/carrier at a specified time in UTC
                     switch_back_timer:
+                        aliases: ['switch-back-timer']
                         type: int
                         description: Automatically switch over to preferred SIM/carrier after the given time
             conn_status:
+                aliases: ['conn-status']
                 type: int
                 description: Conn status.
             default_sim:
+                aliases: ['default-sim']
                 type: str
                 description: Default SIM selection.
                 choices:
@@ -145,36 +153,44 @@ options:
                     - 'disable'
                     - 'enable'
             modem_id:
+                aliases: ['modem-id']
                 type: int
                 description: Modem ID.
             preferred_carrier:
+                aliases: ['preferred-carrier']
                 type: str
                 description: Preferred carrier.
             redundant_intf:
+                aliases: ['redundant-intf']
                 type: str
                 description: Redundant interface.
             redundant_mode:
+                aliases: ['redundant-mode']
                 type: str
                 description: FortiExtender mode.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1_pin:
+                aliases: ['sim1-pin']
                 type: str
                 description: SIM #1 PIN status.
                 choices:
                     - 'disable'
                     - 'enable'
             sim1_pin_code:
+                aliases: ['sim1-pin-code']
                 type: raw
                 description: (list) SIM #1 PIN password.
             sim2_pin:
+                aliases: ['sim2-pin']
                 type: str
                 description: SIM #2 PIN status.
                 choices:
                     - 'disable'
                     - 'enable'
             sim2_pin_code:
+                aliases: ['sim2-pin-code']
                 type: raw
                 description: (list) SIM #2 PIN password.
 '''

@@ -96,9 +96,11 @@ options:
         type: dict
         suboptions:
             assignment_priority:
+                aliases: ['assignment-priority']
                 type: int
                 description: '802.'
             vlan_name:
+                aliases: ['vlan-name']
                 type: str
                 description: VLAN name.
 '''

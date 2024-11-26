@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             app_replacemsg:
+                aliases: ['app-replacemsg']
                 type: str
                 description: Enable/disable replacement messages for blocked applications.
                 choices:
@@ -99,6 +100,7 @@ options:
                 type: str
                 description: Comments
             deep_app_inspection:
+                aliases: ['deep-app-inspection']
                 type: str
                 description: Enable/disable deep application inspection.
                 choices:
@@ -135,6 +137,7 @@ options:
                             - 'disable'
                             - 'enable'
                     log_packet:
+                        aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging.
                         choices:
@@ -166,6 +169,7 @@ options:
                                         type: str
                                         description: Parameter value.
                     per_ip_shaper:
+                        aliases: ['per-ip-shaper']
                         type: str
                         description: Per-IP traffic shaper.
                     popularity:
@@ -188,27 +192,33 @@ options:
                             - 'none'
                             - 'attacker'
                     quarantine_expiry:
+                        aliases: ['quarantine-expiry']
                         type: str
                         description: Duration of quarantine.
                     quarantine_log:
+                        aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable quarantine logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     rate_count:
+                        aliases: ['rate-count']
                         type: int
                         description: Count of the rate.
                     rate_duration:
+                        aliases: ['rate-duration']
                         type: int
                         description: Duration
                     rate_mode:
+                        aliases: ['rate-mode']
                         type: str
                         description: Rate limit mode.
                         choices:
                             - 'periodical'
                             - 'continuous'
                     rate_track:
+                        aliases: ['rate-track']
                         type: str
                         description: Track the packet protocol field.
                         choices:
@@ -221,15 +231,18 @@ options:
                         type: raw
                         description: (list) Risk, or impact, of allowing traffic from this application to occur
                     session_ttl:
+                        aliases: ['session-ttl']
                         type: int
                         description: Session TTL
                     shaper:
                         type: str
                         description: Traffic shaper.
                     shaper_reverse:
+                        aliases: ['shaper-reverse']
                         type: str
                         description: Reverse traffic shaper.
                     sub_category:
+                        aliases: ['sub-category']
                         type: raw
                         description: (list) Application Sub-category ID list.
                     technology:
@@ -245,6 +258,7 @@ options:
                         type: raw
                         description: (list) ID of excluded applications.
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging.
                 choices:
@@ -265,18 +279,21 @@ options:
                     - 'allow-ssl'
                     - 'allow-quic'
             other_application_action:
+                aliases: ['other-application-action']
                 type: str
                 description: Action for other applications.
                 choices:
                     - 'pass'
                     - 'block'
             other_application_log:
+                aliases: ['other-application-log']
                 type: str
                 description: Enable/disable logging for other applications.
                 choices:
                     - 'disable'
                     - 'enable'
             p2p_black_list:
+                aliases: ['p2p-black-list']
                 type: list
                 elements: str
                 description: P2P applications to be black listed.
@@ -285,27 +302,32 @@ options:
                     - 'edonkey'
                     - 'bittorrent'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             unknown_application_action:
+                aliases: ['unknown-application-action']
                 type: str
                 description: Pass or block traffic from unknown applications.
                 choices:
                     - 'pass'
                     - 'block'
             unknown_application_log:
+                aliases: ['unknown-application-log']
                 type: str
                 description: Enable/disable logging for unknown applications.
                 choices:
                     - 'disable'
                     - 'enable'
             control_default_network_services:
+                aliases: ['control-default-network-services']
                 type: str
                 description: Enable/disable enforcement of protocols over selected ports.
                 choices:
                     - 'disable'
                     - 'enable'
             default_network_services:
+                aliases: ['default-network-services']
                 type: list
                 elements: dict
                 description: Default network services.
@@ -333,6 +355,7 @@ options:
                             - 'nntp'
                             - 'https'
                     violation_action:
+                        aliases: ['violation-action']
                         type: str
                         description: Action for protocols not white listed under selected port.
                         choices:
@@ -340,18 +363,21 @@ options:
                             - 'monitor'
                             - 'pass'
             enforce_default_app_port:
+                aliases: ['enforce-default-app-port']
                 type: str
                 description: Enable/disable default application port enforcement for allowed applications.
                 choices:
                     - 'disable'
                     - 'enable'
             force_inclusion_ssl_di_sigs:
+                aliases: ['force-inclusion-ssl-di-sigs']
                 type: str
                 description: Enable/disable forced inclusion of SSL deep inspection signatures.
                 choices:
                     - 'disable'
                     - 'enable'
             p2p_block_list:
+                aliases: ['p2p-block-list']
                 type: list
                 elements: str
                 description: P2P applications to be blocklisted.

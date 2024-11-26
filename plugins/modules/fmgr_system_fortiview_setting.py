@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             not_scanned_apps:
+                aliases: ['not-scanned-apps']
                 type: str
                 description:
                     - Include/Exclude Not.
@@ -86,6 +87,7 @@ options:
                     - 'exclude'
                     - 'include'
             resolve_ip:
+                aliases: ['resolve-ip']
                 type: str
                 description:
                     - Enable or disable resolving IP address to hostname in FortiView.
@@ -95,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             data_source:
+                aliases: ['data-source']
                 type: str
                 description:
                     - Data soure of the fortiview query.

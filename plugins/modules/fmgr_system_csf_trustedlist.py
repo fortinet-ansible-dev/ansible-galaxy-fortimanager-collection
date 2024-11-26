@@ -95,6 +95,7 @@ options:
                     - 'accept'
                     - 'deny'
             authorization_type:
+                aliases: ['authorization-type']
                 type: str
                 description:
                     - Authorization type.
@@ -107,6 +108,7 @@ options:
                 type: str
                 description: Certificate.
             downstream_authorization:
+                aliases: ['downstream-authorization']
                 type: str
                 description:
                     - Trust authorizations by this node&apos;s administrator.
@@ -116,6 +118,7 @@ options:
                     - 'disable'
                     - 'enable'
             ha_members:
+                aliases: ['ha-members']
                 type: str
                 description: HA members.
             index:

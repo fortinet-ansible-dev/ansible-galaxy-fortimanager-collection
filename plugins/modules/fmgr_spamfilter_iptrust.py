@@ -98,6 +98,7 @@ options:
                 description: Entries.
                 suboptions:
                     addr_type:
+                        aliases: ['addr-type']
                         type: str
                         description: Type of address.
                         choices:
@@ -107,9 +108,11 @@ options:
                         type: int
                         description: Trusted IP entry ID.
                     ip4_subnet:
+                        aliases: ['ip4-subnet']
                         type: str
                         description: IPv4 network address or network address/subnet mask bits.
                     ip6_subnet:
+                        aliases: ['ip6-subnet']
                         type: str
                         description: IPv6 network address/subnet mask bits.
                     status:

@@ -87,46 +87,54 @@ options:
                 type: int
                 description: Oid.
             package_settings:
+                aliases: ['package settings']
                 type: dict
                 description: Package settings.
                 suboptions:
                     central_nat:
+                        aliases: ['central-nat']
                         type: str
                         description: Central nat.
                         choices:
                             - 'disable'
                             - 'enable'
                     consolidated_firewall_mode:
+                        aliases: ['consolidated-firewall-mode']
                         type: str
                         description: Consolidated firewall mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy_implicit_log:
+                        aliases: ['fwpolicy-implicit-log']
                         type: str
                         description: Fwpolicy implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy6_implicit_log:
+                        aliases: ['fwpolicy6-implicit-log']
                         type: str
                         description: Fwpolicy6 implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     inspection_mode:
+                        aliases: ['inspection-mode']
                         type: str
                         description: Inspection mode.
                         choices:
                             - 'proxy'
                             - 'flow'
                     ngfw_mode:
+                        aliases: ['ngfw-mode']
                         type: str
                         description: Ngfw mode.
                         choices:
                             - 'profile-based'
                             - 'policy-based'
                     policy_offload_level:
+                        aliases: ['policy-offload-level']
                         type: str
                         description: Policy offload level.
                         choices:
@@ -135,6 +143,7 @@ options:
                             - 'dos-offload'
                             - 'full-offload'
                     ssl_ssh_profile:
+                        aliases: ['ssl-ssh-profile']
                         type: str
                         description: Ssl ssh profile.
             type:

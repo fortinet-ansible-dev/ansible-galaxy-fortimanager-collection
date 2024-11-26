@@ -87,9 +87,11 @@ options:
         type: dict
         suboptions:
             comfort_amount:
+                aliases: ['comfort-amount']
                 type: int
                 description: Amount of data to send in a transmission for client comforting
             comfort_interval:
+                aliases: ['comfort-interval']
                 type: int
                 description: Period of time between start, or last transmission, and the next client comfort transmission of data
             options:
@@ -101,39 +103,49 @@ options:
                     - 'clientcomfort'
                     - 'servercomfort'
             oversize_limit:
+                aliases: ['oversize-limit']
                 type: int
                 description: Maximum in-memory file size that can be scanned
             scan_bzip2:
+                aliases: ['scan-bzip2']
                 type: str
                 description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
             uncompressed_nest_limit:
+                aliases: ['uncompressed-nest-limit']
                 type: int
                 description: Maximum nested levels of compression that can be uncompressed and scanned
             uncompressed_oversize_limit:
+                aliases: ['uncompressed-oversize-limit']
                 type: int
                 description: Maximum in-memory uncompressed file size that can be scanned
             ssl_offloaded:
+                aliases: ['ssl-offloaded']
                 type: str
                 description: SSL decryption and encryption performed by an external device.
                 choices:
                     - 'no'
                     - 'yes'
             stream_based_uncompressed_limit:
+                aliases: ['stream-based-uncompressed-limit']
                 type: int
                 description: Maximum stream-based uncompressed data size that will be scanned
             tcp_window_maximum:
+                aliases: ['tcp-window-maximum']
                 type: int
                 description: Maximum dynamic TCP window size.
             tcp_window_minimum:
+                aliases: ['tcp-window-minimum']
                 type: int
                 description: Minimum dynamic TCP window size.
             tcp_window_size:
+                aliases: ['tcp-window-size']
                 type: int
                 description: Set TCP static window size.
             tcp_window_type:
+                aliases: ['tcp-window-type']
                 type: str
                 description: TCP window type to use for this protocol.
                 choices:

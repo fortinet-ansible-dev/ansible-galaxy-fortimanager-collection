@@ -93,6 +93,7 @@ options:
                 type: str
                 description: CASB SaaS application name.
             casb_name:
+                aliases: ['casb-name']
                 type: str
                 description: CASB user activity signature name.
             category:
@@ -105,6 +106,7 @@ options:
                     - 'safe-search-control'
                     - 'other'
             control_options:
+                aliases: ['control-options']
                 type: list
                 elements: dict
                 description: Control options.
@@ -128,6 +130,7 @@ options:
                                     - 'new-on-not-found'
                                     - 'delete'
                             case_sensitive:
+                                aliases: ['case-sensitive']
                                 type: str
                                 description: CASB operation search case sensitive.
                                 choices:
@@ -139,15 +142,18 @@ options:
                                 choices:
                                     - 'request'
                             header_name:
+                                aliases: ['header-name']
                                 type: str
                                 description: CASB operation header name to search.
                             name:
                                 type: str
                                 description: CASB control option operation name.
                             search_key:
+                                aliases: ['search-key']
                                 type: str
                                 description: CASB operation key to search.
                             search_pattern:
+                                aliases: ['search-pattern']
                                 type: str
                                 description: CASB operation search pattern.
                                 choices:
@@ -161,6 +167,7 @@ options:
                                     - 'header'
                                     - 'path'
                             value_from_input:
+                                aliases: ['value-from-input']
                                 type: str
                                 description: Enable/disable value from user input.
                                 choices:
@@ -193,6 +200,7 @@ options:
                         description: Rules.
                         suboptions:
                             case_sensitive:
+                                aliases: ['case-sensitive']
                                 type: str
                                 description: CASB user activity match case sensitive.
                                 choices:
@@ -203,12 +211,14 @@ options:
                                 elements: str
                                 description: CASB user activity domain list.
                             header_name:
+                                aliases: ['header-name']
                                 type: str
                                 description: CASB user activity rule header name.
                             id:
                                 type: int
                                 description: CASB user activity rule ID.
                             match_pattern:
+                                aliases: ['match-pattern']
                                 type: str
                                 description: CASB user activity rule match pattern.
                                 choices:
@@ -216,6 +226,7 @@ options:
                                     - 'substr'
                                     - 'regexp'
                             match_value:
+                                aliases: ['match-value']
                                 type: str
                                 description: CASB user activity rule match value.
                             methods:
@@ -245,6 +256,7 @@ options:
                             - 'or'
                             - 'and'
             match_strategy:
+                aliases: ['match-strategy']
                 type: str
                 description: CASB user activity match strategy.
                 choices:

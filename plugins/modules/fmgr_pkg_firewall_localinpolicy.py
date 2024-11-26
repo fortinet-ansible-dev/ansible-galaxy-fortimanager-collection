@@ -103,6 +103,7 @@ options:
                 type: raw
                 description: (list or str) Destination address object from available options.
             ha_mgmt_intf_only:
+                aliases: ['ha-mgmt-intf-only']
                 type: str
                 description: Enable/disable dedicating the HA management interface only for local-in policy.
                 choices:
@@ -137,48 +138,58 @@ options:
                 type: str
                 description: Universally Unique Identifier
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             virtual_patch:
+                aliases: ['virtual-patch']
                 type: str
                 description: Enable/disable virtual patching.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src:
+                aliases: ['internet-service-src']
                 type: str
                 description: Enable/disable use of Internet Services in source for this local-in policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src_custom:
+                aliases: ['internet-service-src-custom']
                 type: raw
                 description: (list) Custom Internet Service source name.
             internet_service_src_custom_group:
+                aliases: ['internet-service-src-custom-group']
                 type: raw
                 description: (list) Custom Internet Service source group name.
             internet_service_src_group:
+                aliases: ['internet-service-src-group']
                 type: raw
                 description: (list) Internet Service source group name.
             internet_service_src_name:
+                aliases: ['internet-service-src-name']
                 type: raw
                 description: (list) Internet Service source name.
             internet_service_src_negate:
+                aliases: ['internet-service-src-negate']
                 type: str
                 description: When enabled internet-service-src specifies what the service must NOT be.
                 choices:

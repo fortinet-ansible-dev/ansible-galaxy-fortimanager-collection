@@ -97,6 +97,7 @@ options:
                     - 'rsa-signature'
                     - 'signature'
             auto_zone_policy:
+                aliases: ['auto-zone-policy']
                 type: str
                 description: Auto zone policy.
                 choices:
@@ -117,21 +118,26 @@ options:
                     - 'on-idle'
                     - 'on-demand'
             dpd_retrycount:
+                aliases: ['dpd-retrycount']
                 type: int
                 description: Dpd retrycount.
             dpd_retryinterval:
+                aliases: ['dpd-retryinterval']
                 type: raw
                 description: (list) Dpd retryinterval.
             fcc_enforcement:
+                aliases: ['fcc-enforcement']
                 type: str
                 description: Fcc enforcement.
                 choices:
                     - 'disable'
                     - 'enable'
             hub2spoke_zone:
+                aliases: ['hub2spoke-zone']
                 type: raw
                 description: (list or str) Hub2spoke zone.
             ike_version:
+                aliases: ['ike-version']
                 type: str
                 description: Ike version.
                 choices:
@@ -362,18 +368,21 @@ options:
                     - 'aes256gcm'
                     - 'chacha20poly1305'
             inter_vdom:
+                aliases: ['inter-vdom']
                 type: str
                 description: Inter vdom.
                 choices:
                     - 'disable'
                     - 'enable'
             intf_mode:
+                aliases: ['intf-mode']
                 type: str
                 description: Intf mode.
                 choices:
                     - 'off'
                     - 'on'
             localid_type:
+                aliases: ['localid-type']
                 type: str
                 description: Localid type.
                 choices:
@@ -388,9 +397,11 @@ options:
                 description: Name.
                 required: true
             negotiate_timeout:
+                aliases: ['negotiate-timeout']
                 type: int
                 description: Negotiate timeout.
             npu_offload:
+                aliases: ['npu-offload']
                 type: str
                 description: Npu offload.
                 choices:
@@ -403,6 +414,7 @@ options:
                     - 'disable'
                     - 'enable'
             psk_auto_generate:
+                aliases: ['psk-auto-generate']
                 type: str
                 description: Psk auto generate.
                 choices:
@@ -418,9 +430,11 @@ options:
                     - 'disable'
                     - 'enable'
             rsa_certificate:
+                aliases: ['rsa-certificate']
                 type: str
                 description: Rsa certificate.
             spoke2hub_zone:
+                aliases: ['spoke2hub-zone']
                 type: raw
                 description: (list or str) Spoke2hub zone.
             topology:
@@ -431,12 +445,15 @@ options:
                     - 'star'
                     - 'dialup'
             vpn_zone:
+                aliases: ['vpn-zone']
                 type: raw
                 description: (list or str) Vpn zone.
             network_id:
+                aliases: ['network-id']
                 type: int
                 description: Network id.
             network_overlay:
+                aliases: ['network-overlay']
                 type: str
                 description: Network overlay.
                 choices:

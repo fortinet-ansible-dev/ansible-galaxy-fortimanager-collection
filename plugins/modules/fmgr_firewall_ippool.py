@@ -90,18 +90,22 @@ options:
         type: dict
         suboptions:
             arp_intf:
+                aliases: ['arp-intf']
                 type: str
                 description: Select an interface from available options that will reply to ARP requests.
             arp_reply:
+                aliases: ['arp-reply']
                 type: str
                 description: Enable/disable replying to ARP requests when an IP Pool is added to a policy
                 choices:
                     - 'disable'
                     - 'enable'
             associated_interface:
+                aliases: ['associated-interface']
                 type: str
                 description: Associated interface name.
             block_size:
+                aliases: ['block-size']
                 type: int
                 description: Number of addresses in a block
             comments:
@@ -124,18 +128,22 @@ options:
                                 type: str
                                 description: Vdom.
                     arp_intf:
+                        aliases: ['arp-intf']
                         type: str
                         description: Arp intf.
                     arp_reply:
+                        aliases: ['arp-reply']
                         type: str
                         description: Arp reply.
                         choices:
                             - 'disable'
                             - 'enable'
                     associated_interface:
+                        aliases: ['associated-interface']
                         type: str
                         description: Associated interface.
                     block_size:
+                        aliases: ['block-size']
                         type: int
                         description: Block size.
                     comments:
@@ -145,21 +153,26 @@ options:
                         type: str
                         description: Endip.
                     num_blocks_per_user:
+                        aliases: ['num-blocks-per-user']
                         type: int
                         description: Num blocks per user.
                     pba_timeout:
+                        aliases: ['pba-timeout']
                         type: int
                         description: Pba timeout.
                     permit_any_host:
+                        aliases: ['permit-any-host']
                         type: str
                         description: Permit any host.
                         choices:
                             - 'disable'
                             - 'enable'
                     source_endip:
+                        aliases: ['source-endip']
                         type: str
                         description: Source endip.
                     source_startip:
+                        aliases: ['source-startip']
                         type: str
                         description: Source startip.
                     startip:
@@ -175,60 +188,73 @@ options:
                             - 'port-block-allocation'
                             - 'cgn-resource-allocation'
                     cgn_block_size:
+                        aliases: ['cgn-block-size']
                         type: int
                         description: Cgn block size.
                     cgn_client_endip:
+                        aliases: ['cgn-client-endip']
                         type: str
                         description: Cgn client endip.
                     cgn_client_startip:
+                        aliases: ['cgn-client-startip']
                         type: str
                         description: Cgn client startip.
                     cgn_fixedalloc:
+                        aliases: ['cgn-fixedalloc']
                         type: str
                         description: Cgn fixedalloc.
                         choices:
                             - 'disable'
                             - 'enable'
                     cgn_overload:
+                        aliases: ['cgn-overload']
                         type: str
                         description: Cgn overload.
                         choices:
                             - 'disable'
                             - 'enable'
                     cgn_port_end:
+                        aliases: ['cgn-port-end']
                         type: int
                         description: Cgn port end.
                     cgn_port_start:
+                        aliases: ['cgn-port-start']
                         type: int
                         description: Cgn port start.
                     cgn_spa:
+                        aliases: ['cgn-spa']
                         type: str
                         description: Cgn spa.
                         choices:
                             - 'disable'
                             - 'enable'
                     utilization_alarm_clear:
+                        aliases: ['utilization-alarm-clear']
                         type: int
                         description: Utilization alarm clear.
                     utilization_alarm_raise:
+                        aliases: ['utilization-alarm-raise']
                         type: int
                         description: Utilization alarm raise.
                     endport:
                         type: int
                         description: Final port number
                     port_per_user:
+                        aliases: ['port-per-user']
                         type: int
                         description: Number of port for each user
                     startport:
                         type: int
                         description: First port number
                     add_nat64_route:
+                        aliases: ['add-nat64-route']
                         type: str
                         description: Enable/disable adding NAT64 route.
                         choices:
                             - 'disable'
                             - 'enable'
                     cgn_client_ipv6shift:
+                        aliases: ['cgn-client-ipv6shift']
                         type: int
                         description: IPv6 shift for fixed-allocation.
                     nat64:
@@ -238,36 +264,45 @@ options:
                             - 'disable'
                             - 'enable'
                     subnet_broadcast_in_ippool:
+                        aliases: ['subnet-broadcast-in-ippool']
                         type: str
                         description: Enable/disable inclusion of the subnetwork address and broadcast IP address in the NAT64 IP pool.
                         choices:
                             - 'disable'
                             - 'enable'
                     exclude_ip:
+                        aliases: ['exclude-ip']
                         type: raw
                         description: (list) Exclude IPs x.
                     pba_interim_log:
+                        aliases: ['pba-interim-log']
                         type: int
                         description: Port block allocation interim logging interval
                     client_prefix_length:
+                        aliases: ['client-prefix-length']
                         type: int
                         description: Subnet length of a single deterministic NAT64 client
                     icmp_session_quota:
+                        aliases: ['icmp-session-quota']
                         type: int
                         description: Maximum number of concurrent ICMP sessions allowed per client
                     privileged_port_use_pba:
+                        aliases: ['privileged-port-use-pba']
                         type: str
                         description: Enable/disable selection of the external port from the port block allocation for NATing privileged ports
                         choices:
                             - 'disable'
                             - 'enable'
                     source_prefix6:
+                        aliases: ['source-prefix6']
                         type: str
                         description: Source IPv6 network to be translated
                     tcp_session_quota:
+                        aliases: ['tcp-session-quota']
                         type: int
                         description: Maximum number of concurrent TCP sessions allowed per client
                     udp_session_quota:
+                        aliases: ['udp-session-quota']
                         type: int
                         description: Maximum number of concurrent UDP sessions allowed per client
             endip:
@@ -278,21 +313,26 @@ options:
                 description: IP pool name.
                 required: true
             num_blocks_per_user:
+                aliases: ['num-blocks-per-user']
                 type: int
                 description: Number of addresses blocks that can be used by a user
             pba_timeout:
+                aliases: ['pba-timeout']
                 type: int
                 description: Port block allocation timeout
             permit_any_host:
+                aliases: ['permit-any-host']
                 type: str
                 description: Enable/disable full cone NAT.
                 choices:
                     - 'disable'
                     - 'enable'
             source_endip:
+                aliases: ['source-endip']
                 type: str
                 description: Final IPv4 address
             source_startip:
+                aliases: ['source-startip']
                 type: str
                 description: First IPv4 address
             startip:
@@ -308,54 +348,66 @@ options:
                     - 'port-block-allocation'
                     - 'cgn-resource-allocation'
             utilization_alarm_clear:
+                aliases: ['utilization-alarm-clear']
                 type: int
                 description: Pool utilization alarm clear threshold
             cgn_fixedalloc:
+                aliases: ['cgn-fixedalloc']
                 type: str
                 description: Enable/disable fixed-allocation mode.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_client_startip:
+                aliases: ['cgn-client-startip']
                 type: str
                 description: First client IPv4 address
             cgn_client_endip:
+                aliases: ['cgn-client-endip']
                 type: str
                 description: Final client IPv4 address
             cgn_overload:
+                aliases: ['cgn-overload']
                 type: str
                 description: Enable/disable overload mode.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_block_size:
+                aliases: ['cgn-block-size']
                 type: int
                 description: Number of ports in a block
             utilization_alarm_raise:
+                aliases: ['utilization-alarm-raise']
                 type: int
                 description: Pool utilization alarm raise threshold
             cgn_port_start:
+                aliases: ['cgn-port-start']
                 type: int
                 description: Starting public port can be allocated.
             cgn_spa:
+                aliases: ['cgn-spa']
                 type: str
                 description: Enable/disable single port allocation mode.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_port_end:
+                aliases: ['cgn-port-end']
                 type: int
                 description: Ending public port can be allocated.
             endport:
                 type: int
                 description: Final port number
             port_per_user:
+                aliases: ['port-per-user']
                 type: int
                 description: Number of port for each user
             startport:
                 type: int
                 description: First port number
             add_nat64_route:
+                aliases: ['add-nat64-route']
                 type: str
                 description: Enable/disable adding NAT64 route.
                 choices:
@@ -368,39 +420,49 @@ options:
                     - 'disable'
                     - 'enable'
             cgn_client_ipv6shift:
+                aliases: ['cgn-client-ipv6shift']
                 type: int
                 description: IPv6 shift for fixed-allocation.
             subnet_broadcast_in_ippool:
+                aliases: ['subnet-broadcast-in-ippool']
                 type: str
                 description: Enable/disable inclusion of the subnetwork address and broadcast IP address in the NAT64 IP pool.
                 choices:
                     - 'disable'
                     - 'enable'
             exclude_ip:
+                aliases: ['exclude-ip']
                 type: raw
                 description: (list) Exclude IPs x.
             pba_interim_log:
+                aliases: ['pba-interim-log']
                 type: int
                 description: Port block allocation interim logging interval
             client_prefix_length:
+                aliases: ['client-prefix-length']
                 type: int
                 description: Subnet length of a single deterministic NAT64 client
             icmp_session_quota:
+                aliases: ['icmp-session-quota']
                 type: int
                 description: Maximum number of concurrent ICMP sessions allowed per client
             privileged_port_use_pba:
+                aliases: ['privileged-port-use-pba']
                 type: str
                 description: Enable/disable selection of the external port from the port block allocation for NATing privileged ports
                 choices:
                     - 'disable'
                     - 'enable'
             source_prefix6:
+                aliases: ['source-prefix6']
                 type: str
                 description: Source IPv6 network to be translated
             tcp_session_quota:
+                aliases: ['tcp-session-quota']
                 type: int
                 description: Maximum number of concurrent TCP sessions allowed per client
             udp_session_quota:
+                aliases: ['udp-session-quota']
                 type: int
                 description: Maximum number of concurrent UDP sessions allowed per client
 '''

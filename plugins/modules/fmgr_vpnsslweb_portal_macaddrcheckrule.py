@@ -94,9 +94,11 @@ options:
         type: dict
         suboptions:
             mac_addr_list:
+                aliases: ['mac-addr-list']
                 type: raw
                 description: (list) Client MAC address list.
             mac_addr_mask:
+                aliases: ['mac-addr-mask']
                 type: int
                 description: Client MAC address mask.
             name:

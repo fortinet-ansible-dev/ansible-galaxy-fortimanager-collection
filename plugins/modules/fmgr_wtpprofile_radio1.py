@@ -93,60 +93,72 @@ options:
                     - 'disable'
                     - 'enable'
             ap_handoff:
+                aliases: ['ap-handoff']
                 type: str
                 description: Enable/disable AP handoff of clients to other APs
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_addr:
+                aliases: ['ap-sniffer-addr']
                 type: str
                 description: MAC address to monitor.
             ap_sniffer_bufsize:
+                aliases: ['ap-sniffer-bufsize']
                 type: int
                 description: Sniffer buffer size
             ap_sniffer_chan:
+                aliases: ['ap-sniffer-chan']
                 type: int
                 description: Channel on which to operate the sniffer
             ap_sniffer_ctl:
+                aliases: ['ap-sniffer-ctl']
                 type: str
                 description: Enable/disable sniffer on WiFi control frame
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_data:
+                aliases: ['ap-sniffer-data']
                 type: str
                 description: Enable/disable sniffer on WiFi data frame
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_mgmt_beacon:
+                aliases: ['ap-sniffer-mgmt-beacon']
                 type: str
                 description: Enable/disable sniffer on WiFi management Beacon frames
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_mgmt_other:
+                aliases: ['ap-sniffer-mgmt-other']
                 type: str
                 description: Enable/disable sniffer on WiFi management other frames
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_mgmt_probe:
+                aliases: ['ap-sniffer-mgmt-probe']
                 type: str
                 description: Enable/disable sniffer on WiFi management probe frames
                 choices:
                     - 'disable'
                     - 'enable'
             auto_power_high:
+                aliases: ['auto-power-high']
                 type: int
                 description: Automatic transmit power high limit in dBm
             auto_power_level:
+                aliases: ['auto-power-level']
                 type: str
                 description: Enable/disable automatic power-level adjustment to prevent co-channel interference
                 choices:
                     - 'disable'
                     - 'enable'
             auto_power_low:
+                aliases: ['auto-power-low']
                 type: int
                 description: Automatic transmission power low limit in dBm
             band:
@@ -182,30 +194,36 @@ options:
                     - '802.11be-5G'
                     - '802.11be-6G'
             bandwidth_admission_control:
+                aliases: ['bandwidth-admission-control']
                 type: str
                 description: Enable/disable WiFi multimedia
                 choices:
                     - 'disable'
                     - 'enable'
             bandwidth_capacity:
+                aliases: ['bandwidth-capacity']
                 type: int
                 description: Maximum bandwidth capacity allowed
             beacon_interval:
+                aliases: ['beacon-interval']
                 type: int
                 description: Beacon interval.
             call_admission_control:
+                aliases: ['call-admission-control']
                 type: str
                 description: Enable/disable WiFi multimedia
                 choices:
                     - 'disable'
                     - 'enable'
             call_capacity:
+                aliases: ['call-capacity']
                 type: int
                 description: Maximum number of Voice over WLAN
             channel:
                 type: raw
                 description: (list) Selected list of wireless radio channels.
             channel_bonding:
+                aliases: ['channel-bonding']
                 type: str
                 description: Channel bandwidth
                 choices:
@@ -218,6 +236,7 @@ options:
                     - '320MHz'
                     - '240MHz'
             channel_utilization:
+                aliases: ['channel-utilization']
                 type: str
                 description: Enable/disable measuring channel utilization.
                 choices:
@@ -239,18 +258,22 @@ options:
                 type: int
                 description: DTIM interval.
             frag_threshold:
+                aliases: ['frag-threshold']
                 type: int
                 description: Maximum packet size that can be sent without fragmentation
             frequency_handoff:
+                aliases: ['frequency-handoff']
                 type: str
                 description: Enable/disable frequency handoff of clients to other channels
                 choices:
                     - 'disable'
                     - 'enable'
             max_clients:
+                aliases: ['max-clients']
                 type: int
                 description: Maximum number of stations
             max_distance:
+                aliases: ['max-distance']
                 type: int
                 description: Maximum expected distance between the AP and clients
             mode:
@@ -263,9 +286,11 @@ options:
                     - 'sniffer'
                     - 'sam'
             power_level:
+                aliases: ['power-level']
                 type: int
                 description: Radio power level as a percentage of the maximum transmit power
             powersave_optimize:
+                aliases: ['powersave-optimize']
                 type: list
                 elements: str
                 description: Enable client power-saving features such as TIM, AC VO, and OBSS etc.
@@ -276,6 +301,7 @@ options:
                     - 'no-11b-rate'
                     - 'client-rate-follow'
             protection_mode:
+                aliases: ['protection-mode']
                 type: str
                 description: Enable/disable 802.
                 choices:
@@ -283,18 +309,22 @@ options:
                     - 'ctsonly'
                     - 'disable'
             radio_id:
+                aliases: ['radio-id']
                 type: int
                 description: Radio id.
             rts_threshold:
+                aliases: ['rts-threshold']
                 type: int
                 description: Maximum packet size for RTS transmissions, specifying the maximum size of a data packet before RTS/CTS
             short_guard_interval:
+                aliases: ['short-guard-interval']
                 type: str
                 description: Use either the short guard interval
                 choices:
                     - 'disable'
                     - 'enable'
             spectrum_analysis:
+                aliases: ['spectrum-analysis']
                 type: str
                 description: Enable/disable spectrum analysis to find interference that would negatively impact wireless performance.
                 choices:
@@ -302,6 +332,7 @@ options:
                     - 'enable'
                     - 'scan-only'
             transmit_optimize:
+                aliases: ['transmit-optimize']
                 type: list
                 elements: str
                 description: Packet transmission optimization options including power saving, aggregation limiting, retry limiting, etc.
@@ -312,6 +343,7 @@ options:
                     - 'retry-limit'
                     - 'send-bar'
             vap_all:
+                aliases: ['vap-all']
                 type: str
                 description: Enable/disable the automatic inheritance of all Virtual Access Points
                 choices:
@@ -324,15 +356,18 @@ options:
                 type: raw
                 description: (list or str) Manually selected list of Virtual Access Points
             wids_profile:
+                aliases: ['wids-profile']
                 type: str
                 description: Wireless Intrusion Detection System
             airtime_fairness:
+                aliases: ['airtime-fairness']
                 type: str
                 description: Enable/disable airtime fairness
                 choices:
                     - 'disable'
                     - 'enable'
             band_5g_type:
+                aliases: ['band-5g-type']
                 type: str
                 description: WiFi 5G band type.
                 choices:
@@ -340,6 +375,7 @@ options:
                     - '5g-high'
                     - '5g-low'
             zero_wait_dfs:
+                aliases: ['zero-wait-dfs']
                 type: str
                 description: Enable/disable zero wait DFS on radio
                 choices:
@@ -370,9 +406,11 @@ options:
                 type: str
                 description: Virtual Access Point
             bss_color:
+                aliases: ['bss-color']
                 type: int
                 description: BSS color value for this 11ax radio
             auto_power_target:
+                aliases: ['auto-power-target']
                 type: str
                 description: The target of automatic transmit power adjustment in dBm.
             drma:
@@ -382,6 +420,7 @@ options:
                     - 'disable'
                     - 'enable'
             drma_sensitivity:
+                aliases: ['drma-sensitivity']
                 type: str
                 description: Network Coverage Factor
                 choices:
@@ -389,39 +428,48 @@ options:
                     - 'medium'
                     - 'high'
             iperf_protocol:
+                aliases: ['iperf-protocol']
                 type: str
                 description: Iperf test protocol
                 choices:
                     - 'udp'
                     - 'tcp'
             iperf_server_port:
+                aliases: ['iperf-server-port']
                 type: int
                 description: Iperf service port number.
             power_mode:
+                aliases: ['power-mode']
                 type: str
                 description: Set radio effective isotropic radiated power
                 choices:
                     - 'dBm'
                     - 'percentage'
             power_value:
+                aliases: ['power-value']
                 type: int
                 description: Radio EIRP power in dBm
             sam_bssid:
+                aliases: ['sam-bssid']
                 type: str
                 description: BSSID for WiFi network.
             sam_captive_portal:
+                aliases: ['sam-captive-portal']
                 type: str
                 description: Enable/disable Captive Portal Authentication
                 choices:
                     - 'disable'
                     - 'enable'
             sam_password:
+                aliases: ['sam-password']
                 type: raw
                 description: (list) Passphrase for WiFi network connection.
             sam_report_intv:
+                aliases: ['sam-report-intv']
                 type: int
                 description: SAM report interval
             sam_security_type:
+                aliases: ['sam-security-type']
                 type: str
                 description: Select WiFi network security type
                 choices:
@@ -431,66 +479,83 @@ options:
                     - 'owe'
                     - 'wpa3-sae'
             sam_server:
+                aliases: ['sam-server']
                 type: str
                 description: SAM test server IP address or domain name.
             sam_ssid:
+                aliases: ['sam-ssid']
                 type: str
                 description: SSID for WiFi network.
             sam_test:
+                aliases: ['sam-test']
                 type: str
                 description: Select SAM test type
                 choices:
                     - 'ping'
                     - 'iperf'
             sam_username:
+                aliases: ['sam-username']
                 type: str
                 description: Username for WiFi network connection.
             arrp_profile:
+                aliases: ['arrp-profile']
                 type: str
                 description: Distributed Automatic Radio Resource Provisioning
             bss_color_mode:
+                aliases: ['bss-color-mode']
                 type: str
                 description: BSS color mode for this 11ax radio
                 choices:
                     - 'auto'
                     - 'static'
             sam_cwp_failure_string:
+                aliases: ['sam-cwp-failure-string']
                 type: str
                 description: Failure identification on the page after an incorrect login.
             sam_cwp_match_string:
+                aliases: ['sam-cwp-match-string']
                 type: str
                 description: Identification string from the captive portal login form.
             sam_cwp_password:
+                aliases: ['sam-cwp-password']
                 type: raw
                 description: (list) Password for captive portal authentication.
             sam_cwp_success_string:
+                aliases: ['sam-cwp-success-string']
                 type: str
                 description: Success identification on the page after a successful login.
             sam_cwp_test_url:
+                aliases: ['sam-cwp-test-url']
                 type: str
                 description: Website the client is trying to access.
             sam_cwp_username:
+                aliases: ['sam-cwp-username']
                 type: str
                 description: Username for captive portal authentication.
             sam_server_fqdn:
+                aliases: ['sam-server-fqdn']
                 type: str
                 description: SAM test server domain name.
             sam_server_ip:
+                aliases: ['sam-server-ip']
                 type: str
                 description: SAM test server IP address.
             sam_server_type:
+                aliases: ['sam-server-type']
                 type: str
                 description: Select SAM server type
                 choices:
                     - 'ip'
                     - 'fqdn'
             d80211d:
+                aliases: ['80211d']
                 type: str
                 description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
             optional_antenna:
+                aliases: ['optional-antenna']
                 type: str
                 description: Optional antenna used on FAP
                 choices:
@@ -504,6 +569,7 @@ options:
                     - 'FANT-08ABGN-1213-D-R'
                     - 'custom'
             mimo_mode:
+                aliases: ['mimo-mode']
                 type: str
                 description: Configure radio MIMO mode
                 choices:
@@ -514,15 +580,19 @@ options:
                     - '4x4'
                     - '8x8'
             optional_antenna_gain:
+                aliases: ['optional-antenna-gain']
                 type: str
                 description: Optional antenna gain in dBi
             sam_ca_certificate:
+                aliases: ['sam-ca-certificate']
                 type: str
                 description: CA certificate for WPA2/WPA3-ENTERPRISE.
             sam_client_certificate:
+                aliases: ['sam-client-certificate']
                 type: str
                 description: Client certificate for WPA2/WPA3-ENTERPRISE.
             sam_eap_method:
+                aliases: ['sam-eap-method']
                 type: str
                 description: Select WPA2/WPA3-ENTERPRISE EAP Method
                 choices:
@@ -530,24 +600,29 @@ options:
                     - 'peap'
                     - 'both'
             sam_private_key:
+                aliases: ['sam-private-key']
                 type: str
                 description: Private key for WPA2/WPA3-ENTERPRISE.
             sam_private_key_password:
+                aliases: ['sam-private-key-password']
                 type: raw
                 description: (list) Password for private key file for WPA2/WPA3-ENTERPRISE.
             channel_bonding_ext:
+                aliases: ['channel-bonding-ext']
                 type: str
                 description: Channel bandwidth extension
                 choices:
                     - '320MHz-1'
                     - '320MHz-2'
             d80211mc:
+                aliases: ['80211mc']
                 type: str
                 description: Enable/disable 802.
                 choices:
                     - 'disable'
                     - 'enable'
             ap_sniffer_chan_width:
+                aliases: ['ap-sniffer-chan-width']
                 type: str
                 description: Channel bandwidth for sniffer.
                 choices:

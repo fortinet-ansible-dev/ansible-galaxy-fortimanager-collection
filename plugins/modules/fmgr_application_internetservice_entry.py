@@ -94,9 +94,11 @@ options:
                 description: Entry ID.
                 required: true
             ip_number:
+                aliases: ['ip-number']
                 type: int
                 description: Total number of IP addresses.
             ip_range_number:
+                aliases: ['ip-range-number']
                 type: int
                 description: Total number of IP ranges.
             port:

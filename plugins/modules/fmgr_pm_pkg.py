@@ -98,55 +98,65 @@ options:
                 description: Name.
                 required: true
             obj_ver:
+                aliases: ['obj ver']
                 type: int
                 description: Obj ver.
             oid:
                 type: int
                 description: Oid.
             package_setting:
+                aliases: ['package setting']
                 type: dict
                 description: Package setting.
                 suboptions:
                     central_nat:
+                        aliases: ['central-nat']
                         type: str
                         description: Central nat.
                         choices:
                             - 'disable'
                             - 'enable'
                     consolidated_firewall_mode:
+                        aliases: ['consolidated-firewall-mode']
                         type: str
                         description: Consolidated firewall mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy_implicit_log:
+                        aliases: ['fwpolicy-implicit-log']
                         type: str
                         description: Fwpolicy implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     fwpolicy6_implicit_log:
+                        aliases: ['fwpolicy6-implicit-log']
                         type: str
                         description: Fwpolicy6 implicit log.
                         choices:
                             - 'disable'
                             - 'enable'
                     inspection_mode:
+                        aliases: ['inspection-mode']
                         type: str
                         description: Inspection mode.
                         choices:
                             - 'proxy'
                             - 'flow'
                     ngfw_mode:
+                        aliases: ['ngfw-mode']
                         type: str
                         description: Ngfw mode.
                         choices:
                             - 'profile-based'
                             - 'policy-based'
                     ssl_ssh_profile:
+                        aliases: ['ssl-ssh-profile']
                         type: str
                         description: Ssl ssh profile.
             scope_member:
+                aliases: ['scope member']
                 type: list
                 elements: dict
                 description: Scope member.
@@ -164,10 +174,12 @@ options:
                     - 'pkg'
                     - 'folder'
             package_settings:
+                aliases: ['package settings']
                 type: dict
                 description: Package settings.
                 suboptions:
                     central_nat:
+                        aliases: ['central-nat']
                         type: str
                         description:
                             - disable -
@@ -176,6 +188,7 @@ options:
                             - 'disable'
                             - 'enable'
                     consolidated_firewall_mode:
+                        aliases: ['consolidated-firewall-mode']
                         type: str
                         description:
                             - For flow-based policy package.
@@ -185,6 +198,7 @@ options:
                             - 'disable'
                             - 'enable'
                     fwpolicy_implicit_log:
+                        aliases: ['fwpolicy-implicit-log']
                         type: str
                         description:
                             - disable -
@@ -193,6 +207,7 @@ options:
                             - 'disable'
                             - 'enable'
                     fwpolicy6_implicit_log:
+                        aliases: ['fwpolicy6-implicit-log']
                         type: str
                         description:
                             - disable -
@@ -201,6 +216,7 @@ options:
                             - 'disable'
                             - 'enable'
                     inspection_mode:
+                        aliases: ['inspection-mode']
                         type: str
                         description:
                             - proxy -
@@ -209,6 +225,7 @@ options:
                             - 'proxy'
                             - 'flow'
                     ngfw_mode:
+                        aliases: ['ngfw-mode']
                         type: str
                         description:
                             - For flow-based policy package.
@@ -218,6 +235,7 @@ options:
                             - 'profile-based'
                             - 'policy-based'
                     policy_offload_level:
+                        aliases: ['policy-offload-level']
                         type: str
                         description:
                             - disable -
@@ -230,6 +248,7 @@ options:
                             - 'dos-offload'
                             - 'full-offload'
                     ssl_ssh_profile:
+                        aliases: ['ssl-ssh-profile']
                         type: str
                         description: SSL-SSH profile required for NGFW-mode policy package.
 '''

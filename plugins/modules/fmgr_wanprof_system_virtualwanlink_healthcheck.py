@@ -94,9 +94,11 @@ options:
         type: dict
         suboptions:
             _dynamic_server:
+                aliases: ['_dynamic-server']
                 type: str
                 description: Dynamic server.
             addr_mode:
+                aliases: ['addr-mode']
                 type: str
                 description: Address mode
                 choices:
@@ -106,12 +108,15 @@ options:
                 type: int
                 description: Number of failures before server is considered lost
             http_agent:
+                aliases: ['http-agent']
                 type: str
                 description: String in the http-agent field in the HTTP header.
             http_get:
+                aliases: ['http-get']
                 type: str
                 description: URL used to communicate with the server if the protocol if the protocol is HTTP.
             http_match:
+                aliases: ['http-match']
                 type: str
                 description: Response string expected from the server if the protocol is HTTP.
             interval:
@@ -125,6 +130,7 @@ options:
                 description: Status check or health check name.
                 required: true
             packet_size:
+                aliases: ['packet-size']
                 type: int
                 description: Packet size of a twamp test session,
             password:
@@ -148,6 +154,7 @@ options:
                 type: int
                 description: Number of successful responses received before server is considered recovered
             security_mode:
+                aliases: ['security-mode']
                 type: str
                 description: Twamp controller security mode.
                 choices:
@@ -165,12 +172,15 @@ options:
                         type: int
                         description: SLA ID.
                     jitter_threshold:
+                        aliases: ['jitter-threshold']
                         type: int
                         description: Jitter for SLA to make decision in milliseconds.
                     latency_threshold:
+                        aliases: ['latency-threshold']
                         type: int
                         description: Latency for SLA to make decision in milliseconds.
                     link_cost_factor:
+                        aliases: ['link-cost-factor']
                         type: list
                         elements: str
                         description: Criteria on which to base link selection.
@@ -179,72 +189,90 @@ options:
                             - 'jitter'
                             - 'packet-loss'
                     packetloss_threshold:
+                        aliases: ['packetloss-threshold']
                         type: int
                         description: Packet loss for SLA to make decision in percentage.
             threshold_alert_jitter:
+                aliases: ['threshold-alert-jitter']
                 type: int
                 description: Alert threshold for jitter
             threshold_alert_latency:
+                aliases: ['threshold-alert-latency']
                 type: int
                 description: Alert threshold for latency
             threshold_alert_packetloss:
+                aliases: ['threshold-alert-packetloss']
                 type: int
                 description: Alert threshold for packet loss
             threshold_warning_jitter:
+                aliases: ['threshold-warning-jitter']
                 type: int
                 description: Warning threshold for jitter
             threshold_warning_latency:
+                aliases: ['threshold-warning-latency']
                 type: int
                 description: Warning threshold for latency
             threshold_warning_packetloss:
+                aliases: ['threshold-warning-packetloss']
                 type: int
                 description: Warning threshold for packet loss
             update_cascade_interface:
+                aliases: ['update-cascade-interface']
                 type: str
                 description: Enable/disable update cascade interface.
                 choices:
                     - 'disable'
                     - 'enable'
             update_static_route:
+                aliases: ['update-static-route']
                 type: str
                 description: Enable/disable updating the static route.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: str
                 description: Internet service ID.
             probe_packets:
+                aliases: ['probe-packets']
                 type: str
                 description: Enable/disable transmission of probe packets.
                 choices:
                     - 'disable'
                     - 'enable'
             sla_fail_log_period:
+                aliases: ['sla-fail-log-period']
                 type: int
                 description: Time interval in seconds that SLA fail log messages will be generated
             sla_pass_log_period:
+                aliases: ['sla-pass-log-period']
                 type: int
                 description: Time interval in seconds that SLA pass log messages will be generated
             timeout:
                 type: int
                 description: How long to wait before not receiving a reply from the server to consider the connetion attempt a failure
             ha_priority:
+                aliases: ['ha-priority']
                 type: int
                 description: HA election priority
             diffservcode:
                 type: str
                 description: Differentiated services code point
             probe_timeout:
+                aliases: ['probe-timeout']
                 type: int
                 description: Time to wait before a probe packet is considered lost
             dns_request_domain:
+                aliases: ['dns-request-domain']
                 type: str
                 description: Fully qualified domain name to resolve for the DNS probe.
             probe_count:
+                aliases: ['probe-count']
                 type: int
                 description: Number of most recent probes that should be used to calculate latency and jitter
             system_dns:
+                aliases: ['system-dns']
                 type: str
                 description: Enable/disable system DNS as the probe server.
                 choices:

@@ -98,9 +98,11 @@ options:
                 description: IP.
                 required: true
             net_id:
+                aliases: ['net-id']
                 type: str
                 description: Network ID.
             obj_id:
+                aliases: ['obj-id']
                 type: str
                 description: Object ID.
 '''

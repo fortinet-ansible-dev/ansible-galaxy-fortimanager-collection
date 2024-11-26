@@ -108,6 +108,7 @@ options:
                         type: str
                         description: Vdom.
             ldap_server:
+                aliases: ['ldap-server']
                 type: str
                 description: Ldap server.
             password:
@@ -156,9 +157,11 @@ options:
                 type: str
                 description: Server5.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source ip.
             source_ip6:
+                aliases: ['source-ip6']
                 type: str
                 description: Source ip6.
             ssl:
@@ -168,6 +171,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_trusted_cert:
+                aliases: ['ssl-trusted-cert']
                 type: str
                 description: Ssl trusted cert.
             type:
@@ -179,27 +183,33 @@ options:
                     - 'fortinac'
                     - 'fortiems-cloud'
             user_info_server:
+                aliases: ['user-info-server']
                 type: raw
                 description: (list or str) User info server.
             ldap_poll:
+                aliases: ['ldap-poll']
                 type: str
                 description: Ldap poll.
                 choices:
                     - 'disable'
                     - 'enable'
             ldap_poll_filter:
+                aliases: ['ldap-poll-filter']
                 type: str
                 description: Ldap poll filter.
             ldap_poll_interval:
+                aliases: ['ldap-poll-interval']
                 type: int
                 description: Ldap poll interval.
             group_poll_interval:
+                aliases: ['group-poll-interval']
                 type: int
                 description: Group poll interval.
             interface:
                 type: str
                 description: Interface.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Interface select method.
                 choices:
@@ -207,12 +217,14 @@ options:
                     - 'sdwan'
                     - 'specify'
             logon_timeout:
+                aliases: ['logon-timeout']
                 type: int
                 description: Interval in minutes to keep logons after FSSO server down.
             sni:
                 type: str
                 description: Server Name Indication.
             ssl_server_host_ip_check:
+                aliases: ['ssl-server-host-ip-check']
                 type: str
                 description: Enable/disable server host/IP verification.
                 choices:

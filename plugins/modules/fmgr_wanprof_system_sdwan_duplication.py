@@ -107,12 +107,14 @@ options:
                 description: Duplication rule ID
                 required: true
             packet_de_duplication:
+                aliases: ['packet-de-duplication']
                 type: str
                 description: Enable/disable discarding of packets that have been duplicated.
                 choices:
                     - 'disable'
                     - 'enable'
             packet_duplication:
+                aliases: ['packet-duplication']
                 type: str
                 description: Configure packet duplication method.
                 choices:
@@ -132,9 +134,11 @@ options:
                 type: raw
                 description: (list or str) Incoming
             service_id:
+                aliases: ['service-id']
                 type: raw
                 description: (list or str) SD-WAN service rule ID list.
             sla_match_service:
+                aliases: ['sla-match-service']
                 type: str
                 description: Enable/disable packet duplication matching health-check SLAs in service rule.
                 choices:

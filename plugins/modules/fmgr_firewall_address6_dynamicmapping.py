@@ -105,6 +105,7 @@ options:
                         type: str
                         description: Vdom.
             cache_ttl:
+                aliases: ['cache-ttl']
                 type: int
                 description: Cache ttl.
             color:
@@ -114,6 +115,7 @@ options:
                 type: str
                 description: Comment.
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: End ip.
             fqdn:
@@ -123,6 +125,7 @@ options:
                 type: str
                 description: Host.
             host_type:
+                aliases: ['host-type']
                 type: str
                 description: Host type.
                 choices:
@@ -132,6 +135,7 @@ options:
                 type: str
                 description: Ip6.
             obj_id:
+                aliases: ['obj-id']
                 type: str
                 description: Obj id.
             sdn:
@@ -140,6 +144,7 @@ options:
                 choices:
                     - 'nsx'
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: Start ip.
             tags:
@@ -171,6 +176,7 @@ options:
                     - 'disable'
                     - 'enable'
             subnet_segment:
+                aliases: ['subnet-segment']
                 type: list
                 elements: dict
                 description: Subnet segment.
@@ -188,21 +194,26 @@ options:
                         type: str
                         description: Value.
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             end_mac:
+                aliases: ['end-mac']
                 type: str
                 description: End mac.
             start_mac:
+                aliases: ['start-mac']
                 type: str
                 description: Start mac.
             country:
                 type: str
                 description: Country.
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:
@@ -212,21 +223,25 @@ options:
                 type: raw
                 description: (list) Multiple MAC address ranges.
             epg_name:
+                aliases: ['epg-name']
                 type: str
                 description: Endpoint group name.
             sdn_tag:
+                aliases: ['sdn-tag']
                 type: str
                 description: SDN Tag.
             tenant:
                 type: str
                 description: Tenant.
             route_tag:
+                aliases: ['route-tag']
                 type: int
                 description: Route-tag address.
             filter:
                 type: str
                 description: Match criteria filter.
             sdn_addr_type:
+                aliases: ['sdn-addr-type']
                 type: str
                 description: Type of addresses to collect.
                 choices:

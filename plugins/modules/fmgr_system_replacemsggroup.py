@@ -113,6 +113,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             alertmail:
@@ -139,6 +140,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     id:
@@ -168,12 +170,14 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             comment:
                 type: str
                 description: Comment.
             custom_message:
+                aliases: ['custom-message']
                 type: list
                 elements: dict
                 description: Custom message.
@@ -197,9 +201,11 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             device_detection_portal:
+                aliases: ['device-detection-portal']
                 type: list
                 elements: dict
                 description: Device detection portal.
@@ -223,6 +229,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             ec:
@@ -249,9 +256,11 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             fortiguard_wf:
+                aliases: ['fortiguard-wf']
                 type: list
                 elements: dict
                 description: Fortiguard wf.
@@ -275,6 +284,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             ftp:
@@ -301,9 +311,11 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             group_type:
+                aliases: ['group-type']
                 type: str
                 description: Group type.
                 choices:
@@ -336,6 +348,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             icap:
@@ -362,6 +375,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             mail:
@@ -388,6 +402,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             mm1:
@@ -396,6 +411,7 @@ options:
                 description: Mm1.
                 suboptions:
                     add_smil:
+                        aliases: ['add-smil']
                         type: str
                         description: Add message encapsulation
                         choices:
@@ -428,6 +444,7 @@ options:
                         type: str
                         description: From address
                     from_sender:
+                        aliases: ['from-sender']
                         type: str
                         description: Notification message sent from recipient
                         choices:
@@ -447,6 +464,7 @@ options:
                         type: str
                         description: Message text
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     priority:
@@ -458,6 +476,7 @@ options:
                             - 'high'
                             - 'not-included'
                     rsp_status:
+                        aliases: ['rsp-status']
                         type: str
                         description: Response status code
                         choices:
@@ -471,9 +490,11 @@ options:
                             - 'err-content-not-accept'
                             - 'err-unsupp-msg'
                     rsp_text:
+                        aliases: ['rsp-text']
                         type: str
                         description: Response text
                     sender_visibility:
+                        aliases: ['sender-visibility']
                         type: str
                         description: Sender visibility
                         choices:
@@ -481,6 +502,7 @@ options:
                             - 'show'
                             - 'not-specified'
                     smil_part:
+                        aliases: ['smil-part']
                         type: str
                         description: Message encapsulation text
                     subject:
@@ -492,6 +514,7 @@ options:
                 description: Mm3.
                 suboptions:
                     add_html:
+                        aliases: ['add-html']
                         type: str
                         description: Add message encapsulation
                         choices:
@@ -515,6 +538,7 @@ options:
                         type: str
                         description: From address
                     from_sender:
+                        aliases: ['from-sender']
                         type: str
                         description: Notification message sent from recipient
                         choices:
@@ -528,6 +552,7 @@ options:
                             - 'http'
                             - '8bit'
                     html_part:
+                        aliases: ['html-part']
                         type: str
                         description: Message encapsulation text
                     image:
@@ -537,6 +562,7 @@ options:
                         type: str
                         description: Message text
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     priority:
@@ -556,6 +582,7 @@ options:
                 description: Mm4.
                 suboptions:
                     add_smil:
+                        aliases: ['add-smil']
                         type: str
                         description: Add message encapsulation
                         choices:
@@ -591,6 +618,7 @@ options:
                         type: str
                         description: From address
                     from_sender:
+                        aliases: ['from-sender']
                         type: str
                         description: Notification message sent from recipient
                         choices:
@@ -610,6 +638,7 @@ options:
                         type: str
                         description: Message text
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     priority:
@@ -621,6 +650,7 @@ options:
                             - 'high'
                             - 'not-included'
                     rsp_status:
+                        aliases: ['rsp-status']
                         type: str
                         description: Response status
                         choices:
@@ -633,6 +663,7 @@ options:
                             - 'err-content-not-accept'
                             - 'err-unsupp-msg'
                     smil_part:
+                        aliases: ['smil-part']
                         type: str
                         description: Message encapsulation text
                     subject:
@@ -644,12 +675,14 @@ options:
                 description: Mm7.
                 suboptions:
                     add_smil:
+                        aliases: ['add-smil']
                         type: str
                         description: Add message encapsulation
                         choices:
                             - 'disable'
                             - 'enable'
                     addr_type:
+                        aliases: ['addr-type']
                         type: str
                         description: From address type
                         choices:
@@ -657,6 +690,7 @@ options:
                             - 'number'
                             - 'short-code'
                     allow_content_adaptation:
+                        aliases: ['allow-content-adaptation']
                         type: str
                         description: Allow content adaptations
                         choices:
@@ -689,6 +723,7 @@ options:
                         type: str
                         description: From address
                     from_sender:
+                        aliases: ['from-sender']
                         type: str
                         description: Notification message sent from recipient
                         choices:
@@ -708,6 +743,7 @@ options:
                         type: str
                         description: Message text
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     priority:
@@ -719,6 +755,7 @@ options:
                             - 'high'
                             - 'not-included'
                     rsp_status:
+                        aliases: ['rsp-status']
                         type: str
                         description: Response status
                         choices:
@@ -749,6 +786,7 @@ options:
                             - 'service-denied'
                             - 'app-denied'
                     smil_part:
+                        aliases: ['smil-part']
                         type: str
                         description: Message encapsulation text
                     subject:
@@ -787,9 +825,11 @@ options:
                         type: str
                         description: Message string.
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             nac_quar:
+                aliases: ['nac-quar']
                 type: list
                 elements: dict
                 description: Nac quar.
@@ -813,6 +853,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
                     id:
@@ -846,6 +887,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             spam:
@@ -872,6 +914,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             sslvpn:
@@ -898,9 +941,11 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             traffic_quota:
+                aliases: ['traffic-quota']
                 type: list
                 elements: dict
                 description: Traffic quota.
@@ -924,6 +969,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             utm:
@@ -950,6 +996,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             webproxy:
@@ -976,6 +1023,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
             automation:
@@ -1001,6 +1049,7 @@ options:
                             - 'http'
                             - '8bit'
                     msg_type:
+                        aliases: ['msg-type']
                         type: str
                         description: Message type.
 '''

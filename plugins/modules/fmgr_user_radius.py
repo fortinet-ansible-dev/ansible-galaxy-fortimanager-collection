@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             accounting_server:
+                aliases: ['accounting-server']
                 type: list
                 elements: dict
                 description: Accounting server.
@@ -107,6 +108,7 @@ options:
                         type: str
                         description: No description
                     source_ip:
+                        aliases: ['source-ip']
                         type: str
                         description: Source IP address for communications to the RADIUS server.
                     status:
@@ -119,6 +121,7 @@ options:
                         type: str
                         description: Specify outgoing interface to reach server.
                     interface_select_method:
+                        aliases: ['interface-select-method']
                         type: str
                         description: Specify how to select outgoing interface to reach server.
                         choices:
@@ -126,21 +129,25 @@ options:
                             - 'sdwan'
                             - 'specify'
             acct_all_servers:
+                aliases: ['acct-all-servers']
                 type: str
                 description: Enable/disable sending of accounting messages to all configured servers
                 choices:
                     - 'disable'
                     - 'enable'
             acct_interim_interval:
+                aliases: ['acct-interim-interval']
                 type: int
                 description: Time in seconds between each accounting interim update message.
             all_usergroup:
+                aliases: ['all-usergroup']
                 type: str
                 description: Enable/disable automatically including this RADIUS server in all user groups.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_type:
+                aliases: ['auth-type']
                 type: str
                 description: Authentication methods/protocols permitted for this RADIUS server.
                 choices:
@@ -169,21 +176,25 @@ options:
                                 type: str
                                 description: Vdom.
                     acct_all_servers:
+                        aliases: ['acct-all-servers']
                         type: str
                         description: Acct all servers.
                         choices:
                             - 'disable'
                             - 'enable'
                     acct_interim_interval:
+                        aliases: ['acct-interim-interval']
                         type: int
                         description: Acct interim interval.
                     all_usergroup:
+                        aliases: ['all-usergroup']
                         type: str
                         description: All usergroup.
                         choices:
                             - 'disable'
                             - 'enable'
                     auth_type:
+                        aliases: ['auth-type']
                         type: str
                         description: Auth type.
                         choices:
@@ -196,6 +207,7 @@ options:
                         type: raw
                         description: (list) Class.
                     dp_carrier_endpoint_attribute:
+                        aliases: ['dp-carrier-endpoint-attribute']
                         type: str
                         description: Dp carrier endpoint attribute.
                         choices:
@@ -253,6 +265,7 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     dp_carrier_endpoint_block_attribute:
+                        aliases: ['dp-carrier-endpoint-block-attribute']
                         type: str
                         description: Dp carrier endpoint block attribute.
                         choices:
@@ -310,39 +323,47 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     dp_context_timeout:
+                        aliases: ['dp-context-timeout']
                         type: int
                         description: Dp context timeout.
                     dp_flush_ip_session:
+                        aliases: ['dp-flush-ip-session']
                         type: str
                         description: Dp flush ip session.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp_hold_time:
+                        aliases: ['dp-hold-time']
                         type: int
                         description: Dp hold time.
                     dp_http_header:
+                        aliases: ['dp-http-header']
                         type: str
                         description: Dp http header.
                     dp_http_header_fallback:
+                        aliases: ['dp-http-header-fallback']
                         type: str
                         description: Dp http header fallback.
                         choices:
                             - 'ip-header-address'
                             - 'default-profile'
                     dp_http_header_status:
+                        aliases: ['dp-http-header-status']
                         type: str
                         description: Dp http header status.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp_http_header_suppress:
+                        aliases: ['dp-http-header-suppress']
                         type: str
                         description: Dp http header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp_log_dyn_flags:
+                        aliases: ['dp-log-dyn_flags']
                         type: list
                         elements: str
                         description: Dp log dyn flags.
@@ -356,12 +377,15 @@ options:
                             - 'radiusd-other'
                             - 'endpoint-block'
                     dp_log_period:
+                        aliases: ['dp-log-period']
                         type: int
                         description: Dp log period.
                     dp_mem_percent:
+                        aliases: ['dp-mem-percent']
                         type: int
                         description: Dp mem percent.
                     dp_profile_attribute:
+                        aliases: ['dp-profile-attribute']
                         type: str
                         description: Dp profile attribute.
                         choices:
@@ -419,90 +443,109 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     dp_profile_attribute_key:
+                        aliases: ['dp-profile-attribute-key']
                         type: str
                         description: Dp profile attribute key.
                     dp_radius_response:
+                        aliases: ['dp-radius-response']
                         type: str
                         description: Dp radius response.
                         choices:
                             - 'disable'
                             - 'enable'
                     dp_radius_server_port:
+                        aliases: ['dp-radius-server-port']
                         type: int
                         description: Dp radius server port.
                     dp_secret:
+                        aliases: ['dp-secret']
                         type: raw
                         description: (list) Dp secret.
                     dp_validate_request_secret:
+                        aliases: ['dp-validate-request-secret']
                         type: str
                         description: Dp validate request secret.
                         choices:
                             - 'disable'
                             - 'enable'
                     dynamic_profile:
+                        aliases: ['dynamic-profile']
                         type: str
                         description: Dynamic profile.
                         choices:
                             - 'disable'
                             - 'enable'
                     endpoint_translation:
+                        aliases: ['endpoint-translation']
                         type: str
                         description: Endpoint translation.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep_carrier_endpoint_convert_hex:
+                        aliases: ['ep-carrier-endpoint-convert-hex']
                         type: str
                         description: Ep carrier endpoint convert hex.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep_carrier_endpoint_header:
+                        aliases: ['ep-carrier-endpoint-header']
                         type: str
                         description: Ep carrier endpoint header.
                     ep_carrier_endpoint_header_suppress:
+                        aliases: ['ep-carrier-endpoint-header-suppress']
                         type: str
                         description: Ep carrier endpoint header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep_carrier_endpoint_prefix:
+                        aliases: ['ep-carrier-endpoint-prefix']
                         type: str
                         description: Ep carrier endpoint prefix.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep_carrier_endpoint_prefix_range_max:
+                        aliases: ['ep-carrier-endpoint-prefix-range-max']
                         type: int
                         description: Ep carrier endpoint prefix range max.
                     ep_carrier_endpoint_prefix_range_min:
+                        aliases: ['ep-carrier-endpoint-prefix-range-min']
                         type: int
                         description: Ep carrier endpoint prefix range min.
                     ep_carrier_endpoint_prefix_string:
+                        aliases: ['ep-carrier-endpoint-prefix-string']
                         type: str
                         description: Ep carrier endpoint prefix string.
                     ep_carrier_endpoint_source:
+                        aliases: ['ep-carrier-endpoint-source']
                         type: str
                         description: Ep carrier endpoint source.
                         choices:
                             - 'http-header'
                             - 'cookie'
                     ep_ip_header:
+                        aliases: ['ep-ip-header']
                         type: str
                         description: Ep ip header.
                     ep_ip_header_suppress:
+                        aliases: ['ep-ip-header-suppress']
                         type: str
                         description: Ep ip header suppress.
                         choices:
                             - 'disable'
                             - 'enable'
                     ep_missing_header_fallback:
+                        aliases: ['ep-missing-header-fallback']
                         type: str
                         description: Ep missing header fallback.
                         choices:
                             - 'session-ip'
                             - 'policy-profile'
                     ep_profile_query_type:
+                        aliases: ['ep-profile-query-type']
                         type: str
                         description: Ep profile query type.
                         choices:
@@ -510,33 +553,39 @@ options:
                             - 'extract-ip'
                             - 'extract-carrier-endpoint'
                     h3c_compatibility:
+                        aliases: ['h3c-compatibility']
                         type: str
                         description: H3c compatibility.
                         choices:
                             - 'disable'
                             - 'enable'
                     nas_ip:
+                        aliases: ['nas-ip']
                         type: str
                         description: Nas ip.
                     password_encoding:
+                        aliases: ['password-encoding']
                         type: str
                         description: Password encoding.
                         choices:
                             - 'ISO-8859-1'
                             - 'auto'
                     password_renewal:
+                        aliases: ['password-renewal']
                         type: str
                         description: Password renewal.
                         choices:
                             - 'disable'
                             - 'enable'
                     radius_coa:
+                        aliases: ['radius-coa']
                         type: str
                         description: Radius coa.
                         choices:
                             - 'disable'
                             - 'enable'
                     radius_port:
+                        aliases: ['radius-port']
                         type: int
                         description: Radius port.
                     rsso:
@@ -546,9 +595,11 @@ options:
                             - 'disable'
                             - 'enable'
                     rsso_context_timeout:
+                        aliases: ['rsso-context-timeout']
                         type: int
                         description: Rsso context timeout.
                     rsso_endpoint_attribute:
+                        aliases: ['rsso-endpoint-attribute']
                         type: str
                         description: Rsso endpoint attribute.
                         choices:
@@ -605,6 +656,7 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     rsso_endpoint_block_attribute:
+                        aliases: ['rsso-endpoint-block-attribute']
                         type: str
                         description: Rsso endpoint block attribute.
                         choices:
@@ -661,18 +713,21 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     rsso_ep_one_ip_only:
+                        aliases: ['rsso-ep-one-ip-only']
                         type: str
                         description: Rsso ep one ip only.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso_flush_ip_session:
+                        aliases: ['rsso-flush-ip-session']
                         type: str
                         description: Rsso flush ip session.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso_log_flags:
+                        aliases: ['rsso-log-flags']
                         type: list
                         elements: str
                         description: Rsso log flags.
@@ -686,30 +741,37 @@ options:
                             - 'radiusd-other'
                             - 'endpoint-block'
                     rsso_log_period:
+                        aliases: ['rsso-log-period']
                         type: int
                         description: Rsso log period.
                     rsso_radius_response:
+                        aliases: ['rsso-radius-response']
                         type: str
                         description: Rsso radius response.
                         choices:
                             - 'disable'
                             - 'enable'
                     rsso_radius_server_port:
+                        aliases: ['rsso-radius-server-port']
                         type: int
                         description: Rsso radius server port.
                     rsso_secret:
+                        aliases: ['rsso-secret']
                         type: raw
                         description: (list) Rsso secret.
                     rsso_validate_request_secret:
+                        aliases: ['rsso-validate-request-secret']
                         type: str
                         description: Rsso validate request secret.
                         choices:
                             - 'disable'
                             - 'enable'
                     secondary_secret:
+                        aliases: ['secondary-secret']
                         type: raw
                         description: (list) Secondary secret.
                     secondary_server:
+                        aliases: ['secondary-server']
                         type: str
                         description: Secondary server.
                     secret:
@@ -719,9 +781,11 @@ options:
                         type: str
                         description: Server.
                     source_ip:
+                        aliases: ['source-ip']
                         type: str
                         description: Source ip.
                     sso_attribute:
+                        aliases: ['sso-attribute']
                         type: str
                         description: Sso attribute.
                         choices:
@@ -778,36 +842,43 @@ options:
                             - 'Port-Limit'
                             - 'Login-LAT-Port'
                     sso_attribute_key:
+                        aliases: ['sso-attribute-key']
                         type: str
                         description: Sso attribute key.
                     sso_attribute_value_override:
+                        aliases: ['sso-attribute-value-override']
                         type: str
                         description: Sso attribute value override.
                         choices:
                             - 'disable'
                             - 'enable'
                     tertiary_secret:
+                        aliases: ['tertiary-secret']
                         type: raw
                         description: (list) Tertiary secret.
                     tertiary_server:
+                        aliases: ['tertiary-server']
                         type: str
                         description: Tertiary server.
                     timeout:
                         type: int
                         description: Timeout.
                     use_group_for_profile:
+                        aliases: ['use-group-for-profile']
                         type: str
                         description: Use group for profile.
                         choices:
                             - 'disable'
                             - 'enable'
                     use_management_vdom:
+                        aliases: ['use-management-vdom']
                         type: str
                         description: Use management vdom.
                         choices:
                             - 'disable'
                             - 'enable'
                     username_case_sensitive:
+                        aliases: ['username-case-sensitive']
                         type: str
                         description: Username case sensitive.
                         choices:
@@ -817,6 +888,7 @@ options:
                         type: str
                         description: Interface.
                     interface_select_method:
+                        aliases: ['interface-select-method']
                         type: str
                         description: Interface select method.
                         choices:
@@ -824,15 +896,18 @@ options:
                             - 'sdwan'
                             - 'specify'
                     group_override_attr_type:
+                        aliases: ['group-override-attr-type']
                         type: str
                         description: Group override attr type.
                         choices:
                             - 'filter-Id'
                             - 'class'
                     switch_controller_acct_fast_framedip_detect:
+                        aliases: ['switch-controller-acct-fast-framedip-detect']
                         type: int
                         description: Switch controller acct fast framedip detect.
                     accounting_server:
+                        aliases: ['accounting-server']
                         type: list
                         elements: dict
                         description: Accounting server.
@@ -844,6 +919,7 @@ options:
                                 type: str
                                 description: Interface.
                             interface_select_method:
+                                aliases: ['interface-select-method']
                                 type: str
                                 description: Interface select method.
                                 choices:
@@ -860,6 +936,7 @@ options:
                                 type: str
                                 description: Server.
                             source_ip:
+                                aliases: ['source-ip']
                                 type: str
                                 description: Source ip.
                             status:
@@ -869,6 +946,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                     switch_controller_service_type:
+                        aliases: ['switch-controller-service-type']
                         type: list
                         elements: str
                         description: Switch controller service type.
@@ -891,12 +969,14 @@ options:
                             - 'plus'
                             - 'comma'
                     mac_case:
+                        aliases: ['mac-case']
                         type: str
                         description: MAC authentication case
                         choices:
                             - 'uppercase'
                             - 'lowercase'
                     mac_password_delimiter:
+                        aliases: ['mac-password-delimiter']
                         type: str
                         description: MAC authentication password delimiter
                         choices:
@@ -905,6 +985,7 @@ options:
                             - 'colon'
                             - 'none'
                     mac_username_delimiter:
+                        aliases: ['mac-username-delimiter']
                         type: str
                         description: MAC authentication username delimiter
                         choices:
@@ -913,9 +994,11 @@ options:
                             - 'colon'
                             - 'none'
                     nas_id:
+                        aliases: ['nas-id']
                         type: str
                         description: Custom NAS identifier.
                     nas_id_type:
+                        aliases: ['nas-id-type']
                         type: str
                         description: NAS identifier type configuration
                         choices:
@@ -923,21 +1006,26 @@ options:
                             - 'custom'
                             - 'hostname'
                     ca_cert:
+                        aliases: ['ca-cert']
                         type: str
                         description: CA of server to trust under TLS.
                     client_cert:
+                        aliases: ['client-cert']
                         type: str
                         description: Client certificate to use under TLS.
                     server_identity_check:
+                        aliases: ['server-identity-check']
                         type: str
                         description: Enable/disable RADIUS server identity check
                         choices:
                             - 'disable'
                             - 'enable'
                     status_ttl:
+                        aliases: ['status-ttl']
                         type: int
                         description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at l...
                     tls_min_proto_version:
+                        aliases: ['tls-min-proto-version']
                         type: str
                         description: Minimum supported protocol version for TLS connections
                         choices:
@@ -948,6 +1036,7 @@ options:
                             - 'SSLv3'
                             - 'TLSv1-3'
                     transport_protocol:
+                        aliases: ['transport-protocol']
                         type: str
                         description: Transport protocol to be used
                         choices:
@@ -955,6 +1044,7 @@ options:
                             - 'tcp'
                             - 'tls'
                     account_key_cert_field:
+                        aliases: ['account-key-cert-field']
                         type: str
                         description: Define subject identity field in certificate for user access right checking.
                         choices:
@@ -963,12 +1053,14 @@ options:
                             - 'dnsname'
                             - 'cn'
                     account_key_processing:
+                        aliases: ['account-key-processing']
                         type: str
                         description: Account key processing operation.
                         choices:
                             - 'same'
                             - 'strip'
                     call_station_id_type:
+                        aliases: ['call-station-id-type']
                         type: str
                         description: Calling & Called station identifier type configuration
                         choices:
@@ -976,15 +1068,18 @@ options:
                             - 'IP'
                             - 'MAC'
                     switch_controller_nas_ip_dynamic:
+                        aliases: ['switch-controller-nas-ip-dynamic']
                         type: str
                         description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
                         choices:
                             - 'disable'
                             - 'enable'
                     source_ip_interface:
+                        aliases: ['source-ip-interface']
                         type: raw
                         description: (list) Source interface for communication with the RADIUS server.
             h3c_compatibility:
+                aliases: ['h3c-compatibility']
                 type: str
                 description: Enable/disable compatibility with the H3C, a mechanism that performs security checking for authentication.
                 choices:
@@ -995,27 +1090,32 @@ options:
                 description: RADIUS server entry name.
                 required: true
             nas_ip:
+                aliases: ['nas-ip']
                 type: str
                 description: IP address used to communicate with the RADIUS server and used as NAS-IP-Address and Called-Station-ID attributes.
             password_encoding:
+                aliases: ['password-encoding']
                 type: str
                 description: Password encoding.
                 choices:
                     - 'ISO-8859-1'
                     - 'auto'
             password_renewal:
+                aliases: ['password-renewal']
                 type: str
                 description: Enable/disable password renewal.
                 choices:
                     - 'disable'
                     - 'enable'
             radius_coa:
+                aliases: ['radius-coa']
                 type: str
                 description: Enable to allow a mechanism to change the attributes of an authentication, authorization, and accounting session after it ...
                 choices:
                     - 'disable'
                     - 'enable'
             radius_port:
+                aliases: ['radius-port']
                 type: int
                 description: RADIUS service port number.
             rsso:
@@ -1025,9 +1125,11 @@ options:
                     - 'disable'
                     - 'enable'
             rsso_context_timeout:
+                aliases: ['rsso-context-timeout']
                 type: int
                 description: Time in seconds before the logged out user is removed from the user context list of logged on users.
             rsso_endpoint_attribute:
+                aliases: ['rsso-endpoint-attribute']
                 type: str
                 description: RADIUS attributes used to extract the user end point identifer from the RADIUS Start record.
                 choices:
@@ -1084,6 +1186,7 @@ options:
                     - 'Port-Limit'
                     - 'Login-LAT-Port'
             rsso_endpoint_block_attribute:
+                aliases: ['rsso-endpoint-block-attribute']
                 type: str
                 description: RADIUS attributes used to block a user.
                 choices:
@@ -1140,18 +1243,21 @@ options:
                     - 'Port-Limit'
                     - 'Login-LAT-Port'
             rsso_ep_one_ip_only:
+                aliases: ['rsso-ep-one-ip-only']
                 type: str
                 description: Enable/disable the replacement of old IP addresses with new ones for the same endpoint on RADIUS accounting Start messages.
                 choices:
                     - 'disable'
                     - 'enable'
             rsso_flush_ip_session:
+                aliases: ['rsso-flush-ip-session']
                 type: str
                 description: Enable/disable flushing user IP sessions on RADIUS accounting Stop messages.
                 choices:
                     - 'disable'
                     - 'enable'
             rsso_log_flags:
+                aliases: ['rsso-log-flags']
                 type: list
                 elements: str
                 description: Events to log.
@@ -1165,30 +1271,37 @@ options:
                     - 'radiusd-other'
                     - 'endpoint-block'
             rsso_log_period:
+                aliases: ['rsso-log-period']
                 type: int
                 description: Time interval in seconds that group event log messages will be generated for dynamic profile events.
             rsso_radius_response:
+                aliases: ['rsso-radius-response']
                 type: str
                 description: Enable/disable sending RADIUS response packets after receiving Start and Stop records.
                 choices:
                     - 'disable'
                     - 'enable'
             rsso_radius_server_port:
+                aliases: ['rsso-radius-server-port']
                 type: int
                 description: UDP port to listen on for RADIUS Start and Stop records.
             rsso_secret:
+                aliases: ['rsso-secret']
                 type: raw
                 description: (list) RADIUS secret used by the RADIUS accounting server.
             rsso_validate_request_secret:
+                aliases: ['rsso-validate-request-secret']
                 type: str
                 description: Enable/disable validating the RADIUS request shared secret in the Start or End record.
                 choices:
                     - 'disable'
                     - 'enable'
             secondary_secret:
+                aliases: ['secondary-secret']
                 type: raw
                 description: (list) Secret key to access the secondary server.
             secondary_server:
+                aliases: ['secondary-server']
                 type: str
                 description: No description
             secret:
@@ -1198,9 +1311,11 @@ options:
                 type: str
                 description: Primary RADIUS server CN domain name or IP address.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP address for communications to the RADIUS server.
             sso_attribute:
+                aliases: ['sso-attribute']
                 type: str
                 description: RADIUS attribute that contains the profile group name to be extracted from the RADIUS Start record.
                 choices:
@@ -1257,30 +1372,36 @@ options:
                     - 'Port-Limit'
                     - 'Login-LAT-Port'
             sso_attribute_key:
+                aliases: ['sso-attribute-key']
                 type: str
                 description: Key prefix for SSO group value in the SSO attribute.
             sso_attribute_value_override:
+                aliases: ['sso-attribute-value-override']
                 type: str
                 description: Enable/disable override old attribute value with new value for the same endpoint.
                 choices:
                     - 'disable'
                     - 'enable'
             tertiary_secret:
+                aliases: ['tertiary-secret']
                 type: raw
                 description: (list) Secret key to access the tertiary server.
             tertiary_server:
+                aliases: ['tertiary-server']
                 type: str
                 description: No description
             timeout:
                 type: int
                 description: Time in seconds between re-sending authentication requests.
             use_management_vdom:
+                aliases: ['use-management-vdom']
                 type: str
                 description: Enable/disable using management VDOM to send requests.
                 choices:
                     - 'disable'
                     - 'enable'
             username_case_sensitive:
+                aliases: ['username-case-sensitive']
                 type: str
                 description: Enable/disable case sensitive user names.
                 choices:
@@ -1290,6 +1411,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -1297,15 +1419,18 @@ options:
                     - 'sdwan'
                     - 'specify'
             group_override_attr_type:
+                aliases: ['group-override-attr-type']
                 type: str
                 description: RADIUS attribute type to override user group information.
                 choices:
                     - 'filter-Id'
                     - 'class'
             switch_controller_acct_fast_framedip_detect:
+                aliases: ['switch-controller-acct-fast-framedip-detect']
                 type: int
                 description: Switch controller accounting message Framed-IP detection from DHCP snooping
             switch_controller_service_type:
+                aliases: ['switch-controller-service-type']
                 type: list
                 elements: str
                 description: RADIUS service type.
@@ -1328,12 +1453,14 @@ options:
                     - 'plus'
                     - 'comma'
             mac_case:
+                aliases: ['mac-case']
                 type: str
                 description: MAC authentication case
                 choices:
                     - 'uppercase'
                     - 'lowercase'
             mac_password_delimiter:
+                aliases: ['mac-password-delimiter']
                 type: str
                 description: MAC authentication password delimiter
                 choices:
@@ -1342,6 +1469,7 @@ options:
                     - 'colon'
                     - 'none'
             mac_username_delimiter:
+                aliases: ['mac-username-delimiter']
                 type: str
                 description: MAC authentication username delimiter
                 choices:
@@ -1350,9 +1478,11 @@ options:
                     - 'colon'
                     - 'none'
             nas_id:
+                aliases: ['nas-id']
                 type: str
                 description: Custom NAS identifier.
             nas_id_type:
+                aliases: ['nas-id-type']
                 type: str
                 description: NAS identifier type configuration
                 choices:
@@ -1360,21 +1490,26 @@ options:
                     - 'custom'
                     - 'hostname'
             ca_cert:
+                aliases: ['ca-cert']
                 type: str
                 description: CA of server to trust under TLS.
             client_cert:
+                aliases: ['client-cert']
                 type: str
                 description: Client certificate to use under TLS.
             server_identity_check:
+                aliases: ['server-identity-check']
                 type: str
                 description: Enable/disable RADIUS server identity check
                 choices:
                     - 'disable'
                     - 'enable'
             status_ttl:
+                aliases: ['status-ttl']
                 type: int
                 description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
             tls_min_proto_version:
+                aliases: ['tls-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for TLS connections
                 choices:
@@ -1385,6 +1520,7 @@ options:
                     - 'SSLv3'
                     - 'TLSv1-3'
             transport_protocol:
+                aliases: ['transport-protocol']
                 type: str
                 description: Transport protocol to be used
                 choices:
@@ -1392,6 +1528,7 @@ options:
                     - 'tcp'
                     - 'tls'
             account_key_cert_field:
+                aliases: ['account-key-cert-field']
                 type: str
                 description: Define subject identity field in certificate for user access right checking.
                 choices:
@@ -1400,12 +1537,14 @@ options:
                     - 'dnsname'
                     - 'cn'
             account_key_processing:
+                aliases: ['account-key-processing']
                 type: str
                 description: Account key processing operation.
                 choices:
                     - 'same'
                     - 'strip'
             call_station_id_type:
+                aliases: ['call-station-id-type']
                 type: str
                 description: Calling & Called station identifier type configuration
                 choices:
@@ -1413,12 +1552,14 @@ options:
                     - 'IP'
                     - 'MAC'
             switch_controller_nas_ip_dynamic:
+                aliases: ['switch-controller-nas-ip-dynamic']
                 type: str
                 description: Enable/Disable switch-controller nas-ip dynamic to dynamically set nas-ip.
                 choices:
                     - 'disable'
                     - 'enable'
             source_ip_interface:
+                aliases: ['source-ip-interface']
                 type: raw
                 description: (list) Source interface for communication with the RADIUS server.
 '''

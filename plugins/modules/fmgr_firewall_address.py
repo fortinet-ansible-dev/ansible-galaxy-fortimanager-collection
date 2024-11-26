@@ -90,15 +90,18 @@ options:
         type: dict
         suboptions:
             allow_routing:
+                aliases: ['allow-routing']
                 type: str
                 description: Enable/disable use of this address in the static route configuration.
                 choices:
                     - 'disable'
                     - 'enable'
             associated_interface:
+                aliases: ['associated-interface']
                 type: str
                 description: Network interface associated with address.
             cache_ttl:
+                aliases: ['cache-ttl']
                 type: int
                 description: Defines the minimal TTL of individual IP addresses in FQDN cache measured in seconds.
             color:
@@ -127,15 +130,18 @@ options:
                                 type: str
                                 description: Vdom.
                     allow_routing:
+                        aliases: ['allow-routing']
                         type: str
                         description: Allow routing.
                         choices:
                             - 'disable'
                             - 'enable'
                     associated_interface:
+                        aliases: ['associated-interface']
                         type: str
                         description: Associated interface.
                     cache_ttl:
+                        aliases: ['cache-ttl']
                         type: int
                         description: Cache ttl.
                     color:
@@ -148,12 +154,15 @@ options:
                         type: str
                         description: Country.
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End ip.
                     end_mac:
+                        aliases: ['end-mac']
                         type: str
                         description: End mac.
                     epg_name:
+                        aliases: ['epg-name']
                         type: str
                         description: Epg name.
                     filter:
@@ -166,12 +175,14 @@ options:
                         type: str
                         description: Interface.
                     obj_id:
+                        aliases: ['obj-id']
                         type: str
                         description: Obj id.
                     organization:
                         type: str
                         description: Organization.
                     policy_group:
+                        aliases: ['policy-group']
                         type: str
                         description: Policy group.
                     sdn:
@@ -187,6 +198,7 @@ options:
                             - 'oci'
                             - 'openstack'
                     sdn_addr_type:
+                        aliases: ['sdn-addr-type']
                         type: str
                         description: Sdn addr type.
                         choices:
@@ -194,18 +206,22 @@ options:
                             - 'public'
                             - 'all'
                     sdn_tag:
+                        aliases: ['sdn-tag']
                         type: str
                         description: Sdn tag.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start ip.
                     start_mac:
+                        aliases: ['start-mac']
                         type: str
                         description: Start mac.
                     subnet:
                         type: str
                         description: Subnet.
                     subnet_name:
+                        aliases: ['subnet-name']
                         type: str
                         description: Subnet name.
                     tags:
@@ -248,12 +264,15 @@ options:
                         type: str
                         description: Wildcard.
                     wildcard_fqdn:
+                        aliases: ['wildcard-fqdn']
                         type: str
                         description: Wildcard fqdn.
                     _image_base64:
+                        aliases: ['_image-base64']
                         type: str
                         description: Image base64.
                     clearpass_spt:
+                        aliases: ['clearpass-spt']
                         type: str
                         description: Clearpass spt.
                         choices:
@@ -265,9 +284,11 @@ options:
                             - 'infected'
                             - 'transient'
                     fsso_group:
+                        aliases: ['fsso-group']
                         type: raw
                         description: (list or str) Fsso group.
                     sub_type:
+                        aliases: ['sub-type']
                         type: str
                         description: Sub type.
                         choices:
@@ -281,18 +302,22 @@ options:
                             - 'fortipolicy-tag'
                             - 'device-identification'
                     global_object:
+                        aliases: ['global-object']
                         type: int
                         description: Global object.
                     obj_tag:
+                        aliases: ['obj-tag']
                         type: str
                         description: Obj tag.
                     obj_type:
+                        aliases: ['obj-type']
                         type: str
                         description: Obj type.
                         choices:
                             - 'ip'
                             - 'mac'
                     fabric_object:
+                        aliases: ['fabric-object']
                         type: str
                         description: Security Fabric global object setting.
                         choices:
@@ -302,6 +327,7 @@ options:
                         type: raw
                         description: (list) Multiple MAC address ranges.
                     node_ip_only:
+                        aliases: ['node-ip-only']
                         type: str
                         description: Enable/disable collection of node addresses only in Kubernetes.
                         choices:
@@ -314,36 +340,46 @@ options:
                             - 'dirty'
                             - 'clean'
                     pattern_end:
+                        aliases: ['pattern-end']
                         type: int
                         description: Pattern end.
                     pattern_start:
+                        aliases: ['pattern-start']
                         type: int
                         description: Pattern start.
                     tag_detection_level:
+                        aliases: ['tag-detection-level']
                         type: str
                         description: Tag detection level of dynamic address object.
                     tag_type:
+                        aliases: ['tag-type']
                         type: str
                         description: Tag type of dynamic address object.
                     hw_model:
+                        aliases: ['hw-model']
                         type: str
                         description: Dynamic address matching hardware model.
                     hw_vendor:
+                        aliases: ['hw-vendor']
                         type: str
                         description: Dynamic address matching hardware vendor.
                     os:
                         type: str
                         description: Dynamic address matching operating system.
                     route_tag:
+                        aliases: ['route-tag']
                         type: int
                         description: Route-tag address.
                     sw_version:
+                        aliases: ['sw-version']
                         type: str
                         description: Dynamic address matching software version.
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: Final IP address
             epg_name:
+                aliases: ['epg-name']
                 type: str
                 description: Endpoint group name.
             filter:
@@ -361,9 +397,11 @@ options:
                         type: str
                         description: IP.
                     net_id:
+                        aliases: ['net-id']
                         type: str
                         description: Network ID.
                     obj_id:
+                        aliases: ['obj-id']
                         type: str
                         description: Object ID.
             name:
@@ -371,12 +409,14 @@ options:
                 description: Address name.
                 required: true
             obj_id:
+                aliases: ['obj-id']
                 type: str
                 description: Object ID for NSX.
             organization:
                 type: str
                 description: Organization domain name
             policy_group:
+                aliases: ['policy-group']
                 type: str
                 description: Policy group name.
             sdn:
@@ -392,15 +432,18 @@ options:
                     - 'oci'
                     - 'openstack'
             sdn_tag:
+                aliases: ['sdn-tag']
                 type: str
                 description: SDN Tag.
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: First IP address
             subnet:
                 type: str
                 description: IP address and subnet mask of address.
             subnet_name:
+                aliases: ['subnet-name']
                 type: str
                 description: Subnet name.
             tagging:
@@ -451,15 +494,18 @@ options:
                 type: str
                 description: IP address and wildcard netmask.
             wildcard_fqdn:
+                aliases: ['wildcard-fqdn']
                 type: str
                 description: Fully Qualified Domain Name with wildcard characters.
             end_mac:
+                aliases: ['end-mac']
                 type: str
                 description: Last MAC address in the range.
             interface:
                 type: str
                 description: Name of interface whose IP address is to be used.
             sdn_addr_type:
+                aliases: ['sdn-addr-type']
                 type: str
                 description: Type of addresses to collect.
                 choices:
@@ -467,23 +513,28 @@ options:
                     - 'public'
                     - 'all'
             start_mac:
+                aliases: ['start-mac']
                 type: str
                 description: First MAC address in the range.
             tags:
                 type: str
                 description: Names of object-tags applied to address.
             profile_list:
+                aliases: ['profile-list']
                 type: list
                 elements: dict
                 description: Profile list.
                 suboptions:
                     profile_id:
+                        aliases: ['profile-id']
                         type: int
                         description: NSX service profile ID.
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             clearpass_spt:
+                aliases: ['clearpass-spt']
                 type: str
                 description: SPT
                 choices:
@@ -495,9 +546,11 @@ options:
                     - 'infected'
                     - 'transient'
             fsso_group:
+                aliases: ['fsso-group']
                 type: raw
                 description: (list or str) FSSO group
             sub_type:
+                aliases: ['sub-type']
                 type: str
                 description: Sub-type of address.
                 choices:
@@ -511,18 +564,22 @@ options:
                     - 'fortipolicy-tag'
                     - 'device-identification'
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             obj_tag:
+                aliases: ['obj-tag']
                 type: str
                 description: Tag of dynamic address object.
             obj_type:
+                aliases: ['obj-type']
                 type: str
                 description: Object type.
                 choices:
                     - 'ip'
                     - 'mac'
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:
@@ -532,6 +589,7 @@ options:
                 type: raw
                 description: (list) Multiple MAC address ranges.
             node_ip_only:
+                aliases: ['node-ip-only']
                 type: str
                 description: Enable/disable collection of node addresses only in Kubernetes.
                 choices:
@@ -544,24 +602,30 @@ options:
                     - 'dirty'
                     - 'clean'
             tag_detection_level:
+                aliases: ['tag-detection-level']
                 type: str
                 description: Tag detection level of dynamic address object.
             tag_type:
+                aliases: ['tag-type']
                 type: str
                 description: Tag type of dynamic address object.
             hw_model:
+                aliases: ['hw-model']
                 type: str
                 description: Dynamic address matching hardware model.
             hw_vendor:
+                aliases: ['hw-vendor']
                 type: str
                 description: Dynamic address matching hardware vendor.
             os:
                 type: str
                 description: Dynamic address matching operating system.
             route_tag:
+                aliases: ['route-tag']
                 type: int
                 description: Route-tag address.
             sw_version:
+                aliases: ['sw-version']
                 type: str
                 description: Dynamic address matching software version.
 '''

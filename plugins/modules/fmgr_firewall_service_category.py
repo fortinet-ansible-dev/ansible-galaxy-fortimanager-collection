@@ -97,9 +97,11 @@ options:
                 description: Service category name.
                 required: true
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:

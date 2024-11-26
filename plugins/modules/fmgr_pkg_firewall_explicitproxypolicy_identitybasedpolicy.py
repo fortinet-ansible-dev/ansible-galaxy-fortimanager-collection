@@ -100,12 +100,15 @@ options:
         type: dict
         suboptions:
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Application list.
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Antivirus profile.
             casi_profile:
+                aliases: ['casi-profile']
                 type: str
                 description: CASI profile.
             disclaimer:
@@ -117,12 +120,14 @@ options:
                     - 'policy'
                     - 'user'
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: DLP sensor.
             groups:
                 type: str
                 description: Group name.
             icap_profile:
+                aliases: ['icap-profile']
                 type: str
                 description: ICAP profile.
             id:
@@ -130,6 +135,7 @@ options:
                 description: ID.
                 required: true
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: IPS sensor.
             logtraffic:
@@ -140,30 +146,37 @@ options:
                     - 'all'
                     - 'utm'
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Enable/disable policy log traffic start.
                 choices:
                     - 'disable'
                     - 'enable'
             mms_profile:
+                aliases: ['mms-profile']
                 type: str
                 description: Mms profile
             profile_group:
+                aliases: ['profile-group']
                 type: str
                 description: Profile group
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: str
                 description: Profile protocol options.
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Profile type
                 choices:
                     - 'single'
                     - 'group'
             replacemsg_override_group:
+                aliases: ['replacemsg-override-group']
                 type: str
                 description: Specify authentication replacement message override group.
             scan_botnet_connections:
+                aliases: ['scan-botnet-connections']
                 type: str
                 description: Enable/disable scanning of connections to Botnet servers.
                 choices:
@@ -174,24 +187,29 @@ options:
                 type: str
                 description: Schedule name.
             spamfilter_profile:
+                aliases: ['spamfilter-profile']
                 type: str
                 description: Spam filter profile.
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: str
                 description: SSL SSH Profile.
             users:
                 type: str
                 description: User name.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable AV/web/IPS protection profile.
                 choices:
                     - 'disable'
                     - 'enable'
             waf_profile:
+                aliases: ['waf-profile']
                 type: str
                 description: Web application firewall profile.
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Web filter profile.
 '''

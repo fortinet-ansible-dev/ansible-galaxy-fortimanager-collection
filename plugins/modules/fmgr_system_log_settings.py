@@ -77,42 +77,55 @@ options:
         type: dict
         suboptions:
             FAC_custom_field1:
+                aliases: ['FAC-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FAZ_custom_field1:
+                aliases: ['FAZ-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FCH_custom_field1:
+                aliases: ['FCH-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FCT_custom_field1:
+                aliases: ['FCT-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FDD_custom_field1:
+                aliases: ['FDD-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FGT_custom_field1:
+                aliases: ['FGT-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FMG_custom_field1:
+                aliases: ['FMG-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FML_custom_field1:
+                aliases: ['FML-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FPX_custom_field1:
+                aliases: ['FPX-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FSA_custom_field1:
+                aliases: ['FSA-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             FWB_custom_field1:
+                aliases: ['FWB-custom-field1']
                 type: str
                 description: Name of custom log field to index.
             browse_max_logfiles:
+                aliases: ['browse-max-logfiles']
                 type: int
                 description: Maximum number of log files for each log browse attempt for each Adom.
             dns_resolve_dstip:
+                aliases: ['dns-resolve-dstip']
                 type: str
                 description:
                     - Enable/Disable resolving destination IP by DNS.
@@ -122,9 +135,11 @@ options:
                     - 'disable'
                     - 'enable'
             download_max_logs:
+                aliases: ['download-max-logs']
                 type: int
                 description: Maximum number of logs for each log download attempt.
             ha_auto_migrate:
+                aliases: ['ha-auto-migrate']
                 type: str
                 description:
                     - Enabled/Disable automatically merging HA members logs to HA cluster.
@@ -134,9 +149,11 @@ options:
                     - 'disable'
                     - 'enable'
             import_max_logfiles:
+                aliases: ['import-max-logfiles']
                 type: int
                 description: Maximum number of log files for each log import attempt.
             log_file_archive_name:
+                aliases: ['log-file-archive-name']
                 type: str
                 description:
                     - Log file name format for archiving, such as backup, upload or download.
@@ -146,6 +163,7 @@ options:
                     - 'basic'
                     - 'extended'
             rolling_analyzer:
+                aliases: ['rolling-analyzer']
                 type: dict
                 description: Rolling analyzer.
                 suboptions:
@@ -170,6 +188,7 @@ options:
                             - 'fri'
                             - 'sat'
                     del_files:
+                        aliases: ['del-files']
                         type: str
                         description:
                             - Enable/disable log file deletion after uploading.
@@ -182,9 +201,11 @@ options:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
                     file_size:
+                        aliases: ['file-size']
                         type: int
                         description: Roll log files when they reach this size
                     gzip_format:
+                        aliases: ['gzip-format']
                         type: str
                         description:
                             - Enable/disable compression of uploaded log files.
@@ -206,6 +227,7 @@ options:
                         type: str
                         description: Upload server IP3 address.
                     log_format:
+                        aliases: ['log-format']
                         type: str
                         description:
                             - Format of uploaded log files.
@@ -229,6 +251,7 @@ options:
                         type: raw
                         description: (list) Upload server login password3.
                     server_type:
+                        aliases: ['server-type']
                         type: str
                         description:
                             - Upload server type.
@@ -249,9 +272,11 @@ options:
                             - 'disable'
                             - 'enable'
                     upload_hour:
+                        aliases: ['upload-hour']
                         type: int
                         description: Log files upload schedule
                     upload_mode:
+                        aliases: ['upload-mode']
                         type: str
                         description:
                             - Upload mode with multiple servers.
@@ -261,6 +286,7 @@ options:
                             - 'backup'
                             - 'mirror'
                     upload_trigger:
+                        aliases: ['upload-trigger']
                         type: str
                         description:
                             - Event triggering log files upload.
@@ -299,6 +325,7 @@ options:
                         type: int
                         description: Upload server IP3 port number.
                     rolling_upgrade_status:
+                        aliases: ['rolling-upgrade-status']
                         type: int
                         description: Rolling upgrade status
                     server:
@@ -311,6 +338,7 @@ options:
                         type: str
                         description: Upload server3 FQDN/IP.
             rolling_local:
+                aliases: ['rolling-local']
                 type: dict
                 description: Rolling local.
                 suboptions:
@@ -335,6 +363,7 @@ options:
                             - 'fri'
                             - 'sat'
                     del_files:
+                        aliases: ['del-files']
                         type: str
                         description:
                             - Enable/disable log file deletion after uploading.
@@ -347,9 +376,11 @@ options:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
                     file_size:
+                        aliases: ['file-size']
                         type: int
                         description: Roll log files when they reach this size
                     gzip_format:
+                        aliases: ['gzip-format']
                         type: str
                         description:
                             - Enable/disable compression of uploaded log files.
@@ -371,6 +402,7 @@ options:
                         type: str
                         description: Upload server IP3 address.
                     log_format:
+                        aliases: ['log-format']
                         type: str
                         description:
                             - Format of uploaded log files.
@@ -394,6 +426,7 @@ options:
                         type: raw
                         description: (list) Upload server login password3.
                     server_type:
+                        aliases: ['server-type']
                         type: str
                         description:
                             - Upload server type.
@@ -414,9 +447,11 @@ options:
                             - 'disable'
                             - 'enable'
                     upload_hour:
+                        aliases: ['upload-hour']
                         type: int
                         description: Log files upload schedule
                     upload_mode:
+                        aliases: ['upload-mode']
                         type: str
                         description:
                             - Upload mode with multiple servers.
@@ -426,6 +461,7 @@ options:
                             - 'backup'
                             - 'mirror'
                     upload_trigger:
+                        aliases: ['upload-trigger']
                         type: str
                         description:
                             - Event triggering log files upload.
@@ -464,6 +500,7 @@ options:
                         type: int
                         description: Upload server IP3 port number.
                     rolling_upgrade_status:
+                        aliases: ['rolling-upgrade-status']
                         type: int
                         description: Rolling upgrade status
                     server:
@@ -476,6 +513,7 @@ options:
                         type: str
                         description: Upload server3 FQDN/IP.
             rolling_regular:
+                aliases: ['rolling-regular']
                 type: dict
                 description: Rolling regular.
                 suboptions:
@@ -500,6 +538,7 @@ options:
                             - 'fri'
                             - 'sat'
                     del_files:
+                        aliases: ['del-files']
                         type: str
                         description:
                             - Enable/disable log file deletion after uploading.
@@ -512,9 +551,11 @@ options:
                         type: str
                         description: Upload server directory, for Unix server, use absolute
                     file_size:
+                        aliases: ['file-size']
                         type: int
                         description: Roll log files when they reach this size
                     gzip_format:
+                        aliases: ['gzip-format']
                         type: str
                         description:
                             - Enable/disable compression of uploaded log files.
@@ -536,6 +577,7 @@ options:
                         type: str
                         description: Upload server IP3 address.
                     log_format:
+                        aliases: ['log-format']
                         type: str
                         description:
                             - Format of uploaded log files.
@@ -559,6 +601,7 @@ options:
                         type: raw
                         description: (list) Upload server login password3.
                     server_type:
+                        aliases: ['server-type']
                         type: str
                         description:
                             - Upload server type.
@@ -579,9 +622,11 @@ options:
                             - 'disable'
                             - 'enable'
                     upload_hour:
+                        aliases: ['upload-hour']
                         type: int
                         description: Log files upload schedule
                     upload_mode:
+                        aliases: ['upload-mode']
                         type: str
                         description:
                             - Upload mode with multiple servers.
@@ -591,6 +636,7 @@ options:
                             - 'backup'
                             - 'mirror'
                     upload_trigger:
+                        aliases: ['upload-trigger']
                         type: str
                         description:
                             - Event triggering log files upload.
@@ -629,6 +675,7 @@ options:
                         type: int
                         description: Upload server IP3 port number.
                     rolling_upgrade_status:
+                        aliases: ['rolling-upgrade-status']
                         type: int
                         description: Rolling upgrade status
                     server:
@@ -641,9 +688,11 @@ options:
                         type: str
                         description: Upload server3 FQDN/IP.
             sync_search_timeout:
+                aliases: ['sync-search-timeout']
                 type: int
                 description: Maximum number of seconds for running a log search session in synchronous mode.
             keep_dev_logs:
+                aliases: ['keep-dev-logs']
                 type: str
                 description:
                     - Enable/Disable keeping the dev logs after the device has been deleted.
@@ -653,6 +702,7 @@ options:
                     - 'disable'
                     - 'enable'
             device_auto_detect:
+                aliases: ['device-auto-detect']
                 type: str
                 description:
                     - Enable/Disable looking up device ID in syslog received with no encryption.
@@ -662,6 +712,7 @@ options:
                     - 'disable'
                     - 'enable'
             unencrypted_logging:
+                aliases: ['unencrypted-logging']
                 type: str
                 description:
                     - Enable/Disable receiving syslog through UDP
@@ -671,9 +722,11 @@ options:
                     - 'disable'
                     - 'enable'
             log_interval_dev_no_logging:
+                aliases: ['log-interval-dev-no-logging']
                 type: int
                 description: Interval in minute of no log received from a device when considering the device down.
             log_upload_interval_dev_no_logging:
+                aliases: ['log-upload-interval-dev-no-logging']
                 type: int
                 description: Interval in minute of no log uploaded from a device when considering the device down.
 '''

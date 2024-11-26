@@ -101,12 +101,14 @@ options:
                     - 'clear'
                     - 'reject'
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: IP address type.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
             email_pattern:
+                aliases: ['email-pattern']
                 type: str
                 description: Email address pattern.
             id:
@@ -114,12 +116,15 @@ options:
                 description: Entry ID.
                 required: true
             ip4_subnet:
+                aliases: ['ip4-subnet']
                 type: str
                 description: IPv4 network address/subnet mask bits.
             ip6_subnet:
+                aliases: ['ip6-subnet']
                 type: str
                 description: IPv6 network address/subnet mask bits.
             pattern_type:
+                aliases: ['pattern-type']
                 type: str
                 description: Wildcard pattern or regular expression.
                 choices:

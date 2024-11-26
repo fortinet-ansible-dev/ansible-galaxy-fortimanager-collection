@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             dev_vdom:
+                aliases: ['dev-vdom']
                 type: str
                 description: Device or device VDOM.
                 required: true

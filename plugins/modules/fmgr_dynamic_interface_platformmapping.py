@@ -94,15 +94,19 @@ options:
         type: dict
         suboptions:
             egress_shaping_profile:
+                aliases: ['egress-shaping-profile']
                 type: raw
                 description: (list or str) Egress shaping profile.
             ingress_shaping_profile:
+                aliases: ['ingress-shaping-profile']
                 type: raw
                 description: (list or str) Ingress shaping profile.
             intf_zone:
+                aliases: ['intf-zone']
                 type: str
                 description: Intf zone.
             intrazone_deny:
+                aliases: ['intrazone-deny']
                 type: str
                 description: Intrazone deny.
                 choices:

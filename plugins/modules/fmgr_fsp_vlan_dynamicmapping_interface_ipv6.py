@@ -95,6 +95,7 @@ options:
                     - 'disable'
                     - 'enable'
             dhcp6_client_options:
+                aliases: ['dhcp6-client-options']
                 type: list
                 elements: str
                 description: Dhcp6 client options.
@@ -105,44 +106,54 @@ options:
                     - 'dns'
                     - 'dnsname'
             dhcp6_information_request:
+                aliases: ['dhcp6-information-request']
                 type: str
                 description: Dhcp6 information request.
                 choices:
                     - 'disable'
                     - 'enable'
             dhcp6_prefix_delegation:
+                aliases: ['dhcp6-prefix-delegation']
                 type: str
                 description: Dhcp6 prefix delegation.
                 choices:
                     - 'disable'
                     - 'enable'
             dhcp6_prefix_hint:
+                aliases: ['dhcp6-prefix-hint']
                 type: str
                 description: Dhcp6 prefix hint.
             dhcp6_prefix_hint_plt:
+                aliases: ['dhcp6-prefix-hint-plt']
                 type: int
                 description: Dhcp6 prefix hint plt.
             dhcp6_prefix_hint_vlt:
+                aliases: ['dhcp6-prefix-hint-vlt']
                 type: int
                 description: Dhcp6 prefix hint vlt.
             dhcp6_relay_ip:
+                aliases: ['dhcp6-relay-ip']
                 type: str
                 description: Dhcp6 relay ip.
             dhcp6_relay_service:
+                aliases: ['dhcp6-relay-service']
                 type: str
                 description: Dhcp6 relay service.
                 choices:
                     - 'disable'
                     - 'enable'
             dhcp6_relay_type:
+                aliases: ['dhcp6-relay-type']
                 type: str
                 description: Dhcp6 relay type.
                 choices:
                     - 'regular'
             ip6_address:
+                aliases: ['ip6-address']
                 type: str
                 description: Ip6 address.
             ip6_allowaccess:
+                aliases: ['ip6-allowaccess']
                 type: list
                 elements: str
                 description: Ip6 allowaccess.
@@ -157,32 +168,38 @@ options:
                     - 'capwap'
                     - 'fabric'
             ip6_default_life:
+                aliases: ['ip6-default-life']
                 type: int
                 description: Ip6 default life.
             ip6_delegated_prefix_list:
+                aliases: ['ip6-delegated-prefix-list']
                 type: list
                 elements: dict
                 description: Ip6 delegated prefix list.
                 suboptions:
                     autonomous_flag:
+                        aliases: ['autonomous-flag']
                         type: str
                         description: Autonomous flag.
                         choices:
                             - 'disable'
                             - 'enable'
                     onlink_flag:
+                        aliases: ['onlink-flag']
                         type: str
                         description: Onlink flag.
                         choices:
                             - 'disable'
                             - 'enable'
                     prefix_id:
+                        aliases: ['prefix-id']
                         type: int
                         description: Prefix id.
                     rdnss:
                         type: raw
                         description: (list) Rdnss.
                     rdnss_service:
+                        aliases: ['rdnss-service']
                         type: str
                         description: Rdnss service.
                         choices:
@@ -193,18 +210,22 @@ options:
                         type: str
                         description: Subnet.
                     upstream_interface:
+                        aliases: ['upstream-interface']
                         type: str
                         description: Upstream interface.
                     delegated_prefix_iaid:
+                        aliases: ['delegated-prefix-iaid']
                         type: int
                         description: IAID of obtained delegated-prefix from the upstream interface.
             ip6_dns_server_override:
+                aliases: ['ip6-dns-server-override']
                 type: str
                 description: Ip6 dns server override.
                 choices:
                     - 'disable'
                     - 'enable'
             ip6_extra_addr:
+                aliases: ['ip6-extra-addr']
                 type: list
                 elements: dict
                 description: Ip6 extra addr.
@@ -213,24 +234,30 @@ options:
                         type: str
                         description: Prefix.
             ip6_hop_limit:
+                aliases: ['ip6-hop-limit']
                 type: int
                 description: Ip6 hop limit.
             ip6_link_mtu:
+                aliases: ['ip6-link-mtu']
                 type: int
                 description: Ip6 link mtu.
             ip6_manage_flag:
+                aliases: ['ip6-manage-flag']
                 type: str
                 description: Ip6 manage flag.
                 choices:
                     - 'disable'
                     - 'enable'
             ip6_max_interval:
+                aliases: ['ip6-max-interval']
                 type: int
                 description: Ip6 max interval.
             ip6_min_interval:
+                aliases: ['ip6-min-interval']
                 type: int
                 description: Ip6 min interval.
             ip6_mode:
+                aliases: ['ip6-mode']
                 type: str
                 description: Ip6 mode.
                 choices:
@@ -239,17 +266,20 @@ options:
                     - 'pppoe'
                     - 'delegated'
             ip6_other_flag:
+                aliases: ['ip6-other-flag']
                 type: str
                 description: Ip6 other flag.
                 choices:
                     - 'disable'
                     - 'enable'
             ip6_prefix_list:
+                aliases: ['ip6-prefix-list']
                 type: list
                 elements: dict
                 description: Ip6 prefix list.
                 suboptions:
                     autonomous_flag:
+                        aliases: ['autonomous-flag']
                         type: str
                         description: Autonomous flag.
                         choices:
@@ -259,12 +289,14 @@ options:
                         type: raw
                         description: (list) Dnssl.
                     onlink_flag:
+                        aliases: ['onlink-flag']
                         type: str
                         description: Onlink flag.
                         choices:
                             - 'disable'
                             - 'enable'
                     preferred_life_time:
+                        aliases: ['preferred-life-time']
                         type: int
                         description: Preferred life time.
                     prefix:
@@ -274,51 +306,64 @@ options:
                         type: raw
                         description: (list) Rdnss.
                     valid_life_time:
+                        aliases: ['valid-life-time']
                         type: int
                         description: Valid life time.
             ip6_reachable_time:
+                aliases: ['ip6-reachable-time']
                 type: int
                 description: Ip6 reachable time.
             ip6_retrans_time:
+                aliases: ['ip6-retrans-time']
                 type: int
                 description: Ip6 retrans time.
             ip6_send_adv:
+                aliases: ['ip6-send-adv']
                 type: str
                 description: Ip6 send adv.
                 choices:
                     - 'disable'
                     - 'enable'
             ip6_subnet:
+                aliases: ['ip6-subnet']
                 type: str
                 description: Ip6 subnet.
             ip6_upstream_interface:
+                aliases: ['ip6-upstream-interface']
                 type: str
                 description: Ip6 upstream interface.
             nd_cert:
+                aliases: ['nd-cert']
                 type: str
                 description: Nd cert.
             nd_cga_modifier:
+                aliases: ['nd-cga-modifier']
                 type: str
                 description: Nd cga modifier.
             nd_mode:
+                aliases: ['nd-mode']
                 type: str
                 description: Nd mode.
                 choices:
                     - 'basic'
                     - 'SEND-compatible'
             nd_security_level:
+                aliases: ['nd-security-level']
                 type: int
                 description: Nd security level.
             nd_timestamp_delta:
+                aliases: ['nd-timestamp-delta']
                 type: int
                 description: Nd timestamp delta.
             nd_timestamp_fuzz:
+                aliases: ['nd-timestamp-fuzz']
                 type: int
                 description: Nd timestamp fuzz.
             vrip6_link_local:
                 type: str
                 description: Vrip6 link local.
             vrrp_virtual_mac6:
+                aliases: ['vrrp-virtual-mac6']
                 type: str
                 description: Vrrp virtual mac6.
                 choices:
@@ -330,12 +375,14 @@ options:
                 description: Vrrp6.
                 suboptions:
                     accept_mode:
+                        aliases: ['accept-mode']
                         type: str
                         description: Accept mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     adv_interval:
+                        aliases: ['adv-interval']
                         type: int
                         description: Adv interval.
                     preempt:
@@ -348,6 +395,7 @@ options:
                         type: int
                         description: Priority.
                     start_time:
+                        aliases: ['start-time']
                         type: int
                         description: Start time.
                     status:
@@ -369,39 +417,47 @@ options:
                         type: str
                         description: Vrip6.
             interface_identifier:
+                aliases: ['interface-identifier']
                 type: str
                 description: Interface identifier.
             unique_autoconf_addr:
+                aliases: ['unique-autoconf-addr']
                 type: str
                 description: Unique autoconf addr.
                 choices:
                     - 'disable'
                     - 'enable'
             icmp6_send_redirect:
+                aliases: ['icmp6-send-redirect']
                 type: str
                 description: Enable/disable sending of ICMPv6 redirects.
                 choices:
                     - 'disable'
                     - 'enable'
             cli_conn6_status:
+                aliases: ['cli-conn6-status']
                 type: int
                 description: Cli conn6 status.
             ip6_prefix_mode:
+                aliases: ['ip6-prefix-mode']
                 type: str
                 description: Assigning a prefix from DHCP or RA.
                 choices:
                     - 'dhcp6'
                     - 'ra'
             ra_send_mtu:
+                aliases: ['ra-send-mtu']
                 type: str
                 description: Enable/disable sending link MTU in RA packet.
                 choices:
                     - 'disable'
                     - 'enable'
             ip6_delegated_prefix_iaid:
+                aliases: ['ip6-delegated-prefix-iaid']
                 type: int
                 description: IAID of obtained delegated-prefix from the upstream interface.
             dhcp6_relay_source_interface:
+                aliases: ['dhcp6-relay-source-interface']
                 type: str
                 description: Enable/disable use of address on this interface as the source address of the relay message.
                 choices:

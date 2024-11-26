@@ -104,12 +104,15 @@ options:
                         type: str
                         description: IP configuration name.
                     public_ip:
+                        aliases: ['public-ip']
                         type: str
                         description: Public IP name.
                     resource_group:
+                        aliases: ['resource-group']
                         type: str
                         description: Resource group of Azure public IP.
                     private_ip:
+                        aliases: ['private-ip']
                         type: str
                         description: Private IP address.
             name:
@@ -117,6 +120,7 @@ options:
                 description: Network interface name.
                 required: true
             peer_nic:
+                aliases: ['peer-nic']
                 type: str
                 description: Peer network interface name.
 '''

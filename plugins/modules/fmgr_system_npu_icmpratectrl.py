@@ -81,15 +81,19 @@ options:
         type: dict
         suboptions:
             icmp_v4_bucket_size:
+                aliases: ['icmp-v4-bucket-size']
                 type: int
                 description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 packets
             icmp_v4_rate:
+                aliases: ['icmp-v4-rate']
                 type: int
                 description: Average rate of ICMPv4 packets that allowed to be generated per second
             icmp_v6_bucket_size:
+                aliases: ['icmp-v6-bucket-size']
                 type: int
                 description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 packets
             icmp_v6_rate:
+                aliases: ['icmp-v6-rate']
                 type: int
                 description: Average rate of ICMPv6 packets that allowed to be generated per second
 '''

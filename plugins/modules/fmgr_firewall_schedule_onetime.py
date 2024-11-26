@@ -96,6 +96,7 @@ options:
                 type: str
                 description: Schedule end date and time, format hh
             expiration_days:
+                aliases: ['expiration-days']
                 type: int
                 description: Write an event log message this many days before the schedule expires.
             name:
@@ -106,18 +107,22 @@ options:
                 type: str
                 description: Schedule start date and time, format hh
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:
                     - 'disable'
                     - 'enable'
             end_utc:
+                aliases: ['end-utc']
                 type: str
                 description: Schedule end date and time, in epoch format.
             start_utc:
+                aliases: ['start-utc']
                 type: str
                 description: Schedule start date and time, in epoch format.
             uuid:

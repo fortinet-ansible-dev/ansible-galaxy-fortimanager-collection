@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             allowed_vlans:
+                aliases: ['allowed-vlans']
                 type: raw
                 description: (list) Allowed VLANs to be applied when using this VLAN policy.
             allowed_vlans_all:
+                aliases: ['allowed-vlans-all']
                 type: str
                 description: Enable/disable all defined VLANs when using this VLAN policy.
                 choices:
@@ -102,6 +104,7 @@ options:
                 type: str
                 description: Description for the VLAN policy.
             discard_mode:
+                aliases: ['discard-mode']
                 type: str
                 description: Discard mode to be applied when using this VLAN policy.
                 choices:
@@ -113,6 +116,7 @@ options:
                 description: VLAN policy name.
                 required: true
             untagged_vlans:
+                aliases: ['untagged-vlans']
                 type: raw
                 description: (list) Untagged VLANs to be applied when using this VLAN policy.
             vlan:

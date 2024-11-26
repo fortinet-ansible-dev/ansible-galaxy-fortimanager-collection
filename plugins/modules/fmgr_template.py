@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Description.
             modification_time:
+                aliases: ['modification-time']
                 type: str
                 description: Modification time.
             name:

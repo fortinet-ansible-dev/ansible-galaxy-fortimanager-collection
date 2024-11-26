@@ -90,15 +90,19 @@ options:
         type: dict
         suboptions:
             ac_ip:
+                aliases: ['ac-ip']
                 type: str
                 description: IP address of the validation controller that AP must be able to join after applying AP local configuration.
             ac_port:
+                aliases: ['ac-port']
                 type: int
                 description: Port of the validation controller that AP must be able to join after applying AP local configuration
             ac_timer:
+                aliases: ['ac-timer']
                 type: int
                 description: Maximum waiting time for the AP to join the validation controller after applying AP local configuration
             ac_type:
+                aliases: ['ac-type']
                 type: str
                 description: Validation controller type
                 choices:
@@ -106,6 +110,7 @@ options:
                     - 'specify'
                     - 'apcfg'
             command_list:
+                aliases: ['command-list']
                 type: list
                 elements: dict
                 description: Command list.
@@ -117,6 +122,7 @@ options:
                         type: str
                         description: AP local configuration command name.
                     passwd_value:
+                        aliases: ['passwd-value']
                         type: raw
                         description: (list) AP local configuration command password value.
                     type:
@@ -136,6 +142,7 @@ options:
                 description: AP local configuration profile name.
                 required: true
             ap_family:
+                aliases: ['ap-family']
                 type: str
                 description: FortiAP family type
                 choices:

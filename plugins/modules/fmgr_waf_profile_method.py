@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             default_allowed_methods:
+                aliases: ['default-allowed-methods']
                 type: list
                 elements: str
                 description: Methods.
@@ -105,6 +106,7 @@ options:
                     - 'disable'
                     - 'enable'
             method_policy:
+                aliases: ['method-policy']
                 type: list
                 elements: dict
                 description: Method policy.
@@ -113,6 +115,7 @@ options:
                         type: str
                         description: Host address.
                     allowed_methods:
+                        aliases: ['allowed-methods']
                         type: list
                         elements: str
                         description: Allowed Methods.

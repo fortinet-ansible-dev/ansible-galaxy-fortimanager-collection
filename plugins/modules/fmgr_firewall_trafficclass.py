@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             class_id:
+                aliases: ['class-id']
                 type: int
                 description: Class ID to be named.
             class_name:
+                aliases: ['class-name']
                 type: str
                 description: Define the name for this class-id.
 '''

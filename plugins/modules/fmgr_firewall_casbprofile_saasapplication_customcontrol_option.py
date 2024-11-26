@@ -112,6 +112,7 @@ options:
                 description: Name.
                 required: true
             user_input:
+                aliases: ['user-input']
                 type: list
                 elements: str
                 description: User input.

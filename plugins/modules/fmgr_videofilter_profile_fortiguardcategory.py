@@ -98,6 +98,7 @@ options:
                             - 'monitor'
                             - 'allow'
                     category_id:
+                        aliases: ['category-id']
                         type: int
                         description: Category ID.
                     id:

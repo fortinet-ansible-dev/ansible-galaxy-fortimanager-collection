@@ -165,12 +165,14 @@ options:
                 description: Hosts.
                 suboptions:
                     ha_direct:
+                        aliases: ['ha-direct']
                         type: str
                         description: Enable/disable direct management of HA cluster members.
                         choices:
                             - 'disable'
                             - 'enable'
                     host_type:
+                        aliases: ['host-type']
                         type: str
                         description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
                         choices:
@@ -184,9 +186,11 @@ options:
                         type: str
                         description: IPv4 address of the SNMP manager
                     source_ip:
+                        aliases: ['source-ip']
                         type: str
                         description: Source IPv4 address for SNMP traps.
                     interface_select_method:
+                        aliases: ['interface-select-method']
                         type: str
                         description: Specify how to select outgoing interface to reach server.
                         choices:
@@ -202,12 +206,14 @@ options:
                 description: Hosts6.
                 suboptions:
                     ha_direct:
+                        aliases: ['ha-direct']
                         type: str
                         description: Enable/disable direct management of HA cluster members.
                         choices:
                             - 'disable'
                             - 'enable'
                     host_type:
+                        aliases: ['host-type']
                         type: str
                         description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
                         choices:
@@ -221,12 +227,14 @@ options:
                         type: str
                         description: SNMP manager IPv6 address prefix.
                     source_ipv6:
+                        aliases: ['source-ipv6']
                         type: str
                         description: Source IPv6 address for SNMP traps.
                     interface:
                         type: raw
                         description: (list) Specify outgoing interface to reach server.
                     interface_select_method:
+                        aliases: ['interface-select-method']
                         type: str
                         description: Specify how to select outgoing interface to reach server.
                         choices:
@@ -241,18 +249,22 @@ options:
                 type: str
                 description: Community name.
             query_v1_port:
+                aliases: ['query-v1-port']
                 type: int
                 description: SNMP v1 query port
             query_v1_status:
+                aliases: ['query-v1-status']
                 type: str
                 description: Enable/disable SNMP v1 queries.
                 choices:
                     - 'disable'
                     - 'enable'
             query_v2c_port:
+                aliases: ['query-v2c-port']
                 type: int
                 description: SNMP v2c query port
             query_v2c_status:
+                aliases: ['query-v2c-status']
                 type: str
                 description: Enable/disable SNMP v2c queries.
                 choices:
@@ -265,30 +277,37 @@ options:
                     - 'disable'
                     - 'enable'
             trap_v1_lport:
+                aliases: ['trap-v1-lport']
                 type: int
                 description: SNMP v1 trap local port
             trap_v1_rport:
+                aliases: ['trap-v1-rport']
                 type: int
                 description: SNMP v1 trap remote port
             trap_v1_status:
+                aliases: ['trap-v1-status']
                 type: str
                 description: Enable/disable SNMP v1 traps.
                 choices:
                     - 'disable'
                     - 'enable'
             trap_v2c_lport:
+                aliases: ['trap-v2c-lport']
                 type: int
                 description: SNMP v2c trap local port
             trap_v2c_rport:
+                aliases: ['trap-v2c-rport']
                 type: int
                 description: SNMP v2c trap remote port
             trap_v2c_status:
+                aliases: ['trap-v2c-status']
                 type: str
                 description: Enable/disable SNMP v2c traps.
                 choices:
                     - 'disable'
                     - 'enable'
             mib_view:
+                aliases: ['mib-view']
                 type: str
                 description: SNMP access control MIB view.
             vdoms:

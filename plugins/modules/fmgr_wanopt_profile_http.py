@@ -85,12 +85,14 @@ options:
         type: dict
         suboptions:
             byte_caching:
+                aliases: ['byte-caching']
                 type: str
                 description: Enable/disable byte-caching for HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             log_traffic:
+                aliases: ['log-traffic']
                 type: str
                 description: Enable/disable logging.
                 choices:
@@ -100,12 +102,14 @@ options:
                 type: raw
                 description: (list) Single port number or port number range for HTTP.
             prefer_chunking:
+                aliases: ['prefer-chunking']
                 type: str
                 description: Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
                 choices:
                     - 'dynamic'
                     - 'fix'
             secure_tunnel:
+                aliases: ['secure-tunnel']
                 type: str
                 description: Enable/disable securing the WAN Opt tunnel using SSL.
                 choices:
@@ -118,6 +122,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_port:
+                aliases: ['ssl-port']
                 type: raw
                 description: (list) Port on which to expect HTTPS traffic for SSL/TLS offloading.
             status:
@@ -127,12 +132,14 @@ options:
                     - 'disable'
                     - 'enable'
             tunnel_non_http:
+                aliases: ['tunnel-non-http']
                 type: str
                 description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_sharing:
+                aliases: ['tunnel-sharing']
                 type: str
                 description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                 choices:
@@ -140,6 +147,7 @@ options:
                     - 'shared'
                     - 'express-shared'
             unknown_http_version:
+                aliases: ['unknown-http-version']
                 type: str
                 description: How to handle HTTP sessions that do not comply with HTTP 0.
                 choices:
@@ -147,6 +155,7 @@ options:
                     - 'reject'
                     - 'tunnel'
             protocol_opt:
+                aliases: ['protocol-opt']
                 type: str
                 description: Select Protocol specific optimitation or generic TCP optimization.
                 choices:

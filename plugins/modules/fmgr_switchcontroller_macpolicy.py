@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             bounce_port_link:
+                aliases: ['bounce-port-link']
                 type: str
                 description: Enable/disable bouncing
                 choices:
@@ -109,6 +110,7 @@ options:
                 description: MAC policy name.
                 required: true
             traffic_policy:
+                aliases: ['traffic-policy']
                 type: str
                 description: Traffic policy to be applied when using this MAC policy.
             vlan:

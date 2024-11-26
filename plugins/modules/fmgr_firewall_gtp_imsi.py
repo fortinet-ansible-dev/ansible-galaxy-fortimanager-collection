@@ -107,12 +107,15 @@ options:
                 description: ID.
                 required: true
             mcc_mnc:
+                aliases: ['mcc-mnc']
                 type: str
                 description: MCC MNC.
             msisdn_prefix:
+                aliases: ['msisdn-prefix']
                 type: str
                 description: MSISDN prefix.
             selection_mode:
+                aliases: ['selection-mode']
                 type: list
                 elements: str
                 description: APN selection mode.

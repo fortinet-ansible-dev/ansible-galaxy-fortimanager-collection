@@ -133,6 +133,7 @@ options:
                     - 'disable'
                     - 'enable'
             ha_priority:
+                aliases: ['ha-priority']
                 type: int
                 description: Ha priority.
             id:
@@ -143,12 +144,14 @@ options:
                 type: str
                 description: Ip.
             ping_serv_status:
+                aliases: ['ping-serv-status']
                 type: int
                 description: Ping serv status.
             seq:
                 type: int
                 description: Seq.
             secip_relay_ip:
+                aliases: ['secip-relay-ip']
                 type: str
                 description: DHCP relay IP address.
 '''

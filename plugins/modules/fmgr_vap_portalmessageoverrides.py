@@ -85,15 +85,19 @@ options:
         type: dict
         suboptions:
             auth_disclaimer_page:
+                aliases: ['auth-disclaimer-page']
                 type: str
                 description: Override auth-disclaimer-page message with message from portal-message-overrides group.
             auth_login_failed_page:
+                aliases: ['auth-login-failed-page']
                 type: str
                 description: Override auth-login-failed-page message with message from portal-message-overrides group.
             auth_login_page:
+                aliases: ['auth-login-page']
                 type: str
                 description: Override auth-login-page message with message from portal-message-overrides group.
             auth_reject_page:
+                aliases: ['auth-reject-page']
                 type: str
                 description: Override auth-reject-page message with message from portal-message-overrides group.
 '''

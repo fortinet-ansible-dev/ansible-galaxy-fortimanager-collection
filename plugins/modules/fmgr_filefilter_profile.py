@@ -93,12 +93,14 @@ options:
                 type: str
                 description: Comment.
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable file-filter extended logging.
                 choices:
                     - 'disable'
                     - 'enable'
             feature_set:
+                aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
                 choices:
@@ -115,6 +117,7 @@ options:
                 description: Profile name.
                 required: true
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group
             rules:
@@ -139,12 +142,14 @@ options:
                             - 'incoming'
                             - 'outgoing'
                     file_type:
+                        aliases: ['file-type']
                         type: raw
                         description: (list) Select file type.
                     name:
                         type: str
                         description: File-filter rule name.
                     password_protected:
+                        aliases: ['password-protected']
                         type: str
                         description: Match password-protected files.
                         choices:
@@ -164,6 +169,7 @@ options:
                             - 'cifs'
                             - 'ssh'
             scan_archive_contents:
+                aliases: ['scan-archive-contents']
                 type: str
                 description: Enable/disable archive contents scan.
                 choices:

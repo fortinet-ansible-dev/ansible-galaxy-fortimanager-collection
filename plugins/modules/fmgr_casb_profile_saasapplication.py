@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             access_rule:
+                aliases: ['access-rule']
                 type: list
                 elements: dict
                 description: Access rule.
@@ -119,6 +120,7 @@ options:
                         type: str
                         description: CASB access rule activity name.
             custom_control:
+                aliases: ['custom-control']
                 type: list
                 elements: dict
                 description: Custom control.
@@ -135,16 +137,19 @@ options:
                                 type: str
                                 description: CASB custom control option name.
                             user_input:
+                                aliases: ['user-input']
                                 type: list
                                 elements: str
                                 description: CASB custom control user input.
             domain_control:
+                aliases: ['domain-control']
                 type: str
                 description: Enable/disable domain control.
                 choices:
                     - 'disable'
                     - 'enable'
             domain_control_domains:
+                aliases: ['domain-control-domains']
                 type: list
                 elements: str
                 description: CASB profile domain control domains.
@@ -159,22 +164,26 @@ options:
                 description: CASB profile SaaS application name.
                 required: true
             safe_search:
+                aliases: ['safe-search']
                 type: str
                 description: Enable/disable safe search.
                 choices:
                     - 'disable'
                     - 'enable'
             safe_search_control:
+                aliases: ['safe-search-control']
                 type: list
                 elements: str
                 description: CASB profile safe search control.
             tenant_control:
+                aliases: ['tenant-control']
                 type: str
                 description: Enable/disable tenant control.
                 choices:
                     - 'disable'
                     - 'enable'
             tenant_control_tenants:
+                aliases: ['tenant-control-tenants']
                 type: list
                 elements: str
                 description: CASB profile tenant control tenants.

@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             dest_ip:
+                aliases: ['dest-ip']
                 type: str
                 description: Destination IP and mask for the split-tunneling subnet.
             id:

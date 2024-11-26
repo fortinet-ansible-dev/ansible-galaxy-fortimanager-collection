@@ -100,6 +100,7 @@ options:
                 description: External resource name.
                 required: true
             refresh_rate:
+                aliases: ['refresh-rate']
                 type: int
                 description: Time interval to refresh external resource
             resource:
@@ -126,6 +127,7 @@ options:
                 type: raw
                 description: (list) HTTP basic authentication password.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IPv4 address used to communicate with server.
             username:
@@ -135,6 +137,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -142,12 +145,14 @@ options:
                     - 'sdwan'
                     - 'specify'
             user_agent:
+                aliases: ['user-agent']
                 type: str
                 description: Override HTTP User-Agent header used when retrieving this external resource.
             uuid:
                 type: str
                 description: Universally Unique Identifier
             server_identity_check:
+                aliases: ['server-identity-check']
                 type: str
                 description: Certificate verification option.
                 choices:
@@ -155,6 +160,7 @@ options:
                     - 'basic'
                     - 'full'
             update_method:
+                aliases: ['update-method']
                 type: str
                 description: External resource update method.
                 choices:

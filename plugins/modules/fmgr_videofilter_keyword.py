@@ -117,6 +117,7 @@ options:
                         type: str
                         description: Name.
                     pattern_type:
+                        aliases: ['pattern-type']
                         type: str
                         description: Pattern type.
                         choices:

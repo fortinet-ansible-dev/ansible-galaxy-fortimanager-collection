@@ -77,15 +77,19 @@ options:
         type: dict
         suboptions:
             log_interval_dev_no_logging:
+                aliases: ['log-interval-dev-no-logging']
                 type: int
                 description: Interval in minute for logging the event of no logs received from a device.
             log_interval_disk_full:
+                aliases: ['log-interval-disk-full']
                 type: int
                 description: Interval in minute for logging the event of disk full.
             log_interval_gbday_exceeded:
+                aliases: ['log-interval-gbday-exceeded']
                 type: int
                 description: Interval in minute for logging the event of the GB/Day license exceeded.
             log_daemon_crash:
+                aliases: ['log-daemon-crash']
                 type: str
                 description:
                     - Send a logmsg when a daemon crashes.
@@ -95,9 +99,11 @@ options:
                     - 'disable'
                     - 'enable'
             no_log_detection_threshold:
+                aliases: ['no-log-detection-threshold']
                 type: int
                 description: Time interval in minutes to trigger a local event message if no log data is received.
             log_interval_adom_perf_stats:
+                aliases: ['log-interval-adom-perf-stats']
                 type: int
                 description: Interval in minute for logging the event of adom perf stats.
 '''

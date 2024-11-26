@@ -117,6 +117,7 @@ options:
                 description: Banned word.
                 required: true
             pattern_type:
+                aliases: ['pattern-type']
                 type: str
                 description: Banned word pattern type
                 choices:

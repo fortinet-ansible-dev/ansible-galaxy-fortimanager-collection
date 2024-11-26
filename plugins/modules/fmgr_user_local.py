@@ -90,18 +90,21 @@ options:
         type: dict
         suboptions:
             auth_concurrent_override:
+                aliases: ['auth-concurrent-override']
                 type: str
                 description: Enable/disable overriding the policy-auth-concurrent under config system global.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_concurrent_value:
+                aliases: ['auth-concurrent-value']
                 type: int
                 description: Maximum number of concurrent logins permitted from the same user.
             authtimeout:
                 type: int
                 description: Time in minutes before the authentication timeout for a user is reached.
             email_to:
+                aliases: ['email-to']
                 type: str
                 description: Two-factor recipients email address.
             fortitoken:
@@ -111,6 +114,7 @@ options:
                 type: int
                 description: User ID.
             ldap_server:
+                aliases: ['ldap-server']
                 type: str
                 description: Name of LDAP server with which the user must authenticate.
             name:
@@ -121,24 +125,31 @@ options:
                 type: raw
                 description: (list) Users password.
             passwd_policy:
+                aliases: ['passwd-policy']
                 type: str
                 description: Password policy to apply to this user, as defined in config user password-policy.
             ppk_identity:
+                aliases: ['ppk-identity']
                 type: str
                 description: IKEv2 Postquantum Preshared Key Identity.
             ppk_secret:
+                aliases: ['ppk-secret']
                 type: raw
                 description: (list) IKEv2 Postquantum Preshared Key
             radius_server:
+                aliases: ['radius-server']
                 type: str
                 description: Name of RADIUS server with which the user must authenticate.
             sms_custom_server:
+                aliases: ['sms-custom-server']
                 type: str
                 description: Two-factor recipients SMS server.
             sms_phone:
+                aliases: ['sms-phone']
                 type: str
                 description: Two-factor recipients mobile phone number.
             sms_server:
+                aliases: ['sms-server']
                 type: str
                 description: Send SMS through FortiGuard or other external server.
                 choices:
@@ -151,9 +162,11 @@ options:
                     - 'disable'
                     - 'enable'
             tacacs__server:
+                aliases: ['tacacs+-server']
                 type: str
                 description: Name of TACACS+ server with which the user must authenticate.
             two_factor:
+                aliases: ['two-factor']
                 type: str
                 description: Enable/disable two-factor authentication.
                 choices:
@@ -174,6 +187,7 @@ options:
                 type: str
                 description: Name of the remote user workstation, if you want to limit the user to authenticate only from a particular workstation.
             two_factor_authentication:
+                aliases: ['two-factor-authentication']
                 type: str
                 description: Authentication method by FortiToken Cloud.
                 choices:
@@ -181,24 +195,28 @@ options:
                     - 'email'
                     - 'sms'
             two_factor_notification:
+                aliases: ['two-factor-notification']
                 type: str
                 description: Notification method for user activation by FortiToken Cloud.
                 choices:
                     - 'email'
                     - 'sms'
             username_case_sensitivity:
+                aliases: ['username-case-sensitivity']
                 type: str
                 description: Enable/disable case sensitivity when performing username matching
                 choices:
                     - 'disable'
                     - 'enable'
             username_case_insensitivity:
+                aliases: ['username-case-insensitivity']
                 type: str
                 description: Enable/disable case sensitivity when performing username matching
                 choices:
                     - 'disable'
                     - 'enable'
             username_sensitivity:
+                aliases: ['username-sensitivity']
                 type: str
                 description: Enable/disable case and accent sensitivity when performing username matching
                 choices:
@@ -211,6 +229,7 @@ options:
                 type: raw
                 description: (list) History1.
             qkd_profile:
+                aliases: ['qkd-profile']
                 type: str
                 description: Quantum Key Distribution
 '''

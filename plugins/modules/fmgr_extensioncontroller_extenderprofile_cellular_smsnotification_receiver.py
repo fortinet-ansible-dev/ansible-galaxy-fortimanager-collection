@@ -112,6 +112,7 @@ options:
                 description: FortiExtender SMS notification receiver name.
                 required: true
             phone_number:
+                aliases: ['phone-number']
                 type: str
                 description: Receiver phone number.
             status:

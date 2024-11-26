@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             health_check:
+                aliases: ['health-check']
                 type: str
                 description: SD-WAN health-check name.
             ip:
@@ -110,6 +111,7 @@ options:
                     - 'secondary'
                     - 'standalone'
             sla_id:
+                aliases: ['sla-id']
                 type: int
                 description: SLA ID.
 '''

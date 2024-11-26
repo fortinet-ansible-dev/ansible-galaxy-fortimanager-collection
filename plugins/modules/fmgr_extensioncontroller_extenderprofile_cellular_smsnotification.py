@@ -91,24 +91,31 @@ options:
                 description: Alert.
                 suboptions:
                     data_exhausted:
+                        aliases: ['data-exhausted']
                         type: str
                         description: Display string when data exhausted.
                     fgt_backup_mode_switch:
+                        aliases: ['fgt-backup-mode-switch']
                         type: str
                         description: Display string when FortiGate backup mode switched.
                     low_signal_strength:
+                        aliases: ['low-signal-strength']
                         type: str
                         description: Display string when signal strength is low.
                     mode_switch:
+                        aliases: ['mode-switch']
                         type: str
                         description: Display string when mode is switched.
                     os_image_fallback:
+                        aliases: ['os-image-fallback']
                         type: str
                         description: Display string when falling back to a previous OS image.
                     session_disconnect:
+                        aliases: ['session-disconnect']
                         type: str
                         description: Display string when session disconnected.
                     system_reboot:
+                        aliases: ['system-reboot']
                         type: str
                         description: Display string when system rebooted.
             receiver:
@@ -132,6 +139,7 @@ options:
                         type: str
                         description: FortiExtender SMS notification receiver name.
                     phone_number:
+                        aliases: ['phone-number']
                         type: str
                         description: Receiver phone number.
                     status:

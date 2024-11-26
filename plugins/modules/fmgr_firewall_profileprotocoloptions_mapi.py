@@ -95,12 +95,14 @@ options:
                     - 'oversize'
                     - 'no-content-summary'
             oversize_limit:
+                aliases: ['oversize-limit']
                 type: int
                 description: Maximum in-memory file size that can be scanned
             ports:
                 type: raw
                 description: (list) Ports to scan for content
             scan_bzip2:
+                aliases: ['scan-bzip2']
                 type: str
                 description: Enable/disable scanning of BZip2 compressed files.
                 choices:
@@ -113,9 +115,11 @@ options:
                     - 'disable'
                     - 'enable'
             uncompressed_nest_limit:
+                aliases: ['uncompressed-nest-limit']
                 type: int
                 description: Maximum nested levels of compression that can be uncompressed and scanned
             uncompressed_oversize_limit:
+                aliases: ['uncompressed-oversize-limit']
                 type: int
                 description: Maximum in-memory uncompressed file size that can be scanned
 '''

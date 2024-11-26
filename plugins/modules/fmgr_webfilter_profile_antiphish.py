@@ -85,18 +85,21 @@ options:
         type: dict
         suboptions:
             check_basic_auth:
+                aliases: ['check-basic-auth']
                 type: str
                 description: Enable/disable checking of HTTP Basic Auth field for known credentials.
                 choices:
                     - 'disable'
                     - 'enable'
             check_uri:
+                aliases: ['check-uri']
                 type: str
                 description: Enable/disable checking of GET URI parameters for known credentials.
                 choices:
                     - 'disable'
                     - 'enable'
             custom_patterns:
+                aliases: ['custom-patterns']
                 type: list
                 elements: dict
                 description: Custom patterns.
@@ -117,6 +120,7 @@ options:
                             - 'regex'
                             - 'literal'
             default_action:
+                aliases: ['default-action']
                 type: str
                 description: Action to be taken when there is no matching rule.
                 choices:
@@ -124,9 +128,11 @@ options:
                     - 'block'
                     - 'exempt'
             domain_controller:
+                aliases: ['domain-controller']
                 type: str
                 description: Domain for which to verify received credentials against.
             inspection_entries:
+                aliases: ['inspection-entries']
                 type: list
                 elements: dict
                 description: Inspection entries.
@@ -139,12 +145,14 @@ options:
                             - 'block'
                             - 'exempt'
                     fortiguard_category:
+                        aliases: ['fortiguard-category']
                         type: raw
                         description: (list) FortiGuard category to match.
                     name:
                         type: str
                         description: Inspection target name.
             max_body_len:
+                aliases: ['max-body-len']
                 type: int
                 description: Maximum size of a POST body to check for credentials.
             status:
@@ -154,6 +162,7 @@ options:
                     - 'disable'
                     - 'enable'
             check_username_only:
+                aliases: ['check-username-only']
                 type: str
                 description: Enable/disable acting only on valid username credentials.
                 choices:

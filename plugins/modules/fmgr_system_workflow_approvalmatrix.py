@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             adom_name:
+                aliases: ['adom-name']
                 type: str
                 description: Adom Name
                 required: true
@@ -101,6 +102,7 @@ options:
                         type: int
                         description: Entry number.
             mail_server:
+                aliases: ['mail-server']
                 type: str
                 description: Notify mail server id.
             notify:

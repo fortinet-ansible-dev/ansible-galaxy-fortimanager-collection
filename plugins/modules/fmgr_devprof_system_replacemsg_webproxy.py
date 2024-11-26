@@ -105,6 +105,7 @@ options:
                     - '8bit'
                     - 'opt:none'
             msg_type:
+                aliases: ['msg-type']
                 type: str
                 description: Message type.
 '''

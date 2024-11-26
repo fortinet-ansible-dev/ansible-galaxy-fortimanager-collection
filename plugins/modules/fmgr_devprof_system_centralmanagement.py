@@ -85,17 +85,20 @@ options:
         type: dict
         suboptions:
             include_default_servers:
+                aliases: ['include-default-servers']
                 type: str
                 description: Enable/disable inclusion of public FortiGuard servers in the override server list.
                 choices:
                     - 'disable'
                     - 'enable'
             server_list:
+                aliases: ['server-list']
                 type: list
                 elements: dict
                 description: Server list.
                 suboptions:
                     addr_type:
+                        aliases: ['addr-type']
                         type: str
                         description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
                         choices:
@@ -109,12 +112,15 @@ options:
                         type: int
                         description: ID.
                     server_address:
+                        aliases: ['server-address']
                         type: str
                         description: IPv4 address of override server.
                     server_address6:
+                        aliases: ['server-address6']
                         type: str
                         description: IPv6 address of override server.
                     server_type:
+                        aliases: ['server-type']
                         type: list
                         elements: str
                         description: FortiGuard service type.
@@ -125,27 +131,32 @@ options:
                             - 'iot-collect'
                             - 'vpatch-query'
             ltefw_upgrade_time:
+                aliases: ['ltefw-upgrade-time']
                 type: str
                 description: Schedule next LTE firmware upgrade time
             vdom:
                 type: raw
                 description: (list) Virtual domain
             allow_remote_firmware_upgrade:
+                aliases: ['allow-remote-firmware-upgrade']
                 type: str
                 description: Enable/disable remotely upgrading the firmware on this FortiGate from the central management server.
                 choices:
                     - 'disable'
                     - 'enable'
             local_cert:
+                aliases: ['local-cert']
                 type: str
                 description: Certificate to be used by FGFM protocol.
             allow_push_firmware:
+                aliases: ['allow-push-firmware']
                 type: str
                 description: Enable/disable allowing the central management server to push firmware updates to this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
             ltefw_upgrade_frequency:
+                aliases: ['ltefw-upgrade-frequency']
                 type: str
                 description: Set LTE firmware auto pushdown frequency.
                 choices:
@@ -160,39 +171,47 @@ options:
                     - 'normal'
                     - 'backup'
             serial_number:
+                aliases: ['serial-number']
                 type: raw
                 description: (list) Serial number.
             fmg_source_ip6:
+                aliases: ['fmg-source-ip6']
                 type: str
                 description: IPv6 source address that this FortiGate uses when communicating with FortiManager.
             allow_monitor:
+                aliases: ['allow-monitor']
                 type: str
                 description: Enable/disable allowing the central management server to remotely monitor this FortiGate unit.
                 choices:
                     - 'disable'
                     - 'enable'
             allow_push_configuration:
+                aliases: ['allow-push-configuration']
                 type: str
                 description: Enable/disable allowing the central management server to push configuration changes to this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
             ca_cert:
+                aliases: ['ca-cert']
                 type: str
                 description: CA certificate to be used by FGFM protocol.
             fmg_update_port:
+                aliases: ['fmg-update-port']
                 type: str
                 description: Port used to communicate with FortiManager that is acting as a FortiGuard update server.
                 choices:
                     - '443'
                     - '8890'
             use_elbc_vdom:
+                aliases: ['use-elbc-vdom']
                 type: str
                 description: Enable/disable use of special ELBC config sync VDOM to connect to FortiManager.
                 choices:
                     - 'disable'
                     - 'enable'
             allow_remote_lte_firmware_upgrade:
+                aliases: ['allow-remote-lte-firmware-upgrade']
                 type: str
                 description: Enable/disable remotely upgrading the lte firmware on this FortiGate from the central management server.
                 choices:
@@ -202,18 +221,21 @@ options:
                 type: raw
                 description: (list) Specify outgoing interface to reach server.
             schedule_script_restore:
+                aliases: ['schedule-script-restore']
                 type: str
                 description: Enable/disable allowing the central management server to restore the scripts stored on this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
             schedule_config_restore:
+                aliases: ['schedule-config-restore']
                 type: str
                 description: Enable/disable allowing the central management server to restore the configuration of this FortiGate.
                 choices:
                     - 'disable'
                     - 'enable'
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -228,15 +250,18 @@ options:
                     - 'fortiguard'
                     - 'none'
             fmg_source_ip:
+                aliases: ['fmg-source-ip']
                 type: str
                 description: IPv4 source address that this FortiGate uses when communicating with FortiManager.
             fortigate_cloud_sso_default_profile:
+                aliases: ['fortigate-cloud-sso-default-profile']
                 type: raw
                 description: (list) Override access profile.
             fmg:
                 type: raw
                 description: (list) IP address or FQDN of the FortiManager.
             enc_algorithm:
+                aliases: ['enc-algorithm']
                 type: str
                 description: Encryption strength for communications between the FortiGate and central management.
                 choices:
@@ -244,12 +269,14 @@ options:
                     - 'high'
                     - 'low'
             allow_remote_modem_firmware_upgrade:
+                aliases: ['allow-remote-modem-firmware-upgrade']
                 type: str
                 description: Enable/disable remotely upgrading the internal cellular modem firmware on this FortiGate from the central management server.
                 choices:
                     - 'disable'
                     - 'enable'
             modem_upgrade_frequency:
+                aliases: ['modem-upgrade-frequency']
                 type: str
                 description: Set internal cellular modem firmware auto pushdown frequency.
                 choices:
@@ -258,6 +285,7 @@ options:
                     - 'everyDay'
                     - 'everyWeek'
             modem_upgrade_time:
+                aliases: ['modem-upgrade-time']
                 type: str
                 description: Schedule next internal cellular modem firmware upgrade time
 '''

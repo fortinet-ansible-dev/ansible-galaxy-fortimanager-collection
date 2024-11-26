@@ -100,12 +100,15 @@ options:
         type: dict
         suboptions:
             circuit_id:
+                aliases: ['circuit-id']
                 type: str
                 description: Circuit ID string.
             remote_id:
+                aliases: ['remote-id']
                 type: str
                 description: Remote ID string.
             vlan_name:
+                aliases: ['vlan-name']
                 type: str
                 description: DHCP snooping option 82 VLAN.
 '''

@@ -120,9 +120,11 @@ options:
                 type: int
                 description: Cpu.
             default_address_pool_base:
+                aliases: ['default-address-pool_base']
                 type: str
                 description: Set default-address-pool CIDR.
             default_address_pool_size:
+                aliases: ['default-address-pool_size']
                 type: int
                 description: Set default-address-pool size.
             fortiauthenticator:
@@ -147,6 +149,7 @@ options:
                 type: int
                 description: Max % RAM usage.
             docker_user_login_max:
+                aliases: ['docker-user-login-max']
                 type: int
                 description: Max login session for docker users.
             fortisoar:

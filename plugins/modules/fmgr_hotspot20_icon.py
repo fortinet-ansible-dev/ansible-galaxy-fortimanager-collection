@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             icon_list:
+                aliases: ['icon-list']
                 type: list
                 elements: dict
                 description: Icon list.

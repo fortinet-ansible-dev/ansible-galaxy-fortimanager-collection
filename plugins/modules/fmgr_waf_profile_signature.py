@@ -85,9 +85,11 @@ options:
         type: dict
         suboptions:
             credit_card_detection_threshold:
+                aliases: ['credit-card-detection-threshold']
                 type: int
                 description: The minimum number of Credit cards to detect violation.
             custom_signature:
+                aliases: ['custom-signature']
                 type: list
                 elements: dict
                 description: Custom signature.
@@ -100,6 +102,7 @@ options:
                             - 'block'
                             - 'erase'
                     case_sensitivity:
+                        aliases: ['case-sensitivity']
                         type: str
                         description: Case sensitivity in pattern.
                         choices:
@@ -155,12 +158,15 @@ options:
                             - 'resp-hdr'
                             - 'resp-status'
             disabled_signature:
+                aliases: ['disabled-signature']
                 type: raw
                 description: (list or str) Disabled signatures
             disabled_sub_class:
+                aliases: ['disabled-sub-class']
                 type: raw
                 description: (list or str) Disabled signature subclasses.
             main_class:
+                aliases: ['main-class']
                 type: dict
                 description: Main class.
                 suboptions:

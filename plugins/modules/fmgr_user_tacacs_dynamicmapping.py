@@ -107,6 +107,7 @@ options:
                         type: str
                         description: Vdom.
             authen_type:
+                aliases: ['authen-type']
                 type: str
                 description: Authen type.
                 choices:
@@ -128,27 +129,33 @@ options:
                 type: int
                 description: Port.
             secondary_key:
+                aliases: ['secondary-key']
                 type: raw
                 description: (list) Secondary key.
             secondary_server:
+                aliases: ['secondary-server']
                 type: str
                 description: Secondary server.
             server:
                 type: str
                 description: Server.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source ip.
             tertiary_key:
+                aliases: ['tertiary-key']
                 type: raw
                 description: (list) Tertiary key.
             tertiary_server:
+                aliases: ['tertiary-server']
                 type: str
                 description: Tertiary server.
             interface:
                 type: str
                 description: Interface.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Interface select method.
                 choices:
@@ -156,6 +163,7 @@ options:
                     - 'sdwan'
                     - 'specify'
             status_ttl:
+                aliases: ['status-ttl']
                 type: int
                 description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
 '''

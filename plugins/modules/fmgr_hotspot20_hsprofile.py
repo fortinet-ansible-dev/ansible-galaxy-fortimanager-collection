@@ -90,27 +90,32 @@ options:
         type: dict
         suboptions:
             3gpp_plmn:
+                aliases: ['3gpp-plmn']
                 type: str
                 description: 3GPP PLMN name.
             access_network_asra:
+                aliases: ['access-network-asra']
                 type: str
                 description: Enable/disable additional step required for access
                 choices:
                     - 'disable'
                     - 'enable'
             access_network_esr:
+                aliases: ['access-network-esr']
                 type: str
                 description: Enable/disable emergency services reachable
                 choices:
                     - 'disable'
                     - 'enable'
             access_network_internet:
+                aliases: ['access-network-internet']
                 type: str
                 description: Enable/disable connectivity to the Internet.
                 choices:
                     - 'disable'
                     - 'enable'
             access_network_type:
+                aliases: ['access-network-type']
                 type: str
                 description: Access network type.
                 choices:
@@ -123,24 +128,29 @@ options:
                     - 'test-or-experimental'
                     - 'wildcard'
             access_network_uesa:
+                aliases: ['access-network-uesa']
                 type: str
                 description: Enable/disable unauthenticated emergency service accessible
                 choices:
                     - 'disable'
                     - 'enable'
             anqp_domain_id:
+                aliases: ['anqp-domain-id']
                 type: int
                 description: ANQP Domain ID
             bss_transition:
+                aliases: ['bss-transition']
                 type: str
                 description: Enable/disable basic service set
                 choices:
                     - 'disable'
                     - 'enable'
             conn_cap:
+                aliases: ['conn-cap']
                 type: str
                 description: Connection capability name.
             deauth_request_timeout:
+                aliases: ['deauth-request-timeout']
                 type: int
                 description: Deauthentication request timeout
             dgaf:
@@ -150,18 +160,22 @@ options:
                     - 'disable'
                     - 'enable'
             domain_name:
+                aliases: ['domain-name']
                 type: str
                 description: Domain name.
             gas_comeback_delay:
+                aliases: ['gas-comeback-delay']
                 type: int
                 description: GAS comeback delay
             gas_fragmentation_limit:
+                aliases: ['gas-fragmentation-limit']
                 type: int
                 description: GAS fragmentation limit
             hessid:
                 type: str
                 description: Homogeneous extended service set identifier
             ip_addr_type:
+                aliases: ['ip-addr-type']
                 type: str
                 description: IP address type name.
             l2tif:
@@ -171,6 +185,7 @@ options:
                     - 'disable'
                     - 'enable'
             nai_realm:
+                aliases: ['nai-realm']
                 type: str
                 description: NAI realm list name.
             name:
@@ -178,36 +193,45 @@ options:
                 description: Hotspot profile name.
                 required: true
             network_auth:
+                aliases: ['network-auth']
                 type: str
                 description: Network authentication name.
             oper_friendly_name:
+                aliases: ['oper-friendly-name']
                 type: str
                 description: Operator friendly name.
             osu_provider:
+                aliases: ['osu-provider']
                 type: raw
                 description: (list or str) Manually selected list of OSU provider
             osu_ssid:
+                aliases: ['osu-ssid']
                 type: str
                 description: Online sign up
             pame_bi:
+                aliases: ['pame-bi']
                 type: str
                 description: Enable/disable Pre-Association Message Exchange BSSID Independent
                 choices:
                     - 'disable'
                     - 'enable'
             proxy_arp:
+                aliases: ['proxy-arp']
                 type: str
                 description: Enable/disable Proxy ARP.
                 choices:
                     - 'disable'
                     - 'enable'
             qos_map:
+                aliases: ['qos-map']
                 type: str
                 description: QoS MAP set ID.
             roaming_consortium:
+                aliases: ['roaming-consortium']
                 type: str
                 description: Roaming consortium list name.
             venue_group:
+                aliases: ['venue-group']
                 type: str
                 description: Venue group.
                 choices:
@@ -224,9 +248,11 @@ options:
                     - 'vehicular'
                     - 'outdoor'
             venue_name:
+                aliases: ['venue-name']
                 type: str
                 description: Venue name.
             venue_type:
+                aliases: ['venue-type']
                 type: str
                 description: Venue type.
                 choices:
@@ -286,45 +312,57 @@ options:
                     - 'bus-stop'
                     - 'kiosk'
             wan_metrics:
+                aliases: ['wan-metrics']
                 type: str
                 description: WAN metric name.
             wnm_sleep_mode:
+                aliases: ['wnm-sleep-mode']
                 type: str
                 description: Enable/disable wireless network management
                 choices:
                     - 'disable'
                     - 'enable'
             advice_of_charge:
+                aliases: ['advice-of-charge']
                 type: str
                 description: Advice of charge.
             oper_icon:
+                aliases: ['oper-icon']
                 type: str
                 description: Operator icon.
             osu_provider_nai:
+                aliases: ['osu-provider-nai']
                 type: str
                 description: OSU Provider NAI.
             release:
                 type: int
                 description: Hotspot 2.
             terms_and_conditions:
+                aliases: ['terms-and-conditions']
                 type: str
                 description: Terms and conditions.
             venue_url:
+                aliases: ['venue-url']
                 type: str
                 description: Venue name.
             wba_charging_currency:
+                aliases: ['wba-charging-currency']
                 type: str
                 description: Three letter currency code.
             wba_charging_rate:
+                aliases: ['wba-charging-rate']
                 type: int
                 description: Number of currency units per kilobyte.
             wba_data_clearing_provider:
+                aliases: ['wba-data-clearing-provider']
                 type: str
                 description: WBA ID of data clearing provider.
             wba_financial_clearing_provider:
+                aliases: ['wba-financial-clearing-provider']
                 type: str
                 description: WBA ID of financial clearing provider.
             wba_open_roaming:
+                aliases: ['wba-open-roaming']
                 type: str
                 description: Enable/disable WBA open roaming support.
                 choices:

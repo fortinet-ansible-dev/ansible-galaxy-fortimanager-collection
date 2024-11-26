@@ -101,6 +101,7 @@ options:
                         type: str
                         description: Name.
             default_domain:
+                aliases: ['default-domain']
                 type: str
                 description: Default domain managed by this Active Directory server.
             id:
@@ -108,15 +109,18 @@ options:
                 description: Active Directory server ID.
                 required: true
             ldap_server:
+                aliases: ['ldap-server']
                 type: str
                 description: LDAP server name used in LDAP connection strings.
             logon_history:
+                aliases: ['logon-history']
                 type: int
                 description: Number of hours of logon history to keep, 0 means keep all history.
             password:
                 type: raw
                 description: (list) Password required to log into this Active Directory server
             polling_frequency:
+                aliases: ['polling-frequency']
                 type: int
                 description: Polling frequency
             port:
@@ -135,6 +139,7 @@ options:
                 type: str
                 description: User name required to log into this Active Directory server.
             smb_ntlmv1_auth:
+                aliases: ['smb-ntlmv1-auth']
                 type: str
                 description: Enable/disable support of NTLMv1 for Samba authentication.
                 choices:

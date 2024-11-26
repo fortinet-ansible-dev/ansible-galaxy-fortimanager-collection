@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             _dynamic_member:
+                aliases: ['_dynamic-member']
                 type: str
                 description: Dynamic member.
             comment:
@@ -106,6 +107,7 @@ options:
                 type: str
                 description: IPv6 gateway.
             ingress_spillover_threshold:
+                aliases: ['ingress-spillover-threshold']
                 type: int
                 description: Ingress spillover threshold for this interface
             interface:
@@ -115,6 +117,7 @@ options:
                 type: int
                 description: Priority of the interface
             seq_num:
+                aliases: ['seq-num']
                 type: int
                 description: Sequence number
                 required: true
@@ -125,6 +128,7 @@ options:
                 type: str
                 description: Source IPv6 address used in the health-check packet to the server.
             spillover_threshold:
+                aliases: ['spillover-threshold']
                 type: int
                 description: Egress spillover threshold for this interface
             status:
@@ -134,6 +138,7 @@ options:
                     - 'disable'
                     - 'enable'
             volume_ratio:
+                aliases: ['volume-ratio']
                 type: int
                 description: Measured volume ratio
             weight:

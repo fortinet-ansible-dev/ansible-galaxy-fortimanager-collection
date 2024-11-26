@@ -109,6 +109,7 @@ options:
                     - 'disable'
                     - 'enable'
             wildcard_fqdn:
+                aliases: ['wildcard-fqdn']
                 type: str
                 description: Wildcard FQDN.
 '''

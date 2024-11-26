@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             header_client_ip:
+                aliases: ['header-client-ip']
                 type: str
                 description: Action to take on the HTTP client-IP header in forwarded requests
                 choices:
@@ -97,6 +98,7 @@ options:
                     - 'add'
                     - 'remove'
             header_front_end_https:
+                aliases: ['header-front-end-https']
                 type: str
                 description: Action to take on the HTTP front-end-HTTPS header in forwarded requests
                 choices:
@@ -104,6 +106,7 @@ options:
                     - 'add'
                     - 'remove'
             header_via_request:
+                aliases: ['header-via-request']
                 type: str
                 description: Action to take on the HTTP via header in forwarded requests
                 choices:
@@ -111,6 +114,7 @@ options:
                     - 'add'
                     - 'remove'
             header_via_response:
+                aliases: ['header-via-response']
                 type: str
                 description: Action to take on the HTTP via header in forwarded responses
                 choices:
@@ -118,6 +122,7 @@ options:
                     - 'add'
                     - 'remove'
             header_x_authenticated_groups:
+                aliases: ['header-x-authenticated-groups']
                 type: str
                 description: Action to take on the HTTP x-authenticated-groups header in forwarded requests
                 choices:
@@ -125,6 +130,7 @@ options:
                     - 'add'
                     - 'remove'
             header_x_authenticated_user:
+                aliases: ['header-x-authenticated-user']
                 type: str
                 description: Action to take on the HTTP x-authenticated-user header in forwarded requests
                 choices:
@@ -132,6 +138,7 @@ options:
                     - 'add'
                     - 'remove'
             header_x_forwarded_for:
+                aliases: ['header-x-forwarded-for']
                 type: str
                 description: Action to take on the HTTP x-forwarded-for header in forwarded requests
                 choices:
@@ -163,6 +170,7 @@ options:
                         type: str
                         description: HTTP forwarded header name.
                     add_option:
+                        aliases: ['add-option']
                         type: str
                         description: Configure options to append content to existing HTTP header or add new HTTP header.
                         choices:
@@ -170,6 +178,7 @@ options:
                             - 'new-on-not-found'
                             - 'new'
                     base64_encoding:
+                        aliases: ['base64-encoding']
                         type: str
                         description: Enable/disable use of base64 encoding of HTTP content.
                         choices:
@@ -189,6 +198,7 @@ options:
                             - 'https'
                             - 'http'
             log_header_change:
+                aliases: ['log-header-change']
                 type: str
                 description: Enable/disable logging HTTP header changes.
                 choices:
@@ -199,12 +209,14 @@ options:
                 description: Profile name.
                 required: true
             strip_encoding:
+                aliases: ['strip-encoding']
                 type: str
                 description: Enable/disable stripping unsupported encoding from the request header.
                 choices:
                     - 'disable'
                     - 'enable'
             header_x_forwarded_client_cert:
+                aliases: ['header-x-forwarded-client-cert']
                 type: str
                 description: Action to take on the HTTP x-forwarded-client-cert header in forwarded requests
                 choices:

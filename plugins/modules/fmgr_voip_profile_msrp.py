@@ -85,15 +85,18 @@ options:
         type: dict
         suboptions:
             log_violations:
+                aliases: ['log-violations']
                 type: str
                 description: Enable/disable logging of MSRP violations.
                 choices:
                     - 'disable'
                     - 'enable'
             max_msg_size:
+                aliases: ['max-msg-size']
                 type: int
                 description: Maximum allowable MSRP message size
             max_msg_size_action:
+                aliases: ['max-msg-size-action']
                 type: str
                 description: Action for violation of max-msg-size.
                 choices:

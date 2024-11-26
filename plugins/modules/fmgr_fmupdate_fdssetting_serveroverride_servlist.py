@@ -99,6 +99,7 @@ options:
                 type: int
                 description: Port number to use when contacting FortiGuard
             service_type:
+                aliases: ['service-type']
                 type: raw
                 description:
                     - (list or str)

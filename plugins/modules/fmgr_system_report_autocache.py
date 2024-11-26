@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             aggressive_schedule:
+                aliases: ['aggressive-schedule']
                 type: str
                 description:
                     - Enable/disable auto-cache on schedule reports aggressively.
@@ -102,6 +103,7 @@ options:
                     - 'disable'
                     - 'enable'
             sche_rpt_only:
+                aliases: ['sche-rpt-only']
                 type: str
                 description:
                     - Enable/disable auto-cache on scheduled reports only.

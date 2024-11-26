@@ -86,9 +86,11 @@ options:
         type: dict
         suboptions:
             client_adom:
+                aliases: ['client-adom']
                 type: str
                 description: Log-fetch client sides adom name.
             data_range:
+                aliases: ['data-range']
                 type: str
                 description:
                     - Data-range for fetched logs.
@@ -96,9 +98,11 @@ options:
                 choices:
                     - 'custom'
             data_range_value:
+                aliases: ['data-range-value']
                 type: int
                 description: Last n days or hours.
             device_filter:
+                aliases: ['device-filter']
                 type: list
                 elements: dict
                 description: Device filter.
@@ -116,6 +120,7 @@ options:
                         type: str
                         description: Vdom filters.
             end_time:
+                aliases: ['end-time']
                 type: raw
                 description: (list) End date and time of the data-range
             id:
@@ -123,6 +128,7 @@ options:
                 description: Log-fetch client profile ID.
                 required: true
             index_fetch_logs:
+                aliases: ['index-fetch-logs']
                 type: str
                 description:
                     - Enable/Disable indexing logs automatically after fetching logs.
@@ -132,6 +138,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_filter:
+                aliases: ['log-filter']
                 type: list
                 elements: dict
                 description: Log filter.
@@ -165,6 +172,7 @@ options:
                         type: str
                         description: Field filter operand or free-text matching expression.
             log_filter_logic:
+                aliases: ['log-filter-logic']
                 type: str
                 description:
                     - And/Or logic for log-filters.
@@ -174,6 +182,7 @@ options:
                     - 'and'
                     - 'or'
             log_filter_status:
+                aliases: ['log-filter-status']
                 type: str
                 description:
                     - Enable/Disable log-filter.
@@ -189,6 +198,7 @@ options:
                 type: raw
                 description: (list) Log-fetch server login password.
             secure_connection:
+                aliases: ['secure-connection']
                 type: str
                 description:
                     - Enable/Disable protecting log-fetch connection with TLS/SSL.
@@ -198,15 +208,19 @@ options:
                     - 'disable'
                     - 'enable'
             server_adom:
+                aliases: ['server-adom']
                 type: str
                 description: Log-fetch server sides adom name.
             server_ip:
+                aliases: ['server-ip']
                 type: str
                 description: Log-fetch server IP address.
             start_time:
+                aliases: ['start-time']
                 type: raw
                 description: (list) Start date and time of the data-range
             sync_adom_config:
+                aliases: ['sync-adom-config']
                 type: str
                 description:
                     - Enable/Disable sync adom related config.
@@ -219,6 +233,7 @@ options:
                 type: str
                 description: Log-fetch server login username.
             peer_cert_cn:
+                aliases: ['peer-cert-cn']
                 type: str
                 description: Certificate common name of log-fetch server.
 '''

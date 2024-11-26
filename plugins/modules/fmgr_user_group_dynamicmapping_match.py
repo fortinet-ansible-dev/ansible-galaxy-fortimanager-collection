@@ -101,6 +101,7 @@ options:
                 type: str
                 description: Gui meta.
             group_name:
+                aliases: ['group-name']
                 type: str
                 description: Name of matching user or group on remote authentication server.
             id:
@@ -108,6 +109,7 @@ options:
                 description: ID.
                 required: true
             server_name:
+                aliases: ['server-name']
                 type: str
                 description: Name of remote auth server.
 '''

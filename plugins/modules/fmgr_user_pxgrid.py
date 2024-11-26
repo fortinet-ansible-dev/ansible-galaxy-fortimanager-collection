@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             ca_cert:
+                aliases: ['ca-cert']
                 type: str
                 description: Ca cert.
             client_cert:
+                aliases: ['client-cert']
                 type: str
                 description: Client cert.
             name:

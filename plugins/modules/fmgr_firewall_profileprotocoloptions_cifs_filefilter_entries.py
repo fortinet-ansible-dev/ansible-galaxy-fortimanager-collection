@@ -112,6 +112,7 @@ options:
                     - 'incoming'
                     - 'outgoing'
             file_type:
+                aliases: ['file-type']
                 type: raw
                 description: (list) Select file type.
             filter:

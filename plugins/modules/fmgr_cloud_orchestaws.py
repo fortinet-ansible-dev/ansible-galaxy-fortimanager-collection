@@ -97,6 +97,7 @@ options:
                 description: Name.
                 required: true
             region_name:
+                aliases: ['region-name']
                 type: str
                 description: Region name.
                 choices:
@@ -130,6 +131,7 @@ options:
                     - 'us-gov-east-1'
                     - 'us-gov-west-1'
             template_configuration:
+                aliases: ['template-configuration']
                 type: str
                 description: Template configuration.
 '''

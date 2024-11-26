@@ -100,24 +100,29 @@ options:
                     - 'deny'
                     - 'accept'
             cgn_eif:
+                aliases: ['cgn-eif']
                 type: str
                 description: Enable/disable CGN endpoint independent filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_eim:
+                aliases: ['cgn-eim']
                 type: str
                 description: Enable/disable CGN endpoint independent mapping.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             cgn_resource_quota:
+                aliases: ['cgn-resource-quota']
                 type: int
                 description: Resource quota
             cgn_session_quota:
+                aliases: ['cgn-session-quota']
                 type: int
                 description: Session quota
             comments:
@@ -139,6 +144,7 @@ options:
                 type: str
                 description: Policy name.
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/disable hardware session setup for CGNAT.
                 choices:
@@ -167,15 +173,19 @@ options:
                     - 'disable'
                     - 'enable'
             tcp_timeout_pid:
+                aliases: ['tcp-timeout-pid']
                 type: str
                 description: TCP timeout profile ID
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             udp_timeout_pid:
+                aliases: ['udp-timeout-pid']
                 type: str
                 description: UDP timeout profile ID
             uuid:

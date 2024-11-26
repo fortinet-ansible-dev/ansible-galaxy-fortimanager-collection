@@ -98,15 +98,18 @@ options:
         type: dict
         suboptions:
             accept_mode:
+                aliases: ['accept-mode']
                 type: str
                 description: Enable/disable accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
             adv_interval:
+                aliases: ['adv-interval']
                 type: int
                 description: Advertisement interval
             ignore_default_route:
+                aliases: ['ignore-default-route']
                 type: str
                 description: Enable/disable ignoring of default route when checking destination.
                 choices:
@@ -122,6 +125,7 @@ options:
                 type: int
                 description: Priority of the virtual router
             proxy_arp:
+                aliases: ['proxy-arp']
                 type: list
                 elements: dict
                 description: Proxy arp.
@@ -133,6 +137,7 @@ options:
                         type: str
                         description: Set IP addresses of proxy ARP.
             start_time:
+                aliases: ['start-time']
                 type: int
                 description: Startup time
             status:
@@ -151,6 +156,7 @@ options:
                 type: raw
                 description: (list) Monitor the route to this destination.
             vrdst_priority:
+                aliases: ['vrdst-priority']
                 type: int
                 description: Priority of the virtual router when the virtual router destination becomes unreachable
             vrgrp:

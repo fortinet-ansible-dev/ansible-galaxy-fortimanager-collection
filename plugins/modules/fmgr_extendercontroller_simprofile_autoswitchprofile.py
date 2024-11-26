@@ -97,9 +97,11 @@ options:
                     - 'disable'
                     - 'enable'
             disconnect_period:
+                aliases: ['disconnect-period']
                 type: int
                 description: Disconnect period.
             disconnect_threshold:
+                aliases: ['disconnect-threshold']
                 type: int
                 description: Disconnect threshold.
             signal:
@@ -115,6 +117,7 @@ options:
                     - 'disable'
                     - 'enable'
             switch_back:
+                aliases: ['switch-back']
                 type: list
                 elements: str
                 description: Switch back.
@@ -122,9 +125,11 @@ options:
                     - 'time'
                     - 'timer'
             switch_back_time:
+                aliases: ['switch-back-time']
                 type: str
                 description: Switch back time.
             switch_back_timer:
+                aliases: ['switch-back-timer']
                 type: int
                 description: Switch back timer.
 '''

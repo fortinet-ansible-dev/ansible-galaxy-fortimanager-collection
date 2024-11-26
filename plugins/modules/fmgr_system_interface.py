@@ -121,9 +121,11 @@ options:
                 description: Ipv6.
                 suboptions:
                     ip6_address:
+                        aliases: ['ip6-address']
                         type: str
                         description: IPv6 address/prefix of interface.
                     ip6_allowaccess:
+                        aliases: ['ip6-allowaccess']
                         type: list
                         elements: str
                         description:
@@ -145,6 +147,7 @@ options:
                             - 'https-logging'
                             - 'fabric'
                     ip6_autoconf:
+                        aliases: ['ip6-autoconf']
                         type: str
                         description:
                             - Enable/disable address auto config
@@ -217,9 +220,11 @@ options:
                     - 'disable'
                     - 'enable'
             rating_service_ip:
+                aliases: ['rating-service-ip']
                 type: str
                 description: IP address for fgt rating service, must be same subnet with interface ip.
             update_service_ip:
+                aliases: ['update-service-ip']
                 type: str
                 description: IP address for fgt/fct update service, must be same subnet with interface ip.
             aggregate:
@@ -229,6 +234,7 @@ options:
                 type: str
                 description: Underlying interface name.
             lacp_mode:
+                aliases: ['lacp-mode']
                 type: str
                 description:
                     - LACP mode.
@@ -236,6 +242,7 @@ options:
                 choices:
                     - 'active'
             lacp_speed:
+                aliases: ['lacp-speed']
                 type: str
                 description:
                     - How often the interface sends LACP messages.
@@ -245,6 +252,7 @@ options:
                     - 'slow'
                     - 'fast'
             link_up_delay:
+                aliases: ['link-up-delay']
                 type: int
                 description: Number of milliseconds to wait before considering a link is up.
             member:
@@ -253,12 +261,15 @@ options:
                 description: Member.
                 suboptions:
                     interface_name:
+                        aliases: ['interface-name']
                         type: str
                         description: Physical interface name.
             min_links:
+                aliases: ['min-links']
                 type: int
                 description: Minimum number of aggregated ports that must be up.
             min_links_down:
+                aliases: ['min-links-down']
                 type: str
                 description:
                     - Action to take when less than the configured minimum number of links are active.
@@ -279,6 +290,7 @@ options:
                     - 'physical'
                     - 'aggregate'
             vlan_protocol:
+                aliases: ['vlan-protocol']
                 type: str
                 description:
                     - Ethernet protocol of VLAN.
@@ -309,9 +321,11 @@ options:
                     - 'disable'
                     - 'enable'
             dhcp_client_identifier:
+                aliases: ['dhcp-client-identifier']
                 type: str
                 description: DHCP client identifier.
             dns_server_override:
+                aliases: ['dns-server-override']
                 type: str
                 description:
                     - Enable/disable use DNS acquired by DHCP or PPPoE.
@@ -330,6 +344,7 @@ options:
                     - 'static'
                     - 'dhcp'
             mtu_override:
+                aliases: ['mtu-override']
                 type: str
                 description:
                     - Enable/disable use MTU acquired by DHCP or PPPoE.

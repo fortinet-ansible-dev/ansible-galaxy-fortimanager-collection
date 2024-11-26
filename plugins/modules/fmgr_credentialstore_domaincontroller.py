@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             domain_name:
+                aliases: ['domain-name']
                 type: str
                 description: Fully qualified domain name
             ip:
@@ -105,6 +106,7 @@ options:
                 type: int
                 description: Port number of service.
             server_name:
+                aliases: ['server-name']
                 type: str
                 description: Name of the server to connect to.
             username:

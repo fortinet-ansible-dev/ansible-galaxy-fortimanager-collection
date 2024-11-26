@@ -97,6 +97,7 @@ options:
                 description: IPv6 address template name.
                 required: true
             subnet_segment:
+                aliases: ['subnet-segment']
                 type: list
                 elements: dict
                 description: Subnet segment.
@@ -128,12 +129,15 @@ options:
                                 type: str
                                 description: Subnet segment value.
             subnet_segment_count:
+                aliases: ['subnet-segment-count']
                 type: int
                 description: Number of IPv6 subnet segments.
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:

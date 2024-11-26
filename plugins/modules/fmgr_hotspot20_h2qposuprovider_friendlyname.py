@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             friendly_name:
+                aliases: ['friendly-name']
                 type: str
                 description: OSU provider friendly name.
             index:

@@ -90,24 +90,31 @@ options:
         type: dict
         suboptions:
             custom_asset_container:
+                aliases: ['custom-asset-container']
                 type: str
                 description: Custom asset container.
             custom_asset_directory:
+                aliases: ['custom-asset-directory']
                 type: str
                 description: Custom asset directory.
             custom_identifier:
+                aliases: ['custom-identifier']
                 type: str
                 description: Custom identifier.
             faz_autoscale_admin_password:
+                aliases: ['faz-autoscale-admin-password']
                 type: raw
                 description: (list) Faz autoscale admin password.
             faz_autoscale_admin_username:
+                aliases: ['faz-autoscale-admin-username']
                 type: str
                 description: Faz autoscale admin username.
             faz_custom_private_ipaddress:
+                aliases: ['faz-custom-private-ipaddress']
                 type: str
                 description: Faz custom private ipaddress.
             faz_instance_type:
+                aliases: ['faz-instance-type']
                 type: str
                 description: Faz instance type.
                 choices:
@@ -123,21 +130,26 @@ options:
                     - 't2.large'
                     - 't2.xlarge'
             faz_integration_options:
+                aliases: ['faz-integration-options']
                 type: str
                 description: Faz integration options.
                 choices:
                     - 'no'
                     - 'yes'
             faz_version:
+                aliases: ['faz-version']
                 type: str
                 description: Faz version.
             fgt_admin_cidr:
+                aliases: ['fgt-admin-cidr']
                 type: str
                 description: Fgt admin cidr.
             fgt_admin_port:
+                aliases: ['fgt-admin-port']
                 type: int
                 description: Fgt admin port.
             fgt_instance_type:
+                aliases: ['fgt-instance-type']
                 type: str
                 description: Fgt instance type.
                 choices:
@@ -148,57 +160,75 @@ options:
                     - 'c5.4xlarge'
                     - 'c5.9xlarge'
             fgt_psk_secret:
+                aliases: ['fgt-psk-secret']
                 type: str
                 description: Fgt psk secret.
             fgtasg_cool_down:
+                aliases: ['fgtasg-cool-down']
                 type: int
                 description: Fgtasg cool down.
             fgtasg_desired_capacity_byol:
+                aliases: ['fgtasg-desired-capacity-byol']
                 type: int
                 description: Fgtasg desired capacity byol.
             fgtasg_desired_capacity_payg:
+                aliases: ['fgtasg-desired-capacity-payg']
                 type: int
                 description: Fgtasg desired capacity payg.
             fgtasg_health_check_grace_period:
+                aliases: ['fgtasg-health-check-grace-period']
                 type: int
                 description: Fgtasg health check grace period.
             fgtasg_max_size_byol:
+                aliases: ['fgtasg-max-size-byol']
                 type: int
                 description: Fgtasg max size byol.
             fgtasg_max_size_payg:
+                aliases: ['fgtasg-max-size-payg']
                 type: int
                 description: Fgtasg max size payg.
             fgtasg_min_size_byol:
+                aliases: ['fgtasg-min-size-byol']
                 type: int
                 description: Fgtasg min size byol.
             fgtasg_min_size_payg:
+                aliases: ['fgtasg-min-size-payg']
                 type: int
                 description: Fgtasg min size payg.
             fgtasg_scale_in_threshold:
+                aliases: ['fgtasg-scale-in-threshold']
                 type: int
                 description: Fgtasg scale in threshold.
             fgtasg_scale_out_threshold:
+                aliases: ['fgtasg-scale-out-threshold']
                 type: int
                 description: Fgtasg scale out threshold.
             fos_version:
+                aliases: ['fos-version']
                 type: str
                 description: Fos version.
             get_license_grace_period:
+                aliases: ['get-license-grace-period']
                 type: int
                 description: Get license grace period.
             heartbeat_delay_allowance:
+                aliases: ['heartbeat-delay-allowance']
                 type: int
                 description: Heartbeat delay allowance.
             heartbeat_interval:
+                aliases: ['heartbeat-interval']
                 type: int
                 description: Heartbeat interval.
             heartbeat_loss_count:
+                aliases: ['heartbeat-loss-count']
                 type: int
                 description: Heartbeat loss count.
             internal_balancer_dns_name:
+                aliases: ['internal-balancer-dns-name']
                 type: str
                 description: Internal balancer dns name.
             internal_balancing_options:
+                aliases: ['internal-balancing-options']
                 type: str
                 description: Internal balancing options.
                 choices:
@@ -206,21 +236,27 @@ options:
                     - 'use a load balancer specified below'
                     - 'do not need one'
             internal_target_group_health_check_path:
+                aliases: ['internal-target-group-health-check-path']
                 type: str
                 description: Internal target group health check path.
             key_pair_name:
+                aliases: ['key-pair-name']
                 type: str
                 description: Key pair name.
             lifecycle_hook_timeout:
+                aliases: ['lifecycle-hook-timeout']
                 type: int
                 description: Lifecycle hook timeout.
             loadbalancing_health_check_threshold:
+                aliases: ['loadbalancing-health-check-threshold']
                 type: int
                 description: Loadbalancing health check threshold.
             loadbalancing_traffic_port:
+                aliases: ['loadbalancing-traffic-port']
                 type: int
                 description: Loadbalancing traffic port.
             loadbalancing_traffic_protocol:
+                aliases: ['loadbalancing-traffic-protocol']
                 type: str
                 description: Loadbalancing traffic protocol.
                 choices:
@@ -232,57 +268,73 @@ options:
                 description: Name.
                 required: true
             notification_email:
+                aliases: ['notification-email']
                 type: str
                 description: Notification email.
             primary_election_timeout:
+                aliases: ['primary-election-timeout']
                 type: int
                 description: Primary election timeout.
             private_subnet_route_table:
+                aliases: ['private-subnet-route-table']
                 type: str
                 description: Private subnet route table.
             private_subnet1:
+                aliases: ['private-subnet1']
                 type: str
                 description: Private subnet1.
             private_subnet2:
+                aliases: ['private-subnet2']
                 type: str
                 description: Private subnet2.
             public_subnet1:
+                aliases: ['public-subnet1']
                 type: str
                 description: Public subnet1.
             public_subnet2:
+                aliases: ['public-subnet2']
                 type: str
                 description: Public subnet2.
             resource_tag_prefix:
+                aliases: ['resource-tag-prefix']
                 type: str
                 description: Resource tag prefix.
             s3_bucket_name:
+                aliases: ['s3-bucket-name']
                 type: str
                 description: S3 bucket name.
             s3_key_prefix:
+                aliases: ['s3-key-prefix']
                 type: str
                 description: S3 key prefix.
             sync_recovery_count:
+                aliases: ['sync-recovery-count']
                 type: int
                 description: Sync recovery count.
             terminate_unhealthy_vm:
+                aliases: ['terminate-unhealthy-vm']
                 type: str
                 description: Terminate unhealthy vm.
                 choices:
                     - 'no'
                     - 'yes'
             use_custom_asset_location:
+                aliases: ['use-custom-asset-location']
                 type: str
                 description: Use custom asset location.
                 choices:
                     - 'no'
                     - 'yes'
             vpc_cidr:
+                aliases: ['vpc-cidr']
                 type: str
                 description: Vpc cidr.
             vpc_endpoint_id:
+                aliases: ['vpc-endpoint-id']
                 type: str
                 description: Vpc endpoint id.
             vpc_id:
+                aliases: ['vpc-id']
                 type: str
                 description: Vpc id.
 '''

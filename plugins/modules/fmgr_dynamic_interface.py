@@ -93,21 +93,25 @@ options:
                 type: int
                 description: Color.
             default_mapping:
+                aliases: ['default-mapping']
                 type: str
                 description: Default mapping.
                 choices:
                     - 'disable'
                     - 'enable'
             defmap_intf:
+                aliases: ['defmap-intf']
                 type: str
                 description: Defmap intf.
             defmap_intrazone_deny:
+                aliases: ['defmap-intrazone-deny']
                 type: str
                 description: Defmap intrazone deny.
                 choices:
                     - 'disable'
                     - 'enable'
             defmap_zonemember:
+                aliases: ['defmap-zonemember']
                 type: raw
                 description: (list) Defmap zonemember.
             description:
@@ -130,21 +134,26 @@ options:
                                 type: str
                                 description: Vdom.
                     egress_shaping_profile:
+                        aliases: ['egress-shaping-profile']
                         type: raw
                         description: (list or str) Egress shaping profile.
                     intrazone_deny:
+                        aliases: ['intrazone-deny']
                         type: str
                         description: Intrazone deny.
                         choices:
                             - 'disable'
                             - 'enable'
                     local_intf:
+                        aliases: ['local-intf']
                         type: raw
                         description: (list) Local intf.
                     ingress_shaping_profile:
+                        aliases: ['ingress-shaping-profile']
                         type: raw
                         description: (list or str) Ingress shaping profile.
             egress_shaping_profile:
+                aliases: ['egress-shaping-profile']
                 type: raw
                 description: (list or str) Egress shaping profile.
             name:
@@ -152,12 +161,14 @@ options:
                 description: Name.
                 required: true
             single_intf:
+                aliases: ['single-intf']
                 type: str
                 description: Single intf.
                 choices:
                     - 'disable'
                     - 'enable'
             ingress_shaping_profile:
+                aliases: ['ingress-shaping-profile']
                 type: raw
                 description: (list or str) Ingress shaping profile.
             platform_mapping:
@@ -166,15 +177,19 @@ options:
                 description: Platform mapping.
                 suboptions:
                     egress_shaping_profile:
+                        aliases: ['egress-shaping-profile']
                         type: raw
                         description: (list or str) Egress shaping profile.
                     ingress_shaping_profile:
+                        aliases: ['ingress-shaping-profile']
                         type: raw
                         description: (list or str) Ingress shaping profile.
                     intf_zone:
+                        aliases: ['intf-zone']
                         type: str
                         description: Intf zone.
                     intrazone_deny:
+                        aliases: ['intrazone-deny']
                         type: str
                         description: Intrazone deny.
                         choices:
@@ -190,9 +205,11 @@ options:
                     - 'disable'
                     - 'enable'
             wildcard_intf:
+                aliases: ['wildcard-intf']
                 type: str
                 description: Wildcard intf.
             zone_only:
+                aliases: ['zone-only']
                 type: str
                 description: Zone only.
                 choices:

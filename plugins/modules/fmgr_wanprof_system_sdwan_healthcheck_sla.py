@@ -104,12 +104,15 @@ options:
                 description: SLA ID.
                 required: true
             jitter_threshold:
+                aliases: ['jitter-threshold']
                 type: int
                 description: Jitter for SLA to make decision in milliseconds.
             latency_threshold:
+                aliases: ['latency-threshold']
                 type: int
                 description: Latency for SLA to make decision in milliseconds.
             link_cost_factor:
+                aliases: ['link-cost-factor']
                 type: list
                 elements: str
                 description: Criteria on which to base link selection.
@@ -120,15 +123,19 @@ options:
                     - 'mos'
                     - 'remote'
             packetloss_threshold:
+                aliases: ['packetloss-threshold']
                 type: int
                 description: Packet loss for SLA to make decision in percentage.
             mos_threshold:
+                aliases: ['mos-threshold']
                 type: str
                 description: Minimum Mean Opinion Score for SLA to be marked as pass.
             priority_in_sla:
+                aliases: ['priority-in-sla']
                 type: int
                 description: Value to be distributed into routing table when in-sla
             priority_out_sla:
+                aliases: ['priority-out-sla']
                 type: int
                 description: Value to be distributed into routing table when out-sla
 '''

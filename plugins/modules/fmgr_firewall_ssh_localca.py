@@ -97,9 +97,11 @@ options:
                 type: raw
                 description: (list) Password for SSH private key.
             private_key:
+                aliases: ['private-key']
                 type: str
                 description: SSH proxy private key, encrypted with a password.
             public_key:
+                aliases: ['public-key']
                 type: str
                 description: SSH proxy public key.
             source:

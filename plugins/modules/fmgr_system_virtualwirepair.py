@@ -98,27 +98,32 @@ options:
                 description: Virtual-wire-pair name.
                 required: true
             vlan_filter:
+                aliases: ['vlan-filter']
                 type: str
                 description: Set VLAN filters.
             wildcard_vlan:
+                aliases: ['wildcard-vlan']
                 type: str
                 description: Enable/disable wildcard VLAN.
                 choices:
                     - 'disable'
                     - 'enable'
             poweron_bypass:
+                aliases: ['poweron-bypass']
                 type: str
                 description: Set interface bypass state in power on
                 choices:
                     - 'disable'
                     - 'enable'
             poweroff_bypass:
+                aliases: ['poweroff-bypass']
                 type: str
                 description: Set interface bypass state in power off
                 choices:
                     - 'disable'
                     - 'enable'
             outer_vlan_id:
+                aliases: ['outer-vlan-id']
                 type: raw
                 description: (list) Outer VLAN ID.
 '''

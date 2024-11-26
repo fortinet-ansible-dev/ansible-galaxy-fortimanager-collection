@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             log_all:
+                aliases: ['log-all']
                 type: str
                 description: Enable/disable logging of all email traffic.
                 choices:

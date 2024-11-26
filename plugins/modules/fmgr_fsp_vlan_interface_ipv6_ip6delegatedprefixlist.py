@@ -94,24 +94,28 @@ options:
         type: dict
         suboptions:
             autonomous_flag:
+                aliases: ['autonomous-flag']
                 type: str
                 description: Autonomous flag.
                 choices:
                     - 'disable'
                     - 'enable'
             onlink_flag:
+                aliases: ['onlink-flag']
                 type: str
                 description: Onlink flag.
                 choices:
                     - 'disable'
                     - 'enable'
             prefix_id:
+                aliases: ['prefix-id']
                 type: int
                 description: Prefix id.
             rdnss:
                 type: raw
                 description: (list) Rdnss.
             rdnss_service:
+                aliases: ['rdnss-service']
                 type: str
                 description: Rdnss service.
                 choices:
@@ -122,9 +126,11 @@ options:
                 type: str
                 description: Subnet.
             upstream_interface:
+                aliases: ['upstream-interface']
                 type: str
                 description: Upstream interface.
             delegated_prefix_iaid:
+                aliases: ['delegated-prefix-iaid']
                 type: int
                 description: IAID of obtained delegated-prefix from the upstream interface.
 '''

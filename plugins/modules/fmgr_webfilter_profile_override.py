@@ -85,21 +85,25 @@ options:
         type: dict
         suboptions:
             ovrd_cookie:
+                aliases: ['ovrd-cookie']
                 type: str
                 description: Allow/deny browser-based
                 choices:
                     - 'deny'
                     - 'allow'
             ovrd_dur:
+                aliases: ['ovrd-dur']
                 type: str
                 description: Override duration.
             ovrd_dur_mode:
+                aliases: ['ovrd-dur-mode']
                 type: str
                 description: Override duration mode.
                 choices:
                     - 'constant'
                     - 'ask'
             ovrd_scope:
+                aliases: ['ovrd-scope']
                 type: str
                 description: Override scope.
                 choices:
@@ -109,12 +113,14 @@ options:
                     - 'ask'
                     - 'browser'
             ovrd_user_group:
+                aliases: ['ovrd-user-group']
                 type: raw
                 description: (list or str) User groups with permission to use the override.
             profile:
                 type: raw
                 description: (list or str) Web filter profile with permission to create overrides.
             profile_attribute:
+                aliases: ['profile-attribute']
                 type: str
                 description: Profile attribute to retrieve from the RADIUS server.
                 choices:
@@ -172,6 +178,7 @@ options:
                     - 'Port-Limit'
                     - 'Login-LAT-Port'
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Override profile type.
                 choices:

@@ -96,6 +96,7 @@ options:
                     - 'check-up-to-date'
                     - 'deny'
             latest_patch_level:
+                aliases: ['latest-patch-level']
                 type: str
                 description: Latest patch level.
             name:

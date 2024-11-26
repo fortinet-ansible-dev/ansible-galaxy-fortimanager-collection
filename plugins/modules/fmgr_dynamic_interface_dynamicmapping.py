@@ -105,18 +105,22 @@ options:
                         type: str
                         description: Vdom.
             egress_shaping_profile:
+                aliases: ['egress-shaping-profile']
                 type: raw
                 description: (list or str) Egress shaping profile.
             intrazone_deny:
+                aliases: ['intrazone-deny']
                 type: str
                 description: Intrazone deny.
                 choices:
                     - 'disable'
                     - 'enable'
             local_intf:
+                aliases: ['local-intf']
                 type: raw
                 description: (list) Local intf.
             ingress_shaping_profile:
+                aliases: ['ingress-shaping-profile']
                 type: raw
                 description: (list or str) Ingress shaping profile.
 '''

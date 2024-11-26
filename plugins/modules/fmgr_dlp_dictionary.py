@@ -104,6 +104,7 @@ options:
                         type: int
                         description: ID.
                     ignore_case:
+                        aliases: ['ignore-case']
                         type: str
                         description: Enable/disable ignore case.
                         choices:
@@ -128,6 +129,7 @@ options:
                         type: str
                         description: Pattern type to match.
             match_type:
+                aliases: ['match-type']
                 type: str
                 description: Logical relation between entries
                 choices:
@@ -141,12 +143,14 @@ options:
                 type: str
                 description: Universally Unique Identifier
             match_around:
+                aliases: ['match-around']
                 type: str
                 description: Enable/disable match-around support.
                 choices:
                     - 'disable'
                     - 'enable'
             fgd_id:
+                aliases: ['fgd-id']
                 type: int
                 description: ID of object in FortiGuard database.
 '''

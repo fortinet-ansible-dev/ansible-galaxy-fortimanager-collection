@@ -81,6 +81,7 @@ options:
         type: dict
         suboptions:
             ethernet_type:
+                aliases: ['ethernet-type']
                 type: list
                 elements: dict
                 description: Ethernet type.
@@ -98,6 +99,7 @@ options:
                         type: int
                         description: Class Weight.
             ip_protocol:
+                aliases: ['ip-protocol']
                 type: list
                 elements: dict
                 description: Ip protocol.
@@ -115,6 +117,7 @@ options:
                         type: int
                         description: Class Weight.
             ip_service:
+                aliases: ['ip-service']
                 type: list
                 elements: dict
                 description: Ip service.

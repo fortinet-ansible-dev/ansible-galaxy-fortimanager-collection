@@ -84,6 +84,7 @@ options:
                     - 'nonblocking'
                     - 'log_dev'
             update_dev_member_list:
+                aliases: ['update-dev-member-list']
                 type: list
                 elements: dict
                 description: Update dev member list.

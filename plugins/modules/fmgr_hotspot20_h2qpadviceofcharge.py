@@ -90,20 +90,24 @@ options:
         type: dict
         suboptions:
             aoc_list:
+                aliases: ['aoc-list']
                 type: list
                 elements: dict
                 description: Aoc list.
                 suboptions:
                     nai_realm:
+                        aliases: ['nai-realm']
                         type: str
                         description: NAI realm list name.
                     nai_realm_encoding:
+                        aliases: ['nai-realm-encoding']
                         type: str
                         description: NAI realm encoding.
                     name:
                         type: str
                         description: Advice of charge ID.
                     plan_info:
+                        aliases: ['plan-info']
                         type: list
                         elements: dict
                         description: Plan info.
@@ -112,6 +116,7 @@ options:
                                 type: str
                                 description: Currency code.
                             info_file:
+                                aliases: ['info-file']
                                 type: str
                                 description: Info file.
                             lang:

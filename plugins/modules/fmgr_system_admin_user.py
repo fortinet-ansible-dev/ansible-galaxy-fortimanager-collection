@@ -91,22 +91,27 @@ options:
                 description: Adom.
                 suboptions:
                     adom_name:
+                        aliases: ['adom-name']
                         type: str
                         description: Admin domain names.
             adom_exclude:
+                aliases: ['adom-exclude']
                 type: list
                 elements: dict
                 description: Adom exclude.
                 suboptions:
                     adom_name:
+                        aliases: ['adom-name']
                         type: str
                         description: Admin domain names.
             app_filter:
+                aliases: ['app-filter']
                 type: list
                 elements: dict
                 description: App filter.
                 suboptions:
                     app_filter_name:
+                        aliases: ['app-filter-name']
                         type: str
                         description: App filter name.
             avatar:
@@ -116,6 +121,7 @@ options:
                 type: str
                 description: PKI user certificate CA
             change_password:
+                aliases: ['change-password']
                 type: str
                 description:
                     - Enable/disable restricted user to change self password.
@@ -133,6 +139,7 @@ options:
                         type: int
                         description: Widgets column ID.
                     diskio_content_type:
+                        aliases: ['diskio-content-type']
                         type: str
                         description:
                             - Disk I/O Monitor widgets chart type.
@@ -144,6 +151,7 @@ options:
                             - 'iops'
                             - 'blks'
                     diskio_period:
+                        aliases: ['diskio-period']
                         type: str
                         description:
                             - Disk I/O Monitor widgets data period.
@@ -155,6 +163,7 @@ options:
                             - '8hour'
                             - '24hour'
                     log_rate_period:
+                        aliases: ['log-rate-period']
                         type: str
                         description:
                             - Log receive monitor widgets data period.
@@ -166,6 +175,7 @@ options:
                             - '1hour'
                             - '6hours'
                     log_rate_topn:
+                        aliases: ['log-rate-topn']
                         type: str
                         description:
                             - Log receive monitor widgets number of top items to display.
@@ -181,6 +191,7 @@ options:
                             - '4'
                             - '5'
                     log_rate_type:
+                        aliases: ['log-rate-type']
                         type: str
                         description:
                             - Log receive monitor widgets statistics breakdown options.
@@ -196,12 +207,15 @@ options:
                         type: str
                         description: Widget name.
                     num_entries:
+                        aliases: ['num-entries']
                         type: int
                         description: Number of entries.
                     refresh_interval:
+                        aliases: ['refresh-interval']
                         type: int
                         description: Widgets refresh interval.
                     res_cpu_display:
+                        aliases: ['res-cpu-display']
                         type: str
                         description:
                             - Widgets CPU display type.
@@ -211,6 +225,7 @@ options:
                             - 'average'
                             - 'each'
                     res_period:
+                        aliases: ['res-period']
                         type: str
                         description:
                             - Widgets data period.
@@ -222,6 +237,7 @@ options:
                             - 'hour'
                             - 'day'
                     res_view_type:
+                        aliases: ['res-view-type']
                         type: str
                         description:
                             - Widgets data view type.
@@ -243,6 +259,7 @@ options:
                         type: int
                         description: ID of tab where widget is displayed.
                     time_period:
+                        aliases: ['time-period']
                         type: str
                         description:
                             - Log Database Monitor widgets data period.
@@ -254,6 +271,7 @@ options:
                             - '8hour'
                             - '24hour'
                     widget_type:
+                        aliases: ['widget-type']
                         type: str
                         description:
                             - Widget type.
@@ -291,6 +309,7 @@ options:
                             - 'disk-io'
                             - 'log-rcvd-fwd'
             dashboard_tabs:
+                aliases: ['dashboard-tabs']
                 type: list
                 elements: dict
                 description: Dashboard tabs.
@@ -305,12 +324,15 @@ options:
                 type: str
                 description: Description.
             dev_group:
+                aliases: ['dev-group']
                 type: str
                 description: Device group.
             email_address:
+                aliases: ['email-address']
                 type: str
                 description: Email address.
             ext_auth_accprofile_override:
+                aliases: ['ext-auth-accprofile-override']
                 type: str
                 description:
                     - Allow to use the access profile provided by the remote authentication server.
@@ -320,6 +342,7 @@ options:
                     - 'disable'
                     - 'enable'
             ext_auth_adom_override:
+                aliases: ['ext-auth-adom-override']
                 type: str
                 description:
                     - Allow to use the ADOM provided by the remote authentication server.
@@ -329,12 +352,15 @@ options:
                     - 'disable'
                     - 'enable'
             ext_auth_group_match:
+                aliases: ['ext-auth-group-match']
                 type: str
                 description: Only administrators belonging to this group can login.
             first_name:
+                aliases: ['first-name']
                 type: str
                 description: First name.
             force_password_change:
+                aliases: ['force-password-change']
                 type: str
                 description:
                     - Enable/disable force password change on next login.
@@ -350,11 +376,13 @@ options:
                 type: int
                 description: Hidden administrator.
             ips_filter:
+                aliases: ['ips-filter']
                 type: list
                 elements: dict
                 description: Ips filter.
                 suboptions:
                     ips_filter_name:
+                        aliases: ['ips-filter-name']
                         type: str
                         description: IPS filter name.
             ipv6_trusthost1:
@@ -388,12 +416,15 @@ options:
                 type: str
                 description: Admin user trusted host IPv6, default ffff
             last_name:
+                aliases: ['last-name']
                 type: str
                 description: Last name.
             ldap_server:
+                aliases: ['ldap-server']
                 type: str
                 description: LDAP server name.
             meta_data:
+                aliases: ['meta-data']
                 type: list
                 elements: dict
                 description: Meta data.
@@ -426,26 +457,32 @@ options:
                             - 'disabled'
                             - 'enabled'
             mobile_number:
+                aliases: ['mobile-number']
                 type: str
                 description: Mobile number.
             pager_number:
+                aliases: ['pager-number']
                 type: str
                 description: Pager number.
             password:
                 type: raw
                 description: (list) Password.
             password_expire:
+                aliases: ['password-expire']
                 type: raw
                 description: (list or str) Password expire time in GMT.
             phone_number:
+                aliases: ['phone-number']
                 type: str
                 description: Phone number.
             policy_package:
+                aliases: ['policy-package']
                 type: list
                 elements: dict
                 description: Policy package.
                 suboptions:
                     policy_package_name:
+                        aliases: ['policy-package-name']
                         type: str
                         description: Policy package names.
             profileid:
@@ -455,6 +492,7 @@ options:
                 type: str
                 description: RADIUS server name.
             restrict_access:
+                aliases: ['restrict-access']
                 type: str
                 description:
                     - Enable/disable restricted access to development VDOM.
@@ -464,14 +502,17 @@ options:
                     - 'disable'
                     - 'enable'
             restrict_dev_vdom:
+                aliases: ['restrict-dev-vdom']
                 type: list
                 elements: dict
                 description: Restrict dev vdom.
                 suboptions:
                     dev_vdom:
+                        aliases: ['dev-vdom']
                         type: str
                         description: Device or device VDOM.
             rpc_permit:
+                aliases: ['rpc-permit']
                 type: str
                 description:
                     - set none/read/read-write rpc-permission.
@@ -484,18 +525,22 @@ options:
                     - 'read'
                     - 'from-profile'
             ssh_public_key1:
+                aliases: ['ssh-public-key1']
                 type: raw
                 description: (list) SSH public key 1.
             ssh_public_key2:
+                aliases: ['ssh-public-key2']
                 type: raw
                 description: (list) SSH public key 2.
             ssh_public_key3:
+                aliases: ['ssh-public-key3']
                 type: raw
                 description: (list) SSH public key 3.
             subject:
                 type: str
                 description: PKI user certificate name constraints.
             tacacs_plus_server:
+                aliases: ['tacacs-plus-server']
                 type: str
                 description: TACACS+ server name.
             trusthost1:
@@ -529,6 +574,7 @@ options:
                 type: str
                 description: Admin user trusted host IP, default 255.
             two_factor_auth:
+                aliases: ['two-factor-auth']
                 type: str
                 description:
                     - Enable 2-factor authentication
@@ -565,11 +611,13 @@ options:
                 description: User name.
                 required: true
             web_filter:
+                aliases: ['web-filter']
                 type: list
                 elements: dict
                 description: Web filter.
                 suboptions:
                     web_filter_name:
+                        aliases: ['web-filter-name']
                         type: str
                         description: Web filter name.
             wildcard:
@@ -582,9 +630,11 @@ options:
                     - 'disable'
                     - 'enable'
             login_max:
+                aliases: ['login-max']
                 type: int
                 description: Max login session for this user.
             use_global_theme:
+                aliases: ['use-global-theme']
                 type: str
                 description:
                     - Enable/disble global theme for administration GUI.
@@ -594,6 +644,7 @@ options:
                     - 'disable'
                     - 'enable'
             user_theme:
+                aliases: ['user-theme']
                 type: str
                 description:
                     - Color scheme to use for the admin user GUI.
@@ -660,6 +711,7 @@ options:
                     - 'cat'
                     - 'graphite'
             adom_access:
+                aliases: ['adom-access']
                 type: str
                 description:
                     - set all/specify/exclude adom access mode.
@@ -675,12 +727,15 @@ options:
                 type: str
                 description: PKI user certificate fingerprint
             th_from_profile:
+                aliases: ['th-from-profile']
                 type: int
                 description: Internal use only
             th6_from_profile:
+                aliases: ['th6-from-profile']
                 type: int
                 description: Internal use only
             cors_allow_origin:
+                aliases: ['cors-allow-origin']
                 type: str
                 description: Access-Control-Allow-Origin.
             fortiai:
@@ -693,11 +748,13 @@ options:
                     - 'disable'
                     - 'enable'
             policy_block:
+                aliases: ['policy-block']
                 type: list
                 elements: dict
                 description: Policy block.
                 suboptions:
                     policy_block_name:
+                        aliases: ['policy-block-name']
                         type: str
                         description: Policy block names.
 '''

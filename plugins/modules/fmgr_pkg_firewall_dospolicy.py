@@ -123,9 +123,11 @@ options:
                             - 'both'
                             - 'interface'
                     quarantine_expiry:
+                        aliases: ['quarantine-expiry']
                         type: str
                         description: Duration of quarantine, from 1 minute to 364 days, 23 hours, and 59 minutes from now.
                     quarantine_log:
+                        aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable quarantine logging.
                         choices:
@@ -141,6 +143,7 @@ options:
                         type: int
                         description: Number of detected instances per minute which triggers action
                     threshold_default:
+                        aliases: ['threshold(default)']
                         type: int
                         description: Threshold
                     synproxy_tos:

@@ -85,12 +85,14 @@ options:
         type: dict
         suboptions:
             byte_caching:
+                aliases: ['byte-caching']
                 type: str
                 description: Enable/disable byte-caching for HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             log_traffic:
+                aliases: ['log-traffic']
                 type: str
                 description: Enable/disable logging.
                 choices:
@@ -100,12 +102,14 @@ options:
                 type: raw
                 description: (list) Single port number or port number range for FTP.
             prefer_chunking:
+                aliases: ['prefer-chunking']
                 type: str
                 description: Select dynamic or fixed-size data chunking for HTTP WAN Optimization.
                 choices:
                     - 'dynamic'
                     - 'fix'
             secure_tunnel:
+                aliases: ['secure-tunnel']
                 type: str
                 description: Enable/disable securing the WAN Opt tunnel using SSL.
                 choices:
@@ -118,6 +122,7 @@ options:
                     - 'disable'
                     - 'enable'
             tunnel_sharing:
+                aliases: ['tunnel-sharing']
                 type: str
                 description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                 choices:
@@ -125,6 +130,7 @@ options:
                     - 'shared'
                     - 'express-shared'
             protocol_opt:
+                aliases: ['protocol-opt']
                 type: str
                 description: Select Protocol specific optimitation or generic TCP optimization.
                 choices:

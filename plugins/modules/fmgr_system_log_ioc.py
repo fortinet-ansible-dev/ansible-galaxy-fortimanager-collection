@@ -86,15 +86,19 @@ options:
                     - 'disable'
                     - 'enable'
             notification_throttle:
+                aliases: ['notification-throttle']
                 type: int
                 description: Minute value for throttling the rate of IoC notifications.
             rescan_max_runner:
+                aliases: ['rescan-max-runner']
                 type: int
                 description: Max count of cocurrent runner of IoC rescan.
             rescan_run_at:
+                aliases: ['rescan-run-at']
                 type: int
                 description: When to run IoC rescan.
             rescan_status:
+                aliases: ['rescan-status']
                 type: str
                 description:
                     - Disable/Enable IoC rescan.

@@ -86,21 +86,27 @@ options:
         type: dict
         suboptions:
             dev_id:
+                aliases: ['dev-id']
                 type: str
                 description: IDP Device ID.
             idp_cert:
+                aliases: ['idp-cert']
                 type: str
                 description: IDP Certificate name.
             idp_entity_id:
+                aliases: ['idp-entity-id']
                 type: str
                 description: IDP entity ID.
             idp_single_logout_url:
+                aliases: ['idp-single-logout-url']
                 type: str
                 description: IDP single logout url.
             idp_single_sign_on_url:
+                aliases: ['idp-single-sign-on-url']
                 type: str
                 description: IDP single sign-on URL.
             idp_status:
+                aliases: ['idp-status']
                 type: str
                 description:
                     - Enable/disable SAML authentication

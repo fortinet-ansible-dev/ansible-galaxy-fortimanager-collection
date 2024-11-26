@@ -103,36 +103,44 @@ options:
                     - 'deny'
                     - 'accept'
             app_category:
+                aliases: ['app-category']
                 type: raw
                 description: (list) Application category ID list.
             app_group:
+                aliases: ['app-group']
                 type: raw
                 description: (list) Application group names.
             application:
                 type: raw
                 description: (list) Application ID list.
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Name of an existing Application list.
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Name of an existing Antivirus profile.
             cifs_profile:
+                aliases: ['cifs-profile']
                 type: str
                 description: Name of an existing CIFS profile.
             comments:
                 type: str
                 description: Comment.
             dlp_profile:
+                aliases: ['dlp-profile']
                 type: str
                 description: Name of an existing DLP profile.
             dnsfilter_profile:
+                aliases: ['dnsfilter-profile']
                 type: str
                 description: Name of an existing DNS filter profile.
             dstaddr:
                 type: raw
                 description: (list) Destination IPv4 address name and address group names.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr/dstaddr6 specifies what the destination address must NOT be.
                 choices:
@@ -145,81 +153,101 @@ options:
                 type: raw
                 description: (list) Outgoing
             emailfilter_profile:
+                aliases: ['emailfilter-profile']
                 type: str
                 description: Name of an existing email filter profile.
             enforce_default_app_port:
+                aliases: ['enforce-default-app-port']
                 type: str
                 description: Enable/disable default application port enforcement for allowed applications.
                 choices:
                     - 'disable'
                     - 'enable'
             file_filter_profile:
+                aliases: ['file-filter-profile']
                 type: str
                 description: Name of an existing file-filter profile.
             fsso_groups:
+                aliases: ['fsso-groups']
                 type: raw
                 description: (list) Names of FSSO groups.
             global_label:
+                aliases: ['global-label']
                 type: str
                 description: Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
                 description: (list) Names of user groups that can authenticate with this policy.
             icap_profile:
+                aliases: ['icap-profile']
                 type: str
                 description: Name of an existing ICAP profile.
             internet_service:
+                aliases: ['internet-service']
                 type: str
                 description: Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_custom:
+                aliases: ['internet-service-custom']
                 type: raw
                 description: (list) Custom Internet Service name.
             internet_service_custom_group:
+                aliases: ['internet-service-custom-group']
                 type: raw
                 description: (list) Custom Internet Service group name.
             internet_service_group:
+                aliases: ['internet-service-group']
                 type: raw
                 description: (list) Internet Service group name.
             internet_service_name:
+                aliases: ['internet-service-name']
                 type: raw
                 description: (list) Internet Service name.
             internet_service_negate:
+                aliases: ['internet-service-negate']
                 type: str
                 description: When enabled internet-service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src:
+                aliases: ['internet-service-src']
                 type: str
                 description: Enable/disable use of Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_src_custom:
+                aliases: ['internet-service-src-custom']
                 type: raw
                 description: (list) Custom Internet Service source name.
             internet_service_src_custom_group:
+                aliases: ['internet-service-src-custom-group']
                 type: raw
                 description: (list) Custom Internet Service source group name.
             internet_service_src_group:
+                aliases: ['internet-service-src-group']
                 type: raw
                 description: (list) Internet Service source group name.
             internet_service_src_name:
+                aliases: ['internet-service-src-name']
                 type: raw
                 description: (list) Internet Service source name.
             internet_service_src_negate:
+                aliases: ['internet-service-src-negate']
                 type: str
                 description: When enabled internet-service-src specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: Name of an existing IPS sensor.
             learning_mode:
+                aliases: ['learning-mode']
                 type: str
                 description: Enable to allow everything, but log all of the meaningful data for security information gathering.
                 choices:
@@ -252,12 +280,15 @@ options:
                 description: Policy ID.
                 required: true
             profile_group:
+                aliases: ['profile-group']
                 type: str
                 description: Name of profile group.
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: str
                 description: Name of an existing Protocol options profile.
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Determine whether the firewall policy allows security profile groups or single profiles only.
                 choices:
@@ -267,9 +298,11 @@ options:
                 type: str
                 description: Schedule name.
             sctp_filter_profile:
+                aliases: ['sctp-filter-profile']
                 type: str
                 description: Name of an existing SCTP filter profile.
             send_deny_packet:
+                aliases: ['send-deny-packet']
                 type: str
                 description: Enable to send a reply when a session is denied or blocked by a firewall policy.
                 choices:
@@ -279,6 +312,7 @@ options:
                 type: raw
                 description: (list) Service and service group names.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
@@ -288,6 +322,7 @@ options:
                 type: raw
                 description: (list) Source IPv4 address name and address group names.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
                 choices:
@@ -300,9 +335,11 @@ options:
                 type: raw
                 description: (list) Incoming
             ssh_filter_profile:
+                aliases: ['ssh-filter-profile']
                 type: str
                 description: Name of an existing SSH filter profile.
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: str
                 description: Name of an existing SSL SSH profile.
             status:
@@ -312,12 +349,14 @@ options:
                     - 'disable'
                     - 'enable'
             url_category:
+                aliases: ['url-category']
                 type: raw
                 description: (list) URL categories or groups.
             users:
                 type: raw
                 description: (list) Names of individual users that can authenticate with this policy.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable security profiles.
                 choices:
@@ -327,24 +366,31 @@ options:
                 type: str
                 description: Universally Unique Identifier
             videofilter_profile:
+                aliases: ['videofilter-profile']
                 type: str
                 description: Name of an existing VideoFilter profile.
             voip_profile:
+                aliases: ['voip-profile']
                 type: str
                 description: Name of an existing VoIP profile.
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Name of an existing Web filter profile.
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: Name of an existing DLP sensor.
             mms_profile:
+                aliases: ['mms-profile']
                 type: str
                 description: Name of an existing MMS profile.
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: raw
                 description: (list) Internet Service ID.
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Record logs when a session starts.
                 choices:
@@ -357,78 +403,97 @@ options:
                 type: raw
                 description: (list) Destination IPv4 address name and address group names.
             internet_service_src_id:
+                aliases: ['internet-service-src-id']
                 type: raw
                 description: (list) Internet Service source ID.
             internet_service6:
+                aliases: ['internet-service6']
                 type: str
                 description: Enable/disable use of IPv6 Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_custom:
+                aliases: ['internet-service6-custom']
                 type: raw
                 description: (list) Custom IPv6 Internet Service name.
             internet_service6_custom_group:
+                aliases: ['internet-service6-custom-group']
                 type: raw
                 description: (list) Custom IPv6 Internet Service group name.
             internet_service6_group:
+                aliases: ['internet-service6-group']
                 type: raw
                 description: (list) Internet Service group name.
             internet_service6_name:
+                aliases: ['internet-service6-name']
                 type: raw
                 description: (list) IPv6 Internet Service name.
             internet_service6_negate:
+                aliases: ['internet-service6-negate']
                 type: str
                 description: When enabled internet-service6 specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_src:
+                aliases: ['internet-service6-src']
                 type: str
                 description: Enable/disable use of IPv6 Internet Services in source for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_src_custom:
+                aliases: ['internet-service6-src-custom']
                 type: raw
                 description: (list) Custom IPv6 Internet Service source name.
             internet_service6_src_custom_group:
+                aliases: ['internet-service6-src-custom-group']
                 type: raw
                 description: (list) Custom Internet Service6 source group name.
             internet_service6_src_group:
+                aliases: ['internet-service6-src-group']
                 type: raw
                 description: (list) Internet Service6 source group name.
             internet_service6_src_name:
+                aliases: ['internet-service6-src-name']
                 type: raw
                 description: (list) IPv6 Internet Service source name.
             internet_service6_src_negate:
+                aliases: ['internet-service6-src-negate']
                 type: str
                 description: When enabled internet-service6-src specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             casb_profile:
+                aliases: ['casb-profile']
                 type: str
                 description: Name of an existing CASB profile.
             diameter_filter_profile:
+                aliases: ['diameter-filter-profile']
                 type: str
                 description: Name of an existing Diameter filter profile.
             dstaddr6_negate:
+                aliases: ['dstaddr6-negate']
                 type: str
                 description: When enabled dstaddr6 specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             ips_voip_filter:
+                aliases: ['ips-voip-filter']
                 type: str
                 description: Name of an existing VoIP
             srcaddr6_negate:
+                aliases: ['srcaddr6-negate']
                 type: str
                 description: When enabled srcaddr6 specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             virtual_patch_profile:
+                aliases: ['virtual-patch-profile']
                 type: str
                 description: Name of an existing virtual-patch profile.
 '''

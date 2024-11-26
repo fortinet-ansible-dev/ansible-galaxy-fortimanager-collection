@@ -81,18 +81,21 @@ options:
         type: dict
         suboptions:
             npu_dos_meter_mode:
+                aliases: ['npu-dos-meter-mode']
                 type: str
                 description: Set DoS meter NPU offloading mode.
                 choices:
                     - 'local'
                     - 'global'
             npu_dos_synproxy_mode:
+                aliases: ['npu-dos-synproxy-mode']
                 type: str
                 description: Set NPU DoS SYNPROXY mode.
                 choices:
                     - 'synack2ack'
                     - 'pass-synack'
             npu_dos_tpe_mode:
+                aliases: ['npu-dos-tpe-mode']
                 type: str
                 description: Enable/disable insertion of DoS meter ID to session table.
                 choices:

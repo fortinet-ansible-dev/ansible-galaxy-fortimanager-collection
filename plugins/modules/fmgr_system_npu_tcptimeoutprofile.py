@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             close_wait:
+                aliases: ['close-wait']
                 type: int
                 description: Set close-wait timeout
             fin_wait:
+                aliases: ['fin-wait']
                 type: int
                 description: Set fin-wait timeout
             id:
@@ -100,15 +102,19 @@ options:
                 description: Timeout profile ID
                 required: true
             syn_sent:
+                aliases: ['syn-sent']
                 type: int
                 description: Set syn-sent timeout
             syn_wait:
+                aliases: ['syn-wait']
                 type: int
                 description: Set syn-wait timeout
             tcp_idle:
+                aliases: ['tcp-idle']
                 type: int
                 description: Set TCP establish timeout
             time_wait:
+                aliases: ['time-wait']
                 type: int
                 description: Set time-wait timeout
 '''

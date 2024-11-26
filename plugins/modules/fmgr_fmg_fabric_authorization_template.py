@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Description.
             extender_controller:
+                aliases: ['extender-controller']
                 type: str
                 description: Extender controller.
                 choices:
@@ -111,6 +112,7 @@ options:
                         type: int
                         description: Count.
                     extension_type:
+                        aliases: ['extension-type']
                         type: str
                         description: Extension type.
                         choices:
@@ -130,12 +132,14 @@ options:
                             - 'extender'
                             - 'switch'
             switch_controller:
+                aliases: ['switch-controller']
                 type: str
                 description: Switch controller.
                 choices:
                     - 'disable'
                     - 'enable'
             wireless_controller:
+                aliases: ['wireless-controller']
                 type: str
                 description: Wireless controller.
                 choices:

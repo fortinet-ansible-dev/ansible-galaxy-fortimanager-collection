@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             device_type:
+                aliases: ['device-type']
                 type: str
                 description:
                     - Device type.
@@ -109,9 +110,11 @@ options:
                 description: Add or Edit log index fields.
                 required: true
             index_field:
+                aliases: ['index-field']
                 type: str
                 description: Field to be added to skip index.
             log_type:
+                aliases: ['log-type']
                 type: str
                 description:
                     - Log type.

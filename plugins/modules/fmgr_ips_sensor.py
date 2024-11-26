@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             block_malicious_url:
+                aliases: ['block-malicious-url']
                 type: str
                 description: Enable/disable malicious URL blocking.
                 choices:
@@ -115,17 +116,20 @@ options:
                         type: raw
                         description: (list) Applications to be protected.
                     exempt_ip:
+                        aliases: ['exempt-ip']
                         type: list
                         elements: dict
                         description: Exempt ip.
                         suboptions:
                             dst_ip:
+                                aliases: ['dst-ip']
                                 type: str
                                 description: Destination IP address and netmask.
                             id:
                                 type: int
                                 description: Exempt IP ID.
                             src_ip:
+                                aliases: ['src-ip']
                                 type: str
                                 description: Source IP address and netmask.
                     id:
@@ -141,12 +145,14 @@ options:
                             - 'disable'
                             - 'enable'
                     log_attack_context:
+                        aliases: ['log-attack-context']
                         type: str
                         description: Enable/disable logging of attack context
                         choices:
                             - 'disable'
                             - 'enable'
                     log_packet:
+                        aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging.
                         choices:
@@ -167,27 +173,33 @@ options:
                             - 'both'
                             - 'interface'
                     quarantine_expiry:
+                        aliases: ['quarantine-expiry']
                         type: str
                         description: Duration of quarantine.
                     quarantine_log:
+                        aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable quarantine logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     rate_count:
+                        aliases: ['rate-count']
                         type: int
                         description: Count of the rate.
                     rate_duration:
+                        aliases: ['rate-duration']
                         type: int
                         description: Duration
                     rate_mode:
+                        aliases: ['rate-mode']
                         type: str
                         description: Rate limit mode.
                         choices:
                             - 'periodical'
                             - 'continuous'
                     rate_track:
+                        aliases: ['rate-track']
                         type: str
                         description: Track the packet protocol field.
                         choices:
@@ -216,6 +228,7 @@ options:
                         type: raw
                         description: (list) List of CVE IDs of the signatures to add to the sensor
                     default_action:
+                        aliases: ['default-action']
                         type: str
                         description: Signature default action filter.
                         choices:
@@ -224,6 +237,7 @@ options:
                             - 'all'
                             - 'drop'
                     default_status:
+                        aliases: ['default-status']
                         type: str
                         description: Signature default status filter.
                         choices:
@@ -231,12 +245,15 @@ options:
                             - 'enable'
                             - 'all'
                     last_modified:
+                        aliases: ['last-modified']
                         type: raw
                         description: (list or str) Filter by signature last modified date.
                     vuln_type:
+                        aliases: ['vuln-type']
                         type: raw
                         description: (list) List of signature vulnerability types to filter by.
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging.
                 choices:
@@ -269,6 +286,7 @@ options:
                             - 'enable'
                             - 'default'
                     log_packet:
+                        aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging of selected rules.
                         choices:
@@ -293,9 +311,11 @@ options:
                             - 'both'
                             - 'interface'
                     quarantine_expiry:
+                        aliases: ['quarantine-expiry']
                         type: int
                         description: Duration of quarantine in minute.
                     quarantine_log:
+                        aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable logging of selected quarantine.
                         choices:
@@ -328,17 +348,20 @@ options:
                             - 'block'
                             - 'reset'
                     exempt_ip:
+                        aliases: ['exempt-ip']
                         type: list
                         elements: dict
                         description: Exempt ip.
                         suboptions:
                             dst_ip:
+                                aliases: ['dst-ip']
                                 type: str
                                 description: Destination IP address and netmask.
                             id:
                                 type: int
                                 description: Exempt IP ID.
                             src_ip:
+                                aliases: ['src-ip']
                                 type: str
                                 description: Source IP address and netmask.
                     log:
@@ -348,6 +371,7 @@ options:
                             - 'disable'
                             - 'enable'
                     log_packet:
+                        aliases: ['log-packet']
                         type: str
                         description: Enable/disable packet logging.
                         choices:
@@ -362,15 +386,18 @@ options:
                             - 'both'
                             - 'interface'
                     quarantine_expiry:
+                        aliases: ['quarantine-expiry']
                         type: int
                         description: Duration of quarantine in minute.
                     quarantine_log:
+                        aliases: ['quarantine-log']
                         type: str
                         description: Enable/disable logging of selected quarantine.
                         choices:
                             - 'disable'
                             - 'enable'
                     rule_id:
+                        aliases: ['rule-id']
                         type: int
                         description: Override rule ID.
                     status:
@@ -380,9 +407,11 @@ options:
                             - 'disable'
                             - 'enable'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             scan_botnet_connections:
+                aliases: ['scan-botnet-connections']
                 type: str
                 description: Block or monitor connections to Botnet servers, or disable Botnet scanning.
                 choices:

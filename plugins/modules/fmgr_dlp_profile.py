@@ -93,24 +93,28 @@ options:
                 type: str
                 description: Comment.
             dlp_log:
+                aliases: ['dlp-log']
                 type: str
                 description: Enable/disable DLP logging.
                 choices:
                     - 'disable'
                     - 'enable'
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging for data leak prevention.
                 choices:
                     - 'disable'
                     - 'enable'
             feature_set:
+                aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
                 choices:
                     - 'flow'
                     - 'proxy'
             full_archive_proto:
+                aliases: ['full-archive-proto']
                 type: list
                 elements: str
                 description: Protocols to always content archive.
@@ -126,6 +130,7 @@ options:
                     - 'ssh'
                     - 'cifs'
             nac_quar_log:
+                aliases: ['nac-quar-log']
                 type: str
                 description: Enable/disable NAC quarantine logging.
                 choices:
@@ -136,6 +141,7 @@ options:
                 description: Name of the DLP profile.
                 required: true
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group used by this DLP profile.
             rule:
@@ -161,12 +167,15 @@ options:
                         type: str
                         description: Quarantine duration in days, hours, minutes
                     file_size:
+                        aliases: ['file-size']
                         type: int
                         description: Match files this size or larger
                     file_type:
+                        aliases: ['file-type']
                         type: str
                         description: Select the number of a DLP file pattern table to match.
                     filter_by:
+                        aliases: ['filter-by']
                         type: str
                         description: Select the type of content to match.
                         choices:
@@ -182,6 +191,7 @@ options:
                         type: str
                         description: MIP label dictionary.
                     match_percentage:
+                        aliases: ['match-percentage']
                         type: int
                         description: Percentage of fingerprints in the fingerprint databases designated with the selected sensitivity to match.
                     name:
@@ -224,6 +234,7 @@ options:
                             - 'file'
                             - 'message'
             summary_proto:
+                aliases: ['summary-proto']
                 type: list
                 elements: str
                 description: Protocols to always log summary.

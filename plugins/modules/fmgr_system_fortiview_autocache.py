@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             aggressive_fortiview:
+                aliases: ['aggressive-fortiview']
                 type: str
                 description:
                     - Enable/disable auto-cache on fortiview aggressively.
@@ -98,6 +99,7 @@ options:
                     - 'disable'
                     - 'enable'
             incr_fortiview:
+                aliases: ['incr-fortiview']
                 type: str
                 description:
                     - Enable/disable fortiview incremental cache.

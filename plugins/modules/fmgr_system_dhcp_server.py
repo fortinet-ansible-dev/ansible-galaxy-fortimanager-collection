@@ -90,60 +90,75 @@ options:
         type: dict
         suboptions:
             auto_configuration:
+                aliases: ['auto-configuration']
                 type: str
                 description: Enable/disable auto configuration.
                 choices:
                     - 'disable'
                     - 'enable'
             conflicted_ip_timeout:
+                aliases: ['conflicted-ip-timeout']
                 type: int
                 description: Time in seconds to wait after a conflicted IP address is removed from the DHCP range before it can be reused.
             ddns_auth:
+                aliases: ['ddns-auth']
                 type: str
                 description: DDNS authentication mode.
                 choices:
                     - 'disable'
                     - 'tsig'
             ddns_key:
+                aliases: ['ddns-key']
                 type: raw
                 description: (list or str) DDNS update key
             ddns_keyname:
+                aliases: ['ddns-keyname']
                 type: str
                 description: DDNS update key name.
             ddns_server_ip:
+                aliases: ['ddns-server-ip']
                 type: str
                 description: DDNS server IP.
             ddns_ttl:
+                aliases: ['ddns-ttl']
                 type: int
                 description: TTL.
             ddns_update:
+                aliases: ['ddns-update']
                 type: str
                 description: Enable/disable DDNS update for DHCP.
                 choices:
                     - 'disable'
                     - 'enable'
             ddns_update_override:
+                aliases: ['ddns-update-override']
                 type: str
                 description: Enable/disable DDNS update override for DHCP.
                 choices:
                     - 'disable'
                     - 'enable'
             ddns_zone:
+                aliases: ['ddns-zone']
                 type: str
                 description: Zone of your domain name
             default_gateway:
+                aliases: ['default-gateway']
                 type: str
                 description: Default gateway IP address assigned by the DHCP server.
             dns_server1:
+                aliases: ['dns-server1']
                 type: str
                 description: DNS server 1.
             dns_server2:
+                aliases: ['dns-server2']
                 type: str
                 description: DNS server 2.
             dns_server3:
+                aliases: ['dns-server3']
                 type: str
                 description: DNS server 3.
             dns_service:
+                aliases: ['dns-service']
                 type: str
                 description: Options for assigning DNS servers to DHCP clients.
                 choices:
@@ -154,44 +169,53 @@ options:
                 type: str
                 description: Domain name suffix for the IP addresses that the DHCP server assigns to clients.
             exclude_range:
+                aliases: ['exclude-range']
                 type: list
                 elements: dict
                 description: Exclude range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End of IP range.
                     id:
                         type: int
                         description: ID.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start of IP range.
                     vci_match:
+                        aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     vci_string:
+                        aliases: ['vci-string']
                         type: raw
                         description: (list) One or more VCI strings in quotes separated by spaces.
                     lease_time:
+                        aliases: ['lease-time']
                         type: int
                         description: Lease time in seconds, 0 means default lease time.
                     uci_match:
+                        aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     uci_string:
+                        aliases: ['uci-string']
                         type: raw
                         description: (list) One or more UCI strings in quotes separated by spaces.
             filename:
                 type: str
                 description: Name of the boot file on the TFTP server.
             forticlient_on_net_status:
+                aliases: ['forticlient-on-net-status']
                 type: str
                 description: Enable/disable FortiClient-On-Net service for this DHCP server.
                 choices:
@@ -205,53 +229,65 @@ options:
                 type: str
                 description: DHCP server can assign IP configurations to clients connected to this interface.
             ip_mode:
+                aliases: ['ip-mode']
                 type: str
                 description: Method used to assign client IP.
                 choices:
                     - 'range'
                     - 'usrgrp'
             ip_range:
+                aliases: ['ip-range']
                 type: list
                 elements: dict
                 description: Ip range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End of IP range.
                     id:
                         type: int
                         description: ID.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start of IP range.
                     vci_match:
+                        aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     vci_string:
+                        aliases: ['vci-string']
                         type: raw
                         description: (list) One or more VCI strings in quotes separated by spaces.
                     lease_time:
+                        aliases: ['lease-time']
                         type: int
                         description: Lease time in seconds, 0 means default lease time.
                     uci_match:
+                        aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     uci_string:
+                        aliases: ['uci-string']
                         type: raw
                         description: (list) One or more UCI strings in quotes separated by spaces.
             ipsec_lease_hold:
+                aliases: ['ipsec-lease-hold']
                 type: int
                 description: DHCP over IPsec leases expire this many seconds after tunnel down
             lease_time:
+                aliases: ['lease-time']
                 type: int
                 description: Lease time in seconds, 0 means unlimited.
             mac_acl_default_action:
+                aliases: ['mac-acl-default-action']
                 type: str
                 description: MAC access control default action
                 choices:
@@ -261,18 +297,23 @@ options:
                 type: str
                 description: Netmask assigned by the DHCP server.
             next_server:
+                aliases: ['next-server']
                 type: str
                 description: IP address of a server
             ntp_server1:
+                aliases: ['ntp-server1']
                 type: str
                 description: NTP server 1.
             ntp_server2:
+                aliases: ['ntp-server2']
                 type: str
                 description: NTP server 2.
             ntp_server3:
+                aliases: ['ntp-server3']
                 type: str
                 description: NTP server 3.
             ntp_service:
+                aliases: ['ntp-service']
                 type: str
                 description: Options for assigning Network Time Protocol
                 choices:
@@ -305,24 +346,29 @@ options:
                         type: str
                         description: DHCP option value.
                     vci_match:
+                        aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     vci_string:
+                        aliases: ['vci-string']
                         type: raw
                         description: (list) One or more VCI strings in quotes separated by spaces.
                     uci_match:
+                        aliases: ['uci-match']
                         type: str
                         description: Enable/disable user class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     uci_string:
+                        aliases: ['uci-string']
                         type: raw
                         description: (list) One or more UCI strings in quotes separated by spaces.
             reserved_address:
+                aliases: ['reserved-address']
                 type: list
                 elements: dict
                 description: Reserved address.
@@ -347,18 +393,22 @@ options:
                         type: str
                         description: MAC address of the client that will get the reserved IP address.
                     circuit_id:
+                        aliases: ['circuit-id']
                         type: str
                         description: Option 82 circuit-ID of the client that will get the reserved IP address.
                     circuit_id_type:
+                        aliases: ['circuit-id-type']
                         type: str
                         description: DHCP option type.
                         choices:
                             - 'hex'
                             - 'string'
                     remote_id:
+                        aliases: ['remote-id']
                         type: str
                         description: Option 82 remote-ID of the client that will get the reserved IP address.
                     remote_id_type:
+                        aliases: ['remote-id-type']
                         type: str
                         description: DHCP option type.
                         choices:
@@ -371,6 +421,7 @@ options:
                             - 'mac'
                             - 'option82'
             server_type:
+                aliases: ['server-type']
                 type: str
                 description: DHCP server can be a normal DHCP server or an IPsec DHCP server.
                 choices:
@@ -383,6 +434,7 @@ options:
                     - 'disable'
                     - 'enable'
             tftp_server:
+                aliases: ['tftp-server']
                 type: raw
                 description: (list) One or more hostnames or IP addresses of the TFTP servers in quotes separated by spaces.
             timezone:
@@ -478,6 +530,7 @@ options:
                     - '86'
                     - '87'
             timezone_option:
+                aliases: ['timezone-option']
                 type: str
                 description: Options for the DHCP server to set the clients time zone.
                 choices:
@@ -485,54 +538,67 @@ options:
                     - 'default'
                     - 'specify'
             vci_match:
+                aliases: ['vci-match']
                 type: str
                 description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
             vci_string:
+                aliases: ['vci-string']
                 type: raw
                 description: (list) One or more VCI strings in quotes separated by spaces.
             wifi_ac1:
+                aliases: ['wifi-ac1']
                 type: str
                 description: WiFi Access Controller 1 IP address
             wifi_ac2:
+                aliases: ['wifi-ac2']
                 type: str
                 description: WiFi Access Controller 2 IP address
             wifi_ac3:
+                aliases: ['wifi-ac3']
                 type: str
                 description: WiFi Access Controller 3 IP address
             wins_server1:
+                aliases: ['wins-server1']
                 type: str
                 description: WINS server 1.
             wins_server2:
+                aliases: ['wins-server2']
                 type: str
                 description: WINS server 2.
             dns_server4:
+                aliases: ['dns-server4']
                 type: str
                 description: DNS server 4.
             wifi_ac_service:
+                aliases: ['wifi-ac-service']
                 type: str
                 description: Options for assigning WiFi Access Controllers to DHCP clients
                 choices:
                     - 'specify'
                     - 'local'
             auto_managed_status:
+                aliases: ['auto-managed-status']
                 type: str
                 description: Enable/disable use of this DHCP server once this interface has been assigned an IP address from FortiIPAM.
                 choices:
                     - 'disable'
                     - 'enable'
             dhcp_settings_from_fortiipam:
+                aliases: ['dhcp-settings-from-fortiipam']
                 type: str
                 description: Enable/disable populating of DHCP server settings from FortiIPAM.
                 choices:
                     - 'disable'
                     - 'enable'
             relay_agent:
+                aliases: ['relay-agent']
                 type: str
                 description: Relay agent IP.
             shared_subnet:
+                aliases: ['shared-subnet']
                 type: str
                 description: Enable/disable shared subnet.
                 choices:

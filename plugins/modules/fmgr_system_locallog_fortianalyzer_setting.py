@@ -86,6 +86,7 @@ options:
                     - 'disable'
                     - 'enable'
             secure_connection:
+                aliases: ['secure-connection']
                 type: str
                 description:
                     - Enable/disable connection secured by TLS/SSL.
@@ -95,6 +96,7 @@ options:
                     - 'disable'
                     - 'enable'
             server_ip:
+                aliases: ['server-ip']
                 type: str
                 description: Remote FortiAnalyzer server IP address.
             severity:
@@ -130,12 +132,14 @@ options:
                     - 'realtime'
                     - 'upload'
             upload_time:
+                aliases: ['upload-time']
                 type: raw
                 description: (list) Time to upload local log files
             server:
                 type: str
                 description: Remote FortiAnalyzer server FQDN, hostname, or IP address
             peer_cert_cn:
+                aliases: ['peer-cert-cn']
                 type: str
                 description: Certificate common name of remote fortianalyzer.
 '''

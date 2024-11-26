@@ -106,9 +106,11 @@ options:
                             - 'exempt'
                             - 'exempt-mass-mms'
                     carrier_endpoint:
+                        aliases: ['carrier-endpoint']
                         type: str
                         description: End point to act on.
                     log_action:
+                        aliases: ['log-action']
                         type: list
                         elements: str
                         description: Action to take on this end point
@@ -116,6 +118,7 @@ options:
                             - 'archive'
                             - 'intercept'
                     pattern_type:
+                        aliases: ['pattern-type']
                         type: str
                         description: Wildcard pattern or regular expression.
                         choices:

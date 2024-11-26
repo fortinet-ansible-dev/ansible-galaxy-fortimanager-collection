@@ -92,6 +92,7 @@ options:
                     - 'check-up-to-date'
                     - 'deny'
             latest_patch_level:
+                aliases: ['latest-patch-level']
                 type: str
                 description: Latest OS patch level.
             name:
@@ -101,6 +102,7 @@ options:
                 type: int
                 description: OS patch level tolerance.
             minor_version:
+                aliases: ['minor-version']
                 type: int
                 description: Minor version number.
 '''

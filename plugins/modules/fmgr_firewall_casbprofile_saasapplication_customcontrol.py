@@ -114,6 +114,7 @@ options:
                         type: str
                         description: Name.
                     user_input:
+                        aliases: ['user-input']
                         type: list
                         elements: str
                         description: User input.

@@ -101,6 +101,7 @@ options:
                 type: str
                 description: Server address of the SDN proxy.
             server_port:
+                aliases: ['server-port']
                 type: int
                 description: Port number of the SDN proxy.
             type:

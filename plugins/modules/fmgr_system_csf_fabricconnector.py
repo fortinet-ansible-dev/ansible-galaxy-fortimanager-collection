@@ -89,6 +89,7 @@ options:
                 type: str
                 description: Override access profile.
             configuration_write_access:
+                aliases: ['configuration-write-access']
                 type: str
                 description:
                     - Enable/disable downstream device write access to configuration.

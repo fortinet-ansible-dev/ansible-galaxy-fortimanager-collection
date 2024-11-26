@@ -84,6 +84,7 @@ options:
                     - 'nonblocking'
                     - 'log_dev'
             import_adom_members:
+                aliases: ['import-adom-members']
                 type: list
                 elements: dict
                 description: Associations between devices and ADOMs.
@@ -98,6 +99,7 @@ options:
                         type: str
                         description: Vdom.
             import_adoms:
+                aliases: ['import-adoms']
                 type: list
                 elements: dict
                 description: A list of ADOM and device group objects to be imported.
@@ -139,6 +141,7 @@ options:
                         type: int
                         description: Log file retention hours.
                     meta_fields:
+                        aliases: ['meta fields']
                         type: dict
                         description: Default metafields
                     mig_mr:
@@ -273,6 +276,7 @@ options:
                         type: int
                         description: Secondary dns ip6 4.
             import_devices:
+                aliases: ['import-devices']
                 type: list
                 elements: dict
                 description: A list of device objects to be imported.
@@ -355,15 +359,19 @@ options:
                         type: int
                         description: Fap cnt.
                     faz_full_act:
+                        aliases: ['faz.full_act']
                         type: int
                         description: Faz.
                     faz_perm:
+                        aliases: ['faz.perm']
                         type: int
                         description: Faz.
                     faz_quota:
+                        aliases: ['faz.quota']
                         type: int
                         description: Faz.
                     faz_used:
+                        aliases: ['faz.used']
                         type: int
                         description: Faz.
                     fex_cnt:
@@ -540,6 +548,7 @@ options:
                         type: int
                         description: Maxvdom.
                     meta_fields:
+                        aliases: ['meta fields']
                         type: dict
                         description: Default metafields
                     mgmt_id:
@@ -654,6 +663,7 @@ options:
                                 type: int
                                 description: Vpn id.
                             meta_fields:
+                                aliases: ['meta fields']
                                 type: dict
                                 description: Meta fields.
                             vdom_type:
@@ -733,6 +743,7 @@ options:
                         type: str
                         description: Cluster worker.
                     ha_vsn:
+                        aliases: ['ha.vsn']
                         type: str
                         description: Ha.
                     ha_upgrade_mode:
@@ -742,6 +753,7 @@ options:
                         type: int
                         description: Vm payg status.
             import_group_members:
+                aliases: ['import-group-members']
                 type: list
                 elements: dict
                 description: Associations between devices and device groups.

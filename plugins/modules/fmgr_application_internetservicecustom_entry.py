@@ -103,17 +103,20 @@ options:
                 description: Entry ID
                 required: true
             port_range:
+                aliases: ['port-range']
                 type: list
                 elements: dict
                 description: Port range.
                 suboptions:
                     end_port:
+                        aliases: ['end-port']
                         type: int
                         description: End destination port number
                     id:
                         type: int
                         description: Custom entry port range ID.
                     start_port:
+                        aliases: ['start-port']
                         type: int
                         description: Start destination port number
             protocol:

@@ -96,12 +96,15 @@ options:
                 type: str
                 description: Mobile token license.
             os_ver:
+                aliases: ['os-ver']
                 type: str
                 description: Device Mobile Version.
             reg_id:
+                aliases: ['reg-id']
                 type: str
                 description: Device Reg ID.
             serial_number:
+                aliases: ['serial-number']
                 type: str
                 description: Serial number.
                 required: true

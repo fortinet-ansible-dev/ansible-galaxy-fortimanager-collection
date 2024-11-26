@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             max_read_time:
+                aliases: ['max-read-time']
                 type: int
                 description: Read time threshold for each page view.
             status:

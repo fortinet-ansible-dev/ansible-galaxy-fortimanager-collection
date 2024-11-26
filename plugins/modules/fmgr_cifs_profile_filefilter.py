@@ -106,6 +106,7 @@ options:
                             - 'outgoing'
                             - 'any'
                     file_type:
+                        aliases: ['file-type']
                         type: raw
                         description: (list or str) Select file type.
                     filter:

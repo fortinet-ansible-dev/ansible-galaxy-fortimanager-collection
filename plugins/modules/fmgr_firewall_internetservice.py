@@ -102,9 +102,11 @@ options:
                         type: int
                         description: Entry ID.
                     ip_number:
+                        aliases: ['ip-number']
                         type: int
                         description: Total number of IP addresses.
                     ip_range_number:
+                        aliases: ['ip-range-number']
                         type: int
                         description: Total number of IP ranges.
                     port:
@@ -114,6 +116,7 @@ options:
                         type: int
                         description: Integer value for the protocol type as defined by IANA
             icon_id:
+                aliases: ['icon-id']
                 type: int
                 description: Icon id.
             id:
@@ -129,27 +132,34 @@ options:
                 type: int
                 description: Reputation.
             sld_id:
+                aliases: ['sld-id']
                 type: int
                 description: Sld id.
             extra_ip_range_number:
+                aliases: ['extra-ip-range-number']
                 type: int
                 description: Extra ip range number.
             ip_number:
+                aliases: ['ip-number']
                 type: int
                 description: Ip number.
             ip_range_number:
+                aliases: ['ip-range-number']
                 type: int
                 description: Ip range number.
             jitter_threshold:
+                aliases: ['jitter-threshold']
                 type: int
                 description: Jitter threshold.
             latency_threshold:
+                aliases: ['latency-threshold']
                 type: int
                 description: Latency threshold.
             obsolete:
                 type: int
                 description: Obsolete.
             packetloss_threshold:
+                aliases: ['packetloss-threshold']
                 type: int
                 description: Packetloss threshold.
             singularity:
@@ -171,9 +181,11 @@ options:
                 type: raw
                 description: (list) IPv6 Country sequence number list.
             extra_ip6_range_number:
+                aliases: ['extra-ip6-range-number']
                 type: int
                 description: Extra ip6 range number.
             ip6_range_number:
+                aliases: ['ip6-range-number']
                 type: int
                 description: Ip6 range number.
             region6:

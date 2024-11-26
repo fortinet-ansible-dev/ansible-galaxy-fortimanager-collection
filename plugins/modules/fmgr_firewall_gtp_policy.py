@@ -100,6 +100,7 @@ options:
                     - 'allow'
                     - 'deny'
             apn_sel_mode:
+                aliases: ['apn-sel-mode']
                 type: list
                 elements: str
                 description: APN selection mode.
@@ -121,6 +122,7 @@ options:
                 type: str
                 description: IMSI prefix.
             max_apn_restriction:
+                aliases: ['max-apn-restriction']
                 type: str
                 description: Maximum APN restriction value.
                 choices:
@@ -145,6 +147,7 @@ options:
                 type: str
                 description: RAI pattern.
             rat_type:
+                aliases: ['rat-type']
                 type: list
                 elements: str
                 description: RAT Type.
@@ -162,9 +165,11 @@ options:
                 type: str
                 description: ULI pattern.
             imsi_prefix:
+                aliases: ['imsi-prefix']
                 type: str
                 description: IMSI prefix.
             msisdn_prefix:
+                aliases: ['msisdn-prefix']
                 type: str
                 description: MSISDN prefix.
             apn:

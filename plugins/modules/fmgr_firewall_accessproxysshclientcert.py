@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             auth_ca:
+                aliases: ['auth-ca']
                 type: str
                 description: Name of the SSH server public key authentication CA.
             cert_extension:
+                aliases: ['cert-extension']
                 type: list
                 elements: dict
                 description: Cert extension.
@@ -120,36 +122,42 @@ options:
                 description: SSH client certificate name.
                 required: true
             permit_agent_forwarding:
+                aliases: ['permit-agent-forwarding']
                 type: str
                 description: Enable/disable appending permit-agent-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
             permit_port_forwarding:
+                aliases: ['permit-port-forwarding']
                 type: str
                 description: Enable/disable appending permit-port-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
             permit_pty:
+                aliases: ['permit-pty']
                 type: str
                 description: Enable/disable appending permit-pty certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
             permit_user_rc:
+                aliases: ['permit-user-rc']
                 type: str
                 description: Enable/disable appending permit-user-rc certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
             permit_x11_forwarding:
+                aliases: ['permit-x11-forwarding']
                 type: str
                 description: Enable/disable appending permit-x11-forwarding certificate extension.
                 choices:
                     - 'disable'
                     - 'enable'
             source_address:
+                aliases: ['source-address']
                 type: str
                 description: Enable/disable appending source-address certificate critical option.
                 choices:

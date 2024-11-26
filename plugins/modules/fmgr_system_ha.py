@@ -80,12 +80,15 @@ options:
                 type: int
                 description: Cluster ID range
             file_quota:
+                aliases: ['file-quota']
                 type: int
                 description: File quota in MB
             hb_interval:
+                aliases: ['hb-interval']
                 type: int
                 description: Heartbeat interval
             hb_lost_threshold:
+                aliases: ['hb-lost-threshold']
                 type: int
                 description: Heartbeat lost threshold
             mode:
@@ -119,6 +122,7 @@ options:
                         type: str
                         description: IP address
                     serial_number:
+                        aliases: ['serial-number']
                         type: str
                         description: Serial number of peer.
                     status:
@@ -131,9 +135,11 @@ options:
                             - 'disable'
                             - 'enable'
             local_cert:
+                aliases: ['local-cert']
                 type: str
                 description: Set the ha local certificate.
             failover_mode:
+                aliases: ['failover-mode']
                 type: str
                 description:
                     - HA failover mode.
@@ -143,14 +149,17 @@ options:
                     - 'manual'
                     - 'vrrp'
             monitored_interfaces:
+                aliases: ['monitored-interfaces']
                 type: list
                 elements: dict
                 description: Monitored interfaces.
                 suboptions:
                     interface_name:
+                        aliases: ['interface-name']
                         type: str
                         description: Interface name.
             monitored_ips:
+                aliases: ['monitored-ips']
                 type: list
                 elements: dict
                 description: Monitored ips.
@@ -180,12 +189,15 @@ options:
                 type: str
                 description: Virtual IP.
             vrrp_adv_interval:
+                aliases: ['vrrp-adv-interval']
                 type: int
                 description: VRRP advert interval [1 - 30 seconnds]
             vrrp_interface:
+                aliases: ['vrrp-interface']
                 type: str
                 description: VRRP and vip interface.
             vip_interface:
+                aliases: ['vip-interface']
                 type: str
                 description: Vip interface.
 '''

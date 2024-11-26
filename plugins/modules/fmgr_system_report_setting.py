@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             aggregate_report:
+                aliases: ['aggregate-report']
                 type: str
                 description:
                     - Enable/disable including a group report along with the per-device reports.
@@ -86,6 +87,7 @@ options:
                     - 'disable'
                     - 'enable'
             hcache_lossless:
+                aliases: ['hcache-lossless']
                 type: str
                 description:
                     - Usableness of ready-with-loss hcaches.
@@ -95,12 +97,15 @@ options:
                     - 'disable'
                     - 'enable'
             ldap_cache_timeout:
+                aliases: ['ldap-cache-timeout']
                 type: int
                 description: LDAP cache timeout in minutes, default 60, 0 means not use cache.
             max_table_rows:
+                aliases: ['max-table-rows']
                 type: int
                 description: Maximum number of rows can be generated in a single table.
             report_priority:
+                aliases: ['report-priority']
                 type: str
                 description:
                     - Priority of sql report.
@@ -112,6 +117,7 @@ options:
                     - 'low'
                     - 'auto'
             template_auto_install:
+                aliases: ['template-auto-install']
                 type: str
                 description:
                     - The language used for new ADOMs
@@ -121,6 +127,7 @@ options:
                     - 'default'
                     - 'english'
             week_start:
+                aliases: ['week-start']
                 type: str
                 description:
                     - Day of the week on which the week starts.
@@ -130,12 +137,15 @@ options:
                     - 'sun'
                     - 'mon'
             capwap_port:
+                aliases: ['capwap-port']
                 type: int
                 description: Exclude capwap traffic by port.
             capwap_service:
+                aliases: ['capwap-service']
                 type: str
                 description: Exclude capwap traffic by service.
             exclude_capwap:
+                aliases: ['exclude-capwap']
                 type: str
                 description:
                     - Exclude capwap traffic.
@@ -147,6 +157,7 @@ options:
                     - 'by-port'
                     - 'by-service'
             max_rpt_pdf_rows:
+                aliases: ['max-rpt-pdf-rows']
                 type: int
                 description: Maximum number of rows can be generated in a single pdf.
 '''

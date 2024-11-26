@@ -101,12 +101,14 @@ options:
                     - 'accept'
                     - 'ipsec'
             auto_asic_offload:
+                aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable policy traffic ASIC offloading.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             comments:
@@ -116,6 +118,7 @@ options:
                 type: raw
                 description: (list or str) Destination address and address group names.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
@@ -128,6 +131,7 @@ options:
                 type: str
                 description: Policy name.
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/disable offloading policy configuration to CP processors.
                 choices:
@@ -141,6 +145,7 @@ options:
                 type: raw
                 description: (list or str) Service and service group names.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
@@ -150,6 +155,7 @@ options:
                 type: raw
                 description: (list or str) Source address and address group names.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
@@ -165,15 +171,19 @@ options:
                     - 'disable'
                     - 'enable'
             tcp_timeout_pid:
+                aliases: ['tcp-timeout-pid']
                 type: str
                 description: TCP timeout profile ID
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Reverse traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             udp_timeout_pid:
+                aliases: ['udp-timeout-pid']
                 type: str
                 description: UDP timeout profile ID
             uuid:

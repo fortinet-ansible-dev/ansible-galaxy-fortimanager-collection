@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Description.
             layer3_ipv4_rules:
+                aliases: ['layer3-ipv4-rules']
                 type: list
                 elements: dict
                 description: Layer3 ipv4 rules.
@@ -116,6 +117,7 @@ options:
                         type: int
                         description: Protocol type as defined by IANA
                     rule_id:
+                        aliases: ['rule-id']
                         type: int
                         description: Rule ID
                     srcaddr:
@@ -125,6 +127,7 @@ options:
                         type: int
                         description: Source port
             layer3_ipv6_rules:
+                aliases: ['layer3-ipv6-rules']
                 type: list
                 elements: dict
                 description: Layer3 ipv6 rules.
@@ -148,6 +151,7 @@ options:
                         type: int
                         description: Protocol type as defined by IANA
                     rule_id:
+                        aliases: ['rule-id']
                         type: int
                         description: Rule ID
                     srcaddr:

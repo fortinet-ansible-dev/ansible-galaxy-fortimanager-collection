@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             block_action:
+                aliases: ['block-action']
                 type: str
                 description: Action to take for blocked domains.
                 choices:
@@ -97,6 +98,7 @@ options:
                     - 'redirect'
                     - 'block-sevrfail'
             block_botnet:
+                aliases: ['block-botnet']
                 type: str
                 description: Enable/disable blocking botnet C&C DNS lookups.
                 choices:
@@ -106,9 +108,11 @@ options:
                 type: str
                 description: Comment.
             external_ip_blocklist:
+                aliases: ['external-ip-blocklist']
                 type: raw
                 description: (list or str) One or more external IP block lists.
             log_all_domain:
+                aliases: ['log-all-domain']
                 type: str
                 description: Enable/disable logging of all domains visited
                 choices:
@@ -119,27 +123,32 @@ options:
                 description: Profile name.
                 required: true
             redirect_portal:
+                aliases: ['redirect-portal']
                 type: str
                 description: IP address of the SDNS redirect portal.
             safe_search:
+                aliases: ['safe-search']
                 type: str
                 description: Enable/disable Google, Bing, and YouTube safe search.
                 choices:
                     - 'disable'
                     - 'enable'
             sdns_domain_log:
+                aliases: ['sdns-domain-log']
                 type: str
                 description: Enable/disable domain filtering and botnet domain logging.
                 choices:
                     - 'disable'
                     - 'enable'
             sdns_ftgd_err_log:
+                aliases: ['sdns-ftgd-err-log']
                 type: str
                 description: Enable/disable FortiGuard SDNS rating error logging.
                 choices:
                     - 'disable'
                     - 'enable'
             youtube_restrict:
+                aliases: ['youtube-restrict']
                 type: str
                 description: Set safe search for YouTube restriction level.
                 choices:
@@ -147,6 +156,7 @@ options:
                     - 'moderate'
                     - 'none'
             dns_translation:
+                aliases: ['dns-translation']
                 type: list
                 elements: dict
                 description: Dns translation.
@@ -170,6 +180,7 @@ options:
                             - 'disable'
                             - 'enable'
                     addr_type:
+                        aliases: ['addr-type']
                         type: str
                         description: DNS translation type
                         choices:
@@ -185,28 +196,34 @@ options:
                         type: str
                         description: IPv6 address or subnet on the internal network to compare with the resolved address in DNS query replies.
             redirect_portal6:
+                aliases: ['redirect-portal6']
                 type: str
                 description: IPv6 address of the SDNS redirect portal.
             log_all_url:
+                aliases: ['log-all-url']
                 type: str
                 description: Enable/disable log all URLs visited.
                 choices:
                     - 'disable'
                     - 'enable'
             sdns_url_log:
+                aliases: ['sdns-url-log']
                 type: str
                 description: Enable/disable logging of URL filtering and botnet domains.
                 choices:
                     - 'disable'
                     - 'enable'
             domain_filter:
+                aliases: ['domain-filter']
                 type: dict
                 description: Domain filter.
                 suboptions:
                     domain_filter_table:
+                        aliases: ['domain-filter-table']
                         type: int
                         description: DNS domain filter table ID.
             ftgd_dns:
+                aliases: ['ftgd-dns']
                 type: dict
                 description: Ftgd dns.
                 suboptions:
@@ -245,12 +262,15 @@ options:
                 description: Urlfilter.
                 suboptions:
                     urlfilter_table:
+                        aliases: ['urlfilter-table']
                         type: int
                         description: DNS URL filter table ID.
             transparent_dns_database:
+                aliases: ['transparent-dns-database']
                 type: raw
                 description: (list) Transparent DNS database zones.
             strip_ech:
+                aliases: ['strip-ech']
                 type: str
                 description: Enable/disable removal of the encrypted client hello service parameter from supporting DNS RRs.
                 choices:

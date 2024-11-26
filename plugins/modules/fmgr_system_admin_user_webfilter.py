@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             web_filter_name:
+                aliases: ['web-filter-name']
                 type: str
                 description: Web filter name.
                 required: true

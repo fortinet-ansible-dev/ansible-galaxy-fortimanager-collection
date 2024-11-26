@@ -90,14 +90,17 @@ options:
         type: dict
         suboptions:
             mpsk_concurrent_clients:
+                aliases: ['mpsk-concurrent-clients']
                 type: int
                 description: Maximum number of concurrent clients that connect using the same passphrase in multiple PSK authentication
             mpsk_group:
+                aliases: ['mpsk-group']
                 type: list
                 elements: dict
                 description: Mpsk group.
                 suboptions:
                     mpsk_key:
+                        aliases: ['mpsk-key']
                         type: list
                         elements: dict
                         description: Mpsk key.
@@ -106,6 +109,7 @@ options:
                                 type: str
                                 description: Comment.
                             concurrent_client_limit_type:
+                                aliases: ['concurrent-client-limit-type']
                                 type: str
                                 description: MPSK client limit type options.
                                 choices:
@@ -113,12 +117,14 @@ options:
                                     - 'unlimited'
                                     - 'specified'
                             concurrent_clients:
+                                aliases: ['concurrent-clients']
                                 type: int
                                 description: Number of clients that can connect using this pre-shared key
                             mac:
                                 type: str
                                 description: MAC address.
                             mpsk_schedules:
+                                aliases: ['mpsk-schedules']
                                 type: raw
                                 description: (list or str) Firewall schedule for MPSK passphrase.
                             name:
@@ -131,30 +137,36 @@ options:
                                 type: raw
                                 description: (list) WPA PMK.
                             key_type:
+                                aliases: ['key-type']
                                 type: str
                                 description: Select the type of the key.
                                 choices:
                                     - 'wpa2-personal'
                                     - 'wpa3-sae'
                             sae_password:
+                                aliases: ['sae-password']
                                 type: raw
                                 description: (list) WPA3 SAE password.
                             sae_pk:
+                                aliases: ['sae-pk']
                                 type: str
                                 description: Enable/disable WPA3 SAE-PK
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             sae_private_key:
+                                aliases: ['sae-private-key']
                                 type: str
                                 description: Private key used for WPA3 SAE-PK authentication.
                     name:
                         type: str
                         description: MPSK group name.
                     vlan_id:
+                        aliases: ['vlan-id']
                         type: int
                         description: Optional VLAN ID.
                     vlan_type:
+                        aliases: ['vlan-type']
                         type: str
                         description: MPSK group VLAN options.
                         choices:
@@ -168,15 +180,18 @@ options:
                 type: str
                 description: SSID of the VAP in which the MPSK profile is configured.
             mpsk_external_server:
+                aliases: ['mpsk-external-server']
                 type: raw
                 description: (list) RADIUS server to be used to authenticate MPSK users.
             mpsk_external_server_auth:
+                aliases: ['mpsk-external-server-auth']
                 type: str
                 description: Enable/Disable MPSK external server authentication
                 choices:
                     - 'disable'
                     - 'enable'
             mpsk_type:
+                aliases: ['mpsk-type']
                 type: str
                 description: Select the security type of keys for this profile.
                 choices:

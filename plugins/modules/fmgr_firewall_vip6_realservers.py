@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             client_ip:
+                aliases: ['client-ip']
                 type: str
                 description: Only clients in this IP range can connect to this real server.
             healthcheck:
@@ -104,9 +105,11 @@ options:
                     - 'enable'
                     - 'vip'
             holddown_interval:
+                aliases: ['holddown-interval']
                 type: int
                 description: Time in seconds that the health check monitor continues to monitor an unresponsive server that should be active.
             http_host:
+                aliases: ['http-host']
                 type: str
                 description: HTTP server domain name in HTTP header.
             id:
@@ -117,6 +120,7 @@ options:
                 type: str
                 description: IPv6 address of the real server.
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Max number of active connections that can directed to the real server.
             monitor:
@@ -136,6 +140,7 @@ options:
                 type: int
                 description: Weight of the real server.
             translate_host:
+                aliases: ['translate-host']
                 type: str
                 description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:

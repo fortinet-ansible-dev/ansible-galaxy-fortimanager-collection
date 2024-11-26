@@ -98,6 +98,7 @@ options:
         type: dict
         suboptions:
             dst_ip:
+                aliases: ['dst-ip']
                 type: str
                 description: Destination IP address and netmask.
             id:
@@ -105,6 +106,7 @@ options:
                 description: Exempt IP ID.
                 required: true
             src_ip:
+                aliases: ['src-ip']
                 type: str
                 description: Source IP address and netmask.
 '''

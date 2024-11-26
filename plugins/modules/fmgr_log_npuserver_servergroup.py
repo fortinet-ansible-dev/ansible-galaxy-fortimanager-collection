@@ -90,15 +90,18 @@ options:
         type: dict
         suboptions:
             group_name:
+                aliases: ['group-name']
                 type: str
                 description: Server group name.
             log_format:
+                aliases: ['log-format']
                 type: str
                 description: Set the log format
                 choices:
                     - 'syslog'
                     - 'netflow'
             log_mode:
+                aliases: ['log-mode']
                 type: str
                 description: Set the log mode
                 choices:
@@ -106,27 +109,33 @@ options:
                     - 'per-nat-mapping'
                     - 'per-session-ending'
             log_tx_mode:
+                aliases: ['log-tx-mode']
                 type: str
                 description: Configure log transmit mode.
                 choices:
                     - 'multicast'
                     - 'roundrobin'
             server_number:
+                aliases: ['server-number']
                 type: int
                 description: Server number in this group.
             server_start_id:
+                aliases: ['server-start-id']
                 type: int
                 description: The start id of the continuous server series in this group,[1,16].
             sw_log_flags:
+                aliases: ['sw-log-flags']
                 type: raw
                 description: (int or str) Set flags for software logging via driver.
             log_gen_event:
+                aliases: ['log-gen-event']
                 type: str
                 description: Enable/disbale generating event for Per-Mapping log
                 choices:
                     - 'disable'
                     - 'enable'
             log_user_info:
+                aliases: ['log-user-info']
                 type: str
                 description: Enable/disbale logging user information.
                 choices:

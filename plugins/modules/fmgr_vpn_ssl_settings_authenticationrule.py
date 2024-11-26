@@ -111,6 +111,7 @@ options:
                     - 'high'
                     - 'medium'
             client_cert:
+                aliases: ['client-cert']
                 type: str
                 description: Enable/disable SSL VPN client certificate restrictive.
                 choices:
@@ -130,27 +131,33 @@ options:
                 type: str
                 description: SSL VPN realm.
             source_address:
+                aliases: ['source-address']
                 type: raw
                 description: (list or str) Source address of incoming traffic.
             source_address_negate:
+                aliases: ['source-address-negate']
                 type: str
                 description: Enable/disable negated source address match.
                 choices:
                     - 'disable'
                     - 'enable'
             source_address6:
+                aliases: ['source-address6']
                 type: raw
                 description: (list or str) IPv6 source address of incoming traffic.
             source_address6_negate:
+                aliases: ['source-address6-negate']
                 type: str
                 description: Enable/disable negated source IPv6 address match.
                 choices:
                     - 'disable'
                     - 'enable'
             source_interface:
+                aliases: ['source-interface']
                 type: raw
                 description: (list or str) SSL VPN source interface of incoming traffic.
             user_peer:
+                aliases: ['user-peer']
                 type: str
                 description: Name of user peer.
             users:

@@ -107,6 +107,7 @@ options:
                 type: str
                 description: No description
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP address for communications to the RADIUS server.
             status:
@@ -119,6 +120,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:

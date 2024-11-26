@@ -105,6 +105,7 @@ options:
                         type: str
                         description: Vdom.
             arp_reply:
+                aliases: ['arp-reply']
                 type: str
                 description: Arp reply.
                 choices:
@@ -126,6 +127,7 @@ options:
                 type: int
                 description: Id.
             ldb_method:
+                aliases: ['ldb-method']
                 type: str
                 description: Ldb method.
                 choices:
@@ -157,6 +159,7 @@ options:
                     - 'tcp'
                     - 'udp'
             server_type:
+                aliases: ['server-type']
                 type: str
                 description: Server type.
                 choices:
@@ -165,6 +168,7 @@ options:
                     - 'udp'
                     - 'ip'
             src_filter:
+                aliases: ['src-filter']
                 type: raw
                 description: (list) Src filter.
             type:
@@ -177,6 +181,7 @@ options:
                 type: str
                 description: Uuid.
             srcintf_filter:
+                aliases: ['srcintf-filter']
                 type: raw
                 description: (list or str) Interfaces to which the VIP46 applies.
 '''

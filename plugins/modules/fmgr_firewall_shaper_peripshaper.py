@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             bandwidth_unit:
+                aliases: ['bandwidth-unit']
                 type: str
                 description: Unit of measurement for maximum bandwidth for this shaper
                 choices:
@@ -97,27 +98,33 @@ options:
                     - 'mbps'
                     - 'gbps'
             diffserv_forward:
+                aliases: ['diffserv-forward']
                 type: str
                 description: Enable/disable changing the Forward
                 choices:
                     - 'disable'
                     - 'enable'
             diffserv_reverse:
+                aliases: ['diffserv-reverse']
                 type: str
                 description: Enable/disable changing the Reverse
                 choices:
                     - 'disable'
                     - 'enable'
             diffservcode_forward:
+                aliases: ['diffservcode-forward']
                 type: str
                 description: Forward
             diffservcode_rev:
+                aliases: ['diffservcode-rev']
                 type: str
                 description: Reverse
             max_bandwidth:
+                aliases: ['max-bandwidth']
                 type: int
                 description: Upper bandwidth limit enforced by this shaper
             max_concurrent_session:
+                aliases: ['max-concurrent-session']
                 type: int
                 description: Maximum number of concurrent sessions allowed by this shaper
             name:
@@ -125,9 +132,11 @@ options:
                 description: Traffic shaper name.
                 required: true
             max_concurrent_tcp_session:
+                aliases: ['max-concurrent-tcp-session']
                 type: int
                 description: Maximum number of concurrent TCP sessions allowed by this shaper
             max_concurrent_udp_session:
+                aliases: ['max-concurrent-udp-session']
                 type: int
                 description: Maximum number of concurrent UDP sessions allowed by this shaper
 '''

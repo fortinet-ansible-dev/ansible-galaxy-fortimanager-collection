@@ -81,72 +81,90 @@ options:
         type: dict
         suboptions:
             antispam_cache:
+                aliases: ['antispam-cache']
                 type: str
                 description: Enable/disable FortiGuard antispam request caching.
                 choices:
                     - 'disable'
                     - 'enable'
             antispam_cache_mpercent:
+                aliases: ['antispam-cache-mpercent']
                 type: int
                 description: Maximum percent of FortiGate memory the antispam cache is allowed to use
             antispam_cache_ttl:
+                aliases: ['antispam-cache-ttl']
                 type: int
                 description: Time-to-live for antispam cache entries in seconds
             antispam_expiration:
+                aliases: ['antispam-expiration']
                 type: int
                 description: Antispam expiration.
             antispam_force_off:
+                aliases: ['antispam-force-off']
                 type: str
                 description: Enable/disable turning off the FortiGuard antispam service.
                 choices:
                     - 'disable'
                     - 'enable'
             antispam_license:
+                aliases: ['antispam-license']
                 type: int
                 description: Antispam license.
             antispam_timeout:
+                aliases: ['antispam-timeout']
                 type: int
                 description: Antispam query time out
             auto_join_forticloud:
+                aliases: ['auto-join-forticloud']
                 type: str
                 description: Automatically connect to and login to FortiCloud.
                 choices:
                     - 'disable'
                     - 'enable'
             ddns_server_ip:
+                aliases: ['ddns-server-ip']
                 type: str
                 description: IP address of the FortiDDNS server.
             ddns_server_port:
+                aliases: ['ddns-server-port']
                 type: int
                 description: Port used to communicate with FortiDDNS servers.
             load_balance_servers:
+                aliases: ['load-balance-servers']
                 type: int
                 description: Number of servers to alternate between as first FortiGuard option.
             outbreak_prevention_cache:
+                aliases: ['outbreak-prevention-cache']
                 type: str
                 description: Enable/disable FortiGuard Virus Outbreak Prevention cache.
                 choices:
                     - 'disable'
                     - 'enable'
             outbreak_prevention_cache_mpercent:
+                aliases: ['outbreak-prevention-cache-mpercent']
                 type: int
                 description: Maximum percent of memory FortiGuard Virus Outbreak Prevention cache can use
             outbreak_prevention_cache_ttl:
+                aliases: ['outbreak-prevention-cache-ttl']
                 type: int
                 description: Time-to-live for FortiGuard Virus Outbreak Prevention cache entries
             outbreak_prevention_expiration:
+                aliases: ['outbreak-prevention-expiration']
                 type: int
                 description: Outbreak prevention expiration.
             outbreak_prevention_force_off:
+                aliases: ['outbreak-prevention-force-off']
                 type: str
                 description: Turn off FortiGuard Virus Outbreak Prevention service.
                 choices:
                     - 'disable'
                     - 'enable'
             outbreak_prevention_license:
+                aliases: ['outbreak-prevention-license']
                 type: int
                 description: Outbreak prevention license.
             outbreak_prevention_timeout:
+                aliases: ['outbreak-prevention-timeout']
                 type: int
                 description: FortiGuard Virus Outbreak Prevention time out
             port:
@@ -158,21 +176,27 @@ options:
                     - '8888'
                     - '443'
             sdns_server_ip:
+                aliases: ['sdns-server-ip']
                 type: raw
                 description: (list) IP address of the FortiDNS server.
             sdns_server_port:
+                aliases: ['sdns-server-port']
                 type: int
                 description: Port used to communicate with FortiDNS servers.
             service_account_id:
+                aliases: ['service-account-id']
                 type: str
                 description: Service account ID.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IPv4 address used to communicate with FortiGuard.
             source_ip6:
+                aliases: ['source-ip6']
                 type: str
                 description: Source IPv6 address used to communicate with FortiGuard.
             update_server_location:
+                aliases: ['update-server-location']
                 type: str
                 description: Signature update server location.
                 choices:
@@ -181,27 +205,33 @@ options:
                     - 'automatic'
                     - 'eu'
             webfilter_cache:
+                aliases: ['webfilter-cache']
                 type: str
                 description: Enable/disable FortiGuard web filter caching.
                 choices:
                     - 'disable'
                     - 'enable'
             webfilter_cache_ttl:
+                aliases: ['webfilter-cache-ttl']
                 type: int
                 description: Time-to-live for web filter cache entries in seconds
             webfilter_expiration:
+                aliases: ['webfilter-expiration']
                 type: int
                 description: Webfilter expiration.
             webfilter_force_off:
+                aliases: ['webfilter-force-off']
                 type: str
                 description: Enable/disable turning off the FortiGuard web filtering service.
                 choices:
                     - 'disable'
                     - 'enable'
             webfilter_license:
+                aliases: ['webfilter-license']
                 type: int
                 description: Webfilter license.
             webfilter_timeout:
+                aliases: ['webfilter-timeout']
                 type: int
                 description: Web filter query time out
             protocol:
@@ -212,51 +242,64 @@ options:
                     - 'http'
                     - 'https'
             proxy_password:
+                aliases: ['proxy-password']
                 type: raw
                 description: (list) Proxy user password.
             proxy_server_ip:
+                aliases: ['proxy-server-ip']
                 type: str
                 description: IP address of the proxy server.
             proxy_server_port:
+                aliases: ['proxy-server-port']
                 type: int
                 description: Port used to communicate with the proxy server.
             proxy_username:
+                aliases: ['proxy-username']
                 type: str
                 description: Proxy user name.
             sandbox_region:
+                aliases: ['sandbox-region']
                 type: str
                 description: Cloud sandbox region.
             avquery_cache_ttl:
+                aliases: ['avquery-cache-ttl']
                 type: int
                 description: Time-to-live for antivirus cache entries
             avquery_timeout:
+                aliases: ['avquery-timeout']
                 type: int
                 description: Antivirus query time out
             avquery_cache:
+                aliases: ['avquery-cache']
                 type: str
                 description: Enable/disable the FortiGuard antivirus cache.
                 choices:
                     - 'disable'
                     - 'enable'
             avquery_cache_mpercent:
+                aliases: ['avquery-cache-mpercent']
                 type: int
                 description: Maximum percent of memory the antivirus cache can use
             avquery_license:
+                aliases: ['avquery-license']
                 type: int
                 description: Interval of time between license checks for the FortiGuard antivirus contract.
             avquery_force_off:
+                aliases: ['avquery-force-off']
                 type: str
                 description: Turn off the FortiGuard antivirus service.
                 choices:
                     - 'disable'
                     - 'enable'
             fortiguard_anycast:
+                aliases: ['fortiguard-anycast']
                 type: str
                 description: Enable/disable use of FortiGuards anycast network.
                 choices:
                     - 'disable'
                     - 'enable'
             fortiguard_anycast_source:
+                aliases: ['fortiguard-anycast-source']
                 type: str
                 description: Configure which of Fortinets servers to provide FortiGuard services in FortiGuards anycast network.
                 choices:
@@ -267,6 +310,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -274,66 +318,79 @@ options:
                     - 'sdwan'
                     - 'specify'
             sdns_options:
+                aliases: ['sdns-options']
                 type: list
                 elements: str
                 description: Customization options for the FortiGuard DNS service.
                 choices:
                     - 'include-question-section'
             anycast_sdns_server_ip:
+                aliases: ['anycast-sdns-server-ip']
                 type: str
                 description: IP address of the FortiGuard anycast DNS rating server.
             anycast_sdns_server_port:
+                aliases: ['anycast-sdns-server-port']
                 type: int
                 description: Port to connect to on the FortiGuard anycast DNS rating server.
             persistent_connection:
+                aliases: ['persistent-connection']
                 type: str
                 description: Enable/disable use of persistent connection to receive update notification from FortiGuard.
                 choices:
                     - 'disable'
                     - 'enable'
             update_build_proxy:
+                aliases: ['update-build-proxy']
                 type: str
                 description: Enable/disable proxy dictionary rebuild.
                 choices:
                     - 'disable'
                     - 'enable'
             update_extdb:
+                aliases: ['update-extdb']
                 type: str
                 description: Enable/disable external resource update.
                 choices:
                     - 'disable'
                     - 'enable'
             update_ffdb:
+                aliases: ['update-ffdb']
                 type: str
                 description: Enable/disable Internet Service Database update.
                 choices:
                     - 'disable'
                     - 'enable'
             update_uwdb:
+                aliases: ['update-uwdb']
                 type: str
                 description: Enable/disable allowlist update.
                 choices:
                     - 'disable'
                     - 'enable'
             videofilter_expiration:
+                aliases: ['videofilter-expiration']
                 type: int
                 description: Videofilter expiration.
             videofilter_license:
+                aliases: ['videofilter-license']
                 type: int
                 description: Videofilter license.
             ddns_server_ip6:
+                aliases: ['ddns-server-ip6']
                 type: str
                 description: IPv6 address of the FortiDDNS server.
             vdom:
                 type: str
                 description: FortiGuard Service virtual domain name.
             auto_firmware_upgrade:
+                aliases: ['auto-firmware-upgrade']
                 type: str
                 description: Enable/disable automatic patch-level firmware upgrade from FortiGuard.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_firmware_upgrade_day:
+                aliases: ['auto-firmware-upgrade-day']
                 type: list
                 elements: str
                 description: Allowed day
@@ -346,36 +403,45 @@ options:
                     - 'friday'
                     - 'saturday'
             auto_firmware_upgrade_end_hour:
+                aliases: ['auto-firmware-upgrade-end-hour']
                 type: int
                 description: End time in the designated time window for automatic patch-level firmware upgrade from FortiGuard in 24 hour time
             auto_firmware_upgrade_start_hour:
+                aliases: ['auto-firmware-upgrade-start-hour']
                 type: int
                 description: Start time in the designated time window for automatic patch-level firmware upgrade from FortiGuard in 24 hour time
             sandbox_inline_scan:
+                aliases: ['sandbox-inline-scan']
                 type: str
                 description: Enable/disable FortiCloud Sandbox inline-scan.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_firmware_upgrade_delay:
+                aliases: ['auto-firmware-upgrade-delay']
                 type: int
                 description: Delay of day
             gui_prompt_auto_upgrade:
+                aliases: ['gui-prompt-auto-upgrade']
                 type: str
                 description: Enable/disable prompting of automatic patch-level firmware upgrade recommendation.
                 choices:
                     - 'disable'
                     - 'enable'
             FDS_license_expiring_days:
+                aliases: ['FDS-license-expiring-days']
                 type: int
                 description: Threshold for number of days before FortiGuard license expiration to generate license expiring event log
             antispam_cache_mpermille:
+                aliases: ['antispam-cache-mpermille']
                 type: int
                 description: Maximum permille of FortiGate memory the antispam cache is allowed to use
             outbreak_prevention_cache_mpermille:
+                aliases: ['outbreak-prevention-cache-mpermille']
                 type: int
                 description: Maximum permille of memory FortiGuard Virus Outbreak Prevention cache can use
             update_dldb:
+                aliases: ['update-dldb']
                 type: str
                 description: Enable/disable DLP signature update.
                 choices:

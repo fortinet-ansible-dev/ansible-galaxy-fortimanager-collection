@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             group_attr_name:
+                aliases: ['group-attr-name']
                 type: str
                 description: Group attribute name in authentication query.
             interface:
@@ -97,6 +98,7 @@ options:
                 elements: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -111,12 +113,14 @@ options:
                 type: int
                 description: External identity provider service port number
             server_identity_check:
+                aliases: ['server-identity-check']
                 type: str
                 description: Enable/disable servers identity check against its certificate and subject alternative name
                 choices:
                     - 'disable'
                     - 'enable'
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Use this IPv4/v6 address to connect to the external identity provider.
             timeout:
@@ -131,6 +135,7 @@ options:
                 type: str
                 description: Url.
             user_attr_name:
+                aliases: ['user-attr-name']
                 type: str
                 description: User attribute name in authentication query.
             version:

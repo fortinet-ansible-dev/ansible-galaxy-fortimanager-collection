@@ -77,45 +77,59 @@ options:
         type: dict
         suboptions:
             check_status_timeout:
+                aliases: ['check-status-timeout']
                 type: int
                 description: Timeout for checking status after tunnnel is up.
             ctrl_check_status_timeout:
+                aliases: ['ctrl-check-status-timeout']
                 type: int
                 description: Timeout for checking fap/fsw/fext status after request upgrade.
             ctrl_put_image_by_fds_timeout:
+                aliases: ['ctrl-put-image-by-fds-timeout']
                 type: int
                 description: Timeout for waiting device get fap/fsw/fext image from fortiguard.
             ha_sync_timeout:
+                aliases: ['ha-sync-timeout']
                 type: int
                 description: Timeout for waiting HA sync.
             license_check_timeout:
+                aliases: ['license-check-timeout']
                 type: int
                 description: Timeout for waiting fortigate check license.
             prepare_image_timeout:
+                aliases: ['prepare-image-timeout']
                 type: int
                 description: Timeout for preparing image.
             put_image_by_fds_timeout:
+                aliases: ['put-image-by-fds-timeout']
                 type: int
                 description: Timeout for waiting device get image from fortiguard.
             put_image_timeout:
+                aliases: ['put-image-timeout']
                 type: int
                 description: Timeout for waiting send image over tunnel.
             reboot_of_fsck_timeout:
+                aliases: ['reboot-of-fsck-timeout']
                 type: int
                 description: Timeout for waiting fortigate reboot.
             reboot_of_upgrade_timeout:
+                aliases: ['reboot-of-upgrade-timeout']
                 type: int
                 description: Timeout for waiting fortigate reboot after image upgrade.
             retrieve_timeout:
+                aliases: ['retrieve-timeout']
                 type: int
                 description: Timeout for waiting retrieve.
             rpc_timeout:
+                aliases: ['rpc-timeout']
                 type: int
                 description: Timeout for waiting fortigate rpc response.
             total_timeout:
+                aliases: ['total-timeout']
                 type: int
                 description: Timeout for the whole fortigate upgrade
             health_check_timeout:
+                aliases: ['health-check-timeout']
                 type: int
                 description: Timeout for waiting retrieve.
 '''

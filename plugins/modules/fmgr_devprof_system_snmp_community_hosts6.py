@@ -98,12 +98,14 @@ options:
         type: dict
         suboptions:
             ha_direct:
+                aliases: ['ha-direct']
                 type: str
                 description: Enable/disable direct management of HA cluster members.
                 choices:
                     - 'disable'
                     - 'enable'
             host_type:
+                aliases: ['host-type']
                 type: str
                 description: Control whether the SNMP manager sends SNMP queries, receives SNMP traps, or both.
                 choices:
@@ -118,12 +120,14 @@ options:
                 type: str
                 description: SNMP manager IPv6 address prefix.
             source_ipv6:
+                aliases: ['source-ipv6']
                 type: str
                 description: Source IPv6 address for SNMP traps.
             interface:
                 type: raw
                 description: (list) Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:

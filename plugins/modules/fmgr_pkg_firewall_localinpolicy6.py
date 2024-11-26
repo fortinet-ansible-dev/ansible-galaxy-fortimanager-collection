@@ -131,48 +131,58 @@ options:
                 type: str
                 description: Universally Unique Identifier
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             virtual_patch:
+                aliases: ['virtual-patch']
                 type: str
                 description: Enable/disable the virtual patching feature.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_src:
+                aliases: ['internet-service6-src']
                 type: str
                 description: Enable/disable use of IPv6 Internet Services in source for this local-in policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_src_custom:
+                aliases: ['internet-service6-src-custom']
                 type: raw
                 description: (list) Custom IPv6 Internet Service source name.
             internet_service6_src_custom_group:
+                aliases: ['internet-service6-src-custom-group']
                 type: raw
                 description: (list) Custom Internet Service6 source group name.
             internet_service6_src_group:
+                aliases: ['internet-service6-src-group']
                 type: raw
                 description: (list) Internet Service6 source group name.
             internet_service6_src_name:
+                aliases: ['internet-service6-src-name']
                 type: raw
                 description: (list) IPv6 Internet Service source name.
             internet_service6_src_negate:
+                aliases: ['internet-service6-src-negate']
                 type: str
                 description: When enabled internet-service6-src specifies what the service must NOT be.
                 choices:

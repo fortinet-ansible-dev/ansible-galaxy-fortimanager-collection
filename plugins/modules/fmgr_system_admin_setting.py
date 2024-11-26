@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             access_banner:
+                aliases: ['access-banner']
                 type: str
                 description:
                     - Enable/disable access banner.
@@ -86,6 +87,7 @@ options:
                     - 'disable'
                     - 'enable'
             admin_https_redirect:
+                aliases: ['admin-https-redirect']
                 type: str
                 description:
                     - Enable/disable redirection of HTTP admin traffic to HTTPS.
@@ -95,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             admin_login_max:
+                aliases: ['admin-login-max']
                 type: int
                 description: Maximum number admin users logged in at one time
             admin_server_cert:
@@ -110,6 +113,7 @@ options:
                     - 'disable'
                     - 'enable'
             auto_update:
+                aliases: ['auto-update']
                 type: str
                 description:
                     - Enable/disable FortiGate automatic update.
@@ -119,9 +123,11 @@ options:
                     - 'disable'
                     - 'enable'
             banner_message:
+                aliases: ['banner-message']
                 type: str
                 description: Banner message.
             chassis_mgmt:
+                aliases: ['chassis-mgmt']
                 type: str
                 description:
                     - Enable or disable chassis management.
@@ -131,6 +137,7 @@ options:
                     - 'disable'
                     - 'enable'
             chassis_update_interval:
+                aliases: ['chassis-update-interval']
                 type: int
                 description: Chassis background update interval
             device_sync_status:
@@ -143,6 +150,7 @@ options:
                     - 'disable'
                     - 'enable'
             gui_theme:
+                aliases: ['gui-theme']
                 type: str
                 description:
                     - Color scheme to use for the administration GUI.
@@ -220,6 +228,7 @@ options:
                 type: int
                 description: Idle timeout
             install_ifpolicy_only:
+                aliases: ['install-ifpolicy-only']
                 type: str
                 description:
                     - Allow install interface policy only.
@@ -229,12 +238,15 @@ options:
                     - 'disable'
                     - 'enable'
             mgmt_addr:
+                aliases: ['mgmt-addr']
                 type: str
                 description: IP of FortiManager used by FGFM.
             mgmt_fqdn:
+                aliases: ['mgmt-fqdn']
                 type: str
                 description: FQDN of FortiManager used by FGFM.
             objects_force_deletion:
+                aliases: ['objects-force-deletion']
                 type: str
                 description:
                     - Enable/disable used objects force deletion.
@@ -256,6 +268,7 @@ options:
                 type: raw
                 description: (list) Password for register a device.
             sdwan_monitor_history:
+                aliases: ['sdwan-monitor-history']
                 type: str
                 description:
                     - Enable/disable hostname display in the GUI login page.
@@ -265,6 +278,7 @@ options:
                     - 'disable'
                     - 'enable'
             shell_access:
+                aliases: ['shell-access']
                 type: str
                 description:
                     - Enable/disable shell access.
@@ -274,9 +288,11 @@ options:
                     - 'disable'
                     - 'enable'
             shell_password:
+                aliases: ['shell-password']
                 type: raw
                 description: (list) Password for shell access.
             show_add_multiple:
+                aliases: ['show-add-multiple']
                 type: str
                 description:
                     - Show add multiple button.
@@ -286,6 +302,7 @@ options:
                     - 'disable'
                     - 'enable'
             show_adom_devman:
+                aliases: ['show-adom-devman']
                 type: str
                 description:
                     - Show ADOM device manager tools on GUI.
@@ -295,6 +312,7 @@ options:
                     - 'disable'
                     - 'enable'
             show_checkbox_in_table:
+                aliases: ['show-checkbox-in-table']
                 type: str
                 description:
                     - Show checkboxs in tables on GUI.
@@ -304,6 +322,7 @@ options:
                     - 'disable'
                     - 'enable'
             show_device_import_export:
+                aliases: ['show-device-import-export']
                 type: str
                 description:
                     - Enable/disable import/export of ADOM, device, and group lists.
@@ -313,6 +332,7 @@ options:
                     - 'disable'
                     - 'enable'
             show_hostname:
+                aliases: ['show-hostname']
                 type: str
                 description:
                     - Enable/disable hostname display in the GUI login page.
@@ -389,6 +409,7 @@ options:
                     - 'spanish'
                     - 'french'
             show_fct_manager:
+                aliases: ['show-fct-manager']
                 type: str
                 description:
                     - Enable/disable FCT manager.
@@ -398,6 +419,7 @@ options:
                     - 'disable'
                     - 'enable'
             sdwan_skip_unmapped_input_device:
+                aliases: ['sdwan-skip-unmapped-input-device']
                 type: str
                 description:
                     - Skip unmapped interface for sdwan/rule/input-device instead of report mapping error.
@@ -407,9 +429,11 @@ options:
                     - 'disable'
                     - 'enable'
             auth_addr:
+                aliases: ['auth-addr']
                 type: str
                 description: IP which is used by FGT to authorize FMG.
             auth_port:
+                aliases: ['auth-port']
                 type: int
                 description: Port which is used by FGT to authorize FMG.
             idle_timeout_api:
@@ -419,6 +443,7 @@ options:
                 type: int
                 description: Idle timeout for GUI sessions
             central_ftgd_local_cat_id:
+                aliases: ['central-ftgd-local-cat-id']
                 type: str
                 description:
                     - Central FortiGuard local category id management, and do not auto assign id during installation.
@@ -431,9 +456,11 @@ options:
                 type: int
                 description: Idle timeout for SSO sessions
             preferred_fgfm_intf:
+                aliases: ['preferred-fgfm-intf']
                 type: str
                 description: Preferred interface for FGFM connection.
             traffic_shaping_history:
+                aliases: ['traffic-shaping-history']
                 type: str
                 description:
                     - Enable/disable traffic-shaping-history.
@@ -443,6 +470,7 @@ options:
                     - 'disable'
                     - 'enable'
             fsw_ignore_platform_check:
+                aliases: ['fsw-ignore-platform-check']
                 type: str
                 description:
                     - Enable/disable FortiSwitch Manager switch platform support check.
@@ -452,12 +480,15 @@ options:
                     - 'disable'
                     - 'enable'
             rtm_max_monitor_by_days:
+                aliases: ['rtm-max-monitor-by-days']
                 type: int
                 description: Maximum rtm monitor
             rtm_temp_file_limit:
+                aliases: ['rtm-temp-file-limit']
                 type: int
                 description: Set rtm monitor temp file limit by hours.
             firmware_upgrade_check:
+                aliases: ['firmware-upgrade-check']
                 type: str
                 description:
                     - Enable/disable firmware upgrade check.
@@ -467,6 +498,7 @@ options:
                     - 'disable'
                     - 'enable'
             fgt_gui_proxy:
+                aliases: ['fgt-gui-proxy']
                 type: str
                 description:
                     - Enable/disable FortiGate GUI proxy.
@@ -476,6 +508,7 @@ options:
                     - 'disable'
                     - 'enable'
             fgt_gui_proxy_port:
+                aliases: ['fgt-gui-proxy-port']
                 type: int
                 description: FortiGate GUI proxy port.
 '''

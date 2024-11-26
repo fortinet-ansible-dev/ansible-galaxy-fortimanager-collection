@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             adom_lock:
+                aliases: ['adom-lock']
                 type: str
                 description:
                     - ADOM locking
@@ -97,6 +98,7 @@ options:
                     - 'read'
                     - 'read-write'
             adom_policy_packages:
+                aliases: ['adom-policy-packages']
                 type: str
                 description:
                     - ADOM policy packages.
@@ -108,6 +110,7 @@ options:
                     - 'read'
                     - 'read-write'
             adom_switch:
+                aliases: ['adom-switch']
                 type: str
                 description:
                     - Administrator domain.
@@ -119,6 +122,7 @@ options:
                     - 'read'
                     - 'read-write'
             app_filter:
+                aliases: ['app-filter']
                 type: str
                 description:
                     - App filter.
@@ -139,6 +143,7 @@ options:
                     - 'read'
                     - 'read-write'
             change_password:
+                aliases: ['change-password']
                 type: str
                 description:
                     - Enable/disable restricted user to change self password.
@@ -148,6 +153,7 @@ options:
                     - 'disable'
                     - 'enable'
             config_retrieve:
+                aliases: ['config-retrieve']
                 type: str
                 description:
                     - Configuration retrieve.
@@ -159,6 +165,7 @@ options:
                     - 'read'
                     - 'read-write'
             config_revert:
+                aliases: ['config-revert']
                 type: str
                 description:
                     - Revert Configuration from Revision History
@@ -170,6 +177,7 @@ options:
                     - 'read'
                     - 'read-write'
             consistency_check:
+                aliases: ['consistency-check']
                 type: str
                 description:
                     - Consistency check.
@@ -190,11 +198,13 @@ options:
                     - 'disable'
                     - 'enable'
             datamask_custom_fields:
+                aliases: ['datamask-custom-fields']
                 type: list
                 elements: dict
                 description: Datamask custom fields.
                 suboptions:
                     field_category:
+                        aliases: ['field-category']
                         type: list
                         elements: str
                         description:
@@ -211,9 +221,11 @@ options:
                             - 'ueba'
                             - 'all'
                     field_name:
+                        aliases: ['field-name']
                         type: str
                         description: Field name.
                     field_status:
+                        aliases: ['field-status']
                         type: str
                         description:
                             - Field status.
@@ -223,6 +235,7 @@ options:
                             - 'disable'
                             - 'enable'
                     field_type:
+                        aliases: ['field-type']
                         type: str
                         description:
                             - Field type.
@@ -238,6 +251,7 @@ options:
                             - 'email'
                             - 'unknown'
             datamask_custom_priority:
+                aliases: ['datamask-custom-priority']
                 type: str
                 description:
                     - Prioritize custom fields.
@@ -247,6 +261,7 @@ options:
                     - 'disable'
                     - 'enable'
             datamask_fields:
+                aliases: ['datamask-fields']
                 type: list
                 elements: str
                 description:
@@ -271,9 +286,11 @@ options:
                     - 'message'
                     - 'domain'
             datamask_key:
+                aliases: ['datamask-key']
                 type: raw
                 description: (list) Data masking encryption key.
             deploy_management:
+                aliases: ['deploy-management']
                 type: str
                 description:
                     - Install to devices.
@@ -288,6 +305,7 @@ options:
                 type: str
                 description: Description.
             device_ap:
+                aliases: ['device-ap']
                 type: str
                 description:
                     - Manage AP.
@@ -299,6 +317,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_config:
+                aliases: ['device-config']
                 type: str
                 description:
                     - Manage device configurations.
@@ -310,6 +329,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_forticlient:
+                aliases: ['device-forticlient']
                 type: str
                 description:
                     - Manage FortiClient.
@@ -321,6 +341,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_fortiswitch:
+                aliases: ['device-fortiswitch']
                 type: str
                 description:
                     - Manage FortiSwitch.
@@ -332,6 +353,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_manager:
+                aliases: ['device-manager']
                 type: str
                 description:
                     - Device manager.
@@ -343,6 +365,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_op:
+                aliases: ['device-op']
                 type: str
                 description:
                     - Device add/delete/edit.
@@ -354,6 +377,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_policy_package_lock:
+                aliases: ['device-policy-package-lock']
                 type: str
                 description:
                     - Device/Policy Package locking
@@ -365,6 +389,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_profile:
+                aliases: ['device-profile']
                 type: str
                 description:
                     - Device profile permission.
@@ -376,6 +401,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_revision_deletion:
+                aliases: ['device-revision-deletion']
                 type: str
                 description:
                     - Delete device revision.
@@ -387,6 +413,7 @@ options:
                     - 'read'
                     - 'read-write'
             device_wan_link_load_balance:
+                aliases: ['device-wan-link-load-balance']
                 type: str
                 description:
                     - Manage WAN link load balance.
@@ -398,6 +425,7 @@ options:
                     - 'read'
                     - 'read-write'
             event_management:
+                aliases: ['event-management']
                 type: str
                 description:
                     - Event management.
@@ -409,6 +437,7 @@ options:
                     - 'read'
                     - 'read-write'
             fgd_center_advanced:
+                aliases: ['fgd-center-advanced']
                 type: str
                 description:
                     - FortiGuard Center Advanced.
@@ -420,6 +449,7 @@ options:
                     - 'read'
                     - 'read-write'
             fgd_center_fmw_mgmt:
+                aliases: ['fgd-center-fmw-mgmt']
                 type: str
                 description:
                     - FortiGuard Center Firmware Management.
@@ -431,6 +461,7 @@ options:
                     - 'read'
                     - 'read-write'
             fgd_center_licensing:
+                aliases: ['fgd-center-licensing']
                 type: str
                 description:
                     - FortiGuard Center Licensing.
@@ -453,6 +484,7 @@ options:
                     - 'read'
                     - 'read-write'
             global_policy_packages:
+                aliases: ['global-policy-packages']
                 type: str
                 description:
                     - Global policy packages.
@@ -464,6 +496,7 @@ options:
                     - 'read'
                     - 'read-write'
             import_policy_packages:
+                aliases: ['import-policy-packages']
                 type: str
                 description:
                     - Import Policy Package.
@@ -475,6 +508,7 @@ options:
                     - 'read'
                     - 'read-write'
             intf_mapping:
+                aliases: ['intf-mapping']
                 type: str
                 description:
                     - Interface Mapping
@@ -486,6 +520,7 @@ options:
                     - 'read'
                     - 'read-write'
             ips_filter:
+                aliases: ['ips-filter']
                 type: str
                 description:
                     - IPS filter.
@@ -495,6 +530,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_viewer:
+                aliases: ['log-viewer']
                 type: str
                 description:
                     - Log viewer.
@@ -506,6 +542,7 @@ options:
                     - 'read'
                     - 'read-write'
             policy_objects:
+                aliases: ['policy-objects']
                 type: str
                 description:
                     - Policy objects permission.
@@ -521,6 +558,7 @@ options:
                 description: Profile ID.
                 required: true
             read_passwd:
+                aliases: ['read-passwd']
                 type: str
                 description:
                     - View password in clear text.
@@ -532,6 +570,7 @@ options:
                     - 'read'
                     - 'read-write'
             realtime_monitor:
+                aliases: ['realtime-monitor']
                 type: str
                 description:
                     - Realtime monitor.
@@ -543,6 +582,7 @@ options:
                     - 'read'
                     - 'read-write'
             report_viewer:
+                aliases: ['report-viewer']
                 type: str
                 description:
                     - Report viewer.
@@ -563,6 +603,7 @@ options:
                     - 'global'
                     - 'adom'
             set_install_targets:
+                aliases: ['set-install-targets']
                 type: str
                 description:
                     - Edit installation targets.
@@ -574,6 +615,7 @@ options:
                     - 'read'
                     - 'read-write'
             system_setting:
+                aliases: ['system-setting']
                 type: str
                 description:
                     - System setting.
@@ -585,6 +627,7 @@ options:
                     - 'read'
                     - 'read-write'
             term_access:
+                aliases: ['term-access']
                 type: str
                 description:
                     - Terminal access.
@@ -605,6 +648,7 @@ options:
                     - 'system'
                     - 'restricted'
             vpn_manager:
+                aliases: ['vpn-manager']
                 type: str
                 description:
                     - VPN manager.
@@ -616,6 +660,7 @@ options:
                     - 'read'
                     - 'read-write'
             web_filter:
+                aliases: ['web-filter']
                 type: str
                 description:
                     - Web filter.
@@ -625,9 +670,11 @@ options:
                     - 'disable'
                     - 'enable'
             datamask_unmasked_time:
+                aliases: ['datamask-unmasked-time']
                 type: int
                 description: Time in days without data masking.
             super_user_profile:
+                aliases: ['super-user-profile']
                 type: str
                 description:
                     - Enable/disable super user profile
@@ -637,6 +684,7 @@ options:
                     - 'disable'
                     - 'enable'
             allow_to_install:
+                aliases: ['allow-to-install']
                 type: str
                 description:
                     - Enable/disable the restricted user to install objects to the devices.
@@ -646,6 +694,7 @@ options:
                     - 'disable'
                     - 'enable'
             extension_access:
+                aliases: ['extension-access']
                 type: str
                 description:
                     - Manage extension access.
@@ -657,6 +706,7 @@ options:
                     - 'read'
                     - 'read-write'
             fabric_viewer:
+                aliases: ['fabric-viewer']
                 type: str
                 description:
                     - Fabric viewer.
@@ -668,6 +718,7 @@ options:
                     - 'read'
                     - 'read-write'
             run_report:
+                aliases: ['run-report']
                 type: str
                 description:
                     - Run reports.
@@ -679,6 +730,7 @@ options:
                     - 'read'
                     - 'read-write'
             script_access:
+                aliases: ['script-access']
                 type: str
                 description:
                     - Script access.
@@ -690,6 +742,7 @@ options:
                     - 'read'
                     - 'read-write'
             triage_events:
+                aliases: ['triage-events']
                 type: str
                 description:
                     - Triage events.
@@ -701,6 +754,7 @@ options:
                     - 'read'
                     - 'read-write'
             update_incidents:
+                aliases: ['update-incidents']
                 type: str
                 description:
                     - Create/update incidents.
@@ -712,6 +766,7 @@ options:
                     - 'read'
                     - 'read-write'
             ips_objects:
+                aliases: ['ips-objects']
                 type: str
                 description:
                     - Ips objects configuration.
@@ -753,6 +808,7 @@ options:
                 type: str
                 description: Admin user trusted host IPv6, default ffff
             rpc_permit:
+                aliases: ['rpc-permit']
                 type: str
                 description:
                     - Set none/read/read-write rpc-permission
@@ -794,6 +850,7 @@ options:
                 type: str
                 description: Admin user trusted host IP, default 255.
             ips_baseline_cfg:
+                aliases: ['ips-baseline-cfg']
                 type: str
                 description:
                     - Ips baseline sensor configration.
@@ -805,6 +862,7 @@ options:
                     - 'read'
                     - 'read-write'
             ips_baseline_ovrd:
+                aliases: ['ips-baseline-ovrd']
                 type: str
                 description:
                     - Enable/disable override baseline ips sensor.
@@ -814,6 +872,7 @@ options:
                     - 'disable'
                     - 'enable'
             device_fortiextender:
+                aliases: ['device-fortiextender']
                 type: str
                 description:
                     - Manage FortiExtender.
@@ -825,6 +884,7 @@ options:
                     - 'read'
                     - 'read-write'
             ips_lock:
+                aliases: ['ips-lock']
                 type: str
                 description:
                     - IPS locking
@@ -836,6 +896,7 @@ options:
                     - 'read'
                     - 'read-write'
             fgt_gui_proxy:
+                aliases: ['fgt-gui-proxy']
                 type: str
                 description:
                     - FortiGate GUI proxy.
@@ -845,6 +906,7 @@ options:
                     - 'disable'
                     - 'enable'
             policy_ips_attrs:
+                aliases: ['policy-ips-attrs']
                 type: str
                 description:
                     - Policy ips attributes configuration.
@@ -856,6 +918,7 @@ options:
                     - 'read'
                     - 'read-write'
             write_passwd_access:
+                aliases: ['write-passwd-access']
                 type: str
                 description:
                     - set all/specify-by-user/specify-by-profile write password access mode.
@@ -867,6 +930,7 @@ options:
                     - 'specify-by-user'
                     - 'specify-by-profile'
             write_passwd_profiles:
+                aliases: ['write-passwd-profiles']
                 type: list
                 elements: dict
                 description: Write passwd profiles.
@@ -875,6 +939,7 @@ options:
                         type: str
                         description: Profile ID.
             write_passwd_user_list:
+                aliases: ['write-passwd-user-list']
                 type: list
                 elements: dict
                 description: Write passwd user list.
@@ -883,6 +948,7 @@ options:
                         type: str
                         description: User ID.
             adom_admin:
+                aliases: ['adom-admin']
                 type: str
                 description:
                     - Enable Adom Admin.

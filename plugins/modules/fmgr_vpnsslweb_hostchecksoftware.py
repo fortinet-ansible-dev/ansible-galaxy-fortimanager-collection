@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             check_item_list:
+                aliases: ['check-item-list']
                 type: list
                 elements: dict
                 description: Check item list.
@@ -127,6 +128,7 @@ options:
                 description: Name.
                 required: true
             os_type:
+                aliases: ['os-type']
                 type: str
                 description: OS type.
                 choices:

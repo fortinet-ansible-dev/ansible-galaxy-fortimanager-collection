@@ -112,6 +112,7 @@ options:
                 type: str
                 description: Message string.
             msg_type:
+                aliases: ['msg-type']
                 type: str
                 description: Message type.
 '''

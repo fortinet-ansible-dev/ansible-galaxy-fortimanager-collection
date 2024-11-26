@@ -88,6 +88,7 @@ options:
                 type: str
                 description: Certificate used to communicate with Syslog server.
             enc_algorithm:
+                aliases: ['enc-algorithm']
                 type: str
                 description: Enable/disable reliable syslogging with TLS encryption.
                 choices:
@@ -137,6 +138,7 @@ options:
                 type: str
                 description: Address of remote syslog server.
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for SSL/TLS connections
                 choices:
@@ -165,6 +167,7 @@ options:
                     - 'disable'
                     - 'enable'
             max_log_rate:
+                aliases: ['max-log-rate']
                 type: int
                 description: Syslog maximum log rate in MBps
             priority:
@@ -177,6 +180,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -193,9 +197,11 @@ options:
                     - 'rfc5424'
                     - 'json'
             syslog_type:
+                aliases: ['syslog-type']
                 type: int
                 description: Syslog type.
             custom_field_name:
+                aliases: ['custom-field-name']
                 type: list
                 elements: dict
                 description: Custom field name.
@@ -210,9 +216,11 @@ options:
                         type: str
                         description: Field name.
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP address of syslog.
             source_ip_interface:
+                aliases: ['source-ip-interface']
                 type: raw
                 description: (list) Source interface of syslog.
 '''

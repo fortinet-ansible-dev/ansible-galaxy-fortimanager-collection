@@ -106,6 +106,7 @@ options:
                 description: Route name.
                 required: true
             next_hop:
+                aliases: ['next-hop']
                 type: str
                 description: Next hop address.
 '''

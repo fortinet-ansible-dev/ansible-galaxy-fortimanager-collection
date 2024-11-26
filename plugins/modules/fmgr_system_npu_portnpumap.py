@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Set npu interface port to NPU group map.
             npu_group_index:
+                aliases: ['npu-group-index']
                 type: int
                 description: Mapping NPU group index.
 '''

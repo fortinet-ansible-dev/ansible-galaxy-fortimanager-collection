@@ -85,30 +85,35 @@ options:
         type: dict
         suboptions:
             apn_restriction:
+                aliases: ['apn-restriction']
                 type: str
                 description: Validate APN restriction.
                 choices:
                     - 'disable'
                     - 'enable'
             charging_ID:
+                aliases: ['charging-ID']
                 type: str
                 description: Validate charging ID.
                 choices:
                     - 'disable'
                     - 'enable'
             charging_gateway_addr:
+                aliases: ['charging-gateway-addr']
                 type: str
                 description: Validate charging gateway address.
                 choices:
                     - 'disable'
                     - 'enable'
             end_user_addr:
+                aliases: ['end-user-addr']
                 type: str
                 description: Validate end user address.
                 choices:
                     - 'disable'
                     - 'enable'
             gsn_addr:
+                aliases: ['gsn-addr']
                 type: str
                 description: Validate GSN address.
                 choices:
@@ -127,18 +132,21 @@ options:
                     - 'disable'
                     - 'enable'
             mm_context:
+                aliases: ['mm-context']
                 type: str
                 description: Validate MM context.
                 choices:
                     - 'disable'
                     - 'enable'
             ms_tzone:
+                aliases: ['ms-tzone']
                 type: str
                 description: Validate MS time zone.
                 choices:
                     - 'disable'
                     - 'enable'
             ms_validated:
+                aliases: ['ms-validated']
                 type: str
                 description: Validate MS validated.
                 choices:
@@ -157,12 +165,14 @@ options:
                     - 'disable'
                     - 'enable'
             pdp_context:
+                aliases: ['pdp-context']
                 type: str
                 description: Validate PDP context.
                 choices:
                     - 'disable'
                     - 'enable'
             qos_profile:
+                aliases: ['qos-profile']
                 type: str
                 description: Validate Quality of Service
                 choices:
@@ -175,18 +185,21 @@ options:
                     - 'disable'
                     - 'enable'
             rat_type:
+                aliases: ['rat-type']
                 type: str
                 description: Validate RAT type.
                 choices:
                     - 'disable'
                     - 'enable'
             reordering_required:
+                aliases: ['reordering-required']
                 type: str
                 description: Validate re-ordering required.
                 choices:
                     - 'disable'
                     - 'enable'
             selection_mode:
+                aliases: ['selection-mode']
                 type: str
                 description: Validate selection mode.
                 choices:

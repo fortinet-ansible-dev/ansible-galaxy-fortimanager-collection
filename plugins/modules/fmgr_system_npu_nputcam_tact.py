@@ -90,24 +90,29 @@ options:
                 type: int
                 description: Tcam tact act.
             act_v:
+                aliases: ['act-v']
                 type: str
                 description: Enable to set tact act.
                 choices:
                     - 'disable'
                     - 'enable'
             fmtuv4_s:
+                aliases: ['fmtuv4-s']
                 type: int
                 description: Tcam tact fmtuv4-s.
             fmtuv4_s_v:
+                aliases: ['fmtuv4-s-v']
                 type: str
                 description: Enable to set tact fmtuv4-s.
                 choices:
                     - 'disable'
                     - 'enable'
             fmtuv6_s:
+                aliases: ['fmtuv6-s']
                 type: int
                 description: Tcam tact fmtuv6-s.
             fmtuv6_s_v:
+                aliases: ['fmtuv6-s-v']
                 type: str
                 description: Enable to set tact fmtuv6-s.
                 choices:
@@ -117,24 +122,29 @@ options:
                 type: int
                 description: Tcam tact lnkid.
             lnkid_v:
+                aliases: ['lnkid-v']
                 type: str
                 description: Enable to set tact lnkid.
                 choices:
                     - 'disable'
                     - 'enable'
             mac_id:
+                aliases: ['mac-id']
                 type: int
                 description: Tcam tact mac-id.
             mac_id_v:
+                aliases: ['mac-id-v']
                 type: str
                 description: Enable to set tact mac-id.
                 choices:
                     - 'disable'
                     - 'enable'
             mss_t:
+                aliases: ['mss-t']
                 type: int
                 description: Tcam tact mss.
             mss_t_v:
+                aliases: ['mss-t-v']
                 type: str
                 description: Enable to set tact mss.
                 choices:
@@ -144,6 +154,7 @@ options:
                 type: int
                 description: Tcam tact mtuv4.
             mtuv4_v:
+                aliases: ['mtuv4-v']
                 type: str
                 description: Enable to set tact mtuv4.
                 choices:
@@ -153,15 +164,18 @@ options:
                 type: int
                 description: Tcam tact mtuv6.
             mtuv6_v:
+                aliases: ['mtuv6-v']
                 type: str
                 description: Enable to set tact mtuv6.
                 choices:
                     - 'disable'
                     - 'enable'
             slif_act:
+                aliases: ['slif-act']
                 type: int
                 description: Tcam tact slif-act.
             slif_act_v:
+                aliases: ['slif-act-v']
                 type: str
                 description: Enable to set tact slif-act.
                 choices:
@@ -171,24 +185,29 @@ options:
                 type: int
                 description: Tcam tact sublnkid.
             sublnkid_v:
+                aliases: ['sublnkid-v']
                 type: str
                 description: Enable to set tact sublnkid.
                 choices:
                     - 'disable'
                     - 'enable'
             tgtv_act:
+                aliases: ['tgtv-act']
                 type: int
                 description: Tcam tact tgtv-act.
             tgtv_act_v:
+                aliases: ['tgtv-act-v']
                 type: str
                 description: Enable to set tact tgtv-act.
                 choices:
                     - 'disable'
                     - 'enable'
             tlif_act:
+                aliases: ['tlif-act']
                 type: int
                 description: Tcam tact tlif-act.
             tlif_act_v:
+                aliases: ['tlif-act-v']
                 type: str
                 description: Enable to set tact tlif-act.
                 choices:
@@ -198,6 +217,7 @@ options:
                 type: int
                 description: Tcam tact tpeid.
             tpeid_v:
+                aliases: ['tpeid-v']
                 type: str
                 description: Enable to set tact tpeid.
                 choices:
@@ -207,21 +227,25 @@ options:
                 type: int
                 description: Tcam tact v6fe.
             v6fe_v:
+                aliases: ['v6fe-v']
                 type: str
                 description: Enable to set tact v6fe.
                 choices:
                     - 'disable'
                     - 'enable'
             vep_en_v:
+                aliases: ['vep-en-v']
                 type: str
                 description: Enable to set tact vep-en.
                 choices:
                     - 'disable'
                     - 'enable'
             vep_slid:
+                aliases: ['vep-slid']
                 type: int
                 description: Tcam tact vep_slid.
             vep_slid_v:
+                aliases: ['vep-slid-v']
                 type: str
                 description: Enable to set tact vep-slid.
                 choices:
@@ -231,18 +255,22 @@ options:
                 type: int
                 description: Tcam tact vep_en.
             xlt_lif:
+                aliases: ['xlt-lif']
                 type: int
                 description: Tcam tact xlt-lif.
             xlt_lif_v:
+                aliases: ['xlt-lif-v']
                 type: str
                 description: Enable to set tact xlt-lif.
                 choices:
                     - 'disable'
                     - 'enable'
             xlt_vid:
+                aliases: ['xlt-vid']
                 type: int
                 description: Tcam tact xlt-vid.
             xlt_vid_v:
+                aliases: ['xlt-vid-v']
                 type: str
                 description: Enable to set tact xlt-vid.
                 choices:

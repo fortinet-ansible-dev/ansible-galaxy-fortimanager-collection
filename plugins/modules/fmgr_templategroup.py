@@ -97,6 +97,7 @@ options:
                 elements: str
                 description: Member.
             modification_time:
+                aliases: ['modification-time']
                 type: str
                 description: Modification time.
             name:

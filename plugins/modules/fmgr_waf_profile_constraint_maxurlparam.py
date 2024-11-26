@@ -97,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             max_url_param:
+                aliases: ['max-url-param']
                 type: int
                 description: Maximum number of parameters in URL
             severity:

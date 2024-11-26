@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             profile_id:
+                aliases: ['profile-id']
                 type: int
                 description: NSX service profile ID.
 '''

@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             background_rebuild:
+                aliases: ['background-rebuild']
                 type: str
                 description:
                     - Disable/Enable rebuild SQL database in the background.
@@ -86,11 +87,13 @@ options:
                     - 'disable'
                     - 'enable'
             custom_index:
+                aliases: ['custom-index']
                 type: list
                 elements: dict
                 description: Custom index.
                 suboptions:
                     case_sensitive:
+                        aliases: ['case-sensitive']
                         type: str
                         description:
                             - Disable/Enable case sensitive index.
@@ -100,6 +103,7 @@ options:
                             - 'disable'
                             - 'enable'
                     device_type:
+                        aliases: ['device-type']
                         type: str
                         description:
                             - Device type.
@@ -128,9 +132,11 @@ options:
                         type: int
                         description: Add or Edit log index fields.
                     index_field:
+                        aliases: ['index-field']
                         type: str
                         description: Log field name to be indexed.
                     log_type:
+                        aliases: ['log-type']
                         type: str
                         description:
                             - Log type.
@@ -186,9 +192,11 @@ options:
                             - 'ztna'
                             - 'security'
             database_name:
+                aliases: ['database-name']
                 type: str
                 description: Database name.
             database_type:
+                aliases: ['database-type']
                 type: str
                 description:
                     - Database type.
@@ -198,6 +206,7 @@ options:
                     - 'mysql'
                     - 'postgres'
             device_count_high:
+                aliases: ['device-count-high']
                 type: str
                 description:
                     - Must set to enable if the count of registered devices is greater than 8000.
@@ -207,9 +216,11 @@ options:
                     - 'disable'
                     - 'enable'
             event_table_partition_time:
+                aliases: ['event-table-partition-time']
                 type: int
                 description: Maximum SQL database table partitioning time range in minute
             fct_table_partition_time:
+                aliases: ['fct-table-partition-time']
                 type: int
                 description: Maximum SQL database table partitioning time range in minute
             logtype:
@@ -272,6 +283,7 @@ options:
                 type: raw
                 description: (list) Password for login remote database.
             prompt_sql_upgrade:
+                aliases: ['prompt-sql-upgrade']
                 type: str
                 description:
                     - Prompt to convert log database into SQL database at start time on GUI.
@@ -281,6 +293,7 @@ options:
                     - 'disable'
                     - 'enable'
             rebuild_event:
+                aliases: ['rebuild-event']
                 type: str
                 description:
                     - Disable/Enable rebuild event during SQL database rebuilding.
@@ -290,12 +303,14 @@ options:
                     - 'disable'
                     - 'enable'
             rebuild_event_start_time:
+                aliases: ['rebuild-event-start-time']
                 type: raw
                 description: (list) Rebuild event starting date and time
             server:
                 type: str
                 description: Database IP or hostname.
             start_time:
+                aliases: ['start-time']
                 type: raw
                 description: (list) Start date and time
             status:
@@ -308,6 +323,7 @@ options:
                     - 'disable'
                     - 'local'
             text_search_index:
+                aliases: ['text-search-index']
                 type: str
                 description:
                     - Disable/Enable text search index.
@@ -317,9 +333,11 @@ options:
                     - 'disable'
                     - 'enable'
             traffic_table_partition_time:
+                aliases: ['traffic-table-partition-time']
                 type: int
                 description: Maximum SQL database table partitioning time range in minute
             ts_index_field:
+                aliases: ['ts-index-field']
                 type: list
                 elements: dict
                 description: Ts index field.
@@ -334,14 +352,17 @@ options:
                 type: str
                 description: User name for login remote database.
             utm_table_partition_time:
+                aliases: ['utm-table-partition-time']
                 type: int
                 description: Maximum SQL database table partitioning time range in minute
             custom_skipidx:
+                aliases: ['custom-skipidx']
                 type: list
                 elements: dict
                 description: Custom skipidx.
                 suboptions:
                     device_type:
+                        aliases: ['device-type']
                         type: str
                         description:
                             - Device type.
@@ -364,9 +385,11 @@ options:
                         type: int
                         description: Add or Edit log index fields.
                     index_field:
+                        aliases: ['index-field']
                         type: str
                         description: Field to be added to skip index.
                     log_type:
+                        aliases: ['log-type']
                         type: str
                         description:
                             - Log type.
@@ -422,6 +445,7 @@ options:
                             - 'ztna'
                             - 'security'
             compress_table_min_age:
+                aliases: ['compress-table-min-age']
                 type: int
                 description: Minimum age in days for SQL tables to be compressed.
 '''

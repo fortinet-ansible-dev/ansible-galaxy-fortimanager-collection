@@ -81,15 +81,18 @@ options:
         type: dict
         suboptions:
             spam_submit_force:
+                aliases: ['spam-submit-force']
                 type: str
                 description: Enable/disable force insertion of a new mime entity for the submission text.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_submit_srv:
+                aliases: ['spam-submit-srv']
                 type: str
                 description: Hostname of the spam submission server.
             spam_submit_txt2htm:
+                aliases: ['spam-submit-txt2htm']
                 type: str
                 description: Enable/disable conversion of text email to HTML email.
                 choices:

@@ -91,24 +91,30 @@ options:
                     - 'disable'
                     - 'enable'
             bword_table:
+                aliases: ['bword-table']
                 type: str
                 description: Banned word table ID.
             bword_threshold:
+                aliases: ['bword-threshold']
                 type: int
                 description: Banned word score threshold.
             content_header_list:
+                aliases: ['content-header-list']
                 type: str
                 description: Content header list.
             keyword_match:
+                aliases: ['keyword-match']
                 type: raw
                 description: (list) Search keywords to log when match is found.
             log_search:
+                aliases: ['log-search']
                 type: str
                 description: Enable/disable logging all search phrases.
                 choices:
                     - 'disable'
                     - 'enable'
             safe_search:
+                aliases: ['safe-search']
                 type: list
                 elements: str
                 description: Safe search type.
@@ -119,6 +125,7 @@ options:
                     - 'url'
                     - 'header'
             urlfilter_table:
+                aliases: ['urlfilter-table']
                 type: str
                 description: URL filter table ID.
             whitelist:
@@ -133,6 +140,7 @@ options:
                     - 'exempt-rangeblock'
                     - 'extended-log-others'
             youtube_restrict:
+                aliases: ['youtube-restrict']
                 type: str
                 description: YouTube EDU filter level.
                 choices:
@@ -157,6 +165,7 @@ options:
                     - 'disable'
                     - 'enable'
             vimeo_restrict:
+                aliases: ['vimeo-restrict']
                 type: str
                 description: Set Vimeo-restrict
 '''

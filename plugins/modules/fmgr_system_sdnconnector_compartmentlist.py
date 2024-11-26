@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             compartment_id:
+                aliases: ['compartment-id']
                 type: str
                 description: OCI compartment ID.
 '''

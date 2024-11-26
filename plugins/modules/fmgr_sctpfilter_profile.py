@@ -97,6 +97,7 @@ options:
                 description: Profile name.
                 required: true
             ppid_filters:
+                aliases: ['ppid-filters']
                 type: list
                 elements: dict
                 description: Ppid filters.

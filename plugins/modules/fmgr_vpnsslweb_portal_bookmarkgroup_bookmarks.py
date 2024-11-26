@@ -100,6 +100,7 @@ options:
         type: dict
         suboptions:
             additional_params:
+                aliases: ['additional-params']
                 type: str
                 description: Additional parameters.
             apptype:
@@ -124,6 +125,7 @@ options:
                 type: str
                 description: Network shared file folder parameter.
             form_data:
+                aliases: ['form-data']
                 type: list
                 elements: dict
                 description: Form data.
@@ -138,15 +140,19 @@ options:
                 type: str
                 description: Host name/IP parameter.
             listening_port:
+                aliases: ['listening-port']
                 type: int
                 description: Listening port
             load_balancing_info:
+                aliases: ['load-balancing-info']
                 type: str
                 description: The load balancing information or cookie which should be provided to the connection broker.
             logon_password:
+                aliases: ['logon-password']
                 type: raw
                 description: (list) Logon password.
             logon_user:
+                aliases: ['logon-user']
                 type: str
                 description: Logon user.
             name:
@@ -157,12 +163,15 @@ options:
                 type: int
                 description: Remote port.
             preconnection_blob:
+                aliases: ['preconnection-blob']
                 type: str
                 description: An arbitrary string which identifies the RDP source.
             preconnection_id:
+                aliases: ['preconnection-id']
                 type: int
                 description: The numeric ID of the RDP source
             remote_port:
+                aliases: ['remote-port']
                 type: int
                 description: Remote port
             security:
@@ -174,6 +183,7 @@ options:
                     - 'tls'
                     - 'any'
             server_layout:
+                aliases: ['server-layout']
                 type: str
                 description: Server side keyboard layout.
                 choices:
@@ -191,6 +201,7 @@ options:
                     - 'tr-tr-qwerty'
                     - 'fr-ca-qwerty'
             show_status_window:
+                aliases: ['show-status-window']
                 type: str
                 description: Enable/disable showing of status window.
                 choices:
@@ -204,21 +215,25 @@ options:
                     - 'static'
                     - 'auto'
             sso_credential:
+                aliases: ['sso-credential']
                 type: str
                 description: Single sign-on credentials.
                 choices:
                     - 'sslvpn-login'
                     - 'alternative'
             sso_credential_sent_once:
+                aliases: ['sso-credential-sent-once']
                 type: str
                 description: Single sign-on credentials are only sent once to remote server.
                 choices:
                     - 'disable'
                     - 'enable'
             sso_password:
+                aliases: ['sso-password']
                 type: raw
                 description: (list) SSO password.
             sso_username:
+                aliases: ['sso-username']
                 type: str
                 description: SSO user name.
             url:
@@ -228,6 +243,7 @@ options:
                 type: str
                 description: Login domain.
             color_depth:
+                aliases: ['color-depth']
                 type: str
                 description: Color depth per pixel.
                 choices:
@@ -238,6 +254,7 @@ options:
                 type: int
                 description: Screen height
             keyboard_layout:
+                aliases: ['keyboard-layout']
                 type: str
                 description: Keyboard layout.
                 choices:
@@ -312,12 +329,14 @@ options:
                     - 'la-am'
                     - 'ja-106'
             restricted_admin:
+                aliases: ['restricted-admin']
                 type: str
                 description: Enable/disable restricted admin mode for RDP.
                 choices:
                     - 'disable'
                     - 'enable'
             send_preconnection_id:
+                aliases: ['send-preconnection-id']
                 type: str
                 description: Enable/disable sending of preconnection ID.
                 choices:
@@ -327,6 +346,7 @@ options:
                 type: int
                 description: Screen width
             vnc_keyboard_layout:
+                aliases: ['vnc-keyboard-layout']
                 type: str
                 description: Keyboard layout.
                 choices:

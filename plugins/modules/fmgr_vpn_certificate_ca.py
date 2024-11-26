@@ -93,15 +93,18 @@ options:
                 type: str
                 description: Private key.
             auto_update_days:
+                aliases: ['auto-update-days']
                 type: int
                 description: Number of days to wait before requesting an updated CA certificate
             auto_update_days_warning:
+                aliases: ['auto-update-days-warning']
                 type: int
                 description: Number of days before an expiry-warning message is generated
             ca:
                 type: str
                 description: CA certificate as a PEM file.
             last_updated:
+                aliases: ['last-updated']
                 type: int
                 description: Time at which CA was last updated.
             name:
@@ -115,6 +118,7 @@ options:
                     - 'global'
                     - 'vdom'
             scep_url:
+                aliases: ['scep-url']
                 type: str
                 description: URL of the SCEP server.
             source:
@@ -126,6 +130,7 @@ options:
                     - 'bundle'
                     - 'fortiguard'
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP address for communications to the SCEP server.
             trusted:
@@ -135,12 +140,14 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_inspection_trusted:
+                aliases: ['ssl-inspection-trusted']
                 type: str
                 description: Enable/disable this CA as a trusted CA for SSL inspection.
                 choices:
                     - 'disable'
                     - 'enable'
             ca_identifier:
+                aliases: ['ca-identifier']
                 type: str
                 description: CA identifier of the SCEP server.
             obsolete:
@@ -150,15 +157,18 @@ options:
                     - 'disable'
                     - 'enable'
             est_url:
+                aliases: ['est-url']
                 type: str
                 description: URL of the EST server.
             fabric_ca:
+                aliases: ['fabric-ca']
                 type: str
                 description: Enable/disable synchronization of CA across Security Fabric.
                 choices:
                     - 'disable'
                     - 'enable'
             non_fabric_name:
+                aliases: ['non-fabric-name']
                 type: str
                 description: Name used prior to becoming a Security Fabric synchronized CA.
 '''

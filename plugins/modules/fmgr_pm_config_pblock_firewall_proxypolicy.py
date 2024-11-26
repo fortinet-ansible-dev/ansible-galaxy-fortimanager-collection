@@ -97,10 +97,12 @@ options:
                 type: int
                 description: Assigned policy block.
             access_proxy:
+                aliases: ['access-proxy']
                 type: list
                 elements: str
                 description: IPv4 access proxy.
             access_proxy6:
+                aliases: ['access-proxy6']
                 type: list
                 elements: str
                 description: IPv6 access proxy.
@@ -112,20 +114,24 @@ options:
                     - 'deny'
                     - 'redirect'
             application_list:
+                aliases: ['application-list']
                 type: list
                 elements: str
                 description: Name of an existing Application list.
             av_profile:
+                aliases: ['av-profile']
                 type: list
                 elements: str
                 description: Name of an existing Antivirus profile.
             block_notification:
+                aliases: ['block-notification']
                 type: str
                 description: Enable/disable block notification.
                 choices:
                     - 'disable'
                     - 'enable'
             casb_profile:
+                aliases: ['casb-profile']
                 type: list
                 elements: str
                 description: Name of an existing CASB profile.
@@ -133,16 +139,19 @@ options:
                 type: str
                 description: Optional comments.
             decrypted_traffic_mirror:
+                aliases: ['decrypted-traffic-mirror']
                 type: list
                 elements: str
                 description: Decrypted traffic mirror.
             detect_https_in_http_request:
+                aliases: ['detect-https-in-http-request']
                 type: str
                 description: Enable/disable detection of HTTPS in HTTP request.
                 choices:
                     - 'disable'
                     - 'enable'
             device_ownership:
+                aliases: ['device-ownership']
                 type: str
                 description: When enabled, the ownership enforcement will be done at policy level.
                 choices:
@@ -157,10 +166,12 @@ options:
                     - 'policy'
                     - 'user'
             dlp_profile:
+                aliases: ['dlp-profile']
                 type: list
                 elements: str
                 description: Name of an existing DLP profile.
             dnsfilter_profile:
+                aliases: ['dnsfilter-profile']
                 type: list
                 elements: str
                 description: Name of an existing DNS filter profile.
@@ -169,6 +180,7 @@ options:
                 elements: str
                 description: Destination address objects.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled, destination addresses match against any address EXCEPT the specified destination addresses.
                 choices:
@@ -183,14 +195,17 @@ options:
                 elements: str
                 description: Destination interface names.
             emailfilter_profile:
+                aliases: ['emailfilter-profile']
                 type: list
                 elements: str
                 description: Name of an existing email filter profile.
             file_filter_profile:
+                aliases: ['file-filter-profile']
                 type: list
                 elements: str
                 description: Name of an existing file-filter profile.
             global_label:
+                aliases: ['global-label']
                 type: str
                 description: Global web-based manager visible label.
             groups:
@@ -198,76 +213,92 @@ options:
                 elements: str
                 description: Names of group objects.
             http_tunnel_auth:
+                aliases: ['http-tunnel-auth']
                 type: str
                 description: Enable/disable HTTP tunnel authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             icap_profile:
+                aliases: ['icap-profile']
                 type: list
                 elements: str
                 description: Name of an existing ICAP profile.
             internet_service:
+                aliases: ['internet-service']
                 type: str
                 description: Enable/disable use of Internet Services for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_custom:
+                aliases: ['internet-service-custom']
                 type: list
                 elements: str
                 description: Custom Internet Service name.
             internet_service_custom_group:
+                aliases: ['internet-service-custom-group']
                 type: list
                 elements: str
                 description: Custom Internet Service group name.
             internet_service_group:
+                aliases: ['internet-service-group']
                 type: list
                 elements: str
                 description: Internet Service group name.
             internet_service_name:
+                aliases: ['internet-service-name']
                 type: list
                 elements: str
                 description: Internet Service name.
             internet_service_negate:
+                aliases: ['internet-service-negate']
                 type: str
                 description: When enabled, Internet Services match against any internet service EXCEPT the selected Internet Service.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6:
+                aliases: ['internet-service6']
                 type: str
                 description: Enable/disable use of Internet Services IPv6 for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service6_custom:
+                aliases: ['internet-service6-custom']
                 type: list
                 elements: str
                 description: Custom Internet Service IPv6 name.
             internet_service6_custom_group:
+                aliases: ['internet-service6-custom-group']
                 type: list
                 elements: str
                 description: Custom Internet Service IPv6 group name.
             internet_service6_group:
+                aliases: ['internet-service6-group']
                 type: list
                 elements: str
                 description: Internet Service IPv6 group name.
             internet_service6_name:
+                aliases: ['internet-service6-name']
                 type: list
                 elements: str
                 description: Internet Service IPv6 name.
             internet_service6_negate:
+                aliases: ['internet-service6-negate']
                 type: str
                 description: When enabled, Internet Services match against any internet service IPv6 EXCEPT the selected Internet Service IPv6.
                 choices:
                     - 'disable'
                     - 'enable'
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: list
                 elements: str
                 description: Name of an existing IPS sensor.
             ips_voip_filter:
+                aliases: ['ips-voip-filter']
                 type: list
                 elements: str
                 description: Name of an existing VoIP
@@ -275,6 +306,7 @@ options:
                 type: str
                 description: VDOM-specific GUI visible label.
             log_http_transaction:
+                aliases: ['log-http-transaction']
                 type: str
                 description: Enable/disable HTTP transaction log.
                 choices:
@@ -288,6 +320,7 @@ options:
                     - 'all'
                     - 'utm'
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Enable/disable policy log traffic start.
                 choices:
@@ -305,14 +338,17 @@ options:
                 elements: str
                 description: Name of IP pool object.
             profile_group:
+                aliases: ['profile-group']
                 type: list
                 elements: str
                 description: Name of profile group.
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: list
                 elements: str
                 description: Name of an existing Protocol options profile.
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Determine whether the firewall policy allows security profile groups or single profiles only.
                 choices:
@@ -331,9 +367,11 @@ options:
                     - 'access-proxy'
                     - 'ztna-proxy'
             redirect_url:
+                aliases: ['redirect-url']
                 type: str
                 description: Redirect URL for further explicit web proxy processing.
             replacemsg_override_group:
+                aliases: ['replacemsg-override-group']
                 type: list
                 elements: str
                 description: Authentication replacement message override group.
@@ -342,6 +380,7 @@ options:
                 elements: str
                 description: Name of schedule object.
             sctp_filter_profile:
+                aliases: ['sctp-filter-profile']
                 type: list
                 elements: str
                 description: Name of an existing SCTP filter profile.
@@ -350,12 +389,14 @@ options:
                 elements: str
                 description: Name of service objects.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled, services match against any service EXCEPT the specified destination services.
                 choices:
                     - 'disable'
                     - 'enable'
             session_ttl:
+                aliases: ['session-ttl']
                 type: str
                 description: TTL in seconds for sessions accepted by this policy
             srcaddr:
@@ -363,6 +404,7 @@ options:
                 elements: str
                 description: Source address objects.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled, source addresses match against any address EXCEPT the specified source addresses.
                 choices:
@@ -377,16 +419,19 @@ options:
                 elements: str
                 description: Source interface names.
             ssh_filter_profile:
+                aliases: ['ssh-filter-profile']
                 type: list
                 elements: str
                 description: Name of an existing SSH filter profile.
             ssh_policy_redirect:
+                aliases: ['ssh-policy-redirect']
                 type: str
                 description: Redirect SSH traffic to matching transparent proxy policy.
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: list
                 elements: str
                 description: Name of an existing SSL SSH profile.
@@ -407,6 +452,7 @@ options:
                 elements: str
                 description: Names of user objects.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable the use of UTM profiles/sensors/lists.
                 choices:
@@ -416,10 +462,12 @@ options:
                 type: str
                 description: Universally Unique Identifier
             videofilter_profile:
+                aliases: ['videofilter-profile']
                 type: list
                 elements: str
                 description: Name of an existing VideoFilter profile.
             waf_profile:
+                aliases: ['waf-profile']
                 type: list
                 elements: str
                 description: Name of an existing Web application firewall profile.
@@ -430,62 +478,76 @@ options:
                     - 'disable'
                     - 'enable'
             webcache_https:
+                aliases: ['webcache-https']
                 type: str
                 description: Enable/disable web caching for HTTPS
                 choices:
                     - 'disable'
                     - 'enable'
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: list
                 elements: str
                 description: Name of an existing Web filter profile.
             webproxy_forward_server:
+                aliases: ['webproxy-forward-server']
                 type: list
                 elements: str
                 description: Web proxy forward server name.
             webproxy_profile:
+                aliases: ['webproxy-profile']
                 type: list
                 elements: str
                 description: Name of web proxy profile.
             ztna_ems_tag:
+                aliases: ['ztna-ems-tag']
                 type: list
                 elements: str
                 description: ZTNA EMS Tag names.
             ztna_proxy:
+                aliases: ['ztna-proxy']
                 type: list
                 elements: str
                 description: IPv4 ZTNA traffic forward proxy.
             ztna_tags_match_logic:
+                aliases: ['ztna-tags-match-logic']
                 type: str
                 description: ZTNA tag matching logic.
                 choices:
                     - 'or'
                     - 'and'
             diameter_filter_profile:
+                aliases: ['diameter-filter-profile']
                 type: list
                 elements: str
                 description: Name of an existing Diameter filter profile.
             virtual_patch_profile:
+                aliases: ['virtual-patch-profile']
                 type: list
                 elements: str
                 description: Virtual patch profile.
             voip_profile:
+                aliases: ['voip-profile']
                 type: list
                 elements: str
                 description: Name of an existing VoIP profile.
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: list
                 elements: str
                 description: Name of an existing DLP sensor.
             cifs_profile:
+                aliases: ['cifs-profile']
                 type: list
                 elements: str
                 description: Name of an existing CIFS profile.
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: list
                 elements: str
                 description: Internet Service ID.
             mms_profile:
+                aliases: ['mms-profile']
                 type: list
                 elements: str
                 description: Name of an existing MMS profile.

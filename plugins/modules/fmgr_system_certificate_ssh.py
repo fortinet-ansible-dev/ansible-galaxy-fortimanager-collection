@@ -96,6 +96,7 @@ options:
                 description: Name of SSH certificate.
                 required: true
             private_key:
+                aliases: ['private-key']
                 type: raw
                 description: (list) SSH private-key
 '''

@@ -124,18 +124,22 @@ options:
                 type: str
                 description: SNMP community name.
             query_v1_port:
+                aliases: ['query-v1-port']
                 type: int
                 description: SNMP v1 query port
             query_v1_status:
+                aliases: ['query-v1-status']
                 type: str
                 description: Enable/disable SNMP v1 queries.
                 choices:
                     - 'disable'
                     - 'enable'
             query_v2c_port:
+                aliases: ['query-v2c-port']
                 type: int
                 description: SNMP v2c query port
             query_v2c_status:
+                aliases: ['query-v2c-status']
                 type: str
                 description: Enable/disable SNMP v2c queries.
                 choices:
@@ -148,24 +152,30 @@ options:
                     - 'disable'
                     - 'enable'
             trap_v1_lport:
+                aliases: ['trap-v1-lport']
                 type: int
                 description: SNMP v2c trap local port
             trap_v1_rport:
+                aliases: ['trap-v1-rport']
                 type: int
                 description: SNMP v2c trap remote port
             trap_v1_status:
+                aliases: ['trap-v1-status']
                 type: str
                 description: Enable/disable SNMP v1 traps.
                 choices:
                     - 'disable'
                     - 'enable'
             trap_v2c_lport:
+                aliases: ['trap-v2c-lport']
                 type: int
                 description: SNMP v2c trap local port
             trap_v2c_rport:
+                aliases: ['trap-v2c-rport']
                 type: int
                 description: SNMP v2c trap remote port
             trap_v2c_status:
+                aliases: ['trap-v2c-status']
                 type: str
                 description: Enable/disable SNMP v2c traps.
                 choices:

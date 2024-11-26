@@ -89,6 +89,7 @@ options:
                 type: str
                 description: Device
             filter_type:
+                aliases: ['filter-type']
                 type: str
                 description:
                     - Device filter type.

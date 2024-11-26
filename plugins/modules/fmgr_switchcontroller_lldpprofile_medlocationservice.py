@@ -106,6 +106,7 @@ options:
                     - 'disable'
                     - 'enable'
             sys_location_id:
+                aliases: ['sys-location-id']
                 type: str
                 description: Location service ID.
 '''

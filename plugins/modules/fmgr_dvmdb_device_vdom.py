@@ -116,6 +116,7 @@ options:
                 type: int
                 description: Vpn id.
             meta_fields:
+                aliases: ['meta fields']
                 type: dict
                 description: Meta fields.
             vdom_type:

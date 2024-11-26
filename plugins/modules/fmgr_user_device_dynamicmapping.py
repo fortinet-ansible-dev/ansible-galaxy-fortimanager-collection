@@ -125,6 +125,7 @@ options:
                 type: str
                 description: Mac.
             master_device:
+                aliases: ['master-device']
                 type: str
                 description: Master device.
             tags:
@@ -162,15 +163,18 @@ options:
                 type: str
                 description: Family.
             hardware_vendor:
+                aliases: ['hardware-vendor']
                 type: str
                 description: Hardware vendor.
             hardware_version:
+                aliases: ['hardware-version']
                 type: str
                 description: Hardware version.
             os:
                 type: str
                 description: Os.
             software_version:
+                aliases: ['software-version']
                 type: str
                 description: Software version.
 '''

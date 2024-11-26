@@ -100,6 +100,7 @@ options:
                     - 'deny'
                     - 'accept'
             auto_asic_offload:
+                aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable offloading policy traffic for hardware acceleration.
                 choices:
@@ -115,6 +116,7 @@ options:
                 type: str
                 description: Destination interface name.
             end_port:
+                aliases: ['end-port']
                 type: int
                 description: Integer value for ending TCP/UDP/SCTP destination port in range
             id:
@@ -139,6 +141,7 @@ options:
                     - 'disable'
                     - 'enable'
             snat_ip:
+                aliases: ['snat-ip']
                 type: str
                 description: IPv4 address to be used as the source address for NATed traffic.
             srcaddr:
@@ -148,6 +151,7 @@ options:
                 type: str
                 description: Source interface name.
             start_port:
+                aliases: ['start-port']
                 type: int
                 description: Integer value for starting TCP/UDP/SCTP destination port in range
             status:
@@ -166,12 +170,15 @@ options:
                 type: str
                 description: Policy name.
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper to apply to traffic forwarded by the multicast policy.
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: Name of an existing IPS sensor.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable to add an IPS security profile to the policy.
                 choices:

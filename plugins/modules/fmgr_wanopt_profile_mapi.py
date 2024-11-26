@@ -85,12 +85,14 @@ options:
         type: dict
         suboptions:
             byte_caching:
+                aliases: ['byte-caching']
                 type: str
                 description: Enable/disable byte-caching for HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             log_traffic:
+                aliases: ['log-traffic']
                 type: str
                 description: Enable/disable logging.
                 choices:
@@ -100,6 +102,7 @@ options:
                 type: raw
                 description: (list) Single port number or port number range for MAPI.
             secure_tunnel:
+                aliases: ['secure-tunnel']
                 type: str
                 description: Enable/disable securing the WAN Opt tunnel using SSL.
                 choices:
@@ -112,6 +115,7 @@ options:
                     - 'disable'
                     - 'enable'
             tunnel_sharing:
+                aliases: ['tunnel-sharing']
                 type: str
                 description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                 choices:

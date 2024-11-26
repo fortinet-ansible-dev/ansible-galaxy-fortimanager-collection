@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: Indicate whether the server IP-address is IPv4 or IPv6.
                 choices:
                     - 'ipv4'
                     - 'ipv6'
             auth_level:
+                aliases: ['auth-level']
                 type: str
                 description: Authentication security level used for the RPC protocol layer.
                 choices:
@@ -109,6 +111,7 @@ options:
                     - 'integrity'
                     - 'privacy'
             auth_type:
+                aliases: ['auth-type']
                 type: str
                 description: Authentication security type used for the RPC protocol layer.
                 choices:
@@ -116,6 +119,7 @@ options:
                     - 'ntlm'
                     - 'kerberos'
             connect_protocol:
+                aliases: ['connect-protocol']
                 type: str
                 description: Connection protocol used to connect to MS Exchange service.
                 choices:
@@ -123,9 +127,11 @@ options:
                     - 'rpc-over-http'
                     - 'rpc-over-https'
             domain_name:
+                aliases: ['domain-name']
                 type: str
                 description: MS Exchange server fully qualified domain name.
             http_auth_type:
+                aliases: ['http-auth-type']
                 type: str
                 description: Authentication security type used for the HTTP transport.
                 choices:
@@ -138,6 +144,7 @@ options:
                 type: str
                 description: Server IPv6 address.
             kdc_ip:
+                aliases: ['kdc-ip']
                 type: raw
                 description: (list) KDC IPv4 addresses for Kerberos authentication.
             name:
@@ -148,9 +155,11 @@ options:
                 type: raw
                 description: (list) Password for the specified username.
             server_name:
+                aliases: ['server-name']
                 type: str
                 description: MS Exchange server hostname.
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum SSL/TLS protocol version for HTTPS transport
                 choices:
@@ -164,6 +173,7 @@ options:
                 type: str
                 description: User name used to sign in to the server.
             auto_discover_kdc:
+                aliases: ['auto-discover-kdc']
                 type: str
                 description: Enable/disable automatic discovery of KDC IP addresses.
                 choices:

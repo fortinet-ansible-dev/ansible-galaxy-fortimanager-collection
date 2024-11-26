@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             file_type:
+                aliases: ['file-type']
                 type: str
                 description: Select a file type.
                 choices:
@@ -167,6 +168,7 @@ options:
                     - 'wasm'
                     - 'sylk'
             filter_type:
+                aliases: ['filter-type']
                 type: str
                 description: Filter by file name pattern or by file type.
                 choices:

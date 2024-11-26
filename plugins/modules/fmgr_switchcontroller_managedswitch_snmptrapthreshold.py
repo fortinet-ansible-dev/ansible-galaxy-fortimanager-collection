@@ -87,12 +87,15 @@ options:
         type: dict
         suboptions:
             trap_high_cpu_threshold:
+                aliases: ['trap-high-cpu-threshold']
                 type: int
                 description: CPU usage when trap is sent.
             trap_log_full_threshold:
+                aliases: ['trap-log-full-threshold']
                 type: int
                 description: Log disk usage when trap is sent.
             trap_low_memory_threshold:
+                aliases: ['trap-low-memory-threshold']
                 type: int
                 description: Memory usage when trap is sent.
 '''

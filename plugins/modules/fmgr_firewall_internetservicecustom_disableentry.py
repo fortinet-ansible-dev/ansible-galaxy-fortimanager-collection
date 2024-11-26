@@ -100,17 +100,20 @@ options:
                 description: Disable entry ID.
                 required: true
             ip_range:
+                aliases: ['ip-range']
                 type: list
                 elements: dict
                 description: Ip range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End IP address.
                     id:
                         type: int
                         description: Disable entry range ID.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start IP address.
             port:

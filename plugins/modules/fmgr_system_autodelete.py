@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             dlp_files_auto_deletion:
+                aliases: ['dlp-files-auto-deletion']
                 type: dict
                 description: Dlp files auto deletion.
                 suboptions:
@@ -107,6 +108,7 @@ options:
                         type: int
                         description: Automatic deletion in x days, weeks, or months.
             log_auto_deletion:
+                aliases: ['log-auto-deletion']
                 type: dict
                 description: Log auto deletion.
                 suboptions:
@@ -137,6 +139,7 @@ options:
                         type: int
                         description: Automatic deletion in x days, weeks, or months.
             quarantine_files_auto_deletion:
+                aliases: ['quarantine-files-auto-deletion']
                 type: dict
                 description: Quarantine files auto deletion.
                 suboptions:
@@ -167,6 +170,7 @@ options:
                         type: int
                         description: Automatic deletion in x days, weeks, or months.
             report_auto_deletion:
+                aliases: ['report-auto-deletion']
                 type: dict
                 description: Report auto deletion.
                 suboptions:
@@ -197,6 +201,7 @@ options:
                         type: int
                         description: Automatic deletion in x days, weeks, or months.
             status_fake:
+                aliases: ['status-fake']
                 type: int
                 description: Fake value for the menu to work.
 '''

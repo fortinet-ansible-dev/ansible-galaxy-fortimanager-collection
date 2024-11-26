@@ -87,6 +87,7 @@ options:
         type: dict
         suboptions:
             d80211d:
+                aliases: ['80211d']
                 type: str
                 description: Enable/disable Wi-Fi 802.
                 choices:
@@ -106,12 +107,15 @@ options:
                     - '40MHz'
                     - '80MHz'
             beacon_interval:
+                aliases: ['beacon-interval']
                 type: int
                 description: Wi-Fi beacon interval in miliseconds
             bss_color:
+                aliases: ['bss-color']
                 type: int
                 description: Wi-Fi 802.
             bss_color_mode:
+                aliases: ['bss-color-mode']
                 type: str
                 description: Wi-Fi 802.
                 choices:
@@ -134,6 +138,7 @@ options:
                     - 'CH10'
                     - 'CH11'
             extension_channel:
+                aliases: ['extension-channel']
                 type: str
                 description: Wi-Fi extension channel.
                 choices:
@@ -141,6 +146,7 @@ options:
                     - 'higher'
                     - 'lower'
             guard_interval:
+                aliases: ['guard-interval']
                 type: str
                 description: Wi-Fi guard interval.
                 choices:
@@ -148,14 +154,17 @@ options:
                     - '400ns'
                     - '800ns'
             lan_ext_vap:
+                aliases: ['lan-ext-vap']
                 type: list
                 elements: str
                 description: Wi-Fi LAN-Extention VAP.
             local_vaps:
+                aliases: ['local-vaps']
                 type: list
                 elements: str
                 description: Wi-Fi local VAP.
             max_clients:
+                aliases: ['max-clients']
                 type: int
                 description: Maximum number of Wi-Fi radio clients
             mode:
@@ -165,6 +174,7 @@ options:
                     - 'AP'
                     - 'Client'
             operating_standard:
+                aliases: ['operating-standard']
                 type: str
                 description: Wi-Fi operating standard.
                 choices:
@@ -188,9 +198,11 @@ options:
                     - '11N'
                     - '11G'
             power_level:
+                aliases: ['power-level']
                 type: int
                 description: Wi-Fi power level in percent
             radio_id:
+                aliases: ['radio-id']
                 type: int
                 description: Radio ID.
             status:

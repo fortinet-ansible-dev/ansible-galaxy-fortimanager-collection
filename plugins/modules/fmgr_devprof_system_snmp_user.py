@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             auth_proto:
+                aliases: ['auth-proto']
                 type: str
                 description: Authentication protocol.
                 choices:
@@ -104,6 +105,7 @@ options:
                     - 'sha384'
                     - 'sha512'
             auth_pwd:
+                aliases: ['auth-pwd']
                 type: raw
                 description: (list) Password for authentication protocol.
             events:
@@ -173,6 +175,7 @@ options:
                     - 'security_level_change'
                     - 'cert-expiry'
             ha_direct:
+                aliases: ['ha-direct']
                 type: str
                 description: Enable/disable direct management of HA cluster members.
                 choices:
@@ -183,12 +186,15 @@ options:
                 description: SNMP user name.
                 required: true
             notify_hosts:
+                aliases: ['notify-hosts']
                 type: raw
                 description: (list) SNMP managers to send notifications
             notify_hosts6:
+                aliases: ['notify-hosts6']
                 type: str
                 description: IPv6 SNMP managers to send notifications
             priv_proto:
+                aliases: ['priv-proto']
                 type: str
                 description: Privacy
                 choices:
@@ -197,6 +203,7 @@ options:
                     - 'aes256'
                     - 'aes256cisco'
             priv_pwd:
+                aliases: ['priv-pwd']
                 type: raw
                 description: (list) Password for privacy
             queries:
@@ -206,9 +213,11 @@ options:
                     - 'disable'
                     - 'enable'
             query_port:
+                aliases: ['query-port']
                 type: int
                 description: SNMPv3 query port
             security_level:
+                aliases: ['security-level']
                 type: str
                 description: Security level for message authentication and encryption.
                 choices:
@@ -216,9 +225,11 @@ options:
                     - 'auth-no-priv'
                     - 'auth-priv'
             source_ip:
+                aliases: ['source-ip']
                 type: str
                 description: Source IP for SNMP trap.
             source_ipv6:
+                aliases: ['source-ipv6']
                 type: str
                 description: Source IPv6 for SNMP trap.
             status:
@@ -228,18 +239,22 @@ options:
                     - 'disable'
                     - 'enable'
             trap_lport:
+                aliases: ['trap-lport']
                 type: int
                 description: SNMPv3 local trap port
             trap_rport:
+                aliases: ['trap-rport']
                 type: int
                 description: SNMPv3 trap remote port
             trap_status:
+                aliases: ['trap-status']
                 type: str
                 description: Enable/disable traps for this SNMP user.
                 choices:
                     - 'disable'
                     - 'enable'
             mib_view:
+                aliases: ['mib-view']
                 type: str
                 description: SNMP access control MIB view.
             vdoms:
@@ -249,6 +264,7 @@ options:
                 type: raw
                 description: (list) Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:

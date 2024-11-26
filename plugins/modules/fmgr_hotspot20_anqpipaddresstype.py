@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             ipv4_address_type:
+                aliases: ['ipv4-address-type']
                 type: str
                 description: IPv4 address type.
                 choices:
@@ -102,6 +103,7 @@ options:
                     - 'port-restricted-and-single-NATed'
                     - 'port-restricted-and-double-NATed'
             ipv6_address_type:
+                aliases: ['ipv6-address-type']
                 type: str
                 description: IPv6 address type.
                 choices:

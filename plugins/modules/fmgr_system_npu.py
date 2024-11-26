@@ -81,15 +81,18 @@ options:
         type: dict
         suboptions:
             capwap_offload:
+                aliases: ['capwap-offload']
                 type: str
                 description: Enable/disable offloading managed FortiAP and FortiLink CAPWAP sessions.
                 choices:
                     - 'disable'
                     - 'enable'
             dedicated_management_affinity:
+                aliases: ['dedicated-management-affinity']
                 type: str
                 description: Affinity setting for management deamons
             dedicated_management_cpu:
+                aliases: ['dedicated-management-cpu']
                 type: str
                 description: Enable to dedicate one CPU for GUI and CLI connections when NPs are busy.
                 choices:
@@ -102,154 +105,180 @@ options:
                     - 'disable'
                     - 'enable'
             fp_anomaly:
+                aliases: ['fp-anomaly']
                 type: dict
                 description: Fp anomaly.
                 suboptions:
                     esp_minlen_err:
+                        aliases: ['esp-minlen-err']
                         type: str
                         description: Invalid IPv4 ESP short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     icmp_csum_err:
+                        aliases: ['icmp-csum-err']
                         type: str
                         description: Invalid IPv4 ICMP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     icmp_minlen_err:
+                        aliases: ['icmp-minlen-err']
                         type: str
                         description: Invalid IPv4 ICMP short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_csum_err:
+                        aliases: ['ipv4-csum-err']
                         type: str
                         description: Invalid IPv4 packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_ihl_err:
+                        aliases: ['ipv4-ihl-err']
                         type: str
                         description: Invalid IPv4 header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_len_err:
+                        aliases: ['ipv4-len-err']
                         type: str
                         description: Invalid IPv4 packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_opt_err:
+                        aliases: ['ipv4-opt-err']
                         type: str
                         description: Invalid IPv4 option parsing anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_ttlzero_err:
+                        aliases: ['ipv4-ttlzero-err']
                         type: str
                         description: Invalid IPv4 TTL field zero anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_ver_err:
+                        aliases: ['ipv4-ver-err']
                         type: str
                         description: Invalid IPv4 header version anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_exthdr_len_err:
+                        aliases: ['ipv6-exthdr-len-err']
                         type: str
                         description: Invalid IPv6 packet chain extension header total length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_exthdr_order_err:
+                        aliases: ['ipv6-exthdr-order-err']
                         type: str
                         description: Invalid IPv6 packet extension header ordering anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_ihl_err:
+                        aliases: ['ipv6-ihl-err']
                         type: str
                         description: Invalid IPv6 packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_plen_zero:
+                        aliases: ['ipv6-plen-zero']
                         type: str
                         description: Invalid IPv6 packet payload length zero anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_ver_err:
+                        aliases: ['ipv6-ver-err']
                         type: str
                         description: Invalid IPv6 packet version anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_csum_err:
+                        aliases: ['tcp-csum-err']
                         type: str
                         description: Invalid IPv4 TCP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_hlen_err:
+                        aliases: ['tcp-hlen-err']
                         type: str
                         description: Invalid IPv4 TCP header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_plen_err:
+                        aliases: ['tcp-plen-err']
                         type: str
                         description: Invalid IPv4 TCP packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udp_csum_err:
+                        aliases: ['udp-csum-err']
                         type: str
                         description: Invalid IPv4 UDP packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udp_hlen_err:
+                        aliases: ['udp-hlen-err']
                         type: str
                         description: Invalid IPv4 UDP packet header length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udp_len_err:
+                        aliases: ['udp-len-err']
                         type: str
                         description: Invalid IPv4 UDP packet length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udp_plen_err:
+                        aliases: ['udp-plen-err']
                         type: str
                         description: Invalid IPv4 UDP packet minimum length anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udplite_cover_err:
+                        aliases: ['udplite-cover-err']
                         type: str
                         description: Invalid IPv4 UDP-Lite packet coverage anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     udplite_csum_err:
+                        aliases: ['udplite-csum-err']
                         type: str
                         description: Invalid IPv4 UDP-Lite packet checksum anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     unknproto_minlen_err:
+                        aliases: ['unknproto-minlen-err']
                         type: str
                         description: Invalid IPv4 L4 unknown protocol short packet anomalies.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_fin_only:
+                        aliases: ['tcp-fin-only']
                         type: str
                         description: TCP SYN flood with only FIN flag set anomalies.
                         choices:
@@ -257,6 +286,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_optsecurity:
+                        aliases: ['ipv4-optsecurity']
                         type: str
                         description: Security option anomalies.
                         choices:
@@ -264,6 +294,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_optralert:
+                        aliases: ['ipv6-optralert']
                         type: str
                         description: Router alert option anomalies.
                         choices:
@@ -271,6 +302,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_syn_fin:
+                        aliases: ['tcp-syn-fin']
                         type: str
                         description: TCP SYN flood SYN/FIN flag set anomalies.
                         choices:
@@ -278,6 +310,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_proto_err:
+                        aliases: ['ipv4-proto-err']
                         type: str
                         description: Invalid layer 4 protocol anomalies.
                         choices:
@@ -285,6 +318,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_saddr_err:
+                        aliases: ['ipv6-saddr-err']
                         type: str
                         description: Source address as multicast anomalies.
                         choices:
@@ -292,6 +326,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     icmp_frag:
+                        aliases: ['icmp-frag']
                         type: str
                         description: Layer 3 fragmented packets that could be part of layer 4 ICMP anomalies.
                         choices:
@@ -299,6 +334,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_optssrr:
+                        aliases: ['ipv4-optssrr']
                         type: str
                         description: Strict source record route option anomalies.
                         choices:
@@ -306,6 +342,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_opthomeaddr:
+                        aliases: ['ipv6-opthomeaddr']
                         type: str
                         description: Home address option anomalies.
                         choices:
@@ -313,6 +350,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     udp_land:
+                        aliases: ['udp-land']
                         type: str
                         description: UDP land anomalies.
                         choices:
@@ -320,6 +358,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_optinvld:
+                        aliases: ['ipv6-optinvld']
                         type: str
                         description: Invalid option anomalies.
                         choices:
@@ -327,6 +366,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_fin_noack:
+                        aliases: ['tcp-fin-noack']
                         type: str
                         description: TCP SYN flood with FIN flag set without ACK setting anomalies.
                         choices:
@@ -334,6 +374,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_proto_err:
+                        aliases: ['ipv6-proto-err']
                         type: str
                         description: Layer 4 invalid protocol anomalies.
                         choices:
@@ -341,6 +382,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_land:
+                        aliases: ['tcp-land']
                         type: str
                         description: TCP land anomalies.
                         choices:
@@ -348,6 +390,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_unknopt:
+                        aliases: ['ipv4-unknopt']
                         type: str
                         description: Unknown option anomalies.
                         choices:
@@ -355,6 +398,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_optstream:
+                        aliases: ['ipv4-optstream']
                         type: str
                         description: Stream option anomalies.
                         choices:
@@ -362,6 +406,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_optjumbo:
+                        aliases: ['ipv6-optjumbo']
                         type: str
                         description: Jumbo options anomalies.
                         choices:
@@ -369,6 +414,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     icmp_land:
+                        aliases: ['icmp-land']
                         type: str
                         description: ICMP land anomalies.
                         choices:
@@ -376,6 +422,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_winnuke:
+                        aliases: ['tcp-winnuke']
                         type: str
                         description: TCP WinNuke anomalies.
                         choices:
@@ -383,6 +430,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_daddr_err:
+                        aliases: ['ipv6-daddr-err']
                         type: str
                         description: Destination address as unspecified or loopback address anomalies.
                         choices:
@@ -390,6 +438,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_land:
+                        aliases: ['ipv4-land']
                         type: str
                         description: Land anomalies.
                         choices:
@@ -397,6 +446,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_opttunnel:
+                        aliases: ['ipv6-opttunnel']
                         type: str
                         description: Tunnel encapsulation limit option anomalies.
                         choices:
@@ -404,6 +454,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_no_flag:
+                        aliases: ['tcp-no-flag']
                         type: str
                         description: TCP SYN flood with no flag set anomalies.
                         choices:
@@ -411,6 +462,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_land:
+                        aliases: ['ipv6-land']
                         type: str
                         description: Land anomalies.
                         choices:
@@ -418,6 +470,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_optlsrr:
+                        aliases: ['ipv4-optlsrr']
                         type: str
                         description: Loose source record route option anomalies.
                         choices:
@@ -425,6 +478,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_opttimestamp:
+                        aliases: ['ipv4-opttimestamp']
                         type: str
                         description: Timestamp option anomalies.
                         choices:
@@ -432,6 +486,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv4_optrr:
+                        aliases: ['ipv4-optrr']
                         type: str
                         description: Record route option anomalies.
                         choices:
@@ -439,6 +494,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_optnsap:
+                        aliases: ['ipv6-optnsap']
                         type: str
                         description: Network service access point address option anomalies.
                         choices:
@@ -446,6 +502,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_unknopt:
+                        aliases: ['ipv6-unknopt']
                         type: str
                         description: Unknown option anomalies.
                         choices:
@@ -453,6 +510,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_syn_data:
+                        aliases: ['tcp-syn-data']
                         type: str
                         description: TCP SYN flood packets with data anomalies.
                         choices:
@@ -460,6 +518,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     ipv6_optendpid:
+                        aliases: ['ipv6-optendpid']
                         type: str
                         description: End point identification anomalies.
                         choices:
@@ -467,66 +526,77 @@ options:
                             - 'drop'
                             - 'trap-to-host'
                     gtpu_plen_err:
+                        aliases: ['gtpu-plen-err']
                         type: str
                         description: Gtpu plen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     vxlan_minlen_err:
+                        aliases: ['vxlan-minlen-err']
                         type: str
                         description: Vxlan minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     capwap_minlen_err:
+                        aliases: ['capwap-minlen-err']
                         type: str
                         description: Capwap minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     gre_csum_err:
+                        aliases: ['gre-csum-err']
                         type: str
                         description: Gre csum err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     nvgre_minlen_err:
+                        aliases: ['nvgre-minlen-err']
                         type: str
                         description: Nvgre minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp_l4len_err:
+                        aliases: ['sctp-l4len-err']
                         type: str
                         description: Sctp l4len err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     tcp_hlenvsl4len_err:
+                        aliases: ['tcp-hlenvsl4len-err']
                         type: str
                         description: Tcp hlenvsl4len err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp_crc_err:
+                        aliases: ['sctp-crc-err']
                         type: str
                         description: Sctp crc err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp_clen_err:
+                        aliases: ['sctp-clen-err']
                         type: str
                         description: Sctp clen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     uesp_minlen_err:
+                        aliases: ['uesp-minlen-err']
                         type: str
                         description: Uesp minlen err.
                         choices:
                             - 'drop'
                             - 'trap-to-host'
                     sctp_csum_err:
+                        aliases: ['sctp-csum-err']
                         type: str
                         description: Invalid IPv4 SCTP checksum anomalies.
                         choices:
@@ -534,6 +604,7 @@ options:
                             - 'drop'
                             - 'trap-to-host'
             gtp_enhanced_cpu_range:
+                aliases: ['gtp-enhanced-cpu-range']
                 type: str
                 description: GTP enhanced CPU range option.
                 choices:
@@ -541,18 +612,21 @@ options:
                     - '1'
                     - '2'
             gtp_enhanced_mode:
+                aliases: ['gtp-enhanced-mode']
                 type: str
                 description: Enable/disable GTP enhanced mode.
                 choices:
                     - 'disable'
                     - 'enable'
             host_shortcut_mode:
+                aliases: ['host-shortcut-mode']
                 type: str
                 description: Set np6 host shortcut mode.
                 choices:
                     - 'bi-directional'
                     - 'host-shortcut'
             htx_gtse_quota:
+                aliases: ['htx-gtse-quota']
                 type: str
                 description: Configure HTX GTSE quota.
                 choices:
@@ -571,42 +645,50 @@ options:
                     - '8Gbps'
                     - '10Gbps'
             intf_shaping_offload:
+                aliases: ['intf-shaping-offload']
                 type: str
                 description: Enable/disable NPU offload when doing interface-based traffic shaping according to the egress-shaping-profile.
                 choices:
                     - 'disable'
                     - 'enable'
             iph_rsvd_re_cksum:
+                aliases: ['iph-rsvd-re-cksum']
                 type: str
                 description: Enable/disable IP checksum re-calculation for packets with iph.
                 choices:
                     - 'disable'
                     - 'enable'
             ipsec_dec_subengine_mask:
+                aliases: ['ipsec-dec-subengine-mask']
                 type: str
                 description: IPsec decryption subengine mask
             ipsec_enc_subengine_mask:
+                aliases: ['ipsec-enc-subengine-mask']
                 type: str
                 description: IPsec encryption subengine mask
             ipsec_inbound_cache:
+                aliases: ['ipsec-inbound-cache']
                 type: str
                 description: Enable/disable IPsec inbound cache for anti-replay.
                 choices:
                     - 'disable'
                     - 'enable'
             ipsec_mtu_override:
+                aliases: ['ipsec-mtu-override']
                 type: str
                 description: Enable/disable NP6 IPsec MTU override.
                 choices:
                     - 'disable'
                     - 'enable'
             ipsec_over_vlink:
+                aliases: ['ipsec-over-vlink']
                 type: str
                 description: Enable/disable IPSEC over vlink.
                 choices:
                     - 'disable'
                     - 'enable'
             isf_np_queues:
+                aliases: ['isf-np-queues']
                 type: dict
                 description: Isf np queues.
                 suboptions:
@@ -635,12 +717,14 @@ options:
                         type: str
                         description: CoS profile name for CoS 7.
             lag_out_port_select:
+                aliases: ['lag-out-port-select']
                 type: str
                 description: Enable/disable LAG outgoing port selection based on incoming traffic port.
                 choices:
                     - 'disable'
                     - 'enable'
             mcast_session_accounting:
+                aliases: ['mcast-session-accounting']
                 type: str
                 description: Enable/disable traffic accounting for each multicast session through TAE counter.
                 choices:
@@ -648,12 +732,14 @@ options:
                     - 'session-based'
                     - 'tpe-based'
             np6_cps_optimization_mode:
+                aliases: ['np6-cps-optimization-mode']
                 type: str
                 description: Enable/disable NP6 connection per second
                 choices:
                     - 'disable'
                     - 'enable'
             per_session_accounting:
+                aliases: ['per-session-accounting']
                 type: str
                 description: Enable/disable per-session accounting.
                 choices:
@@ -663,17 +749,20 @@ options:
                     - 'all-enable'
                     - 'traffic-log-only'
             port_cpu_map:
+                aliases: ['port-cpu-map']
                 type: list
                 elements: dict
                 description: Port cpu map.
                 suboptions:
                     cpu_core:
+                        aliases: ['cpu-core']
                         type: str
                         description: The CPU core to map to an interface.
                     interface:
                         type: str
                         description: The interface to map to a CPU core.
             port_npu_map:
+                aliases: ['port-npu-map']
                 type: list
                 elements: dict
                 description: Port npu map.
@@ -682,9 +771,11 @@ options:
                         type: str
                         description: Set npu interface port to NPU group map.
                     npu_group_index:
+                        aliases: ['npu-group-index']
                         type: int
                         description: Mapping NPU group index.
             priority_protocol:
+                aliases: ['priority-protocol']
                 type: dict
                 description: Priority protocol.
                 suboptions:
@@ -707,6 +798,7 @@ options:
                             - 'disable'
                             - 'enable'
             qos_mode:
+                aliases: ['qos-mode']
                 type: str
                 description: QoS mode on switch and NP.
                 choices:
@@ -714,42 +806,49 @@ options:
                     - 'priority'
                     - 'round-robin'
             rdp_offload:
+                aliases: ['rdp-offload']
                 type: str
                 description: Enable/disable rdp offload.
                 choices:
                     - 'disable'
                     - 'enable'
             recover_np6_link:
+                aliases: ['recover-np6-link']
                 type: str
                 description: Enable/disable internal link failure check and recovery after boot up.
                 choices:
                     - 'disable'
                     - 'enable'
             session_denied_offload:
+                aliases: ['session-denied-offload']
                 type: str
                 description: Enable/disable offloading of denied sessions.
                 choices:
                     - 'disable'
                     - 'enable'
             sse_backpressure:
+                aliases: ['sse-backpressure']
                 type: str
                 description: Enable/disable sse backpressure.
                 choices:
                     - 'disable'
                     - 'enable'
             strip_clear_text_padding:
+                aliases: ['strip-clear-text-padding']
                 type: str
                 description: Enable/disable stripping clear text padding.
                 choices:
                     - 'disable'
                     - 'enable'
             strip_esp_padding:
+                aliases: ['strip-esp-padding']
                 type: str
                 description: Enable/disable stripping ESP padding.
                 choices:
                     - 'disable'
                     - 'enable'
             sw_eh_hash:
+                aliases: ['sw-eh-hash']
                 type: dict
                 description: Sw eh hash.
                 suboptions:
@@ -762,51 +861,60 @@ options:
                             - 'xor4'
                             - 'crc16'
                     destination_ip_lower_16:
+                        aliases: ['destination-ip-lower-16']
                         type: str
                         description: Include/exclude destination IP address lower 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
                     destination_ip_upper_16:
+                        aliases: ['destination-ip-upper-16']
                         type: str
                         description: Include/exclude destination IP address upper 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
                     destination_port:
+                        aliases: ['destination-port']
                         type: str
                         description: Include/exclude destination port if TCP/UDP.
                         choices:
                             - 'include'
                             - 'exclude'
                     ip_protocol:
+                        aliases: ['ip-protocol']
                         type: str
                         description: Include/exclude IP protocol.
                         choices:
                             - 'include'
                             - 'exclude'
                     netmask_length:
+                        aliases: ['netmask-length']
                         type: int
                         description: Network mask length.
                     source_ip_lower_16:
+                        aliases: ['source-ip-lower-16']
                         type: str
                         description: Include/exclude source IP address lower 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
                     source_ip_upper_16:
+                        aliases: ['source-ip-upper-16']
                         type: str
                         description: Include/exclude source IP address upper 16 bits.
                         choices:
                             - 'include'
                             - 'exclude'
                     source_port:
+                        aliases: ['source-port']
                         type: str
                         description: Include/exclude source port if TCP/UDP.
                         choices:
                             - 'include'
                             - 'exclude'
             sw_np_bandwidth:
+                aliases: ['sw-np-bandwidth']
                 type: str
                 description: Bandwidth from switch to NP.
                 choices:
@@ -819,6 +927,7 @@ options:
                     - '8G'
                     - '9G'
             switch_np_hash:
+                aliases: ['switch-np-hash']
                 type: str
                 description: Switch-NP trunk port selection Criteria.
                 choices:
@@ -826,16 +935,19 @@ options:
                     - 'dst-ip'
                     - 'src-dst-ip'
             uesp_offload:
+                aliases: ['uesp-offload']
                 type: str
                 description: Enable/disable UDP-encapsulated ESP offload
                 choices:
                     - 'disable'
                     - 'enable'
             np_queues:
+                aliases: ['np-queues']
                 type: dict
                 description: Np queues.
                 suboptions:
                     ethernet_type:
+                        aliases: ['ethernet-type']
                         type: list
                         elements: dict
                         description: Ethernet type.
@@ -853,6 +965,7 @@ options:
                                 type: int
                                 description: Class Weight.
                     ip_protocol:
+                        aliases: ['ip-protocol']
                         type: list
                         elements: dict
                         description: Ip protocol.
@@ -870,6 +983,7 @@ options:
                                 type: int
                                 description: Class Weight.
                     ip_service:
+                        aliases: ['ip-service']
                         type: list
                         elements: dict
                         description: Ip service.
@@ -1789,6 +1903,7 @@ options:
                                 type: str
                                 description: Scheduler name.
             udp_timeout_profile:
+                aliases: ['udp-timeout-profile']
                 type: list
                 elements: dict
                 description: Udp timeout profile.
@@ -1797,15 +1912,18 @@ options:
                         type: int
                         description: Timeout profile ID
                     udp_idle:
+                        aliases: ['udp-idle']
                         type: int
                         description: Set UDP idle timeout
             qtm_buf_mode:
+                aliases: ['qtm-buf-mode']
                 type: str
                 description: QTM channel configuration for packet buffer.
                 choices:
                     - '6ch'
                     - '4ch'
             default_qos_type:
+                aliases: ['default-qos-type']
                 type: str
                 description: Set default QoS type.
                 choices:
@@ -1813,33 +1931,41 @@ options:
                     - 'shaping'
                     - 'policing-enhanced'
             tcp_rst_timeout:
+                aliases: ['tcp-rst-timeout']
                 type: int
                 description: TCP RST timeout in seconds
             ipsec_local_uesp_port:
+                aliases: ['ipsec-local-uesp-port']
                 type: int
                 description: Ipsec local uesp port.
             htab_dedi_queue_nr:
+                aliases: ['htab-dedi-queue-nr']
                 type: int
                 description: Set the number of dedicate queue for hash table messages.
             double_level_mcast_offload:
+                aliases: ['double-level-mcast-offload']
                 type: str
                 description: Enable double level mcast offload.
                 choices:
                     - 'disable'
                     - 'enable'
             dse_timeout:
+                aliases: ['dse-timeout']
                 type: int
                 description: DSE timeout in seconds
             ippool_overload_low:
+                aliases: ['ippool-overload-low']
                 type: int
                 description: Low threshold for overload ippool port reuse
             pba_eim:
+                aliases: ['pba-eim']
                 type: str
                 description: Configure option for PBA
                 choices:
                     - 'disallow'
                     - 'allow'
             policy_offload_level:
+                aliases: ['policy-offload-level']
                 type: str
                 description: Configure firewall policy offload level
                 choices:
@@ -1847,83 +1973,102 @@ options:
                     - 'dos-offload'
                     - 'full-offload'
             max_session_timeout:
+                aliases: ['max-session-timeout']
                 type: int
                 description: Maximum time interval for refreshing NPU-offloaded sessions
             port_path_option:
+                aliases: ['port-path-option']
                 type: dict
                 description: Port path option.
                 suboptions:
                     ports_using_npu:
+                        aliases: ['ports-using-npu']
                         type: raw
                         description: (list) Set ha/aux ports to handle traffic with NPU
             vlan_lookup_cache:
+                aliases: ['vlan-lookup-cache']
                 type: str
                 description: Enable/disable vlan lookup cache
                 choices:
                     - 'disable'
                     - 'enable'
             dos_options:
+                aliases: ['dos-options']
                 type: dict
                 description: Dos options.
                 suboptions:
                     npu_dos_meter_mode:
+                        aliases: ['npu-dos-meter-mode']
                         type: str
                         description: Set DoS meter NPU offloading mode.
                         choices:
                             - 'local'
                             - 'global'
                     npu_dos_synproxy_mode:
+                        aliases: ['npu-dos-synproxy-mode']
                         type: str
                         description: Set NPU DoS SYNPROXY mode.
                         choices:
                             - 'synack2ack'
                             - 'pass-synack'
                     npu_dos_tpe_mode:
+                        aliases: ['npu-dos-tpe-mode']
                         type: str
                         description: Enable/disable insertion of DoS meter ID to session table.
                         choices:
                             - 'disable'
                             - 'enable'
             hash_tbl_spread:
+                aliases: ['hash-tbl-spread']
                 type: str
                 description: Enable/disable hash table entry spread
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_timeout_profile:
+                aliases: ['tcp-timeout-profile']
                 type: list
                 elements: dict
                 description: Tcp timeout profile.
                 suboptions:
                     close_wait:
+                        aliases: ['close-wait']
                         type: int
                         description: Set close-wait timeout
                     fin_wait:
+                        aliases: ['fin-wait']
                         type: int
                         description: Set fin-wait timeout
                     id:
                         type: int
                         description: Timeout profile ID
                     syn_sent:
+                        aliases: ['syn-sent']
                         type: int
                         description: Set syn-sent timeout
                     syn_wait:
+                        aliases: ['syn-wait']
                         type: int
                         description: Set syn-wait timeout
                     tcp_idle:
+                        aliases: ['tcp-idle']
                         type: int
                         description: Set TCP establish timeout
                     time_wait:
+                        aliases: ['time-wait']
                         type: int
                         description: Set time-wait timeout
             ip_reassembly:
+                aliases: ['ip-reassembly']
                 type: dict
                 description: Ip reassembly.
                 suboptions:
                     max_timeout:
+                        aliases: ['max-timeout']
                         type: int
                         description: Maximum timeout value for IP reassembly
                     min_timeout:
+                        aliases: ['min-timeout']
                         type: int
                         description: Minimum timeout value for IP reassembly
                     status:
@@ -1933,12 +2078,14 @@ options:
                             - 'disable'
                             - 'enable'
             gtp_support:
+                aliases: ['gtp-support']
                 type: str
                 description: Enable/Disable NP7 GTP support
                 choices:
                     - 'disable'
                     - 'enable'
             htx_icmp_csum_chk:
+                aliases: ['htx-icmp-csum-chk']
                 type: str
                 description: Set HTX icmp csum checking mode.
                 choices:
@@ -1949,75 +2096,97 @@ options:
                 description: Hpe.
                 suboptions:
                     all_protocol:
+                        aliases: ['all-protocol']
                         type: int
                         description: Maximum packet rate of each host queue except high priority traffic
                     arp_max:
+                        aliases: ['arp-max']
                         type: int
                         description: Maximum ARP packet rate
                     enable_shaper:
+                        aliases: ['enable-shaper']
                         type: str
                         description: Enable/Disable NPU Host Protection Engine
                         choices:
                             - 'disable'
                             - 'enable'
                     esp_max:
+                        aliases: ['esp-max']
                         type: int
                         description: Maximum ESP packet rate
                     high_priority:
+                        aliases: ['high-priority']
                         type: int
                         description: Maximum packet rate for high priority traffic packets
                     icmp_max:
+                        aliases: ['icmp-max']
                         type: int
                         description: Maximum ICMP packet rate
                     ip_frag_max:
+                        aliases: ['ip-frag-max']
                         type: int
                         description: Maximum fragmented IP packet rate
                     ip_others_max:
+                        aliases: ['ip-others-max']
                         type: int
                         description: Maximum IP packet rate for other packets
                     l2_others_max:
+                        aliases: ['l2-others-max']
                         type: int
                         description: Maximum L2 packet rate for L2 packets that are not ARP packets
                     pri_type_max:
+                        aliases: ['pri-type-max']
                         type: int
                         description: Maximum overflow rate of priority type traffic
                     sctp_max:
+                        aliases: ['sctp-max']
                         type: int
                         description: Maximum SCTP packet rate
                     tcp_max:
+                        aliases: ['tcp-max']
                         type: int
                         description: Maximum TCP packet rate
                     tcpfin_rst_max:
+                        aliases: ['tcpfin-rst-max']
                         type: int
                         description: Maximum TCP carries FIN or RST flags packet rate
                     tcpsyn_ack_max:
+                        aliases: ['tcpsyn-ack-max']
                         type: int
                         description: Maximum TCP carries SYN and ACK flags packet rate
                     tcpsyn_max:
+                        aliases: ['tcpsyn-max']
                         type: int
                         description: Maximum TCP SYN packet rate
                     udp_max:
+                        aliases: ['udp-max']
                         type: int
                         description: Maximum UDP packet rate
                     enable_queue_shaper:
+                        aliases: ['enable-queue-shaper']
                         type: str
                         description: Enable/Disable NPU host protection engine
                         choices:
                             - 'disable'
                             - 'enable'
                     exception_code:
+                        aliases: ['exception-code']
                         type: int
                         description: Maximum exception code rate of traffic
                     fragment_with_sess:
+                        aliases: ['fragment-with-sess']
                         type: int
                         description: Maximum fragment with session rate of traffic
                     fragment_without_session:
+                        aliases: ['fragment-without-session']
                         type: int
                         description: Maximum fragment without session rate of traffic
                     queue_shaper_max:
+                        aliases: ['queue-shaper-max']
                         type: int
                         description: Maximum per queue byte rate of traffic
             dsw_dts_profile:
+                aliases: ['dsw-dts-profile']
                 type: list
                 elements: dict
                 description: Dsw dts profile.
@@ -2034,15 +2203,18 @@ options:
                             - 'enque_0'
                             - 'enque_1'
                     min_limit:
+                        aliases: ['min-limit']
                         type: int
                         description: Set NPU DSW DTS profile min-limt.
                     profile_id:
+                        aliases: ['profile-id']
                         type: int
                         description: Set NPU DSW DTS profile profile id.
                     step:
                         type: int
                         description: Set NPU DSW DTS profile step.
             hash_config:
+                aliases: ['hash-config']
                 type: str
                 description: Configure NPU trunk hash.
                 choices:
@@ -2050,6 +2222,7 @@ options:
                     - 'src-ip'
                     - 'src-dst-ip'
             ipsec_ob_np_sel:
+                aliases: ['ipsec-ob-np-sel']
                 type: str
                 description: IPsec NP selection for OB SA offloading.
                 choices:
@@ -2058,9 +2231,11 @@ options:
                     - 'Packet'
                     - 'Hash'
             napi_break_interval:
+                aliases: ['napi-break-interval']
                 type: int
                 description: NAPI break interval
             background_sse_scan:
+                aliases: ['background-sse-scan']
                 type: dict
                 description: Background sse scan.
                 suboptions:
@@ -2071,36 +2246,47 @@ options:
                             - 'disable'
                             - 'enable'
                     stats_update_interval:
+                        aliases: ['stats-update-interval']
                         type: int
                         description: Stats update interval
                     udp_keepalive_interval:
+                        aliases: ['udp-keepalive-interval']
                         type: int
                         description: UDP keepalive interval
                     scan_stale:
+                        aliases: ['scan-stale']
                         type: int
                         description: Configure scanning of active or stale sessions
                     scan_vt:
+                        aliases: ['scan-vt']
                         type: int
                         description: Select version/type to scan
                     stats_qual_access:
+                        aliases: ['stats-qual-access']
                         type: int
                         description: Statistics update access qualification in seconds
                     stats_qual_duration:
+                        aliases: ['stats-qual-duration']
                         type: int
                         description: Statistics update duration qualification in seconds
                     udp_qual_access:
+                        aliases: ['udp-qual-access']
                         type: int
                         description: UDP keepalive access qualification in seconds
                     udp_qual_duration:
+                        aliases: ['udp-qual-duration']
                         type: int
                         description: UDP keepalive duration qualification in seconds
             inbound_dscp_copy_port:
+                aliases: ['inbound-dscp-copy-port']
                 type: raw
                 description: (list) Physical interfaces that support inbound-dscp-copy.
             session_acct_interval:
+                aliases: ['session-acct-interval']
                 type: int
                 description: Session accounting update interval
             htab_msg_queue:
+                aliases: ['htab-msg-queue']
                 type: str
                 description: Set hash table message queue mode.
                 choices:
@@ -2108,6 +2294,7 @@ options:
                     - 'data'
                     - 'dedicated'
             dsw_queue_dts_profile:
+                aliases: ['dsw-queue-dts-profile']
                 type: list
                 elements: dict
                 description: Dsw queue dts profile.
@@ -2251,27 +2438,34 @@ options:
                             - 'qtm'
                             - 'l2tO'
                     profile_id:
+                        aliases: ['profile-id']
                         type: int
                         description: Set NPU DSW DTS profile ID.
                     queue_select:
+                        aliases: ['queue-select']
                         type: int
                         description: Set NPU DSW DTS queue ID select
             hw_ha_scan_interval:
+                aliases: ['hw-ha-scan-interval']
                 type: int
                 description: HW HA periodical scan interval in seconds
             ippool_overload_high:
+                aliases: ['ippool-overload-high']
                 type: int
                 description: High threshold for overload ippool port reuse
             nat46_force_ipv4_packet_forwarding:
+                aliases: ['nat46-force-ipv4-packet-forwarding']
                 type: str
                 description: Enable/disable mandatory IPv4 packet forwarding in nat46.
                 choices:
                     - 'disable'
                     - 'enable'
             prp_port_out:
+                aliases: ['prp-port-out']
                 type: raw
                 description: (list or str) Egress port configured to allow the PRP trailer not be stripped off when the PRP packets go out.
             isf_np_rx_tr_distr:
+                aliases: ['isf-np-rx-tr-distr']
                 type: str
                 description: Select ISF NP Rx trunk distribution
                 choices:
@@ -2279,6 +2473,7 @@ options:
                     - 'round-robin'
                     - 'randomized'
             mcast_session_counting6:
+                aliases: ['mcast-session-counting6']
                 type: str
                 description: Enable/disable traffic accounting for each multicast session6 through TAE counter.
                 choices:
@@ -2287,21 +2482,25 @@ options:
                     - 'session-based'
                     - 'tpe-based'
             prp_port_in:
+                aliases: ['prp-port-in']
                 type: raw
                 description: (list or str) Ingress port configured to allow the PRP trailer not be stripped off when the PRP packets come in.
             rps_mode:
+                aliases: ['rps-mode']
                 type: str
                 description: Enable/disable receive packet steering
                 choices:
                     - 'disable'
                     - 'enable'
             per_policy_accounting:
+                aliases: ['per-policy-accounting']
                 type: str
                 description: Set per-policy accounting.
                 choices:
                     - 'disable'
                     - 'enable'
             mcast_session_counting:
+                aliases: ['mcast-session-counting']
                 type: str
                 description: Mcast session counting.
                 choices:
@@ -2310,36 +2509,42 @@ options:
                     - 'session-based'
                     - 'tpe-based'
             inbound_dscp_copy:
+                aliases: ['inbound-dscp-copy']
                 type: str
                 description: Enable/disable copying the DSCP field from outer IP header to inner IP Header.
                 choices:
                     - 'disable'
                     - 'enable'
             ipsec_host_dfclr:
+                aliases: ['ipsec-host-dfclr']
                 type: str
                 description: Enable/disable DF clearing of NP4lite host IPsec offload.
                 choices:
                     - 'disable'
                     - 'enable'
             process_icmp_by_host:
+                aliases: ['process-icmp-by-host']
                 type: str
                 description: Enable/disable process ICMP by host when received from IPsec tunnel and payload size
                 choices:
                     - 'disable'
                     - 'enable'
             dedicated_tx_npu:
+                aliases: ['dedicated-tx-npu']
                 type: str
                 description: Enable/disable dedication of 3rd NPU for slow path TX.
                 choices:
                     - 'disable'
                     - 'enable'
             ull_port_mode:
+                aliases: ['ull-port-mode']
                 type: str
                 description: Set ULL ports speed to 10G/25G
                 choices:
                     - '10G'
                     - '25G'
             sse_ha_scan:
+                aliases: ['sse-ha-scan']
                 type: dict
                 description: Sse ha scan.
                 suboptions:
@@ -2347,30 +2552,37 @@ options:
                         type: int
                         description: Scanning message gap
                     max_session_cnt:
+                        aliases: ['max-session-cnt']
                         type: int
                         description: If the session count
                     min_duration:
+                        aliases: ['min-duration']
                         type: int
                         description: Scanning filter for minimum duration of the session.
             hash_ipv6_sel:
+                aliases: ['hash-ipv6-sel']
                 type: int
                 description: Select which 4bytes of the IPv6 address are used for traffic hash
             ip_fragment_offload:
+                aliases: ['ip-fragment-offload']
                 type: str
                 description: Enable/disable NP7 NPU IP fragment offload.
                 choices:
                     - 'disable'
                     - 'enable'
             ple_non_syn_tcp_action:
+                aliases: ['ple-non-syn-tcp-action']
                 type: str
                 description: Configure action for the PLE to take on TCP packets that have the SYN field unset.
                 choices:
                     - 'forward'
                     - 'drop'
             npu_group_effective_scope:
+                aliases: ['npu-group-effective-scope']
                 type: int
                 description: Npu-group-effective-scope defines under which npu-group cmds such as list/purge will be excecuted.
             ipsec_STS_timeout:
+                aliases: ['ipsec-STS-timeout']
                 type: str
                 description: Set NP7Lite IPsec STS msg timeout.
                 choices:
@@ -2385,6 +2597,7 @@ options:
                     - '9'
                     - '10'
             ipsec_throughput_msg_frequency:
+                aliases: ['ipsec-throughput-msg-frequency']
                 type: str
                 description: Set NP7Lite IPsec throughput msg frequency
                 choices:
@@ -2406,6 +2619,7 @@ options:
                     - '512MB'
                     - '1GB'
             ipt_STS_timeout:
+                aliases: ['ipt-STS-timeout']
                 type: str
                 description: Set NP7Lite IPT STS msg timeout.
                 choices:
@@ -2420,6 +2634,7 @@ options:
                     - '9'
                     - '10'
             ipt_throughput_msg_frequency:
+                aliases: ['ipt-throughput-msg-frequency']
                 type: str
                 description: Set NP7Lite IPT throughput msg frequency
                 choices:
@@ -2441,6 +2656,7 @@ options:
                     - '512MB'
                     - '1GB'
             default_tcp_refresh_dir:
+                aliases: ['default-tcp-refresh-dir']
                 type: str
                 description: Default SSE timeout TCP refresh direction.
                 choices:
@@ -2448,6 +2664,7 @@ options:
                     - 'outgoing'
                     - 'incoming'
             default_udp_refresh_dir:
+                aliases: ['default-udp-refresh-dir']
                 type: str
                 description: Default SSE timeout UDP refresh direction.
                 choices:
@@ -2455,6 +2672,7 @@ options:
                     - 'outgoing'
                     - 'incoming'
             nss_threads_option:
+                aliases: ['nss-threads-option']
                 type: str
                 description: Configure thread options for the NP7s NSS module.
                 choices:
@@ -2462,6 +2680,7 @@ options:
                     - '4t-noeif'
                     - '2t'
             prp_session_clear_mode:
+                aliases: ['prp-session-clear-mode']
                 type: str
                 description: PRP session clear mode for excluded ip sessions.
                 choices:
@@ -2469,12 +2688,14 @@ options:
                     - 'non-blocking'
                     - 'do-not-clear'
             shaping_stats:
+                aliases: ['shaping-stats']
                 type: str
                 description: Enable/disable NP7 traffic shaping statistics
                 choices:
                     - 'disable'
                     - 'enable'
             sw_tr_hash:
+                aliases: ['sw-tr-hash']
                 type: dict
                 description: Sw tr hash.
                 suboptions:
@@ -2485,39 +2706,46 @@ options:
                             - 'disable'
                             - 'enable'
                     tcp_udp_port:
+                        aliases: ['tcp-udp-port']
                         type: str
                         description: Include/exclude TCP/UDP source and destination port for unicast trunk traffic.
                         choices:
                             - 'include'
                             - 'exclude'
             pba_port_select_mode:
+                aliases: ['pba-port-select-mode']
                 type: str
                 description: Port selection mode for PBA IP pool.
                 choices:
                     - 'random'
                     - 'direct'
             spa_port_select_mode:
+                aliases: ['spa-port-select-mode']
                 type: str
                 description: Port selection mode for SPA IP pool.
                 choices:
                     - 'random'
                     - 'direct'
             split_ipsec_engines:
+                aliases: ['split-ipsec-engines']
                 type: str
                 description: Enable/disable Split IPsec Engines.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_over_vlink:
+                aliases: ['tunnel-over-vlink']
                 type: str
                 description: Enable/disable selection of which NP6 chip the tunnel uses
                 choices:
                     - 'disable'
                     - 'enable'
             max_receive_unit:
+                aliases: ['max-receive-unit']
                 type: int
                 description: Set the maximum packet size for receive, larger packets will be silently dropped.
             npu_tcam:
+                aliases: ['npu-tcam']
                 type: list
                 elements: dict
                 description: Npu tcam.
@@ -2548,42 +2776,52 @@ options:
                                 type: str
                                 description: Tcam data ethertype.
                             ext_tag:
+                                aliases: ['ext-tag']
                                 type: str
                                 description: Tcam data extension tag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             frag_off:
+                                aliases: ['frag-off']
                                 type: int
                                 description: Tcam data ip flag fragment offset.
                             gen_buf_cnt:
+                                aliases: ['gen-buf-cnt']
                                 type: int
                                 description: Tcam data gen info buffer count.
                             gen_iv:
+                                aliases: ['gen-iv']
                                 type: str
                                 description: Tcam data gen info iv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             gen_l3_flags:
+                                aliases: ['gen-l3-flags']
                                 type: int
                                 description: Tcam data gen info L3 flags.
                             gen_l4_flags:
+                                aliases: ['gen-l4-flags']
                                 type: int
                                 description: Tcam data gen info L4 flags.
                             gen_pkt_ctrl:
+                                aliases: ['gen-pkt-ctrl']
                                 type: int
                                 description: Tcam data gen info packet control.
                             gen_pri:
+                                aliases: ['gen-pri']
                                 type: int
                                 description: Tcam data gen info priority.
                             gen_pri_v:
+                                aliases: ['gen-pri-v']
                                 type: str
                                 description: Tcam data gen info priority valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             gen_tv:
+                                aliases: ['gen-tv']
                                 type: str
                                 description: Tcam data gen info tv.
                                 choices:
@@ -2593,24 +2831,30 @@ options:
                                 type: int
                                 description: Tcam data ipv4 IHL.
                             ip4_id:
+                                aliases: ['ip4-id']
                                 type: int
                                 description: Tcam data ipv4 id.
                             ip6_fl:
+                                aliases: ['ip6-fl']
                                 type: int
                                 description: Tcam data ipv6 flow label.
                             ipver:
                                 type: int
                                 description: Tcam data ip header version.
                             l4_wd10:
+                                aliases: ['l4-wd10']
                                 type: int
                                 description: Tcam data L4 word10.
                             l4_wd11:
+                                aliases: ['l4-wd11']
                                 type: int
                                 description: Tcam data L4 word11.
                             l4_wd8:
+                                aliases: ['l4-wd8']
                                 type: int
                                 description: Tcam data L4 word8.
                             l4_wd9:
+                                aliases: ['l4-wd9']
                                 type: int
                                 description: Tcam data L4 word9.
                             mf:
@@ -2626,6 +2870,7 @@ options:
                                 type: int
                                 description: Tcam data sublink.
                             smac_change:
+                                aliases: ['smac-change']
                                 type: str
                                 description: Tcam data source MAC change.
                                 choices:
@@ -2635,15 +2880,18 @@ options:
                                 type: int
                                 description: Tcam data source port.
                             src_cfi:
+                                aliases: ['src-cfi']
                                 type: str
                                 description: Tcam data source cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             src_prio:
+                                aliases: ['src-prio']
                                 type: int
                                 description: Tcam data source priority.
                             src_updt:
+                                aliases: ['src-updt']
                                 type: str
                                 description: Tcam data source update.
                                 choices:
@@ -2665,69 +2913,81 @@ options:
                                 type: int
                                 description: Tcam data source vid.
                             tcp_ack:
+                                aliases: ['tcp-ack']
                                 type: str
                                 description: Tcam data tcp flag ack.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_cwr:
+                                aliases: ['tcp-cwr']
                                 type: str
                                 description: Tcam data tcp flag cwr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_ece:
+                                aliases: ['tcp-ece']
                                 type: str
                                 description: Tcam data tcp flag ece.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_fin:
+                                aliases: ['tcp-fin']
                                 type: str
                                 description: Tcam data tcp flag fin.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_push:
+                                aliases: ['tcp-push']
                                 type: str
                                 description: Tcam data tcp flag push.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_rst:
+                                aliases: ['tcp-rst']
                                 type: str
                                 description: Tcam data tcp flag rst.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_syn:
+                                aliases: ['tcp-syn']
                                 type: str
                                 description: Tcam data tcp flag syn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_urg:
+                                aliases: ['tcp-urg']
                                 type: str
                                 description: Tcam data tcp flag urg.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_cfi:
+                                aliases: ['tgt-cfi']
                                 type: str
                                 description: Tcam data target cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_prio:
+                                aliases: ['tgt-prio']
                                 type: int
                                 description: Tcam data target priority.
                             tgt_updt:
+                                aliases: ['tgt-updt']
                                 type: str
                                 description: Tcam data target port update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_v:
+                                aliases: ['tgt-v']
                                 type: str
                                 description: Tcam data target valid.
                                 choices:
@@ -2749,6 +3009,7 @@ options:
                                 type: int
                                 description: Tcam data vdom id.
                     dbg_dump:
+                        aliases: ['dbg-dump']
                         type: int
                         description: Debug driver dump data/mask pdq.
                     mask:
@@ -2777,42 +3038,52 @@ options:
                                 type: str
                                 description: Tcam mask ethertype.
                             ext_tag:
+                                aliases: ['ext-tag']
                                 type: str
                                 description: Tcam mask extension tag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             frag_off:
+                                aliases: ['frag-off']
                                 type: int
                                 description: Tcam data ip flag fragment offset.
                             gen_buf_cnt:
+                                aliases: ['gen-buf-cnt']
                                 type: int
                                 description: Tcam mask gen info buffer count.
                             gen_iv:
+                                aliases: ['gen-iv']
                                 type: str
                                 description: Tcam mask gen info iv.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             gen_l3_flags:
+                                aliases: ['gen-l3-flags']
                                 type: int
                                 description: Tcam mask gen info L3 flags.
                             gen_l4_flags:
+                                aliases: ['gen-l4-flags']
                                 type: int
                                 description: Tcam mask gen info L4 flags.
                             gen_pkt_ctrl:
+                                aliases: ['gen-pkt-ctrl']
                                 type: int
                                 description: Tcam mask gen info packet control.
                             gen_pri:
+                                aliases: ['gen-pri']
                                 type: int
                                 description: Tcam mask gen info priority.
                             gen_pri_v:
+                                aliases: ['gen-pri-v']
                                 type: str
                                 description: Tcam mask gen info priority valid.
                                 choices:
                                     - 'invalid'
                                     - 'valid'
                             gen_tv:
+                                aliases: ['gen-tv']
                                 type: str
                                 description: Tcam mask gen info tv.
                                 choices:
@@ -2822,24 +3093,30 @@ options:
                                 type: int
                                 description: Tcam mask ipv4 IHL.
                             ip4_id:
+                                aliases: ['ip4-id']
                                 type: int
                                 description: Tcam mask ipv4 id.
                             ip6_fl:
+                                aliases: ['ip6-fl']
                                 type: int
                                 description: Tcam mask ipv6 flow label.
                             ipver:
                                 type: int
                                 description: Tcam mask ip header version.
                             l4_wd10:
+                                aliases: ['l4-wd10']
                                 type: int
                                 description: Tcam mask L4 word10.
                             l4_wd11:
+                                aliases: ['l4-wd11']
                                 type: int
                                 description: Tcam mask L4 word11.
                             l4_wd8:
+                                aliases: ['l4-wd8']
                                 type: int
                                 description: Tcam mask L4 word8.
                             l4_wd9:
+                                aliases: ['l4-wd9']
                                 type: int
                                 description: Tcam mask L4 word9.
                             mf:
@@ -2855,6 +3132,7 @@ options:
                                 type: int
                                 description: Tcam mask sublink.
                             smac_change:
+                                aliases: ['smac-change']
                                 type: str
                                 description: Tcam mask source MAC change.
                                 choices:
@@ -2864,15 +3142,18 @@ options:
                                 type: int
                                 description: Tcam mask source port.
                             src_cfi:
+                                aliases: ['src-cfi']
                                 type: str
                                 description: Tcam mask source cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             src_prio:
+                                aliases: ['src-prio']
                                 type: int
                                 description: Tcam mask source priority.
                             src_updt:
+                                aliases: ['src-updt']
                                 type: str
                                 description: Tcam mask source update.
                                 choices:
@@ -2894,69 +3175,81 @@ options:
                                 type: int
                                 description: Tcam mask source vid.
                             tcp_ack:
+                                aliases: ['tcp-ack']
                                 type: str
                                 description: Tcam mask tcp flag ack.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_cwr:
+                                aliases: ['tcp-cwr']
                                 type: str
                                 description: Tcam mask tcp flag cwr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_ece:
+                                aliases: ['tcp-ece']
                                 type: str
                                 description: Tcam mask tcp flag ece.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_fin:
+                                aliases: ['tcp-fin']
                                 type: str
                                 description: Tcam mask tcp flag fin.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_push:
+                                aliases: ['tcp-push']
                                 type: str
                                 description: Tcam mask tcp flag push.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_rst:
+                                aliases: ['tcp-rst']
                                 type: str
                                 description: Tcam mask tcp flag rst.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_syn:
+                                aliases: ['tcp-syn']
                                 type: str
                                 description: Tcam mask tcp flag syn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tcp_urg:
+                                aliases: ['tcp-urg']
                                 type: str
                                 description: Tcam mask tcp flag urg.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_cfi:
+                                aliases: ['tgt-cfi']
                                 type: str
                                 description: Tcam mask target cfi.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_prio:
+                                aliases: ['tgt-prio']
                                 type: int
                                 description: Tcam mask target priority.
                             tgt_updt:
+                                aliases: ['tgt-updt']
                                 type: str
                                 description: Tcam mask target port update.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgt_v:
+                                aliases: ['tgt-v']
                                 type: str
                                 description: Tcam mask target valid.
                                 choices:
@@ -2978,6 +3271,7 @@ options:
                                 type: int
                                 description: Tcam mask vdom id.
                     mir_act:
+                        aliases: ['mir-act']
                         type: dict
                         description: Mir act.
                         suboptions:
@@ -2991,6 +3285,7 @@ options:
                         type: int
                         description: NPU TCAM OID.
                     pri_act:
+                        aliases: ['pri-act']
                         type: dict
                         description: Pri act.
                         suboptions:
@@ -3008,6 +3303,7 @@ options:
                                 type: int
                                 description: Tcam sact act.
                             act_v:
+                                aliases: ['act-v']
                                 type: str
                                 description: Enable to set sact act.
                                 choices:
@@ -3017,15 +3313,18 @@ options:
                                 type: int
                                 description: Tcam sact bmproc.
                             bmproc_v:
+                                aliases: ['bmproc-v']
                                 type: str
                                 description: Enable to set sact bmproc.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             df_lif:
+                                aliases: ['df-lif']
                                 type: int
                                 description: Tcam sact df-lif.
                             df_lif_v:
+                                aliases: ['df-lif-v']
                                 type: str
                                 description: Enable to set sact df-lif.
                                 choices:
@@ -3035,15 +3334,18 @@ options:
                                 type: int
                                 description: Tcam sact dfr.
                             dfr_v:
+                                aliases: ['dfr-v']
                                 type: str
                                 description: Enable to set sact dfr.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dmac_skip:
+                                aliases: ['dmac-skip']
                                 type: int
                                 description: Tcam sact dmac-skip.
                             dmac_skip_v:
+                                aliases: ['dmac-skip-v']
                                 type: str
                                 description: Enable to set sact dmac-skip.
                                 choices:
@@ -3053,33 +3355,40 @@ options:
                                 type: int
                                 description: Tcam sact dosen.
                             dosen_v:
+                                aliases: ['dosen-v']
                                 type: str
                                 description: Enable to set sact dosen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             espff_proc:
+                                aliases: ['espff-proc']
                                 type: int
                                 description: Tcam sact espff-proc.
                             espff_proc_v:
+                                aliases: ['espff-proc-v']
                                 type: str
                                 description: Enable to set sact espff-proc.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             etype_pid:
+                                aliases: ['etype-pid']
                                 type: int
                                 description: Tcam sact etype-pid.
                             etype_pid_v:
+                                aliases: ['etype-pid-v']
                                 type: str
                                 description: Enable to set sact etype-pid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             frag_proc:
+                                aliases: ['frag-proc']
                                 type: int
                                 description: Tcam sact frag-proc.
                             frag_proc_v:
+                                aliases: ['frag-proc-v']
                                 type: str
                                 description: Enable to set sact frag-proc.
                                 choices:
@@ -3089,24 +3398,29 @@ options:
                                 type: int
                                 description: Tcam sact fwd.
                             fwd_lif:
+                                aliases: ['fwd-lif']
                                 type: int
                                 description: Tcam sact fwd-lif.
                             fwd_lif_v:
+                                aliases: ['fwd-lif-v']
                                 type: str
                                 description: Enable to set sact fwd-lif.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             fwd_tvid:
+                                aliases: ['fwd-tvid']
                                 type: int
                                 description: Tcam sact fwd-tvid.
                             fwd_tvid_v:
+                                aliases: ['fwd-tvid-v']
                                 type: str
                                 description: Enable to set sact fwd-vid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             fwd_v:
+                                aliases: ['fwd-v']
                                 type: str
                                 description: Enable to set sact fwd.
                                 choices:
@@ -3116,15 +3430,18 @@ options:
                                 type: int
                                 description: Tcam sact icpen.
                             icpen_v:
+                                aliases: ['icpen-v']
                                 type: str
                                 description: Enable to set sact icpen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             igmp_mld_snp:
+                                aliases: ['igmp-mld-snp']
                                 type: int
                                 description: Tcam sact igmp-mld-snp.
                             igmp_mld_snp_v:
+                                aliases: ['igmp-mld-snp-v']
                                 type: str
                                 description: Enable to set sact igmp-mld-snp.
                                 choices:
@@ -3134,24 +3451,29 @@ options:
                                 type: int
                                 description: Tcam sact learn.
                             learn_v:
+                                aliases: ['learn-v']
                                 type: str
                                 description: Enable to set sact learn.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             m_srh_ctrl:
+                                aliases: ['m-srh-ctrl']
                                 type: int
                                 description: Tcam sact m-srh-ctrl.
                             m_srh_ctrl_v:
+                                aliases: ['m-srh-ctrl-v']
                                 type: str
                                 description: Enable to set sact m-srh-ctrl.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mac_id:
+                                aliases: ['mac-id']
                                 type: int
                                 description: Tcam sact mac-id.
                             mac_id_v:
+                                aliases: ['mac-id-v']
                                 type: str
                                 description: Enable to set sact mac-id.
                                 choices:
@@ -3161,6 +3483,7 @@ options:
                                 type: int
                                 description: Tcam sact mss.
                             mss_v:
+                                aliases: ['mss-v']
                                 type: str
                                 description: Enable to set sact mss.
                                 choices:
@@ -3170,15 +3493,18 @@ options:
                                 type: int
                                 description: Tcam sact pleen.
                             pleen_v:
+                                aliases: ['pleen-v']
                                 type: str
                                 description: Enable to set sact pleen.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             prio_pid:
+                                aliases: ['prio-pid']
                                 type: int
                                 description: Tcam sact prio-pid.
                             prio_pid_v:
+                                aliases: ['prio-pid-v']
                                 type: str
                                 description: Enable to set sact prio-pid.
                                 choices:
@@ -3188,6 +3514,7 @@ options:
                                 type: int
                                 description: Tcam sact promis.
                             promis_v:
+                                aliases: ['promis-v']
                                 type: str
                                 description: Enable to set sact promis.
                                 choices:
@@ -3197,21 +3524,25 @@ options:
                                 type: int
                                 description: Tcam sact rfsh.
                             rfsh_v:
+                                aliases: ['rfsh-v']
                                 type: str
                                 description: Enable to set sact rfsh.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             smac_skip:
+                                aliases: ['smac-skip']
                                 type: int
                                 description: Tcam sact smac-skip.
                             smac_skip_v:
+                                aliases: ['smac-skip-v']
                                 type: str
                                 description: Enable to set sact smac-skip.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tp_smchk_v:
+                                aliases: ['tp-smchk-v']
                                 type: str
                                 description: Enable to set sact tp mode.
                                 choices:
@@ -3221,9 +3552,11 @@ options:
                                 type: int
                                 description: Tcam sact tp mode.
                             tpe_id:
+                                aliases: ['tpe-id']
                                 type: int
                                 description: Tcam sact tpe-id.
                             tpe_id_v:
+                                aliases: ['tpe-id-v']
                                 type: str
                                 description: Enable to set sact tpe-id.
                                 choices:
@@ -3233,24 +3566,29 @@ options:
                                 type: int
                                 description: Tcam sact vdm.
                             vdm_v:
+                                aliases: ['vdm-v']
                                 type: str
                                 description: Enable to set sact vdm.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vdom_id:
+                                aliases: ['vdom-id']
                                 type: int
                                 description: Tcam sact vdom-id.
                             vdom_id_v:
+                                aliases: ['vdom-id-v']
                                 type: str
                                 description: Enable to set sact vdom-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             x_mode:
+                                aliases: ['x-mode']
                                 type: int
                                 description: Tcam sact x-mode.
                             x_mode_v:
+                                aliases: ['x-mode-v']
                                 type: str
                                 description: Enable to set sact x-mode.
                                 choices:
@@ -3264,24 +3602,29 @@ options:
                                 type: int
                                 description: Tcam tact act.
                             act_v:
+                                aliases: ['act-v']
                                 type: str
                                 description: Enable to set tact act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             fmtuv4_s:
+                                aliases: ['fmtuv4-s']
                                 type: int
                                 description: Tcam tact fmtuv4-s.
                             fmtuv4_s_v:
+                                aliases: ['fmtuv4-s-v']
                                 type: str
                                 description: Enable to set tact fmtuv4-s.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             fmtuv6_s:
+                                aliases: ['fmtuv6-s']
                                 type: int
                                 description: Tcam tact fmtuv6-s.
                             fmtuv6_s_v:
+                                aliases: ['fmtuv6-s-v']
                                 type: str
                                 description: Enable to set tact fmtuv6-s.
                                 choices:
@@ -3291,24 +3634,29 @@ options:
                                 type: int
                                 description: Tcam tact lnkid.
                             lnkid_v:
+                                aliases: ['lnkid-v']
                                 type: str
                                 description: Enable to set tact lnkid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mac_id:
+                                aliases: ['mac-id']
                                 type: int
                                 description: Tcam tact mac-id.
                             mac_id_v:
+                                aliases: ['mac-id-v']
                                 type: str
                                 description: Enable to set tact mac-id.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             mss_t:
+                                aliases: ['mss-t']
                                 type: int
                                 description: Tcam tact mss.
                             mss_t_v:
+                                aliases: ['mss-t-v']
                                 type: str
                                 description: Enable to set tact mss.
                                 choices:
@@ -3318,6 +3666,7 @@ options:
                                 type: int
                                 description: Tcam tact mtuv4.
                             mtuv4_v:
+                                aliases: ['mtuv4-v']
                                 type: str
                                 description: Enable to set tact mtuv4.
                                 choices:
@@ -3327,15 +3676,18 @@ options:
                                 type: int
                                 description: Tcam tact mtuv6.
                             mtuv6_v:
+                                aliases: ['mtuv6-v']
                                 type: str
                                 description: Enable to set tact mtuv6.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             slif_act:
+                                aliases: ['slif-act']
                                 type: int
                                 description: Tcam tact slif-act.
                             slif_act_v:
+                                aliases: ['slif-act-v']
                                 type: str
                                 description: Enable to set tact slif-act.
                                 choices:
@@ -3345,24 +3697,29 @@ options:
                                 type: int
                                 description: Tcam tact sublnkid.
                             sublnkid_v:
+                                aliases: ['sublnkid-v']
                                 type: str
                                 description: Enable to set tact sublnkid.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tgtv_act:
+                                aliases: ['tgtv-act']
                                 type: int
                                 description: Tcam tact tgtv-act.
                             tgtv_act_v:
+                                aliases: ['tgtv-act-v']
                                 type: str
                                 description: Enable to set tact tgtv-act.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             tlif_act:
+                                aliases: ['tlif-act']
                                 type: int
                                 description: Tcam tact tlif-act.
                             tlif_act_v:
+                                aliases: ['tlif-act-v']
                                 type: str
                                 description: Enable to set tact tlif-act.
                                 choices:
@@ -3372,6 +3729,7 @@ options:
                                 type: int
                                 description: Tcam tact tpeid.
                             tpeid_v:
+                                aliases: ['tpeid-v']
                                 type: str
                                 description: Enable to set tact tpeid.
                                 choices:
@@ -3381,21 +3739,25 @@ options:
                                 type: int
                                 description: Tcam tact v6fe.
                             v6fe_v:
+                                aliases: ['v6fe-v']
                                 type: str
                                 description: Enable to set tact v6fe.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vep_en_v:
+                                aliases: ['vep-en-v']
                                 type: str
                                 description: Enable to set tact vep-en.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vep_slid:
+                                aliases: ['vep-slid']
                                 type: int
                                 description: Tcam tact vep_slid.
                             vep_slid_v:
+                                aliases: ['vep-slid-v']
                                 type: str
                                 description: Enable to set tact vep-slid.
                                 choices:
@@ -3405,18 +3767,22 @@ options:
                                 type: int
                                 description: Tcam tact vep_en.
                             xlt_lif:
+                                aliases: ['xlt-lif']
                                 type: int
                                 description: Tcam tact xlt-lif.
                             xlt_lif_v:
+                                aliases: ['xlt-lif-v']
                                 type: str
                                 description: Enable to set tact xlt-lif.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             xlt_vid:
+                                aliases: ['xlt-vid']
                                 type: int
                                 description: Tcam tact xlt-vid.
                             xlt_vid_v:
+                                aliases: ['xlt-vid-v']
                                 type: str
                                 description: Enable to set tact xlt-vid.
                                 choices:
@@ -3448,80 +3814,100 @@ options:
                         type: int
                         description: NPU TCAM VID.
             icmp_rate_ctrl:
+                aliases: ['icmp-rate-ctrl']
                 type: dict
                 description: Icmp rate ctrl.
                 suboptions:
                     icmp_v4_bucket_size:
+                        aliases: ['icmp-v4-bucket-size']
                         type: int
                         description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 packets
                     icmp_v4_rate:
+                        aliases: ['icmp-v4-rate']
                         type: int
                         description: Average rate of ICMPv4 packets that allowed to be generated per second
                     icmp_v6_bucket_size:
+                        aliases: ['icmp-v6-bucket-size']
                         type: int
                         description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 packets
                     icmp_v6_rate:
+                        aliases: ['icmp-v6-rate']
                         type: int
                         description: Average rate of ICMPv6 packets that allowed to be generated per second
             vxlan_offload:
+                aliases: ['vxlan-offload']
                 type: str
                 description: Enable/disable offloading vxlan.
                 choices:
                     - 'disable'
                     - 'enable'
             icmp_error_rate_ctrl:
+                aliases: ['icmp-error-rate-ctrl']
                 type: dict
                 description: Icmp error rate ctrl.
                 suboptions:
                     icmpv4_error_bucket_size:
+                        aliases: ['icmpv4-error-bucket-size']
                         type: int
                         description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv4 error packets
                     icmpv4_error_rate:
+                        aliases: ['icmpv4-error-rate']
                         type: int
                         description: Average rate of ICMPv4 error packets that allowed to be generated per second
                     icmpv4_error_rate_limit:
+                        aliases: ['icmpv4-error-rate-limit']
                         type: str
                         description: Enable to limit the ICMPv4 error packets generated by this FortiGate.
                         choices:
                             - 'disable'
                             - 'enable'
                     icmpv6_error_bucket_size:
+                        aliases: ['icmpv6-error-bucket-size']
                         type: int
                         description: Bucket size used in the token bucket algorithm for controlling the flow of ICMPv6 error packets
                     icmpv6_error_rate:
+                        aliases: ['icmpv6-error-rate']
                         type: int
                         description: Average rate of ICMPv6 error packets that allowed to be generated per second
                     icmpv6_error_rate_limit:
+                        aliases: ['icmpv6-error-rate-limit']
                         type: str
                         description: Enable to limit the ICMPv6 error packets generated by this FortiGate.
                         choices:
                             - 'disable'
                             - 'enable'
             ipv4_session_quota:
+                aliases: ['ipv4-session-quota']
                 type: str
                 description: Enable/Disable NoNAT IPv4 session quota for hyperscale VDOMs.
                 choices:
                     - 'disable'
                     - 'enable'
             ipv4_session_quota_high:
+                aliases: ['ipv4-session-quota-high']
                 type: int
                 description: Configure NoNAT IPv4 session quota high threshold.
             ipv4_session_quota_low:
+                aliases: ['ipv4-session-quota-low']
                 type: int
                 description: Configure NoNAT IPv4 session quota low threshold.
             ipv6_prefix_session_quota:
+                aliases: ['ipv6-prefix-session-quota']
                 type: str
                 description: Enable/Disable hardware IPv6 /64 prefix session quota for hyperscale VDOMs.
                 choices:
                     - 'disable'
                     - 'enable'
             ipv6_prefix_session_quota_high:
+                aliases: ['ipv6-prefix-session-quota-high']
                 type: int
                 description: Configure IPv6 prefix session quota high threshold.
             ipv6_prefix_session_quota_low:
+                aliases: ['ipv6-prefix-session-quota-low']
                 type: int
                 description: Configure IPv6 prefix session quota low threshold.
             dedicated_lacp_queue:
+                aliases: ['dedicated-lacp-queue']
                 type: str
                 description: Enable to dedicate one HIF queue for LACP.
                 choices:

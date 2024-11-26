@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             mail_server:
+                aliases: ['mail-server']
                 type: str
                 description: Email-to-SMS server domain name.
             name:

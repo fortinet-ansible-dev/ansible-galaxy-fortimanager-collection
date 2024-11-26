@@ -81,6 +81,7 @@ options:
         type: dict
         suboptions:
             ports_using_npu:
+                aliases: ['ports-using-npu']
                 type: raw
                 description: (list) Set ha/aux ports to handle traffic with NPU
 '''

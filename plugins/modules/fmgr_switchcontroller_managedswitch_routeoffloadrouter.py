@@ -96,9 +96,11 @@ options:
         type: dict
         suboptions:
             router_ip:
+                aliases: ['router-ip']
                 type: str
                 description: Router IP address.
             vlan_name:
+                aliases: ['vlan-name']
                 type: str
                 description: VLAN name.
 '''

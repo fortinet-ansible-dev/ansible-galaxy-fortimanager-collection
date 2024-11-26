@@ -108,6 +108,7 @@ options:
                 description: ICAP profile name.
                 required: true
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             request:
@@ -117,15 +118,18 @@ options:
                     - 'disable'
                     - 'enable'
             request_failure:
+                aliases: ['request-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing an HTTP request.
                 choices:
                     - 'error'
                     - 'bypass'
             request_path:
+                aliases: ['request-path']
                 type: str
                 description: Path component of the ICAP URI that identifies the HTTP request processing service.
             request_server:
+                aliases: ['request-server']
                 type: str
                 description: ICAP server to use for an HTTP request.
             response:
@@ -135,29 +139,35 @@ options:
                     - 'disable'
                     - 'enable'
             response_failure:
+                aliases: ['response-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing an HTTP response.
                 choices:
                     - 'error'
                     - 'bypass'
             response_path:
+                aliases: ['response-path']
                 type: str
                 description: Path component of the ICAP URI that identifies the HTTP response processing service.
             response_server:
+                aliases: ['response-server']
                 type: str
                 description: ICAP server to use for an HTTP response.
             streaming_content_bypass:
+                aliases: ['streaming-content-bypass']
                 type: str
                 description: Enable/disable bypassing of ICAP server for streaming content.
                 choices:
                     - 'disable'
                     - 'enable'
             icap_headers:
+                aliases: ['icap-headers']
                 type: list
                 elements: dict
                 description: Icap headers.
                 suboptions:
                     base64_encoding:
+                        aliases: ['base64-encoding']
                         type: str
                         description: Enable/disable use of base64 encoding of HTTP content.
                         choices:
@@ -179,21 +189,25 @@ options:
                     - 'disable'
                     - 'enable'
             preview_data_length:
+                aliases: ['preview-data-length']
                 type: int
                 description: Preview data length to be sent to ICAP server.
             response_req_hdr:
+                aliases: ['response-req-hdr']
                 type: str
                 description: Enable/disable addition of req-hdr for ICAP response modification
                 choices:
                     - 'disable'
                     - 'enable'
             respmod_default_action:
+                aliases: ['respmod-default-action']
                 type: str
                 description: Default action to ICAP response modification
                 choices:
                     - 'bypass'
                     - 'forward'
             respmod_forward_rules:
+                aliases: ['respmod-forward-rules']
                 type: list
                 elements: dict
                 description: Respmod forward rules.
@@ -205,11 +219,13 @@ options:
                             - 'bypass'
                             - 'forward'
                     header_group:
+                        aliases: ['header-group']
                         type: list
                         elements: dict
                         description: Header group.
                         suboptions:
                             case_sensitivity:
+                                aliases: ['case-sensitivity']
                                 type: str
                                 description: Enable/disable case sensitivity when matching header.
                                 choices:
@@ -219,6 +235,7 @@ options:
                                 type: str
                                 description: HTTP header regular expression.
                             header_name:
+                                aliases: ['header-name']
                                 type: str
                                 description: HTTP header.
                             id:
@@ -228,33 +245,39 @@ options:
                         type: str
                         description: Address object for the host.
                     http_resp_status_code:
+                        aliases: ['http-resp-status-code']
                         type: raw
                         description: (list) HTTP response status code.
                     name:
                         type: str
                         description: Address name.
             204_response:
+                aliases: ['204-response']
                 type: str
                 description: Enable/disable allowance of 204 response from ICAP server.
                 choices:
                     - 'disable'
                     - 'enable'
             204_size_limit:
+                aliases: ['204-size-limit']
                 type: int
                 description: 204 response size limit to be saved by ICAP client in megabytes
             chunk_encap:
+                aliases: ['chunk-encap']
                 type: str
                 description: Enable/disable chunked encapsulation
                 choices:
                     - 'disable'
                     - 'enable'
             extension_feature:
+                aliases: ['extension-feature']
                 type: list
                 elements: str
                 description: Enable/disable ICAP extension features.
                 choices:
                     - 'scan-progress'
             file_transfer:
+                aliases: ['file-transfer']
                 type: list
                 elements: str
                 description: Configure the file transfer protocols to pass transferred files to an ICAP server as REQMOD.
@@ -262,24 +285,29 @@ options:
                     - 'ssh'
                     - 'ftp'
             file_transfer_failure:
+                aliases: ['file-transfer-failure']
                 type: str
                 description: Action to take if the ICAP server cannot be contacted when processing a file transfer.
                 choices:
                     - 'error'
                     - 'bypass'
             file_transfer_path:
+                aliases: ['file-transfer-path']
                 type: str
                 description: Path component of the ICAP URI that identifies the file transfer processing service.
             file_transfer_server:
+                aliases: ['file-transfer-server']
                 type: str
                 description: ICAP server to use for a file transfer.
             icap_block_log:
+                aliases: ['icap-block-log']
                 type: str
                 description: Enable/disable UTM log when infection found
                 choices:
                     - 'disable'
                     - 'enable'
             scan_progress_interval:
+                aliases: ['scan-progress-interval']
                 type: int
                 description: Scan progress interval value.
             timeout:

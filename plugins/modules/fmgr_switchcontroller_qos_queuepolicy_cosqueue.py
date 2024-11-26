@@ -99,15 +99,18 @@ options:
                 type: str
                 description: Description of the COS queue.
             drop_policy:
+                aliases: ['drop-policy']
                 type: str
                 description: COS queue drop policy.
                 choices:
                     - 'taildrop'
                     - 'weighted-random-early-detection'
             max_rate:
+                aliases: ['max-rate']
                 type: int
                 description: Maximum rate
             min_rate:
+                aliases: ['min-rate']
                 type: int
                 description: Minimum rate
             name:
@@ -118,9 +121,11 @@ options:
                 type: int
                 description: Weight of weighted round robin scheduling.
             max_rate_percent:
+                aliases: ['max-rate-percent']
                 type: int
                 description: Maximum rate
             min_rate_percent:
+                aliases: ['min-rate-percent']
                 type: int
                 description: Minimum rate
             ecn:

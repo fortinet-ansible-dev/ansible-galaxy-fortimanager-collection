@@ -94,9 +94,11 @@ options:
         type: dict
         suboptions:
             _dynamic_server:
+                aliases: ['_dynamic-server']
                 type: str
                 description: Dynamic server.
             addr_mode:
+                aliases: ['addr-mode']
                 type: str
                 description: Address mode
                 choices:
@@ -106,33 +108,41 @@ options:
                 type: str
                 description: Differentiated services code point
             dns_match_ip:
+                aliases: ['dns-match-ip']
                 type: str
                 description: Response IP expected from DNS server if the protocol is DNS.
             dns_request_domain:
+                aliases: ['dns-request-domain']
                 type: str
                 description: Fully qualified domain name to resolve for the DNS probe.
             failtime:
                 type: int
                 description: Number of failures before server is considered lost
             ftp_file:
+                aliases: ['ftp-file']
                 type: str
                 description: Full path and file name on the FTP server to download for FTP health-check to probe.
             ftp_mode:
+                aliases: ['ftp-mode']
                 type: str
                 description: FTP mode.
                 choices:
                     - 'passive'
                     - 'port'
             ha_priority:
+                aliases: ['ha-priority']
                 type: int
                 description: HA election priority
             http_agent:
+                aliases: ['http-agent']
                 type: str
                 description: String in the http-agent field in the HTTP header.
             http_get:
+                aliases: ['http-get']
                 type: str
                 description: URL used to communicate with the server if the protocol if the protocol is HTTP.
             http_match:
+                aliases: ['http-match']
                 type: str
                 description: Response string expected from the server if the protocol is HTTP.
             interval:
@@ -146,6 +156,7 @@ options:
                 description: Status check or health check name.
                 required: true
             packet_size:
+                aliases: ['packet-size']
                 type: int
                 description: Packet size of a twamp test session,
             password:
@@ -155,15 +166,18 @@ options:
                 type: int
                 description: Port number used to communicate with the server over the selected protocol
             probe_count:
+                aliases: ['probe-count']
                 type: int
                 description: Number of most recent probes that should be used to calculate latency and jitter
             probe_packets:
+                aliases: ['probe-packets']
                 type: str
                 description: Enable/disable transmission of probe packets.
                 choices:
                     - 'disable'
                     - 'enable'
             probe_timeout:
+                aliases: ['probe-timeout']
                 type: int
                 description: Time to wait before a probe packet is considered lost
             protocol:
@@ -181,6 +195,7 @@ options:
                     - 'ftp'
                     - 'https'
             quality_measured_method:
+                aliases: ['quality-measured-method']
                 type: str
                 description: Method to measure the quality of tcp-connect.
                 choices:
@@ -190,6 +205,7 @@ options:
                 type: int
                 description: Number of successful responses received before server is considered recovered
             security_mode:
+                aliases: ['security-mode']
                 type: str
                 description: Twamp controller security mode.
                 choices:
@@ -207,12 +223,15 @@ options:
                         type: int
                         description: SLA ID.
                     jitter_threshold:
+                        aliases: ['jitter-threshold']
                         type: int
                         description: Jitter for SLA to make decision in milliseconds.
                     latency_threshold:
+                        aliases: ['latency-threshold']
                         type: int
                         description: Latency for SLA to make decision in milliseconds.
                     link_cost_factor:
+                        aliases: ['link-cost-factor']
                         type: list
                         elements: str
                         description: Criteria on which to base link selection.
@@ -223,54 +242,69 @@ options:
                             - 'mos'
                             - 'remote'
                     packetloss_threshold:
+                        aliases: ['packetloss-threshold']
                         type: int
                         description: Packet loss for SLA to make decision in percentage.
                     mos_threshold:
+                        aliases: ['mos-threshold']
                         type: str
                         description: Minimum Mean Opinion Score for SLA to be marked as pass.
                     priority_in_sla:
+                        aliases: ['priority-in-sla']
                         type: int
                         description: Value to be distributed into routing table when in-sla
                     priority_out_sla:
+                        aliases: ['priority-out-sla']
                         type: int
                         description: Value to be distributed into routing table when out-sla
             sla_fail_log_period:
+                aliases: ['sla-fail-log-period']
                 type: int
                 description: Time interval in seconds that SLA fail log messages will be generated
             sla_pass_log_period:
+                aliases: ['sla-pass-log-period']
                 type: int
                 description: Time interval in seconds that SLA pass log messages will be generated
             system_dns:
+                aliases: ['system-dns']
                 type: str
                 description: Enable/disable system DNS as the probe server.
                 choices:
                     - 'disable'
                     - 'enable'
             threshold_alert_jitter:
+                aliases: ['threshold-alert-jitter']
                 type: int
                 description: Alert threshold for jitter
             threshold_alert_latency:
+                aliases: ['threshold-alert-latency']
                 type: int
                 description: Alert threshold for latency
             threshold_alert_packetloss:
+                aliases: ['threshold-alert-packetloss']
                 type: int
                 description: Alert threshold for packet loss
             threshold_warning_jitter:
+                aliases: ['threshold-warning-jitter']
                 type: int
                 description: Warning threshold for jitter
             threshold_warning_latency:
+                aliases: ['threshold-warning-latency']
                 type: int
                 description: Warning threshold for latency
             threshold_warning_packetloss:
+                aliases: ['threshold-warning-packetloss']
                 type: int
                 description: Warning threshold for packet loss
             update_cascade_interface:
+                aliases: ['update-cascade-interface']
                 type: str
                 description: Enable/disable update cascade interface.
                 choices:
                     - 'disable'
                     - 'enable'
             update_static_route:
+                aliases: ['update-static-route']
                 type: str
                 description: Enable/disable updating the static route.
                 choices:
@@ -280,6 +314,7 @@ options:
                 type: str
                 description: The user name to access probe server.
             detect_mode:
+                aliases: ['detect-mode']
                 type: str
                 description: The mode determining how to detect the server.
                 choices:
@@ -289,6 +324,7 @@ options:
                     - 'remote'
                     - 'agent-based'
             mos_codec:
+                aliases: ['mos-codec']
                 type: str
                 description: Codec to use for MOS calculation
                 choices:
@@ -302,15 +338,18 @@ options:
                 type: int
                 description: Virtual Routing Forwarding ID.
             embed_measured_health:
+                aliases: ['embed-measured-health']
                 type: str
                 description: Enable/disable embedding measured health information.
                 choices:
                     - 'disable'
                     - 'enable'
             sla_id_redistribute:
+                aliases: ['sla-id-redistribute']
                 type: int
                 description: Select the ID from the SLA sub-table.
             class_id:
+                aliases: ['class-id']
                 type: str
                 description: Traffic class ID.
             source6:

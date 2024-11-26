@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             default_mapping:
+                aliases: ['default-mapping']
                 type: str
                 description: Default mapping.
                 choices:
                     - 'disable'
                     - 'enable'
             defmap_intf:
+                aliases: ['defmap-intf']
                 type: str
                 description: Defmap intf.
             description:
@@ -118,6 +120,7 @@ options:
                                 type: str
                                 description: Vdom.
                     local_intf:
+                        aliases: ['local-intf']
                         type: str
                         description: Local intf.
             name:
@@ -125,6 +128,7 @@ options:
                 description: Name.
                 required: true
             zone_only:
+                aliases: ['zone-only']
                 type: str
                 description: Zone only.
                 choices:

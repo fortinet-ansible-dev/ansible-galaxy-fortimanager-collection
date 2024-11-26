@@ -90,6 +90,7 @@ options:
                 type: int
                 description: Controller report interval.
             signal_threshold:
+                aliases: ['signal-threshold']
                 type: int
                 description: Controller report signal threshold.
             status:

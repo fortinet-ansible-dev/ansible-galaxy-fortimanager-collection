@@ -105,12 +105,14 @@ options:
                 type: str
                 description: Address or address group of the real server.
             health_check:
+                aliases: ['health-check']
                 type: str
                 description: Enable to check the responsiveness of the real server before forwarding traffic.
                 choices:
                     - 'disable'
                     - 'enable'
             health_check_proto:
+                aliases: ['health-check-proto']
                 type: str
                 description: Protocol of the health check monitor to use when polling to determine servers connectivity status.
                 choices:
@@ -118,6 +120,7 @@ options:
                     - 'http'
                     - 'tcp-connect'
             http_host:
+                aliases: ['http-host']
                 type: str
                 description: HTTP server domain name in HTTP header.
             id:
@@ -144,6 +147,7 @@ options:
                 type: int
                 description: Weight of the real server.
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: Type of address.
                 choices:
@@ -153,18 +157,22 @@ options:
                 type: str
                 description: Wildcard domain name of the real server.
             holddown_interval:
+                aliases: ['holddown-interval']
                 type: str
                 description: Enable/disable holddown timer.
                 choices:
                     - 'disable'
                     - 'enable'
             ssh_client_cert:
+                aliases: ['ssh-client-cert']
                 type: str
                 description: Set access-proxy SSH client certificate profile.
             ssh_host_key:
+                aliases: ['ssh-host-key']
                 type: raw
                 description: (list or str) One or more server host key.
             ssh_host_key_validation:
+                aliases: ['ssh-host-key-validation']
                 type: str
                 description: Enable/disable SSH real server host key validation.
                 choices:
@@ -177,18 +185,21 @@ options:
                     - 'tcp-forwarding'
                     - 'ssh'
             translate_host:
+                aliases: ['translate-host']
                 type: str
                 description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:
                     - 'disable'
                     - 'enable'
             external_auth:
+                aliases: ['external-auth']
                 type: str
                 description: Enable/disable use of external browser as user-agent for SAML user authentication.
                 choices:
                     - 'disable'
                     - 'enable'
             tunnel_encryption:
+                aliases: ['tunnel-encryption']
                 type: str
                 description: Tunnel encryption.
                 choices:

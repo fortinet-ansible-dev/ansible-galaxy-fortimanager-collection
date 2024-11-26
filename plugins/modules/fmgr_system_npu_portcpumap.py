@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             cpu_core:
+                aliases: ['cpu-core']
                 type: str
                 description: The CPU core to map to an interface.
             interface:

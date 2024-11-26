@@ -96,12 +96,14 @@ options:
                     - 'disable'
                     - 'enable'
             group_down_option:
+                aliases: ['group-down-option']
                 type: str
                 description: Action to take when all of the servers in the forward server group are down
                 choices:
                     - 'block'
                     - 'pass'
             ldb_method:
+                aliases: ['ldb-method']
                 type: str
                 description: Load balance method
                 choices:
@@ -113,6 +115,7 @@ options:
                 description: Configure a forward server group consisting one or multiple forward servers.
                 required: true
             server_list:
+                aliases: ['server-list']
                 type: list
                 elements: dict
                 description: Server list.

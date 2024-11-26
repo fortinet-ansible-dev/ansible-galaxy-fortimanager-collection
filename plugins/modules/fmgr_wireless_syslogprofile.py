@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Comment.
             log_level:
+                aliases: ['log-level']
                 type: str
                 description: Lowest level of log messages that FortiAP units send to this server
                 choices:
@@ -109,21 +110,26 @@ options:
                 description: WTP system log server profile name.
                 required: true
             server_addr_type:
+                aliases: ['server-addr-type']
                 type: str
                 description: Syslog server address type
                 choices:
                     - 'fqdn'
                     - 'ip'
             server_fqdn:
+                aliases: ['server-fqdn']
                 type: str
                 description: FQDN of syslog server that FortiAP units send log messages to.
             server_ip:
+                aliases: ['server-ip']
                 type: str
                 description: IP address of syslog server that FortiAP units send log messages to.
             server_port:
+                aliases: ['server-port']
                 type: int
                 description: Port number of syslog server that FortiAP units send log messages to
             server_status:
+                aliases: ['server-status']
                 type: str
                 description: Enable/disable FortiAP units to send log messages to a syslog server
                 choices:

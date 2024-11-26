@@ -99,6 +99,7 @@ options:
                     - 'disable'
                     - 'enable'
             flow_based:
+                aliases: ['flow-based']
                 type: str
                 description: Enable/disable flow-based spam filtering.
                 choices:
@@ -127,42 +128,52 @@ options:
                     - 'spamfsphish'
                     - 'spambwl'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group.
             spam_bwl_table:
+                aliases: ['spam-bwl-table']
                 type: str
                 description: Anti-spam black/white list table ID.
             spam_bword_table:
+                aliases: ['spam-bword-table']
                 type: str
                 description: Anti-spam banned word table ID.
             spam_bword_threshold:
+                aliases: ['spam-bword-threshold']
                 type: int
                 description: Spam banned word threshold.
             spam_filtering:
+                aliases: ['spam-filtering']
                 type: str
                 description: Enable/disable spam filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_iptrust_table:
+                aliases: ['spam-iptrust-table']
                 type: str
                 description: Anti-spam IP trust table ID.
             spam_log:
+                aliases: ['spam-log']
                 type: str
                 description: Enable/disable spam logging for email filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_log_fortiguard_response:
+                aliases: ['spam-log-fortiguard-response']
                 type: str
                 description: Enable/disable logging FortiGuard spam response.
                 choices:
                     - 'disable'
                     - 'enable'
             spam_mheader_table:
+                aliases: ['spam-mheader-table']
                 type: str
                 description: Anti-spam MIME header table ID.
             spam_rbl_table:
+                aliases: ['spam-rbl-table']
                 type: str
                 description: Anti-spam DNSBL table ID.
             gmail:
@@ -192,9 +203,11 @@ options:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -219,6 +232,7 @@ options:
                             - 'disable'
                             - 'enable'
             msn_hotmail:
+                aliases: ['msn-hotmail']
                 type: dict
                 description: Msn hotmail.
                 suboptions:
@@ -245,9 +259,11 @@ options:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -273,6 +289,7 @@ options:
                             - 'disable'
                             - 'enable'
                     local_override:
+                        aliases: ['local-override']
                         type: str
                         description: Enable/disable local filter to override SMTP remote check result.
                         choices:
@@ -285,9 +302,11 @@ options:
                             - 'disable'
                             - 'enable'
                     tag_msg:
+                        aliases: ['tag-msg']
                         type: str
                         description: Subject text or header added to spam email.
                     tag_type:
+                        aliases: ['tag-type']
                         type: list
                         elements: str
                         description: Tag subject or header for spam email.
@@ -296,6 +315,7 @@ options:
                             - 'header'
                             - 'spaminfo'
             yahoo_mail:
+                aliases: ['yahoo-mail']
                 type: dict
                 description: Yahoo mail.
                 suboptions:

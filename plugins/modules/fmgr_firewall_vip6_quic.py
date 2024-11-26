@@ -85,43 +85,51 @@ options:
         type: dict
         suboptions:
             ack_delay_exponent:
+                aliases: ['ack-delay-exponent']
                 type: int
                 description:
                     - Support meta variable
                     - ACK delay exponent
             active_connection_id_limit:
+                aliases: ['active-connection-id-limit']
                 type: int
                 description:
                     - Support meta variable
                     - Active connection ID limit
             active_migration:
+                aliases: ['active-migration']
                 type: str
                 description: Enable/disable active migration
                 choices:
                     - 'disable'
                     - 'enable'
             grease_quic_bit:
+                aliases: ['grease-quic-bit']
                 type: str
                 description: Enable/disable grease QUIC bit
                 choices:
                     - 'disable'
                     - 'enable'
             max_ack_delay:
+                aliases: ['max-ack-delay']
                 type: int
                 description:
                     - Support meta variable
                     - Maximum ACK delay in milliseconds
             max_datagram_frame_size:
+                aliases: ['max-datagram-frame-size']
                 type: int
                 description:
                     - Support meta variable
                     - Maximum datagram frame size in bytes
             max_idle_timeout:
+                aliases: ['max-idle-timeout']
                 type: int
                 description:
                     - Support meta variable
                     - Maximum idle timeout milliseconds
             max_udp_payload_size:
+                aliases: ['max-udp-payload-size']
                 type: int
                 description:
                     - Support meta variable

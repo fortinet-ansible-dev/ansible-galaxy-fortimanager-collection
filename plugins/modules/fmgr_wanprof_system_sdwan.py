@@ -102,12 +102,14 @@ options:
                         type: int
                         description: Duplication rule ID
                     packet_de_duplication:
+                        aliases: ['packet-de-duplication']
                         type: str
                         description: Enable/disable discarding of packets that have been duplicated.
                         choices:
                             - 'disable'
                             - 'enable'
                     packet_duplication:
+                        aliases: ['packet-duplication']
                         type: str
                         description: Configure packet duplication method.
                         choices:
@@ -127,32 +129,39 @@ options:
                         type: raw
                         description: (list or str) Incoming
                     service_id:
+                        aliases: ['service-id']
                         type: raw
                         description: (list or str) SD-WAN service rule ID list.
                     sla_match_service:
+                        aliases: ['sla-match-service']
                         type: str
                         description: Enable/disable packet duplication matching health-check SLAs in service rule.
                         choices:
                             - 'disable'
                             - 'enable'
             duplication_max_num:
+                aliases: ['duplication-max-num']
                 type: int
                 description: Maximum number of interface members a packet is duplicated in the SD-WAN zone
             fail_detect:
+                aliases: ['fail-detect']
                 type: str
                 description: Enable/disable SD-WAN Internet connection status checking
                 choices:
                     - 'disable'
                     - 'enable'
             health_check:
+                aliases: ['health-check']
                 type: list
                 elements: dict
                 description: Health check.
                 suboptions:
                     _dynamic_server:
+                        aliases: ['_dynamic-server']
                         type: str
                         description: Dynamic server.
                     addr_mode:
+                        aliases: ['addr-mode']
                         type: str
                         description: Address mode
                         choices:
@@ -162,33 +171,41 @@ options:
                         type: str
                         description: Differentiated services code point
                     dns_match_ip:
+                        aliases: ['dns-match-ip']
                         type: str
                         description: Response IP expected from DNS server if the protocol is DNS.
                     dns_request_domain:
+                        aliases: ['dns-request-domain']
                         type: str
                         description: Fully qualified domain name to resolve for the DNS probe.
                     failtime:
                         type: int
                         description: Number of failures before server is considered lost
                     ftp_file:
+                        aliases: ['ftp-file']
                         type: str
                         description: Full path and file name on the FTP server to download for FTP health-check to probe.
                     ftp_mode:
+                        aliases: ['ftp-mode']
                         type: str
                         description: FTP mode.
                         choices:
                             - 'passive'
                             - 'port'
                     ha_priority:
+                        aliases: ['ha-priority']
                         type: int
                         description: HA election priority
                     http_agent:
+                        aliases: ['http-agent']
                         type: str
                         description: String in the http-agent field in the HTTP header.
                     http_get:
+                        aliases: ['http-get']
                         type: str
                         description: URL used to communicate with the server if the protocol if the protocol is HTTP.
                     http_match:
+                        aliases: ['http-match']
                         type: str
                         description: Response string expected from the server if the protocol is HTTP.
                     interval:
@@ -201,6 +218,7 @@ options:
                         type: str
                         description: Status check or health check name.
                     packet_size:
+                        aliases: ['packet-size']
                         type: int
                         description: Packet size of a twamp test session,
                     password:
@@ -210,15 +228,18 @@ options:
                         type: int
                         description: Port number used to communicate with the server over the selected protocol
                     probe_count:
+                        aliases: ['probe-count']
                         type: int
                         description: Number of most recent probes that should be used to calculate latency and jitter
                     probe_packets:
+                        aliases: ['probe-packets']
                         type: str
                         description: Enable/disable transmission of probe packets.
                         choices:
                             - 'disable'
                             - 'enable'
                     probe_timeout:
+                        aliases: ['probe-timeout']
                         type: int
                         description: Time to wait before a probe packet is considered lost
                     protocol:
@@ -236,6 +257,7 @@ options:
                             - 'ftp'
                             - 'https'
                     quality_measured_method:
+                        aliases: ['quality-measured-method']
                         type: str
                         description: Method to measure the quality of tcp-connect.
                         choices:
@@ -245,6 +267,7 @@ options:
                         type: int
                         description: Number of successful responses received before server is considered recovered
                     security_mode:
+                        aliases: ['security-mode']
                         type: str
                         description: Twamp controller security mode.
                         choices:
@@ -262,12 +285,15 @@ options:
                                 type: int
                                 description: SLA ID.
                             jitter_threshold:
+                                aliases: ['jitter-threshold']
                                 type: int
                                 description: Jitter for SLA to make decision in milliseconds.
                             latency_threshold:
+                                aliases: ['latency-threshold']
                                 type: int
                                 description: Latency for SLA to make decision in milliseconds.
                             link_cost_factor:
+                                aliases: ['link-cost-factor']
                                 type: list
                                 elements: str
                                 description: Criteria on which to base link selection.
@@ -278,54 +304,69 @@ options:
                                     - 'mos'
                                     - 'remote'
                             packetloss_threshold:
+                                aliases: ['packetloss-threshold']
                                 type: int
                                 description: Packet loss for SLA to make decision in percentage.
                             mos_threshold:
+                                aliases: ['mos-threshold']
                                 type: str
                                 description: Minimum Mean Opinion Score for SLA to be marked as pass.
                             priority_in_sla:
+                                aliases: ['priority-in-sla']
                                 type: int
                                 description: Value to be distributed into routing table when in-sla
                             priority_out_sla:
+                                aliases: ['priority-out-sla']
                                 type: int
                                 description: Value to be distributed into routing table when out-sla
                     sla_fail_log_period:
+                        aliases: ['sla-fail-log-period']
                         type: int
                         description: Time interval in seconds that SLA fail log messages will be generated
                     sla_pass_log_period:
+                        aliases: ['sla-pass-log-period']
                         type: int
                         description: Time interval in seconds that SLA pass log messages will be generated
                     system_dns:
+                        aliases: ['system-dns']
                         type: str
                         description: Enable/disable system DNS as the probe server.
                         choices:
                             - 'disable'
                             - 'enable'
                     threshold_alert_jitter:
+                        aliases: ['threshold-alert-jitter']
                         type: int
                         description: Alert threshold for jitter
                     threshold_alert_latency:
+                        aliases: ['threshold-alert-latency']
                         type: int
                         description: Alert threshold for latency
                     threshold_alert_packetloss:
+                        aliases: ['threshold-alert-packetloss']
                         type: int
                         description: Alert threshold for packet loss
                     threshold_warning_jitter:
+                        aliases: ['threshold-warning-jitter']
                         type: int
                         description: Warning threshold for jitter
                     threshold_warning_latency:
+                        aliases: ['threshold-warning-latency']
                         type: int
                         description: Warning threshold for latency
                     threshold_warning_packetloss:
+                        aliases: ['threshold-warning-packetloss']
                         type: int
                         description: Warning threshold for packet loss
                     update_cascade_interface:
+                        aliases: ['update-cascade-interface']
                         type: str
                         description: Enable/disable update cascade interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     update_static_route:
+                        aliases: ['update-static-route']
                         type: str
                         description: Enable/disable updating the static route.
                         choices:
@@ -335,6 +376,7 @@ options:
                         type: str
                         description: The user name to access probe server.
                     detect_mode:
+                        aliases: ['detect-mode']
                         type: str
                         description: The mode determining how to detect the server.
                         choices:
@@ -344,6 +386,7 @@ options:
                             - 'remote'
                             - 'agent-based'
                     mos_codec:
+                        aliases: ['mos-codec']
                         type: str
                         description: Codec to use for MOS calculation
                         choices:
@@ -357,21 +400,25 @@ options:
                         type: int
                         description: Virtual Routing Forwarding ID.
                     embed_measured_health:
+                        aliases: ['embed-measured-health']
                         type: str
                         description: Enable/disable embedding measured health information.
                         choices:
                             - 'disable'
                             - 'enable'
                     sla_id_redistribute:
+                        aliases: ['sla-id-redistribute']
                         type: int
                         description: Select the ID from the SLA sub-table.
                     class_id:
+                        aliases: ['class-id']
                         type: str
                         description: Traffic class ID.
                     source6:
                         type: str
                         description: Source IPv6 addressused in the health-check packet to server.
             load_balance_mode:
+                aliases: ['load-balance-mode']
                 type: str
                 description: Algorithm or mode to use for load balancing Internet traffic to SD-WAN members.
                 choices:
@@ -386,6 +433,7 @@ options:
                 description: Members.
                 suboptions:
                     _dynamic_member:
+                        aliases: ['_dynamic-member']
                         type: str
                         description: Dynamic member.
                     comment:
@@ -401,6 +449,7 @@ options:
                         type: str
                         description: IPv6 gateway.
                     ingress_spillover_threshold:
+                        aliases: ['ingress-spillover-threshold']
                         type: int
                         description: Ingress spillover threshold for this interface
                     interface:
@@ -410,6 +459,7 @@ options:
                         type: int
                         description: Priority of the interface
                     seq_num:
+                        aliases: ['seq-num']
                         type: int
                         description: Sequence number
                     source:
@@ -419,6 +469,7 @@ options:
                         type: str
                         description: Source IPv6 address used in the health-check packet to the server.
                     spillover_threshold:
+                        aliases: ['spillover-threshold']
                         type: int
                         description: Egress spillover threshold for this interface
                     status:
@@ -428,6 +479,7 @@ options:
                             - 'disable'
                             - 'enable'
                     volume_ratio:
+                        aliases: ['volume-ratio']
                         type: int
                         description: Measured volume ratio
                     weight:
@@ -440,15 +492,19 @@ options:
                         type: int
                         description: Priority of the interface for IPv6
                     preferred_source:
+                        aliases: ['preferred-source']
                         type: str
                         description: Preferred source of route for this member.
                     transport_group:
+                        aliases: ['transport-group']
                         type: int
                         description: Measured transport group
                     priority_in_sla:
+                        aliases: ['priority-in-sla']
                         type: int
                         description: Preferred priority of routes to this member when this member is in-sla
                     priority_out_sla:
+                        aliases: ['priority-out-sla']
                         type: int
                         description: Preferred priority of routes to this member when this member is out-of-sla
             neighbor:
@@ -457,6 +513,7 @@ options:
                 description: Neighbor.
                 suboptions:
                     health_check:
+                        aliases: ['health-check']
                         type: str
                         description: SD-WAN health-check name.
                     ip:
@@ -473,9 +530,11 @@ options:
                             - 'secondary'
                             - 'standalone'
                     sla_id:
+                        aliases: ['sla-id']
                         type: int
                         description: SLA ID.
                     minimum_sla_meet_members:
+                        aliases: ['minimum-sla-meet-members']
                         type: int
                         description: Minimum number of members which meet SLA when the neighbor is preferred.
                     mode:
@@ -485,18 +544,22 @@ options:
                             - 'sla'
                             - 'speedtest'
                     service_id:
+                        aliases: ['service-id']
                         type: str
                         description: SD-WAN service ID to work with the neighbor.
             neighbor_hold_boot_time:
+                aliases: ['neighbor-hold-boot-time']
                 type: int
                 description: Waiting period in seconds when switching from the primary neighbor to the secondary neighbor from the neighbor start.
             neighbor_hold_down:
+                aliases: ['neighbor-hold-down']
                 type: str
                 description: Enable/disable hold switching from the secondary neighbor to the primary neighbor.
                 choices:
                     - 'disable'
                     - 'enable'
             neighbor_hold_down_time:
+                aliases: ['neighbor-hold-down-time']
                 type: int
                 description: Waiting period in seconds when switching from the secondary neighbor to the primary neighbor when hold-down is disabled.
             service:
@@ -505,12 +568,14 @@ options:
                 description: Service.
                 suboptions:
                     addr_mode:
+                        aliases: ['addr-mode']
                         type: str
                         description: Address mode
                         choices:
                             - 'ipv4'
                             - 'ipv6'
                     bandwidth_weight:
+                        aliases: ['bandwidth-weight']
                         type: int
                         description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
                     default:
@@ -520,27 +585,32 @@ options:
                             - 'disable'
                             - 'enable'
                     dscp_forward:
+                        aliases: ['dscp-forward']
                         type: str
                         description: Enable/disable forward traffic DSCP tag.
                         choices:
                             - 'disable'
                             - 'enable'
                     dscp_forward_tag:
+                        aliases: ['dscp-forward-tag']
                         type: str
                         description: Forward traffic DSCP tag.
                     dscp_reverse:
+                        aliases: ['dscp-reverse']
                         type: str
                         description: Enable/disable reverse traffic DSCP tag.
                         choices:
                             - 'disable'
                             - 'enable'
                     dscp_reverse_tag:
+                        aliases: ['dscp-reverse-tag']
                         type: str
                         description: Reverse traffic DSCP tag.
                     dst:
                         type: raw
                         description: (list or str) Destination address name.
                     dst_negate:
+                        aliases: ['dst-negate']
                         type: str
                         description: Enable/disable negation of destination address match.
                         choices:
@@ -550,6 +620,7 @@ options:
                         type: raw
                         description: (list or str) Destination address6 name.
                     end_port:
+                        aliases: ['end-port']
                         type: int
                         description: End destination port number.
                     gateway:
@@ -562,6 +633,7 @@ options:
                         type: raw
                         description: (list or str) User groups.
                     hash_mode:
+                        aliases: ['hash-mode']
                         type: str
                         description: Hash algorithm for selected priority members for load balance mode.
                         choices:
@@ -572,54 +644,68 @@ options:
                             - 'outbandwidth'
                             - 'bibandwidth'
                     health_check:
+                        aliases: ['health-check']
                         type: raw
                         description: (list or str) Health check list.
                     hold_down_time:
+                        aliases: ['hold-down-time']
                         type: int
                         description: Waiting period in seconds when switching from the back-up member to the primary member
                     id:
                         type: int
                         description: SD-WAN rule ID
                     input_device:
+                        aliases: ['input-device']
                         type: raw
                         description: (list or str) Source interface name.
                     input_device_negate:
+                        aliases: ['input-device-negate']
                         type: str
                         description: Enable/disable negation of input device match.
                         choices:
                             - 'disable'
                             - 'enable'
                     internet_service:
+                        aliases: ['internet-service']
                         type: str
                         description: Enable/disable use of Internet service for application-based load balancing.
                         choices:
                             - 'disable'
                             - 'enable'
                     internet_service_app_ctrl:
+                        aliases: ['internet-service-app-ctrl']
                         type: raw
                         description: (list) Application control based Internet Service ID list.
                     internet_service_app_ctrl_group:
+                        aliases: ['internet-service-app-ctrl-group']
                         type: raw
                         description: (list or str) Application control based Internet Service group list.
                     internet_service_custom:
+                        aliases: ['internet-service-custom']
                         type: raw
                         description: (list or str) Custom Internet service name list.
                     internet_service_custom_group:
+                        aliases: ['internet-service-custom-group']
                         type: raw
                         description: (list or str) Custom Internet Service group list.
                     internet_service_group:
+                        aliases: ['internet-service-group']
                         type: raw
                         description: (list or str) Internet Service group list.
                     internet_service_name:
+                        aliases: ['internet-service-name']
                         type: raw
                         description: (list or str) Internet service name list.
                     jitter_weight:
+                        aliases: ['jitter-weight']
                         type: int
                         description: Coefficient of jitter in the formula of custom-profile-1.
                     latency_weight:
+                        aliases: ['latency-weight']
                         type: int
                         description: Coefficient of latency in the formula of custom-profile-1.
                     link_cost_factor:
+                        aliases: ['link-cost-factor']
                         type: str
                         description: Link cost factor.
                         choices:
@@ -631,9 +717,11 @@ options:
                             - 'bibandwidth'
                             - 'custom-profile-1'
                     link_cost_threshold:
+                        aliases: ['link-cost-threshold']
                         type: int
                         description: Percentage threshold change of link cost values that will result in policy route regeneration
                     minimum_sla_meet_members:
+                        aliases: ['minimum-sla-meet-members']
                         type: int
                         description: Minimum number of members which meet SLA.
                     mode:
@@ -649,15 +737,18 @@ options:
                         type: str
                         description: SD-WAN rule name.
                     packet_loss_weight:
+                        aliases: ['packet-loss-weight']
                         type: int
                         description: Coefficient of packet-loss in the formula of custom-profile-1.
                     priority_members:
+                        aliases: ['priority-members']
                         type: raw
                         description: (list or str) Member sequence number list.
                     protocol:
                         type: int
                         description: Protocol number.
                     quality_link:
+                        aliases: ['quality-link']
                         type: int
                         description: Quality grade.
                     role:
@@ -668,6 +759,7 @@ options:
                             - 'secondary'
                             - 'standalone'
                     route_tag:
+                        aliases: ['route-tag']
                         type: int
                         description: IPv4 route map route-tag.
                     sla:
@@ -676,12 +768,14 @@ options:
                         description: Sla.
                         suboptions:
                             health_check:
+                                aliases: ['health-check']
                                 type: str
                                 description: SD-WAN health-check.
                             id:
                                 type: int
                                 description: SLA ID.
                     sla_compare_method:
+                        aliases: ['sla-compare-method']
                         type: str
                         description: Method to compare SLA value for SLA mode.
                         choices:
@@ -691,6 +785,7 @@ options:
                         type: raw
                         description: (list or str) Source address name.
                     src_negate:
+                        aliases: ['src-negate']
                         type: str
                         description: Enable/disable negation of source address match.
                         choices:
@@ -700,12 +795,14 @@ options:
                         type: raw
                         description: (list or str) Source address6 name.
                     standalone_action:
+                        aliases: ['standalone-action']
                         type: str
                         description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
                         choices:
                             - 'disable'
                             - 'enable'
                     start_port:
+                        aliases: ['start-port']
                         type: int
                         description: Start destination port number.
                     status:
@@ -718,12 +815,14 @@ options:
                         type: str
                         description: Type of service bit pattern.
                     tos_mask:
+                        aliases: ['tos-mask']
                         type: str
                         description: Type of service evaluated bits.
                     users:
                         type: raw
                         description: (list or str) User name.
                     tie_break:
+                        aliases: ['tie-break']
                         type: str
                         description: Method of selecting member if more than one meets the SLA.
                         choices:
@@ -732,27 +831,33 @@ options:
                             - 'fib-best-match'
                             - 'input-device'
                     use_shortcut_sla:
+                        aliases: ['use-shortcut-sla']
                         type: str
                         description: Enable/disable use of ADVPN shortcut for quality comparison.
                         choices:
                             - 'disable'
                             - 'enable'
                     input_zone:
+                        aliases: ['input-zone']
                         type: raw
                         description: (list) Source input-zone name.
                     internet_service_app_ctrl_category:
+                        aliases: ['internet-service-app-ctrl-category']
                         type: raw
                         description: (list) IDs of one or more application control categories.
                     passive_measurement:
+                        aliases: ['passive-measurement']
                         type: str
                         description: Enable/disable passive measurement based on the service criteria.
                         choices:
                             - 'disable'
                             - 'enable'
                     priority_zone:
+                        aliases: ['priority-zone']
                         type: raw
                         description: (list or str) Priority zone name list.
                     agent_exclusive:
+                        aliases: ['agent-exclusive']
                         type: str
                         description: Set/unset the service as agent use exclusively.
                         choices:
@@ -765,36 +870,43 @@ options:
                             - 'disable'
                             - 'enable'
                     shortcut_stickiness:
+                        aliases: ['shortcut-stickiness']
                         type: str
                         description: Enable/disable shortcut-stickiness of ADVPN.
                         choices:
                             - 'disable'
                             - 'enable'
                     end_src_port:
+                        aliases: ['end-src-port']
                         type: int
                         description: End source port number.
                     load_balance:
+                        aliases: ['load-balance']
                         type: str
                         description: Enable/disable load-balance.
                         choices:
                             - 'disable'
                             - 'enable'
                     sla_stickiness:
+                        aliases: ['sla-stickiness']
                         type: str
                         description: Enable/disable SLA stickiness
                         choices:
                             - 'disable'
                             - 'enable'
                     start_src_port:
+                        aliases: ['start-src-port']
                         type: int
                         description: Start source port number.
                     zone_mode:
+                        aliases: ['zone-mode']
                         type: str
                         description: Enable/disable zone mode.
                         choices:
                             - 'disable'
                             - 'enable'
                     shortcut_priority:
+                        aliases: ['shortcut-priority']
                         type: str
                         description: High priority of ADVPN shortcut for this service.
                         choices:
@@ -819,6 +931,7 @@ options:
                         type: str
                         description: Zone name.
                     service_sla_tie_break:
+                        aliases: ['service-sla-tie-break']
                         type: str
                         description: Method of selecting member if more than one meets the SLA.
                         choices:
@@ -826,44 +939,54 @@ options:
                             - 'fib-best-match'
                             - 'input-device'
                     minimum_sla_meet_members:
+                        aliases: ['minimum-sla-meet-members']
                         type: int
                         description: Minimum number of members which meet SLA when the neighbor is preferred.
                     advpn_health_check:
+                        aliases: ['advpn-health-check']
                         type: str
                         description: Health check for ADVPN local overlay link quality.
                     advpn_select:
+                        aliases: ['advpn-select']
                         type: str
                         description: Enable/disable selection of ADVPN based on SDWAN information.
                         choices:
                             - 'disable'
                             - 'enable'
             speedtest_bypass_routing:
+                aliases: ['speedtest-bypass-routing']
                 type: str
                 description: Enable/disable bypass routing when speedtest on a SD-WAN member.
                 choices:
                     - 'disable'
                     - 'enable'
             fail_alert_interfaces:
+                aliases: ['fail-alert-interfaces']
                 type: raw
                 description: (list) Physical interfaces that will be alerted.
             app_perf_log_period:
+                aliases: ['app-perf-log-period']
                 type: int
                 description: Time interval in seconds that applicationperformance logs are generated
             health_check_fortiguard:
+                aliases: ['health-check-fortiguard']
                 type: list
                 elements: dict
                 description: Health check fortiguard.
                 suboptions:
                     addr_mode:
+                        aliases: ['addr-mode']
                         type: str
                         description: Address mode
                         choices:
                             - 'ipv4'
                             - 'ipv6'
                     class_id:
+                        aliases: ['class-id']
                         type: raw
                         description: (list) Traffic class ID.
                     detect_mode:
+                        aliases: ['detect-mode']
                         type: str
                         description: The mode determining how to detect the server.
                         choices:
@@ -876,12 +999,15 @@ options:
                         type: str
                         description: Differentiated services code point
                     dns_match_ip:
+                        aliases: ['dns-match-ip']
                         type: str
                         description: Response IP expected from DNS server if the protocol is DNS.
                     dns_request_domain:
+                        aliases: ['dns-request-domain']
                         type: str
                         description: Fully qualified domain name to resolve for the DNS probe.
                     embed_measured_health:
+                        aliases: ['embed-measured-health']
                         type: str
                         description: Enable/disable embedding measured health information.
                         choices:
@@ -891,24 +1017,30 @@ options:
                         type: int
                         description: Number of failures before server is considered lost
                     ftp_file:
+                        aliases: ['ftp-file']
                         type: str
                         description: Full path and file name on the FTP server to download for FTP health-check to probe.
                     ftp_mode:
+                        aliases: ['ftp-mode']
                         type: str
                         description: FTP mode.
                         choices:
                             - 'passive'
                             - 'port'
                     ha_priority:
+                        aliases: ['ha-priority']
                         type: int
                         description: HA election priority
                     http_agent:
+                        aliases: ['http-agent']
                         type: str
                         description: String in the http-agent field in the HTTP header.
                     http_get:
+                        aliases: ['http-get']
                         type: str
                         description: URL used to communicate with the server if the protocol if the protocol is HTTP.
                     http_match:
+                        aliases: ['http-match']
                         type: str
                         description: Response string expected from the server if the protocol is HTTP.
                     interval:
@@ -918,6 +1050,7 @@ options:
                         type: raw
                         description: (list) Member sequence number list.
                     mos_codec:
+                        aliases: ['mos-codec']
                         type: str
                         description: Codec to use for MOS calculation
                         choices:
@@ -925,6 +1058,7 @@ options:
                             - 'g722'
                             - 'g729'
                     packet_size:
+                        aliases: ['packet-size']
                         type: int
                         description: Packet size of a TWAMP test session.
                     password:
@@ -934,15 +1068,18 @@ options:
                         type: int
                         description: Port number used to communicate with the server over the selected protocol
                     probe_count:
+                        aliases: ['probe-count']
                         type: int
                         description: Number of most recent probes that should be used to calculate latency and jitter
                     probe_packets:
+                        aliases: ['probe-packets']
                         type: str
                         description: Enable/disable transmission of probe packets.
                         choices:
                             - 'disable'
                             - 'enable'
                     probe_timeout:
+                        aliases: ['probe-timeout']
                         type: int
                         description: Time to wait before a probe packet is considered lost
                     protocol:
@@ -959,6 +1096,7 @@ options:
                             - 'ftp'
                             - 'https'
                     quality_measured_method:
+                        aliases: ['quality-measured-method']
                         type: str
                         description: Method to measure the quality of tcp-connect.
                         choices:
@@ -968,6 +1106,7 @@ options:
                         type: int
                         description: Number of successful responses received before server is considered recovered
                     security_mode:
+                        aliases: ['security-mode']
                         type: str
                         description: Twamp controller security mode.
                         choices:
@@ -985,12 +1124,15 @@ options:
                                 type: int
                                 description: SLA ID.
                             jitter_threshold:
+                                aliases: ['jitter-threshold']
                                 type: int
                                 description: Jitter for SLA to make decision in milliseconds.
                             latency_threshold:
+                                aliases: ['latency-threshold']
                                 type: int
                                 description: Latency for SLA to make decision in milliseconds.
                             link_cost_factor:
+                                aliases: ['link-cost-factor']
                                 type: list
                                 elements: str
                                 description: Criteria on which to base link selection.
@@ -1001,24 +1143,31 @@ options:
                                     - 'mos'
                                     - 'remote'
                             mos_threshold:
+                                aliases: ['mos-threshold']
                                 type: str
                                 description: Minimum Mean Opinion Score for SLA to be marked as pass.
                             packetloss_threshold:
+                                aliases: ['packetloss-threshold']
                                 type: int
                                 description: Packet loss for SLA to make decision in percentage.
                             priority_in_sla:
+                                aliases: ['priority-in-sla']
                                 type: int
                                 description: Value to be distributed into routing table when in-sla
                             priority_out_sla:
+                                aliases: ['priority-out-sla']
                                 type: int
                                 description: Value to be distributed into routing table when out-sla
                     sla_fail_log_period:
+                        aliases: ['sla-fail-log-period']
                         type: int
                         description: Time interval in seconds that SLA fail log messages will be generated
                     sla_id_redistribute:
+                        aliases: ['sla-id-redistribute']
                         type: int
                         description: Select the ID from the SLA sub-table.
                     sla_pass_log_period:
+                        aliases: ['sla-pass-log-period']
                         type: int
                         description: Time interval in seconds that SLA pass log messages will be generated
                     source:
@@ -1028,39 +1177,49 @@ options:
                         type: str
                         description: Source IPv6 address used in the health-check packet to server.
                     system_dns:
+                        aliases: ['system-dns']
                         type: str
                         description: Enable/disable system DNS as the probe server.
                         choices:
                             - 'disable'
                             - 'enable'
                     target_name:
+                        aliases: ['target-name']
                         type: str
                         description: Status check or predefined health-check targets name.
                     threshold_alert_jitter:
+                        aliases: ['threshold-alert-jitter']
                         type: int
                         description: Alert threshold for jitter
                     threshold_alert_latency:
+                        aliases: ['threshold-alert-latency']
                         type: int
                         description: Alert threshold for latency
                     threshold_alert_packetloss:
+                        aliases: ['threshold-alert-packetloss']
                         type: int
                         description: Alert threshold for packet loss
                     threshold_warning_jitter:
+                        aliases: ['threshold-warning-jitter']
                         type: int
                         description: Warning threshold for jitter
                     threshold_warning_latency:
+                        aliases: ['threshold-warning-latency']
                         type: int
                         description: Warning threshold for latency
                     threshold_warning_packetloss:
+                        aliases: ['threshold-warning-packetloss']
                         type: int
                         description: Warning threshold for packet loss
                     update_cascade_interface:
+                        aliases: ['update-cascade-interface']
                         type: str
                         description: Enable/disable update cascade interface.
                         choices:
                             - 'disable'
                             - 'enable'
                     update_static_route:
+                        aliases: ['update-static-route']
                         type: str
                         description: Enable/disable updating the static route.
                         choices:

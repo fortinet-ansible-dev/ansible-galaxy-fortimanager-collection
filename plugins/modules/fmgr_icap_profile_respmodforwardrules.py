@@ -100,11 +100,13 @@ options:
                     - 'bypass'
                     - 'forward'
             header_group:
+                aliases: ['header-group']
                 type: list
                 elements: dict
                 description: Header group.
                 suboptions:
                     case_sensitivity:
+                        aliases: ['case-sensitivity']
                         type: str
                         description: Enable/disable case sensitivity when matching header.
                         choices:
@@ -114,6 +116,7 @@ options:
                         type: str
                         description: HTTP header regular expression.
                     header_name:
+                        aliases: ['header-name']
                         type: str
                         description: HTTP header.
                     id:
@@ -123,6 +126,7 @@ options:
                 type: str
                 description: Address object for the host.
             http_resp_status_code:
+                aliases: ['http-resp-status-code']
                 type: raw
                 description: (list) HTTP response status code.
             name:

@@ -96,9 +96,11 @@ options:
         type: dict
         suboptions:
             class_id:
+                aliases: ['class-id']
                 type: raw
                 description: (int or str) Class ID.
             guaranteed_bandwidth_percentage:
+                aliases: ['guaranteed-bandwidth-percentage']
                 type: int
                 description: Guaranteed bandwith in percentage.
             id:
@@ -106,6 +108,7 @@ options:
                 description: ID number.
                 required: true
             maximum_bandwidth_percentage:
+                aliases: ['maximum-bandwidth-percentage']
                 type: int
                 description: Maximum bandwith in percentage.
             priority:
@@ -118,9 +121,11 @@ options:
                     - 'critical'
                     - 'top'
             burst_in_msec:
+                aliases: ['burst-in-msec']
                 type: int
                 description: Number of bytes that can be burst at maximum-bandwidth speed.
             cburst_in_msec:
+                aliases: ['cburst-in-msec']
                 type: int
                 description: Number of bytes that can be burst as fast as the interface can transmit.
             limit:
@@ -133,6 +138,7 @@ options:
                 type: int
                 description: Average queue size in packets at which RED drop becomes a possibility.
             red_probability:
+                aliases: ['red-probability']
                 type: int
                 description: Maximum probability
 '''

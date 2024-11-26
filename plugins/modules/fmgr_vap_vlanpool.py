@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             _wtp_group:
+                aliases: ['_wtp-group']
                 type: str
                 description: Wtp group.
             id:
@@ -101,6 +102,7 @@ options:
                 description: ID.
                 required: true
             wtp_group:
+                aliases: ['wtp-group']
                 type: str
                 description: WTP group name.
 '''

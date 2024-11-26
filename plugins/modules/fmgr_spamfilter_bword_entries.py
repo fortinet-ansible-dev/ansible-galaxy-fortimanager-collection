@@ -119,6 +119,7 @@ options:
                 type: str
                 description: Pattern for the banned word.
             pattern_type:
+                aliases: ['pattern-type']
                 type: str
                 description: Wildcard pattern or regular expression.
                 choices:

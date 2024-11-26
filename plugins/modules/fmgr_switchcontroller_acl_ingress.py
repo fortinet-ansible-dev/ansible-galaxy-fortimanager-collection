@@ -110,15 +110,19 @@ options:
                 description: Classifier.
                 suboptions:
                     dst_ip_prefix:
+                        aliases: ['dst-ip-prefix']
                         type: str
                         description: Destination IP address to be matched.
                     dst_mac:
+                        aliases: ['dst-mac']
                         type: str
                         description: Destination MAC address to be matched.
                     src_ip_prefix:
+                        aliases: ['src-ip-prefix']
                         type: str
                         description: Source IP address to be matched.
                     src_mac:
+                        aliases: ['src-mac']
                         type: str
                         description: Source MAC address to be matched.
                     vlan:

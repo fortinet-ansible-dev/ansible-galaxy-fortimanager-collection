@@ -102,6 +102,7 @@ options:
                 type: raw
                 description: (list) Key for authentication.
             key_id:
+                aliases: ['key-id']
                 type: int
                 description: Key ID for authentication.
             ntpv3:

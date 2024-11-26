@@ -94,12 +94,14 @@ options:
         type: dict
         suboptions:
             accept_mode:
+                aliases: ['accept-mode']
                 type: str
                 description: Accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
             adv_interval:
+                aliases: ['adv-interval']
                 type: int
                 description: Adv interval.
             preempt:
@@ -112,6 +114,7 @@ options:
                 type: int
                 description: Priority.
             start_time:
+                aliases: ['start-time']
                 type: int
                 description: Start time.
             status:
@@ -133,12 +136,14 @@ options:
                 type: str
                 description: Vrip6.
             ignore_default_route:
+                aliases: ['ignore-default-route']
                 type: str
                 description: Enable/disable ignoring of default route when checking destination.
                 choices:
                     - 'disable'
                     - 'enable'
             vrdst_priority:
+                aliases: ['vrdst-priority']
                 type: int
                 description: Priority of the virtual router when the virtual router destination becomes unreachable
 '''

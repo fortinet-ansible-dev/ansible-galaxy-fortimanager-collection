@@ -77,30 +77,39 @@ options:
         type: dict
         suboptions:
             fsso_refresh_interval:
+                aliases: ['fsso-refresh-interval']
                 type: int
                 description: FSSO refresh interval
             fsso_sess_timeout:
+                aliases: ['fsso-sess-timeout']
                 type: int
                 description: FSSO session timeout
             px_refresh_interval:
+                aliases: ['px-refresh-interval']
                 type: int
                 description: PxGrid refresh interval
             px_svr_timeout:
+                aliases: ['px-svr-timeout']
                 type: int
                 description: PxGrid server timeout
             conn_refresh_interval:
+                aliases: ['conn-refresh-interval']
                 type: int
                 description: Connector refresh interval
             cloud_orchest_refresh_interval:
+                aliases: ['cloud-orchest-refresh-interval']
                 type: int
                 description: Cloud Orchestration refresh interval
             faznotify_msg_queue_max:
+                aliases: ['faznotify-msg-queue-max']
                 type: int
                 description: Faznotify max queued message per connector
             faznotify_msg_timeout:
+                aliases: ['faznotify-msg-timeout']
                 type: int
                 description: Faznotify message timeout
             conn_ssl_protocol:
+                aliases: ['conn-ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for connector.

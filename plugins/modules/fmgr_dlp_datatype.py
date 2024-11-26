@@ -93,9 +93,11 @@ options:
                 type: str
                 description: Optional comments.
             look_ahead:
+                aliases: ['look-ahead']
                 type: int
                 description: Number of characters to obtain in advance for verification
             look_back:
+                aliases: ['look-back']
                 type: int
                 description: Number of characters required to save for verification
             name:
@@ -112,24 +114,29 @@ options:
                 type: str
                 description: Regular expression pattern string used to verify the data type.
             verify_transformed_pattern:
+                aliases: ['verify-transformed-pattern']
                 type: str
                 description: Enable/disable verification for transformed pattern.
                 choices:
                     - 'disable'
                     - 'enable'
             match_around:
+                aliases: ['match-around']
                 type: str
                 description: Dictionary to check whether it has a match around
             match_ahead:
+                aliases: ['match-ahead']
                 type: int
                 description: Number of characters behind for match-around
             match_back:
+                aliases: ['match-back']
                 type: int
                 description: Number of characters in front for match-around
             verify2:
                 type: str
                 description: Extra regular expression pattern string used to verify the data type.
             fgd_id:
+                aliases: ['fgd-id']
                 type: int
                 description: ID of object in FortiGuard database.
 '''

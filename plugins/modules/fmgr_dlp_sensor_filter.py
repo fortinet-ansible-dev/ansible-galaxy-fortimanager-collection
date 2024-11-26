@@ -114,18 +114,22 @@ options:
                     - 'enable'
                     - 'summary-only'
             company_identifier:
+                aliases: ['company-identifier']
                 type: str
                 description: Enter a company identifier watermark to match.
             expiry:
                 type: str
                 description: Quarantine duration in days, hours, minutes format
             file_size:
+                aliases: ['file-size']
                 type: int
                 description: Match files this size or larger
             file_type:
+                aliases: ['file-type']
                 type: str
                 description: Select the number of a DLP file pattern table to match.
             filter_by:
+                aliases: ['filter-by']
                 type: str
                 description: Select the type of content to match.
                 choices:
@@ -139,6 +143,7 @@ options:
                     - 'encrypted'
                     - 'file-type-and-size'
             fp_sensitivity:
+                aliases: ['fp-sensitivity']
                 type: raw
                 description: (list or str) Select a DLP file pattern sensitivity to match.
             id:
@@ -146,6 +151,7 @@ options:
                 description: ID.
                 required: true
             match_percentage:
+                aliases: ['match-percentage']
                 type: int
                 description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
             name:

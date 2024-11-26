@@ -96,12 +96,14 @@ options:
         type: dict
         suboptions:
             auth_proto:
+                aliases: ['auth-proto']
                 type: str
                 description: Authentication protocol.
                 choices:
                     - 'md5'
                     - 'sha'
             auth_pwd:
+                aliases: ['auth-pwd']
                 type: raw
                 description: (list) Password for authentication protocol.
             name:
@@ -109,12 +111,14 @@ options:
                 description: SNMP user name.
                 required: true
             priv_proto:
+                aliases: ['priv-proto']
                 type: str
                 description: Privacy
                 choices:
                     - 'des'
                     - 'aes'
             priv_pwd:
+                aliases: ['priv-pwd']
                 type: raw
                 description: (list) Password for privacy
             queries:
@@ -124,9 +128,11 @@ options:
                     - 'disable'
                     - 'enable'
             query_port:
+                aliases: ['query-port']
                 type: int
                 description: SNMPv3 query port
             security_level:
+                aliases: ['security-level']
                 type: str
                 description: Security level for message authentication and encryption.
                 choices:

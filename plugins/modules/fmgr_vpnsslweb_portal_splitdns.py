@@ -94,9 +94,11 @@ options:
         type: dict
         suboptions:
             dns_server1:
+                aliases: ['dns-server1']
                 type: str
                 description: DNS server 1.
             dns_server2:
+                aliases: ['dns-server2']
                 type: str
                 description: DNS server 2.
             domains:
@@ -107,9 +109,11 @@ options:
                 description: ID.
                 required: true
             ipv6_dns_server1:
+                aliases: ['ipv6-dns-server1']
                 type: str
                 description: IPv6 DNS server 1.
             ipv6_dns_server2:
+                aliases: ['ipv6-dns-server2']
                 type: str
                 description: IPv6 DNS server 2.
 '''

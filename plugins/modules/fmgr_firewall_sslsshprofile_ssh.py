@@ -87,6 +87,7 @@ options:
         type: dict
         suboptions:
             inspect_all:
+                aliases: ['inspect-all']
                 type: str
                 description: Level of SSL inspection.
                 choices:
@@ -96,18 +97,21 @@ options:
                 type: raw
                 description: (list) Ports to use for scanning
             ssh_algorithm:
+                aliases: ['ssh-algorithm']
                 type: str
                 description: Relative strength of encryption algorithms accepted during negotiation.
                 choices:
                     - 'compatible'
                     - 'high-encryption'
             ssh_policy_check:
+                aliases: ['ssh-policy-check']
                 type: str
                 description: Enable/disable SSH policy check.
                 choices:
                     - 'disable'
                     - 'enable'
             ssh_tun_policy_check:
+                aliases: ['ssh-tun-policy-check']
                 type: str
                 description: Enable/disable SSH tunnel policy check.
                 choices:
@@ -120,6 +124,7 @@ options:
                     - 'disable'
                     - 'deep-inspection'
             unsupported_version:
+                aliases: ['unsupported-version']
                 type: str
                 description: Action based on SSH version being unsupported.
                 choices:
@@ -144,6 +149,7 @@ options:
                     - 'exec'
                     - 'port-forward'
             proxy_after_tcp_handshake:
+                aliases: ['proxy-after-tcp-handshake']
                 type: str
                 description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:

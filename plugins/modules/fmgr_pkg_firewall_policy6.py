@@ -102,66 +102,79 @@ options:
                     - 'ipsec'
                     - 'ssl-vpn'
             app_category:
+                aliases: ['app-category']
                 type: raw
                 description: (list or str) Application category ID list.
             application:
                 type: raw
                 description: (list) Application ID list.
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Name of an existing Application list.
             auto_asic_offload:
+                aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable policy traffic ASIC offloading.
                 choices:
                     - 'disable'
                     - 'enable'
             av_profile:
+                aliases: ['av-profile']
                 type: str
                 description: Name of an existing Antivirus profile.
             comments:
                 type: str
                 description: Comment.
             custom_log_fields:
+                aliases: ['custom-log-fields']
                 type: raw
                 description: (list or str) Log field index numbers to append custom log fields to log messages for this policy.
             devices:
                 type: raw
                 description: (list or str) Names of devices or device groups that can be matched by the policy.
             diffserv_forward:
+                aliases: ['diffserv-forward']
                 type: str
                 description: Enable to change packets DiffServ values to the specified diffservcode-forward value.
                 choices:
                     - 'disable'
                     - 'enable'
             diffserv_reverse:
+                aliases: ['diffserv-reverse']
                 type: str
                 description: Enable to change packets reverse
                 choices:
                     - 'disable'
                     - 'enable'
             diffservcode_forward:
+                aliases: ['diffservcode-forward']
                 type: str
                 description: Change packets DiffServ to this value.
             diffservcode_rev:
+                aliases: ['diffservcode-rev']
                 type: str
                 description: Change packets reverse
             dlp_sensor:
+                aliases: ['dlp-sensor']
                 type: str
                 description: Name of an existing DLP sensor.
             dscp_match:
+                aliases: ['dscp-match']
                 type: str
                 description: Enable DSCP check.
                 choices:
                     - 'disable'
                     - 'enable'
             dscp_negate:
+                aliases: ['dscp-negate']
                 type: str
                 description: Enable negated DSCP match.
                 choices:
                     - 'disable'
                     - 'enable'
             dscp_value:
+                aliases: ['dscp-value']
                 type: str
                 description: DSCP value.
             dsri:
@@ -174,6 +187,7 @@ options:
                 type: raw
                 description: (list or str) Destination address and address group names.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr specifies what the destination address must NOT be.
                 choices:
@@ -183,6 +197,7 @@ options:
                 type: raw
                 description: (list or str) Outgoing
             firewall_session_dirty:
+                aliases: ['firewall-session-dirty']
                 type: str
                 description: How to handle sessions if the configuration of this firewall policy changes.
                 choices:
@@ -195,12 +210,14 @@ options:
                     - 'disable'
                     - 'enable'
             global_label:
+                aliases: ['global-label']
                 type: str
                 description: Label for the policy that appears when the GUI is in Global View mode.
             groups:
                 type: raw
                 description: (list or str) Names of user groups that can authenticate with this policy.
             icap_profile:
+                aliases: ['icap-profile']
                 type: str
                 description: Name of an existing ICAP profile.
             inbound:
@@ -216,6 +233,7 @@ options:
                     - 'disable'
                     - 'enable'
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: Name of an existing IPS sensor.
             label:
@@ -230,12 +248,14 @@ options:
                     - 'all'
                     - 'utm'
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Record logs when a session starts and ends.
                 choices:
                     - 'disable'
                     - 'enable'
             mms_profile:
+                aliases: ['mms-profile']
                 type: str
                 description: Name of an existing MMS profile.
             name:
@@ -260,6 +280,7 @@ options:
                     - 'disable'
                     - 'enable'
             np_accelation:
+                aliases: ['np-accelation']
                 type: str
                 description: Enable/disable UTM Network Processor acceleration.
                 choices:
@@ -272,6 +293,7 @@ options:
                     - 'disable'
                     - 'enable'
             per_ip_shaper:
+                aliases: ['per-ip-shaper']
                 type: str
                 description: Per-IP traffic shaper.
             policyid:
@@ -282,18 +304,22 @@ options:
                 type: raw
                 description: (list or str) IP Pool names.
             profile_group:
+                aliases: ['profile-group']
                 type: str
                 description: Name of profile group.
             profile_protocol_options:
+                aliases: ['profile-protocol-options']
                 type: str
                 description: Name of an existing Protocol options profile.
             profile_type:
+                aliases: ['profile-type']
                 type: str
                 description: Determine whether the firewall policy allows security profile groups or single profiles only.
                 choices:
                     - 'single'
                     - 'group'
             replacemsg_override_group:
+                aliases: ['replacemsg-override-group']
                 type: str
                 description: Override the default replacement message group for this policy.
             rsso:
@@ -306,6 +332,7 @@ options:
                 type: str
                 description: Schedule name.
             send_deny_packet:
+                aliases: ['send-deny-packet']
                 type: str
                 description: Enable/disable return of deny-packet.
                 choices:
@@ -315,21 +342,25 @@ options:
                 type: raw
                 description: (list or str) Service and service group names.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
                     - 'disable'
                     - 'enable'
             session_ttl:
+                aliases: ['session-ttl']
                 type: raw
                 description: (int or str) Session TTL in seconds for sessions accepted by this policy.
             spamfilter_profile:
+                aliases: ['spamfilter-profile']
                 type: str
                 description: Name of an existing Spam filter profile.
             srcaddr:
                 type: raw
                 description: (list or str) Source address and address group names.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr specifies what the source address must NOT be.
                 choices:
@@ -339,15 +370,18 @@ options:
                 type: raw
                 description: (list or str) Incoming
             ssl_mirror:
+                aliases: ['ssl-mirror']
                 type: str
                 description: Enable to copy decrypted SSL traffic to a FortiGate interface
                 choices:
                     - 'disable'
                     - 'enable'
             ssl_mirror_intf:
+                aliases: ['ssl-mirror-intf']
                 type: raw
                 description: (list or str) SSL mirror interface name.
             ssl_ssh_profile:
+                aliases: ['ssl-ssh-profile']
                 type: str
                 description: Name of an existing SSL SSH profile.
             status:
@@ -360,12 +394,15 @@ options:
                 type: str
                 description: Names of object-tags applied to this policy.
             tcp_mss_receiver:
+                aliases: ['tcp-mss-receiver']
                 type: int
                 description: Receiver TCP maximum segment size
             tcp_mss_sender:
+                aliases: ['tcp-mss-sender']
                 type: int
                 description: Sender TCP maximum segment size
             tcp_session_without_syn:
+                aliases: ['tcp-session-without-syn']
                 type: str
                 description: Enable/disable creation of TCP session without SYN flag.
                 choices:
@@ -373,24 +410,29 @@ options:
                     - 'data-only'
                     - 'disable'
             timeout_send_rst:
+                aliases: ['timeout-send-rst']
                 type: str
                 description: Enable/disable sending RST packets when TCP sessions expire.
                 choices:
                     - 'disable'
                     - 'enable'
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Reverse traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             url_category:
+                aliases: ['url-category']
                 type: raw
                 description: (list or str) URL category ID list.
             users:
                 type: raw
                 description: (list or str) Names of individual users that can authenticate with this policy.
             utm_status:
+                aliases: ['utm-status']
                 type: str
                 description: Enable AV/web/ips protection profile.
                 choices:
@@ -400,60 +442,74 @@ options:
                 type: str
                 description: Universally Unique Identifier
             vlan_cos_fwd:
+                aliases: ['vlan-cos-fwd']
                 type: int
                 description: VLAN forward direction user priority
             vlan_cos_rev:
+                aliases: ['vlan-cos-rev']
                 type: int
                 description: VLAN reverse direction user priority
             voip_profile:
+                aliases: ['voip-profile']
                 type: str
                 description: Name of an existing VoIP profile.
             vpntunnel:
                 type: str
                 description: Policy-based IPsec VPN
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: Name of an existing Web filter profile.
             anti_replay:
+                aliases: ['anti-replay']
                 type: str
                 description: Enable/disable anti-replay check.
                 choices:
                     - 'disable'
                     - 'enable'
             app_group:
+                aliases: ['app-group']
                 type: raw
                 description: (list or str) Application group names.
             cifs_profile:
+                aliases: ['cifs-profile']
                 type: str
                 description: Name of an existing CIFS profile.
             dnsfilter_profile:
+                aliases: ['dnsfilter-profile']
                 type: str
                 description: Name of an existing DNS filter profile.
             emailfilter_profile:
+                aliases: ['emailfilter-profile']
                 type: str
                 description: Name of an existing email filter profile.
             http_policy_redirect:
+                aliases: ['http-policy-redirect']
                 type: str
                 description: Redirect HTTP
                 choices:
                     - 'disable'
                     - 'enable'
             inspection_mode:
+                aliases: ['inspection-mode']
                 type: str
                 description: Policy inspection mode
                 choices:
                     - 'proxy'
                     - 'flow'
             np_acceleration:
+                aliases: ['np-acceleration']
                 type: str
                 description: Enable/disable UTM Network Processor acceleration.
                 choices:
                     - 'disable'
                     - 'enable'
             ssh_filter_profile:
+                aliases: ['ssh-filter-profile']
                 type: str
                 description: Name of an existing SSH filter profile.
             ssh_policy_redirect:
+                aliases: ['ssh-policy-redirect']
                 type: str
                 description: Redirect SSH traffic to matching transparent proxy policy.
                 choices:
@@ -463,18 +519,22 @@ options:
                 type: str
                 description: ToS
             tos_mask:
+                aliases: ['tos-mask']
                 type: str
                 description: Non-zero bit positions are used for comparison while zero bit positions are ignored.
             tos_negate:
+                aliases: ['tos-negate']
                 type: str
                 description: Enable negated TOS match.
                 choices:
                     - 'disable'
                     - 'enable'
             vlan_filter:
+                aliases: ['vlan-filter']
                 type: str
                 description: Set VLAN filters.
             waf_profile:
+                aliases: ['waf-profile']
                 type: str
                 description: Name of an existing Web application firewall profile.
             webcache:
@@ -484,30 +544,38 @@ options:
                     - 'disable'
                     - 'enable'
             webcache_https:
+                aliases: ['webcache-https']
                 type: str
                 description: Enable/disable web cache for HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
             webproxy_forward_server:
+                aliases: ['webproxy-forward-server']
                 type: str
                 description: Web proxy forward server name.
             webproxy_profile:
+                aliases: ['webproxy-profile']
                 type: str
                 description: Webproxy profile name.
             casi_profile:
+                aliases: ['casi-profile']
                 type: str
                 description: CASI profile.
             fsso_groups:
+                aliases: ['fsso-groups']
                 type: raw
                 description: (list or str) Names of FSSO groups.
             decrypted_traffic_mirror:
+                aliases: ['decrypted-traffic-mirror']
                 type: str
                 description: Decrypted traffic mirror.
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/disable offloading policy configuration to CP processors.
                 choices:

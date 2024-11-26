@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             rule_name:
+                aliases: ['rule-name']
                 type: str
                 description: Forwarding rule name.
             target:

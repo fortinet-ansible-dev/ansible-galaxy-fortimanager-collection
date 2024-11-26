@@ -97,12 +97,14 @@ options:
                 type: str
                 description: Host address.
             content_length:
+                aliases: ['content-length']
                 type: str
                 description: HTTP content length in request.
                 choices:
                     - 'disable'
                     - 'enable'
             header_length:
+                aliases: ['header-length']
                 type: str
                 description: HTTP header length in request.
                 choices:
@@ -119,6 +121,7 @@ options:
                 description: Exception ID.
                 required: true
             line_length:
+                aliases: ['line-length']
                 type: str
                 description: HTTP line length in request.
                 choices:
@@ -131,24 +134,28 @@ options:
                     - 'disable'
                     - 'enable'
             max_cookie:
+                aliases: ['max-cookie']
                 type: str
                 description: Maximum number of cookies in HTTP request.
                 choices:
                     - 'disable'
                     - 'enable'
             max_header_line:
+                aliases: ['max-header-line']
                 type: str
                 description: Maximum number of HTTP header line.
                 choices:
                     - 'disable'
                     - 'enable'
             max_range_segment:
+                aliases: ['max-range-segment']
                 type: str
                 description: Maximum number of range segments in HTTP range line.
                 choices:
                     - 'disable'
                     - 'enable'
             max_url_param:
+                aliases: ['max-url-param']
                 type: str
                 description: Maximum number of parameters in URL.
                 choices:
@@ -161,6 +168,7 @@ options:
                     - 'disable'
                     - 'enable'
             param_length:
+                aliases: ['param-length']
                 type: str
                 description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
                 choices:
@@ -176,6 +184,7 @@ options:
                     - 'disable'
                     - 'enable'
             url_param_length:
+                aliases: ['url-param-length']
                 type: str
                 description: Maximum length of parameter in URL.
                 choices:

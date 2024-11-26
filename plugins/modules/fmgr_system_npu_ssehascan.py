@@ -84,9 +84,11 @@ options:
                 type: int
                 description: Scanning message gap
             max_session_cnt:
+                aliases: ['max-session-cnt']
                 type: int
                 description: If the session count
             min_duration:
+                aliases: ['min-duration']
                 type: int
                 description: Scanning filter for minimum duration of the session.
 '''

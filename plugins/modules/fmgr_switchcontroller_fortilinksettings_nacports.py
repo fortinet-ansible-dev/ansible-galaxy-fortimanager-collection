@@ -87,27 +87,34 @@ options:
         type: dict
         suboptions:
             lan_segment:
+                aliases: ['lan-segment']
                 type: str
                 description: Enable/disable LAN segment feature on the FortiLink interface.
                 choices:
                     - 'disabled'
                     - 'enabled'
             member_change:
+                aliases: ['member-change']
                 type: int
                 description: Member change.
             nac_lan_interface:
+                aliases: ['nac-lan-interface']
                 type: str
                 description: Configure NAC LAN interface.
             nac_segment_vlans:
+                aliases: ['nac-segment-vlans']
                 type: raw
                 description: (list) Configure NAC segment VLANs.
             onboarding_vlan:
+                aliases: ['onboarding-vlan']
                 type: str
                 description: Default NAC Onboarding VLAN when NAC devices are discovered.
             parent_key:
+                aliases: ['parent-key']
                 type: str
                 description: Parent key.
             bounce_nac_port:
+                aliases: ['bounce-nac-port']
                 type: str
                 description: Enable/disable bouncing
                 choices:

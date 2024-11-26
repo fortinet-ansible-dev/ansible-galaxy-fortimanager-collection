@@ -94,6 +94,7 @@ options:
                 description: Timeout profile ID
                 required: true
             udp_idle:
+                aliases: ['udp-idle']
                 type: int
                 description: Set UDP idle timeout
 '''

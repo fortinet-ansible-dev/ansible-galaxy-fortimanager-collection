@@ -90,33 +90,42 @@ options:
         type: dict
         suboptions:
             login_page:
+                aliases: ['login-page']
                 type: str
                 description: Replacement HTML for SSL-VPN login page.
             max_concurrent_user:
+                aliases: ['max-concurrent-user']
                 type: int
                 description: Maximum concurrent users
             url_path:
+                aliases: ['url-path']
                 type: str
                 description: URL path to access SSL-VPN login page.
             virtual_host:
+                aliases: ['virtual-host']
                 type: str
                 description: Virtual host name for realm.
             nas_ip:
+                aliases: ['nas-ip']
                 type: str
                 description: IP address used as a NAS-IP to communicate with the RADIUS server.
             radius_server:
+                aliases: ['radius-server']
                 type: str
                 description: RADIUS server associated with realm.
             radius_port:
+                aliases: ['radius-port']
                 type: int
                 description: RADIUS service port number
             virtual_host_only:
+                aliases: ['virtual-host-only']
                 type: str
                 description: Enable/disable enforcement of virtual host method for SSL-VPN client access.
                 choices:
                     - 'disable'
                     - 'enable'
             virtual_host_server_cert:
+                aliases: ['virtual-host-server-cert']
                 type: str
                 description: Name of the server certificate to used for this realm.
 '''

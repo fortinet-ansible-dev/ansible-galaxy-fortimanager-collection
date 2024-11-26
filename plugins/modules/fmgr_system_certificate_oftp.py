@@ -95,6 +95,7 @@ options:
                 type: raw
                 description: (list) Password for encrypted private-key, unset for non-encrypted.
             private_key:
+                aliases: ['private-key']
                 type: raw
                 description: (list) PEM format private key.
             local:

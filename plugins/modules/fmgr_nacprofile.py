@@ -97,6 +97,7 @@ options:
                 description: Name.
                 required: true
             onboarding_vlan:
+                aliases: ['onboarding-vlan']
                 type: str
                 description: VLAN interface name.
 '''

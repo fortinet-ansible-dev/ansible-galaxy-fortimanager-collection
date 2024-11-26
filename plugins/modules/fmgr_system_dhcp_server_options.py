@@ -115,21 +115,25 @@ options:
                 type: str
                 description: DHCP option value.
             vci_match:
+                aliases: ['vci-match']
                 type: str
                 description: Enable/disable vendor class identifier
                 choices:
                     - 'disable'
                     - 'enable'
             vci_string:
+                aliases: ['vci-string']
                 type: raw
                 description: (list) One or more VCI strings in quotes separated by spaces.
             uci_match:
+                aliases: ['uci-match']
                 type: str
                 description: Enable/disable user class identifier
                 choices:
                     - 'disable'
                     - 'enable'
             uci_string:
+                aliases: ['uci-string']
                 type: raw
                 description: (list) One or more UCI strings in quotes separated by spaces.
 '''

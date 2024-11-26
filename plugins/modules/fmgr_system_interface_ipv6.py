@@ -81,9 +81,11 @@ options:
         type: dict
         suboptions:
             ip6_address:
+                aliases: ['ip6-address']
                 type: str
                 description: IPv6 address/prefix of interface.
             ip6_allowaccess:
+                aliases: ['ip6-allowaccess']
                 type: list
                 elements: str
                 description:
@@ -105,6 +107,7 @@ options:
                     - 'https-logging'
                     - 'fabric'
             ip6_autoconf:
+                aliases: ['ip6-autoconf']
                 type: str
                 description:
                     - Enable/disable address auto config

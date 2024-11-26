@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             associated_interface:
+                aliases: ['associated-interface']
                 type: str
                 description: Interface associated with the address object.
             color:
@@ -99,6 +100,7 @@ options:
                 type: str
                 description: Comment.
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: Final IPv4 address
             name:
@@ -106,6 +108,7 @@ options:
                 description: Multicast address name.
                 required: true
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: First IPv4 address
             subnet:

@@ -94,6 +94,7 @@ options:
                 description: Name of venue name duple.
                 required: true
             value_list:
+                aliases: ['value-list']
                 type: list
                 elements: dict
                 description: Value list.

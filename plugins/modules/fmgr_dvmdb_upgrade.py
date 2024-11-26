@@ -70,6 +70,7 @@ options:
         type: dict
         suboptions:
             scope_member:
+                aliases: ['scope member']
                 type: list
                 elements: dict
                 description: Scope member.

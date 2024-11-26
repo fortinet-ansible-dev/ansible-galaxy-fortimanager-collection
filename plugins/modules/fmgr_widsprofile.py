@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             ap_auto_suppress:
+                aliases: ['ap-auto-suppress']
                 type: str
                 description: Enable/disable on-wire rogue AP auto-suppression
                 choices:
                     - 'disable'
                     - 'enable'
             ap_bgscan_disable_day:
+                aliases: ['ap-bgscan-disable-day']
                 type: list
                 elements: str
                 description: Optionally turn off scanning for one or more days of the week.
@@ -108,66 +110,83 @@ options:
                     - 'friday'
                     - 'saturday'
             ap_bgscan_disable_end:
+                aliases: ['ap-bgscan-disable-end']
                 type: str
                 description: End time, using a 24-hour clock in the format of hh
             ap_bgscan_disable_start:
+                aliases: ['ap-bgscan-disable-start']
                 type: str
                 description: Start time, using a 24-hour clock in the format of hh
             ap_bgscan_duration:
+                aliases: ['ap-bgscan-duration']
                 type: int
                 description: Listening time on a scanning channel
             ap_bgscan_idle:
+                aliases: ['ap-bgscan-idle']
                 type: int
                 description: Waiting time for channel inactivity before scanning this channel
             ap_bgscan_intv:
+                aliases: ['ap-bgscan-intv']
                 type: int
                 description: Period of time between scanning two channels
             ap_bgscan_period:
+                aliases: ['ap-bgscan-period']
                 type: int
                 description: Period of time between background scans
             ap_bgscan_report_intv:
+                aliases: ['ap-bgscan-report-intv']
                 type: int
                 description: Period of time between background scan reports
             ap_fgscan_report_intv:
+                aliases: ['ap-fgscan-report-intv']
                 type: int
                 description: Period of time between foreground scan reports
             ap_scan:
+                aliases: ['ap-scan']
                 type: str
                 description: Enable/disable rogue AP detection.
                 choices:
                     - 'disable'
                     - 'enable'
             ap_scan_passive:
+                aliases: ['ap-scan-passive']
                 type: str
                 description: Enable/disable passive scanning.
                 choices:
                     - 'disable'
                     - 'enable'
             asleap_attack:
+                aliases: ['asleap-attack']
                 type: str
                 description: Enable/disable asleap attack detection
                 choices:
                     - 'disable'
                     - 'enable'
             assoc_flood_thresh:
+                aliases: ['assoc-flood-thresh']
                 type: int
                 description: The threshold value for association frame flooding.
             assoc_flood_time:
+                aliases: ['assoc-flood-time']
                 type: int
                 description: Number of seconds after which a station is considered not connected.
             assoc_frame_flood:
+                aliases: ['assoc-frame-flood']
                 type: str
                 description: Enable/disable association frame flooding detection
                 choices:
                     - 'disable'
                     - 'enable'
             auth_flood_thresh:
+                aliases: ['auth-flood-thresh']
                 type: int
                 description: The threshold value for authentication frame flooding.
             auth_flood_time:
+                aliases: ['auth-flood-time']
                 type: int
                 description: Number of seconds after which a station is considered not connected.
             auth_frame_flood:
+                aliases: ['auth-frame-flood']
                 type: str
                 description: Enable/disable authentication frame flooding detection
                 choices:
@@ -177,99 +196,122 @@ options:
                 type: str
                 description: Comment.
             deauth_broadcast:
+                aliases: ['deauth-broadcast']
                 type: str
                 description: Enable/disable broadcasting de-authentication detection
                 choices:
                     - 'disable'
                     - 'enable'
             deauth_unknown_src_thresh:
+                aliases: ['deauth-unknown-src-thresh']
                 type: int
                 description: Threshold value per second to deauth unknown src for DoS attack
             eapol_fail_flood:
+                aliases: ['eapol-fail-flood']
                 type: str
                 description: Enable/disable EAPOL-Failure flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_fail_intv:
+                aliases: ['eapol-fail-intv']
                 type: int
                 description: The detection interval for EAPOL-Failure flooding
             eapol_fail_thresh:
+                aliases: ['eapol-fail-thresh']
                 type: int
                 description: The threshold value for EAPOL-Failure flooding in specified interval.
             eapol_logoff_flood:
+                aliases: ['eapol-logoff-flood']
                 type: str
                 description: Enable/disable EAPOL-Logoff flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_logoff_intv:
+                aliases: ['eapol-logoff-intv']
                 type: int
                 description: The detection interval for EAPOL-Logoff flooding
             eapol_logoff_thresh:
+                aliases: ['eapol-logoff-thresh']
                 type: int
                 description: The threshold value for EAPOL-Logoff flooding in specified interval.
             eapol_pre_fail_flood:
+                aliases: ['eapol-pre-fail-flood']
                 type: str
                 description: Enable/disable premature EAPOL-Failure flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_pre_fail_intv:
+                aliases: ['eapol-pre-fail-intv']
                 type: int
                 description: The detection interval for premature EAPOL-Failure flooding
             eapol_pre_fail_thresh:
+                aliases: ['eapol-pre-fail-thresh']
                 type: int
                 description: The threshold value for premature EAPOL-Failure flooding in specified interval.
             eapol_pre_succ_flood:
+                aliases: ['eapol-pre-succ-flood']
                 type: str
                 description: Enable/disable premature EAPOL-Success flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_pre_succ_intv:
+                aliases: ['eapol-pre-succ-intv']
                 type: int
                 description: The detection interval for premature EAPOL-Success flooding
             eapol_pre_succ_thresh:
+                aliases: ['eapol-pre-succ-thresh']
                 type: int
                 description: The threshold value for premature EAPOL-Success flooding in specified interval.
             eapol_start_flood:
+                aliases: ['eapol-start-flood']
                 type: str
                 description: Enable/disable EAPOL-Start flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_start_intv:
+                aliases: ['eapol-start-intv']
                 type: int
                 description: The detection interval for EAPOL-Start flooding
             eapol_start_thresh:
+                aliases: ['eapol-start-thresh']
                 type: int
                 description: The threshold value for EAPOL-Start flooding in specified interval.
             eapol_succ_flood:
+                aliases: ['eapol-succ-flood']
                 type: str
                 description: Enable/disable EAPOL-Success flooding
                 choices:
                     - 'disable'
                     - 'enable'
             eapol_succ_intv:
+                aliases: ['eapol-succ-intv']
                 type: int
                 description: The detection interval for EAPOL-Success flooding
             eapol_succ_thresh:
+                aliases: ['eapol-succ-thresh']
                 type: int
                 description: The threshold value for EAPOL-Success flooding in specified interval.
             invalid_mac_oui:
+                aliases: ['invalid-mac-oui']
                 type: str
                 description: Enable/disable invalid MAC OUI detection.
                 choices:
                     - 'disable'
                     - 'enable'
             long_duration_attack:
+                aliases: ['long-duration-attack']
                 type: str
                 description: Enable/disable long duration attack detection based on user configured threshold
                 choices:
                     - 'disable'
                     - 'enable'
             long_duration_thresh:
+                aliases: ['long-duration-thresh']
                 type: int
                 description: Threshold value for long duration attack detection
             name:
@@ -277,12 +319,14 @@ options:
                 description: WIDS profile name.
                 required: true
             null_ssid_probe_resp:
+                aliases: ['null-ssid-probe-resp']
                 type: str
                 description: Enable/disable null SSID probe response detection
                 choices:
                     - 'disable'
                     - 'enable'
             sensor_mode:
+                aliases: ['sensor-mode']
                 type: str
                 description: Scan WiFi nearby stations
                 choices:
@@ -290,39 +334,47 @@ options:
                     - 'foreign'
                     - 'both'
             spoofed_deauth:
+                aliases: ['spoofed-deauth']
                 type: str
                 description: Enable/disable spoofed de-authentication attack detection
                 choices:
                     - 'disable'
                     - 'enable'
             weak_wep_iv:
+                aliases: ['weak-wep-iv']
                 type: str
                 description: Enable/disable weak WEP IV
                 choices:
                     - 'disable'
                     - 'enable'
             wireless_bridge:
+                aliases: ['wireless-bridge']
                 type: str
                 description: Enable/disable wireless bridge detection
                 choices:
                     - 'disable'
                     - 'enable'
             ap_bgscan_disable_schedules:
+                aliases: ['ap-bgscan-disable-schedules']
                 type: raw
                 description: (list or str) Firewall schedules for turning off FortiAP radio background scan.
             rogue_scan:
+                aliases: ['rogue-scan']
                 type: str
                 description: Enable/disable rogue AP on-wire scan.
                 choices:
                     - 'disable'
                     - 'enable'
             ap_scan_threshold:
+                aliases: ['ap-scan-threshold']
                 type: str
                 description: Minimum signal level/threshold in dBm required for the AP to report detected rogue AP
             ap_scan_channel_list_2G_5G:
+                aliases: ['ap-scan-channel-list-2G-5G']
                 type: raw
                 description: (list) Selected ap scan channel list for 2.
             ap_scan_channel_list_6G:
+                aliases: ['ap-scan-channel-list-6G']
                 type: raw
                 description: (list) Selected ap scan channel list for 6G band.
 '''

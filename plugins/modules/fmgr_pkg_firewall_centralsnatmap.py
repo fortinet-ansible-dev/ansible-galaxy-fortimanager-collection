@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             dst_addr:
+                aliases: ['dst-addr']
                 type: raw
                 description: (list or str) Destination address name from available addresses.
             dstintf:
@@ -106,15 +107,19 @@ options:
                     - 'disable'
                     - 'enable'
             nat_ippool:
+                aliases: ['nat-ippool']
                 type: raw
                 description: (list or str) Name of the IP pools to be used to translate addresses from available IP Pools.
             nat_port:
+                aliases: ['nat-port']
                 type: str
                 description: Translated port or port range
             orig_addr:
+                aliases: ['orig-addr']
                 type: raw
                 description: (list or str) Original address.
             orig_port:
+                aliases: ['orig-port']
                 type: raw
                 description: (int or str) Original TCP port
             policyid:
@@ -137,12 +142,15 @@ options:
                 type: str
                 description: Comment.
             dst_addr6:
+                aliases: ['dst-addr6']
                 type: raw
                 description: (list or str) IPv6 Destination address.
             nat_ippool6:
+                aliases: ['nat-ippool6']
                 type: raw
                 description: (list or str) IPv6 pools to be used for source NAT.
             orig_addr6:
+                aliases: ['orig-addr6']
                 type: raw
                 description: (list or str) IPv6 Original address.
             type:
@@ -167,9 +175,11 @@ options:
                     - 'disable'
                     - 'enable'
             dst_port:
+                aliases: ['dst-port']
                 type: str
                 description: Destination port or port range
             port_preserve:
+                aliases: ['port-preserve']
                 type: str
                 description: Enable/disable preservation of the original source port from source NAT if it has not been used.
                 choices:

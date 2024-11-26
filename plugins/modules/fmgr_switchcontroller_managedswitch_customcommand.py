@@ -96,9 +96,11 @@ options:
         type: dict
         suboptions:
             command_entry:
+                aliases: ['command-entry']
                 type: str
                 description: List of FortiSwitch commands.
             command_name:
+                aliases: ['command-name']
                 type: str
                 description: Names of commands to be pushed to this FortiSwitch device, as configured under config switch-controller custom-command.
 '''

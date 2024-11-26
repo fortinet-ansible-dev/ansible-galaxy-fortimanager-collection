@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             ips_filter_name:
+                aliases: ['ips-filter-name']
                 type: str
                 description: IPS filter name.
                 required: true

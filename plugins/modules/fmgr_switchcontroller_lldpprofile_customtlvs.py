@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             information_string:
+                aliases: ['information-string']
                 type: str
                 description: Organizationally defined information string
             name:

@@ -105,6 +105,7 @@ options:
                         type: str
                         description: Vdom.
             local_intf:
+                aliases: ['local-intf']
                 type: str
                 description: Local intf.
 '''

@@ -92,15 +92,18 @@ options:
                     - 'direct'
                     - 'this-fmg'
             target_ip:
+                aliases: ['target-ip']
                 type: str
                 description: Target ip.
             auto_firmware_upgrade:
+                aliases: ['auto-firmware-upgrade']
                 type: str
                 description: Auto firmware upgrade.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_firmware_upgrade_day:
+                aliases: ['auto-firmware-upgrade-day']
                 type: list
                 elements: str
                 description: Auto firmware upgrade day.
@@ -113,12 +116,15 @@ options:
                     - 'friday'
                     - 'saturday'
             auto_firmware_upgrade_delay:
+                aliases: ['auto-firmware-upgrade-delay']
                 type: int
                 description: Auto firmware upgrade delay.
             auto_firmware_upgrade_end_hour:
+                aliases: ['auto-firmware-upgrade-end-hour']
                 type: int
                 description: Auto firmware upgrade end hour.
             auto_firmware_upgrade_start_hour:
+                aliases: ['auto-firmware-upgrade-start-hour']
                 type: int
                 description: Auto firmware upgrade start hour.
 '''

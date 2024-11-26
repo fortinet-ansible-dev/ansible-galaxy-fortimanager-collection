@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             end_ip:
+                aliases: ['end-ip']
                 type: str
                 description: Final IP address, inclusive, of the address range
             id:
@@ -103,6 +104,7 @@ options:
                 description: ID number for individual entry in the IP-Range table.
                 required: true
             start_ip:
+                aliases: ['start-ip']
                 type: str
                 description: Starting IP address, inclusive, of the address range
 '''

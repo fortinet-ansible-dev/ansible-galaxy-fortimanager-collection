@@ -118,9 +118,11 @@ options:
                 type: raw
                 description: (list) Fmgpasswd.
             service_id:
+                aliases: ['service-id']
                 type: raw
                 description: (list) Service id.
             if_allgroup:
+                aliases: ['if-allgroup']
                 type: str
                 description: If allgroup.
                 choices:
@@ -144,12 +146,15 @@ options:
                         type: str
                         description: Name.
                     ref_id:
+                        aliases: ['ref-id']
                         type: str
                         description: Ref id.
             service_manager_id:
+                aliases: ['service-manager-id']
                 type: str
                 description: Service manager id.
             service_manager_rev:
+                aliases: ['service-manager-rev']
                 type: int
                 description: Service manager rev.
 '''

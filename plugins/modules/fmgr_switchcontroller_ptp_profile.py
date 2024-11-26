@@ -106,6 +106,7 @@ options:
                 description: Profile name.
                 required: true
             pdelay_req_interval:
+                aliases: ['pdelay-req-interval']
                 type: str
                 description: Configure PTP peer delay request interval.
                 choices:
@@ -116,6 +117,7 @@ options:
                     - '16sec'
                     - '32sec'
             ptp_profile:
+                aliases: ['ptp-profile']
                 type: str
                 description: Configure PTP power profile.
                 choices:

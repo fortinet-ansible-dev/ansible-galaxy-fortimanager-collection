@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             mcc_mnc_list:
+                aliases: ['mcc-mnc-list']
                 type: list
                 elements: dict
                 description: Mcc mnc list.

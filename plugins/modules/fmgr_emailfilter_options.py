@@ -81,6 +81,7 @@ options:
         type: dict
         suboptions:
             dns_timeout:
+                aliases: ['dns-timeout']
                 type: int
                 description: DNS query time out
 '''

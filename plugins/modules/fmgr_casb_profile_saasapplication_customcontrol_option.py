@@ -110,6 +110,7 @@ options:
                 description: CASB custom control option name.
                 required: true
             user_input:
+                aliases: ['user-input']
                 type: list
                 elements: str
                 description: CASB custom control user input.

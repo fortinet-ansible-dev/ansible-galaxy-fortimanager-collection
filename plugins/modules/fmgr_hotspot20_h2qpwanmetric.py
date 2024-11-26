@@ -90,18 +90,22 @@ options:
         type: dict
         suboptions:
             downlink_load:
+                aliases: ['downlink-load']
                 type: int
                 description: Downlink load.
             downlink_speed:
+                aliases: ['downlink-speed']
                 type: int
                 description: Downlink speed
             link_at_capacity:
+                aliases: ['link-at-capacity']
                 type: str
                 description: Link at capacity.
                 choices:
                     - 'disable'
                     - 'enable'
             link_status:
+                aliases: ['link-status']
                 type: str
                 description: Link status.
                 choices:
@@ -109,6 +113,7 @@ options:
                     - 'up'
                     - 'in-test'
             load_measurement_duration:
+                aliases: ['load-measurement-duration']
                 type: int
                 description: Load measurement duration
             name:
@@ -116,15 +121,18 @@ options:
                 description: WAN metric name.
                 required: true
             symmetric_wan_link:
+                aliases: ['symmetric-wan-link']
                 type: str
                 description: WAN link symmetry.
                 choices:
                     - 'asymmetric'
                     - 'symmetric'
             uplink_load:
+                aliases: ['uplink-load']
                 type: int
                 description: Uplink load.
             uplink_speed:
+                aliases: ['uplink-speed']
                 type: int
                 description: Uplink speed
 '''

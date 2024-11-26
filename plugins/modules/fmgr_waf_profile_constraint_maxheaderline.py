@@ -97,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             max_header_line:
+                aliases: ['max-header-line']
                 type: int
                 description: Maximum number HTTP header lines
             severity:

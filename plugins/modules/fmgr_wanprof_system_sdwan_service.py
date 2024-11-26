@@ -94,12 +94,14 @@ options:
         type: dict
         suboptions:
             addr_mode:
+                aliases: ['addr-mode']
                 type: str
                 description: Address mode
                 choices:
                     - 'ipv4'
                     - 'ipv6'
             bandwidth_weight:
+                aliases: ['bandwidth-weight']
                 type: int
                 description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
             default:
@@ -109,27 +111,32 @@ options:
                     - 'disable'
                     - 'enable'
             dscp_forward:
+                aliases: ['dscp-forward']
                 type: str
                 description: Enable/disable forward traffic DSCP tag.
                 choices:
                     - 'disable'
                     - 'enable'
             dscp_forward_tag:
+                aliases: ['dscp-forward-tag']
                 type: str
                 description: Forward traffic DSCP tag.
             dscp_reverse:
+                aliases: ['dscp-reverse']
                 type: str
                 description: Enable/disable reverse traffic DSCP tag.
                 choices:
                     - 'disable'
                     - 'enable'
             dscp_reverse_tag:
+                aliases: ['dscp-reverse-tag']
                 type: str
                 description: Reverse traffic DSCP tag.
             dst:
                 type: raw
                 description: (list or str) Destination address name.
             dst_negate:
+                aliases: ['dst-negate']
                 type: str
                 description: Enable/disable negation of destination address match.
                 choices:
@@ -139,6 +146,7 @@ options:
                 type: raw
                 description: (list or str) Destination address6 name.
             end_port:
+                aliases: ['end-port']
                 type: int
                 description: End destination port number.
             gateway:
@@ -151,6 +159,7 @@ options:
                 type: raw
                 description: (list or str) User groups.
             hash_mode:
+                aliases: ['hash-mode']
                 type: str
                 description: Hash algorithm for selected priority members for load balance mode.
                 choices:
@@ -161,9 +170,11 @@ options:
                     - 'outbandwidth'
                     - 'bibandwidth'
             health_check:
+                aliases: ['health-check']
                 type: raw
                 description: (list or str) Health check list.
             hold_down_time:
+                aliases: ['hold-down-time']
                 type: int
                 description: Waiting period in seconds when switching from the back-up member to the primary member
             id:
@@ -171,45 +182,57 @@ options:
                 description: SD-WAN rule ID
                 required: true
             input_device:
+                aliases: ['input-device']
                 type: raw
                 description: (list or str) Source interface name.
             input_device_negate:
+                aliases: ['input-device-negate']
                 type: str
                 description: Enable/disable negation of input device match.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service:
+                aliases: ['internet-service']
                 type: str
                 description: Enable/disable use of Internet service for application-based load balancing.
                 choices:
                     - 'disable'
                     - 'enable'
             internet_service_app_ctrl:
+                aliases: ['internet-service-app-ctrl']
                 type: raw
                 description: (list) Application control based Internet Service ID list.
             internet_service_app_ctrl_group:
+                aliases: ['internet-service-app-ctrl-group']
                 type: raw
                 description: (list or str) Application control based Internet Service group list.
             internet_service_custom:
+                aliases: ['internet-service-custom']
                 type: raw
                 description: (list or str) Custom Internet service name list.
             internet_service_custom_group:
+                aliases: ['internet-service-custom-group']
                 type: raw
                 description: (list or str) Custom Internet Service group list.
             internet_service_group:
+                aliases: ['internet-service-group']
                 type: raw
                 description: (list or str) Internet Service group list.
             internet_service_name:
+                aliases: ['internet-service-name']
                 type: raw
                 description: (list or str) Internet service name list.
             jitter_weight:
+                aliases: ['jitter-weight']
                 type: int
                 description: Coefficient of jitter in the formula of custom-profile-1.
             latency_weight:
+                aliases: ['latency-weight']
                 type: int
                 description: Coefficient of latency in the formula of custom-profile-1.
             link_cost_factor:
+                aliases: ['link-cost-factor']
                 type: str
                 description: Link cost factor.
                 choices:
@@ -221,9 +244,11 @@ options:
                     - 'bibandwidth'
                     - 'custom-profile-1'
             link_cost_threshold:
+                aliases: ['link-cost-threshold']
                 type: int
                 description: Percentage threshold change of link cost values that will result in policy route regeneration
             minimum_sla_meet_members:
+                aliases: ['minimum-sla-meet-members']
                 type: int
                 description: Minimum number of members which meet SLA.
             mode:
@@ -239,15 +264,18 @@ options:
                 type: str
                 description: SD-WAN rule name.
             packet_loss_weight:
+                aliases: ['packet-loss-weight']
                 type: int
                 description: Coefficient of packet-loss in the formula of custom-profile-1.
             priority_members:
+                aliases: ['priority-members']
                 type: raw
                 description: (list or str) Member sequence number list.
             protocol:
                 type: int
                 description: Protocol number.
             quality_link:
+                aliases: ['quality-link']
                 type: int
                 description: Quality grade.
             role:
@@ -258,6 +286,7 @@ options:
                     - 'secondary'
                     - 'standalone'
             route_tag:
+                aliases: ['route-tag']
                 type: int
                 description: IPv4 route map route-tag.
             sla:
@@ -266,12 +295,14 @@ options:
                 description: Sla.
                 suboptions:
                     health_check:
+                        aliases: ['health-check']
                         type: str
                         description: SD-WAN health-check.
                     id:
                         type: int
                         description: SLA ID.
             sla_compare_method:
+                aliases: ['sla-compare-method']
                 type: str
                 description: Method to compare SLA value for SLA mode.
                 choices:
@@ -281,6 +312,7 @@ options:
                 type: raw
                 description: (list or str) Source address name.
             src_negate:
+                aliases: ['src-negate']
                 type: str
                 description: Enable/disable negation of source address match.
                 choices:
@@ -290,12 +322,14 @@ options:
                 type: raw
                 description: (list or str) Source address6 name.
             standalone_action:
+                aliases: ['standalone-action']
                 type: str
                 description: Enable/disable service when selected neighbor role is standalone while service role is not standalone.
                 choices:
                     - 'disable'
                     - 'enable'
             start_port:
+                aliases: ['start-port']
                 type: int
                 description: Start destination port number.
             status:
@@ -308,12 +342,14 @@ options:
                 type: str
                 description: Type of service bit pattern.
             tos_mask:
+                aliases: ['tos-mask']
                 type: str
                 description: Type of service evaluated bits.
             users:
                 type: raw
                 description: (list or str) User name.
             tie_break:
+                aliases: ['tie-break']
                 type: str
                 description: Method of selecting member if more than one meets the SLA.
                 choices:
@@ -322,27 +358,33 @@ options:
                     - 'fib-best-match'
                     - 'input-device'
             use_shortcut_sla:
+                aliases: ['use-shortcut-sla']
                 type: str
                 description: Enable/disable use of ADVPN shortcut for quality comparison.
                 choices:
                     - 'disable'
                     - 'enable'
             input_zone:
+                aliases: ['input-zone']
                 type: raw
                 description: (list) Source input-zone name.
             internet_service_app_ctrl_category:
+                aliases: ['internet-service-app-ctrl-category']
                 type: raw
                 description: (list) IDs of one or more application control categories.
             passive_measurement:
+                aliases: ['passive-measurement']
                 type: str
                 description: Enable/disable passive measurement based on the service criteria.
                 choices:
                     - 'disable'
                     - 'enable'
             priority_zone:
+                aliases: ['priority-zone']
                 type: raw
                 description: (list or str) Priority zone name list.
             agent_exclusive:
+                aliases: ['agent-exclusive']
                 type: str
                 description: Set/unset the service as agent use exclusively.
                 choices:
@@ -355,36 +397,43 @@ options:
                     - 'disable'
                     - 'enable'
             shortcut_stickiness:
+                aliases: ['shortcut-stickiness']
                 type: str
                 description: Enable/disable shortcut-stickiness of ADVPN.
                 choices:
                     - 'disable'
                     - 'enable'
             end_src_port:
+                aliases: ['end-src-port']
                 type: int
                 description: End source port number.
             load_balance:
+                aliases: ['load-balance']
                 type: str
                 description: Enable/disable load-balance.
                 choices:
                     - 'disable'
                     - 'enable'
             sla_stickiness:
+                aliases: ['sla-stickiness']
                 type: str
                 description: Enable/disable SLA stickiness
                 choices:
                     - 'disable'
                     - 'enable'
             start_src_port:
+                aliases: ['start-src-port']
                 type: int
                 description: Start source port number.
             zone_mode:
+                aliases: ['zone-mode']
                 type: str
                 description: Enable/disable zone mode.
                 choices:
                     - 'disable'
                     - 'enable'
             shortcut_priority:
+                aliases: ['shortcut-priority']
                 type: str
                 description: High priority of ADVPN shortcut for this service.
                 choices:

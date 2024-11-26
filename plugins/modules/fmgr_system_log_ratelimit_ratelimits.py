@@ -89,6 +89,7 @@ options:
                 type: str
                 description: Device or ADOM filter according to filter-type setting, wildcard expression supported.
             filter_type:
+                aliases: ['filter-type']
                 type: str
                 description:
                     - Device filter type.

@@ -114,6 +114,7 @@ options:
                 type: str
                 description: HTTP forwarded header name.
             add_option:
+                aliases: ['add-option']
                 type: str
                 description: Configure options to append content to existing HTTP header or add new HTTP header.
                 choices:
@@ -121,6 +122,7 @@ options:
                     - 'new-on-not-found'
                     - 'new'
             base64_encoding:
+                aliases: ['base64-encoding']
                 type: str
                 description: Enable/disable use of base64 encoding of HTTP content.
                 choices:

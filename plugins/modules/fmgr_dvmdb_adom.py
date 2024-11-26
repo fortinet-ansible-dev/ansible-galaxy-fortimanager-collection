@@ -122,6 +122,7 @@ options:
                 type: int
                 description: Log file retention hours.
             meta_fields:
+                aliases: ['meta fields']
                 type: dict
                 description: Default metafields
             mig_mr:

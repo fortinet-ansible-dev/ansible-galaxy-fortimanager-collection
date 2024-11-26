@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             common_name:
+                aliases: ['common-name']
                 type: str
                 description: Certificate common name.
             id:

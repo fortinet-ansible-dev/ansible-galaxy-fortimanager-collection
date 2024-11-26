@@ -89,45 +89,53 @@ options:
                     - 'xor4'
                     - 'crc16'
             destination_ip_lower_16:
+                aliases: ['destination-ip-lower-16']
                 type: str
                 description: Include/exclude destination IP address lower 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
             destination_ip_upper_16:
+                aliases: ['destination-ip-upper-16']
                 type: str
                 description: Include/exclude destination IP address upper 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
             destination_port:
+                aliases: ['destination-port']
                 type: str
                 description: Include/exclude destination port if TCP/UDP.
                 choices:
                     - 'include'
                     - 'exclude'
             ip_protocol:
+                aliases: ['ip-protocol']
                 type: str
                 description: Include/exclude IP protocol.
                 choices:
                     - 'include'
                     - 'exclude'
             netmask_length:
+                aliases: ['netmask-length']
                 type: int
                 description: Network mask length.
             source_ip_lower_16:
+                aliases: ['source-ip-lower-16']
                 type: str
                 description: Include/exclude source IP address lower 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
             source_ip_upper_16:
+                aliases: ['source-ip-upper-16']
                 type: str
                 description: Include/exclude source IP address upper 16 bits.
                 choices:
                     - 'include'
                     - 'exclude'
             source_port:
+                aliases: ['source-port']
                 type: str
                 description: Include/exclude source port if TCP/UDP.
                 choices:

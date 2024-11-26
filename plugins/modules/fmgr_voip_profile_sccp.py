@@ -85,24 +85,28 @@ options:
         type: dict
         suboptions:
             block_mcast:
+                aliases: ['block-mcast']
                 type: str
                 description: Enable/disable block multicast RTP connections.
                 choices:
                     - 'disable'
                     - 'enable'
             log_call_summary:
+                aliases: ['log-call-summary']
                 type: str
                 description: Enable/disable log summary of SCCP calls.
                 choices:
                     - 'disable'
                     - 'enable'
             log_violations:
+                aliases: ['log-violations']
                 type: str
                 description: Enable/disable logging of SCCP violations.
                 choices:
                     - 'disable'
                     - 'enable'
             max_calls:
+                aliases: ['max-calls']
                 type: int
                 description: Maximum calls per minute per SCCP client
             status:
@@ -112,6 +116,7 @@ options:
                     - 'disable'
                     - 'enable'
             verify_header:
+                aliases: ['verify-header']
                 type: str
                 description: Enable/disable verify SCCP header content.
                 choices:

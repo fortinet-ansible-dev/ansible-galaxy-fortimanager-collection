@@ -120,12 +120,15 @@ options:
                     - 'archive-first'
                     - 'alert-notif'
             block_time1:
+                aliases: ['block-time1']
                 type: int
                 description: Duration for which action takes effect
             block_time2:
+                aliases: ['block-time2']
                 type: int
                 description: Duration for which action takes effect
             block_time3:
+                aliases: ['block-time3']
                 type: int
                 description: Duration action takes effect
             limit1:

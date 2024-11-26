@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             auth_proto:
+                aliases: ['auth-proto']
                 type: str
                 description:
                     - Authentication protocol.
@@ -99,6 +100,7 @@ options:
                     - 'sha384'
                     - 'sha512'
             auth_pwd:
+                aliases: ['auth-pwd']
                 type: raw
                 description: (list) Password for authentication protocol.
             events:
@@ -136,12 +138,15 @@ options:
                 description: SNMP user name.
                 required: true
             notify_hosts:
+                aliases: ['notify-hosts']
                 type: str
                 description: Hosts to send notifications
             notify_hosts6:
+                aliases: ['notify-hosts6']
                 type: str
                 description: IPv6 hosts to send notifications
             priv_proto:
+                aliases: ['priv-proto']
                 type: str
                 description:
                     - Privacy
@@ -153,6 +158,7 @@ options:
                     - 'aes256'
                     - 'aes256cisco'
             priv_pwd:
+                aliases: ['priv-pwd']
                 type: raw
                 description: (list) Password for privacy
             queries:
@@ -165,9 +171,11 @@ options:
                     - 'disable'
                     - 'enable'
             query_port:
+                aliases: ['query-port']
                 type: int
                 description: SNMPv3 query port.
             security_level:
+                aliases: ['security-level']
                 type: str
                 description:
                     - Security level for message authentication and encryption.

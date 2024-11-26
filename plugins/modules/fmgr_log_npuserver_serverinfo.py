@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             dest_port:
+                aliases: ['dest-port']
                 type: int
                 description: Set the dest port for the log packet
             id:
@@ -97,27 +98,33 @@ options:
                 description: Server id.
                 required: true
             ip_family:
+                aliases: ['ip-family']
                 type: str
                 description: Set the version the IP address
                 choices:
                     - 'v4'
                     - 'v6'
             ipv4_server:
+                aliases: ['ipv4-server']
                 type: str
                 description: Set the IPv4 address for the log server
             ipv6_server:
+                aliases: ['ipv6-server']
                 type: str
                 description: Set the IPv6 address for the log server
             source_port:
+                aliases: ['source-port']
                 type: int
                 description: Set the source port for the log packet
             template_tx_timeout:
+                aliases: ['template-tx-timeout']
                 type: int
                 description: Set the template tx timeout
             vdom:
                 type: str
                 description: Interface connected to the log server is in this virtual domain
             log_transport:
+                aliases: ['log-transport']
                 type: str
                 description: Set transport protocol
                 choices:

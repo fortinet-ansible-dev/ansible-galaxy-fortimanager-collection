@@ -87,6 +87,7 @@ options:
         type: dict
         suboptions:
             cert_validation_failure:
+                aliases: ['cert-validation-failure']
                 type: str
                 description: Action based on certificate validation failure.
                 choices:
@@ -94,6 +95,7 @@ options:
                     - 'block'
                     - 'ignore'
             cert_validation_timeout:
+                aliases: ['cert-validation-timeout']
                 type: str
                 description: Action based on certificate validation timeout.
                 choices:
@@ -101,6 +103,7 @@ options:
                     - 'block'
                     - 'ignore'
             client_certificate:
+                aliases: ['client-certificate']
                 type: str
                 description: Action based on received client certificate.
                 choices:
@@ -108,6 +111,7 @@ options:
                     - 'inspect'
                     - 'block'
             expired_server_cert:
+                aliases: ['expired-server-cert']
                 type: str
                 description: Action based on server certificate is expired.
                 choices:
@@ -115,12 +119,14 @@ options:
                     - 'block'
                     - 'ignore'
             proxy_after_tcp_handshake:
+                aliases: ['proxy-after-tcp-handshake']
                 type: str
                 description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:
                     - 'disable'
                     - 'enable'
             revoked_server_cert:
+                aliases: ['revoked-server-cert']
                 type: str
                 description: Action based on server certificate is revoked.
                 choices:
@@ -128,6 +134,7 @@ options:
                     - 'block'
                     - 'ignore'
             sni_server_cert_check:
+                aliases: ['sni-server-cert-check']
                 type: str
                 description: Check the SNI in the client hello message with the CN or SAN fields in the returned server certificate.
                 choices:
@@ -141,18 +148,21 @@ options:
                     - 'disable'
                     - 'deep-inspection'
             unsupported_ssl_cipher:
+                aliases: ['unsupported-ssl-cipher']
                 type: str
                 description: Action based on the SSL cipher used being unsupported.
                 choices:
                     - 'block'
                     - 'allow'
             unsupported_ssl_negotiation:
+                aliases: ['unsupported-ssl-negotiation']
                 type: str
                 description: Action based on the SSL negotiation used being unsupported.
                 choices:
                     - 'block'
                     - 'allow'
             untrusted_server_cert:
+                aliases: ['untrusted-server-cert']
                 type: str
                 description: Action based on server certificate is not issued by a trusted CA.
                 choices:
@@ -160,6 +170,7 @@ options:
                     - 'block'
                     - 'ignore'
             unsupported_ssl_version:
+                aliases: ['unsupported-ssl-version']
                 type: str
                 description: Action based on the SSL version used being unsupported.
                 choices:
@@ -167,6 +178,7 @@ options:
                     - 'allow'
                     - 'inspect'
             min_allowed_ssl_version:
+                aliases: ['min-allowed-ssl-version']
                 type: str
                 description: Min allowed ssl version.
                 choices:

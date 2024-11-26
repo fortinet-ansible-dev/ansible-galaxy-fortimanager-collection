@@ -107,6 +107,7 @@ options:
                             - 'monitor'
                             - 'pass'
                     dns_address_family:
+                        aliases: ['dns-address-family']
                         type: str
                         description: Resolve IPv4 address, IPv6 address, or both from DNS server.
                         choices:
@@ -132,6 +133,7 @@ options:
                         type: int
                         description: Id.
                     referrer_host:
+                        aliases: ['referrer-host']
                         type: str
                         description: Referrer host name.
                     status:
@@ -151,9 +153,11 @@ options:
                         type: str
                         description: URL to be filtered.
                     web_proxy_profile:
+                        aliases: ['web-proxy-profile']
                         type: str
                         description: Web proxy profile.
                     antiphish_action:
+                        aliases: ['antiphish-action']
                         type: str
                         description: Action to take for AntiPhishing matches.
                         choices:
@@ -164,6 +168,7 @@ options:
                 description: ID.
                 required: true
             ip_addr_block:
+                aliases: ['ip-addr-block']
                 type: str
                 description: Enable/disable blocking URLs when the hostname appears as an IP address.
                 choices:
@@ -173,12 +178,14 @@ options:
                 type: str
                 description: Name of URL filter list.
             one_arm_ips_urlfilter:
+                aliases: ['one-arm-ips-urlfilter']
                 type: str
                 description: Enable/disable DNS resolver for one-arm IPS URL filter operation.
                 choices:
                     - 'disable'
                     - 'enable'
             ip4_mapped_ip6:
+                aliases: ['ip4-mapped-ip6']
                 type: str
                 description: Enable/disable matching of IPv4 mapped IPv6 URLs.
                 choices:

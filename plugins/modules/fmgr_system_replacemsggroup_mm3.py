@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             add_html:
+                aliases: ['add-html']
                 type: str
                 description: Add message encapsulation
                 choices:
@@ -119,6 +120,7 @@ options:
                 type: str
                 description: From address
             from_sender:
+                aliases: ['from-sender']
                 type: str
                 description: Notification message sent from recipient
                 choices:
@@ -132,6 +134,7 @@ options:
                     - 'http'
                     - '8bit'
             html_part:
+                aliases: ['html-part']
                 type: str
                 description: Message encapsulation text
             image:
@@ -141,6 +144,7 @@ options:
                 type: str
                 description: Message text
             msg_type:
+                aliases: ['msg-type']
                 type: str
                 description: Message type.
                 required: true

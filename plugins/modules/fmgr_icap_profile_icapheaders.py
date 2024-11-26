@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             base64_encoding:
+                aliases: ['base64-encoding']
                 type: str
                 description: Enable/disable use of base64 encoding of HTTP content.
                 choices:

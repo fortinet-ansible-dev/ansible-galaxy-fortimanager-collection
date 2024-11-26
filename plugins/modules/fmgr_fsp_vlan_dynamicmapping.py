@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             _dhcp_status:
+                aliases: ['_dhcp-status']
                 type: str
                 description: Dhcp status.
                 choices:
@@ -111,79 +112,98 @@ options:
                         type: str
                         description: Vdom.
             dhcp_server:
+                aliases: ['dhcp-server']
                 type: dict
                 description: Dhcp server.
                 suboptions:
                     auto_configuration:
+                        aliases: ['auto-configuration']
                         type: str
                         description: Enable/disable auto configuration.
                         choices:
                             - 'disable'
                             - 'enable'
                     auto_managed_status:
+                        aliases: ['auto-managed-status']
                         type: str
                         description: Enable/disable use of this DHCP server once this interface has been assigned an IP address from FortiIPAM.
                         choices:
                             - 'disable'
                             - 'enable'
                     conflicted_ip_timeout:
+                        aliases: ['conflicted-ip-timeout']
                         type: int
                         description: Time in seconds to wait after a conflicted IP address is removed from the DHCP range before it can be reused.
                     ddns_auth:
+                        aliases: ['ddns-auth']
                         type: str
                         description: DDNS authentication mode.
                         choices:
                             - 'disable'
                             - 'tsig'
                     ddns_key:
+                        aliases: ['ddns-key']
                         type: raw
                         description: (list or str) DDNS update key
                     ddns_keyname:
+                        aliases: ['ddns-keyname']
                         type: str
                         description: DDNS update key name.
                     ddns_server_ip:
+                        aliases: ['ddns-server-ip']
                         type: str
                         description: DDNS server IP.
                     ddns_ttl:
+                        aliases: ['ddns-ttl']
                         type: int
                         description: TTL.
                     ddns_update:
+                        aliases: ['ddns-update']
                         type: str
                         description: Enable/disable DDNS update for DHCP.
                         choices:
                             - 'disable'
                             - 'enable'
                     ddns_update_override:
+                        aliases: ['ddns-update-override']
                         type: str
                         description: Enable/disable DDNS update override for DHCP.
                         choices:
                             - 'disable'
                             - 'enable'
                     ddns_zone:
+                        aliases: ['ddns-zone']
                         type: str
                         description: Zone of your domain name
                     default_gateway:
+                        aliases: ['default-gateway']
                         type: str
                         description: Default gateway IP address assigned by the DHCP server.
                     dhcp_settings_from_fortiipam:
+                        aliases: ['dhcp-settings-from-fortiipam']
                         type: str
                         description: Enable/disable populating of DHCP server settings from FortiIPAM.
                         choices:
                             - 'disable'
                             - 'enable'
                     dns_server1:
+                        aliases: ['dns-server1']
                         type: str
                         description: DNS server 1.
                     dns_server2:
+                        aliases: ['dns-server2']
                         type: str
                         description: DNS server 2.
                     dns_server3:
+                        aliases: ['dns-server3']
                         type: str
                         description: DNS server 3.
                     dns_server4:
+                        aliases: ['dns-server4']
                         type: str
                         description: DNS server 4.
                     dns_service:
+                        aliases: ['dns-service']
                         type: str
                         description: Options for assigning DNS servers to DHCP clients.
                         choices:
@@ -200,44 +220,53 @@ options:
                             - 'disable'
                             - 'enable'
                     exclude_range:
+                        aliases: ['exclude-range']
                         type: list
                         elements: dict
                         description: Exclude range.
                         suboptions:
                             end_ip:
+                                aliases: ['end-ip']
                                 type: str
                                 description: End of IP range.
                             id:
                                 type: int
                                 description: ID.
                             start_ip:
+                                aliases: ['start-ip']
                                 type: str
                                 description: Start of IP range.
                             vci_match:
+                                aliases: ['vci-match']
                                 type: str
                                 description: Enable/disable vendor class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vci_string:
+                                aliases: ['vci-string']
                                 type: raw
                                 description: (list) One or more VCI strings in quotes separated by spaces.
                             lease_time:
+                                aliases: ['lease-time']
                                 type: int
                                 description: Lease time in seconds, 0 means default lease time.
                             uci_match:
+                                aliases: ['uci-match']
                                 type: str
                                 description: Enable/disable user class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             uci_string:
+                                aliases: ['uci-string']
                                 type: raw
                                 description: (list) One or more UCI strings in quotes separated by spaces.
                     filename:
                         type: str
                         description: Name of the boot file on the TFTP server.
                     forticlient_on_net_status:
+                        aliases: ['forticlient-on-net-status']
                         type: str
                         description: Enable/disable FortiClient-On-Net service for this DHCP server.
                         choices:
@@ -247,53 +276,65 @@ options:
                         type: int
                         description: ID.
                     ip_mode:
+                        aliases: ['ip-mode']
                         type: str
                         description: Method used to assign client IP.
                         choices:
                             - 'range'
                             - 'usrgrp'
                     ip_range:
+                        aliases: ['ip-range']
                         type: list
                         elements: dict
                         description: Ip range.
                         suboptions:
                             end_ip:
+                                aliases: ['end-ip']
                                 type: str
                                 description: End of IP range.
                             id:
                                 type: int
                                 description: ID.
                             start_ip:
+                                aliases: ['start-ip']
                                 type: str
                                 description: Start of IP range.
                             vci_match:
+                                aliases: ['vci-match']
                                 type: str
                                 description: Enable/disable vendor class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vci_string:
+                                aliases: ['vci-string']
                                 type: raw
                                 description: (list) One or more VCI strings in quotes separated by spaces.
                             lease_time:
+                                aliases: ['lease-time']
                                 type: int
                                 description: Lease time in seconds, 0 means default lease time.
                             uci_match:
+                                aliases: ['uci-match']
                                 type: str
                                 description: Enable/disable user class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             uci_string:
+                                aliases: ['uci-string']
                                 type: raw
                                 description: (list) One or more UCI strings in quotes separated by spaces.
                     ipsec_lease_hold:
+                        aliases: ['ipsec-lease-hold']
                         type: int
                         description: DHCP over IPsec leases expire this many seconds after tunnel down
                     lease_time:
+                        aliases: ['lease-time']
                         type: int
                         description: Lease time in seconds, 0 means unlimited.
                     mac_acl_default_action:
+                        aliases: ['mac-acl-default-action']
                         type: str
                         description: MAC access control default action
                         choices:
@@ -303,18 +344,23 @@ options:
                         type: str
                         description: Netmask assigned by the DHCP server.
                     next_server:
+                        aliases: ['next-server']
                         type: str
                         description: IP address of a server
                     ntp_server1:
+                        aliases: ['ntp-server1']
                         type: str
                         description: NTP server 1.
                     ntp_server2:
+                        aliases: ['ntp-server2']
                         type: str
                         description: NTP server 2.
                     ntp_server3:
+                        aliases: ['ntp-server3']
                         type: str
                         description: NTP server 3.
                     ntp_service:
+                        aliases: ['ntp-service']
                         type: str
                         description: Options for assigning Network Time Protocol
                         choices:
@@ -365,24 +411,29 @@ options:
                                 type: str
                                 description: DHCP option value.
                             vci_match:
+                                aliases: ['vci-match']
                                 type: str
                                 description: Enable/disable vendor class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             vci_string:
+                                aliases: ['vci-string']
                                 type: raw
                                 description: (list) One or more VCI strings in quotes separated by spaces.
                             uci_match:
+                                aliases: ['uci-match']
                                 type: str
                                 description: Enable/disable user class identifier
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             uci_string:
+                                aliases: ['uci-string']
                                 type: raw
                                 description: (list) One or more UCI strings in quotes separated by spaces.
                     reserved_address:
+                        aliases: ['reserved-address']
                         type: list
                         elements: dict
                         description: Reserved address.
@@ -395,9 +446,11 @@ options:
                                     - 'block'
                                     - 'reserved'
                             circuit_id:
+                                aliases: ['circuit-id']
                                 type: str
                                 description: Option 82 circuit-ID of the client that will get the reserved IP address.
                             circuit_id_type:
+                                aliases: ['circuit-id-type']
                                 type: str
                                 description: DHCP option type.
                                 choices:
@@ -416,9 +469,11 @@ options:
                                 type: str
                                 description: MAC address of the client that will get the reserved IP address.
                             remote_id:
+                                aliases: ['remote-id']
                                 type: str
                                 description: Option 82 remote-ID of the client that will get the reserved IP address.
                             remote_id_type:
+                                aliases: ['remote-id-type']
                                 type: str
                                 description: DHCP option type.
                                 choices:
@@ -431,6 +486,7 @@ options:
                                     - 'mac'
                                     - 'option82'
                     server_type:
+                        aliases: ['server-type']
                         type: str
                         description: DHCP server can be a normal DHCP server or an IPsec DHCP server.
                         choices:
@@ -443,6 +499,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tftp_server:
+                        aliases: ['tftp-server']
                         type: raw
                         description: (list) One or more hostnames or IP addresses of the TFTP servers in quotes separated by spaces.
                     timezone:
@@ -538,6 +595,7 @@ options:
                             - '86'
                             - '87'
                     timezone_option:
+                        aliases: ['timezone-option']
                         type: str
                         description: Options for the DHCP server to set the clients time zone.
                         choices:
@@ -545,39 +603,49 @@ options:
                             - 'default'
                             - 'specify'
                     vci_match:
+                        aliases: ['vci-match']
                         type: str
                         description: Enable/disable vendor class identifier
                         choices:
                             - 'disable'
                             - 'enable'
                     vci_string:
+                        aliases: ['vci-string']
                         type: raw
                         description: (list) One or more VCI strings in quotes separated by spaces.
                     wifi_ac_service:
+                        aliases: ['wifi-ac-service']
                         type: str
                         description: Options for assigning WiFi Access Controllers to DHCP clients
                         choices:
                             - 'specify'
                             - 'local'
                     wifi_ac1:
+                        aliases: ['wifi-ac1']
                         type: str
                         description: WiFi Access Controller 1 IP address
                     wifi_ac2:
+                        aliases: ['wifi-ac2']
                         type: str
                         description: WiFi Access Controller 2 IP address
                     wifi_ac3:
+                        aliases: ['wifi-ac3']
                         type: str
                         description: WiFi Access Controller 3 IP address
                     wins_server1:
+                        aliases: ['wins-server1']
                         type: str
                         description: WINS server 1.
                     wins_server2:
+                        aliases: ['wins-server2']
                         type: str
                         description: WINS server 2.
                     relay_agent:
+                        aliases: ['relay-agent']
                         type: str
                         description: Relay agent IP.
                     shared_subnet:
+                        aliases: ['shared-subnet']
                         type: str
                         description: Enable/disable shared subnet.
                         choices:
@@ -588,21 +656,25 @@ options:
                 description: Interface.
                 suboptions:
                     dhcp_relay_agent_option:
+                        aliases: ['dhcp-relay-agent-option']
                         type: str
                         description: Dhcp relay agent option.
                         choices:
                             - 'disable'
                             - 'enable'
                     dhcp_relay_ip:
+                        aliases: ['dhcp-relay-ip']
                         type: raw
                         description: (list) Dhcp relay ip.
                     dhcp_relay_service:
+                        aliases: ['dhcp-relay-service']
                         type: str
                         description: Dhcp relay service.
                         choices:
                             - 'disable'
                             - 'enable'
                     dhcp_relay_type:
+                        aliases: ['dhcp-relay-type']
                         type: str
                         description: Dhcp relay type.
                         choices:
@@ -622,6 +694,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             dhcp6_client_options:
+                                aliases: ['dhcp6-client-options']
                                 type: list
                                 elements: str
                                 description: Dhcp6 client options.
@@ -632,53 +705,65 @@ options:
                                     - 'dns'
                                     - 'dnsname'
                             dhcp6_information_request:
+                                aliases: ['dhcp6-information-request']
                                 type: str
                                 description: Enable/disable DHCPv6 information request.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp6_prefix_delegation:
+                                aliases: ['dhcp6-prefix-delegation']
                                 type: str
                                 description: Enable/disable DHCPv6 prefix delegation.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp6_prefix_hint:
+                                aliases: ['dhcp6-prefix-hint']
                                 type: str
                                 description: DHCPv6 prefix that will be used as a hint to the upstream DHCPv6 server.
                             dhcp6_prefix_hint_plt:
+                                aliases: ['dhcp6-prefix-hint-plt']
                                 type: int
                                 description: DHCPv6 prefix hint preferred life time
                             dhcp6_prefix_hint_vlt:
+                                aliases: ['dhcp6-prefix-hint-vlt']
                                 type: int
                                 description: DHCPv6 prefix hint valid life time
                             dhcp6_relay_ip:
+                                aliases: ['dhcp6-relay-ip']
                                 type: str
                                 description: DHCPv6 relay IP address.
                             dhcp6_relay_service:
+                                aliases: ['dhcp6-relay-service']
                                 type: str
                                 description: Enable/disable DHCPv6 relay.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp6_relay_type:
+                                aliases: ['dhcp6-relay-type']
                                 type: str
                                 description: DHCPv6 relay type.
                                 choices:
                                     - 'regular'
                             icmp6_send_redirect:
+                                aliases: ['icmp6-send-redirect']
                                 type: str
                                 description: Enable/disable sending of ICMPv6 redirects.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             interface_identifier:
+                                aliases: ['interface-identifier']
                                 type: str
                                 description: IPv6 interface identifier.
                             ip6_address:
+                                aliases: ['ip6-address']
                                 type: str
                                 description: Primary IPv6 address prefix, syntax
                             ip6_allowaccess:
+                                aliases: ['ip6-allowaccess']
                                 type: list
                                 elements: str
                                 description: Allow management access to the interface.
@@ -693,32 +778,38 @@ options:
                                     - 'capwap'
                                     - 'fabric'
                             ip6_default_life:
+                                aliases: ['ip6-default-life']
                                 type: int
                                 description: Default life
                             ip6_delegated_prefix_list:
+                                aliases: ['ip6-delegated-prefix-list']
                                 type: list
                                 elements: dict
                                 description: Ip6 delegated prefix list.
                                 suboptions:
                                     autonomous_flag:
+                                        aliases: ['autonomous-flag']
                                         type: str
                                         description: Enable/disable the autonomous flag.
                                         choices:
                                             - 'disable'
                                             - 'enable'
                                     onlink_flag:
+                                        aliases: ['onlink-flag']
                                         type: str
                                         description: Enable/disable the onlink flag.
                                         choices:
                                             - 'disable'
                                             - 'enable'
                                     prefix_id:
+                                        aliases: ['prefix-id']
                                         type: int
                                         description: Prefix ID.
                                     rdnss:
                                         type: raw
                                         description: (list) Recursive DNS server option.
                                     rdnss_service:
+                                        aliases: ['rdnss-service']
                                         type: str
                                         description: Recursive DNS service option.
                                         choices:
@@ -729,18 +820,22 @@ options:
                                         type: str
                                         description: Add subnet ID to routing prefix.
                                     upstream_interface:
+                                        aliases: ['upstream-interface']
                                         type: str
                                         description: Name of the interface that provides delegated information.
                                     delegated_prefix_iaid:
+                                        aliases: ['delegated-prefix-iaid']
                                         type: int
                                         description: IAID of obtained delegated-prefix from the upstream interface.
                             ip6_dns_server_override:
+                                aliases: ['ip6-dns-server-override']
                                 type: str
                                 description: Enable/disable using the DNS server acquired by DHCP.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             ip6_extra_addr:
+                                aliases: ['ip6-extra-addr']
                                 type: list
                                 elements: dict
                                 description: Ip6 extra addr.
@@ -749,24 +844,30 @@ options:
                                         type: str
                                         description: IPv6 address prefix.
                             ip6_hop_limit:
+                                aliases: ['ip6-hop-limit']
                                 type: int
                                 description: Hop limit
                             ip6_link_mtu:
+                                aliases: ['ip6-link-mtu']
                                 type: int
                                 description: IPv6 link MTU.
                             ip6_manage_flag:
+                                aliases: ['ip6-manage-flag']
                                 type: str
                                 description: Enable/disable the managed flag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             ip6_max_interval:
+                                aliases: ['ip6-max-interval']
                                 type: int
                                 description: IPv6 maximum interval
                             ip6_min_interval:
+                                aliases: ['ip6-min-interval']
                                 type: int
                                 description: IPv6 minimum interval
                             ip6_mode:
+                                aliases: ['ip6-mode']
                                 type: str
                                 description: Addressing mode
                                 choices:
@@ -775,17 +876,20 @@ options:
                                     - 'pppoe'
                                     - 'delegated'
                             ip6_other_flag:
+                                aliases: ['ip6-other-flag']
                                 type: str
                                 description: Enable/disable the other IPv6 flag.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             ip6_prefix_list:
+                                aliases: ['ip6-prefix-list']
                                 type: list
                                 elements: dict
                                 description: Ip6 prefix list.
                                 suboptions:
                                     autonomous_flag:
+                                        aliases: ['autonomous-flag']
                                         type: str
                                         description: Enable/disable the autonomous flag.
                                         choices:
@@ -795,12 +899,14 @@ options:
                                         type: raw
                                         description: (list) DNS search list option.
                                     onlink_flag:
+                                        aliases: ['onlink-flag']
                                         type: str
                                         description: Enable/disable the onlink flag.
                                         choices:
                                             - 'disable'
                                             - 'enable'
                                     preferred_life_time:
+                                        aliases: ['preferred-life-time']
                                         type: int
                                         description: Preferred life time
                                     prefix:
@@ -810,48 +916,61 @@ options:
                                         type: raw
                                         description: (list) Recursive DNS server option.
                                     valid_life_time:
+                                        aliases: ['valid-life-time']
                                         type: int
                                         description: Valid life time
                             ip6_reachable_time:
+                                aliases: ['ip6-reachable-time']
                                 type: int
                                 description: IPv6 reachable time
                             ip6_retrans_time:
+                                aliases: ['ip6-retrans-time']
                                 type: int
                                 description: IPv6 retransmit time
                             ip6_send_adv:
+                                aliases: ['ip6-send-adv']
                                 type: str
                                 description: Enable/disable sending advertisements about the interface.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             ip6_subnet:
+                                aliases: ['ip6-subnet']
                                 type: str
                                 description: Subnet to routing prefix, syntax
                             ip6_upstream_interface:
+                                aliases: ['ip6-upstream-interface']
                                 type: str
                                 description: Interface name providing delegated information.
                             nd_cert:
+                                aliases: ['nd-cert']
                                 type: str
                                 description: Neighbor discovery certificate.
                             nd_cga_modifier:
+                                aliases: ['nd-cga-modifier']
                                 type: str
                                 description: Neighbor discovery CGA modifier.
                             nd_mode:
+                                aliases: ['nd-mode']
                                 type: str
                                 description: Neighbor discovery mode.
                                 choices:
                                     - 'basic'
                                     - 'SEND-compatible'
                             nd_security_level:
+                                aliases: ['nd-security-level']
                                 type: int
                                 description: Neighbor discovery security level
                             nd_timestamp_delta:
+                                aliases: ['nd-timestamp-delta']
                                 type: int
                                 description: Neighbor discovery timestamp delta value
                             nd_timestamp_fuzz:
+                                aliases: ['nd-timestamp-fuzz']
                                 type: int
                                 description: Neighbor discovery timestamp fuzz factor
                             unique_autoconf_addr:
+                                aliases: ['unique-autoconf-addr']
                                 type: str
                                 description: Enable/disable unique auto config address.
                                 choices:
@@ -861,6 +980,7 @@ options:
                                 type: str
                                 description: Link-local IPv6 address of virtual router.
                             vrrp_virtual_mac6:
+                                aliases: ['vrrp-virtual-mac6']
                                 type: str
                                 description: Enable/disable virtual MAC for VRRP.
                                 choices:
@@ -872,12 +992,14 @@ options:
                                 description: Vrrp6.
                                 suboptions:
                                     accept_mode:
+                                        aliases: ['accept-mode']
                                         type: str
                                         description: Enable/disable accept mode.
                                         choices:
                                             - 'disable'
                                             - 'enable'
                                     adv_interval:
+                                        aliases: ['adv-interval']
                                         type: int
                                         description: Advertisement interval
                                     preempt:
@@ -890,6 +1012,7 @@ options:
                                         type: int
                                         description: Priority of the virtual router
                                     start_time:
+                                        aliases: ['start-time']
                                         type: int
                                         description: Startup time
                                     status:
@@ -911,45 +1034,55 @@ options:
                                         type: str
                                         description: IPv6 address of the virtual router.
                                     ignore_default_route:
+                                        aliases: ['ignore-default-route']
                                         type: str
                                         description: Enable/disable ignoring of default route when checking destination.
                                         choices:
                                             - 'disable'
                                             - 'enable'
                                     vrdst_priority:
+                                        aliases: ['vrdst-priority']
                                         type: int
                                         description: Priority of the virtual router when the virtual router destination becomes unreachable
                             cli_conn6_status:
+                                aliases: ['cli-conn6-status']
                                 type: int
                                 description: Cli conn6 status.
                             ip6_prefix_mode:
+                                aliases: ['ip6-prefix-mode']
                                 type: str
                                 description: Assigning a prefix from DHCP or RA.
                                 choices:
                                     - 'dhcp6'
                                     - 'ra'
                             ra_send_mtu:
+                                aliases: ['ra-send-mtu']
                                 type: str
                                 description: Enable/disable sending link MTU in RA packet.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             ip6_delegated_prefix_iaid:
+                                aliases: ['ip6-delegated-prefix-iaid']
                                 type: int
                                 description: IAID of obtained delegated-prefix from the upstream interface.
                             dhcp6_relay_source_interface:
+                                aliases: ['dhcp6-relay-source-interface']
                                 type: str
                                 description: Enable/disable use of address on this interface as the source address of the relay message.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             dhcp6_relay_interface_id:
+                                aliases: ['dhcp6-relay-interface-id']
                                 type: str
                                 description: DHCP6 relay interface ID.
                             dhcp6_relay_source_ip:
+                                aliases: ['dhcp6-relay-source-ip']
                                 type: str
                                 description: IPv6 address used by the DHCP6 relay as its source IP.
                     secondary_IP:
+                        aliases: ['secondary-IP']
                         type: str
                         description: Secondary IP.
                         choices:
@@ -1000,6 +1133,7 @@ options:
                                     - 'disable'
                                     - 'enable'
                             ha_priority:
+                                aliases: ['ha-priority']
                                 type: int
                                 description: HA election priority for the PING server.
                             id:
@@ -1009,18 +1143,21 @@ options:
                                 type: str
                                 description: Secondary IP address of the interface.
                             ping_serv_status:
+                                aliases: ['ping-serv-status']
                                 type: int
                                 description: Ping serv status.
                             seq:
                                 type: int
                                 description: Seq.
                             secip_relay_ip:
+                                aliases: ['secip-relay-ip']
                                 type: str
                                 description: DHCP relay IP address.
                     vlanid:
                         type: int
                         description: Vlanid.
                     dhcp_relay_interface_select_method:
+                        aliases: ['dhcp-relay-interface-select-method']
                         type: str
                         description: Dhcp relay interface select method.
                         choices:
@@ -1033,15 +1170,18 @@ options:
                         description: Vrrp.
                         suboptions:
                             accept_mode:
+                                aliases: ['accept-mode']
                                 type: str
                                 description: Enable/disable accept mode.
                                 choices:
                                     - 'disable'
                                     - 'enable'
                             adv_interval:
+                                aliases: ['adv-interval']
                                 type: int
                                 description: Advertisement interval
                             ignore_default_route:
+                                aliases: ['ignore-default-route']
                                 type: str
                                 description: Enable/disable ignoring of default route when checking destination.
                                 choices:
@@ -1057,6 +1197,7 @@ options:
                                 type: int
                                 description: Priority of the virtual router
                             proxy_arp:
+                                aliases: ['proxy-arp']
                                 type: list
                                 elements: dict
                                 description: Proxy arp.
@@ -1068,6 +1209,7 @@ options:
                                         type: str
                                         description: Set IP addresses of proxy ARP.
                             start_time:
+                                aliases: ['start-time']
                                 type: int
                                 description: Startup time
                             status:
@@ -1086,6 +1228,7 @@ options:
                                 type: raw
                                 description: (list) Monitor the route to this destination.
                             vrdst_priority:
+                                aliases: ['vrdst-priority']
                                 type: int
                                 description: Priority of the virtual router when the virtual router destination becomes unreachable
                             vrgrp:

@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: Address type of the forwarding proxy server
                 choices:
@@ -122,6 +123,7 @@ options:
                 type: int
                 description: Port number that the forwarding server expects to receive HTTP sessions on
             server_down_option:
+                aliases: ['server-down-option']
                 type: str
                 description: Action to take when the forward server is found to be down
                 choices:

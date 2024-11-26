@@ -97,6 +97,7 @@ options:
                 type: int
                 description: Count.
             extension_type:
+                aliases: ['extension-type']
                 type: str
                 description: Extension type.
                 choices:

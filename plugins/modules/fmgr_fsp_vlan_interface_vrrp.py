@@ -94,15 +94,18 @@ options:
         type: dict
         suboptions:
             accept_mode:
+                aliases: ['accept-mode']
                 type: str
                 description: Accept mode.
                 choices:
                     - 'disable'
                     - 'enable'
             adv_interval:
+                aliases: ['adv-interval']
                 type: int
                 description: Adv interval.
             ignore_default_route:
+                aliases: ['ignore-default-route']
                 type: str
                 description: Ignore default route.
                 choices:
@@ -118,6 +121,7 @@ options:
                 type: int
                 description: Priority.
             start_time:
+                aliases: ['start-time']
                 type: int
                 description: Start time.
             status:
@@ -136,6 +140,7 @@ options:
                 type: raw
                 description: (list) Vrdst.
             vrdst_priority:
+                aliases: ['vrdst-priority']
                 type: int
                 description: Vrdst priority.
             vrgrp:
@@ -149,6 +154,7 @@ options:
                 type: str
                 description: Vrip.
             proxy_arp:
+                aliases: ['proxy-arp']
                 type: list
                 elements: dict
                 description: Proxy arp.

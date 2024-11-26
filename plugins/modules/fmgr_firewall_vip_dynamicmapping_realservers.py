@@ -98,6 +98,7 @@ options:
         type: dict
         suboptions:
             client_ip:
+                aliases: ['client-ip']
                 type: raw
                 description: (list) Client ip.
             healthcheck:
@@ -108,15 +109,18 @@ options:
                     - 'enable'
                     - 'vip'
             holddown_interval:
+                aliases: ['holddown-interval']
                 type: int
                 description: Holddown interval.
             http_host:
+                aliases: ['http-host']
                 type: str
                 description: Http host.
             ip:
                 type: str
                 description: Ip.
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Max connections.
             monitor:
@@ -152,12 +156,14 @@ options:
                     - 'ip'
                     - 'address'
             translate_host:
+                aliases: ['translate-host']
                 type: str
                 description: Enable/disable translation of hostname/IP from virtual server to real server.
                 choices:
                     - 'disable'
                     - 'enable'
             health_check_proto:
+                aliases: ['health-check-proto']
                 type: str
                 description: Health check proto.
                 choices:

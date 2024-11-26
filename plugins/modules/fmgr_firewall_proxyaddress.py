@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             case_sensitivity:
+                aliases: ['case-sensitivity']
                 type: str
                 description: Enable to make the pattern case sensitive.
                 choices:
@@ -108,11 +109,13 @@ options:
                 type: str
                 description: HTTP header name as a regular expression.
             header_group:
+                aliases: ['header-group']
                 type: list
                 elements: dict
                 description: Header group.
                 suboptions:
                     case_sensitivity:
+                        aliases: ['case-sensitivity']
                         type: str
                         description: Case sensitivity in pattern.
                         choices:
@@ -122,18 +125,21 @@ options:
                         type: str
                         description: HTTP header regular expression.
                     header_name:
+                        aliases: ['header-name']
                         type: str
                         description: HTTP header.
                     id:
                         type: int
                         description: ID.
             header_name:
+                aliases: ['header-name']
                 type: str
                 description: Name of HTTP header.
             host:
                 type: str
                 description: Address object for the host.
             host_regex:
+                aliases: ['host-regex']
                 type: str
                 description: Host name as a regular expression.
             method:
@@ -218,15 +224,18 @@ options:
                 type: str
                 description: Names of object-tags
             _image_base64:
+                aliases: ['_image-base64']
                 type: str
                 description: Image base64.
             application:
                 type: raw
                 description: (list) SaaS application.
             ua_max_ver:
+                aliases: ['ua-max-ver']
                 type: str
                 description: Maximum version of the user agent specified in dotted notation.
             ua_min_ver:
+                aliases: ['ua-min-ver']
                 type: str
                 description: Minimum version of the user agent specified in dotted notation.
 '''

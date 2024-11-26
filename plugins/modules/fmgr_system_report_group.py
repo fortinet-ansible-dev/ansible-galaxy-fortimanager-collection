@@ -89,6 +89,7 @@ options:
                 type: str
                 description: Admin domain name.
             case_insensitive:
+                aliases: ['case-insensitive']
                 type: str
                 description:
                     - Case insensitive.
@@ -98,28 +99,35 @@ options:
                     - 'disable'
                     - 'enable'
             chart_alternative:
+                aliases: ['chart-alternative']
                 type: list
                 elements: dict
                 description: Chart alternative.
                 suboptions:
                     chart_name:
+                        aliases: ['chart-name']
                         type: str
                         description: Chart name.
                     chart_replace:
+                        aliases: ['chart-replace']
                         type: str
                         description: Chart replacement.
             group_by:
+                aliases: ['group-by']
                 type: list
                 elements: dict
                 description: Group by.
                 suboptions:
                     var_expression:
+                        aliases: ['var-expression']
                         type: str
                         description: Variable expression.
                     var_name:
+                        aliases: ['var-name']
                         type: str
                         description: Variable name.
                     var_type:
+                        aliases: ['var-type']
                         type: str
                         description:
                             - Variable type.
@@ -133,10 +141,12 @@ options:
                             - 'enum'
                             - 'ip'
             group_id:
+                aliases: ['group-id']
                 type: int
                 description: Group ID.
                 required: true
             report_like:
+                aliases: ['report-like']
                 type: str
                 description: Report pattern.
 '''

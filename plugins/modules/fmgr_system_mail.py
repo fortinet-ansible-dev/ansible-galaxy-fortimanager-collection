@@ -105,6 +105,7 @@ options:
                 type: int
                 description: SMTP server port.
             secure_option:
+                aliases: ['secure-option']
                 type: str
                 description:
                     - Communication secure option.
@@ -124,6 +125,7 @@ options:
                 type: str
                 description: SMTP account username.
             auth_type:
+                aliases: ['auth-type']
                 type: str
                 description:
                     - SMTP authentication type.
@@ -133,12 +135,14 @@ options:
                     - 'psk'
                     - 'certificate'
             local_cert:
+                aliases: ['local-cert']
                 type: str
                 description: SMTP local certificate.
             from:
                 type: str
                 description: Username for MAIL FROM.
             ssl_protocol:
+                aliases: ['ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for connection to mail server.

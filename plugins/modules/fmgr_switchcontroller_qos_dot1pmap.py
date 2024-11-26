@@ -97,6 +97,7 @@ options:
                 description: Dot1p map name.
                 required: true
             priority_0:
+                aliases: ['priority-0']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -109,6 +110,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_1:
+                aliases: ['priority-1']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -121,6 +123,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_2:
+                aliases: ['priority-2']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -133,6 +136,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_3:
+                aliases: ['priority-3']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -145,6 +149,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_4:
+                aliases: ['priority-4']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -157,6 +162,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_5:
+                aliases: ['priority-5']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -169,6 +175,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_6:
+                aliases: ['priority-6']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -181,6 +188,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             priority_7:
+                aliases: ['priority-7']
                 type: str
                 description: COS queue mapped to dot1p priority number.
                 choices:
@@ -193,6 +201,7 @@ options:
                     - 'queue-6'
                     - 'queue-7'
             egress_pri_tagging:
+                aliases: ['egress-pri-tagging']
                 type: str
                 description: Enable/disable egress priority-tag frame.
                 choices:

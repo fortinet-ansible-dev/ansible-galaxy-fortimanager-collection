@@ -108,12 +108,15 @@ options:
                         type: str
                         description: Route name.
                     next_hop:
+                        aliases: ['next-hop']
                         type: str
                         description: Next hop address.
             resource_group:
+                aliases: ['resource-group']
                 type: str
                 description: Resource group of Azure route table.
             subscription_id:
+                aliases: ['subscription-id']
                 type: str
                 description: Subscription ID of Azure route table.
 '''

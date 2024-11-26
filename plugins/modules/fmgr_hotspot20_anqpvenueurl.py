@@ -94,6 +94,7 @@ options:
                 description: Name of venue url.
                 required: true
             value_list:
+                aliases: ['value-list']
                 type: list
                 elements: dict
                 description: Value list.

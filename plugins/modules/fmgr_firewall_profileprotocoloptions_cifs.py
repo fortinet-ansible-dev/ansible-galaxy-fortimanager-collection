@@ -102,24 +102,30 @@ options:
                 choices:
                     - 'oversize'
             oversize_limit:
+                aliases: ['oversize-limit']
                 type: int
                 description: Maximum in-memory file size that can be scanned
             scan_bzip2:
+                aliases: ['scan-bzip2']
                 type: str
                 description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
             tcp_window_maximum:
+                aliases: ['tcp-window-maximum']
                 type: int
                 description: Maximum dynamic TCP window size
             tcp_window_minimum:
+                aliases: ['tcp-window-minimum']
                 type: int
                 description: Minimum dynamic TCP window size
             tcp_window_size:
+                aliases: ['tcp-window-size']
                 type: int
                 description: Set TCP static window size
             tcp_window_type:
+                aliases: ['tcp-window-type']
                 type: str
                 description: Specify type of TCP window to use for this protocol.
                 choices:
@@ -128,15 +134,19 @@ options:
                     - 'dynamic'
                     - 'auto-tuning'
             uncompressed_nest_limit:
+                aliases: ['uncompressed-nest-limit']
                 type: int
                 description: Maximum nested levels of compression that can be uncompressed and scanned
             uncompressed_oversize_limit:
+                aliases: ['uncompressed-oversize-limit']
                 type: int
                 description: Maximum in-memory uncompressed file size that can be scanned
             domain_controller:
+                aliases: ['domain-controller']
                 type: str
                 description: Domain for which to decrypt CIFS traffic.
             file_filter:
+                aliases: ['file-filter']
                 type: dict
                 description: File filter.
                 suboptions:
@@ -162,6 +172,7 @@ options:
                                     - 'incoming'
                                     - 'outgoing'
                             file_type:
+                                aliases: ['file-type']
                                 type: raw
                                 description: (list) Select file type.
                             filter:
@@ -186,6 +197,7 @@ options:
                             - 'disable'
                             - 'enable'
             server_credential_type:
+                aliases: ['server-credential-type']
                 type: str
                 description: CIFS server credential type.
                 choices:
@@ -193,6 +205,7 @@ options:
                     - 'credential-replication'
                     - 'credential-keytab'
             server_keytab:
+                aliases: ['server-keytab']
                 type: list
                 elements: dict
                 description: Server keytab.

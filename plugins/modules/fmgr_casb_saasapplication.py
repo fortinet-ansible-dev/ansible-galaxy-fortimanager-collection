@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             casb_name:
+                aliases: ['casb-name']
                 type: str
                 description: SaaS application signature name.
             description:

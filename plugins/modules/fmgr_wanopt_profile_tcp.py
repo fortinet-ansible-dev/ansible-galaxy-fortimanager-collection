@@ -85,18 +85,21 @@ options:
         type: dict
         suboptions:
             byte_caching:
+                aliases: ['byte-caching']
                 type: str
                 description: Enable/disable byte-caching for HTTP.
                 choices:
                     - 'disable'
                     - 'enable'
             byte_caching_opt:
+                aliases: ['byte-caching-opt']
                 type: str
                 description: Select whether TCP byte-caching uses system memory only or both memory and disk space.
                 choices:
                     - 'mem-only'
                     - 'mem-disk'
             log_traffic:
+                aliases: ['log-traffic']
                 type: str
                 description: Enable/disable logging.
                 choices:
@@ -106,6 +109,7 @@ options:
                 type: str
                 description: Single port number or port number range for TCP.
             secure_tunnel:
+                aliases: ['secure-tunnel']
                 type: str
                 description: Enable/disable securing the WAN Opt tunnel using SSL.
                 choices:
@@ -118,6 +122,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_port:
+                aliases: ['ssl-port']
                 type: raw
                 description: (list) Port on which to expect HTTPS traffic for SSL/TLS offloading.
             status:
@@ -127,6 +132,7 @@ options:
                     - 'disable'
                     - 'enable'
             tunnel_sharing:
+                aliases: ['tunnel-sharing']
                 type: str
                 description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                 choices:

@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             domain_filter_table:
+                aliases: ['domain-filter-table']
                 type: int
                 description: DNS domain filter table ID.
 '''

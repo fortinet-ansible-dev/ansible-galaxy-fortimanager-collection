@@ -87,12 +87,14 @@ options:
         type: dict
         suboptions:
             contact_info:
+                aliases: ['contact-info']
                 type: str
                 description: Contact information.
             description:
                 type: str
                 description: System description.
             engine_id:
+                aliases: ['engine-id']
                 type: str
                 description: Local SNMP engine ID string
             location:

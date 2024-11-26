@@ -95,6 +95,7 @@ options:
                     - 'xml'
                     - 'json'
             reload_dev_member_list:
+                aliases: ['reload-dev-member-list']
                 type: list
                 elements: dict
                 description: Reload dev member list.

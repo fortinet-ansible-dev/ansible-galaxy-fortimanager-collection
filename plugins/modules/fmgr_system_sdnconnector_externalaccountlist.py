@@ -96,12 +96,15 @@ options:
         type: dict
         suboptions:
             region_list:
+                aliases: ['region-list']
                 type: raw
                 description: (list) AWS region name list.
             role_arn:
+                aliases: ['role-arn']
                 type: str
                 description: AWS role ARN to assume.
             external_id:
+                aliases: ['external-id']
                 type: str
                 description: AWS external ID.
 '''

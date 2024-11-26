@@ -81,9 +81,11 @@ options:
         type: dict
         suboptions:
             max_timeout:
+                aliases: ['max-timeout']
                 type: int
                 description: Maximum timeout value for IP reassembly
             min_timeout:
+                aliases: ['min-timeout']
                 type: int
                 description: Minimum timeout value for IP reassembly
             status:

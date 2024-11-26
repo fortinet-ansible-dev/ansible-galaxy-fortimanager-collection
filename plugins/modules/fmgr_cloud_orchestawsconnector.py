@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             access_key_id:
+                aliases: ['access-key-id']
                 type: str
                 description: Access key id.
             access_key_secret:
+                aliases: ['access-key-secret']
                 type: raw
                 description: (list) Access key secret.
             name:
@@ -100,6 +102,7 @@ options:
                 description: Name.
                 required: true
             use_metadata_iam:
+                aliases: ['use-metadata-iam']
                 type: str
                 description: Use metadata iam.
                 choices:

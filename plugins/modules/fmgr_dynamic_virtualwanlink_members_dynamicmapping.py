@@ -111,21 +111,27 @@ options:
                 type: int
                 description: Cost.
             detect_failtime:
+                aliases: ['detect-failtime']
                 type: int
                 description: Detect failtime.
             detect_http_get:
+                aliases: ['detect-http-get']
                 type: str
                 description: Detect http get.
             detect_http_match:
+                aliases: ['detect-http-match']
                 type: str
                 description: Detect http match.
             detect_http_port:
+                aliases: ['detect-http-port']
                 type: int
                 description: Detect http port.
             detect_interval:
+                aliases: ['detect-interval']
                 type: int
                 description: Detect interval.
             detect_protocol:
+                aliases: ['detect-protocol']
                 type: str
                 description: Detect protocol.
                 choices:
@@ -134,12 +140,15 @@ options:
                     - 'udp-echo'
                     - 'http'
             detect_recoverytime:
+                aliases: ['detect-recoverytime']
                 type: int
                 description: Detect recoverytime.
             detect_server:
+                aliases: ['detect-server']
                 type: str
                 description: Detect server.
             detect_timeout:
+                aliases: ['detect-timeout']
                 type: int
                 description: Detect timeout.
             gateway:
@@ -149,6 +158,7 @@ options:
                 type: str
                 description: Gateway6.
             ingress_spillover_threshold:
+                aliases: ['ingress-spillover-threshold']
                 type: int
                 description: Ingress spillover threshold.
             interface:
@@ -164,6 +174,7 @@ options:
                 type: str
                 description: Source6.
             spillover_threshold:
+                aliases: ['spillover-threshold']
                 type: int
                 description: Spillover threshold.
             status:
@@ -173,6 +184,7 @@ options:
                     - 'disable'
                     - 'enable'
             volume_ratio:
+                aliases: ['volume-ratio']
                 type: int
                 description: Volume ratio.
             weight:

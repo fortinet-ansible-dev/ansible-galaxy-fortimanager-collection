@@ -97,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             max_cookie:
+                aliases: ['max-cookie']
                 type: int
                 description: Maximum number of cookies in HTTP request
             severity:

@@ -105,9 +105,11 @@ options:
                     - 'disable'
                     - 'enable'
             max_packet_count:
+                aliases: ['max-packet-count']
                 type: int
                 description: Maximum packet count
             non_ip:
+                aliases: ['non-ip']
                 type: str
                 description:
                     - Enable/disable sniffing non-IP packets.

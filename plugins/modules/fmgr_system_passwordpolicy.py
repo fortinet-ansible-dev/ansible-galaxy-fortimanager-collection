@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             change_4_characters:
+                aliases: ['change-4-characters']
                 type: str
                 description:
                     - Enable/disable changing at least 4 characters for new password.
@@ -89,9 +90,11 @@ options:
                 type: int
                 description: Number of days after which admin users password will expire
             minimum_length:
+                aliases: ['minimum-length']
                 type: int
                 description: Minimum password length.
             must_contain:
+                aliases: ['must-contain']
                 type: list
                 elements: str
                 description:
@@ -115,6 +118,7 @@ options:
                     - 'disable'
                     - 'enable'
             password_history:
+                aliases: ['password-history']
                 type: int
                 description: Number of unique new passwords that must be used before old password can be reused
 '''

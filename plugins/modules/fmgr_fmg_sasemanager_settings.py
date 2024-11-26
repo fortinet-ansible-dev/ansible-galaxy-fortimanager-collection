@@ -85,10 +85,12 @@ options:
                 elements: str
                 description: Address.
             profile_group:
+                aliases: ['profile-group']
                 type: list
                 elements: str
                 description: Profile group.
             sync_address:
+                aliases: ['sync-address']
                 type: str
                 description: Sync address.
                 choices:
@@ -96,6 +98,7 @@ options:
                     - 'specify'
                     - 'all'
             sync_profile_group:
+                aliases: ['sync-profile-group']
                 type: str
                 description: Sync profile group.
                 choices:
@@ -103,6 +106,7 @@ options:
                     - 'specify'
                     - 'all'
             sync_user:
+                aliases: ['sync-user']
                 type: str
                 description: Sync user.
                 choices:

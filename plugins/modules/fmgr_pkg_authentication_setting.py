@@ -85,84 +85,106 @@ options:
         type: dict
         suboptions:
             active_auth_scheme:
+                aliases: ['active-auth-scheme']
                 type: str
                 description: Active authentication method
             auth_https:
+                aliases: ['auth-https']
                 type: str
                 description: Enable/disable redirecting HTTP user authentication to HTTPS.
                 choices:
                     - 'disable'
                     - 'enable'
             captive_portal:
+                aliases: ['captive-portal']
                 type: str
                 description: Captive portal host name.
             captive_portal_ip:
+                aliases: ['captive-portal-ip']
                 type: str
                 description: Captive portal IP address.
             captive_portal_ip6:
+                aliases: ['captive-portal-ip6']
                 type: str
                 description: Captive portal IPv6 address.
             captive_portal_port:
+                aliases: ['captive-portal-port']
                 type: int
                 description: Captive portal port number
             captive_portal_ssl_port:
+                aliases: ['captive-portal-ssl-port']
                 type: int
                 description: Captive portal SSL port number
             captive_portal_type:
+                aliases: ['captive-portal-type']
                 type: str
                 description: Captive portal type.
                 choices:
                     - 'fqdn'
                     - 'ip'
             captive_portal6:
+                aliases: ['captive-portal6']
                 type: str
                 description: IPv6 captive portal host name.
             rewrite_https_port:
+                aliases: ['rewrite-https-port']
                 type: int
                 description: Rewrite to HTTPS port
             sso_auth_scheme:
+                aliases: ['sso-auth-scheme']
                 type: str
                 description: Single-Sign-On authentication method
             dev_range:
+                aliases: ['dev-range']
                 type: raw
                 description: (list or str) Address range for the IP based device query.
             user_cert_ca:
+                aliases: ['user-cert-ca']
                 type: raw
                 description: (list or str) CA certificate used for client certificate verification.
             cert_auth:
+                aliases: ['cert-auth']
                 type: str
                 description: Enable/disable redirecting certificate authentication to HTTPS portal.
                 choices:
                     - 'disable'
                     - 'enable'
             cert_captive_portal:
+                aliases: ['cert-captive-portal']
                 type: str
                 description: Certificate captive portal host name.
             cert_captive_portal_ip:
+                aliases: ['cert-captive-portal-ip']
                 type: str
                 description: Certificate captive portal IP address.
             cert_captive_portal_port:
+                aliases: ['cert-captive-portal-port']
                 type: int
                 description: Certificate captive portal port number
             cookie_max_age:
+                aliases: ['cookie-max-age']
                 type: int
                 description: Persistent web portal cookie maximum age in minutes
             cookie_refresh_div:
+                aliases: ['cookie-refresh-div']
                 type: int
                 description: Refresh rate divider of persistent web portal cookie
             ip_auth_cookie:
+                aliases: ['ip-auth-cookie']
                 type: str
                 description: Enable/disable persistent cookie on IP based web portal authentication
                 choices:
                     - 'disable'
                     - 'enable'
             persistent_cookie:
+                aliases: ['persistent-cookie']
                 type: str
                 description: Enable/disable persistent cookie on web portal authentication
                 choices:
                     - 'disable'
                     - 'enable'
             update_time:
+                aliases: ['update-time']
                 type: str
                 description: Time of the last update.
 '''

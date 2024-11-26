@@ -94,21 +94,26 @@ options:
         type: dict
         suboptions:
             bandwidth_bi_threshold:
+                aliases: ['bandwidth-bi-threshold']
                 type: int
                 description: Apply FEC parameters when available bi-bandwidth is >= threshold
             bandwidth_down_threshold:
+                aliases: ['bandwidth-down-threshold']
                 type: int
                 description: Apply FEC parameters when available down bandwidth is >= threshold
             bandwidth_up_threshold:
+                aliases: ['bandwidth-up-threshold']
                 type: int
                 description: Apply FEC parameters when available up bandwidth is >= threshold
             base:
                 type: int
                 description: Number of base FEC packets
             latency_threshold:
+                aliases: ['latency-threshold']
                 type: int
                 description: Apply FEC parameters when latency is
             packet_loss_threshold:
+                aliases: ['packet-loss-threshold']
                 type: int
                 description: Apply FEC parameters when packet loss is >= threshold
             redundant:

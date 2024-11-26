@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             ip_only_ep:
+                aliases: ['ip-only-ep']
                 type: str
                 description:
                     - Disable/Enable IP-only endpoint identification.
@@ -86,6 +87,7 @@ options:
                     - 'disable'
                     - 'enable'
             ip_unique_scope:
+                aliases: ['ip-unique-scope']
                 type: str
                 description:
                     - set ip-unique-scope.

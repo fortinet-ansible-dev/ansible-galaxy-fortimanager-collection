@@ -107,6 +107,7 @@ options:
                 description: ID.
                 required: true
             selection_mode:
+                aliases: ['selection-mode']
                 type: list
                 elements: str
                 description: APN selection mode.

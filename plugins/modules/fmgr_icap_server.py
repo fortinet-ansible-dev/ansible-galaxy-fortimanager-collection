@@ -90,18 +90,22 @@ options:
         type: dict
         suboptions:
             ip_address:
+                aliases: ['ip-address']
                 type: str
                 description: IPv4 address of the ICAP server.
             ip_version:
+                aliases: ['ip-version']
                 type: str
                 description: IP version.
                 choices:
                     - '4'
                     - '6'
             ip6_address:
+                aliases: ['ip6-address']
                 type: str
                 description: IPv6 address of the ICAP server.
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Maximum number of concurrent connections to ICAP server.
             name:
@@ -118,9 +122,11 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_cert:
+                aliases: ['ssl-cert']
                 type: str
                 description: CA certificate name.
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: Address type of the remote ICAP server
                 choices:
@@ -137,6 +143,7 @@ options:
                     - 'disable'
                     - 'enable'
             healthcheck_service:
+                aliases: ['healthcheck-service']
                 type: str
                 description: ICAP Service name to use for health checks.
 '''

@@ -102,6 +102,7 @@ options:
                 type: str
                 description: IPv6 address object.
             fortiguard_category:
+                aliases: ['fortiguard-category']
                 type: str
                 description: FortiGuard category ID.
             id:
@@ -122,6 +123,7 @@ options:
                     - 'regex'
                     - 'finger-print'
             wildcard_fqdn:
+                aliases: ['wildcard-fqdn']
                 type: str
                 description: Exempt servers by wildcard FQDN.
 '''

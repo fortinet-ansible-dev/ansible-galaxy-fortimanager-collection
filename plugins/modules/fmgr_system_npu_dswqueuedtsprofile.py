@@ -229,9 +229,11 @@ options:
                     - 'qtm'
                     - 'l2tO'
             profile_id:
+                aliases: ['profile-id']
                 type: int
                 description: Set NPU DSW DTS profile ID.
             queue_select:
+                aliases: ['queue-select']
                 type: int
                 description: Set NPU DSW DTS queue ID select
 '''

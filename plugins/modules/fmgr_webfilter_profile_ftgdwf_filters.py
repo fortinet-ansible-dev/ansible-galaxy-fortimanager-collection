@@ -102,6 +102,7 @@ options:
                     - 'warning'
                     - 'authenticate'
             auth_usr_grp:
+                aliases: ['auth-usr-grp']
                 type: raw
                 description: (list or str) Groups with permission to authenticate.
             category:
@@ -118,18 +119,22 @@ options:
                     - 'disable'
                     - 'enable'
             override_replacemsg:
+                aliases: ['override-replacemsg']
                 type: str
                 description: Override replacement message.
             warn_duration:
+                aliases: ['warn-duration']
                 type: str
                 description: Duration of warnings.
             warning_duration_type:
+                aliases: ['warning-duration-type']
                 type: str
                 description: Re-display warning after closing browser or after a timeout.
                 choices:
                     - 'session'
                     - 'timeout'
             warning_prompt:
+                aliases: ['warning-prompt']
                 type: str
                 description: Warning prompts in each category or each domain.
                 choices:

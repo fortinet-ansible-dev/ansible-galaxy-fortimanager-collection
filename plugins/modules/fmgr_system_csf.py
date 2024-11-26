@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             accept_auth_by_cert:
+                aliases: ['accept-auth-by-cert']
                 type: str
                 description:
                     - Accept connections with unknown certificates and ask admin for approval.
@@ -86,6 +87,7 @@ options:
                     - 'disable'
                     - 'enable'
             authorization_request_type:
+                aliases: ['authorization-request-type']
                 type: str
                 description:
                     - Authorization request type.
@@ -98,6 +100,7 @@ options:
                 type: str
                 description: Certificate.
             configuration_sync:
+                aliases: ['configuration-sync']
                 type: str
                 description:
                     - Configuration sync mode.
@@ -107,6 +110,7 @@ options:
                     - 'default'
                     - 'local'
             downstream_access:
+                aliases: ['downstream-access']
                 type: str
                 description:
                     - Enable/disable downstream device access to this device&apos;s configuration and data.
@@ -116,9 +120,11 @@ options:
                     - 'disable'
                     - 'enable'
             downstream_accprofile:
+                aliases: ['downstream-accprofile']
                 type: str
                 description: Default access profile for requests from downstream devices.
             fabric_connector:
+                aliases: ['fabric-connector']
                 type: list
                 elements: dict
                 description: Fabric connector.
@@ -127,6 +133,7 @@ options:
                         type: str
                         description: Override access profile.
                     configuration_write_access:
+                        aliases: ['configuration-write-access']
                         type: str
                         description:
                             - Enable/disable downstream device write access to configuration.
@@ -139,6 +146,7 @@ options:
                         type: str
                         description: Serial.
             fabric_object_unification:
+                aliases: ['fabric-object-unification']
                 type: str
                 description:
                     - Fabric CMDB Object Unification.
@@ -148,9 +156,11 @@ options:
                     - 'local'
                     - 'default'
             fabric_workers:
+                aliases: ['fabric-workers']
                 type: int
                 description: Number of worker processes for Security Fabric daemon.
             file_mgmt:
+                aliases: ['file-mgmt']
                 type: str
                 description:
                     - Enable/disable Security Fabric daemon file management.
@@ -160,16 +170,20 @@ options:
                     - 'disable'
                     - 'enable'
             file_quota:
+                aliases: ['file-quota']
                 type: int
                 description: Maximum amount of memory that can be used by the daemon files
             file_quota_warning:
+                aliases: ['file-quota-warning']
                 type: int
                 description: Warn when the set percentage of quota has been used.
             fixed_key:
+                aliases: ['fixed-key']
                 type: list
                 elements: str
                 description: Auto-generated fixed key used when this device is the root.
             forticloud_account_enforcement:
+                aliases: ['forticloud-account-enforcement']
                 type: str
                 description:
                     - Fabric FortiCloud account unification.
@@ -179,13 +193,16 @@ options:
                     - 'disable'
                     - 'enable'
             group_name:
+                aliases: ['group-name']
                 type: str
                 description: Security Fabric group name.
             group_password:
+                aliases: ['group-password']
                 type: list
                 elements: str
                 description: Security Fabric group password.
             log_unification:
+                aliases: ['log-unification']
                 type: str
                 description:
                     - Enable/disable broadcast of discovery messages for log unification.
@@ -195,6 +212,7 @@ options:
                     - 'disable'
                     - 'enable'
             saml_configuration_sync:
+                aliases: ['saml-configuration-sync']
                 type: str
                 description:
                     - SAML setting configuration synchronization.
@@ -213,6 +231,7 @@ options:
                     - 'disable'
                     - 'enable'
             trusted_list:
+                aliases: ['trusted-list']
                 type: list
                 elements: dict
                 description: Trusted list.
@@ -227,6 +246,7 @@ options:
                             - 'accept'
                             - 'deny'
                     authorization_type:
+                        aliases: ['authorization-type']
                         type: str
                         description:
                             - Authorization type.
@@ -239,6 +259,7 @@ options:
                         type: str
                         description: Certificate.
                     downstream_authorization:
+                        aliases: ['downstream-authorization']
                         type: str
                         description:
                             - Trust authorizations by this node&apos;s administrator.
@@ -248,6 +269,7 @@ options:
                             - 'disable'
                             - 'enable'
                     ha_members:
+                        aliases: ['ha-members']
                         type: str
                         description: HA members.
                     index:
@@ -263,9 +285,11 @@ options:
                 type: str
                 description: IP/FQDN of the FortiGate upstream from this FortiGate in the Security Fabric.
             upstream_port:
+                aliases: ['upstream-port']
                 type: int
                 description: The port number to use to communicate with the FortiGate upstream from this FortiGate in the Security Fabric
             upstream_confirm:
+                aliases: ['upstream-confirm']
                 type: str
                 description:
                     - Upstream authorization confirm.
@@ -275,6 +299,7 @@ options:
                     - 'discover'
                     - 'confirm'
             ssl_protocol:
+                aliases: ['ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for upstream and downstream connections.

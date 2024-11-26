@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             case_sensitivity:
+                aliases: ['case-sensitivity']
                 type: str
                 description: Case sensitivity in pattern.
                 choices:
@@ -105,6 +106,7 @@ options:
                 type: str
                 description: HTTP header regular expression.
             header_name:
+                aliases: ['header-name']
                 type: str
                 description: HTTP header.
             id:

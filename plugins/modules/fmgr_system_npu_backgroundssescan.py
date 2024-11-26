@@ -87,27 +87,35 @@ options:
                     - 'disable'
                     - 'enable'
             stats_update_interval:
+                aliases: ['stats-update-interval']
                 type: int
                 description: Stats update interval
             udp_keepalive_interval:
+                aliases: ['udp-keepalive-interval']
                 type: int
                 description: UDP keepalive interval
             scan_stale:
+                aliases: ['scan-stale']
                 type: int
                 description: Configure scanning of active or stale sessions
             scan_vt:
+                aliases: ['scan-vt']
                 type: int
                 description: Select version/type to scan
             stats_qual_access:
+                aliases: ['stats-qual-access']
                 type: int
                 description: Statistics update access qualification in seconds
             stats_qual_duration:
+                aliases: ['stats-qual-duration']
                 type: int
                 description: Statistics update duration qualification in seconds
             udp_qual_access:
+                aliases: ['udp-qual-access']
                 type: int
                 description: UDP keepalive access qualification in seconds
             udp_qual_duration:
+                aliases: ['udp-qual-duration']
                 type: int
                 description: UDP keepalive duration qualification in seconds
 '''

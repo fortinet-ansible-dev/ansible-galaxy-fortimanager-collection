@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             case_sensitivity:
+                aliases: ['case-sensitivity']
                 type: str
                 description: Case sensitivity in pattern.
                 choices:
@@ -108,11 +109,13 @@ options:
                 type: str
                 description: HTTP header regular expression.
             header_group:
+                aliases: ['header-group']
                 type: list
                 elements: dict
                 description: Header group.
                 suboptions:
                     case_sensitivity:
+                        aliases: ['case-sensitivity']
                         type: str
                         description: Case sensitivity in pattern.
                         choices:
@@ -122,18 +125,21 @@ options:
                         type: str
                         description: HTTP header regular expression.
                     header_name:
+                        aliases: ['header-name']
                         type: str
                         description: HTTP header.
                     id:
                         type: int
                         description: ID.
             header_name:
+                aliases: ['header-name']
                 type: str
                 description: HTTP header.
             host:
                 type: str
                 description: Host address
             host_regex:
+                aliases: ['host-regex']
                 type: str
                 description: Host regular expression.
             method:

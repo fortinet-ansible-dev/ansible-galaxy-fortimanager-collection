@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Base64 coded keytab file containing a pre-shared key.
             ldap_server:
+                aliases: ['ldap-server']
                 type: raw
                 description: (list or str) LDAP server name.
             name:
@@ -100,6 +101,7 @@ options:
                 description: Kerberos keytab entry name.
                 required: true
             pac_data:
+                aliases: ['pac-data']
                 type: str
                 description: Enable/disable parsing PAC data in the ticket.
                 choices:

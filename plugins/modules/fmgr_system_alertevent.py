@@ -86,6 +86,7 @@ options:
         type: dict
         suboptions:
             alert_destination:
+                aliases: ['alert-destination']
                 type: list
                 elements: dict
                 description: Alert destination.
@@ -94,12 +95,15 @@ options:
                         type: str
                         description: Sender email address to use in alert emails.
                     smtp_name:
+                        aliases: ['smtp-name']
                         type: str
                         description: SMTP server name.
                     snmp_name:
+                        aliases: ['snmp-name']
                         type: str
                         description: SNMP trap name.
                     syslog_name:
+                        aliases: ['syslog-name']
                         type: str
                         description: Syslog server name.
                     to:
@@ -117,6 +121,7 @@ options:
                             - 'snmp'
                             - 'syslog'
             enable_generic_text:
+                aliases: ['enable-generic-text']
                 type: list
                 elements: str
                 description:
@@ -127,6 +132,7 @@ options:
                     - 'enable'
                     - 'disable'
             enable_severity_filter:
+                aliases: ['enable-severity-filter']
                 type: list
                 elements: str
                 description:
@@ -137,6 +143,7 @@ options:
                     - 'enable'
                     - 'disable'
             event_time_period:
+                aliases: ['event-time-period']
                 type: str
                 description:
                     - Time period
@@ -158,6 +165,7 @@ options:
                     - '72'
                     - '168'
             generic_text:
+                aliases: ['generic-text']
                 type: str
                 description: Text that must be contained in a log to trigger alert.
             name:
@@ -165,6 +173,7 @@ options:
                 description: Alert name.
                 required: true
             num_events:
+                aliases: ['num-events']
                 type: str
                 description:
                     - Minimum number of events required within time period.
@@ -180,6 +189,7 @@ options:
                     - '50'
                     - '100'
             severity_filter:
+                aliases: ['severity-filter']
                 type: str
                 description:
                     - Required log severity to trigger alert.
@@ -195,6 +205,7 @@ options:
                     - 'medium-low'
                     - 'low'
             severity_level_comp:
+                aliases: ['severity-level-comp']
                 type: list
                 elements: str
                 description: Log severity threshold comparison criterion.
@@ -203,6 +214,7 @@ options:
                     - '='
                     - '<='
             severity_level_logs:
+                aliases: ['severity-level-logs']
                 type: list
                 elements: str
                 description:

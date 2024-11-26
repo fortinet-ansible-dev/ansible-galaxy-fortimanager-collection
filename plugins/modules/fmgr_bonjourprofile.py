@@ -97,6 +97,7 @@ options:
                 description: Bonjour profile name.
                 required: true
             policy_list:
+                aliases: ['policy-list']
                 type: list
                 elements: dict
                 description: Policy list.
@@ -105,9 +106,11 @@ options:
                         type: str
                         description: Description.
                     from_vlan:
+                        aliases: ['from-vlan']
                         type: str
                         description: VLAN ID from which the Bonjour service is advertised
                     policy_id:
+                        aliases: ['policy-id']
                         type: int
                         description: Policy ID.
                     services:
@@ -129,9 +132,11 @@ options:
                             - 'all'
                             - 'miracast'
                     to_vlan:
+                        aliases: ['to-vlan']
                         type: str
                         description: VLAN ID to which the Bonjour service is made available
             micro_location:
+                aliases: ['micro-location']
                 type: str
                 description: Enable/disable Micro location for Bonjour profile
                 choices:

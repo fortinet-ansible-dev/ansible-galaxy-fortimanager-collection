@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             default_action:
+                aliases: ['default-action']
                 type: str
                 description: Accept or deny unknown/unspecified devices.
                 choices:
                     - 'deny'
                     - 'accept'
             device_list:
+                aliases: ['device-list']
                 type: list
                 elements: dict
                 description: Device list.

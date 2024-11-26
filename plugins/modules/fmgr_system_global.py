@@ -77,12 +77,15 @@ options:
         type: dict
         suboptions:
             admin_lockout_duration:
+                aliases: ['admin-lockout-duration']
                 type: int
                 description: Lockout duration
             admin_lockout_threshold:
+                aliases: ['admin-lockout-threshold']
                 type: int
                 description: Lockout threshold for administration.
             adom_mode:
+                aliases: ['adom-mode']
                 type: str
                 description:
                     - ADOM mode.
@@ -92,6 +95,7 @@ options:
                     - 'normal'
                     - 'advanced'
             adom_rev_auto_delete:
+                aliases: ['adom-rev-auto-delete']
                 type: str
                 description:
                     - Auto delete features for old ADOM revisions.
@@ -103,15 +107,19 @@ options:
                     - 'by-revisions'
                     - 'by-days'
             adom_rev_max_backup_revisions:
+                aliases: ['adom-rev-max-backup-revisions']
                 type: int
                 description: Maximum number of ADOM revisions to backup.
             adom_rev_max_days:
+                aliases: ['adom-rev-max-days']
                 type: int
                 description: Number of days to keep old ADOM revisions.
             adom_rev_max_revisions:
+                aliases: ['adom-rev-max-revisions']
                 type: int
                 description: Maximum number of ADOM revisions to keep.
             adom_select:
+                aliases: ['adom-select']
                 type: str
                 description:
                     - Enable/disable select ADOM after login.
@@ -121,6 +129,7 @@ options:
                     - 'disable'
                     - 'enable'
             adom_status:
+                aliases: ['adom-status']
                 type: str
                 description:
                     - ADOM status.
@@ -130,6 +139,7 @@ options:
                     - 'disable'
                     - 'enable'
             clt_cert_req:
+                aliases: ['clt-cert-req']
                 type: str
                 description:
                     - Require client certificate for GUI login.
@@ -141,6 +151,7 @@ options:
                     - 'enable'
                     - 'optional'
             console_output:
+                aliases: ['console-output']
                 type: str
                 description:
                     - Console output mode.
@@ -150,6 +161,7 @@ options:
                     - 'standard'
                     - 'more'
             country_flag:
+                aliases: ['country-flag']
                 type: str
                 description:
                     - Country flag Status.
@@ -159,6 +171,7 @@ options:
                     - 'disable'
                     - 'enable'
             create_revision:
+                aliases: ['create-revision']
                 type: str
                 description:
                     - Enable/disable create revision by default.
@@ -177,9 +190,11 @@ options:
                     - 'disable'
                     - 'enable'
             default_disk_quota:
+                aliases: ['default-disk-quota']
                 type: int
                 description: Default disk quota for registered device
             detect_unregistered_log_device:
+                aliases: ['detect-unregistered-log-device']
                 type: str
                 description:
                     - Detect unregistered logging device from log message.
@@ -189,6 +204,7 @@ options:
                     - 'disable'
                     - 'enable'
             device_view_mode:
+                aliases: ['device-view-mode']
                 type: str
                 description:
                     - Set devices/groups view mode.
@@ -198,6 +214,7 @@ options:
                     - 'regular'
                     - 'tree'
             dh_params:
+                aliases: ['dh-params']
                 type: str
                 description:
                     - Minimum size of Diffie-Hellman prime for SSH/HTTPS
@@ -217,6 +234,7 @@ options:
                     - '6144'
                     - '8192'
             disable_module:
+                aliases: ['disable-module']
                 type: list
                 elements: str
                 description:
@@ -230,6 +248,7 @@ options:
                     - 'soc'
                     - 'ai'
             enc_algorithm:
+                aliases: ['enc-algorithm']
                 type: str
                 description:
                     - SSL communication encryption algorithms.
@@ -242,6 +261,7 @@ options:
                     - 'high'
                     - 'custom'
             faz_status:
+                aliases: ['faz-status']
                 type: str
                 description:
                     - FAZ status.
@@ -251,9 +271,11 @@ options:
                     - 'disable'
                     - 'enable'
             fgfm_local_cert:
+                aliases: ['fgfm-local-cert']
                 type: str
                 description: Set the fgfm local certificate.
             fgfm_ssl_protocol:
+                aliases: ['fgfm-ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocols for fgfmsd.
@@ -269,6 +291,7 @@ options:
                     - 'tlsv1.3'
                     - 'follow-global-ssl-protocol'
             ha_member_auto_grouping:
+                aliases: ['ha-member-auto-grouping']
                 type: str
                 description:
                     - Enable/disable automatically group HA members feature
@@ -287,6 +310,7 @@ options:
                 type: str
                 description: System hostname.
             import_ignore_addr_cmt:
+                aliases: ['import-ignore-addr-cmt']
                 type: str
                 description:
                     - Enable/Disable import ignore of address comments.
@@ -316,12 +340,14 @@ options:
                 type: str
                 description: Fmg location latitude
             ldap_cache_timeout:
+                aliases: ['ldap-cache-timeout']
                 type: int
                 description: LDAP browser cache timeout
             ldapconntimeout:
                 type: int
                 description: LDAP connection timeout
             lock_preempt:
+                aliases: ['lock-preempt']
                 type: str
                 description:
                     - Enable/disable ADOM lock override.
@@ -331,6 +357,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_checksum:
+                aliases: ['log-checksum']
                 type: str
                 description:
                     - Record log file hash value, timestamp, and authentication code at transmission or rolling.
@@ -342,18 +369,22 @@ options:
                     - 'md5'
                     - 'md5-auth'
             log_forward_cache_size:
+                aliases: ['log-forward-cache-size']
                 type: int
                 description: Log forwarding disk cache size
             longitude:
                 type: str
                 description: Fmg location longitude
             max_log_forward:
+                aliases: ['max-log-forward']
                 type: int
                 description: Maximum number of log-forward and aggregation settings.
             max_running_reports:
+                aliases: ['max-running-reports']
                 type: int
                 description: Maximum number of reports generating at one time.
             oftp_ssl_protocol:
+                aliases: ['oftp-ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocols for oftpd.
@@ -368,6 +399,7 @@ options:
                     - 'tlsv1.2'
                     - 'tlsv1.3'
             partial_install:
+                aliases: ['partial-install']
                 type: str
                 description:
                     - Enable/Disable partial install
@@ -377,6 +409,7 @@ options:
                     - 'disable'
                     - 'enable'
             partial_install_force:
+                aliases: ['partial-install-force']
                 type: str
                 description:
                     - Enable/Disable partial install when devdb is modified.
@@ -386,6 +419,7 @@ options:
                     - 'disable'
                     - 'enable'
             partial_install_rev:
+                aliases: ['partial-install-rev']
                 type: str
                 description:
                     - Enable/Disable auto creating adom revision for partial install.
@@ -395,6 +429,7 @@ options:
                     - 'disable'
                     - 'enable'
             perform_improve_by_ha:
+                aliases: ['perform-improve-by-ha']
                 type: str
                 description:
                     - Enable/Disable performance improvement by distributing tasks to HA slaves.
@@ -404,6 +439,7 @@ options:
                     - 'disable'
                     - 'enable'
             policy_hit_count:
+                aliases: ['policy-hit-count']
                 type: str
                 description:
                     - show policy hit count.
@@ -413,6 +449,7 @@ options:
                     - 'disable'
                     - 'enable'
             policy_object_in_dual_pane:
+                aliases: ['policy-object-in-dual-pane']
                 type: str
                 description:
                     - show policies and objects in dual pane.
@@ -422,6 +459,7 @@ options:
                     - 'disable'
                     - 'enable'
             pre_login_banner:
+                aliases: ['pre-login-banner']
                 type: str
                 description:
                     - Enable/disable pre-login banner.
@@ -431,12 +469,14 @@ options:
                     - 'disable'
                     - 'enable'
             pre_login_banner_message:
+                aliases: ['pre-login-banner-message']
                 type: str
                 description: Pre-login banner message.
             remoteauthtimeout:
                 type: int
                 description: Remote authentication
             search_all_adoms:
+                aliases: ['search-all-adoms']
                 type: str
                 description:
                     - Enable/Disable Search all ADOMs for where-used query.
@@ -446,6 +486,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_low_encryption:
+                aliases: ['ssl-low-encryption']
                 type: str
                 description:
                     - SSL low-grade encryption.
@@ -455,6 +496,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_protocol:
+                aliases: ['ssl-protocol']
                 type: list
                 elements: str
                 description:
@@ -470,6 +512,7 @@ options:
                     - 'sslv3'
                     - 'tlsv1.3'
             ssl_static_key_ciphers:
+                aliases: ['ssl-static-key-ciphers']
                 type: str
                 description:
                     - Enable/disable SSL static key ciphers.
@@ -479,6 +522,7 @@ options:
                     - 'disable'
                     - 'enable'
             task_list_size:
+                aliases: ['task-list-size']
                 type: int
                 description: Maximum number of completed tasks to keep.
             tftp:
@@ -678,6 +722,7 @@ options:
                     - '90'
                     - '91'
             tunnel_mtu:
+                aliases: ['tunnel-mtu']
                 type: int
                 description: Maximum transportation unit
             usg:
@@ -690,6 +735,7 @@ options:
                     - 'disable'
                     - 'enable'
             vdom_mirror:
+                aliases: ['vdom-mirror']
                 type: str
                 description:
                     - VDOM mirror.
@@ -699,6 +745,7 @@ options:
                     - 'disable'
                     - 'enable'
             webservice_proto:
+                aliases: ['webservice-proto']
                 type: list
                 elements: str
                 description:
@@ -716,9 +763,11 @@ options:
                     - 'sslv2'
                     - 'tlsv1.3'
             workflow_max_sessions:
+                aliases: ['workflow-max-sessions']
                 type: int
                 description: Maximum number of workflow sessions per ADOM
             workspace_mode:
+                aliases: ['workspace-mode']
                 type: str
                 description:
                     - Set workspace mode
@@ -731,6 +780,7 @@ options:
                     - 'workflow'
                     - 'per-adom'
             clone_name_option:
+                aliases: ['clone-name-option']
                 type: str
                 description:
                     - set the clone object names option.
@@ -740,17 +790,21 @@ options:
                     - 'default'
                     - 'keep'
             fgfm_ca_cert:
+                aliases: ['fgfm-ca-cert']
                 type: str
                 description: Set the extra fgfm CA certificates.
             mc_policy_disabled_adoms:
+                aliases: ['mc-policy-disabled-adoms']
                 type: list
                 elements: dict
                 description: Mc policy disabled adoms.
                 suboptions:
                     adom_name:
+                        aliases: ['adom-name']
                         type: str
                         description: Adom names.
             policy_object_icon:
+                aliases: ['policy-object-icon']
                 type: str
                 description:
                     - show icons of policy objects.
@@ -760,6 +814,7 @@ options:
                     - 'disable'
                     - 'enable'
             private_data_encryption:
+                aliases: ['private-data-encryption']
                 type: str
                 description:
                     - Enable/disable private data encryption using an AES 128-bit key.
@@ -769,6 +824,7 @@ options:
                     - 'disable'
                     - 'enable'
             per_policy_lock:
+                aliases: ['per-policy-lock']
                 type: str
                 description:
                     - Enable/Disable per policy lock.
@@ -778,6 +834,7 @@ options:
                     - 'disable'
                     - 'enable'
             multiple_steps_upgrade_in_autolink:
+                aliases: ['multiple-steps-upgrade-in-autolink']
                 type: str
                 description:
                     - Enable/disable multiple steps upgade in autolink process
@@ -787,9 +844,11 @@ options:
                     - 'disable'
                     - 'enable'
             object_revision_db_max:
+                aliases: ['object-revision-db-max']
                 type: int
                 description: Maximum revisions for a single database
             object_revision_mandatory_note:
+                aliases: ['object-revision-mandatory-note']
                 type: str
                 description:
                     - Enable/disable mandatory note when create revision.
@@ -799,9 +858,11 @@ options:
                     - 'disable'
                     - 'enable'
             object_revision_object_max:
+                aliases: ['object-revision-object-max']
                 type: int
                 description: Maximum revisions for a single object
             object_revision_status:
+                aliases: ['object-revision-status']
                 type: str
                 description:
                     - Enable/disable create revision when modify objects.
@@ -811,6 +872,7 @@ options:
                     - 'disable'
                     - 'enable'
             normalized_intf_zone_only:
+                aliases: ['normalized-intf-zone-only']
                 type: str
                 description:
                     - allow normalized interface to be zone only.
@@ -820,6 +882,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssl_cipher_suites:
+                aliases: ['ssl-cipher-suites']
                 type: list
                 elements: dict
                 description: Ssl cipher suites.
@@ -840,9 +903,11 @@ options:
                             - 'tls1.2-or-below'
                             - 'tls1.3'
             gui_curl_timeout:
+                aliases: ['gui-curl-timeout']
                 type: int
                 description: GUI curl timeout in seconds
             fgfm_cert_exclusive:
+                aliases: ['fgfm-cert-exclusive']
                 type: str
                 description:
                     - set if the local or CA certificates should be used exclusively.
@@ -852,6 +917,7 @@ options:
                     - 'disable'
                     - 'enable'
             fgfm_deny_unknown:
+                aliases: ['fgfm-deny-unknown']
                 type: str
                 description:
                     - set if allow devices with unknown SN actively register as an unauthorized device.
@@ -861,6 +927,7 @@ options:
                     - 'disable'
                     - 'enable'
             fgfm_peercert_withoutsn:
+                aliases: ['fgfm-peercert-withoutsn']
                 type: str
                 description:
                     - set if the subject CN or SAN of peers SSL certificate sent in FGFM should include the serial number of the device.
@@ -870,6 +937,7 @@ options:
                     - 'disable'
                     - 'enable'
             table_entry_blink:
+                aliases: ['table-entry-blink']
                 type: str
                 description:
                     - Enable/disable table entry blink in GUI
@@ -879,6 +947,7 @@ options:
                     - 'disable'
                     - 'enable'
             contentpack_fgt_install:
+                aliases: ['contentpack-fgt-install']
                 type: str
                 description:
                     - Enable/disable outbreak alert auto install for FGT ADOMS .
@@ -888,9 +957,11 @@ options:
                     - 'disable'
                     - 'enable'
             gui_polling_interval:
+                aliases: ['gui-polling-interval']
                 type: int
                 description: GUI polling interval in seconds
             no_copy_permission_check:
+                aliases: ['no-copy-permission-check']
                 type: str
                 description:
                     - Do not perform permission check to block object changes in different adom during copy and install.
@@ -900,6 +971,7 @@ options:
                     - 'disable'
                     - 'enable'
             ssh_enc_algo:
+                aliases: ['ssh-enc-algo']
                 type: list
                 elements: str
                 description:
@@ -938,6 +1010,7 @@ options:
                     - 'aes128-gcm@openssh.com'
                     - 'aes256-gcm@openssh.com'
             ssh_hostkey_algo:
+                aliases: ['ssh-hostkey-algo']
                 type: list
                 elements: str
                 description:
@@ -954,6 +1027,7 @@ options:
                     - 'rsa-sha2-512'
                     - 'ssh-ed25519'
             ssh_kex_algo:
+                aliases: ['ssh-kex-algo']
                 type: list
                 elements: str
                 description:
@@ -982,6 +1056,7 @@ options:
                     - 'ecdh-sha2-nistp384'
                     - 'ecdh-sha2-nistp521'
             ssh_mac_algo:
+                aliases: ['ssh-mac-algo']
                 type: list
                 elements: str
                 description:
@@ -1022,6 +1097,7 @@ options:
                     - 'umac-64-etm@openssh.com'
                     - 'umac-128-etm@openssh.com'
             ssh_strong_crypto:
+                aliases: ['ssh-strong-crypto']
                 type: str
                 description:
                     - Only allow strong ciphers for SSH when enabled.
@@ -1031,6 +1107,7 @@ options:
                     - 'disable'
                     - 'enable'
             admin_lockout_method:
+                aliases: ['admin-lockout-method']
                 type: str
                 description:
                     - Lockout method for administration.
@@ -1040,6 +1117,7 @@ options:
                     - 'ip'
                     - 'user'
             workspace_unlock_after_install:
+                aliases: ['workspace-unlock-after-install']
                 type: str
                 description:
                     - Enable/disable ADOM auto-unlock after device installation.
@@ -1049,6 +1127,7 @@ options:
                     - 'disable'
                     - 'enable'
             log_checksum_upload:
+                aliases: ['log-checksum-upload']
                 type: str
                 description:
                     - Enable/disable upload log checksum with log files.
@@ -1058,6 +1137,7 @@ options:
                     - 'disable'
                     - 'enable'
             apache_mode:
+                aliases: ['apache-mode']
                 type: str
                 description:
                     - Set apache mode.
@@ -1067,6 +1147,7 @@ options:
                     - 'event'
                     - 'prefork'
             no_vip_value_check:
+                aliases: ['no-vip-value-check']
                 type: str
                 description:
                     - Enable/disable skipping policy instead of throwing error when vip has no default or dynamic mapping during policy copy
@@ -1076,15 +1157,19 @@ options:
                     - 'disable'
                     - 'enable'
             fortiservice_port:
+                aliases: ['fortiservice-port']
                 type: int
                 description: FortiService port
             management_ip:
+                aliases: ['management-ip']
                 type: str
                 description: Management IP address of this FortiGate.
             management_port:
+                aliases: ['management-port']
                 type: int
                 description: Overriding port for management connection
             save_last_hit_in_adomdb:
+                aliases: ['save-last-hit-in-adomdb']
                 type: str
                 description:
                     - Enable/Disable save last-hit value in adomdb.
@@ -1094,6 +1179,7 @@ options:
                     - 'disable'
                     - 'enable'
             api_ip_binding:
+                aliases: ['api-ip-binding']
                 type: str
                 description:
                     - Enable/disable source IP check for JSON API request.
@@ -1103,18 +1189,23 @@ options:
                     - 'disable'
                     - 'enable'
             admin_host:
+                aliases: ['admin-host']
                 type: str
                 description: Administrative host for HTTP and HTTPs.
             admin_ssh_grace_time:
+                aliases: ['admin-ssh-grace-time']
                 type: int
                 description: Maximum time in seconds permitted between making an SSH connection to the FortiManager unit and authenticating
             fabric_storage_pool_quota:
+                aliases: ['fabric-storage-pool-quota']
                 type: int
                 description: Disk quota for Fabric
             fabric_storage_pool_size:
+                aliases: ['fabric-storage-pool-size']
                 type: int
                 description: Max storage pooll size
             fcp_cfg_service:
+                aliases: ['fcp-cfg-service']
                 type: str
                 description:
                     - Enable/disable FCP service processing configuration requests
@@ -1124,6 +1215,7 @@ options:
                     - 'disable'
                     - 'enable'
             jsonapi_log:
+                aliases: ['jsonapi-log']
                 type: str
                 description:
                     - enable jsonapi log.
@@ -1137,6 +1229,7 @@ options:
                     - 'response'
                     - 'all'
             global_ssl_protocol:
+                aliases: ['global-ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for all SSL connections.
@@ -1152,6 +1245,7 @@ options:
                     - 'tlsv1.2'
                     - 'tlsv1.3'
             httpd_ssl_protocol:
+                aliases: ['httpd-ssl-protocol']
                 type: list
                 elements: str
                 description:
@@ -1168,6 +1262,7 @@ options:
                     - 'tlsv1.2'
                     - 'tlsv1.3'
             mapclient_ssl_protocol:
+                aliases: ['mapclient-ssl-protocol']
                 type: str
                 description:
                     - set the lowest SSL protocol version for connection to mapserver.

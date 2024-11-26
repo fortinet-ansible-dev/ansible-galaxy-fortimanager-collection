@@ -97,6 +97,7 @@ options:
                     - 'disable'
                     - 'enable'
             max_range_segment:
+                aliases: ['max-range-segment']
                 type: int
                 description: Maximum number of range segments in HTTP range line
             severity:

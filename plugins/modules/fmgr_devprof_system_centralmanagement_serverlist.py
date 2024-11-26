@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             addr_type:
+                aliases: ['addr-type']
                 type: str
                 description: Indicate whether the FortiGate communicates with the override server using an IPv4 address, an IPv6 address or a FQDN.
                 choices:
@@ -108,12 +109,15 @@ options:
                 description: ID.
                 required: true
             server_address:
+                aliases: ['server-address']
                 type: str
                 description: IPv4 address of override server.
             server_address6:
+                aliases: ['server-address6']
                 type: str
                 description: IPv6 address of override server.
             server_type:
+                aliases: ['server-type']
                 type: list
                 elements: str
                 description: FortiGuard service type.

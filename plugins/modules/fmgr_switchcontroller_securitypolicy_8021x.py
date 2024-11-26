@@ -90,39 +90,48 @@ options:
         type: dict
         suboptions:
             auth_fail_vlan:
+                aliases: ['auth-fail-vlan']
                 type: str
                 description: Enable to allow limited access to clients that cannot authenticate.
                 choices:
                     - 'disable'
                     - 'enable'
             auth_fail_vlan_id:
+                aliases: ['auth-fail-vlan-id']
                 type: str
                 description: VLAN ID on which authentication failed.
             auth_fail_vlanid:
+                aliases: ['auth-fail-vlanid']
                 type: int
                 description: VLAN ID on which authentication failed.
             eap_passthru:
+                aliases: ['eap-passthru']
                 type: str
                 description: Enable/disable EAP pass-through mode, allowing protocols
                 choices:
                     - 'disable'
                     - 'enable'
             guest_auth_delay:
+                aliases: ['guest-auth-delay']
                 type: int
                 description: Guest authentication delay
             guest_vlan:
+                aliases: ['guest-vlan']
                 type: str
                 description: Enable the guest VLAN feature to allow limited access to non-802.
                 choices:
                     - 'disable'
                     - 'enable'
             guest_vlan_id:
+                aliases: ['guest-vlan-id']
                 type: str
                 description: Guest VLAN name.
             guest_vlanid:
+                aliases: ['guest-vlanid']
                 type: int
                 description: Guest VLAN ID.
             mac_auth_bypass:
+                aliases: ['mac-auth-bypass']
                 type: str
                 description: Enable/disable MAB for this policy.
                 choices:
@@ -133,56 +142,67 @@ options:
                 description: Policy name.
                 required: true
             open_auth:
+                aliases: ['open-auth']
                 type: str
                 description: Enable/disable open authentication for this policy.
                 choices:
                     - 'disable'
                     - 'enable'
             policy_type:
+                aliases: ['policy-type']
                 type: str
                 description: Policy type.
                 choices:
                     - '802.1X'
             radius_timeout_overwrite:
+                aliases: ['radius-timeout-overwrite']
                 type: str
                 description: Enable to override the global RADIUS session timeout.
                 choices:
                     - 'disable'
                     - 'enable'
             security_mode:
+                aliases: ['security-mode']
                 type: str
                 description: Port or MAC based 802.
                 choices:
                     - '802.1X'
                     - '802.1X-mac-based'
             user_group:
+                aliases: ['user-group']
                 type: raw
                 description: (list or str) Name of user-group to assign to this MAC Authentication Bypass
             framevid_apply:
+                aliases: ['framevid-apply']
                 type: str
                 description: Enable/disable the capability to apply the EAP/MAB frame VLAN to the port native VLAN.
                 choices:
                     - 'disable'
                     - 'enable'
             eap_auto_untagged_vlans:
+                aliases: ['eap-auto-untagged-vlans']
                 type: str
                 description: Enable/disable automatic inclusion of untagged VLANs.
                 choices:
                     - 'disable'
                     - 'enable'
             authserver_timeout_period:
+                aliases: ['authserver-timeout-period']
                 type: int
                 description: Authentication server timeout period
             authserver_timeout_vlan:
+                aliases: ['authserver-timeout-vlan']
                 type: str
                 description: Enable/disable the authentication server timeout VLAN to allow limited access when RADIUS is unavailable.
                 choices:
                     - 'disable'
                     - 'enable'
             authserver_timeout_vlanid:
+                aliases: ['authserver-timeout-vlanid']
                 type: str
                 description: Authentication server timeout VLAN name.
             authserver_timeout_tagged:
+                aliases: ['authserver-timeout-tagged']
                 type: str
                 description: Configure timeout option for the tagged VLAN which allows limited access when the authentication server is unavailable.
                 choices:
@@ -190,6 +210,7 @@ options:
                     - 'disable'
                     - 'lldp-voice'
             authserver_timeout_tagged_vlanid:
+                aliases: ['authserver-timeout-tagged-vlanid']
                 type: raw
                 description: (list) Tagged VLAN name for which the timeout option is applied to
             dacl:
@@ -199,6 +220,7 @@ options:
                     - 'disable'
                     - 'enable'
             auth_order:
+                aliases: ['auth-order']
                 type: str
                 description: Configure authentication order.
                 choices:
@@ -206,6 +228,7 @@ options:
                     - 'mab-dot1x'
                     - 'mab'
             auth_priority:
+                aliases: ['auth-priority']
                 type: str
                 description: Configure authentication priority.
                 choices:

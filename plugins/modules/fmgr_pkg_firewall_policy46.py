@@ -121,9 +121,11 @@ options:
                     - 'disable'
                     - 'enable'
             per_ip_shaper:
+                aliases: ['per-ip-shaper']
                 type: str
                 description: Per IP traffic shaper.
             permit_any_host:
+                aliases: ['permit-any-host']
                 type: str
                 description: Enable/disable allowing any host.
                 choices:
@@ -155,15 +157,19 @@ options:
                 type: str
                 description: Applied object tags.
             tcp_mss_receiver:
+                aliases: ['tcp-mss-receiver']
                 type: int
                 description: TCP Maximum Segment Size value of receiver
             tcp_mss_sender:
+                aliases: ['tcp-mss-sender']
                 type: int
                 description: TCP Maximum Segment Size value of sender
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             uuid:
@@ -176,6 +182,7 @@ options:
                     - 'disable'
                     - 'enable'
             logtraffic_start:
+                aliases: ['logtraffic-start']
                 type: str
                 description: Record logs when a session starts and ends.
                 choices:
@@ -188,9 +195,11 @@ options:
                 type: str
                 description: Policy name.
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/disable hardware session setup for CGNAT.
                 choices:

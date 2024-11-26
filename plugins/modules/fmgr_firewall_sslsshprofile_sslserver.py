@@ -96,6 +96,7 @@ options:
         type: dict
         suboptions:
             ftps_client_cert_request:
+                aliases: ['ftps-client-cert-request']
                 type: str
                 description: Action based on client certificate request during the FTPS handshake.
                 choices:
@@ -103,6 +104,7 @@ options:
                     - 'inspect'
                     - 'block'
             https_client_cert_request:
+                aliases: ['https-client-cert-request']
                 type: str
                 description: Action based on client certificate request during the HTTPS handshake.
                 choices:
@@ -114,6 +116,7 @@ options:
                 description: SSL server ID.
                 required: true
             imaps_client_cert_request:
+                aliases: ['imaps-client-cert-request']
                 type: str
                 description: Action based on client certificate request during the IMAPS handshake.
                 choices:
@@ -124,6 +127,7 @@ options:
                 type: str
                 description: IPv4 address of the SSL server.
             pop3s_client_cert_request:
+                aliases: ['pop3s-client-cert-request']
                 type: str
                 description: Action based on client certificate request during the POP3S handshake.
                 choices:
@@ -131,6 +135,7 @@ options:
                     - 'inspect'
                     - 'block'
             smtps_client_cert_request:
+                aliases: ['smtps-client-cert-request']
                 type: str
                 description: Action based on client certificate request during the SMTPS handshake.
                 choices:
@@ -138,6 +143,7 @@ options:
                     - 'inspect'
                     - 'block'
             ssl_other_client_cert_request:
+                aliases: ['ssl-other-client-cert-request']
                 type: str
                 description: Action based on client certificate request during an SSL protocol handshake.
                 choices:
@@ -145,6 +151,7 @@ options:
                     - 'inspect'
                     - 'block'
             ftps_client_certificate:
+                aliases: ['ftps-client-certificate']
                 type: str
                 description: Action based on received client certificate during the FTPS handshake.
                 choices:
@@ -152,6 +159,7 @@ options:
                     - 'inspect'
                     - 'block'
             https_client_certificate:
+                aliases: ['https-client-certificate']
                 type: str
                 description: Action based on received client certificate during the HTTPS handshake.
                 choices:
@@ -159,6 +167,7 @@ options:
                     - 'inspect'
                     - 'block'
             imaps_client_certificate:
+                aliases: ['imaps-client-certificate']
                 type: str
                 description: Action based on received client certificate during the IMAPS handshake.
                 choices:
@@ -166,6 +175,7 @@ options:
                     - 'inspect'
                     - 'block'
             pop3s_client_certificate:
+                aliases: ['pop3s-client-certificate']
                 type: str
                 description: Action based on received client certificate during the POP3S handshake.
                 choices:
@@ -173,6 +183,7 @@ options:
                     - 'inspect'
                     - 'block'
             smtps_client_certificate:
+                aliases: ['smtps-client-certificate']
                 type: str
                 description: Action based on received client certificate during the SMTPS handshake.
                 choices:
@@ -180,6 +191,7 @@ options:
                     - 'inspect'
                     - 'block'
             ssl_other_client_certificate:
+                aliases: ['ssl-other-client-certificate']
                 type: str
                 description: Action based on received client certificate during an SSL protocol handshake.
                 choices:

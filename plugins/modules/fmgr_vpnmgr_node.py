@@ -90,18 +90,21 @@ options:
         type: dict
         suboptions:
             add_route:
+                aliases: ['add-route']
                 type: str
                 description: Add route.
                 choices:
                     - 'disable'
                     - 'enable'
             assign_ip:
+                aliases: ['assign-ip']
                 type: str
                 description: Assign ip.
                 choices:
                     - 'disable'
                     - 'enable'
             assign_ip_from:
+                aliases: ['assign-ip-from']
                 type: str
                 description: Assign ip from.
                 choices:
@@ -119,6 +122,7 @@ options:
                 type: str
                 description: Authusrgrp.
             auto_configuration:
+                aliases: ['auto-configuration']
                 type: str
                 description: Auto configuration.
                 choices:
@@ -134,21 +138,25 @@ options:
                 type: str
                 description: Banner.
             default_gateway:
+                aliases: ['default-gateway']
                 type: str
                 description: Default gateway.
             dhcp_server:
+                aliases: ['dhcp-server']
                 type: str
                 description: Dhcp server.
                 choices:
                     - 'disable'
                     - 'enable'
             dns_mode:
+                aliases: ['dns-mode']
                 type: str
                 description: Dns mode.
                 choices:
                     - 'auto'
                     - 'manual'
             dns_service:
+                aliases: ['dns-service']
                 type: str
                 description: Dns service.
                 choices:
@@ -184,82 +192,102 @@ options:
                 type: raw
                 description: (list or str) Iface.
             ip_range:
+                aliases: ['ip-range']
                 type: list
                 elements: dict
                 description: Ip range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End ip.
                     id:
                         type: int
                         description: Id.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start ip.
             ipsec_lease_hold:
+                aliases: ['ipsec-lease-hold']
                 type: int
                 description: Ipsec lease hold.
             ipv4_dns_server1:
+                aliases: ['ipv4-dns-server1']
                 type: str
                 description: Ipv4 dns server1.
             ipv4_dns_server2:
+                aliases: ['ipv4-dns-server2']
                 type: str
                 description: Ipv4 dns server2.
             ipv4_dns_server3:
+                aliases: ['ipv4-dns-server3']
                 type: str
                 description: Ipv4 dns server3.
             ipv4_end_ip:
+                aliases: ['ipv4-end-ip']
                 type: str
                 description: Ipv4 end ip.
             ipv4_exclude_range:
+                aliases: ['ipv4-exclude-range']
                 type: list
                 elements: dict
                 description: Ipv4 exclude range.
                 suboptions:
                     end_ip:
+                        aliases: ['end-ip']
                         type: str
                         description: End ip.
                     id:
                         type: int
                         description: Id.
                     start_ip:
+                        aliases: ['start-ip']
                         type: str
                         description: Start ip.
             ipv4_netmask:
+                aliases: ['ipv4-netmask']
                 type: str
                 description: Ipv4 netmask.
             ipv4_split_include:
+                aliases: ['ipv4-split-include']
                 type: str
                 description: Ipv4 split include.
             ipv4_start_ip:
+                aliases: ['ipv4-start-ip']
                 type: str
                 description: Ipv4 start ip.
             ipv4_wins_server1:
+                aliases: ['ipv4-wins-server1']
                 type: str
                 description: Ipv4 wins server1.
             ipv4_wins_server2:
+                aliases: ['ipv4-wins-server2']
                 type: str
                 description: Ipv4 wins server2.
             local_gw:
+                aliases: ['local-gw']
                 type: str
                 description: Local gw.
             localid:
                 type: str
                 description: Localid.
             mode_cfg:
+                aliases: ['mode-cfg']
                 type: str
                 description: Mode cfg.
                 choices:
                     - 'disable'
                     - 'enable'
             mode_cfg_ip_version:
+                aliases: ['mode-cfg-ip-version']
                 type: str
                 description: Mode cfg ip version.
                 choices:
                     - '4'
                     - '6'
             net_device:
+                aliases: ['net-device']
                 type: str
                 description: Net device.
                 choices:
@@ -295,6 +323,7 @@ options:
                         type: int
                         description: Seq.
             public_ip:
+                aliases: ['public-ip']
                 type: str
                 description: Public ip.
             role:
@@ -304,6 +333,7 @@ options:
                     - 'hub'
                     - 'spoke'
             route_overlap:
+                aliases: ['route-overlap']
                 type: str
                 description: Route overlap.
                 choices:
@@ -311,6 +341,7 @@ options:
                     - 'use-new'
                     - 'allow'
             spoke_zone:
+                aliases: ['spoke-zone']
                 type: raw
                 description: (list or str) Spoke zone.
             summary_addr:
@@ -328,12 +359,14 @@ options:
                         type: int
                         description: Seq.
             tunnel_search:
+                aliases: ['tunnel-search']
                 type: str
                 description: Tunnel search.
                 choices:
                     - 'selectors'
                     - 'nexthop'
             unity_support:
+                aliases: ['unity-support']
                 type: str
                 description: Unity support.
                 choices:
@@ -343,9 +376,11 @@ options:
                 type: str
                 description: Usrgrp.
             vpn_interface_priority:
+                aliases: ['vpn-interface-priority']
                 type: int
                 description: Vpn interface priority.
             vpn_zone:
+                aliases: ['vpn-zone']
                 type: raw
                 description: (list or str) Vpn zone.
             vpntable:
@@ -361,18 +396,22 @@ options:
                     - 'chap'
                     - 'auto'
             exchange_interface_ip:
+                aliases: ['exchange-interface-ip']
                 type: str
                 description: Exchange interface ip.
                 choices:
                     - 'disable'
                     - 'enable'
             hub_public_ip:
+                aliases: ['hub-public-ip']
                 type: str
                 description: Hub public ip.
             ipv4_split_exclude:
+                aliases: ['ipv4-split-exclude']
                 type: str
                 description: Ipv4 split exclude.
             scope_member:
+                aliases: ['scope member']
                 type: list
                 elements: dict
                 description: Scope member.
@@ -384,6 +423,7 @@ options:
                         type: str
                         description: Vdom.
             dhcp_ra_giaddr:
+                aliases: ['dhcp-ra-giaddr']
                 type: str
                 description: Dhcp ra giaddr.
             encapsulation:
@@ -393,6 +433,7 @@ options:
                     - 'tunnel-mode'
                     - 'transport-mode'
             ipv4_name:
+                aliases: ['ipv4-name']
                 type: str
                 description: Ipv4 name.
             l2tp:
@@ -402,21 +443,25 @@ options:
                     - 'disable'
                     - 'enable'
             auto_discovery_receiver:
+                aliases: ['auto-discovery-receiver']
                 type: str
                 description: Auto discovery receiver.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_discovery_sender:
+                aliases: ['auto-discovery-sender']
                 type: str
                 description: Auto discovery sender.
                 choices:
                     - 'disable'
                     - 'enable'
             network_id:
+                aliases: ['network-id']
                 type: int
                 description: Network id.
             network_overlay:
+                aliases: ['network-overlay']
                 type: str
                 description: Network overlay.
                 choices:

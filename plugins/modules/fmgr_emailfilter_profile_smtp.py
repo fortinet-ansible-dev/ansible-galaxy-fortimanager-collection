@@ -98,6 +98,7 @@ options:
                     - 'disable'
                     - 'enable'
             local_override:
+                aliases: ['local-override']
                 type: str
                 description: Enable/disable local filter to override SMTP remote check result.
                 choices:
@@ -110,9 +111,11 @@ options:
                     - 'disable'
                     - 'enable'
             tag_msg:
+                aliases: ['tag-msg']
                 type: str
                 description: Subject text or header added to spam email.
             tag_type:
+                aliases: ['tag-type']
                 type: list
                 elements: str
                 description: Tag subject or header for spam email.
@@ -121,6 +124,7 @@ options:
                     - 'header'
                     - 'spaminfo'
             log_all:
+                aliases: ['log-all']
                 type: str
                 description: Enable/disable logging of all email traffic.
                 choices:

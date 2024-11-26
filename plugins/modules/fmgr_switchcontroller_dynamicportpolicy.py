@@ -102,9 +102,11 @@ options:
                 description: Policy.
                 suboptions:
                     802_1x:
+                        aliases: ['802-1x']
                         type: str
                         description: '802.'
                     bounce_port_link:
+                        aliases: ['bounce-port-link']
                         type: str
                         description: Enable/disable bouncing
                         choices:
@@ -126,12 +128,15 @@ options:
                         type: str
                         description: Match policy based on host.
                     hw_vendor:
+                        aliases: ['hw-vendor']
                         type: str
                         description: Match policy based on hardware vendor.
                     interface_tags:
+                        aliases: ['interface-tags']
                         type: raw
                         description: (list) Match policy based on the FortiSwitch interface object tags.
                     lldp_profile:
+                        aliases: ['lldp-profile']
                         type: str
                         description: LLDP profile to be applied when using this policy.
                     mac:
@@ -141,6 +146,7 @@ options:
                         type: str
                         description: Policy name.
                     qos_policy:
+                        aliases: ['qos-policy']
                         type: str
                         description: QoS policy to be applied when using this policy.
                     status:
@@ -153,12 +159,15 @@ options:
                         type: str
                         description: Match policy based on type.
                     vlan_policy:
+                        aliases: ['vlan-policy']
                         type: str
                         description: VLAN policy to be applied when using this policy.
                     match_period:
+                        aliases: ['match-period']
                         type: int
                         description: Number of days the matched devices will be retained
                     match_type:
+                        aliases: ['match-type']
                         type: str
                         description: Match and retain the devices based on the type.
                         choices:

@@ -97,9 +97,11 @@ options:
                 type: str
                 description: Comment.
             concurrent_clients:
+                aliases: ['concurrent-clients']
                 type: str
                 description: Number of clients that can connect using this pre-shared key.
             key_name:
+                aliases: ['key-name']
                 type: str
                 description: Pre-shared key name.
                 required: true
@@ -107,6 +109,7 @@ options:
                 type: raw
                 description: (list) WPA Pre-shared key.
             mpsk_schedules:
+                aliases: ['mpsk-schedules']
                 type: raw
                 description: (list or str) Firewall schedule for MPSK passphrase.
 '''

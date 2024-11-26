@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             cmd_flags_reserve_set:
+                aliases: ['cmd-flags-reserve-set']
                 type: str
                 description: Action to be taken for messages with cmd flag reserve bits set.
                 choices:
@@ -98,6 +99,7 @@ options:
                     - 'monitor'
                     - 'allow'
             command_code_invalid:
+                aliases: ['command-code-invalid']
                 type: str
                 description: Action to be taken for messages with invalid command code.
                 choices:
@@ -106,18 +108,21 @@ options:
                     - 'monitor'
                     - 'allow'
             command_code_range:
+                aliases: ['command-code-range']
                 type: str
                 description: Valid range for command codes
             comment:
                 type: str
                 description: Comment.
             log_packet:
+                aliases: ['log-packet']
                 type: str
                 description: Enable/disable packet log for triggered diameter settings.
                 choices:
                     - 'disable'
                     - 'enable'
             message_length_invalid:
+                aliases: ['message-length-invalid']
                 type: str
                 description: Action to be taken for invalid message length.
                 choices:
@@ -126,6 +131,7 @@ options:
                     - 'monitor'
                     - 'allow'
             missing_request_action:
+                aliases: ['missing-request-action']
                 type: str
                 description: Action to be taken for answers without corresponding request.
                 choices:
@@ -134,6 +140,7 @@ options:
                     - 'monitor'
                     - 'allow'
             monitor_all_messages:
+                aliases: ['monitor-all-messages']
                 type: str
                 description: Enable/disable logging for all User Name and Result Code AVP messages.
                 choices:
@@ -144,6 +151,7 @@ options:
                 description: Profile name.
                 required: true
             protocol_version_invalid:
+                aliases: ['protocol-version-invalid']
                 type: str
                 description: Action to be taken for invalid protocol version.
                 choices:
@@ -152,6 +160,7 @@ options:
                     - 'monitor'
                     - 'allow'
             request_error_flag_set:
+                aliases: ['request-error-flag-set']
                 type: str
                 description: Action to be taken for request messages with error flag set.
                 choices:
@@ -160,6 +169,7 @@ options:
                     - 'monitor'
                     - 'allow'
             track_requests_answers:
+                aliases: ['track-requests-answers']
                 type: str
                 description: Enable/disable validation that each answer has a corresponding request.
                 choices:

@@ -102,6 +102,7 @@ options:
         type: dict
         suboptions:
             auth_param:
+                aliases: ['auth-param']
                 type: list
                 elements: dict
                 description: Auth param.

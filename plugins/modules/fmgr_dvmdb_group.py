@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Desc.
             meta_fields:
+                aliases: ['meta fields']
                 type: dict
                 description: Default metafields
             name:

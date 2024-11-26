@@ -90,13 +90,16 @@ options:
         type: dict
         suboptions:
             var_expression:
+                aliases: ['var-expression']
                 type: str
                 description: Variable expression.
             var_name:
+                aliases: ['var-name']
                 type: str
                 description: Variable name.
                 required: true
             var_type:
+                aliases: ['var-type']
                 type: str
                 description:
                     - Variable type.

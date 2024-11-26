@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             image_base64:
+                aliases: ['image-base64']
                 type: str
                 description: Image data.
             image_type:
+                aliases: ['image-type']
                 type: str
                 description: Image type.
                 choices:

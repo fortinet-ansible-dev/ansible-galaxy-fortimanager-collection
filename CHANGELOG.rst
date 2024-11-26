@@ -5,6 +5,19 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.8.2
+======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.8.2
+
+Bugfixes
+--------
+
+- Modified built-in document to support sanity tests in ansible-core 2.18.0. No functionality changed.
+
 v2.8.1
 ======
 

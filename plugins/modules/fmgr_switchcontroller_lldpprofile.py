@@ -90,12 +90,14 @@ options:
         type: dict
         suboptions:
             802_1_tlvs:
+                aliases: ['802.1-tlvs']
                 type: list
                 elements: str
                 description: Transmitted IEEE 802.
                 choices:
                     - 'port-vlan-id'
             802_3_tlvs:
+                aliases: ['802.3-tlvs']
                 type: list
                 elements: str
                 description: Transmitted IEEE 802.
@@ -103,26 +105,32 @@ options:
                     - 'max-frame-size'
                     - 'power-negotiation'
             auto_isl:
+                aliases: ['auto-isl']
                 type: str
                 description: Enable/disable auto inter-switch LAG.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_isl_hello_timer:
+                aliases: ['auto-isl-hello-timer']
                 type: int
                 description: Auto inter-switch LAG hello timer duration
             auto_isl_port_group:
+                aliases: ['auto-isl-port-group']
                 type: int
                 description: Auto inter-switch LAG port group ID
             auto_isl_receive_timeout:
+                aliases: ['auto-isl-receive-timeout']
                 type: int
                 description: Auto inter-switch LAG timeout if no response is received
             custom_tlvs:
+                aliases: ['custom-tlvs']
                 type: list
                 elements: dict
                 description: Custom tlvs.
                 suboptions:
                     information_string:
+                        aliases: ['information-string']
                         type: str
                         description: Organizationally defined information string
                     name:
@@ -135,6 +143,7 @@ options:
                         type: int
                         description: Organizationally defined subtype
             med_network_policy:
+                aliases: ['med-network-policy']
                 type: list
                 elements: dict
                 description: Med network policy.
@@ -158,15 +167,18 @@ options:
                         type: int
                         description: ID of VLAN to advertise, if configured on port
                     vlan_intf:
+                        aliases: ['vlan-intf']
                         type: str
                         description: VLAN interface to advertise; if configured on port.
                     assign_vlan:
+                        aliases: ['assign-vlan']
                         type: str
                         description: Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.
                         choices:
                             - 'disable'
                             - 'enable'
             med_tlvs:
+                aliases: ['med-tlvs']
                 type: list
                 elements: str
                 description: Transmitted LLDP-MED TLVs
@@ -180,6 +192,7 @@ options:
                 description: Profile name.
                 required: true
             med_location_service:
+                aliases: ['med-location-service']
                 type: list
                 elements: dict
                 description: Med location service.
@@ -194,15 +207,18 @@ options:
                             - 'disable'
                             - 'enable'
                     sys_location_id:
+                        aliases: ['sys-location-id']
                         type: str
                         description: Location service ID.
             auto_mclag_icl:
+                aliases: ['auto-mclag-icl']
                 type: str
                 description: Enable/disable MCLAG inter chassis link.
                 choices:
                     - 'disable'
                     - 'enable'
             auto_isl_auth:
+                aliases: ['auto-isl-auth']
                 type: str
                 description: Auto inter-switch LAG authentication mode.
                 choices:
@@ -210,6 +226,7 @@ options:
                     - 'strict'
                     - 'relax'
             auto_isl_auth_encrypt:
+                aliases: ['auto-isl-auth-encrypt']
                 type: str
                 description: Auto inter-switch LAG encryption mode.
                 choices:
@@ -217,15 +234,19 @@ options:
                     - 'mixed'
                     - 'must'
             auto_isl_auth_identity:
+                aliases: ['auto-isl-auth-identity']
                 type: str
                 description: Auto inter-switch LAG authentication identity.
             auto_isl_auth_macsec_profile:
+                aliases: ['auto-isl-auth-macsec-profile']
                 type: str
                 description: Auto inter-switch LAG macsec profile for encryption.
             auto_isl_auth_reauth:
+                aliases: ['auto-isl-auth-reauth']
                 type: int
                 description: Auto inter-switch LAG authentication reauth period in seconds
             auto_isl_auth_user:
+                aliases: ['auto-isl-auth-user']
                 type: str
                 description: Auto inter-switch LAG authentication user certificate.
 '''

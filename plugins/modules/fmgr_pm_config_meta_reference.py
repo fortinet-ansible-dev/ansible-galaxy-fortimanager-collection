@@ -74,6 +74,7 @@ options:
         type: dict
         suboptions:
             package_list:
+                aliases: ['package list']
                 type: list
                 elements: dict
                 description: Package list.

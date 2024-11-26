@@ -101,23 +101,27 @@ options:
                         type: int
                         description: Entry ID
                     port_range:
+                        aliases: ['port-range']
                         type: list
                         elements: dict
                         description: Port range.
                         suboptions:
                             end_port:
+                                aliases: ['end-port']
                                 type: int
                                 description: Integer value for ending TCP/UDP/SCTP destination port in range
                             id:
                                 type: int
                                 description: Custom entry port range ID.
                             start_port:
+                                aliases: ['start-port']
                                 type: int
                                 description: Integer value for starting TCP/UDP/SCTP destination port in range
                     protocol:
                         type: int
                         description: Integer value for the protocol type as defined by IANA
                     addr_mode:
+                        aliases: ['addr-mode']
                         type: str
                         description: Address mode
                         choices:

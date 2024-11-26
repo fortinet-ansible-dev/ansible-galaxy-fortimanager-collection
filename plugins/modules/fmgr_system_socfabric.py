@@ -95,6 +95,7 @@ options:
                     - 'member'
                     - 'supervisor'
             secure_connection:
+                aliases: ['secure-connection']
                 type: str
                 description:
                     - Enable or Disable SSL/TLS.
@@ -116,6 +117,7 @@ options:
                 type: str
                 description: IP/FQDN of supervisor.
             trusted_list:
+                aliases: ['trusted-list']
                 type: list
                 elements: dict
                 description: Trusted list.

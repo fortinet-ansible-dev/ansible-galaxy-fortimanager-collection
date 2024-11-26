@@ -96,6 +96,7 @@ options:
                 type: str
                 description: Country.
             digest_type:
+                aliases: ['digest-type']
                 type: str
                 description: Digest type.
                 choices:
@@ -105,6 +106,7 @@ options:
                 type: str
                 description: Email.
             id_type:
+                aliases: ['id-type']
                 type: str
                 description: Id type.
                 choices:
@@ -112,6 +114,7 @@ options:
                     - 'domain-name'
                     - 'email'
             key_size:
+                aliases: ['key-size']
                 type: str
                 description: Key size.
                 choices:
@@ -121,6 +124,7 @@ options:
                     - '2048'
                     - '4096'
             key_type:
+                aliases: ['key-type']
                 type: str
                 description: Key type.
                 choices:
@@ -134,18 +138,22 @@ options:
                 type: str
                 description: Organization.
             organization_unit:
+                aliases: ['organization-unit']
                 type: raw
                 description: (list) Organization unit.
             scep_password:
+                aliases: ['scep-password']
                 type: raw
                 description: (list) Scep password.
             scep_server:
+                aliases: ['scep-server']
                 type: str
                 description: Scep server.
             state:
                 type: str
                 description: State.
             subject_name:
+                aliases: ['subject-name']
                 type: str
                 description: Subject name.
             type:
@@ -155,6 +163,7 @@ options:
                     - 'external'
                     - 'local'
             curve_name:
+                aliases: ['curve-name']
                 type: str
                 description: Curve name.
                 choices:
@@ -162,6 +171,7 @@ options:
                     - 'secp384r1'
                     - 'secp521r1'
             scep_ca_identifier:
+                aliases: ['scep-ca-identifier']
                 type: str
                 description: Scep ca identifier.
 '''

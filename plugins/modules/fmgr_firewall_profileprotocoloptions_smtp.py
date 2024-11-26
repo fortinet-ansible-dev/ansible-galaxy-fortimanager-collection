@@ -87,6 +87,7 @@ options:
         type: dict
         suboptions:
             inspect_all:
+                aliases: ['inspect-all']
                 type: str
                 description: Enable/disable the inspection of all ports for the protocol.
                 choices:
@@ -102,18 +103,21 @@ options:
                     - 'no-content-summary'
                     - 'splice'
             oversize_limit:
+                aliases: ['oversize-limit']
                 type: int
                 description: Maximum in-memory file size that can be scanned
             ports:
                 type: raw
                 description: (list) Ports to scan for content
             scan_bzip2:
+                aliases: ['scan-bzip2']
                 type: str
                 description: Enable/disable scanning of BZip2 compressed files.
                 choices:
                     - 'disable'
                     - 'enable'
             server_busy:
+                aliases: ['server-busy']
                 type: str
                 description: Enable/disable SMTP server busy when server not available.
                 choices:
@@ -126,18 +130,22 @@ options:
                     - 'disable'
                     - 'enable'
             uncompressed_nest_limit:
+                aliases: ['uncompressed-nest-limit']
                 type: int
                 description: Maximum nested levels of compression that can be uncompressed and scanned
             uncompressed_oversize_limit:
+                aliases: ['uncompressed-oversize-limit']
                 type: int
                 description: Maximum in-memory uncompressed file size that can be scanned
             ssl_offloaded:
+                aliases: ['ssl-offloaded']
                 type: str
                 description: SSL decryption and encryption performed by an external device.
                 choices:
                     - 'no'
                     - 'yes'
             proxy_after_tcp_handshake:
+                aliases: ['proxy-after-tcp-handshake']
                 type: str
                 description: Proxy traffic after the TCP 3-way handshake has been established
                 choices:

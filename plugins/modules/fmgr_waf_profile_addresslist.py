@@ -85,9 +85,11 @@ options:
         type: dict
         suboptions:
             blocked_address:
+                aliases: ['blocked-address']
                 type: raw
                 description: (list or str) Blocked address.
             blocked_log:
+                aliases: ['blocked-log']
                 type: str
                 description: Enable/disable logging on blocked addresses.
                 choices:
@@ -107,6 +109,7 @@ options:
                     - 'disable'
                     - 'enable'
             trusted_address:
+                aliases: ['trusted-address']
                 type: raw
                 description: (list or str) Trusted address.
 '''

@@ -97,6 +97,7 @@ options:
                     - 'fri'
                     - 'sat'
             del_files:
+                aliases: ['del-files']
                 type: str
                 description:
                     - Enable/disable log file deletion after uploading.
@@ -109,9 +110,11 @@ options:
                 type: str
                 description: Upload server directory, for Unix server, use absolute
             file_size:
+                aliases: ['file-size']
                 type: int
                 description: Roll log files when they reach this size
             gzip_format:
+                aliases: ['gzip-format']
                 type: str
                 description:
                     - Enable/disable compression of uploaded log files.
@@ -133,6 +136,7 @@ options:
                 type: str
                 description: Upload server IP3 address.
             log_format:
+                aliases: ['log-format']
                 type: str
                 description:
                     - Format of uploaded log files.
@@ -156,6 +160,7 @@ options:
                 type: raw
                 description: (list) Upload server login password3.
             server_type:
+                aliases: ['server-type']
                 type: str
                 description:
                     - Upload server type.
@@ -176,9 +181,11 @@ options:
                     - 'disable'
                     - 'enable'
             upload_hour:
+                aliases: ['upload-hour']
                 type: int
                 description: Log files upload schedule
             upload_mode:
+                aliases: ['upload-mode']
                 type: str
                 description:
                     - Upload mode with multiple servers.
@@ -188,6 +195,7 @@ options:
                     - 'backup'
                     - 'mirror'
             upload_trigger:
+                aliases: ['upload-trigger']
                 type: str
                 description:
                     - Event triggering log files upload.
@@ -226,6 +234,7 @@ options:
                 type: int
                 description: Upload server IP3 port number.
             rolling_upgrade_status:
+                aliases: ['rolling-upgrade-status']
                 type: int
                 description: Rolling upgrade status
             server:

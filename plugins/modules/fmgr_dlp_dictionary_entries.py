@@ -101,6 +101,7 @@ options:
                 description: ID.
                 required: true
             ignore_case:
+                aliases: ['ignore-case']
                 type: str
                 description: Enable/disable ignore case.
                 choices:

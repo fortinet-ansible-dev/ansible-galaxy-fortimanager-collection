@@ -106,6 +106,7 @@ options:
                 type: str
                 description: Expire time.
             mobile_phone:
+                aliases: ['mobile-phone']
                 type: str
                 description: Mobile phone.
             name:
@@ -118,6 +119,7 @@ options:
                 type: str
                 description: Set the action for the sponsor guest user field.
             user_id:
+                aliases: ['user-id']
                 type: str
                 description: Guest ID.
                 required: true

@@ -90,15 +90,18 @@ options:
         type: dict
         suboptions:
             antivirus_profile:
+                aliases: ['antivirus-profile']
                 type: str
                 description: AntiVirus profile name.
             application_list:
+                aliases: ['application-list']
                 type: str
                 description: Application control list name.
             comment:
                 type: str
                 description: Comment.
             ips_sensor:
+                aliases: ['ips-sensor']
                 type: str
                 description: IPS sensor name.
             name:
@@ -106,6 +109,7 @@ options:
                 description: UTM profile name.
                 required: true
             scan_botnet_connections:
+                aliases: ['scan-botnet-connections']
                 type: str
                 description: Block or monitor connections to Botnet servers or disable Botnet scanning.
                 choices:
@@ -113,12 +117,14 @@ options:
                     - 'block'
                     - 'monitor'
             utm_log:
+                aliases: ['utm-log']
                 type: str
                 description: Enable/disable UTM logging.
                 choices:
                     - 'disable'
                     - 'enable'
             webfilter_profile:
+                aliases: ['webfilter-profile']
                 type: str
                 description: WebFilter profile name.
 '''

@@ -100,36 +100,43 @@ options:
                     - 'deny'
                     - 'accept'
             auto_asic_offload:
+                aliases: ['auto-asic-offload']
                 type: str
                 description: Enable/disable policy traffic ASIC offloading.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_eif:
+                aliases: ['cgn-eif']
                 type: str
                 description: Enable/Disable CGN endpoint independent filtering.
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_eim:
+                aliases: ['cgn-eim']
                 type: str
                 description: Enable/Disable CGN endpoint independent mapping
                 choices:
                     - 'disable'
                     - 'enable'
             cgn_log_server_grp:
+                aliases: ['cgn-log-server-grp']
                 type: str
                 description: NP log server group name
             cgn_resource_quota:
+                aliases: ['cgn-resource-quota']
                 type: int
                 description: Resource quota
             cgn_session_quota:
+                aliases: ['cgn-session-quota']
                 type: int
                 description: Session quota
             comments:
                 type: str
                 description: Comment.
             delay_tcp_npu_session:
+                aliases: ['delay-tcp-npu-session']
                 type: str
                 description: Enable TCP NPU session delay to guarantee packet order of 3-way handshake.
                 choices:
@@ -139,6 +146,7 @@ options:
                 type: raw
                 description: (list or str) Destination IPv4 address and address group names.
             dstaddr_negate:
+                aliases: ['dstaddr-negate']
                 type: str
                 description: When enabled dstaddr/dstaddr6 specifies what the destination address must NOT be.
                 choices:
@@ -151,12 +159,14 @@ options:
                 type: raw
                 description: (list or str) Outgoing
             firewall_session_dirty:
+                aliases: ['firewall-session-dirty']
                 type: str
                 description: How to handle sessions if the configuration of this firewall policy changes.
                 choices:
                     - 'check-all'
                     - 'check-new'
             global_label:
+                aliases: ['global-label']
                 type: str
                 description: Label for the policy that appears when the GUI is in Global View mode.
             ippool:
@@ -178,6 +188,7 @@ options:
                     - 'disable'
                     - 'enable'
             policy_offload:
+                aliases: ['policy-offload']
                 type: str
                 description: Enable/Disable hardware session setup for CGNAT.
                 choices:
@@ -194,6 +205,7 @@ options:
                 type: raw
                 description: (list or str) IPv6 pool names.
             send_deny_packet:
+                aliases: ['send-deny-packet']
                 type: str
                 description: Enable to send a reply when a session is denied or blocked by a firewall policy.
                 choices:
@@ -203,6 +215,7 @@ options:
                 type: raw
                 description: (list or str) Service and service group names.
             service_negate:
+                aliases: ['service-negate']
                 type: str
                 description: When enabled service specifies what the service must NOT be.
                 choices:
@@ -212,6 +225,7 @@ options:
                 type: raw
                 description: (list or str) Source IPv4 address and address group names.
             srcaddr_negate:
+                aliases: ['srcaddr-negate']
                 type: str
                 description: When enabled srcaddr/srcaddr6 specifies what the source address must NOT be.
                 choices:
@@ -230,15 +244,19 @@ options:
                     - 'disable'
                     - 'enable'
             tcp_timeout_pid:
+                aliases: ['tcp-timeout-pid']
                 type: str
                 description: TCP timeout profile ID
             traffic_shaper:
+                aliases: ['traffic-shaper']
                 type: str
                 description: Traffic shaper.
             traffic_shaper_reverse:
+                aliases: ['traffic-shaper-reverse']
                 type: str
                 description: Reverse traffic shaper.
             udp_timeout_pid:
+                aliases: ['udp-timeout-pid']
                 type: str
                 description: UDP timeout profile ID
             uuid:

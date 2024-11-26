@@ -93,12 +93,14 @@ options:
                 type: str
                 description: Comment.
             dlp_log:
+                aliases: ['dlp-log']
                 type: str
                 description: Enable/disable DLP logging.
                 choices:
                     - 'disable'
                     - 'enable'
             extended_log:
+                aliases: ['extended-log']
                 type: str
                 description: Enable/disable extended logging for data leak prevention.
                 choices:
@@ -130,18 +132,22 @@ options:
                             - 'enable'
                             - 'summary-only'
                     company_identifier:
+                        aliases: ['company-identifier']
                         type: str
                         description: Enter a company identifier watermark to match.
                     expiry:
                         type: str
                         description: Quarantine duration in days, hours, minutes format
                     file_size:
+                        aliases: ['file-size']
                         type: int
                         description: Match files this size or larger
                     file_type:
+                        aliases: ['file-type']
                         type: str
                         description: Select the number of a DLP file pattern table to match.
                     filter_by:
+                        aliases: ['filter-by']
                         type: str
                         description: Select the type of content to match.
                         choices:
@@ -155,12 +161,14 @@ options:
                             - 'encrypted'
                             - 'file-type-and-size'
                     fp_sensitivity:
+                        aliases: ['fp-sensitivity']
                         type: raw
                         description: (list or str) Select a DLP file pattern sensitivity to match.
                     id:
                         type: int
                         description: ID.
                     match_percentage:
+                        aliases: ['match-percentage']
                         type: int
                         description: Percentage of fingerprints in the fingerprint databases designated with the selected fp-sensitivity to match.
                     name:
@@ -211,12 +219,14 @@ options:
                         type: raw
                         description: (list or str) Select a DLP file pattern sensitivity to match.
             flow_based:
+                aliases: ['flow-based']
                 type: str
                 description: Enable/disable flow-based DLP.
                 choices:
                     - 'disable'
                     - 'enable'
             full_archive_proto:
+                aliases: ['full-archive-proto']
                 type: list
                 elements: str
                 description: Protocols to always content archive.
@@ -240,6 +250,7 @@ options:
                     - 'ssh'
                     - 'cifs'
             nac_quar_log:
+                aliases: ['nac-quar-log']
                 type: str
                 description: Enable/disable NAC quarantine logging.
                 choices:
@@ -255,9 +266,11 @@ options:
                 choices:
                     - 'strict-file'
             replacemsg_group:
+                aliases: ['replacemsg-group']
                 type: str
                 description: Replacement message group used by this DLP sensor.
             summary_proto:
+                aliases: ['summary-proto']
                 type: list
                 elements: str
                 description: Protocols to always log summary.
@@ -281,6 +294,7 @@ options:
                     - 'ssh'
                     - 'cifs'
             feature_set:
+                aliases: ['feature-set']
                 type: str
                 description: Flow/proxy feature set.
                 choices:
@@ -310,6 +324,7 @@ options:
                 type: str
                 description: Expression to evaluate.
             match_type:
+                aliases: ['match-type']
                 type: str
                 description: Logical relation between entries
                 choices:
@@ -317,6 +332,7 @@ options:
                     - 'match-any'
                     - 'match-eval'
             fgd_id:
+                aliases: ['fgd-id']
                 type: int
                 description: ID of object in FortiGuard database.
 '''

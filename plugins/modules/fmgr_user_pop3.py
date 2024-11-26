@@ -107,6 +107,7 @@ options:
                 type: str
                 description: No description
             ssl_min_proto_version:
+                aliases: ['ssl-min-proto-version']
                 type: str
                 description: Minimum supported protocol version for SSL/TLS connections
                 choices:

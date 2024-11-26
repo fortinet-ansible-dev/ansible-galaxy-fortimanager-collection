@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             channel_id:
+                aliases: ['channel-id']
                 type: str
                 description: YouTube channel ID to be filtered.
             comment:

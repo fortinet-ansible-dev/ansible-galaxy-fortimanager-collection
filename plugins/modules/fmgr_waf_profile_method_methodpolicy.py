@@ -97,6 +97,7 @@ options:
                 type: str
                 description: Host address.
             allowed_methods:
+                aliases: ['allowed-methods']
                 type: list
                 elements: str
                 description: Allowed Methods.

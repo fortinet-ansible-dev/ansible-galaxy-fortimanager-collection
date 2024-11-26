@@ -90,6 +90,7 @@ options:
                 type: int
                 description: Tcam sact act.
             act_v:
+                aliases: ['act-v']
                 type: str
                 description: Enable to set sact act.
                 choices:
@@ -99,15 +100,18 @@ options:
                 type: int
                 description: Tcam sact bmproc.
             bmproc_v:
+                aliases: ['bmproc-v']
                 type: str
                 description: Enable to set sact bmproc.
                 choices:
                     - 'disable'
                     - 'enable'
             df_lif:
+                aliases: ['df-lif']
                 type: int
                 description: Tcam sact df-lif.
             df_lif_v:
+                aliases: ['df-lif-v']
                 type: str
                 description: Enable to set sact df-lif.
                 choices:
@@ -117,15 +121,18 @@ options:
                 type: int
                 description: Tcam sact dfr.
             dfr_v:
+                aliases: ['dfr-v']
                 type: str
                 description: Enable to set sact dfr.
                 choices:
                     - 'disable'
                     - 'enable'
             dmac_skip:
+                aliases: ['dmac-skip']
                 type: int
                 description: Tcam sact dmac-skip.
             dmac_skip_v:
+                aliases: ['dmac-skip-v']
                 type: str
                 description: Enable to set sact dmac-skip.
                 choices:
@@ -135,33 +142,40 @@ options:
                 type: int
                 description: Tcam sact dosen.
             dosen_v:
+                aliases: ['dosen-v']
                 type: str
                 description: Enable to set sact dosen.
                 choices:
                     - 'disable'
                     - 'enable'
             espff_proc:
+                aliases: ['espff-proc']
                 type: int
                 description: Tcam sact espff-proc.
             espff_proc_v:
+                aliases: ['espff-proc-v']
                 type: str
                 description: Enable to set sact espff-proc.
                 choices:
                     - 'disable'
                     - 'enable'
             etype_pid:
+                aliases: ['etype-pid']
                 type: int
                 description: Tcam sact etype-pid.
             etype_pid_v:
+                aliases: ['etype-pid-v']
                 type: str
                 description: Enable to set sact etype-pid.
                 choices:
                     - 'disable'
                     - 'enable'
             frag_proc:
+                aliases: ['frag-proc']
                 type: int
                 description: Tcam sact frag-proc.
             frag_proc_v:
+                aliases: ['frag-proc-v']
                 type: str
                 description: Enable to set sact frag-proc.
                 choices:
@@ -171,24 +185,29 @@ options:
                 type: int
                 description: Tcam sact fwd.
             fwd_lif:
+                aliases: ['fwd-lif']
                 type: int
                 description: Tcam sact fwd-lif.
             fwd_lif_v:
+                aliases: ['fwd-lif-v']
                 type: str
                 description: Enable to set sact fwd-lif.
                 choices:
                     - 'disable'
                     - 'enable'
             fwd_tvid:
+                aliases: ['fwd-tvid']
                 type: int
                 description: Tcam sact fwd-tvid.
             fwd_tvid_v:
+                aliases: ['fwd-tvid-v']
                 type: str
                 description: Enable to set sact fwd-vid.
                 choices:
                     - 'disable'
                     - 'enable'
             fwd_v:
+                aliases: ['fwd-v']
                 type: str
                 description: Enable to set sact fwd.
                 choices:
@@ -198,15 +217,18 @@ options:
                 type: int
                 description: Tcam sact icpen.
             icpen_v:
+                aliases: ['icpen-v']
                 type: str
                 description: Enable to set sact icpen.
                 choices:
                     - 'disable'
                     - 'enable'
             igmp_mld_snp:
+                aliases: ['igmp-mld-snp']
                 type: int
                 description: Tcam sact igmp-mld-snp.
             igmp_mld_snp_v:
+                aliases: ['igmp-mld-snp-v']
                 type: str
                 description: Enable to set sact igmp-mld-snp.
                 choices:
@@ -216,24 +238,29 @@ options:
                 type: int
                 description: Tcam sact learn.
             learn_v:
+                aliases: ['learn-v']
                 type: str
                 description: Enable to set sact learn.
                 choices:
                     - 'disable'
                     - 'enable'
             m_srh_ctrl:
+                aliases: ['m-srh-ctrl']
                 type: int
                 description: Tcam sact m-srh-ctrl.
             m_srh_ctrl_v:
+                aliases: ['m-srh-ctrl-v']
                 type: str
                 description: Enable to set sact m-srh-ctrl.
                 choices:
                     - 'disable'
                     - 'enable'
             mac_id:
+                aliases: ['mac-id']
                 type: int
                 description: Tcam sact mac-id.
             mac_id_v:
+                aliases: ['mac-id-v']
                 type: str
                 description: Enable to set sact mac-id.
                 choices:
@@ -243,6 +270,7 @@ options:
                 type: int
                 description: Tcam sact mss.
             mss_v:
+                aliases: ['mss-v']
                 type: str
                 description: Enable to set sact mss.
                 choices:
@@ -252,15 +280,18 @@ options:
                 type: int
                 description: Tcam sact pleen.
             pleen_v:
+                aliases: ['pleen-v']
                 type: str
                 description: Enable to set sact pleen.
                 choices:
                     - 'disable'
                     - 'enable'
             prio_pid:
+                aliases: ['prio-pid']
                 type: int
                 description: Tcam sact prio-pid.
             prio_pid_v:
+                aliases: ['prio-pid-v']
                 type: str
                 description: Enable to set sact prio-pid.
                 choices:
@@ -270,6 +301,7 @@ options:
                 type: int
                 description: Tcam sact promis.
             promis_v:
+                aliases: ['promis-v']
                 type: str
                 description: Enable to set sact promis.
                 choices:
@@ -279,21 +311,25 @@ options:
                 type: int
                 description: Tcam sact rfsh.
             rfsh_v:
+                aliases: ['rfsh-v']
                 type: str
                 description: Enable to set sact rfsh.
                 choices:
                     - 'disable'
                     - 'enable'
             smac_skip:
+                aliases: ['smac-skip']
                 type: int
                 description: Tcam sact smac-skip.
             smac_skip_v:
+                aliases: ['smac-skip-v']
                 type: str
                 description: Enable to set sact smac-skip.
                 choices:
                     - 'disable'
                     - 'enable'
             tp_smchk_v:
+                aliases: ['tp-smchk-v']
                 type: str
                 description: Enable to set sact tp mode.
                 choices:
@@ -303,9 +339,11 @@ options:
                 type: int
                 description: Tcam sact tp mode.
             tpe_id:
+                aliases: ['tpe-id']
                 type: int
                 description: Tcam sact tpe-id.
             tpe_id_v:
+                aliases: ['tpe-id-v']
                 type: str
                 description: Enable to set sact tpe-id.
                 choices:
@@ -315,24 +353,29 @@ options:
                 type: int
                 description: Tcam sact vdm.
             vdm_v:
+                aliases: ['vdm-v']
                 type: str
                 description: Enable to set sact vdm.
                 choices:
                     - 'disable'
                     - 'enable'
             vdom_id:
+                aliases: ['vdom-id']
                 type: int
                 description: Tcam sact vdom-id.
             vdom_id_v:
+                aliases: ['vdom-id-v']
                 type: str
                 description: Enable to set sact vdom-id.
                 choices:
                     - 'disable'
                     - 'enable'
             x_mode:
+                aliases: ['x-mode']
                 type: int
                 description: Tcam sact x-mode.
             x_mode_v:
+                aliases: ['x-mode-v']
                 type: str
                 description: Enable to set sact x-mode.
                 choices:

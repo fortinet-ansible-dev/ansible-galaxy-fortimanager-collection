@@ -85,12 +85,15 @@ options:
         type: dict
         suboptions:
             create_session_request:
+                aliases: ['create-session-request']
                 type: int
                 description: Rate limit
             delete_session_request:
+                aliases: ['delete-session-request']
                 type: int
                 description: Rate limit
             echo_request:
+                aliases: ['echo-request']
                 type: int
                 description: Rate limit
 '''

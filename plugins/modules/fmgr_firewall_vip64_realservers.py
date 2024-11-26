@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             client_ip:
+                aliases: ['client-ip']
                 type: str
                 description: Restrict server to a client IP in this range.
             healthcheck:
@@ -104,6 +105,7 @@ options:
                     - 'enable'
                     - 'vip'
             holddown_interval:
+                aliases: ['holddown-interval']
                 type: int
                 description: Hold down interval.
             id:
@@ -114,6 +116,7 @@ options:
                 type: str
                 description: Mapped server IP.
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Maximum number of connections allowed to server.
             monitor:

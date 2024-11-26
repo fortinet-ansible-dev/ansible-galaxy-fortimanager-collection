@@ -112,6 +112,7 @@ options:
                     - 'new-on-not-found'
                     - 'delete'
             case_sensitive:
+                aliases: ['case-sensitive']
                 type: str
                 description: CASB operation search case sensitive.
                 choices:
@@ -123,6 +124,7 @@ options:
                 choices:
                     - 'request'
             header_name:
+                aliases: ['header-name']
                 type: str
                 description: CASB operation header name to search.
             name:
@@ -130,9 +132,11 @@ options:
                 description: CASB control option operation name.
                 required: true
             search_key:
+                aliases: ['search-key']
                 type: str
                 description: CASB operation key to search.
             search_pattern:
+                aliases: ['search-pattern']
                 type: str
                 description: CASB operation search pattern.
                 choices:
@@ -146,6 +150,7 @@ options:
                     - 'header'
                     - 'path'
             value_from_input:
+                aliases: ['value-from-input']
                 type: str
                 description: Enable/disable value from user input.
                 choices:

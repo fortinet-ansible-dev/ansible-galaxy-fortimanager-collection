@@ -93,6 +93,7 @@ options:
                 type: raw
                 description: (list or str) Manually selected group of addresses.
             default_policy:
+                aliases: ['default-policy']
                 type: str
                 description: Allow or block the clients with MAC addresses that are not in the group.
                 choices:

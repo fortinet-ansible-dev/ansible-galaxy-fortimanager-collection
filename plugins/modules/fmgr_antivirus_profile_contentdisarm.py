@@ -85,42 +85,49 @@ options:
         type: dict
         suboptions:
             cover_page:
+                aliases: ['cover-page']
                 type: str
                 description: Enable/disable inserting a cover page into the disarmed document.
                 choices:
                     - 'disable'
                     - 'enable'
             detect_only:
+                aliases: ['detect-only']
                 type: str
                 description: Enable/disable only detect disarmable files, do not alter content.
                 choices:
                     - 'disable'
                     - 'enable'
             office_embed:
+                aliases: ['office-embed']
                 type: str
                 description: Enable/disable stripping of embedded objects in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             office_hylink:
+                aliases: ['office-hylink']
                 type: str
                 description: Enable/disable stripping of hyperlinks in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             office_linked:
+                aliases: ['office-linked']
                 type: str
                 description: Enable/disable stripping of linked objects in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             office_macro:
+                aliases: ['office-macro']
                 type: str
                 description: Enable/disable stripping of macros in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             original_file_destination:
+                aliases: ['original-file-destination']
                 type: str
                 description: Destination to send original file if active content is removed.
                 choices:
@@ -128,72 +135,84 @@ options:
                     - 'quarantine'
                     - 'discard'
             pdf_act_form:
+                aliases: ['pdf-act-form']
                 type: str
                 description: Enable/disable stripping of actions that submit data to other targets in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_act_gotor:
+                aliases: ['pdf-act-gotor']
                 type: str
                 description: Enable/disable stripping of links to other PDFs in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_act_java:
+                aliases: ['pdf-act-java']
                 type: str
                 description: Enable/disable stripping of actions that execute JavaScript code in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_act_launch:
+                aliases: ['pdf-act-launch']
                 type: str
                 description: Enable/disable stripping of links to external applications in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_act_movie:
+                aliases: ['pdf-act-movie']
                 type: str
                 description: Enable/disable stripping of embedded movies in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_act_sound:
+                aliases: ['pdf-act-sound']
                 type: str
                 description: Enable/disable stripping of embedded sound files in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_embedfile:
+                aliases: ['pdf-embedfile']
                 type: str
                 description: Enable/disable stripping of embedded files in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_hyperlink:
+                aliases: ['pdf-hyperlink']
                 type: str
                 description: Enable/disable stripping of hyperlinks from PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             pdf_javacode:
+                aliases: ['pdf-javacode']
                 type: str
                 description: Enable/disable stripping of JavaScript code in PDF documents.
                 choices:
                     - 'disable'
                     - 'enable'
             office_action:
+                aliases: ['office-action']
                 type: str
                 description: Enable/disable stripping of PowerPoint action events in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             office_dde:
+                aliases: ['office-dde']
                 type: str
                 description: Enable/disable stripping of Dynamic Data Exchange events in Microsoft Office documents.
                 choices:
                     - 'disable'
                     - 'enable'
             error_action:
+                aliases: ['error-action']
                 type: str
                 description: Action to be taken if CDR engine encounters an unrecoverable error.
                 choices:
@@ -201,6 +220,7 @@ options:
                     - 'log-only'
                     - 'ignore'
             analytics_suspicious:
+                aliases: ['analytics-suspicious']
                 type: str
                 description: Enable/disable using CDR as a secondary method for determining suspicous files for analytics.
                 choices:

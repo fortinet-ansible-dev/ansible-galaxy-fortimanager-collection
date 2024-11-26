@@ -90,9 +90,11 @@ options:
         type: dict
         suboptions:
             domain_name:
+                aliases: ['domain-name']
                 type: str
                 description: Domain DNS name.
             extra_server:
+                aliases: ['extra-server']
                 type: list
                 elements: dict
                 description: Extra server.
@@ -101,21 +103,26 @@ options:
                         type: int
                         description: Server ID.
                     ip_address:
+                        aliases: ['ip-address']
                         type: str
                         description: Domain controller IP address.
                     port:
                         type: int
                         description: Port to be used for communication with the domain controller
                     source_ip_address:
+                        aliases: ['source-ip-address']
                         type: str
                         description: FortiGate IPv4 address to be used for communication with the domain controller.
                     source_port:
+                        aliases: ['source-port']
                         type: int
                         description: Source port to be used for communication with the domain controller.
             ip_address:
+                aliases: ['ip-address']
                 type: str
                 description: Domain controller IP address.
             ldap_server:
+                aliases: ['ldap-server']
                 type: raw
                 description: (list or str) LDAP server name.
             name:
@@ -126,6 +133,7 @@ options:
                 type: int
                 description: Port to be used for communication with the domain controller
             ad_mode:
+                aliases: ['ad-mode']
                 type: str
                 description: Set Active Directory mode.
                 choices:
@@ -133,18 +141,23 @@ options:
                     - 'ds'
                     - 'lds'
             adlds_dn:
+                aliases: ['adlds-dn']
                 type: str
                 description: AD LDS distinguished name.
             adlds_ip_address:
+                aliases: ['adlds-ip-address']
                 type: str
                 description: AD LDS IPv4 address.
             adlds_ip6:
+                aliases: ['adlds-ip6']
                 type: str
                 description: AD LDS IPv6 address.
             adlds_port:
+                aliases: ['adlds-port']
                 type: int
                 description: Port number of AD LDS service
             dns_srv_lookup:
+                aliases: ['dns-srv-lookup']
                 type: str
                 description: Enable/disable DNS service lookup.
                 choices:
@@ -157,6 +170,7 @@ options:
                 type: str
                 description: Specify outgoing interface to reach server.
             interface_select_method:
+                aliases: ['interface-select-method']
                 type: str
                 description: Specify how to select outgoing interface to reach server.
                 choices:
@@ -170,27 +184,33 @@ options:
                 type: raw
                 description: (list) Password for specified username.
             replication_port:
+                aliases: ['replication-port']
                 type: int
                 description: Port to be used for communication with the domain controller for replication service.
             source_ip_address:
+                aliases: ['source-ip-address']
                 type: str
                 description: FortiGate IPv4 address to be used for communication with the domain controller.
             source_ip6:
+                aliases: ['source-ip6']
                 type: str
                 description: FortiGate IPv6 address to be used for communication with the domain controller.
             source_port:
+                aliases: ['source-port']
                 type: int
                 description: Source port to be used for communication with the domain controller.
             username:
                 type: str
                 description: User name to sign in with.
             change_detection:
+                aliases: ['change-detection']
                 type: str
                 description: Enable/disable detection of a configuration change in the Active Directory server.
                 choices:
                     - 'disable'
                     - 'enable'
             change_detection_period:
+                aliases: ['change-detection-period']
                 type: int
                 description: Minutes to detect a configuration change in the Active Directory server
 '''

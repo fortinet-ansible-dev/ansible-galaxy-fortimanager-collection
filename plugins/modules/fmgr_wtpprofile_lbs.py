@@ -93,48 +93,59 @@ options:
                     - 'disable'
                     - 'enable'
             aeroscout_ap_mac:
+                aliases: ['aeroscout-ap-mac']
                 type: str
                 description: Use BSSID or board MAC address as AP MAC address in the Aeroscout AP message.
                 choices:
                     - 'bssid'
                     - 'board-mac'
             aeroscout_mmu_report:
+                aliases: ['aeroscout-mmu-report']
                 type: str
                 description: Enable/disable MU compounded report.
                 choices:
                     - 'disable'
                     - 'enable'
             aeroscout_mu:
+                aliases: ['aeroscout-mu']
                 type: str
                 description: Enable/disable AeroScout support.
                 choices:
                     - 'disable'
                     - 'enable'
             aeroscout_mu_factor:
+                aliases: ['aeroscout-mu-factor']
                 type: int
                 description: AeroScout Mobile Unit
             aeroscout_mu_timeout:
+                aliases: ['aeroscout-mu-timeout']
                 type: int
                 description: AeroScout MU mode timeout
             aeroscout_server_ip:
+                aliases: ['aeroscout-server-ip']
                 type: str
                 description: IP address of AeroScout server.
             aeroscout_server_port:
+                aliases: ['aeroscout-server-port']
                 type: int
                 description: AeroScout server UDP listening port.
             ekahau_blink_mode:
+                aliases: ['ekahau-blink-mode']
                 type: str
                 description: Enable/disable Ekahua blink mode
                 choices:
                     - 'disable'
                     - 'enable'
             ekahau_tag:
+                aliases: ['ekahau-tag']
                 type: str
                 description: WiFi frame MAC address or WiFi Tag.
             erc_server_ip:
+                aliases: ['erc-server-ip']
                 type: str
                 description: IP address of Ekahua RTLS Controller
             erc_server_port:
+                aliases: ['erc-server-port']
                 type: int
                 description: Ekahua RTLS Controller
             fortipresence:
@@ -147,51 +158,62 @@ options:
                     - 'foreign'
                     - 'both'
             fortipresence_frequency:
+                aliases: ['fortipresence-frequency']
                 type: int
                 description: FortiPresence report transmit frequency
             fortipresence_port:
+                aliases: ['fortipresence-port']
                 type: int
                 description: FortiPresence server UDP listening port
             fortipresence_project:
+                aliases: ['fortipresence-project']
                 type: str
                 description: FortiPresence project name
             fortipresence_rogue:
+                aliases: ['fortipresence-rogue']
                 type: str
                 description: Enable/disable FortiPresence finding and reporting rogue APs.
                 choices:
                     - 'disable'
                     - 'enable'
             fortipresence_secret:
+                aliases: ['fortipresence-secret']
                 type: raw
                 description: (list) FortiPresence secret password
             fortipresence_server:
+                aliases: ['fortipresence-server']
                 type: str
                 description: FortiPresence server IP address.
             fortipresence_unassoc:
+                aliases: ['fortipresence-unassoc']
                 type: str
                 description: Enable/disable FortiPresence finding and reporting unassociated stations.
                 choices:
                     - 'disable'
                     - 'enable'
             station_locate:
+                aliases: ['station-locate']
                 type: str
                 description: Enable/disable client station locating services for all clients, whether associated or not
                 choices:
                     - 'disable'
                     - 'enable'
             fortipresence_ble:
+                aliases: ['fortipresence-ble']
                 type: str
                 description: Enable/disable FortiPresence finding and reporting BLE devices.
                 choices:
                     - 'disable'
                     - 'enable'
             fortipresence_server_addr_type:
+                aliases: ['fortipresence-server-addr-type']
                 type: str
                 description: FortiPresence server address type
                 choices:
                     - 'fqdn'
                     - 'ipv4'
             fortipresence_server_fqdn:
+                aliases: ['fortipresence-server-fqdn']
                 type: str
                 description: FQDN of FortiPresence server.
             polestar:
@@ -201,44 +223,57 @@ options:
                     - 'disable'
                     - 'enable'
             polestar_accumulation_interval:
+                aliases: ['polestar-accumulation-interval']
                 type: int
                 description: Time that measurements should be accumulated in seconds
             polestar_asset_addrgrp_list:
+                aliases: ['polestar-asset-addrgrp-list']
                 type: str
                 description: Tags and asset addrgrp list to be reported.
             polestar_asset_uuid_list1:
+                aliases: ['polestar-asset-uuid-list1']
                 type: str
                 description: Tags and asset UUID list 1 to be reported
             polestar_asset_uuid_list2:
+                aliases: ['polestar-asset-uuid-list2']
                 type: str
                 description: Tags and asset UUID list 2 to be reported
             polestar_asset_uuid_list3:
+                aliases: ['polestar-asset-uuid-list3']
                 type: str
                 description: Tags and asset UUID list 3 to be reported
             polestar_asset_uuid_list4:
+                aliases: ['polestar-asset-uuid-list4']
                 type: str
                 description: Tags and asset UUID list 4 to be reported
             polestar_protocol:
+                aliases: ['polestar-protocol']
                 type: str
                 description: Select the protocol to report Measurements, Advertising Data, or Location Data to NAO Cloud.
                 choices:
                     - 'WSS'
             polestar_reporting_interval:
+                aliases: ['polestar-reporting-interval']
                 type: int
                 description: Time between reporting accumulated measurements in seconds
             polestar_server_fqdn:
+                aliases: ['polestar-server-fqdn']
                 type: str
                 description: FQDN of PoleStar Nao Track Server
             polestar_server_path:
+                aliases: ['polestar-server-path']
                 type: str
                 description: Path of PoleStar Nao Track Server
             polestar_server_port:
+                aliases: ['polestar-server-port']
                 type: int
                 description: Port of PoleStar Nao Track Server
             polestar_server_token:
+                aliases: ['polestar-server-token']
                 type: str
                 description: Access Token of PoleStar Nao Track Server.
             ble_rtls:
+                aliases: ['ble-rtls']
                 type: str
                 description: Set BLE Real Time Location Service
                 choices:
@@ -246,41 +281,53 @@ options:
                     - 'polestar'
                     - 'evresys'
             ble_rtls_accumulation_interval:
+                aliases: ['ble-rtls-accumulation-interval']
                 type: int
                 description: Time that measurements should be accumulated in seconds
             ble_rtls_asset_addrgrp_list:
+                aliases: ['ble-rtls-asset-addrgrp-list']
                 type: raw
                 description: (list) Tags and asset addrgrp list to be reported.
             ble_rtls_asset_uuid_list1:
+                aliases: ['ble-rtls-asset-uuid-list1']
                 type: str
                 description: Tags and asset UUID list 1 to be reported
             ble_rtls_asset_uuid_list2:
+                aliases: ['ble-rtls-asset-uuid-list2']
                 type: str
                 description: Tags and asset UUID list 2 to be reported
             ble_rtls_asset_uuid_list3:
+                aliases: ['ble-rtls-asset-uuid-list3']
                 type: str
                 description: Tags and asset UUID list 3 to be reported
             ble_rtls_asset_uuid_list4:
+                aliases: ['ble-rtls-asset-uuid-list4']
                 type: str
                 description: Tags and asset UUID list 4 to be reported
             ble_rtls_protocol:
+                aliases: ['ble-rtls-protocol']
                 type: str
                 description: Select the protocol to report Measurements, Advertising Data, or Location Data to Cloud Server.
                 choices:
                     - 'WSS'
             ble_rtls_reporting_interval:
+                aliases: ['ble-rtls-reporting-interval']
                 type: int
                 description: Time between reporting accumulated measurements in seconds
             ble_rtls_server_fqdn:
+                aliases: ['ble-rtls-server-fqdn']
                 type: str
                 description: FQDN of BLE Real Time Location Service
             ble_rtls_server_path:
+                aliases: ['ble-rtls-server-path']
                 type: str
                 description: Path of BLE Real Time Location Service
             ble_rtls_server_port:
+                aliases: ['ble-rtls-server-port']
                 type: int
                 description: Port of BLE Real Time Location Service
             ble_rtls_server_token:
+                aliases: ['ble-rtls-server-token']
                 type: str
                 description: Access Token of BLE Real Time Location Service
 '''

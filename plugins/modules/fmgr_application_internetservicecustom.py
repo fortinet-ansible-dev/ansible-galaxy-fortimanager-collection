@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Comment.
             disable_entry:
+                aliases: ['disable-entry']
                 type: list
                 elements: dict
                 description: Disable entry.
@@ -101,17 +102,20 @@ options:
                         type: int
                         description: Disable entry ID.
                     ip_range:
+                        aliases: ['ip-range']
                         type: list
                         elements: dict
                         description: Ip range.
                         suboptions:
                             end_ip:
+                                aliases: ['end-ip']
                                 type: str
                                 description: End IP address.
                             id:
                                 type: int
                                 description: Disable entry range ID.
                             start_ip:
+                                aliases: ['start-ip']
                                 type: str
                                 description: Start IP address.
                     port:
@@ -132,23 +136,27 @@ options:
                         type: int
                         description: Entry ID
                     port_range:
+                        aliases: ['port-range']
                         type: list
                         elements: dict
                         description: Port range.
                         suboptions:
                             end_port:
+                                aliases: ['end-port']
                                 type: int
                                 description: End destination port number
                             id:
                                 type: int
                                 description: Custom entry port range ID.
                             start_port:
+                                aliases: ['start-port']
                                 type: int
                                 description: Start destination port number
                     protocol:
                         type: int
                         description: Protocol number.
             master_service_id:
+                aliases: ['master-service-id']
                 type: str
                 description: Internet service database application ID.
             name:

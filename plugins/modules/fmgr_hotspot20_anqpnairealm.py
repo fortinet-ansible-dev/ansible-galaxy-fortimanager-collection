@@ -90,16 +90,19 @@ options:
         type: dict
         suboptions:
             nai_list:
+                aliases: ['nai-list']
                 type: list
                 elements: dict
                 description: Nai list.
                 suboptions:
                     eap_method:
+                        aliases: ['eap-method']
                         type: list
                         elements: dict
                         description: Eap method.
                         suboptions:
                             auth_param:
+                                aliases: ['auth-param']
                                 type: list
                                 elements: dict
                                 description: Auth param.
@@ -171,6 +174,7 @@ options:
                             - 'disable'
                             - 'enable'
                     nai_realm:
+                        aliases: ['nai-realm']
                         type: str
                         description: Configure NAI realms
                     name:

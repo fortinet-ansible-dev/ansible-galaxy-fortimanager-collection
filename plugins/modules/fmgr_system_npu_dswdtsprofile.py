@@ -101,9 +101,11 @@ options:
                     - 'enque_0'
                     - 'enque_1'
             min_limit:
+                aliases: ['min-limit']
                 type: int
                 description: Set NPU DSW DTS profile min-limt.
             profile_id:
+                aliases: ['profile-id']
                 type: int
                 description: Set NPU DSW DTS profile profile id.
             step:

@@ -114,6 +114,7 @@ options:
                 type: int
                 description: Protocol type as defined by IANA
             rule_id:
+                aliases: ['rule-id']
                 type: int
                 description: Rule ID
             srcaddr:

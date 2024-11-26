@@ -120,6 +120,7 @@ options:
                         type: str
                         description: Banned word.
                     pattern_type:
+                        aliases: ['pattern-type']
                         type: str
                         description: Banned word pattern type
                         choices:

@@ -115,9 +115,11 @@ options:
                 type: int
                 description: ID of VLAN to advertise, if configured on port
             vlan_intf:
+                aliases: ['vlan-intf']
                 type: str
                 description: VLAN interface to advertise; if configured on port.
             assign_vlan:
+                aliases: ['assign-vlan']
                 type: str
                 description: Enable/disable VLAN assignment when this profile is applied on managed FortiSwitch port.
                 choices:

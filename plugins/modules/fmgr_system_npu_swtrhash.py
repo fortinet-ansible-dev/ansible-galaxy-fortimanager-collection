@@ -87,6 +87,7 @@ options:
                     - 'disable'
                     - 'enable'
             tcp_udp_port:
+                aliases: ['tcp-udp-port']
                 type: str
                 description: Include/exclude TCP/UDP source and destination port for unicast trunk traffic.
                 choices:

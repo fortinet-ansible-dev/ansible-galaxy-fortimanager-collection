@@ -116,9 +116,11 @@ options:
                 type: str
                 description: Time of day to start the schedule, format hh
             global_object:
+                aliases: ['global-object']
                 type: int
                 description: Global Object.
             fabric_object:
+                aliases: ['fabric-object']
                 type: str
                 description: Security Fabric global object setting.
                 choices:

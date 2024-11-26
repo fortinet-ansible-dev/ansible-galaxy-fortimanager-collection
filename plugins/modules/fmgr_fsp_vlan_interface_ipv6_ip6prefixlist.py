@@ -94,6 +94,7 @@ options:
         type: dict
         suboptions:
             autonomous_flag:
+                aliases: ['autonomous-flag']
                 type: str
                 description: Autonomous flag.
                 choices:
@@ -103,12 +104,14 @@ options:
                 type: raw
                 description: (list) Dnssl.
             onlink_flag:
+                aliases: ['onlink-flag']
                 type: str
                 description: Onlink flag.
                 choices:
                     - 'disable'
                     - 'enable'
             preferred_life_time:
+                aliases: ['preferred-life-time']
                 type: int
                 description: Preferred life time.
             prefix:
@@ -118,6 +121,7 @@ options:
                 type: raw
                 description: (list) Rdnss.
             valid_life_time:
+                aliases: ['valid-life-time']
                 type: int
                 description: Valid life time.
 '''

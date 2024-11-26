@@ -96,9 +96,11 @@ options:
         type: dict
         suboptions:
             nai_realm:
+                aliases: ['nai-realm']
                 type: str
                 description: NAI realm list name.
             nai_realm_encoding:
+                aliases: ['nai-realm-encoding']
                 type: str
                 description: NAI realm encoding.
             name:
@@ -106,6 +108,7 @@ options:
                 description: Advice of charge ID.
                 required: true
             plan_info:
+                aliases: ['plan-info']
                 type: list
                 elements: dict
                 description: Plan info.
@@ -114,6 +117,7 @@ options:
                         type: str
                         description: Currency code.
                     info_file:
+                        aliases: ['info-file']
                         type: str
                         description: Info file.
                     lang:

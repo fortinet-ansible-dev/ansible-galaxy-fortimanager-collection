@@ -117,6 +117,7 @@ options:
                     - 'nntp'
                     - 'https'
             violation_action:
+                aliases: ['violation-action']
                 type: str
                 description: Action for protocols not white listed under selected port.
                 choices:

@@ -105,6 +105,7 @@ options:
                         type: str
                         description: Vdom.
             local_cert:
+                aliases: ['local-cert']
                 type: str
                 description: Local cert.
 '''

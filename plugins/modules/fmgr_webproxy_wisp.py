@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Comment.
             max_connections:
+                aliases: ['max-connections']
                 type: int
                 description: Maximum number of web proxy WISP connections
             name:
@@ -100,12 +101,15 @@ options:
                 description: Server name.
                 required: true
             outgoing_ip:
+                aliases: ['outgoing-ip']
                 type: str
                 description: WISP outgoing IP address.
             server_ip:
+                aliases: ['server-ip']
                 type: str
                 description: WISP server IP address.
             server_port:
+                aliases: ['server-port']
                 type: int
                 description: WISP server port
             timeout:

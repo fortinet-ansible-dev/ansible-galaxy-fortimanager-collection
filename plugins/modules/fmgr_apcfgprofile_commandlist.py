@@ -103,6 +103,7 @@ options:
                 type: str
                 description: AP local configuration command name.
             passwd_value:
+                aliases: ['passwd-value']
                 type: raw
                 description: (list) AP local configuration command password value.
             type:

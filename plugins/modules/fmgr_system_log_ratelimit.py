@@ -85,6 +85,7 @@ options:
                         type: str
                         description: Device
                     filter_type:
+                        aliases: ['filter-type']
                         type: str
                         description:
                             - Device filter type.
@@ -98,6 +99,7 @@ options:
                         type: int
                         description: Maximum device log rate limit.
             device_ratelimit_default:
+                aliases: ['device-ratelimit-default']
                 type: int
                 description: Default maximum device log rate limit.
             mode:
@@ -110,6 +112,7 @@ options:
                     - 'disable'
                     - 'manual'
             system_ratelimit:
+                aliases: ['system-ratelimit']
                 type: int
                 description: Maximum system log rate limit.
             ratelimits:
@@ -121,6 +124,7 @@ options:
                         type: str
                         description: Device or ADOM filter according to filter-type setting, wildcard expression supported.
                     filter_type:
+                        aliases: ['filter-type']
                         type: str
                         description:
                             - Device filter type.

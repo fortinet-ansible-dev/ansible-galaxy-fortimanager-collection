@@ -102,6 +102,7 @@ options:
                 type: raw
                 description: (list) Local certificate password.
             private_key:
+                aliases: ['private-key']
                 type: raw
                 description: (list) Local certificate private-key.
 '''

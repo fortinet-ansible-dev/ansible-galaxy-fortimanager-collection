@@ -110,6 +110,7 @@ options:
                 description: Mime header entry ID.
                 required: true
             pattern_type:
+                aliases: ['pattern-type']
                 type: str
                 description: Wildcard pattern or regular expression.
                 choices:

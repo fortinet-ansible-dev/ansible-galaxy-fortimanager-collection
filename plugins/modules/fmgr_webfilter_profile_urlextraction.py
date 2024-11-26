@@ -85,18 +85,22 @@ options:
         type: dict
         suboptions:
             redirect_header:
+                aliases: ['redirect-header']
                 type: str
                 description: HTTP header name to use for client redirect on blocked requests
             redirect_no_content:
+                aliases: ['redirect-no-content']
                 type: str
                 description: Enable / Disable empty message-body entity in HTTP response
                 choices:
                     - 'disable'
                     - 'enable'
             redirect_url:
+                aliases: ['redirect-url']
                 type: str
                 description: HTTP header value to use for client redirect on blocked requests
             server_fqdn:
+                aliases: ['server-fqdn']
                 type: str
                 description: URL extraction server FQDN
             status:

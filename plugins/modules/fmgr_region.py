@@ -99,6 +99,7 @@ options:
                     - 'disable'
                     - 'enable'
             image_type:
+                aliases: ['image-type']
                 type: str
                 description: FortiAP region image type
                 choices:

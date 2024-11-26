@@ -90,12 +90,15 @@ options:
         type: dict
         suboptions:
             city_id:
+                aliases: ['city-id']
                 type: int
                 description: City ID.
             country_id:
+                aliases: ['country-id']
                 type: int
                 description: Country or Area ID.
             internet_service_id:
+                aliases: ['internet-service-id']
                 type: str
                 description: Internet Service ID.
             name:
@@ -103,6 +106,7 @@ options:
                 description: Internet Service name.
                 required: true
             region_id:
+                aliases: ['region-id']
                 type: int
                 description: Region ID.
             type:

@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Comment.
             dhcp_ip_addr:
+                aliases: ['dhcp-ip-addr']
                 type: str
                 description: IP address of the monitoring DHCP request packet sent through the tunnel.
             name:
@@ -100,24 +101,30 @@ options:
                 description: Tunnel profile name.
                 required: true
             ping_interval:
+                aliases: ['ping-interval']
                 type: int
                 description: Interval between two tunnel monitoring echo packets
             ping_number:
+                aliases: ['ping-number']
                 type: int
                 description: Number of the tunnel monitoring echo packets
             return_packet_timeout:
+                aliases: ['return-packet-timeout']
                 type: int
                 description: Window of time for the return packets from the tunnels remote end
             tunnel_type:
+                aliases: ['tunnel-type']
                 type: str
                 description: Tunnel type.
                 choices:
                     - 'gre'
                     - 'l2tpv3'
             wag_ip:
+                aliases: ['wag-ip']
                 type: str
                 description: IP Address of the wireless access gateway.
             wag_port:
+                aliases: ['wag-port']
                 type: int
                 description: UDP port of the wireless access gateway.
 '''

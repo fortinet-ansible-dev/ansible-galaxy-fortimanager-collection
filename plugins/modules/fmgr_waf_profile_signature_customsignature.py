@@ -101,6 +101,7 @@ options:
                     - 'block'
                     - 'erase'
             case_sensitivity:
+                aliases: ['case-sensitivity']
                 type: str
                 description: Case sensitivity in pattern.
                 choices:

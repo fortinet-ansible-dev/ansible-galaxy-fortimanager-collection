@@ -85,6 +85,7 @@ options:
         type: dict
         suboptions:
             content_length:
+                aliases: ['content-length']
                 type: dict
                 description: Content length.
                 suboptions:
@@ -125,12 +126,14 @@ options:
                         type: str
                         description: Host address.
                     content_length:
+                        aliases: ['content-length']
                         type: str
                         description: HTTP content length in request.
                         choices:
                             - 'disable'
                             - 'enable'
                     header_length:
+                        aliases: ['header-length']
                         type: str
                         description: HTTP header length in request.
                         choices:
@@ -146,6 +149,7 @@ options:
                         type: int
                         description: Exception ID.
                     line_length:
+                        aliases: ['line-length']
                         type: str
                         description: HTTP line length in request.
                         choices:
@@ -158,24 +162,28 @@ options:
                             - 'disable'
                             - 'enable'
                     max_cookie:
+                        aliases: ['max-cookie']
                         type: str
                         description: Maximum number of cookies in HTTP request.
                         choices:
                             - 'disable'
                             - 'enable'
                     max_header_line:
+                        aliases: ['max-header-line']
                         type: str
                         description: Maximum number of HTTP header line.
                         choices:
                             - 'disable'
                             - 'enable'
                     max_range_segment:
+                        aliases: ['max-range-segment']
                         type: str
                         description: Maximum number of range segments in HTTP range line.
                         choices:
                             - 'disable'
                             - 'enable'
                     max_url_param:
+                        aliases: ['max-url-param']
                         type: str
                         description: Maximum number of parameters in URL.
                         choices:
@@ -188,6 +196,7 @@ options:
                             - 'disable'
                             - 'enable'
                     param_length:
+                        aliases: ['param-length']
                         type: str
                         description: Maximum length of parameter in URL, HTTP POST request or HTTP body.
                         choices:
@@ -203,6 +212,7 @@ options:
                             - 'disable'
                             - 'enable'
                     url_param_length:
+                        aliases: ['url-param-length']
                         type: str
                         description: Maximum length of parameter in URL.
                         choices:
@@ -215,6 +225,7 @@ options:
                             - 'disable'
                             - 'enable'
             header_length:
+                aliases: ['header-length']
                 type: dict
                 description: Header length.
                 suboptions:
@@ -276,6 +287,7 @@ options:
                             - 'disable'
                             - 'enable'
             line_length:
+                aliases: ['line-length']
                 type: dict
                 description: Line length.
                 suboptions:
@@ -337,6 +349,7 @@ options:
                             - 'disable'
                             - 'enable'
             max_cookie:
+                aliases: ['max-cookie']
                 type: dict
                 description: Max cookie.
                 suboptions:
@@ -353,6 +366,7 @@ options:
                             - 'disable'
                             - 'enable'
                     max_cookie:
+                        aliases: ['max-cookie']
                         type: int
                         description: Maximum number of cookies in HTTP request
                     severity:
@@ -369,6 +383,7 @@ options:
                             - 'disable'
                             - 'enable'
             max_header_line:
+                aliases: ['max-header-line']
                 type: dict
                 description: Max header line.
                 suboptions:
@@ -385,6 +400,7 @@ options:
                             - 'disable'
                             - 'enable'
                     max_header_line:
+                        aliases: ['max-header-line']
                         type: int
                         description: Maximum number HTTP header lines
                     severity:
@@ -401,6 +417,7 @@ options:
                             - 'disable'
                             - 'enable'
             max_range_segment:
+                aliases: ['max-range-segment']
                 type: dict
                 description: Max range segment.
                 suboptions:
@@ -417,6 +434,7 @@ options:
                             - 'disable'
                             - 'enable'
                     max_range_segment:
+                        aliases: ['max-range-segment']
                         type: int
                         description: Maximum number of range segments in HTTP range line
                     severity:
@@ -433,6 +451,7 @@ options:
                             - 'disable'
                             - 'enable'
             max_url_param:
+                aliases: ['max-url-param']
                 type: dict
                 description: Max url param.
                 suboptions:
@@ -449,6 +468,7 @@ options:
                             - 'disable'
                             - 'enable'
                     max_url_param:
+                        aliases: ['max-url-param']
                         type: int
                         description: Maximum number of parameters in URL
                     severity:
@@ -494,6 +514,7 @@ options:
                             - 'disable'
                             - 'enable'
             param_length:
+                aliases: ['param-length']
                 type: dict
                 description: Param length.
                 suboptions:
@@ -526,6 +547,7 @@ options:
                             - 'disable'
                             - 'enable'
             url_param_length:
+                aliases: ['url-param-length']
                 type: dict
                 description: Url param length.
                 suboptions:

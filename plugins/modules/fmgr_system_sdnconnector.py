@@ -93,9 +93,11 @@ options:
                 type: str
                 description: Local cert.
             access_key:
+                aliases: ['access-key']
                 type: str
                 description: AWS access key ID.
             azure_region:
+                aliases: ['azure-region']
                 type: str
                 description: Azure server region.
                 choices:
@@ -105,15 +107,19 @@ options:
                     - 'usgov'
                     - 'local'
             client_id:
+                aliases: ['client-id']
                 type: str
                 description: Azure client ID
             client_secret:
+                aliases: ['client-secret']
                 type: raw
                 description: (list) Azure client secret
             compartment_id:
+                aliases: ['compartment-id']
                 type: str
                 description: Compartment ID.
             external_ip:
+                aliases: ['external-ip']
                 type: list
                 elements: dict
                 description: External ip.
@@ -122,12 +128,15 @@ options:
                         type: str
                         description: External IP name.
             gcp_project:
+                aliases: ['gcp-project']
                 type: str
                 description: GCP project name.
             key_passwd:
+                aliases: ['key-passwd']
                 type: raw
                 description: (list) Private key password.
             login_endpoint:
+                aliases: ['login-endpoint']
                 type: str
                 description: Azure Stack login enpoint.
             name:
@@ -148,30 +157,38 @@ options:
                                 type: str
                                 description: IP configuration name.
                             public_ip:
+                                aliases: ['public-ip']
                                 type: str
                                 description: Public IP name.
                             resource_group:
+                                aliases: ['resource-group']
                                 type: str
                                 description: Resource group of Azure public IP.
                             private_ip:
+                                aliases: ['private-ip']
                                 type: str
                                 description: Private IP address.
                     name:
                         type: str
                         description: Network interface name.
                     peer_nic:
+                        aliases: ['peer-nic']
                         type: str
                         description: Peer network interface name.
             nsx_cert_fingerprint:
+                aliases: ['nsx-cert-fingerprint']
                 type: str
                 description: NSX certificate fingerprint.
             oci_cert:
+                aliases: ['oci-cert']
                 type: str
                 description: OCI certificate.
             oci_fingerprint:
+                aliases: ['oci-fingerprint']
                 type: str
                 description: Oci fingerprint.
             oci_region:
+                aliases: ['oci-region']
                 type: str
                 description: OCI server region.
                 choices:
@@ -184,30 +201,37 @@ options:
                 type: raw
                 description: (list) Password of the remote SDN connector as login credentials.
             private_key:
+                aliases: ['private-key']
                 type: str
                 description: Private key of GCP service account.
             region:
                 type: str
                 description: AWS region name.
             resource_group:
+                aliases: ['resource-group']
                 type: str
                 description: Azure resource group.
             resource_url:
+                aliases: ['resource-url']
                 type: str
                 description: Azure Stack resource URL.
             rest_interface:
+                aliases: ['rest-interface']
                 type: str
                 description: Interface name for REST service to listen on.
                 choices:
                     - 'mgmt'
                     - 'sync'
             rest_password:
+                aliases: ['rest-password']
                 type: raw
                 description: (list) Password for REST service.
             rest_sport:
+                aliases: ['rest-sport']
                 type: int
                 description: REST service access port
             rest_ssl:
+                aliases: ['rest-ssl']
                 type: str
                 description: Rest ssl.
                 choices:
@@ -222,6 +246,7 @@ options:
                         type: str
                         description: Route name.
             route_table:
+                aliases: ['route-table']
                 type: list
                 elements: dict
                 description: Route table.
@@ -238,24 +263,30 @@ options:
                                 type: str
                                 description: Route name.
                             next_hop:
+                                aliases: ['next-hop']
                                 type: str
                                 description: Next hop address.
                     resource_group:
+                        aliases: ['resource-group']
                         type: str
                         description: Resource group of Azure route table.
                     subscription_id:
+                        aliases: ['subscription-id']
                         type: str
                         description: Subscription ID of Azure route table.
             secret_key:
+                aliases: ['secret-key']
                 type: raw
                 description: (list) AWS secret access key.
             server:
                 type: str
                 description: Server address of the remote SDN connector.
             server_port:
+                aliases: ['server-port']
                 type: int
                 description: Port number of the remote SDN connector.
             service_account:
+                aliases: ['service-account']
                 type: str
                 description: GCP service account email.
             status:
@@ -265,9 +296,11 @@ options:
                     - 'disable'
                     - 'enable'
             subscription_id:
+                aliases: ['subscription-id']
                 type: str
                 description: Azure subscription ID.
             tenant_id:
+                aliases: ['tenant-id']
                 type: str
                 description: Tenant ID
             type:
@@ -292,66 +325,81 @@ options:
                     - 'nutanix'
                     - 'sap'
             update_interval:
+                aliases: ['update-interval']
                 type: int
                 description: Dynamic object update interval
             use_metadata_iam:
+                aliases: ['use-metadata-iam']
                 type: str
                 description: Enable/disable using IAM role from metadata to call API.
                 choices:
                     - 'disable'
                     - 'enable'
             user_id:
+                aliases: ['user-id']
                 type: str
                 description: User ID.
             username:
                 type: str
                 description: Username of the remote SDN connector as login credentials.
             vmx_image_url:
+                aliases: ['vmx-image-url']
                 type: str
                 description: URL of web-hosted VMX image.
             vmx_service_name:
+                aliases: ['vmx-service-name']
                 type: str
                 description: VMX Service name.
             vpc_id:
+                aliases: ['vpc-id']
                 type: str
                 description: AWS VPC ID.
             domain:
                 type: str
                 description: Openstack domain.
             ha_status:
+                aliases: ['ha-status']
                 type: str
                 description: Enable/disable use for FortiGate HA service.
                 choices:
                     - 'disable'
                     - 'enable'
             last_update:
+                aliases: ['last-update']
                 type: int
                 description: Last update.
             oci_region_type:
+                aliases: ['oci-region-type']
                 type: str
                 description: OCI region type.
                 choices:
                     - 'commercial'
                     - 'government'
             secret_token:
+                aliases: ['secret-token']
                 type: str
                 description: Secret token of Kubernetes service account.
             updating:
                 type: int
                 description: Updating.
             server_ip:
+                aliases: ['server-ip']
                 type: str
                 description: IP address of the remote SDN connector.
             group_name:
+                aliases: ['group-name']
                 type: str
                 description: Group name of computers.
             api_key:
+                aliases: ['api-key']
                 type: raw
                 description: (list) IBM cloud API key or service ID API key.
             compute_generation:
+                aliases: ['compute-generation']
                 type: int
                 description: Compute generation for IBM cloud infrastructure.
             ibm_region:
+                aliases: ['ibm-region']
                 type: str
                 description: IBM cloud region name.
                 choices:
@@ -380,6 +428,7 @@ options:
                     - 'toronto-private'
                     - 'sao-paulo-private'
             ibm_region_gen1:
+                aliases: ['ibm-region-gen1']
                 type: str
                 description: Ibm region gen1.
                 choices:
@@ -390,6 +439,7 @@ options:
                     - 'japan'
                     - 'australia'
             ibm_region_gen2:
+                aliases: ['ibm-region-gen2']
                 type: str
                 description: Ibm region gen2.
                 choices:
@@ -397,80 +447,99 @@ options:
                     - 'us-east'
                     - 'great-britain'
             vcenter_password:
+                aliases: ['vcenter-password']
                 type: raw
                 description: (list) VCenter server password for NSX quarantine.
             vcenter_server:
+                aliases: ['vcenter-server']
                 type: str
                 description: VCenter server address for NSX quarantine.
             vcenter_username:
+                aliases: ['vcenter-username']
                 type: str
                 description: VCenter server username for NSX quarantine.
             server_list:
+                aliases: ['server-list']
                 type: raw
                 description: (list) Server address list of the remote SDN connector.
             external_account_list:
+                aliases: ['external-account-list']
                 type: list
                 elements: dict
                 description: External account list.
                 suboptions:
                     region_list:
+                        aliases: ['region-list']
                         type: raw
                         description: (list) AWS region name list.
                     role_arn:
+                        aliases: ['role-arn']
                         type: str
                         description: AWS role ARN to assume.
                     external_id:
+                        aliases: ['external-id']
                         type: str
                         description: AWS external ID.
             forwarding_rule:
+                aliases: ['forwarding-rule']
                 type: list
                 elements: dict
                 description: Forwarding rule.
                 suboptions:
                     rule_name:
+                        aliases: ['rule-name']
                         type: str
                         description: Forwarding rule name.
                     target:
                         type: str
                         description: Target instance name.
             gcp_project_list:
+                aliases: ['gcp-project-list']
                 type: list
                 elements: dict
                 description: Gcp project list.
                 suboptions:
                     gcp_zone_list:
+                        aliases: ['gcp-zone-list']
                         type: raw
                         description: (list) Configure GCP zone list.
                     id:
                         type: str
                         description: GCP project ID.
             verify_certificate:
+                aliases: ['verify-certificate']
                 type: str
                 description: Enable/disable server certificate verification.
                 choices:
                     - 'disable'
                     - 'enable'
             alt_resource_ip:
+                aliases: ['alt-resource-ip']
                 type: str
                 description: Enable/disable AWS alternative resource IP.
                 choices:
                     - 'disable'
                     - 'enable'
             server_ca_cert:
+                aliases: ['server-ca-cert']
                 type: str
                 description: Trust only those servers whose certificate is directly/indirectly signed by this certificate.
             server_cert:
+                aliases: ['server-cert']
                 type: str
                 description: Trust servers that contain this certificate only.
             compartment_list:
+                aliases: ['compartment-list']
                 type: list
                 elements: dict
                 description: Compartment list.
                 suboptions:
                     compartment_id:
+                        aliases: ['compartment-id']
                         type: str
                         description: OCI compartment ID.
             oci_region_list:
+                aliases: ['oci-region-list']
                 type: list
                 elements: dict
                 description: Oci region list.

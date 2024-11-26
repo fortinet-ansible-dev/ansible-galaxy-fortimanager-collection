@@ -77,6 +77,7 @@ options:
         type: dict
         suboptions:
             entropy_token:
+                aliases: ['entropy-token']
                 type: str
                 description:
                     - Enable/disable entropy token when switching to FIPS mode.
@@ -88,6 +89,7 @@ options:
                     - 'disable'
                     - 'dynamic'
             re_seed_interval:
+                aliases: ['re-seed-interval']
                 type: int
                 description: Kernel FIPS-compliant PRNG re-seed interval
             status:

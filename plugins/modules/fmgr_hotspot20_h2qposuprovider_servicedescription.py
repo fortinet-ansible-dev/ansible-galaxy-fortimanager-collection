@@ -99,9 +99,11 @@ options:
                 type: str
                 description: Language code.
             service_description:
+                aliases: ['service-description']
                 type: str
                 description: Service description.
             service_id:
+                aliases: ['service-id']
                 type: int
                 description: OSU service ID.
                 required: true

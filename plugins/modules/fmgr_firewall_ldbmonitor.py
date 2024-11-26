@@ -90,12 +90,15 @@ options:
         type: dict
         suboptions:
             http_get:
+                aliases: ['http-get']
                 type: str
                 description: URL used to send a GET request to check the health of an HTTP server.
             http_match:
+                aliases: ['http-match']
                 type: str
                 description: String to match the value expected in response to an HTTP-GET request.
             http_max_redirects:
+                aliases: ['http-max-redirects']
                 type: int
                 description: The maximum number of HTTP redirects to be allowed
             interval:
@@ -125,18 +128,22 @@ options:
                     - 'https'
                     - 'dns'
             src_ip:
+                aliases: ['src-ip']
                 type: str
                 description: Source IP for ldb-monitor.
             dns_match_ip:
+                aliases: ['dns-match-ip']
                 type: str
                 description: Response IP expected from DNS server.
             dns_protocol:
+                aliases: ['dns-protocol']
                 type: str
                 description: Select the protocol used by the DNS health check monitor to check the health of the server
                 choices:
                     - 'udp'
                     - 'tcp'
             dns_request_domain:
+                aliases: ['dns-request-domain']
                 type: str
                 description: Fully qualified domain name to resolve for the DNS probe.
 '''

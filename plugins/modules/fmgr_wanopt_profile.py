@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             auth_group:
+                aliases: ['auth-group']
                 type: str
                 description: Optionally add an authentication group to restrict access to the WAN Optimization tunnel to peers in the authentication group.
             comments:
@@ -110,30 +111,35 @@ options:
                 description: Cifs.
                 suboptions:
                     byte_caching:
+                        aliases: ['byte-caching']
                         type: str
                         description: Enable/disable byte-caching.
                         choices:
                             - 'disable'
                             - 'enable'
                     log_traffic:
+                        aliases: ['log-traffic']
                         type: str
                         description: Enable/disable logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     prefer_chunking:
+                        aliases: ['prefer-chunking']
                         type: str
                         description: Select dynamic or fixed-size data chunking for WAN Optimization.
                         choices:
                             - 'dynamic'
                             - 'fix'
                     protocol_opt:
+                        aliases: ['protocol-opt']
                         type: str
                         description: Select Protocol specific optimitation or generic TCP optimization.
                         choices:
                             - 'protocol'
                             - 'tcp'
                     secure_tunnel:
+                        aliases: ['secure-tunnel']
                         type: str
                         description: Enable/disable securing the WAN Opt tunnel using SSL.
                         choices:
@@ -146,6 +152,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tunnel_sharing:
+                        aliases: ['tunnel-sharing']
                         type: str
                         description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                         choices:
@@ -160,30 +167,35 @@ options:
                 description: Ftp.
                 suboptions:
                     byte_caching:
+                        aliases: ['byte-caching']
                         type: str
                         description: Enable/disable byte-caching.
                         choices:
                             - 'disable'
                             - 'enable'
                     log_traffic:
+                        aliases: ['log-traffic']
                         type: str
                         description: Enable/disable logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     prefer_chunking:
+                        aliases: ['prefer-chunking']
                         type: str
                         description: Select dynamic or fixed-size data chunking for WAN Optimization.
                         choices:
                             - 'dynamic'
                             - 'fix'
                     protocol_opt:
+                        aliases: ['protocol-opt']
                         type: str
                         description: Select Protocol specific optimitation or generic TCP optimization.
                         choices:
                             - 'protocol'
                             - 'tcp'
                     secure_tunnel:
+                        aliases: ['secure-tunnel']
                         type: str
                         description: Enable/disable securing the WAN Opt tunnel using SSL.
                         choices:
@@ -202,6 +214,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tunnel_sharing:
+                        aliases: ['tunnel-sharing']
                         type: str
                         description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                         choices:
@@ -216,30 +229,35 @@ options:
                 description: Http.
                 suboptions:
                     byte_caching:
+                        aliases: ['byte-caching']
                         type: str
                         description: Enable/disable byte-caching.
                         choices:
                             - 'disable'
                             - 'enable'
                     log_traffic:
+                        aliases: ['log-traffic']
                         type: str
                         description: Enable/disable logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     prefer_chunking:
+                        aliases: ['prefer-chunking']
                         type: str
                         description: Select dynamic or fixed-size data chunking for WAN Optimization.
                         choices:
                             - 'dynamic'
                             - 'fix'
                     protocol_opt:
+                        aliases: ['protocol-opt']
                         type: str
                         description: Select Protocol specific optimitation or generic TCP optimization.
                         choices:
                             - 'protocol'
                             - 'tcp'
                     secure_tunnel:
+                        aliases: ['secure-tunnel']
                         type: str
                         description: Enable/disable securing the WAN Opt tunnel using SSL.
                         choices:
@@ -258,6 +276,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tunnel_sharing:
+                        aliases: ['tunnel-sharing']
                         type: str
                         description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                         choices:
@@ -265,12 +284,14 @@ options:
                             - 'shared'
                             - 'express-shared'
                     tunnel_non_http:
+                        aliases: ['tunnel-non-http']
                         type: str
                         description: Configure how to process non-HTTP traffic when a profile configured for HTTP traffic accepts a non-HTTP session.
                         choices:
                             - 'disable'
                             - 'enable'
                     unknown_http_version:
+                        aliases: ['unknown-http-version']
                         type: str
                         description: How to handle HTTP sessions that do not comply with HTTP 0.
                         choices:
@@ -281,6 +302,7 @@ options:
                         type: raw
                         description: (list) Single port number or port number range for HTTP.
                     ssl_port:
+                        aliases: ['ssl-port']
                         type: raw
                         description: (list) Port on which to expect HTTPS traffic for SSL/TLS offloading.
             mapi:
@@ -288,18 +310,21 @@ options:
                 description: Mapi.
                 suboptions:
                     byte_caching:
+                        aliases: ['byte-caching']
                         type: str
                         description: Enable/disable byte-caching.
                         choices:
                             - 'disable'
                             - 'enable'
                     log_traffic:
+                        aliases: ['log-traffic']
                         type: str
                         description: Enable/disable logging.
                         choices:
                             - 'disable'
                             - 'enable'
                     secure_tunnel:
+                        aliases: ['secure-tunnel']
                         type: str
                         description: Enable/disable securing the WAN Opt tunnel using SSL.
                         choices:
@@ -312,6 +337,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tunnel_sharing:
+                        aliases: ['tunnel-sharing']
                         type: str
                         description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                         choices:
@@ -326,18 +352,21 @@ options:
                 description: Tcp.
                 suboptions:
                     byte_caching:
+                        aliases: ['byte-caching']
                         type: str
                         description: Enable/disable byte-caching.
                         choices:
                             - 'disable'
                             - 'enable'
                     byte_caching_opt:
+                        aliases: ['byte-caching-opt']
                         type: str
                         description: Select whether TCP byte-caching uses system memory only or both memory and disk space.
                         choices:
                             - 'mem-only'
                             - 'mem-disk'
                     log_traffic:
+                        aliases: ['log-traffic']
                         type: str
                         description: Enable/disable logging.
                         choices:
@@ -347,6 +376,7 @@ options:
                         type: str
                         description: Port numbers or port number ranges for TCP.
                     secure_tunnel:
+                        aliases: ['secure-tunnel']
                         type: str
                         description: Enable/disable securing the WAN Opt tunnel using SSL.
                         choices:
@@ -359,6 +389,7 @@ options:
                             - 'disable'
                             - 'enable'
                     ssl_port:
+                        aliases: ['ssl-port']
                         type: raw
                         description: (list) Port numbers or port number ranges on which to expect HTTPS traffic for SSL/TLS offloading.
                     status:
@@ -368,6 +399,7 @@ options:
                             - 'disable'
                             - 'enable'
                     tunnel_sharing:
+                        aliases: ['tunnel-sharing']
                         type: str
                         description: Tunnel sharing mode for aggressive/non-aggressive and/or interactive/non-interactive protocols.
                         choices:

@@ -83,6 +83,7 @@ options:
                 type: str
                 description: System description.
             engine_id:
+                aliases: ['engine-id']
                 type: str
                 description: Local SNMP engineID string
             location:
@@ -98,12 +99,15 @@ options:
                     - 'disable'
                     - 'enable'
             trap_cpu_high_exclude_nice_threshold:
+                aliases: ['trap-cpu-high-exclude-nice-threshold']
                 type: int
                 description: SNMP trap for CPU usage threshold
             trap_high_cpu_threshold:
+                aliases: ['trap-high-cpu-threshold']
                 type: int
                 description: SNMP trap for CPU usage threshold.
             trap_low_memory_threshold:
+                aliases: ['trap-low-memory-threshold']
                 type: int
                 description: SNMP trap for memory usage threshold.
 '''

@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             auth_type:
+                aliases: ['auth-type']
                 type: str
                 description: Network authentication type.
                 choices:

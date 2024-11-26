@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             bandwidth_unit:
+                aliases: ['bandwidth-unit']
                 type: str
                 description: Unit of measurement for guaranteed and maximum bandwidth for this shaper
                 choices:
@@ -106,9 +107,11 @@ options:
                 type: str
                 description: DiffServ setting to be applied to traffic accepted by this shaper.
             guaranteed_bandwidth:
+                aliases: ['guaranteed-bandwidth']
                 type: int
                 description: Amount of bandwidth guaranteed for this shaper
             maximum_bandwidth:
+                aliases: ['maximum-bandwidth']
                 type: int
                 description: Upper bandwidth limit enforced by this shaper
             name:
@@ -116,6 +119,7 @@ options:
                 description: Traffic shaper name.
                 required: true
             per_policy:
+                aliases: ['per-policy']
                 type: str
                 description: Enable/disable applying a separate shaper for each policy.
                 choices:
@@ -129,21 +133,26 @@ options:
                     - 'medium'
                     - 'low'
             dscp_marking_method:
+                aliases: ['dscp-marking-method']
                 type: str
                 description: Select DSCP marking method.
                 choices:
                     - 'multi-stage'
                     - 'static'
             exceed_bandwidth:
+                aliases: ['exceed-bandwidth']
                 type: int
                 description: Exceed bandwidth used for DSCP multi-stage marking.
             exceed_class_id:
+                aliases: ['exceed-class-id']
                 type: int
                 description: Class ID for traffic in [guaranteed-bandwidth, maximum-bandwidth].
             exceed_dscp:
+                aliases: ['exceed-dscp']
                 type: str
                 description: DSCP mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
             maximum_dscp:
+                aliases: ['maximum-dscp']
                 type: str
                 description: DSCP mark for traffic in [exceed-bandwidth, maximum-bandwidth].
             overhead:
@@ -153,21 +162,25 @@ options:
                 type: str
                 description: VLAN CoS mark.
             cos_marking:
+                aliases: ['cos-marking']
                 type: str
                 description: Enable/disable VLAN CoS marking.
                 choices:
                     - 'disable'
                     - 'enable'
             cos_marking_method:
+                aliases: ['cos-marking-method']
                 type: str
                 description: Select VLAN CoS marking method.
                 choices:
                     - 'multi-stage'
                     - 'static'
             exceed_cos:
+                aliases: ['exceed-cos']
                 type: str
                 description: VLAN CoS mark for traffic in [guaranteed-bandwidth, exceed-bandwidth].
             maximum_cos:
+                aliases: ['maximum-cos']
                 type: str
                 description: VLAN CoS mark for traffic in [exceed-bandwidth, maximum-bandwidth].
 '''

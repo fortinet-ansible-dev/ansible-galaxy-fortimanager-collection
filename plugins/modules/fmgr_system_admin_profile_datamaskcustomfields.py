@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             field_category:
+                aliases: ['field-category']
                 type: list
                 elements: str
                 description:
@@ -106,10 +107,12 @@ options:
                     - 'ueba'
                     - 'all'
             field_name:
+                aliases: ['field-name']
                 type: str
                 description: Field name.
                 required: true
             field_status:
+                aliases: ['field-status']
                 type: str
                 description:
                     - Field status.
@@ -119,6 +122,7 @@ options:
                     - 'disable'
                     - 'enable'
             field_type:
+                aliases: ['field-type']
                 type: str
                 description:
                     - Field type.

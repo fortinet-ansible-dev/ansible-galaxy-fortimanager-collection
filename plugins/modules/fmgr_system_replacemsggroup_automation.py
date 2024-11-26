@@ -113,6 +113,7 @@ options:
                     - 'http'
                     - '8bit'
             msg_type:
+                aliases: ['msg-type']
                 type: str
                 description: Message type.
 '''

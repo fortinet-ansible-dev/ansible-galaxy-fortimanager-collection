@@ -117,15 +117,19 @@ options:
                         type: int
                         description: WRR weight parameter.
             backhaul_interface:
+                aliases: ['backhaul-interface']
                 type: str
                 description: IPsec phase1 interface.
             backhaul_ip:
+                aliases: ['backhaul-ip']
                 type: str
                 description: IPsec phase1 IPv4/FQDN.
             ipsec_tunnel:
+                aliases: ['ipsec-tunnel']
                 type: str
                 description: IPsec tunnel name.
             link_loadbalance:
+                aliases: ['link-loadbalance']
                 type: str
                 description: LAN extension link load balance strategy.
                 choices:

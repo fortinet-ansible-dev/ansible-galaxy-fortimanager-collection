@@ -93,6 +93,7 @@ options:
                 type: str
                 description: Name.
             server_name:
+                aliases: ['server-name']
                 type: str
                 description: FSSO agent name.
             id:
@@ -100,9 +101,11 @@ options:
                 description: Id.
                 required: true
             polling_id:
+                aliases: ['polling-id']
                 type: str
                 description: FSSO polling ID.
             connector_source:
+                aliases: ['connector-source']
                 type: str
                 description: FSSO connector source.
 '''

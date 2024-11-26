@@ -103,6 +103,7 @@ options:
                     - 'disable'
                     - 'enable'
             exclude_list:
+                aliases: ['exclude-list']
                 type: list
                 elements: dict
                 description: Exclude list.
@@ -144,12 +145,14 @@ options:
                         type: int
                         description: Id.
             forward_traffic:
+                aliases: ['forward-traffic']
                 type: str
                 description: Enable/disable forward traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
             free_style:
+                aliases: ['free-style']
                 type: list
                 elements: dict
                 description: Free style.
@@ -181,6 +184,7 @@ options:
                         type: str
                         description: Free style filter string.
                     filter_type:
+                        aliases: ['filter-type']
                         type: str
                         description: Include/exclude logs that match the filter.
                         choices:
@@ -196,18 +200,21 @@ options:
                     - 'disable'
                     - 'enable'
             local_traffic:
+                aliases: ['local-traffic']
                 type: str
                 description: Enable/disable local in or out traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
             multicast_traffic:
+                aliases: ['multicast-traffic']
                 type: str
                 description: Enable/disable multicast traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
             sniffer_traffic:
+                aliases: ['sniffer-traffic']
                 type: str
                 description: Enable/disable sniffer traffic logging.
                 choices:
@@ -220,12 +227,14 @@ options:
                     - 'disable'
                     - 'enable'
             ztna_traffic:
+                aliases: ['ztna-traffic']
                 type: str
                 description: Enable/disable ztna traffic logging.
                 choices:
                     - 'disable'
                     - 'enable'
             filter_type:
+                aliases: ['filter-type']
                 type: str
                 description: Include/exclude logs that match the filter.
                 choices:
@@ -259,24 +268,28 @@ options:
                     - 'disable'
                     - 'enable'
             netscan_discovery:
+                aliases: ['netscan-discovery']
                 type: str
                 description: Enable/disable netscan discovery event logging.
                 choices:
                     - 'disable'
                     - 'enable'
             netscan_vulnerability:
+                aliases: ['netscan-vulnerability']
                 type: str
                 description: Enable/disable netscan vulnerability event logging.
                 choices:
                     - 'disable'
                     - 'enable'
             forti_switch:
+                aliases: ['forti-switch']
                 type: str
                 description: Enable/disable Forti-Switch logging.
                 choices:
                     - 'disable'
                     - 'enable'
             http_transaction:
+                aliases: ['http-transaction']
                 type: str
                 description: Enable/disable log HTTP transaction messages.
                 choices:

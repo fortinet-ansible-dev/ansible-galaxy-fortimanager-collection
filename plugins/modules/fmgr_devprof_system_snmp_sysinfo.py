@@ -91,27 +91,34 @@ options:
                     - 'disable'
                     - 'enable'
             append_index:
+                aliases: ['append-index']
                 type: str
                 description: Enable/disable allowance of appending vdom or interface index in some RFC tables.
                 choices:
                     - 'disable'
                     - 'enable'
             trap_high_cpu_threshold:
+                aliases: ['trap-high-cpu-threshold']
                 type: int
                 description: CPU usage when trap is sent.
             trap_log_full_threshold:
+                aliases: ['trap-log-full-threshold']
                 type: int
                 description: Log disk usage when trap is sent.
             engine_id:
+                aliases: ['engine-id']
                 type: str
                 description: Local SNMP engineID string
             trap_freeable_memory_threshold:
+                aliases: ['trap-freeable-memory-threshold']
                 type: int
                 description: Freeable memory usage when trap is sent.
             contact_info:
+                aliases: ['contact-info']
                 type: str
                 description: Contact information.
             engine_id_type:
+                aliases: ['engine-id-type']
                 type: str
                 description: Local SNMP engineID type
                 choices:
@@ -122,15 +129,18 @@ options:
                 type: str
                 description: System description.
             trap_free_memory_threshold:
+                aliases: ['trap-free-memory-threshold']
                 type: int
                 description: Free memory usage when trap is sent.
             trap_low_memory_threshold:
+                aliases: ['trap-low-memory-threshold']
                 type: int
                 description: Memory usage when trap is sent.
             location:
                 type: str
                 description: System location.
             non_mgmt_vdom_query:
+                aliases: ['non-mgmt-vdom-query']
                 type: str
                 description: Enable/disable allowance of SNMPv3 query from non-management vdoms.
                 choices:

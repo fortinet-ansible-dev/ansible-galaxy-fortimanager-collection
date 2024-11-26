@@ -90,6 +90,7 @@ options:
         type: dict
         suboptions:
             dscp_except:
+                aliases: ['dscp-except']
                 type: list
                 elements: dict
                 description: Dscp except.
@@ -104,6 +105,7 @@ options:
                         type: int
                         description: User priority.
             dscp_range:
+                aliases: ['dscp-range']
                 type: list
                 elements: dict
                 description: Dscp range.
