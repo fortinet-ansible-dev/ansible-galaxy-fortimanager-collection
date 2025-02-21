@@ -227,6 +227,30 @@ options:
                 aliases: ['category-override']
                 type: str
                 description: Local categories take precedence over FortiGuard categories.
+            risk:
+                type: list
+                elements: dict
+                description: Risk.
+                suboptions:
+                    action:
+                        type: str
+                        description: Action to take for matches.
+                        choices:
+                            - 'block'
+                            - 'monitor'
+                    id:
+                        type: int
+                        description: ID number.
+                    log:
+                        type: str
+                        description: Enable/disable logging.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    risk_level:
+                        aliases: ['risk-level']
+                        type: raw
+                        description: (list) Risk level to be examined.
 '''
 
 EXAMPLES = '''
@@ -286,6 +310,12 @@ EXAMPLES = '''
           rate_image_urls: <value in [disable, enable]>
           rate_javascript_urls: <value in [disable, enable]>
           category_override: <string>
+          risk:
+            -
+              action: <value in [block, monitor]>
+              id: <integer>
+              log: <value in [disable, enable]>
+              risk_level: <list or string>
 '''
 
 RETURN = '''
@@ -390,7 +420,18 @@ def main():
                 'rate-css-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-image-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'rate-javascript-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'category-override': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'}
+                'category-override': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                'risk': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        'action': {'v_range': [['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                        'id': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'log': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'risk-level': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                    },
+                    'elements': 'dict'
+                }
             }
         }
     }

@@ -155,7 +155,7 @@ options:
                     - 'enable'
             ha_hbdev:
                 aliases: ['ha-hbdev']
-                type: str
+                type: raw
                 description: Ha hbdev.
             ha_monitor:
                 aliases: ['ha-monitor']
@@ -187,6 +187,13 @@ options:
                 aliases: ['split-switch-port']
                 type: str
                 description: Split switch port.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            vm_log_disk:
+                aliases: ['vm-log-disk']
+                type: str
+                description: Vm log disk.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -226,13 +233,14 @@ EXAMPLES = '''
           enforce_device_config: <value in [disable, enable]>
           auth_template: <list or string>
           ha_config: <value in [disable, enable]>
-          ha_hbdev: <string>
+          ha_hbdev: <any type>
           ha_monitor: <list or string>
           ha_password: <list or string>
           linked_to_model: <value in [disable, enable]>
           port_provisioning: <integer>
           sdwan_management: <value in [disable, enable]>
           split_switch_port: <value in [disable, enable]>
+          vm_log_disk: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -305,16 +313,17 @@ def main():
                 'prov-type': {'v_range': [['7.2.0', '']], 'choices': ['none', 'templates', 'template-group'], 'type': 'str'},
                 'template-group': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'templates': {'v_range': [['7.2.0', '']], 'type': 'raw'},
-                'enforce-device-config': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'enforce-device-config': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-template': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-config': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-monitor': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-password': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'linked-to-model': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-provisioning': {'v_range': [['7.4.4', '']], 'type': 'int'},
                 'sdwan-management': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'split-switch-port': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'split-switch-port': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vm-log-disk': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

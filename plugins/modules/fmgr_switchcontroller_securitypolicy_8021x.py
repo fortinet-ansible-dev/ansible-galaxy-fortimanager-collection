@@ -362,11 +362,11 @@ def main():
                 'authserver-timeout-vlan': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'authserver-timeout-vlanid': {'v_range': [['6.4.3', '']], 'type': 'str'},
                 'authserver-timeout-tagged': {
-                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['static', 'disable', 'lldp-voice'],
                     'type': 'str'
                 },
-                'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
                 'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-order': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'mab'], 'type': 'str'},
                 'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'}

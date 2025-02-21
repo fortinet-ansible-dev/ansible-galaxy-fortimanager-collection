@@ -511,6 +511,17 @@ options:
                 aliases: ['fgt-gui-proxy-port']
                 type: int
                 description: FortiGate GUI proxy port.
+            object_threshold_limit:
+                aliases: ['object-threshold-limit']
+                type: str
+                description: Object threshold limit.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            object_threshold_limit_value:
+                aliases: ['object-threshold-limit-value']
+                type: int
+                description: Object threshold limit value.
 '''
 
 EXAMPLES = '''
@@ -580,6 +591,8 @@ EXAMPLES = '''
           firmware_upgrade_check: <value in [disable, enable]>
           fgt_gui_proxy: <value in [disable, enable]>
           fgt_gui_proxy_port: <integer>
+          object_threshold_limit: <value in [disable, enable]>
+          object_threshold_limit_value: <integer>
 '''
 
 RETURN = '''
@@ -698,7 +711,9 @@ def main():
                 'rtm-temp-file-limit': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'firmware-upgrade-check': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fgt-gui-proxy-port': {'v_range': [['7.4.2', '']], 'type': 'int'}
+                'fgt-gui-proxy-port': {'v_range': [['7.4.2', '']], 'type': 'int'},
+                'object-threshold-limit': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'object-threshold-limit-value': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

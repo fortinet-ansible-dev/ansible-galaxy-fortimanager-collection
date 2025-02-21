@@ -1863,6 +1863,27 @@ options:
                 aliases: ['url-risk']
                 type: raw
                 description: (list) Url risk.
+            app_monitor:
+                aliases: ['app-monitor']
+                type: str
+                description: Enable/disable application TCP metrics in session logs.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            port_random:
+                aliases: ['port-random']
+                type: str
+                description: Enable/disable random source port selection for source NAT.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ztna_ems_tag_negate:
+                aliases: ['ztna-ems-tag-negate']
+                type: str
+                description: When enabled ztna-ems-tag specifies what the tags must NOT be.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -2265,7 +2286,7 @@ def main():
                 'uuid-idx': {'v_range': [['7.0.1', '']], 'type': 'int'},
                 'device-ownership': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssh-policy-check': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'extended-log': {'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2308,7 +2329,10 @@ def main():
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-risk': {'v_range': [['7.4.4', '7.4.5']], 'type': 'raw'}
+                'url-risk': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'raw'},
+                'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

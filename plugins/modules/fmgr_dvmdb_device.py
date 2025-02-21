@@ -412,6 +412,8 @@ options:
                     - 'fca'
                     - 'ftc'
                     - 'fss'
+                    - 'fra'
+                    - 'sim'
             os_ver:
                 type: str
                 description: Os ver.
@@ -750,7 +752,7 @@ def main():
                 'os_type': {
                     'choices': [
                         'unknown', 'fos', 'fsw', 'foc', 'fml', 'faz', 'fwb', 'fch', 'fct', 'log', 'fmg', 'fsa', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw',
-                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss'
+                        'fsr', 'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fpa', 'fca', 'ftc', 'fss', 'fra', 'sim'
                     ],
                     'type': 'str'
                 },
@@ -792,12 +794,12 @@ def main():
                 'first_tunnel_up': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
                 'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'hw_generation': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
+                'hw_generation': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
                 'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'},
                 'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'ha.vsn': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '']], 'type': 'str'},
+                'ha.vsn': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'type': 'str'},
                 'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                'vm_payg_status': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'}
+                'vm_payg_status': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

@@ -5,6 +5,31 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.9.0
+======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.9.0
+
+Minor Changes
+-------------
+
+- Supported FortiManager 7.2.9, 7.4.6, 7.6.2. Added 3 new modules.
+
+Bugfixes
+--------
+
+- Changed parameter type of some parameters.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_gtp_ieallowlist - IE allow list.
+- fortinet.fortimanager.fmgr_gtp_ieallowlist_entries - Entries of allow list for unknown or out-of-state IEs.
+- fortinet.fortimanager.fmgr_ums_setting - Ums setting
+
 v2.8.2
 ======
 

@@ -193,7 +193,7 @@ def main():
                 'log-interval-disk-full': {'type': 'int'},
                 'log-interval-gbday-exceeded': {'type': 'int'},
                 'log-daemon-crash': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
+                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
                 'log-interval-adom-perf-stats': {'v_range': [['7.4.0', '']], 'type': 'int'}
             }
         }

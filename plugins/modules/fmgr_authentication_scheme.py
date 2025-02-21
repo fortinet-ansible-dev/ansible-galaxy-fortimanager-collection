@@ -125,6 +125,7 @@ options:
                     - 'cert'
                     - 'x-auth-user'
                     - 'saml-sp'
+                    - 'entra-sso'
             name:
                 type: str
                 description: Authentication scheme name.
@@ -173,6 +174,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            external_idp:
+                aliases: ['external-idp']
+                type: raw
+                description: (list) External identity provider configuration.
 '''
 
 EXAMPLES = '''
@@ -211,6 +216,7 @@ EXAMPLES = '''
             - "cert"
             - "x-auth-user"
             - "saml-sp"
+            - "entra-sso"
           name: <string>
           negotiate_ntlm: <value in [disable, enable]>
           require_tfa: <value in [disable, enable]>
@@ -220,6 +226,7 @@ EXAMPLES = '''
           saml_server: <string>
           saml_timeout: <integer>
           user_cert: <value in [disable, enable]>
+          external_idp: <list or string>
 '''
 
 RETURN = '''
@@ -287,7 +294,10 @@ def main():
                 'method': {
                     'v_range': [['6.2.1', '']],
                     'type': 'list',
-                    'choices': ['ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso', 'ssh-publickey', 'saml', 'cert', 'x-auth-user', 'saml-sp'],
+                    'choices': [
+                        'ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso', 'ssh-publickey', 'saml', 'cert', 'x-auth-user', 'saml-sp',
+                        'entra-sso'
+                    ],
                     'elements': 'str'
                 },
                 'name': {'v_range': [['6.2.1', '']], 'required': True, 'type': 'str'},
@@ -298,7 +308,8 @@ def main():
                 'ems-device-owner': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'saml-server': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'saml-timeout': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                'user-cert': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'user-cert': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'}
             }
         }
     }

@@ -85,6 +85,14 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            update_server_location:
+                aliases: ['update-server-location']
+                type: str
+                description: Update server location.
+                choices:
+                    - 'global'
+                    - 'usa'
+                    - 'eu'
 '''
 
 EXAMPLES = '''
@@ -105,6 +113,7 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         fmupdate_publicnetwork:
           status: <value in [disable, enable]>
+          update_server_location: <value in [global, usa, eu]>
 '''
 
 RETURN = '''
@@ -162,7 +171,10 @@ def main():
         'fmupdate_publicnetwork': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
-            'options': {'status': {'choices': ['disable', 'enable'], 'type': 'str'}}
+            'options': {
+                'status': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'update-server-location': {'v_range': [['7.6.2', '']], 'choices': ['global', 'usa', 'eu'], 'type': 'str'}
+            }
         }
     }
 

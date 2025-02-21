@@ -154,12 +154,72 @@ options:
                             - 'header'
                             - 'header-value'
                             - 'method'
+                            - 'body'
+                    body_type:
+                        aliases: ['body-type']
+                        type: str
+                        description: CASB user activity match rule body type.
+                        choices:
+                            - 'json'
+                    jq:
+                        type: str
+                        description: CASB user activity rule match jq script.
             strategy:
                 type: str
                 description: CASB user activity rules strategy.
                 choices:
                     - 'or'
                     - 'and'
+            tenant_extraction:
+                aliases: ['tenant-extraction']
+                type: dict
+                description: Tenant extraction.
+                suboptions:
+                    filters:
+                        type: list
+                        elements: dict
+                        description: Filters.
+                        suboptions:
+                            body_type:
+                                aliases: ['body-type']
+                                type: str
+                                description: CASB tenant extraction filter body type.
+                                choices:
+                                    - 'json'
+                            direction:
+                                type: str
+                                description: CASB tenant extraction filter direction.
+                                choices:
+                                    - 'request'
+                                    - 'response'
+                            header_name:
+                                aliases: ['header-name']
+                                type: str
+                                description: CASB tenant extraction filter header name.
+                            id:
+                                type: int
+                                description: CASB tenant extraction filter ID.
+                            place:
+                                type: str
+                                description: CASB tenant extraction filter place type.
+                                choices:
+                                    - 'path'
+                                    - 'header'
+                                    - 'body'
+                    jq:
+                        type: str
+                        description: CASB user activity tenant extraction jq script.
+                    status:
+                        type: str
+                        description: Enable/disable CASB tenant extraction.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    type:
+                        type: str
+                        description: CASB user activity tenant extraction type.
+                        choices:
+                            - 'json-query'
 '''
 
 EXAMPLES = '''
@@ -194,7 +254,20 @@ EXAMPLES = '''
               methods: <list or string>
               negate: <value in [disable, enable]>
               type: <value in [domains, host, path, ...]>
+              body_type: <value in [json]>
+              jq: <string>
           strategy: <value in [or, and]>
+          tenant_extraction:
+            filters:
+              -
+                body_type: <value in [json]>
+                direction: <value in [request, response]>
+                header_name: <string>
+                id: <integer>
+                place: <value in [path, header, body]>
+            jq: <string>
+            status: <value in [disable, enable]>
+            type: <value in [json-query]>
 '''
 
 RETURN = '''
@@ -270,11 +343,38 @@ def main():
                         'match-value': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'methods': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'},
                         'negate': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'type': {'v_range': [['7.4.1', '']], 'choices': ['domains', 'host', 'path', 'header', 'header-value', 'method'], 'type': 'str'}
+                        'type': {
+                            'v_range': [['7.4.1', '']],
+                            'choices': ['domains', 'host', 'path', 'header', 'header-value', 'method', 'body'],
+                            'type': 'str'
+                        },
+                        'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json'], 'type': 'str'},
+                        'jq': {'v_range': [['7.6.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'strategy': {'v_range': [['7.4.1', '']], 'choices': ['or', 'and'], 'type': 'str'}
+                'strategy': {'v_range': [['7.4.1', '']], 'choices': ['or', 'and'], 'type': 'str'},
+                'tenant-extraction': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'dict',
+                    'options': {
+                        'filters': {
+                            'v_range': [['7.6.2', '']],
+                            'type': 'list',
+                            'options': {
+                                'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json'], 'type': 'str'},
+                                'direction': {'v_range': [['7.6.2', '']], 'choices': ['request', 'response'], 'type': 'str'},
+                                'header-name': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                                'id': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                                'place': {'v_range': [['7.6.2', '']], 'choices': ['path', 'header', 'body'], 'type': 'str'}
+                            },
+                            'elements': 'dict'
+                        },
+                        'jq': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'status': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'type': {'v_range': [['7.6.2', '']], 'choices': ['json-query'], 'type': 'str'}
+                    }
+                }
             }
         }
     }

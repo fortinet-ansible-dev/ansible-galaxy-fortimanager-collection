@@ -223,6 +223,10 @@ options:
                 aliases: ['source-ip-interface']
                 type: raw
                 description: (list) Source interface of syslog.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -267,6 +271,7 @@ EXAMPLES = '''
               name: <string>
           source_ip: <string>
           source_ip_interface: <list or string>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -372,8 +377,9 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                'source-ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

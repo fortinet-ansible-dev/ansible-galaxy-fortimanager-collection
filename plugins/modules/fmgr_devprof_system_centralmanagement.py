@@ -288,6 +288,10 @@ options:
                 aliases: ['modem-upgrade-time']
                 type: str
                 description: Schedule next internal cellular modem firmware upgrade time
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -350,6 +354,7 @@ EXAMPLES = '''
           allow_remote_modem_firmware_upgrade: <value in [disable, enable]>
           modem_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
           modem_upgrade_time: <string>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -437,41 +442,42 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'ltefw-upgrade-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'vdom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'allow-remote-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-cert': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'allow-push-firmware': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ltefw-upgrade-time': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'vdom': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'allow-remote-firmware-upgrade': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-cert': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'allow-push-firmware': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ltefw-upgrade-frequency': {
-                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'],
                     'type': 'str'
                 },
-                'mode': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['normal', 'backup'], 'type': 'str'},
-                'serial-number': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'fmg-source-ip6': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'allow-monitor': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'allow-push-configuration': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ca-cert': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'fmg-update-port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['443', '8890'], 'type': 'str'},
-                'use-elbc-vdom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'allow-remote-lte-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'interface': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'schedule-script-restore': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'schedule-config-restore': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'interface-select-method': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['fortimanager', 'fortiguard', 'none'], 'type': 'str'},
-                'fmg-source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'fortigate-cloud-sso-default-profile': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'fmg': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'enc-algorithm': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['default', 'high', 'low'], 'type': 'str'},
-                'allow-remote-modem-firmware-upgrade': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mode': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['normal', 'backup'], 'type': 'str'},
+                'serial-number': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'fmg-source-ip6': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'allow-monitor': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'allow-push-configuration': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ca-cert': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'fmg-update-port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['443', '8890'], 'type': 'str'},
+                'use-elbc-vdom': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'allow-remote-lte-firmware-upgrade': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'schedule-script-restore': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'schedule-config-restore': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface-select-method': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'type': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['fortimanager', 'fortiguard', 'none'], 'type': 'str'},
+                'fmg-source-ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'fortigate-cloud-sso-default-profile': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'fmg': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'enc-algorithm': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['default', 'high', 'low'], 'type': 'str'},
+                'allow-remote-modem-firmware-upgrade': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'modem-upgrade-frequency': {
-                    'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['everyHour', 'every12hour', 'everyDay', 'everyWeek'],
                     'type': 'str'
                 },
-                'modem-upgrade-time': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
+                'modem-upgrade-time': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

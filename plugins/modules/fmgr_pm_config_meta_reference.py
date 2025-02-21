@@ -167,14 +167,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'pm_config_meta_reference': {
             'type': 'dict',
-            'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']],
+            'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']],
             'options': {
                 'package list': {
-                    'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']],
+                    'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

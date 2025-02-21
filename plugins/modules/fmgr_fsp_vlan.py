@@ -1101,6 +1101,21 @@ options:
                                         aliases: ['dhcp6-relay-source-ip']
                                         type: str
                                         description: IPv6 address used by the DHCP6 relay as its source IP.
+                                    ip6_adv_rio:
+                                        aliases: ['ip6-adv-rio']
+                                        type: str
+                                        description: Enable/disable sending advertisements with route information option.
+                                        choices:
+                                            - 'disable'
+                                            - 'enable'
+                                    ip6_route_pref:
+                                        aliases: ['ip6-route-pref']
+                                        type: str
+                                        description: Set route preference to the interface
+                                        choices:
+                                            - 'medium'
+                                            - 'high'
+                                            - 'low'
                             secondary_IP:
                                 aliases: ['secondary-IP']
                                 type: str
@@ -2904,6 +2919,21 @@ options:
                                 aliases: ['dhcp6-relay-source-ip']
                                 type: str
                                 description: IPv6 address used by the DHCP6 relay as its source IP.
+                            ip6_adv_rio:
+                                aliases: ['ip6-adv-rio']
+                                type: str
+                                description: Enable/disable sending advertisements with route information option.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            ip6_route_pref:
+                                aliases: ['ip6-route-pref']
+                                type: str
+                                description: Set route preference to the interface
+                                choices:
+                                    - 'medium'
+                                    - 'high'
+                                    - 'low'
                     l2forward:
                         type: str
                         description: Enable/disable l2 forwarding.
@@ -3051,6 +3081,7 @@ options:
                             - 'sr8'
                             - 'lr8'
                             - 'cr8'
+                            - 'dr'
                     member:
                         type: raw
                         description: (list or str) Physical interfaces that belong to the aggregate or redundant interface.
@@ -4399,6 +4430,18 @@ options:
                         aliases: ['virtual-mac']
                         type: str
                         description: Change the interfaces virtual MAC address.
+                    dhcp_relay_vrf_select:
+                        aliases: ['dhcp-relay-vrf-select']
+                        type: int
+                        description: VRF ID used for connection to server.
+                    exclude_signatures:
+                        aliases: ['exclude-signatures']
+                        type: list
+                        elements: str
+                        description: Exclude IOT or OT application signatures.
+                        choices:
+                            - 'iot'
+                            - 'ot'
 '''
 
 EXAMPLES = '''
@@ -4630,6 +4673,8 @@ EXAMPLES = '''
                   dhcp6_relay_source_interface: <value in [disable, enable]>
                   dhcp6_relay_interface_id: <string>
                   dhcp6_relay_source_ip: <string>
+                  ip6_adv_rio: <value in [disable, enable]>
+                  ip6_route_pref: <value in [medium, high, low]>
                 secondary_IP: <value in [disable, enable]>
                 secondaryip:
                   -
@@ -5048,6 +5093,8 @@ EXAMPLES = '''
               dhcp6_relay_source_interface: <value in [disable, enable]>
               dhcp6_relay_interface_id: <string>
               dhcp6_relay_source_ip: <string>
+              ip6_adv_rio: <value in [disable, enable]>
+              ip6_route_pref: <value in [medium, high, low]>
             l2forward: <value in [disable, enable]>
             l2tp_client: <value in [disable, enable]>
             lacp_ha_slave: <value in [disable, enable]>
@@ -5322,6 +5369,10 @@ EXAMPLES = '''
             pppoe_egress_cos: <value in [cos0, cos1, cos2, ...]>
             security_ip_auth_bypass: <value in [disable, enable]>
             virtual_mac: <string>
+            dhcp_relay_vrf_select: <integer>
+            exclude_signatures:
+              - "iot"
+              - "ot"
 '''
 
 RETURN = '''
@@ -5740,7 +5791,9 @@ def main():
                                         'ip6-delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
                                         'dhcp6-relay-source-interface': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                         'dhcp6-relay-interface-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                                        'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                                        'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                                        'ip6-adv-rio': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                        'ip6-route-pref': {'v_range': [['7.6.2', '']], 'choices': ['medium', 'high', 'low'], 'type': 'str'}
                                     }
                                 },
                                 'secondary-IP': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -6294,7 +6347,9 @@ def main():
                                 'ip6-delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
                                 'dhcp6-relay-source-interface': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'dhcp6-relay-interface-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                                'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                                'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                                'ip6-adv-rio': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'ip6-route-pref': {'v_range': [['7.6.2', '']], 'choices': ['medium', 'high', 'low'], 'type': 'str'}
                             }
                         },
                         'l2forward': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -6329,7 +6384,7 @@ def main():
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': [
                                 'serdes-sfp', 'sgmii-sfp', 'cfp2-sr10', 'cfp2-lr4', 'serdes-copper-sfp', 'sr', 'cr', 'lr', 'qsfp28-sr4', 'qsfp28-lr4',
-                                'qsfp28-cr4', 'sr4', 'cr4', 'lr4', 'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8', 'lr8', 'cr8'
+                                'qsfp28-cr4', 'sr4', 'cr4', 'lr4', 'none', 'gmii', 'sgmii', 'sr2', 'lr2', 'cr2', 'sr8', 'lr8', 'cr8', 'dr'
                             ],
                             'type': 'str'
                         },
@@ -6680,7 +6735,7 @@ def main():
                         },
                         'large-receive-offload': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'annex': {
-                            'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
+                            'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '']],
                             'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj'],
                             'type': 'str'
                         },
@@ -6718,7 +6773,9 @@ def main():
                             'type': 'str'
                         },
                         'security-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'virtual-mac': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                        'virtual-mac': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'dhcp-relay-vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'exclude-signatures': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['iot', 'ot'], 'elements': 'str'}
                     }
                 }
             }

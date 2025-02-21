@@ -144,6 +144,21 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            interface:
+                type: raw
+                description: (list) Specify outgoing interface to reach server.
+            interface_select_method:
+                aliases: ['interface-select-method']
+                type: str
+                description: Specify how to select outgoing interface to reach server.
+                choices:
+                    - 'auto'
+                    - 'sdwan'
+                    - 'specify'
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -178,6 +193,9 @@ EXAMPLES = '''
           username: <string>
           ipv6: <string>
           masquerade: <value in [disable, enable]>
+          interface: <list or string>
+          interface_select_method: <value in [auto, sdwan, specify]>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -250,7 +268,10 @@ def main():
                 'password': {'v_range': [['6.4.0', '']], 'no_log': True, 'type': 'raw'},
                 'username': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'ipv6': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'masquerade': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'masquerade': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'interface-select-method': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

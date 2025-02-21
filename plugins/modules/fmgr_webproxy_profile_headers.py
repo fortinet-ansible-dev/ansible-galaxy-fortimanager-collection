@@ -121,6 +121,8 @@ options:
                     - 'append'
                     - 'new-on-not-found'
                     - 'new'
+                    - 'replace'
+                    - 'replace-when-match'
             base64_encoding:
                 aliases: ['base64-encoding']
                 type: str
@@ -167,7 +169,7 @@ EXAMPLES = '''
           content: <string>
           id: <integer>
           name: <string>
-          add_option: <value in [append, new-on-not-found, new]>
+          add_option: <value in [append, new-on-not-found, new, ...]>
           base64_encoding: <value in [disable, enable]>
           dstaddr: <list or string>
           dstaddr6: <list or string>
@@ -242,7 +244,11 @@ def main():
                 'content': {'type': 'str'},
                 'id': {'required': True, 'type': 'int'},
                 'name': {'type': 'str'},
-                'add-option': {'v_range': [['6.2.0', '']], 'choices': ['append', 'new-on-not-found', 'new'], 'type': 'str'},
+                'add-option': {
+                    'v_range': [['6.2.0', '']],
+                    'choices': ['append', 'new-on-not-found', 'new', 'replace', 'replace-when-match'],
+                    'type': 'str'
+                },
                 'base64-encoding': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'dstaddr6': {'v_range': [['6.2.0', '']], 'type': 'raw'},

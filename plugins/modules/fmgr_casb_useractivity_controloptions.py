@@ -126,6 +126,7 @@ options:
                         description: CASB operation direction.
                         choices:
                             - 'request'
+                            - 'response'
                     header_name:
                         aliases: ['header-name']
                         type: str
@@ -151,6 +152,7 @@ options:
                         choices:
                             - 'header'
                             - 'path'
+                            - 'body'
                     value_from_input:
                         aliases: ['value-from-input']
                         type: str
@@ -195,12 +197,12 @@ EXAMPLES = '''
             -
               action: <value in [append, prepend, replace, ...]>
               case_sensitive: <value in [disable, enable]>
-              direction: <value in [request]>
+              direction: <value in [request, response]>
               header_name: <string>
               name: <string>
               search_key: <string>
               search_pattern: <value in [simple, substr, regexp]>
-              target: <value in [header, path]>
+              target: <value in [header, path, body]>
               value_from_input: <value in [disable, enable]>
               values: <list or string>
           status: <value in [disable, enable]>
@@ -277,12 +279,12 @@ def main():
                             'type': 'str'
                         },
                         'case-sensitive': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'direction': {'v_range': [['7.4.1', '']], 'choices': ['request'], 'type': 'str'},
+                        'direction': {'v_range': [['7.4.1', '']], 'choices': ['request', 'response'], 'type': 'str'},
                         'header-name': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'name': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'search-key': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
                         'search-pattern': {'v_range': [['7.4.1', '']], 'choices': ['simple', 'substr', 'regexp'], 'type': 'str'},
-                        'target': {'v_range': [['7.4.1', '']], 'choices': ['header', 'path'], 'type': 'str'},
+                        'target': {'v_range': [['7.4.1', '']], 'choices': ['header', 'path', 'body'], 'type': 'str'},
                         'value-from-input': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'values': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'}
                     },

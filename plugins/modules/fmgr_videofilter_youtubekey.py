@@ -185,11 +185,11 @@ def main():
         'videofilter_youtubekey': {
             'type': 'dict',
             'no_log': False,
-            'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']],
+            'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']],
             'options': {
-                'id': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']], 'required': True, 'type': 'int'},
-                'key': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']], 'no_log': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'id': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']], 'required': True, 'type': 'int'},
+                'key': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']], 'no_log': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

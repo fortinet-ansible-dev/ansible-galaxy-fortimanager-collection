@@ -100,6 +100,7 @@ options:
                     - 'accept'
                     - 'deny'
                     - 'redirect'
+                    - 'isolate'
             application_list:
                 aliases: ['application-list']
                 type: str
@@ -514,6 +515,21 @@ options:
                 aliases: ['ztna-proxy']
                 type: raw
                 description: (list) IPv4 ZTNA traffic forward proxy.
+            isolator_server:
+                aliases: ['isolator-server']
+                type: raw
+                description: (list) Isolator server name.
+            url_risk:
+                aliases: ['url-risk']
+                type: raw
+                description: (list) URL risk level name.
+            ztna_ems_tag_negate:
+                aliases: ['ztna-ems-tag-negate']
+                type: str
+                description: When enabled, ZTNA EMS tags match against any tag EXCEPT the specified ZTNA EMS tags.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -620,7 +636,7 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'action': {'choices': ['accept', 'deny', 'redirect'], 'type': 'str'},
+                'action': {'choices': ['accept', 'deny', 'redirect', 'isolate'], 'type': 'str'},
                 'application-list': {'type': 'str'},
                 'av-profile': {'type': 'str'},
                 'comments': {'type': 'str'},
@@ -642,11 +658,11 @@ def main():
                 'label': {'type': 'str'},
                 'logtraffic': {'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'policyid': {'required': True, 'type': 'int'},
                 'poolname': {'type': 'raw'},
                 'profile-group': {'type': 'str'},
-                'profile-protocol-options': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'profile-type': {'choices': ['single', 'group'], 'type': 'str'},
                 'proxy': {
                     'choices': ['explicit-web', 'transparent-web', 'ftp', 'wanopt', 'ssh', 'ssh-tunnel', 'access-proxy', 'ztna-proxy'],
@@ -663,7 +679,7 @@ def main():
                 'srcaddr-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcaddr6': {'type': 'raw'},
                 'srcintf': {'type': 'raw'},
-                'ssl-ssh-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'tags': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
                 'transparent': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -671,8 +687,8 @@ def main():
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'type': 'str'},
                 'waf-profile': {'type': 'str'},
-                'webcache': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache-https': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache-https': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'type': 'str'},
                 'webproxy-forward-server': {'type': 'str'},
                 'webproxy-profile': {'type': 'str'},
@@ -681,49 +697,52 @@ def main():
                 'internet-service-custom-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'session-ttl': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'decrypted-traffic-mirror': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'internet-service-name': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'file-filter-profile': {'v_range': [['6.4.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'name': {'v_range': [['6.4.2', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'access-proxy': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
+                'decrypted-traffic-mirror': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'internet-service-name': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'file-filter-profile': {'v_range': [['6.4.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'name': {'v_range': [['6.4.2', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'access-proxy': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
                 'device-ownership': {
-                    'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'videofilter-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'voip-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'ztna-ems-tag': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'access-proxy6': {'v_range': [['7.0.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
+                'videofilter-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'voip-profile': {'v_range': [['7.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'ztna-ems-tag': {'v_range': [['7.0.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'access-proxy6': {'v_range': [['7.0.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
                 'block-notification': {
-                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'sctp-filter-profile': {'v_range': [['7.0.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'sctp-filter-profile': {'v_range': [['7.0.1', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'ztna-tags-match-logic': {
-                    'v_range': [['7.0.2', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.2', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
                     'choices': ['or', 'and'],
                     'type': 'str'
                 },
                 'casb-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'detect-https-in-http-request': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'internet-service6': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'internet-service6-custom': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-custom-group': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-group': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-negate': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ips-voip-filter': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
+                'internet-service6': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-custom': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-custom-group': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-group': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-voip-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 '_policy_block': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'dnsfilter-profile': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'log-http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ztna-proxy': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                'ztna-proxy': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'isolator-server': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'url-risk': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

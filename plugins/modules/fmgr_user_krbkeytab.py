@@ -206,7 +206,7 @@ def main():
                 'name': {'v_range': [['6.2.1', '']], 'required': True, 'type': 'str'},
                 'pac-data': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'principal': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'password': {'v_range': [['6.2.2', '7.2.0'], ['7.2.5', '7.2.8'], ['7.4.2', '']], 'no_log': True, 'type': 'raw'}
+                'password': {'v_range': [['6.2.2', '7.2.0'], ['7.2.5', '7.2.9'], ['7.4.2', '']], 'no_log': True, 'type': 'raw'}
             }
         }
     }

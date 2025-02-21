@@ -192,7 +192,7 @@ def main():
                 'aggressive-fortiview': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'interval': {'type': 'int'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'incr-fortiview': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'incr-fortiview': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

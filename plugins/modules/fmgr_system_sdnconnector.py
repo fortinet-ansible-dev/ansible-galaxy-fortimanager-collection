@@ -427,6 +427,8 @@ options:
                     - 'osaka-private'
                     - 'toronto-private'
                     - 'sao-paulo-private'
+                    - 'madrid'
+                    - 'madrid-private'
             ibm_region_gen1:
                 aliases: ['ibm-region-gen1']
                 type: str
@@ -550,6 +552,10 @@ options:
             proxy:
                 type: str
                 description: SDN proxy.
+            message_server_port:
+                aliases: ['message-server-port']
+                type: int
+                description: HTTP port number of the SAP message server.
 '''
 
 EXAMPLES = '''
@@ -671,12 +677,12 @@ def main():
                                 'name': {'type': 'str'},
                                 'public-ip': {'type': 'str'},
                                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                                'private-ip': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
+                                'private-ip': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'name': {'type': 'str'},
-                        'peer-nic': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
+                        'peer-nic': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -740,7 +746,8 @@ def main():
                     'choices': [
                         'us-south', 'us-east', 'germany', 'great-britain', 'japan', 'australia', 'dallas', 'washington-dc', 'london', 'frankfurt',
                         'sydney', 'tokyo', 'osaka', 'toronto', 'sao-paulo', 'dallas-private', 'washington-dc-private', 'london-private',
-                        'frankfurt-private', 'sydney-private', 'tokyo-private', 'osaka-private', 'toronto-private', 'sao-paulo-private'
+                        'frankfurt-private', 'sydney-private', 'tokyo-private', 'osaka-private', 'toronto-private', 'sao-paulo-private', 'madrid',
+                        'madrid-private'
                     ],
                     'type': 'str'
                 },
@@ -795,7 +802,8 @@ def main():
                     'options': {'region': {'v_range': [['7.4.0', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'proxy': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                'proxy': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'message-server-port': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

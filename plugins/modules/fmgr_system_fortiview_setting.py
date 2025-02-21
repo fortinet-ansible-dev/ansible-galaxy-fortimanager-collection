@@ -108,6 +108,13 @@ options:
                     - 'auto'
                     - 'cache-only'
                     - 'log-and-cache'
+            query_run_mode:
+                aliases: ['query-run-mode']
+                type: str
+                description: Query run mode.
+                choices:
+                    - 'auto'
+                    - 'boost'
 '''
 
 EXAMPLES = '''
@@ -130,6 +137,7 @@ EXAMPLES = '''
           not_scanned_apps: <value in [exclude, include]>
           resolve_ip: <value in [disable, enable]>
           data_source: <value in [auto, cache-only, log-and-cache]>
+          query_run_mode: <value in [auto, boost]>
 '''
 
 RETURN = '''
@@ -190,7 +198,8 @@ def main():
             'options': {
                 'not-scanned-apps': {'choices': ['exclude', 'include'], 'type': 'str'},
                 'resolve-ip': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'data-source': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'}
+                'data-source': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['auto', 'cache-only', 'log-and-cache'], 'type': 'str'},
+                'query-run-mode': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'boost'], 'type': 'str'}
             }
         }
     }

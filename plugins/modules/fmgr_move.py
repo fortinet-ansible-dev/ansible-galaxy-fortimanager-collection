@@ -637,14 +637,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['acl6', 'adom', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'central-snat-map', 'pkg'],
@@ -690,42 +690,42 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'interface-policy6', 'pkg'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'local-in-policy', 'pkg'],

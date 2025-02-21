@@ -234,6 +234,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    vrf_select:
+                        aliases: ['vrf-select']
+                        type: int
+                        description: VRF ID used for connection to server.
             ldap_server:
                 aliases: ['ldap-server']
                 type: str
@@ -361,6 +365,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -499,7 +507,8 @@ def main():
                         },
                         'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                        'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -534,7 +543,8 @@ def main():
                 'interface-select-method': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'logon-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'sni': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ssl-server-host-ip-check': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

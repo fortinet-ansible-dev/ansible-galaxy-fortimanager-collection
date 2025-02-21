@@ -346,7 +346,7 @@ def main():
                 'vip': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'vrrp-adv-interval': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'vrrp-interface': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                'vip-interface': {'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']], 'type': 'str'}
+                'vip-interface': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'str'}
             }
         }
     }

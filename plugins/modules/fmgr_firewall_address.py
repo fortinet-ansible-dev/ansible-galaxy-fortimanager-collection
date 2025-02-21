@@ -301,6 +301,8 @@ options:
                             - 'fortinac-tag'
                             - 'fortipolicy-tag'
                             - 'device-identification'
+                            - 'rsso'
+                            - 'external-resource'
                     global_object:
                         aliases: ['global-object']
                         type: int
@@ -374,6 +376,10 @@ options:
                         aliases: ['sw-version']
                         type: str
                         description: Dynamic address matching software version.
+                    sso_attribute_value:
+                        aliases: ['sso-attribute-value']
+                        type: raw
+                        description: (list) Name
             end_ip:
                 aliases: ['end-ip']
                 type: str
@@ -563,6 +569,8 @@ options:
                     - 'fortinac-tag'
                     - 'fortipolicy-tag'
                     - 'device-identification'
+                    - 'rsso'
+                    - 'external-resource'
             global_object:
                 aliases: ['global-object']
                 type: int
@@ -628,6 +636,10 @@ options:
                 aliases: ['sw-version']
                 type: str
                 description: Dynamic address matching software version.
+            sso_attribute_value:
+                aliases: ['sso-attribute-value']
+                type: raw
+                description: (list) Name
 '''
 
 EXAMPLES = '''
@@ -854,7 +866,7 @@ def main():
                             'v_range': [['6.2.2', '']],
                             'choices': [
                                 'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                                'device-identification'
+                                'device-identification', 'rsso', 'external-resource'
                             ],
                             'type': 'str'
                         },
@@ -873,7 +885,8 @@ def main():
                         'hw-vendor': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'os': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                        'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                        'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                        'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -938,7 +951,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification'
+                        'device-identification', 'rsso', 'external-resource'
                     ],
                     'type': 'str'
                 },
@@ -955,7 +968,8 @@ def main():
                 'hw-vendor': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'os': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'}
             }
         }
     }

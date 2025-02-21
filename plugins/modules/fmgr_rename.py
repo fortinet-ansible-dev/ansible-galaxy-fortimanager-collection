@@ -351,6 +351,8 @@ options:
                     - 'fsp_vlan_interface_vrrp_proxyarp'
                     - 'gtp_apn'
                     - 'gtp_apngrp'
+                    - 'gtp_ieallowlist'
+                    - 'gtp_ieallowlist_entries'
                     - 'gtp_iewhitelist'
                     - 'gtp_iewhitelist_entries'
                     - 'gtp_messagefilterv0v1'
@@ -639,6 +641,7 @@ options:
                     - 'system_workflow_approvalmatrix_approver'
                     - 'template'
                     - 'templategroup'
+                    - 'ums_setting'
                     - 'user_adgrp'
                     - 'user_certificate'
                     - 'user_clearpass'
@@ -3085,6 +3088,22 @@ def main():
             ],
             'mkey': 'name'
         },
+        'gtp_ieallowlist': {
+            'params': ['adom', 'ie-allow-list'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list/{ie-allow-list}',
+                '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}'
+            ],
+            'mkey': 'name', 'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']]
+        },
+        'gtp_ieallowlist_entries': {
+            'params': ['adom', 'ie-allow-list', 'entries'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}',
+                '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}'
+            ],
+            'mkey': 'id', 'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']]
+        },
         'gtp_iewhitelist': {
             'params': ['adom', 'ie-white-list'],
             'urls': [
@@ -3576,14 +3595,14 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['adom', 'pkg', 'acl6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'pkg', 'central-snat-map'],
@@ -3646,42 +3665,42 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'pkg', 'hyperscale-policy46'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'pkg', 'hyperscale-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'pkg', 'hyperscale-policy64'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'pkg', 'interface-policy'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'pkg', 'interface-policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'policyid', 'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'pkg', 'local-in-policy'],
@@ -3828,7 +3847,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key/{youtube-key}'
             ],
-            'mkey': 'id', 'v_range': [['7.4.4', '7.4.5']]
+            'mkey': 'id', 'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']]
         },
         'pm_config_pblock_firewall_consolidated_policy': {
             'params': ['adom', 'pblock', 'policy'],
@@ -4028,7 +4047,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'mkey': 'name', 'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
+            'mkey': 'name', 'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['adom', 'profile', 'ppid-filters'],
@@ -4036,7 +4055,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'mkey': 'id', 'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
+            'mkey': 'id', 'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['adom', 'bwl'],
@@ -5291,6 +5310,14 @@ def main():
             ],
             'mkey': 'name'
         },
+        'ums_setting': {
+            'params': ['adom', 'setting'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ums/setting/{setting}',
+                '/pm/config/global/obj/ums/setting/{setting}'
+            ],
+            'mkey': 'name', 'v_range': [['7.6.2', '']]
+        },
         'user_adgrp': {
             'params': ['adom', 'adgrp'],
             'urls': [
@@ -5425,7 +5452,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/user/external-identity-provider/{external-identity-provider}',
                 '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
             ],
-            'mkey': 'name', 'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'mkey': 'name', 'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'user_flexvm': {
             'params': ['adom', 'flexvm'],
@@ -5833,7 +5860,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/videofilter/youtube-key/{youtube-key}',
                 '/pm/config/global/obj/videofilter/youtube-key/{youtube-key}'
             ],
-            'mkey': 'id', 'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']]
+            'mkey': 'id', 'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']]
         },
         'virtualpatch_profile': {
             'params': ['adom', 'profile'],

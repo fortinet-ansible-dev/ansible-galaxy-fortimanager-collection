@@ -3369,6 +3369,17 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            admin_auth_tacacs_:
+                aliases: ['admin-auth-tacacs+']
+                type: raw
+                description: (list) Remote authentication server for admin user.
+            admin_restrict_local:
+                aliases: ['admin-restrict-local']
+                type: str
+                description: Enable/disable local admin authentication restriction when remote authenticator is up and running
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -3961,6 +3972,8 @@ EXAMPLES = '''
           bonjour_profile: <string>
           wan_port_auth_macsec: <value in [disable, enable]>
           usb_port: <value in [disable, enable]>
+          admin_auth_tacacs_: <list or string>
+          admin_restrict_local: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -4184,19 +4197,19 @@ def main():
                         'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                        'ble-rtls': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5']], 'type': 'raw'},
-                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['WSS'], 'type': 'str'},
-                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5']], 'no_log': True, 'type': 'str'}
+                        'ble-rtls': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'raw'},
+                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
                     }
                 },
                 'platform': {
@@ -4845,7 +4858,9 @@ def main():
                 'unii-4-5ghz-band': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'bonjour-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'wan-port-auth-macsec': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'usb-port': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'usb-port': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'admin-auth-tacacs+': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'admin-restrict-local': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

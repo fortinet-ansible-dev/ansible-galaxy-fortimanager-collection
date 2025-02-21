@@ -632,6 +632,13 @@ options:
                         choices:
                             - 'block'
                             - 'allow'
+                    udp_not_quic:
+                        aliases: ['udp-not-quic']
+                        type: str
+                        description: Action to be taken when matched UDP packet is not QUIC.
+                        choices:
+                            - 'block'
+                            - 'allow'
             imaps:
                 type: dict
                 description: Imaps.
@@ -1422,6 +1429,13 @@ options:
                             - 'bypass'
                             - 'block'
                             - 'inspect'
+                    udp_not_quic:
+                        aliases: ['udp-not-quic']
+                        type: str
+                        description: Action to be taken when matched UDP packet is not QUIC.
+                        choices:
+                            - 'block'
+                            - 'allow'
             supported_alpn:
                 aliases: ['supported-alpn']
                 type: str
@@ -1703,7 +1717,8 @@ def main():
                         },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
-                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                        'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
                     }
                 },
                 'imaps': {
@@ -1907,7 +1922,8 @@ def main():
                             'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'],
                             'type': 'str'
                         },
-                        'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'}
+                        'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
+                        'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
                     }
                 },
                 'supported-alpn': {'v_range': [['7.0.0', '']], 'choices': ['none', 'http1-1', 'http2', 'all'], 'type': 'str'},

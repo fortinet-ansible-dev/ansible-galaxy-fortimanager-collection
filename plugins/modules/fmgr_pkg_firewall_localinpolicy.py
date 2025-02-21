@@ -110,7 +110,7 @@ options:
                     - 'disable'
                     - 'enable'
             intf:
-                type: str
+                type: raw
                 description: Incoming interface name from available options.
             policyid:
                 type: int
@@ -308,7 +308,7 @@ def main():
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
                 'dstaddr': {'type': 'raw'},
                 'ha-mgmt-intf-only': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'intf': {'type': 'str'},
+                'intf': {'type': 'raw'},
                 'policyid': {'required': True, 'type': 'int'},
                 'schedule': {'type': 'str'},
                 'service': {'type': 'raw'},

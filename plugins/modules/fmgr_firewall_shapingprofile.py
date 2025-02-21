@@ -282,7 +282,7 @@ def main():
                     'elements': 'dict'
                 },
                 'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'},
-                'npu-offloading': {'v_range': [['7.2.6', '7.2.8'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'npu-offloading': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

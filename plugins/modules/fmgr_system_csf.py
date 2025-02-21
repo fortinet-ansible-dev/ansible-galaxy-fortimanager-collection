@@ -477,7 +477,7 @@ def main():
                 'upstream-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'upstream-confirm': {'v_range': [['7.6.0', '']], 'choices': ['discover', 'confirm'], 'type': 'str'},
                 'ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5']],
+                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

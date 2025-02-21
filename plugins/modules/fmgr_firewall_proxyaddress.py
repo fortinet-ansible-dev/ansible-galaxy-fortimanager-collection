@@ -155,6 +155,9 @@ options:
                     - 'put'
                     - 'trace'
                     - 'connect'
+                    - 'other'
+                    - 'patch'
+                    - 'update'
             name:
                 type: str
                 description: Address name.
@@ -354,7 +357,11 @@ def main():
                 'header-name': {'type': 'str'},
                 'host': {'type': 'str'},
                 'host-regex': {'type': 'str'},
-                'method': {'type': 'list', 'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect'], 'elements': 'str'},
+                'method': {
+                    'type': 'list',
+                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect', 'other', 'patch', 'update'],
+                    'elements': 'str'
+                },
                 'name': {'required': True, 'type': 'str'},
                 'path': {'type': 'str'},
                 'query': {'type': 'str'},

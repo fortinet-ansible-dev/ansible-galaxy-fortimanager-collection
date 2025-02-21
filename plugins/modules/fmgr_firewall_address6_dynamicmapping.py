@@ -396,8 +396,8 @@ def main():
                 'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'filter': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
+                'filter': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
             }
         }
     }

@@ -173,6 +173,17 @@ options:
                         choices:
                             - 'dynamic'
                             - 'override'
+                    bounce_port_duration:
+                        aliases: ['bounce-port-duration']
+                        type: int
+                        description: Bounce duration in seconds of a switch port where this policy is applied.
+                    poe_reset:
+                        aliases: ['poe-reset']
+                        type: str
+                        description: Enable/disable POE reset of a switch port where this policy is applied.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             fortilink:
                 type: raw
                 description: (list) FortiLink interface for which this Dynamic port policy belongs to.
@@ -218,6 +229,8 @@ EXAMPLES = '''
               vlan_policy: <string>
               match_period: <integer>
               match_type: <value in [dynamic, override]>
+              bounce_port_duration: <integer>
+              poe_reset: <value in [disable, enable]>
           fortilink: <list or string>
 '''
 
@@ -301,11 +314,13 @@ def main():
                         'type': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'vlan-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                        'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'}
+                        'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
+                        'bounce-port-duration': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'poe-reset': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'fortilink': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'}
+                'fortilink': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'}
             }
         }
     }

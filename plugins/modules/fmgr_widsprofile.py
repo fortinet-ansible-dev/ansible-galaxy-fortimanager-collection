@@ -377,6 +377,364 @@ options:
                 aliases: ['ap-scan-channel-list-6G']
                 type: raw
                 description: (list) Selected ap scan channel list for 6G band.
+            adhoc_network:
+                aliases: ['adhoc-network']
+                type: str
+                description: Enable/disable adhoc network detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            adhoc_valid_ssid:
+                aliases: ['adhoc-valid-ssid']
+                type: str
+                description: Enable/disable adhoc using valid SSID detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            air_jack:
+                aliases: ['air-jack']
+                type: str
+                description: Enable/disable AirJack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ap_impersonation:
+                aliases: ['ap-impersonation']
+                type: str
+                description: Enable/disable AP impersonation detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ap_spoofing:
+                aliases: ['ap-spoofing']
+                type: str
+                description: Enable/disable AP spoofing detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            bcn_flood:
+                aliases: ['bcn-flood']
+                type: str
+                description: Enable/disable bcn flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            bcn_flood_thresh:
+                aliases: ['bcn-flood-thresh']
+                type: int
+                description: The threshold value for bcn flood.
+            bcn_flood_time:
+                aliases: ['bcn-flood-time']
+                type: int
+                description: Detection Window Period.
+            beacon_wrong_channel:
+                aliases: ['beacon-wrong-channel']
+                type: str
+                description: Enable/disable beacon wrong channel detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            block_ack_flood:
+                aliases: ['block_ack-flood']
+                type: str
+                description: Enable/disable block_ack flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            block_ack_flood_thresh:
+                aliases: ['block_ack-flood-thresh']
+                type: int
+                description: The threshold value for block_ack flood.
+            block_ack_flood_time:
+                aliases: ['block_ack-flood-time']
+                type: int
+                description: Detection Window Period.
+            chan_based_mitm:
+                aliases: ['chan-based-mitm']
+                type: str
+                description: Enable/disable channel based mitm detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            client_flood:
+                aliases: ['client-flood']
+                type: str
+                description: Enable/disable client flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            client_flood_thresh:
+                aliases: ['client-flood-thresh']
+                type: int
+                description: The threshold value for client flood.
+            client_flood_time:
+                aliases: ['client-flood-time']
+                type: int
+                description: Detection Window Period.
+            cts_flood:
+                aliases: ['cts-flood']
+                type: str
+                description: Enable/disable cts flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            cts_flood_thresh:
+                aliases: ['cts-flood-thresh']
+                type: int
+                description: The threshold value for cts flood.
+            cts_flood_time:
+                aliases: ['cts-flood-time']
+                type: int
+                description: Detection Window Period.
+            disassoc_broadcast:
+                aliases: ['disassoc-broadcast']
+                type: str
+                description: Enable/disable broadcast dis-association detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            disconnect_station:
+                aliases: ['disconnect-station']
+                type: str
+                description: Enable/disable disconnect station detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            eapol_key_overflow:
+                aliases: ['eapol-key-overflow']
+                type: str
+                description: Enable/disable overflow EAPOL key detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fata_jack:
+                aliases: ['fata-jack']
+                type: str
+                description: Enable/disable FATA-Jack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fuzzed_beacon:
+                aliases: ['fuzzed-beacon']
+                type: str
+                description: Enable/disable fuzzed beacon detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fuzzed_probe_request:
+                aliases: ['fuzzed-probe-request']
+                type: str
+                description: Enable/disable fuzzed probe request detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fuzzed_probe_response:
+                aliases: ['fuzzed-probe-response']
+                type: str
+                description: Enable/disable fuzzed probe response detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            hotspotter_attack:
+                aliases: ['hotspotter-attack']
+                type: str
+                description: Enable/disable hotspotter attack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ht_40mhz_intolerance:
+                aliases: ['ht-40mhz-intolerance']
+                type: str
+                description: Enable/disable HT 40 MHz intolerance detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ht_greenfield:
+                aliases: ['ht-greenfield']
+                type: str
+                description: Enable/disable HT greenfield detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            invalid_addr_combination:
+                aliases: ['invalid-addr-combination']
+                type: str
+                description: Enable/disable invalid address combination detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            malformed_association:
+                aliases: ['malformed-association']
+                type: str
+                description: Enable/disable malformed association request detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            malformed_auth:
+                aliases: ['malformed-auth']
+                type: str
+                description: Enable/disable malformed auth frame detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            malformed_ht_ie:
+                aliases: ['malformed-ht-ie']
+                type: str
+                description: Enable/disable malformed HT IE detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            netstumbler:
+                type: str
+                description: Enable/disable netstumbler detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            netstumbler_thresh:
+                aliases: ['netstumbler-thresh']
+                type: int
+                description: The threshold value for netstumbler.
+            netstumbler_time:
+                aliases: ['netstumbler-time']
+                type: int
+                description: Detection Window Period.
+            omerta_attack:
+                aliases: ['omerta-attack']
+                type: str
+                description: Enable/disable omerta attack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            overflow_ie:
+                aliases: ['overflow-ie']
+                type: str
+                description: Enable/disable overflow IE detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            probe_flood:
+                aliases: ['probe-flood']
+                type: str
+                description: Enable/disable probe flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            probe_flood_thresh:
+                aliases: ['probe-flood-thresh']
+                type: int
+                description: The threshold value for probe flood.
+            probe_flood_time:
+                aliases: ['probe-flood-time']
+                type: int
+                description: Detection Window Period.
+            pspoll_flood:
+                aliases: ['pspoll-flood']
+                type: str
+                description: Enable/disable pspoll flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            pspoll_flood_thresh:
+                aliases: ['pspoll-flood-thresh']
+                type: int
+                description: The threshold value for pspoll flood.
+            pspoll_flood_time:
+                aliases: ['pspoll-flood-time']
+                type: int
+                description: Detection Window Period.
+            pwsave_dos_attack:
+                aliases: ['pwsave-dos-attack']
+                type: str
+                description: Enable/disable power save DOS attack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            reassoc_flood:
+                aliases: ['reassoc-flood']
+                type: str
+                description: Enable/disable reassociation flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            reassoc_flood_thresh:
+                aliases: ['reassoc-flood-thresh']
+                type: int
+                description: The threshold value for reassociation flood.
+            reassoc_flood_time:
+                aliases: ['reassoc-flood-time']
+                type: int
+                description: Detection Window Period.
+            risky_encryption:
+                aliases: ['risky-encryption']
+                type: str
+                description: Enable/disable Risky Encryption detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            rts_flood:
+                aliases: ['rts-flood']
+                type: str
+                description: Enable/disable rts flood detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            rts_flood_thresh:
+                aliases: ['rts-flood-thresh']
+                type: int
+                description: The threshold value for rts flood.
+            rts_flood_time:
+                aliases: ['rts-flood-time']
+                type: int
+                description: Detection Window Period.
+            unencrypted_valid:
+                aliases: ['unencrypted-valid']
+                type: str
+                description: Enable/disable unencrypted valid detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            valid_client_misassociation:
+                aliases: ['valid-client-misassociation']
+                type: str
+                description: Enable/disable valid client misassociation detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            valid_ssid_misuse:
+                aliases: ['valid-ssid-misuse']
+                type: str
+                description: Enable/disable valid SSID misuse detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wellenreiter:
+                type: str
+                description: Enable/disable wellenreiter detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wellenreiter_thresh:
+                aliases: ['wellenreiter-thresh']
+                type: int
+                description: The threshold value for wellenreiter.
+            wellenreiter_time:
+                aliases: ['wellenreiter-time']
+                type: int
+                description: Detection Window Period.
+            windows_bridge:
+                aliases: ['windows-bridge']
+                type: str
+                description: Enable/disable windows bridge detection
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wpa_ft_attack:
+                aliases: ['wpa-ft-attack']
+                type: str
+                description: Enable/disable WPA FT attack detection
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -459,6 +817,66 @@ EXAMPLES = '''
           ap_scan_threshold: <string>
           ap_scan_channel_list_2G_5G: <list or string>
           ap_scan_channel_list_6G: <list or string>
+          adhoc_network: <value in [disable, enable]>
+          adhoc_valid_ssid: <value in [disable, enable]>
+          air_jack: <value in [disable, enable]>
+          ap_impersonation: <value in [disable, enable]>
+          ap_spoofing: <value in [disable, enable]>
+          bcn_flood: <value in [disable, enable]>
+          bcn_flood_thresh: <integer>
+          bcn_flood_time: <integer>
+          beacon_wrong_channel: <value in [disable, enable]>
+          block_ack_flood: <value in [disable, enable]>
+          block_ack_flood_thresh: <integer>
+          block_ack_flood_time: <integer>
+          chan_based_mitm: <value in [disable, enable]>
+          client_flood: <value in [disable, enable]>
+          client_flood_thresh: <integer>
+          client_flood_time: <integer>
+          cts_flood: <value in [disable, enable]>
+          cts_flood_thresh: <integer>
+          cts_flood_time: <integer>
+          disassoc_broadcast: <value in [disable, enable]>
+          disconnect_station: <value in [disable, enable]>
+          eapol_key_overflow: <value in [disable, enable]>
+          fata_jack: <value in [disable, enable]>
+          fuzzed_beacon: <value in [disable, enable]>
+          fuzzed_probe_request: <value in [disable, enable]>
+          fuzzed_probe_response: <value in [disable, enable]>
+          hotspotter_attack: <value in [disable, enable]>
+          ht_40mhz_intolerance: <value in [disable, enable]>
+          ht_greenfield: <value in [disable, enable]>
+          invalid_addr_combination: <value in [disable, enable]>
+          malformed_association: <value in [disable, enable]>
+          malformed_auth: <value in [disable, enable]>
+          malformed_ht_ie: <value in [disable, enable]>
+          netstumbler: <value in [disable, enable]>
+          netstumbler_thresh: <integer>
+          netstumbler_time: <integer>
+          omerta_attack: <value in [disable, enable]>
+          overflow_ie: <value in [disable, enable]>
+          probe_flood: <value in [disable, enable]>
+          probe_flood_thresh: <integer>
+          probe_flood_time: <integer>
+          pspoll_flood: <value in [disable, enable]>
+          pspoll_flood_thresh: <integer>
+          pspoll_flood_time: <integer>
+          pwsave_dos_attack: <value in [disable, enable]>
+          reassoc_flood: <value in [disable, enable]>
+          reassoc_flood_thresh: <integer>
+          reassoc_flood_time: <integer>
+          risky_encryption: <value in [disable, enable]>
+          rts_flood: <value in [disable, enable]>
+          rts_flood_thresh: <integer>
+          rts_flood_time: <integer>
+          unencrypted_valid: <value in [disable, enable]>
+          valid_client_misassociation: <value in [disable, enable]>
+          valid_ssid_misuse: <value in [disable, enable]>
+          wellenreiter: <value in [disable, enable]>
+          wellenreiter_thresh: <integer>
+          wellenreiter_time: <integer>
+          windows_bridge: <value in [disable, enable]>
+          wpa_ft_attack: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -577,7 +995,67 @@ def main():
                 'rogue-scan': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-scan-threshold': {'v_range': [['6.2.3', '']], 'type': 'str'},
                 'ap-scan-channel-list-2G-5G': {'v_range': [['7.4.1', '']], 'type': 'raw'},
-                'ap-scan-channel-list-6G': {'v_range': [['7.4.1', '']], 'type': 'raw'}
+                'ap-scan-channel-list-6G': {'v_range': [['7.4.1', '']], 'type': 'raw'},
+                'adhoc-network': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'adhoc-valid-ssid': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'air-jack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ap-impersonation': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ap-spoofing': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bcn-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bcn-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'bcn-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'beacon-wrong-channel': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'block_ack-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'block_ack-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'block_ack-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'chan-based-mitm': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'client-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'client-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'client-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'cts-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cts-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'cts-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'disassoc-broadcast': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'disconnect-station': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'eapol-key-overflow': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fata-jack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fuzzed-beacon': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fuzzed-probe-request': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fuzzed-probe-response': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'hotspotter-attack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ht-40mhz-intolerance': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ht-greenfield': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'invalid-addr-combination': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'malformed-association': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'malformed-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'malformed-ht-ie': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netstumbler': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netstumbler-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'netstumbler-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'omerta-attack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'overflow-ie': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'probe-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'probe-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'probe-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'pspoll-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pspoll-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'pspoll-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'pwsave-dos-attack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reassoc-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reassoc-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'reassoc-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'risky-encryption': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'rts-flood': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'rts-flood-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'rts-flood-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'unencrypted-valid': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'valid-client-misassociation': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'valid-ssid-misuse': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wellenreiter': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wellenreiter-thresh': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'wellenreiter-time': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'windows-bridge': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wpa-ft-attack': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

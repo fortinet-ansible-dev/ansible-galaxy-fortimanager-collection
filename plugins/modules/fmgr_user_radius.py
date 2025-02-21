@@ -128,6 +128,10 @@ options:
                             - 'auto'
                             - 'sdwan'
                             - 'specify'
+                    vrf_select:
+                        aliases: ['vrf-select']
+                        type: int
+                        description: VRF ID used for connection to server.
             acct_all_servers:
                 aliases: ['acct-all-servers']
                 type: str
@@ -945,6 +949,10 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
+                            vrf_select:
+                                aliases: ['vrf-select']
+                                type: int
+                                description: VRF ID used for connection to server.
                     switch_controller_service_type:
                         aliases: ['switch-controller-service-type']
                         type: list
@@ -1078,6 +1086,17 @@ options:
                         aliases: ['source-ip-interface']
                         type: raw
                         description: (list) Source interface for communication with the RADIUS server.
+                    require_message_authenticator:
+                        aliases: ['require-message-authenticator']
+                        type: str
+                        description: Require message authenticator in authentication response.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    vrf_select:
+                        aliases: ['vrf-select']
+                        type: int
+                        description: VRF ID used for connection to server.
             h3c_compatibility:
                 aliases: ['h3c-compatibility']
                 type: str
@@ -1562,6 +1581,17 @@ options:
                 aliases: ['source-ip-interface']
                 type: raw
                 description: (list) Source interface for communication with the RADIUS server.
+            require_message_authenticator:
+                aliases: ['require-message-authenticator']
+                type: str
+                description: Require message authenticator in authentication response.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -1673,7 +1703,8 @@ def main():
                             'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']],
                             'choices': ['auto', 'sdwan', 'specify'],
                             'type': 'str'
-                        }
+                        },
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1870,7 +1901,8 @@ def main():
                                 'secret': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'no_log': True, 'type': 'raw'},
                                 'server': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
                                 'source-ip': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'type': 'str'},
-                                'status': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'status': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
@@ -1903,11 +1935,13 @@ def main():
                         'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                         'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
                         'switch-controller-nas-ip-dynamic': {
-                            'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']],
+                            'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                        'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                        'require-message-authenticator': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -2021,8 +2055,10 @@ def main():
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
-                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                'require-message-authenticator': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

@@ -833,6 +833,28 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    client_cert:
+                        aliases: ['client-cert']
+                        type: str
+                        description: Enable/disable requesting client certificate.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    empty_cert_action:
+                        aliases: ['empty-cert-action']
+                        type: str
+                        description: Action for an empty client certificate.
+                        choices:
+                            - 'accept'
+                            - 'block'
+                            - 'accept-unmanageable'
+                    user_agent_detect:
+                        aliases: ['user-agent-detect']
+                        type: str
+                        description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             extaddr:
                 type: raw
                 description: (list or str) External FQDN address name.
@@ -1672,6 +1694,28 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            client_cert:
+                aliases: ['client-cert']
+                type: str
+                description: Enable/disable requesting client certificate.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            empty_cert_action:
+                aliases: ['empty-cert-action']
+                type: str
+                description: Action for an empty client certificate.
+                choices:
+                    - 'accept'
+                    - 'block'
+                    - 'accept-unmanageable'
+            user_agent_detect:
+                aliases: ['user-agent-detect']
+                type: str
+                description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1978,7 +2022,10 @@ def main():
                         'gslb-domain-name': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'gslb-hostname': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'one-click-gslb-server': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['accept', 'block', 'accept-unmanageable'], 'type': 'str'},
+                        'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -2188,7 +2235,10 @@ def main():
                     'elements': 'dict'
                 },
                 'one-click-gslb-server': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['accept', 'block', 'accept-unmanageable'], 'type': 'str'},
+                'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

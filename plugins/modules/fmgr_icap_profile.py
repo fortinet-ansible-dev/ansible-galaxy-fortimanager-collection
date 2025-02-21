@@ -316,6 +316,13 @@ options:
             comment:
                 type: str
                 description: Comment.
+            ocr_only:
+                aliases: ['ocr-only']
+                type: str
+                description: Enable/disable this FortiGate unit to submit only OCR interested content to the ICAP server.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -395,6 +402,7 @@ EXAMPLES = '''
           scan_progress_interval: <integer>
           timeout: <integer>
           comment: <string>
+          ocr_only: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -519,7 +527,8 @@ def main():
                 'icap-block-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scan-progress-interval': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'timeout': {'v_range': [['7.2.0', '']], 'type': 'int'},
-                'comment': {'v_range': [['7.2.2', '']], 'type': 'str'}
+                'comment': {'v_range': [['7.2.2', '']], 'type': 'str'},
+                'ocr-only': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

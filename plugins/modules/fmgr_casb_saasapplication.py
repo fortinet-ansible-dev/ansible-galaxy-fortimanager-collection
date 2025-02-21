@@ -119,6 +119,85 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            input_attributes:
+                aliases: ['input-attributes']
+                type: list
+                elements: dict
+                description: Input attributes.
+                suboptions:
+                    attr_type:
+                        aliases: ['attr-type']
+                        type: str
+                        description: CASB attribute type.
+                        choices:
+                            - 'tenant'
+                    default:
+                        type: str
+                        description: CASB attribute default value.
+                        choices:
+                            - 'string'
+                            - 'string-list'
+                    description:
+                        type: str
+                        description: CASB attribute description.
+                    fallback_input:
+                        aliases: ['fallback-input']
+                        type: str
+                        description: CASB attribute legacy input.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    name:
+                        type: str
+                        description: CASB attribute name.
+                    required:
+                        type: str
+                        description: CASB attribute required.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    type:
+                        type: str
+                        description: CASB attribute format type.
+                        choices:
+                            - 'string'
+                            - 'string-list'
+                            - 'integer'
+                            - 'integer-list'
+                            - 'boolean'
+            output_attributes:
+                aliases: ['output-attributes']
+                type: list
+                elements: dict
+                description: Output attributes.
+                suboptions:
+                    attr_type:
+                        aliases: ['attr-type']
+                        type: str
+                        description: CASB attribute type.
+                        choices:
+                            - 'tenant'
+                    description:
+                        type: str
+                        description: CASB attribute description.
+                    name:
+                        type: str
+                        description: CASB attribute name.
+                    required:
+                        type: str
+                        description: CASB attribute required.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    type:
+                        type: str
+                        description: CASB attribute format type.
+                        choices:
+                            - 'string'
+                            - 'string-list'
+                            - 'integer'
+                            - 'integer-list'
+                            - 'boolean'
 '''
 
 EXAMPLES = '''
@@ -147,6 +226,22 @@ EXAMPLES = '''
           type: <value in [built-in, customized]>
           uuid: <string>
           status: <value in [disable, enable]>
+          input_attributes:
+            -
+              attr_type: <value in [tenant]>
+              default: <value in [string, string-list]>
+              description: <string>
+              fallback_input: <value in [disable, enable]>
+              name: <string>
+              required: <value in [disable, enable]>
+              type: <value in [string, string-list, integer, ...]>
+          output_attributes:
+            -
+              attr_type: <value in [tenant]>
+              description: <string>
+              name: <string>
+              required: <value in [disable, enable]>
+              type: <value in [string, string-list, integer, ...]>
 '''
 
 RETURN = '''
@@ -213,7 +308,33 @@ def main():
                 'name': {'v_range': [['7.4.1', '']], 'required': True, 'type': 'str'},
                 'type': {'v_range': [['7.4.1', '']], 'choices': ['built-in', 'customized'], 'type': 'str'},
                 'uuid': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'status': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'status': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'input-attributes': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        'attr-type': {'v_range': [['7.6.2', '']], 'choices': ['tenant'], 'type': 'str'},
+                        'default': {'v_range': [['7.6.2', '']], 'choices': ['string', 'string-list'], 'type': 'str'},
+                        'description': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'fallback-input': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'name': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'required': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'type': {'v_range': [['7.6.2', '']], 'choices': ['string', 'string-list', 'integer', 'integer-list', 'boolean'], 'type': 'str'}
+                    },
+                    'elements': 'dict'
+                },
+                'output-attributes': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        'attr-type': {'v_range': [['7.6.2', '']], 'choices': ['tenant'], 'type': 'str'},
+                        'description': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'name': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'required': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'type': {'v_range': [['7.6.2', '']], 'choices': ['string', 'string-list', 'integer', 'integer-list', 'boolean'], 'type': 'str'}
+                    },
+                    'elements': 'dict'
+                }
             }
         }
     }

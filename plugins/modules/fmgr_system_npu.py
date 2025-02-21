@@ -4664,7 +4664,7 @@ def main():
                         'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                        'sctp-csum-err': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
                     }
                 },
                 'gtp-enhanced-cpu-range': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['0', '1', '2'], 'type': 'str'},
@@ -5281,14 +5281,14 @@ def main():
                         'tcpsyn-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'udp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'enable-queue-shaper': {
-                            'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
+                            'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'exception-code': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
-                        'fragment-with-sess': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
-                        'fragment-without-session': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'},
-                        'queue-shaper-max': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']], 'type': 'int'}
+                        'exception-code': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                        'fragment-with-sess': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                        'fragment-without-session': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                        'queue-shaper-max': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'}
                     }
                 },
                 'dsw-dts-profile': {
@@ -5316,12 +5316,12 @@ def main():
                         'scan': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'stats-update-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
                         'udp-keepalive-interval': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'int'},
-                        'scan-stale': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
-                        'scan-vt': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
-                        'stats-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
-                        'stats-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
-                        'udp-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'},
-                        'udp-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']], 'type': 'int'}
+                        'scan-stale': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'scan-vt': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'stats-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'stats-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'udp-qual-access': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'udp-qual-duration': {'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'}
                     }
                 },
                 'inbound-dscp-copy-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'raw'},
@@ -5400,12 +5400,12 @@ def main():
                 'ple-non-syn-tcp-action': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['forward', 'drop'], 'type': 'str'},
                 'npu-group-effective-scope': {'v_range': [['7.0.6', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
                 'ipsec-STS-timeout': {
-                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']],
                     'choices': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
                     'type': 'str'
                 },
                 'ipsec-throughput-msg-frequency': {
-                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']],
                     'choices': [
                         'disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB', '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB',
                         '512MB', '1GB'
@@ -5413,12 +5413,12 @@ def main():
                     'type': 'str'
                 },
                 'ipt-STS-timeout': {
-                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']],
                     'choices': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
                     'type': 'str'
                 },
                 'ipt-throughput-msg-frequency': {
-                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.2', '']],
                     'choices': [
                         'disable', '32KB', '64KB', '128KB', '256KB', '512KB', '1MB', '2MB', '4MB', '8MB', '16MB', '32MB', '64MB', '128MB', '256MB',
                         '512MB', '1GB'
@@ -5426,17 +5426,17 @@ def main():
                     'type': 'str'
                 },
                 'default-tcp-refresh-dir': {
-                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']],
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']],
                     'choices': ['both', 'outgoing', 'incoming'],
                     'type': 'str'
                 },
                 'default-udp-refresh-dir': {
-                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.1', '']],
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.1', '']],
                     'choices': ['both', 'outgoing', 'incoming'],
                     'type': 'str'
                 },
                 'nss-threads-option': {
-                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.12', '7.0.13'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
                     'choices': ['4t-eif', '4t-noeif', '2t'],
                     'type': 'str'
                 },
@@ -5450,10 +5450,10 @@ def main():
                         'tcp-udp-port': {'v_range': [['7.2.4', '']], 'choices': ['include', 'exclude'], 'type': 'str'}
                     }
                 },
-                'pba-port-select-mode': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
-                'spa-port-select-mode': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
-                'split-ipsec-engines': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pba-port-select-mode': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
+                'spa-port-select-mode': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'choices': ['random', 'direct'], 'type': 'str'},
+                'split-ipsec-engines': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tunnel-over-vlink': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-receive-unit': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'npu-tcam': {
                     'v_range': [['7.4.2', '']],
@@ -5734,7 +5734,7 @@ def main():
                 'ipv6-prefix-session-quota': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipv6-prefix-session-quota-high': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'ipv6-prefix-session-quota-low': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'dedicated-lacp-queue': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'dedicated-lacp-queue': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

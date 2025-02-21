@@ -252,6 +252,13 @@ options:
                 choices:
                     - 'block'
                     - 'allow'
+            udp_not_quic:
+                aliases: ['udp-not-quic']
+                type: str
+                description: Action to be taken when matched UDP packet is not QUIC.
+                choices:
+                    - 'block'
+                    - 'allow'
 '''
 
 EXAMPLES = '''
@@ -295,6 +302,7 @@ EXAMPLES = '''
           unsupported_ssl_version: <value in [block, allow, inspect]>
           quic: <value in [disable, enable, bypass, ...]>
           encrypted_client_hello: <value in [block, allow]>
+          udp_not_quic: <value in [block, allow]>
 '''
 
 RETURN = '''
@@ -378,7 +386,8 @@ def main():
                 'min-allowed-ssl-version': {'v_range': [['7.0.3', '']], 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'type': 'str'},
                 'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                 'quic': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable', 'bypass', 'block', 'inspect'], 'type': 'str'},
-                'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                'encrypted-client-hello': {'v_range': [['7.4.3', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                'udp-not-quic': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
             }
         }
     }

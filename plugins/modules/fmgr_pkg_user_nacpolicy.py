@@ -348,16 +348,16 @@ def main():
                 'user': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'user-group': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'severity': {'v_range': [['7.4.0', '']], 'type': 'raw'},
-                'firewall-address': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
+                'firewall-address': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
                 'fortivoice-tag': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
-                'switch-fortilink': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-group': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-mac-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-scope': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-port-policy': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
+                'switch-fortilink': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-group': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-mac-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-scope': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-port-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
             }
         }
     }

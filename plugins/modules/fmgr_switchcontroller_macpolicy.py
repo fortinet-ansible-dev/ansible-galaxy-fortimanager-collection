@@ -125,6 +125,17 @@ options:
             fortilink:
                 type: raw
                 description: (list) FortiLink interface for which this MAC policy belongs to.
+            bounce_port_duration:
+                aliases: ['bounce-port-duration']
+                type: int
+                description: Bounce duration in seconds of a switch port where this mac-policy is applied.
+            poe_reset:
+                aliases: ['poe-reset']
+                type: str
+                description: Enable/disable POE reset of a switch port where this mac-policy is applied.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -154,6 +165,8 @@ EXAMPLES = '''
           vlan: <string>
           drop: <value in [disable, enable]>
           fortilink: <list or string>
+          bounce_port_duration: <integer>
+          poe_reset: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -221,7 +234,9 @@ def main():
                 'traffic-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'drop': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortilink': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'}
+                'fortilink': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'bounce-port-duration': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'poe-reset': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

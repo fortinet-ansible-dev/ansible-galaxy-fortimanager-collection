@@ -201,14 +201,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'fmg_sasemanager_settings': {
             'type': 'dict',
-            'v_range': [['7.6.0', '']],
+            'v_range': [['7.6.0', '7.6.1']],
             'options': {
-                'address': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'profile-group': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'sync-address': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
-                'sync-profile-group': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
-                'sync-user': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
-                'user': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'}
+                'address': {'v_range': [['7.6.0', '7.6.1']], 'type': 'list', 'elements': 'str'},
+                'profile-group': {'v_range': [['7.6.0', '7.6.1']], 'type': 'list', 'elements': 'str'},
+                'sync-address': {'v_range': [['7.6.0', '7.6.1']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
+                'sync-profile-group': {'v_range': [['7.6.0', '7.6.1']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
+                'sync-user': {'v_range': [['7.6.0', '7.6.1']], 'choices': ['disable', 'specify', 'all'], 'type': 'str'},
+                'user': {'v_range': [['7.6.0', '7.6.1']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

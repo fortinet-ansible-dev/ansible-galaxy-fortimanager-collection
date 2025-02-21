@@ -241,17 +241,17 @@ def main():
             'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']],
             'options': {
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'append-index': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'trap-high-cpu-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'trap-log-full-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'engine-id': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'append-index': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'trap-high-cpu-threshold': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'trap-log-full-threshold': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'engine-id': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'trap-freeable-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'contact-info': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'engine-id-type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['text', 'hex', 'mac'], 'type': 'str'},
-                'description': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'contact-info': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'engine-id-type': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['text', 'hex', 'mac'], 'type': 'str'},
+                'description': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'trap-free-memory-threshold': {'v_range': [['7.4.3', '']], 'type': 'int'},
-                'trap-low-memory-threshold': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'location': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'trap-low-memory-threshold': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'location': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'non-mgmt-vdom-query': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }

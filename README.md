@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.8.2 - configuring FortiManager
+# fortinet.fortimanager:2.9.0 - configuring FortiManager
 
 ## Description
 
@@ -64,7 +64,7 @@ For any questions regarding FortiManager Ansible, please create a [github issue]
 
 ## Release Notes and Roadmap
 
-Please check [release note here](CHANGELOG.rst).
+Please check [release note here](https://ansible-galaxy-fortimanager-docs.readthedocs.io/en/latest/release.html).
 
 FortiManager Ansible is expected to be updated every two months.
 
@@ -579,6 +579,8 @@ The collection provides the following modules:
 * `fmgr_fsp_vlan_interface_vrrp_proxyarp`  VRRP Proxy ARP configuration.
 * `fmgr_gtp_apn`  Configure APN for GTP.
 * `fmgr_gtp_apngrp`  Configure APN groups for GTP.
+* `fmgr_gtp_ieallowlist`  IE allow list.
+* `fmgr_gtp_ieallowlist_entries`  Entries of allow list for unknown or out-of-state IEs.
 * `fmgr_gtp_iewhitelist`  IE white list.
 * `fmgr_gtp_iewhitelist_entries`  Entries of white list.
 * `fmgr_gtp_messagefilterv0v1`  Message filter for GTPv0/v1 messages.
@@ -1058,6 +1060,7 @@ The collection provides the following modules:
 * `fmgr_templategroup`  Cli template group.
 * `fmgr_um_image_upgrade`  The older API for updating the firmware of specific device.
 * `fmgr_um_image_upgrade_ext`  Update the firmware of specific device.
+* `fmgr_ums_setting`  Ums setting.
 * `fmgr_user_adgrp`  Configure FSSO groups.
 * `fmgr_user_certificate`  Configure certificate users.
 * `fmgr_user_clearpass`  User clearpass.
@@ -1267,4 +1270,4 @@ The collection provides the following modules:
 
 ## License Information
 
-FortiManager Ansible Collection follows [GNU General Public License v3.0](LICENSE).
+FortiManager Ansible Collection follows [GNU General Public License v3.0](https://github.com/fortinet-ansible-dev/ansible-galaxy-fortimanager-collection/blob/main/LICENSE).

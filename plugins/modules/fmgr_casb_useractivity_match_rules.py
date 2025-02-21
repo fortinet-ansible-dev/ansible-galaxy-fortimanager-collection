@@ -150,6 +150,16 @@ options:
                     - 'header'
                     - 'header-value'
                     - 'method'
+                    - 'body'
+            body_type:
+                aliases: ['body-type']
+                type: str
+                description: CASB user activity match rule body type.
+                choices:
+                    - 'json'
+            jq:
+                type: str
+                description: CASB user activity rule match jq script.
 '''
 
 EXAMPLES = '''
@@ -182,6 +192,8 @@ EXAMPLES = '''
           methods: <list or string>
           negate: <value in [disable, enable]>
           type: <value in [domains, host, path, ...]>
+          body_type: <value in [json]>
+          jq: <string>
 '''
 
 RETURN = '''
@@ -253,7 +265,9 @@ def main():
                 'match-value': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'methods': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'},
                 'negate': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.1', '']], 'choices': ['domains', 'host', 'path', 'header', 'header-value', 'method'], 'type': 'str'}
+                'type': {'v_range': [['7.4.1', '']], 'choices': ['domains', 'host', 'path', 'header', 'header-value', 'method', 'body'], 'type': 'str'},
+                'body-type': {'v_range': [['7.6.2', '']], 'choices': ['json'], 'type': 'str'},
+                'jq': {'v_range': [['7.6.2', '']], 'type': 'str'}
             }
         }
     }

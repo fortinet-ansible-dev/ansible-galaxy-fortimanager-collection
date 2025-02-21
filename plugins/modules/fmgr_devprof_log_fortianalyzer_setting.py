@@ -239,6 +239,10 @@ options:
             server:
                 type: str
                 description: The remote FortiAnalyzer.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -288,6 +292,7 @@ EXAMPLES = '''
           status: <value in [disable, enable]>
           __change_ip: <integer>
           server: <string>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -389,13 +394,14 @@ def main():
                 'interface-select-method': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'preshared-key': {'v_range': [['7.0.0', '']], 'no_log': True, 'type': 'str'},
                 'alt-server': {'v_range': [['7.2.2', '']], 'type': 'str'},
-                'fallback-to-primary': {'v_range': [['7.2.5', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'server-cert-ca': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'serial': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'},
-                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'status': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                '__change_ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'server': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'}
+                'fallback-to-primary': {'v_range': [['7.2.5', '7.2.9'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'server-cert-ca': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'serial': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'status': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '__change_ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'server': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

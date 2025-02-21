@@ -83,6 +83,12 @@ options:
                     vdom:
                         type: str
                         description: Vdom.
+            flags:
+                type: list
+                elements: str
+                description: Auto_lock_ws - Automatically lock and unlock workspace when performing security console task.
+                choices:
+                    - 'auto_lock_ws'
 '''
 
 EXAMPLES = '''
@@ -107,6 +113,8 @@ EXAMPLES = '''
             -
               name: <string>
               vdom: <string>
+          flags:
+            - "auto_lock_ws"
 '''
 
 RETURN = '''
@@ -166,7 +174,8 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'adom': {'type': 'str'},
-                'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'}
+                'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
+                'flags': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
             }
         }
     }

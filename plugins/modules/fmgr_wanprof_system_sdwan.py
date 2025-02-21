@@ -417,6 +417,16 @@ options:
                     source6:
                         type: str
                         description: Source IPv6 addressused in the health-check packet to server.
+                    fortiguard:
+                        type: str
+                        description: Enable/disable use of FortiGuard predefined server.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    fortiguard_name:
+                        aliases: ['fortiguard-name']
+                        type: raw
+                        description: (list) Predefined health-check target name.
             load_balance_mode:
                 aliases: ['load-balance-mode']
                 type: str
@@ -547,6 +557,13 @@ options:
                         aliases: ['service-id']
                         type: str
                         description: SD-WAN service ID to work with the neighbor.
+                    route_metric:
+                        aliases: ['route-metric']
+                        type: str
+                        description: Route-metric of neighbor.
+                        choices:
+                            - 'preferable'
+                            - 'priority'
             neighbor_hold_boot_time:
                 aliases: ['neighbor-hold-boot-time']
                 type: int
@@ -1238,6 +1255,10 @@ options:
                 choices:
                     - 'sdwan-overlay'
                     - 'sdwan-manager'
+            duplication_max_discrepancy:
+                aliases: ['duplication-max-discrepancy']
+                type: int
+                description: Maximum discrepancy between two packets for deduplication in milliseconds
 '''
 
 EXAMPLES = '''
@@ -1338,6 +1359,8 @@ EXAMPLES = '''
               sla_id_redistribute: <integer>
               class_id: <string>
               source6: <string>
+              fortiguard: <value in [disable, enable]>
+              fortiguard_name: <list or string>
           load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
           members:
             -
@@ -1372,6 +1395,7 @@ EXAMPLES = '''
               minimum_sla_meet_members: <integer>
               mode: <value in [sla, speedtest]>
               service_id: <string>
+              route_metric: <value in [preferable, priority]>
           neighbor_hold_boot_time: <integer>
           neighbor_hold_down: <value in [disable, enable]>
           neighbor_hold_down_time: <integer>
@@ -1522,6 +1546,7 @@ EXAMPLES = '''
           option:
             - "sdwan-overlay"
             - "sdwan-manager"
+          duplication_max_discrepancy: <integer>
 '''
 
 RETURN = '''
@@ -1680,7 +1705,9 @@ def main():
                         'embed-measured-health': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sla-id-redistribute': {'v_range': [['7.2.1', '']], 'type': 'int'},
                         'class-id': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                        'source6': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                        'source6': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                        'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -1728,7 +1755,8 @@ def main():
                         'sla-id': {'v_range': [['6.4.1', '']], 'type': 'int'},
                         'minimum-sla-meet-members': {'v_range': [['7.2.0', '']], 'type': 'int'},
                         'mode': {'v_range': [['7.0.1', '']], 'choices': ['sla', 'speedtest'], 'type': 'str'},
-                        'service-id': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                        'service-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                        'route-metric': {'v_range': [['7.6.2', '']], 'choices': ['preferable', 'priority'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1917,7 +1945,8 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'}
+                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
+                'duplication-max-discrepancy': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

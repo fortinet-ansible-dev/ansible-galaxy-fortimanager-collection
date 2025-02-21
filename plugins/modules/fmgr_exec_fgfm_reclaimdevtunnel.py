@@ -160,8 +160,8 @@ def main():
         'device_name': {'required': True, 'type': 'str'},
         'exec_fgfm_reclaimdevtunnel': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
-            'options': {'flags': {'type': 'list', 'choices': ['force', 'get_info'], 'elements': 'str'}}
+            'v_range': [['6.0.0', '7.6.1']],
+            'options': {'flags': {'v_range': [['6.0.0', '7.6.1']], 'type': 'list', 'choices': ['force', 'get_info'], 'elements': 'str'}}
         }
     }
 

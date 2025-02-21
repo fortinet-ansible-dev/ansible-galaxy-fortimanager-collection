@@ -623,9 +623,9 @@ def main():
                 'system': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'webport': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'incident': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'aid': {'v_range': [['6.4.1', '7.2.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'aid': {'v_range': [['6.4.1', '7.2.9']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'docker': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'controller': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.8'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'controller': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

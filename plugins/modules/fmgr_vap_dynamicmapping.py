@@ -1550,6 +1550,36 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            _intf_role:
+                type: str
+                description: Intf role.
+                choices:
+                    - 'lan'
+                    - 'wan'
+                    - 'dmz'
+                    - 'undefined'
+            called_station_id_type:
+                aliases: ['called-station-id-type']
+                type: str
+                description: The format type of RADIUS attribute Called-Station-Id
+                choices:
+                    - 'mac'
+                    - 'ip'
+                    - 'apname'
+            external_pre_auth:
+                aliases: ['external-pre-auth']
+                type: str
+                description: Enable/disable pre-authentication with external APs not managed by the FortiGate
+                choices:
+                    - 'disable'
+                    - 'enable'
+            pre_auth:
+                aliases: ['pre-auth']
+                type: str
+                description: Enable/disable pre-authentication, where supported by clients
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -2032,6 +2062,10 @@ EXAMPLES = '''
           _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
           domain_name_stripping: <value in [disable, enable]>
           local_lan_partition: <value in [disable, enable]>
+          _intf_role: <value in [lan, wan, dmz, ...]>
+          called_station_id_type: <value in [mac, ip, apname]>
+          external_pre_auth: <value in [disable, enable]>
+          pre_auth: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -2404,7 +2438,11 @@ def main():
                     'type': 'str'
                 },
                 'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '_intf_role': {'v_range': [['7.6.2', '']], 'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
+                'called-station-id-type': {'v_range': [['7.6.2', '']], 'choices': ['mac', 'ip', 'apname'], 'type': 'str'},
+                'external-pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

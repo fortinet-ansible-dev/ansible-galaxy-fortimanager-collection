@@ -11,13 +11,13 @@ ANSIBLE_METADATA = {'status': ['preview'],
 
 DOCUMENTATION = '''
 ---
-module: fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue
-short_description: Configure NGFW IPv4/IPv6 application policies.
+module: fmgr_gtp_ieallowlist
+short_description: IE allow list.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 
-version_added: "2.1.0"
+version_added: "2.9.0"
 author:
     - Xinwei Du (@dux-fortinet)
     - Xing Li (@lix-fortinet)
@@ -84,30 +84,29 @@ options:
         description: The parameter (adom) in requested url.
         type: str
         required: true
-    pblock:
-        description: The parameter (pblock) in requested url.
-        type: str
-        required: true
-    security-policy:
-        description: Deprecated, please use "security_policy"
-        type: str
-    security_policy:
-        description: The parameter (security-policy) in requested url.
-        type: str
-    pm_config_pblock_firewall_securitypolicy_sectionvalue:
+    gtp_ieallowlist:
         description: The top level parameters set.
         required: false
         type: dict
         suboptions:
-            attr:
-                type: str
-                description: Attr.
-                choices:
-                    - 'label'
-                    - 'global-label'
+            entries:
+                type: list
+                elements: dict
+                description: Entries.
+                suboptions:
+                    id:
+                        type: int
+                        description: Entry ID.
+                    ie:
+                        type: int
+                        description: IE ID
+                    fmgr_message:
+                        type: int
+                        description: Message ID
             name:
                 type: str
-                description: Name.
+                description: IE allow list name.
+                required: true
 '''
 
 EXAMPLES = '''
@@ -119,19 +118,21 @@ EXAMPLES = '''
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Configure NGFW IPv4/IPv6 application policies.
-      fortinet.fortimanager.fmgr_pm_config_pblock_firewall_securitypolicy_sectionvalue:
+    - name: IE allow list.
+      fortinet.fortimanager.fmgr_gtp_ieallowlist:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
         workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
-        pblock: <your own value>
-        security_policy: <your own value>
         state: present # <value in [present, absent]>
-        pm_config_pblock_firewall_securitypolicy_sectionvalue:
-          attr: <value in [label, global-label]>
+        gtp_ieallowlist:
+          entries:
+            -
+              id: <integer>
+              ie: <integer>
+              fmgr_message: <integer>
           name: <string>
 '''
 
@@ -182,43 +183,46 @@ from ansible_collections.fortinet.fortimanager.plugins.module_utils.common impor
 
 def main():
     urls_list = [
-        '/pm/config/adom/{adom}/pblock/{pblock}/firewall/security-policy/{security-policy}/section value'
+        '/pm/config/adom/{adom}/obj/gtp/ie-allow-list',
+        '/pm/config/global/obj/gtp/ie-allow-list'
     ]
-    url_params = ['adom', 'pblock', 'security-policy']
-    module_primary_key = None
+    url_params = ['adom']
+    module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
-        'pblock': {'required': True, 'type': 'str'},
-        'security-policy': {'type': 'str', 'api_name': 'security_policy'},
-        'security_policy': {'type': 'str'},
-        'pm_config_pblock_firewall_securitypolicy_sectionvalue': {
+        'gtp_ieallowlist': {
             'type': 'dict',
-            'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+            'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']],
             'options': {
-                'attr': {
-                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
-                    'choices': ['label', 'global-label'],
-                    'type': 'str'
+                'entries': {
+                    'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        'id': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'},
+                        'ie': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'},
+                        'fmgr_message': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'}
+                    },
+                    'elements': 'dict'
                 },
-                'name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'}
+                'name': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'required': True, 'type': 'str'}
             }
         }
     }
 
-    module_option_spec = get_module_arg_spec('object member')
+    module_option_spec = get_module_arg_spec('full crud')
     module_arg_spec.update(module_option_spec)
     params_validation_blob = []
     check_galaxy_version(module_arg_spec)
-    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'pm_config_pblock_firewall_securitypolicy_sectionvalue'),
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'gtp_ieallowlist'),
                            supports_check_mode=True)
 
     if not module._socket_path:
         module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
     connection = Connection(module._socket_path)
-    fmgr = NAPIManager('object member', module_arg_spec, urls_list, module_primary_key, url_params,
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
                        module, connection, top_level_schema_name='data')
     fmgr.validate_parameters(params_validation_blob)
-    fmgr.process_object_member()
+    fmgr.process_crud()
 
     module.exit_json(meta=module.params)
 

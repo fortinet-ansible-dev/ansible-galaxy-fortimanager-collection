@@ -221,7 +221,7 @@ def main():
                 'name': {'v_range': [['7.2.1', '']], 'required': True, 'type': 'str'},
                 'untagged-vlans': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                 'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                'fortilink': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'raw'}
+                'fortilink': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'}
             }
         }
     }

@@ -614,7 +614,7 @@ def main():
                 'iot-preload': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
                 'stat-log': {
-                    'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.8'], ['7.4.2', '']],
+                    'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '']],
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug', 'disable'],
                     'type': 'str'
                 },

@@ -113,6 +113,7 @@ options:
                     - 'accept'
                     - 'deny'
                     - 'redirect'
+                    - 'isolate'
             application_list:
                 aliases: ['application-list']
                 type: list
@@ -551,6 +552,23 @@ options:
                 type: list
                 elements: str
                 description: Name of an existing MMS profile.
+            isolator_server:
+                aliases: ['isolator-server']
+                type: list
+                elements: str
+                description: Isolator server name.
+            url_risk:
+                aliases: ['url-risk']
+                type: list
+                elements: str
+                description: URL risk level name.
+            ztna_ems_tag_negate:
+                aliases: ['ztna-ems-tag-negate']
+                type: str
+                description: When enabled, ZTNA EMS tags match against any tag EXCEPT the specified ZTNA EMS tags.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -576,7 +594,7 @@ EXAMPLES = '''
           _policy_block: <integer>
           access_proxy: <list or string>
           access_proxy6: <list or string>
-          action: <value in [accept, deny, redirect]>
+          action: <value in [accept, deny, redirect, ...]>
           application_list: <list or string>
           av_profile: <list or string>
           block_notification: <value in [disable, enable]>
@@ -659,6 +677,9 @@ EXAMPLES = '''
           cifs_profile: <list or string>
           internet_service_id: <list or string>
           mms_profile: <list or string>
+          isolator_server: <list or string>
+          url_risk: <list or string>
+          ztna_ems_tag_negate: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -722,7 +743,7 @@ def main():
                 '_policy_block': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'access-proxy': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'access-proxy6': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'action': {'v_range': [['7.6.0', '']], 'choices': ['accept', 'deny', 'redirect'], 'type': 'str'},
+                'action': {'v_range': [['7.6.0', '']], 'choices': ['accept', 'deny', 'redirect', 'isolate'], 'type': 'str'},
                 'application-list': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'av-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'block-notification': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -808,7 +829,10 @@ def main():
                 'dlp-sensor': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'cifs-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'internet-service-id': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'mms-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'}
+                'mms-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
+                'isolator-server': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
+                'url-risk': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

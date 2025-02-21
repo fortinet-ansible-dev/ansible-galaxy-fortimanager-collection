@@ -111,6 +111,28 @@ options:
                 aliases: ['replacemsg-group']
                 type: str
                 description: Access-proxy-virtual-host replacement message override group.
+            client_cert:
+                aliases: ['client-cert']
+                type: str
+                description: Enable/disable requesting client certificate.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            empty_cert_action:
+                aliases: ['empty-cert-action']
+                type: str
+                description: Action for an empty client certificate.
+                choices:
+                    - 'block'
+                    - 'accept'
+                    - 'accept-unmanageable'
+            user_agent_detect:
+                aliases: ['user-agent-detect']
+                type: str
+                description: Enable/disable detecting device type by HTTP user-agent if no client certificate is provided.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -137,6 +159,9 @@ EXAMPLES = '''
           name: <string>
           ssl_certificate: <string>
           replacemsg_group: <string>
+          client_cert: <value in [disable, enable]>
+          empty_cert_action: <value in [block, accept, accept-unmanageable]>
+          user_agent_detect: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -201,7 +226,10 @@ def main():
                 'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard'], 'type': 'str'},
                 'name': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'},
                 'ssl-certificate': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'replacemsg-group': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
+                'replacemsg-group': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['block', 'accept', 'accept-unmanageable'], 'type': 'str'},
+                'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

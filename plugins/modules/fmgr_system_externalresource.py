@@ -123,6 +123,7 @@ options:
                     - 'url'
                     - 'mac-address'
                     - 'data'
+                    - 'generic-address'
             password:
                 type: raw
                 description: (list) HTTP basic authentication password.
@@ -166,6 +167,60 @@ options:
                 choices:
                     - 'feed'
                     - 'push'
+            address_comment_field:
+                aliases: ['address-comment-field']
+                type: str
+                description: JSON Path to address description in generic address entry.
+            address_data_field:
+                aliases: ['address-data-field']
+                type: str
+                description: JSON Path to address data in generic address entry.
+            address_name_field:
+                aliases: ['address-name-field']
+                type: str
+                description: JSON Path to address name in generic address entry.
+            client_cert:
+                aliases: ['client-cert']
+                type: raw
+                description: (list) Client certificate name.
+            client_cert_auth:
+                aliases: ['client-cert-auth']
+                type: str
+                description: Enable/disable using client certificate for TLS authentication.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dynamic_mapping:
+                type: list
+                elements: dict
+                description: Dynamic mapping.
+                suboptions:
+                    _scope:
+                        type: list
+                        elements: dict
+                        description: Scope.
+                        suboptions:
+                            name:
+                                type: str
+                                description: Name.
+                            vdom:
+                                type: str
+                                description: Vdom.
+                    source_ip:
+                        aliases: ['source-ip']
+                        type: str
+                        description: Source ip.
+            namespace:
+                type: str
+                description: Generic external connector address namespace.
+            object_array_path:
+                aliases: ['object-array-path']
+                type: str
+                description: JSON Path to array of generic addresses in resource.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -273,7 +328,7 @@ def main():
                 'refresh-rate': {'type': 'int'},
                 'resource': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'choices': ['category', 'address', 'domain', 'malware', 'url', 'mac-address', 'data'], 'type': 'str'},
+                'type': {'choices': ['category', 'address', 'domain', 'malware', 'url', 'mac-address', 'data', 'generic-address'], 'type': 'str'},
                 'password': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'raw'},
                 'source-ip': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'username': {'v_range': [['6.2.0', '']], 'type': 'str'},
@@ -282,7 +337,29 @@ def main():
                 'user-agent': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'server-identity-check': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
-                'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'}
+                'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'},
+                'address-comment-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                'address-data-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                'address-name-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'client-cert-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dynamic_mapping': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        '_scope': {
+                            'v_range': [['7.6.2', '']],
+                            'type': 'list',
+                            'options': {'name': {'v_range': [['7.6.2', '']], 'type': 'str'}, 'vdom': {'v_range': [['7.6.2', '']], 'type': 'str'}},
+                            'elements': 'dict'
+                        },
+                        'source-ip': {'v_range': [['7.6.2', '']], 'type': 'str'}
+                    },
+                    'elements': 'dict'
+                },
+                'namespace': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                'object-array-path': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

@@ -478,6 +478,21 @@ options:
                 aliases: ['dhcp6-relay-source-ip']
                 type: str
                 description: IPv6 address used by the DHCP6 relay as its source IP.
+            ip6_adv_rio:
+                aliases: ['ip6-adv-rio']
+                type: str
+                description: Enable/disable sending advertisements with route information option.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ip6_route_pref:
+                aliases: ['ip6-route-pref']
+                type: str
+                description: Set route preference to the interface
+                choices:
+                    - 'medium'
+                    - 'high'
+                    - 'low'
 '''
 
 EXAMPLES = '''
@@ -593,6 +608,8 @@ EXAMPLES = '''
           dhcp6_relay_source_interface: <value in [disable, enable]>
           dhcp6_relay_interface_id: <string>
           dhcp6_relay_source_ip: <string>
+          ip6_adv_rio: <value in [disable, enable]>
+          ip6_route_pref: <value in [medium, high, low]>
 '''
 
 RETURN = '''
@@ -755,7 +772,9 @@ def main():
                 'ip6-delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'dhcp6-relay-source-interface': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp6-relay-interface-id': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'}
+                'dhcp6-relay-source-ip': {'v_range': [['7.4.1', '']], 'type': 'str'},
+                'ip6-adv-rio': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-route-pref': {'v_range': [['7.6.2', '']], 'choices': ['medium', 'high', 'low'], 'type': 'str'}
             }
         }
     }

@@ -182,12 +182,16 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'fmg_sasemanager_status': {
             'type': 'dict',
-            'v_range': [['7.6.0', '']],
+            'v_range': [['7.6.0', '7.6.1']],
             'options': {
-                'forticlient-ver': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'forticloud-id': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'license-type': {'v_range': [['7.6.0', '']], 'choices': ['standard_license', 'advanced_license', 'comprehensive_license'], 'type': 'str'},
-                'spa-hubs': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'forticlient-ver': {'v_range': [['7.6.0', '7.6.1']], 'type': 'str'},
+                'forticloud-id': {'v_range': [['7.6.0', '7.6.1']], 'type': 'int'},
+                'license-type': {
+                    'v_range': [['7.6.0', '7.6.1']],
+                    'choices': ['standard_license', 'advanced_license', 'comprehensive_license'],
+                    'type': 'str'
+                },
+                'spa-hubs': {'v_range': [['7.6.0', '7.6.1']], 'type': 'int'}
             }
         }
     }

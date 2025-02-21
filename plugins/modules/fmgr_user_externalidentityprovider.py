@@ -144,6 +144,10 @@ options:
                 choices:
                     - 'beta'
                     - 'v1.0'
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -177,6 +181,7 @@ EXAMPLES = '''
           url: <string>
           user_attr_name: <string>
           version: <value in [beta, v1.0]>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -235,20 +240,21 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'user_externalidentityprovider': {
             'type': 'dict',
-            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']],
+            'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
             'options': {
-                'group-attr-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'interface': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'list', 'elements': 'str'},
-                'interface-select-method': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'required': True, 'type': 'str'},
-                'port': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'server-identity-check': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-ip': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'timeout': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'int'},
-                'type': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
-                'url': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'user-attr-name': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'version': {'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'}
+                'group-attr-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'interface': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'list', 'elements': 'str'},
+                'interface-select-method': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'required': True, 'type': 'str'},
+                'port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'server-identity-check': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'timeout': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
+                'type': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
+                'url': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'user-attr-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'version': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

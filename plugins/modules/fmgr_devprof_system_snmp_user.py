@@ -174,6 +174,7 @@ options:
                     - 'interface'
                     - 'security_level_change'
                     - 'cert-expiry'
+                    - 'dio'
             ha_direct:
                 aliases: ['ha-direct']
                 type: str
@@ -271,6 +272,10 @@ options:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -434,7 +439,7 @@ def main():
                         'ips-fail-open', 'load-balance-real-server-down', 'device-new', 'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
                         'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage', 'power-redundancy-degrade', 'power-redundancy-failure',
                         'ospf-nbr-state-change', 'ospf-virtnbr-state-change', 'disk-failure', 'disk-overload', 'faz-main-failover', 'faz-alt-failover',
-                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry'
+                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio'
                     ],
                     'elements': 'str'
                 },
@@ -464,7 +469,8 @@ def main():
                 'mib-view': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'vdoms': {'v_range': [['7.2.0', '']], 'type': 'raw'},
                 'interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'}
+                'interface-select-method': {'v_range': [['7.6.0', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

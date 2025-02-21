@@ -355,6 +355,16 @@ options:
             source6:
                 type: str
                 description: Source IPv6 addressused in the health-check packet to server.
+            fortiguard:
+                type: str
+                description: Enable/disable use of FortiGuard predefined server.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fortiguard_name:
+                aliases: ['fortiguard-name']
+                type: raw
+                description: (list) Predefined health-check target name.
 '''
 
 EXAMPLES = '''
@@ -438,6 +448,8 @@ EXAMPLES = '''
           sla_id_redistribute: <integer>
           class_id: <string>
           source6: <string>
+          fortiguard: <value in [disable, enable]>
+          fortiguard_name: <list or string>
 '''
 
 RETURN = '''
@@ -567,7 +579,9 @@ def main():
                 'embed-measured-health': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sla-id-redistribute': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'class-id': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'source6': {'v_range': [['7.4.0', '']], 'type': 'str'}
+                'source6': {'v_range': [['7.4.0', '']], 'type': 'str'},
+                'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'}
             }
         }
     }

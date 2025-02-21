@@ -221,7 +221,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'public-ip': {'type': 'str'},
                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                'private-ip': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'}
+                'private-ip': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
             }
         }
     }

@@ -185,6 +185,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            port_random:
+                aliases: ['port-random']
+                type: str
+                description: Enable/disable random source port selection for source NAT.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -306,7 +313,8 @@ def main():
                 'nat46': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dst-port': {'v_range': [['7.2.6', '']], 'type': 'str'},
-                'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

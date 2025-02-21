@@ -111,14 +111,22 @@ options:
                     - 'casb_profile'
                     - 'casb_profile_saasapplication'
                     - 'casb_profile_saasapplication_accessrule'
+                    - 'casb_profile_saasapplication_accessrule_attributefilter'
+                    - 'casb_profile_saasapplication_advancedtenantcontrol'
+                    - 'casb_profile_saasapplication_advancedtenantcontrol_attribute'
                     - 'casb_profile_saasapplication_customcontrol'
+                    - 'casb_profile_saasapplication_customcontrol_attributefilter'
                     - 'casb_profile_saasapplication_customcontrol_option'
                     - 'casb_saasapplication'
+                    - 'casb_saasapplication_inputattributes'
+                    - 'casb_saasapplication_outputattributes'
                     - 'casb_useractivity'
                     - 'casb_useractivity_controloptions'
                     - 'casb_useractivity_controloptions_operations'
                     - 'casb_useractivity_match'
                     - 'casb_useractivity_match_rules'
+                    - 'casb_useractivity_match_tenantextraction'
+                    - 'casb_useractivity_match_tenantextraction_filters'
                     - 'certificate_template'
                     - 'cifs_domaincontroller'
                     - 'cifs_profile'
@@ -298,6 +306,7 @@ options:
                     - 'extensioncontroller_extenderprofile_cellular_smsnotification_receiver'
                     - 'extensioncontroller_extenderprofile_lanextension'
                     - 'extensioncontroller_extenderprofile_lanextension_backhaul'
+                    - 'extensioncontroller_extenderprofile_lanextension_trafficsplitservices'
                     - 'extensioncontroller_extenderprofile_wifi'
                     - 'extensioncontroller_extenderprofile_wifi_radio1'
                     - 'extensioncontroller_extenderprofile_wifi_radio2'
@@ -552,6 +561,8 @@ options:
                     - 'fsp_vlan_interface_vrrp_proxyarp'
                     - 'gtp_apn'
                     - 'gtp_apngrp'
+                    - 'gtp_ieallowlist'
+                    - 'gtp_ieallowlist_entries'
                     - 'gtp_iewhitelist'
                     - 'gtp_iewhitelist_entries'
                     - 'gtp_messagefilterv0v1'
@@ -840,6 +851,7 @@ options:
                     - 'system_dns'
                     - 'system_docker'
                     - 'system_externalresource'
+                    - 'system_externalresource_dynamicmapping'
                     - 'system_fips'
                     - 'system_fmgcluster'
                     - 'system_fmgcluster_peer'
@@ -1017,6 +1029,7 @@ options:
                     - 'task_task_line_history'
                     - 'template'
                     - 'templategroup'
+                    - 'ums_setting'
                     - 'user_adgrp'
                     - 'user_certificate'
                     - 'user_clearpass'
@@ -1190,6 +1203,7 @@ options:
                     - 'webfilter_profile_ftgdwf'
                     - 'webfilter_profile_ftgdwf_filters'
                     - 'webfilter_profile_ftgdwf_quota'
+                    - 'webfilter_profile_ftgdwf_risk'
                     - 'webfilter_profile_override'
                     - 'webfilter_profile_urlextraction'
                     - 'webfilter_profile_web'
@@ -1199,6 +1213,7 @@ options:
                     - 'webproxy_forwardserver'
                     - 'webproxy_forwardservergroup'
                     - 'webproxy_forwardservergroup_serverlist'
+                    - 'webproxy_isolatorserver'
                     - 'webproxy_profile'
                     - 'webproxy_profile_headers'
                     - 'webproxy_wisp'
@@ -1730,6 +1745,41 @@ def main():
             ],
             'v_range': [['7.4.1', '']]
         },
+        'casb_profile_saasapplication_accessrule_attributefilter': {
+            'params': ['access-rule', 'adom', 'attribute-filter', 'profile', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}/attribute-filter',
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}/attribute-filter/{attribute-'
+                'filter}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}/attribute-filter',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/access-rule/{access-rule}/attribute-filter/{attribute-filte'
+                'r}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
+        'casb_profile_saasapplication_advancedtenantcontrol': {
+            'params': ['adom', 'advanced-tenant-control', 'profile', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control',
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
+        'casb_profile_saasapplication_advancedtenantcontrol_attribute': {
+            'params': ['adom', 'advanced-tenant-control', 'attribute', 'profile', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attr'
+                'ibute',
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attr'
+                'ibute/{attribute}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attribute',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/advanced-tenant-control/{advanced-tenant-control}/attribute'
+                '/{attribute}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
         'casb_profile_saasapplication_customcontrol': {
             'params': ['adom', 'custom-control', 'profile', 'saas-application'],
             'urls': [
@@ -1739,6 +1789,18 @@ def main():
                 '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}'
             ],
             'v_range': [['7.4.1', '']]
+        },
+        'casb_profile_saasapplication_customcontrol_attributefilter': {
+            'params': ['adom', 'attribute-filter', 'custom-control', 'profile', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/attribute-filter',
+                '/pm/config/adom/{adom}/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/attribute-filter/{attr'
+                'ibute-filter}',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/attribute-filter',
+                '/pm/config/global/obj/casb/profile/{profile}/saas-application/{saas-application}/custom-control/{custom-control}/attribute-filter/{attribute'
+                '-filter}'
+            ],
+            'v_range': [['7.6.2', '']]
         },
         'casb_profile_saasapplication_customcontrol_option': {
             'params': ['adom', 'custom-control', 'option', 'profile', 'saas-application'],
@@ -1759,6 +1821,26 @@ def main():
                 '/pm/config/global/obj/casb/saas-application/{saas-application}'
             ],
             'v_range': [['7.4.1', '']]
+        },
+        'casb_saasapplication_inputattributes': {
+            'params': ['adom', 'input-attributes', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/input-attributes',
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/input-attributes/{input-attributes}',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/input-attributes',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/input-attributes/{input-attributes}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
+        'casb_saasapplication_outputattributes': {
+            'params': ['adom', 'output-attributes', 'saas-application'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/output-attributes',
+                '/pm/config/adom/{adom}/obj/casb/saas-application/{saas-application}/output-attributes/{output-attributes}',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/output-attributes',
+                '/pm/config/global/obj/casb/saas-application/{saas-application}/output-attributes/{output-attributes}'
+            ],
+            'v_range': [['7.6.2', '']]
         },
         'casb_useractivity': {
             'params': ['adom', 'user-activity'],
@@ -1809,6 +1891,24 @@ def main():
                 '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/rules/{rules}'
             ],
             'v_range': [['7.4.1', '']]
+        },
+        'casb_useractivity_match_tenantextraction': {
+            'params': ['adom', 'match', 'user-activity'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
+        'casb_useractivity_match_tenantextraction_filters': {
+            'params': ['adom', 'filters', 'match', 'user-activity'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters',
+                '/pm/config/adom/{adom}/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters/{filters}',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters',
+                '/pm/config/global/obj/casb/user-activity/{user-activity}/match/{match}/tenant-extraction/filters/{filters}'
+            ],
+            'v_range': [['7.6.2', '']]
         },
         'certificate_template': {
             'params': ['adom', 'template'],
@@ -3394,6 +3494,17 @@ def main():
             ],
             'v_range': [['7.2.1', '']]
         },
+        'extensioncontroller_extenderprofile_lanextension_trafficsplitservices': {
+            'params': ['adom', 'extender-profile', 'traffic-split-services'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services',
+                '/pm/config/adom/{adom}/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services/{traffic-split-serv'
+                'ices}',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services',
+                '/pm/config/global/obj/extension-controller/extender-profile/{extender-profile}/lan-extension/traffic-split-services/{traffic-split-services}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
         'extensioncontroller_extenderprofile_wifi': {
             'params': ['adom', 'extender-profile'],
             'urls': [
@@ -4854,7 +4965,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vendor-mac',
                 '/pm/config/global/obj/firewall/vendor-mac'
             ],
-            'v_range': [['7.2.4', '7.2.8'], ['7.4.1', '']]
+            'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']]
         },
         'firewall_vip': {
             'params': ['adom', 'vip'],
@@ -5188,7 +5299,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fmg/sase-manager/settings',
                 '/pm/config/global/obj/fmg/sase-manager/settings'
             ],
-            'v_range': [['7.6.0', '']]
+            'v_range': [['7.6.0', '7.6.1']]
         },
         'fmg_sasemanager_status': {
             'params': ['adom'],
@@ -5196,7 +5307,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/fmg/sase-manager/status',
                 '/pm/config/global/obj/fmg/sase-manager/status'
             ],
-            'v_range': [['7.6.0', '']]
+            'v_range': [['7.6.0', '7.6.1']]
         },
         'fmg_variable': {
             'params': ['adom', 'variable'],
@@ -5753,6 +5864,26 @@ def main():
                 '/pm/config/global/obj/gtp/apngrp/{apngrp}'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'gtp_ieallowlist': {
+            'params': ['adom', 'ie-allow-list'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list',
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list/{ie-allow-list}',
+                '/pm/config/global/obj/gtp/ie-allow-list',
+                '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}'
+            ],
+            'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']]
+        },
+        'gtp_ieallowlist_entries': {
+            'params': ['adom', 'entries', 'ie-allow-list'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list/{ie-allow-list}/entries',
+                '/pm/config/adom/{adom}/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}',
+                '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries',
+                '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}'
+            ],
+            'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']]
         },
         'gtp_iewhitelist': {
             'params': ['adom', 'ie-white-list'],
@@ -6512,7 +6643,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['acl6', 'adom', 'pkg'],
@@ -6520,7 +6651,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'central-snat-map', 'pkg'],
@@ -6592,7 +6723,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
@@ -6600,7 +6731,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
@@ -6608,7 +6739,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
@@ -6616,7 +6747,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
@@ -6624,7 +6755,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'interface-policy6', 'pkg'],
@@ -6632,7 +6763,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'local-in-policy', 'pkg'],
@@ -6856,7 +6987,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key',
                 '/pm/config/adom/{adom}/pkg/{pkg}/videofilter/youtube-key/{youtube-key}'
             ],
-            'v_range': [['7.4.4', '7.4.5']]
+            'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']]
         },
         'pm_config_adom_options': {
             'params': ['adom'],
@@ -6887,7 +7018,7 @@ def main():
                 '/pm/config/adom/{adom}/_data/default_sslvpn_os_check_list',
                 '/pm/config/global/_data/default_sslvpn_os_check_list'
             ],
-            'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']]
         },
         'pm_config_data_tablesize': {
             'params': ['adom', 'tablesize'],
@@ -7285,7 +7416,7 @@ def main():
                 '/pm/config/global/obj/sctp-filter/profile',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['adom', 'ppid-filters', 'profile'],
@@ -7295,7 +7426,7 @@ def main():
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['adom', 'bwl'],
@@ -8349,6 +8480,14 @@ def main():
                 '/pm/config/global/obj/system/external-resource/{external-resource}'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'system_externalresource_dynamicmapping': {
+            'params': ['adom', 'external-resource'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/system/external-resource/{external-resource}/dynamic_mapping',
+                '/pm/config/global/obj/system/external-resource/{external-resource}/dynamic_mapping'
+            ],
+            'v_range': [['7.6.2', '']]
         },
         'system_fips': {
             'params': [],
@@ -9842,6 +9981,16 @@ def main():
             ],
             'v_range': [['6.0.0', '']]
         },
+        'ums_setting': {
+            'params': ['adom', 'setting'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ums/setting',
+                '/pm/config/adom/{adom}/obj/ums/setting/{setting}',
+                '/pm/config/global/obj/ums/setting',
+                '/pm/config/global/obj/ums/setting/{setting}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
         'user_adgrp': {
             'params': ['adgrp', 'adom'],
             'urls': [
@@ -10010,7 +10159,7 @@ def main():
                 '/pm/config/global/obj/user/external-identity-provider',
                 '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
             ],
-            'v_range': [['7.2.6', '7.2.8'], ['7.4.3', '']]
+            'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']]
         },
         'user_flexvm': {
             'params': ['adom', 'flexvm'],
@@ -10554,7 +10703,7 @@ def main():
                 '/pm/config/global/obj/videofilter/youtube-key',
                 '/pm/config/global/obj/videofilter/youtube-key/{youtube-key}'
             ],
-            'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '']]
+            'v_range': [['7.4.2', '7.4.3'], ['7.6.0', '7.6.1']]
         },
         'virtualpatch_profile': {
             'params': ['adom', 'profile'],
@@ -11465,6 +11614,16 @@ def main():
             ],
             'v_range': [['6.0.0', '']]
         },
+        'webfilter_profile_ftgdwf_risk': {
+            'params': ['adom', 'profile', 'risk'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/risk',
+                '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/ftgd-wf/risk/{risk}',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/risk',
+                '/pm/config/global/obj/webfilter/profile/{profile}/ftgd-wf/risk/{risk}'
+            ],
+            'v_range': [['7.6.2', '']]
+        },
         'webfilter_profile_override': {
             'params': ['adom', 'profile'],
             'urls': [
@@ -11548,6 +11707,16 @@ def main():
                 '/pm/config/global/obj/web-proxy/forward-server-group/{forward-server-group}/server-list/{server-list}'
             ],
             'v_range': [['6.0.0', '']]
+        },
+        'webproxy_isolatorserver': {
+            'params': ['adom', 'isolator-server'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/isolator-server',
+                '/pm/config/adom/{adom}/obj/web-proxy/isolator-server/{isolator-server}',
+                '/pm/config/global/obj/web-proxy/isolator-server',
+                '/pm/config/global/obj/web-proxy/isolator-server/{isolator-server}'
+            ],
+            'v_range': [['7.6.2', '']]
         },
         'webproxy_profile': {
             'params': ['adom', 'profile'],
@@ -11817,14 +11986,22 @@ def main():
                         'casb_profile',
                         'casb_profile_saasapplication',
                         'casb_profile_saasapplication_accessrule',
+                        'casb_profile_saasapplication_accessrule_attributefilter',
+                        'casb_profile_saasapplication_advancedtenantcontrol',
+                        'casb_profile_saasapplication_advancedtenantcontrol_attribute',
                         'casb_profile_saasapplication_customcontrol',
+                        'casb_profile_saasapplication_customcontrol_attributefilter',
                         'casb_profile_saasapplication_customcontrol_option',
                         'casb_saasapplication',
+                        'casb_saasapplication_inputattributes',
+                        'casb_saasapplication_outputattributes',
                         'casb_useractivity',
                         'casb_useractivity_controloptions',
                         'casb_useractivity_controloptions_operations',
                         'casb_useractivity_match',
                         'casb_useractivity_match_rules',
+                        'casb_useractivity_match_tenantextraction',
+                        'casb_useractivity_match_tenantextraction_filters',
                         'certificate_template',
                         'cifs_domaincontroller',
                         'cifs_profile',
@@ -12004,6 +12181,7 @@ def main():
                         'extensioncontroller_extenderprofile_cellular_smsnotification_receiver',
                         'extensioncontroller_extenderprofile_lanextension',
                         'extensioncontroller_extenderprofile_lanextension_backhaul',
+                        'extensioncontroller_extenderprofile_lanextension_trafficsplitservices',
                         'extensioncontroller_extenderprofile_wifi',
                         'extensioncontroller_extenderprofile_wifi_radio1',
                         'extensioncontroller_extenderprofile_wifi_radio2',
@@ -12258,6 +12436,8 @@ def main():
                         'fsp_vlan_interface_vrrp_proxyarp',
                         'gtp_apn',
                         'gtp_apngrp',
+                        'gtp_ieallowlist',
+                        'gtp_ieallowlist_entries',
                         'gtp_iewhitelist',
                         'gtp_iewhitelist_entries',
                         'gtp_messagefilterv0v1',
@@ -12546,6 +12726,7 @@ def main():
                         'system_dns',
                         'system_docker',
                         'system_externalresource',
+                        'system_externalresource_dynamicmapping',
                         'system_fips',
                         'system_fmgcluster',
                         'system_fmgcluster_peer',
@@ -12723,6 +12904,7 @@ def main():
                         'task_task_line_history',
                         'template',
                         'templategroup',
+                        'ums_setting',
                         'user_adgrp',
                         'user_certificate',
                         'user_clearpass',
@@ -12896,6 +13078,7 @@ def main():
                         'webfilter_profile_ftgdwf',
                         'webfilter_profile_ftgdwf_filters',
                         'webfilter_profile_ftgdwf_quota',
+                        'webfilter_profile_ftgdwf_risk',
                         'webfilter_profile_override',
                         'webfilter_profile_urlextraction',
                         'webfilter_profile_web',
@@ -12905,6 +13088,7 @@ def main():
                         'webproxy_forwardserver',
                         'webproxy_forwardservergroup',
                         'webproxy_forwardservergroup_serverlist',
+                        'webproxy_isolatorserver',
                         'webproxy_profile',
                         'webproxy_profile_headers',
                         'webproxy_wisp',

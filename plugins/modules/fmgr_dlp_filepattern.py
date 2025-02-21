@@ -171,6 +171,7 @@ options:
                             - 'lzip'
                             - 'wasm'
                             - 'sylk'
+                            - 'shellscript'
                     filter_type:
                         aliases: ['filter-type']
                         type: str
@@ -287,7 +288,7 @@ def main():
                                 'zip', 'cab', 'bzip2', 'bzip', 'activemime', 'mime', 'hlp', 'arj', 'base64', 'binhex', 'uue', 'fsg', 'aspack', 'msc',
                                 'petite', 'jpeg', 'gif', 'tiff', 'png', 'bmp', 'msi', 'mpeg', 'mov', 'mp3', 'wma', 'wav', 'pdf', 'avi', 'rm', 'torrent',
                                 'hibun', '7z', 'xz', 'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad',
-                                'cod', 'flac', 'registry', 'hwp', 'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk'
+                                'cod', 'flac', 'registry', 'hwp', 'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk', 'shellscript'
                             ],
                             'type': 'str'
                         },

@@ -166,6 +166,10 @@ options:
                 aliases: ['status-ttl']
                 type: int
                 description: Time for which server reachability is cached so that when a server is unreachable, it will not be retried for at least thi...
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -205,6 +209,7 @@ EXAMPLES = '''
           interface: <string>
           interface_select_method: <value in [auto, sdwan, specify]>
           status_ttl: <integer>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -280,7 +285,8 @@ def main():
                 'tertiary-server': {'type': 'str'},
                 'interface': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['6.2.5', '6.2.13'], ['6.4.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'}
+                'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

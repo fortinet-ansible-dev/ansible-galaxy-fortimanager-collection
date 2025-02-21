@@ -213,6 +213,10 @@ options:
             serial:
                 type: raw
                 description: (list) Serial numbers of the FortiAnalyzer.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
 '''
 
 EXAMPLES = '''
@@ -257,6 +261,7 @@ EXAMPLES = '''
           preshared_key: <string>
           certificate_verification: <value in [disable, enable]>
           serial: <list or string>
+          vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -355,7 +360,8 @@ def main():
                 'interface-select-method': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'preshared-key': {'v_range': [['7.0.0', '']], 'no_log': True, 'type': 'str'},
                 'certificate-verification': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'serial': {'v_range': [['7.0.3', '']], 'type': 'raw'}
+                'serial': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }
     }

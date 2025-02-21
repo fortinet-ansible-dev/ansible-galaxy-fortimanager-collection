@@ -724,7 +724,7 @@ def main():
                 'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'network-id': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'type': 'int'},
                 'network-overlay': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
-                'protocol': {'v_range': [['7.2.5', '7.2.8'], ['7.4.1', '']], 'type': 'int'}
+                'protocol': {'v_range': [['7.2.5', '7.2.9'], ['7.4.1', '']], 'type': 'int'}
             }
         }
     }

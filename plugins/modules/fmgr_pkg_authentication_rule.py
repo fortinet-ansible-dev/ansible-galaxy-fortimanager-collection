@@ -119,6 +119,7 @@ options:
                     - 'ftp'
                     - 'socks'
                     - 'ssh'
+                    - 'ztna-portal'
             srcaddr:
                 type: raw
                 description: (list or str) Select an IPv4 source address from available options.
@@ -287,7 +288,7 @@ def main():
                 'comments': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'ip-based': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['6.2.1', '']], 'required': True, 'type': 'str'},
-                'protocol': {'v_range': [['6.2.1', '']], 'choices': ['http', 'ftp', 'socks', 'ssh'], 'type': 'str'},
+                'protocol': {'v_range': [['6.2.1', '']], 'choices': ['http', 'ftp', 'socks', 'ssh', 'ztna-portal'], 'type': 'str'},
                 'srcaddr': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'srcaddr6': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'sso-auth-method': {'v_range': [['6.2.1', '']], 'type': 'str'},

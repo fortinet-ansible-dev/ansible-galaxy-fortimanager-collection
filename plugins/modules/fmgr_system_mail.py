@@ -267,7 +267,7 @@ def main():
                 'local-cert': {'v_range': [['6.4.6', '']], 'type': 'str'},
                 'from': {'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'str'},
                 'ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5']],
+                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

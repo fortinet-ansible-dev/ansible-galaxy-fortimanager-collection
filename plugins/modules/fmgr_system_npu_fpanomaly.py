@@ -785,7 +785,7 @@ def main():
                 'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.8'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
             }
         }
     }

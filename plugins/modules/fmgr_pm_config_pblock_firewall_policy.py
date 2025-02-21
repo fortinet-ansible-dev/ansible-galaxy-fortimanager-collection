@@ -1231,6 +1231,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            app_monitor:
+                aliases: ['app-monitor']
+                type: str
+                description: Enable/disable application TCP metrics in session logs.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            port_random:
+                aliases: ['port-random']
+                type: str
+                description: Enable/disable random source port selection for source NAT.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ztna_ems_tag_negate:
+                aliases: ['ztna-ems-tag-negate']
+                type: str
+                description: When enabled ztna-ems-tag specifies what the tags must NOT be.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1471,6 +1492,9 @@ EXAMPLES = '''
           eif_learn: <value in [disable, enable]>
           log_http_transaction: <value in [disable, enable, all, ...]>
           radius_ip_auth_bypass: <value in [disable, enable]>
+          app_monitor: <value in [disable, enable]>
+          port_random: <value in [disable, enable]>
+          ztna_ems_tag_negate: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1538,11 +1562,11 @@ def main():
                 'auth-cert': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'auth-path': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-redirect-addr': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'av-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'block-notification': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'captive-portal-exempt': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'capture-packet': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'capture-packet': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cifs-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'comments': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'custom-log-fields': {'v_range': [['7.0.3', '']], 'type': 'raw'},
@@ -1573,7 +1597,7 @@ def main():
                 'geoip-match': {'v_range': [['7.0.3', '']], 'choices': ['physical-location', 'registered-location'], 'type': 'str'},
                 'global-label': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'gtp-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'gtp-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'http-policy-redirect': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'icap-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'identity-based-route': {'v_range': [['7.0.3', '']], 'type': 'str'},
@@ -1605,7 +1629,7 @@ def main():
                 'natinbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natip': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'natoutbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'np-acceleration': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'np-acceleration': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ntlm': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ntlm-enabled-browsers': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ntlm-guest': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1614,7 +1638,7 @@ def main():
                 'per-ip-shaper': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'permit-any-host': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'permit-stun-host': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pfcp-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'pfcp-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'policy-expiry': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-expiry-date': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'policyid': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
@@ -1667,23 +1691,23 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'waf-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'wanopt': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wanopt-detection': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['active', 'passive', 'off'],
                     'type': 'str'
                 },
                 'wanopt-passive-opt': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['default', 'transparent', 'non-transparent'],
                     'type': 'str'
                 },
-                'wanopt-peer': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'wanopt-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'wanopt-peer': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'wanopt-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'wccp': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webcache-https': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
                     'choices': ['disable', 'ssl-server', 'any', 'enable'],
                     'type': 'str'
                 },
@@ -1695,14 +1719,14 @@ def main():
                 'ztna-status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-offload': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cgn-session-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
-                'tcp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'tcp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'dlp-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cgn-eif': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cgn-log-server-grp': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cgn-resource-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'cgn-eim': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
                 'app-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'internet-service-src-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'rsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1760,7 +1784,10 @@ def main():
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
-                'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

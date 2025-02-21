@@ -135,6 +135,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            server_type:
+                aliases: ['server-type']
+                type: str
+                description: Configure syslog server type
+                choices:
+                    - 'standard'
+                    - 'fortianalyzer'
 '''
 
 EXAMPLES = '''
@@ -164,6 +171,7 @@ EXAMPLES = '''
           server_ip: <string>
           server_port: <integer>
           server_status: <value in [disable, enable]>
+          server_type: <value in [standard, fortianalyzer]>
 '''
 
 RETURN = '''
@@ -235,7 +243,8 @@ def main():
                 'server-fqdn': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'server-ip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'server-port': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                'server-status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'server-status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'server-type': {'v_range': [['7.6.2', '']], 'choices': ['standard', 'fortianalyzer'], 'type': 'str'}
             }
         }
     }

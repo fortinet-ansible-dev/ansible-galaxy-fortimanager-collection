@@ -166,6 +166,27 @@ options:
                     vap:
                         type: raw
                         description: (list) FortiExtender LAN extension downlink vap.
+            traffic_split_services:
+                aliases: ['traffic-split-services']
+                type: list
+                elements: dict
+                description: Traffic split services.
+                suboptions:
+                    address:
+                        type: raw
+                        description: (list) Address selection.
+                    name:
+                        type: str
+                        description: FortiExtender LAN extension tunnel split entry name.
+                    service:
+                        type: raw
+                        description: (list) Service selection.
+                    vsdb:
+                        type: str
+                        description: Select vsdb [enable/disable].
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
@@ -204,6 +225,12 @@ EXAMPLES = '''
               pvid: <integer>
               type: <value in [port, vap]>
               vap: <list or string>
+          traffic_split_services:
+            -
+              address: <list or string>
+              name: <string>
+              service: <list or string>
+              vsdb: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -294,6 +321,17 @@ def main():
                         'pvid': {'v_range': [['7.6.0', '']], 'type': 'int'},
                         'type': {'v_range': [['7.6.0', '']], 'choices': ['port', 'vap'], 'type': 'str'},
                         'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                    },
+                    'elements': 'dict'
+                },
+                'traffic-split-services': {
+                    'v_range': [['7.6.2', '']],
+                    'type': 'list',
+                    'options': {
+                        'address': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                        'name': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                        'service': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                        'vsdb': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

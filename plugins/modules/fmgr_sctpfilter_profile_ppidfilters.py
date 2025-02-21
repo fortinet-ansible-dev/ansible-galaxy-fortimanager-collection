@@ -195,12 +195,12 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'sctpfilter_profile_ppidfilters': {
             'type': 'dict',
-            'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']],
+            'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']],
             'options': {
-                'action': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'choices': ['pass', 'reset', 'replace'], 'type': 'str'},
-                'comment': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'str'},
-                'id': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'required': True, 'type': 'int'},
-                'ppid': {'v_range': [['7.2.5', '7.2.8'], ['7.4.2', '']], 'type': 'int'}
+                'action': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'choices': ['pass', 'reset', 'replace'], 'type': 'str'},
+                'comment': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'id': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'required': True, 'type': 'int'},
+                'ppid': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'}
             }
         }
     }

@@ -299,6 +299,7 @@ options:
                     - '6.4'
                     - '7.0'
                     - '7.2'
+                    - '7.4'
             system_support_fgt:
                 aliases: ['system-support-fgt']
                 type: list
@@ -606,6 +607,7 @@ EXAMPLES = '''
             - "6.4"
             - "7.0"
             - "7.2"
+            - "7.4"
           system_support_fgt:
             - "5.4"
             - "5.6"
@@ -771,7 +773,7 @@ def main():
                 },
                 'system-support-fct': {
                     'type': 'list',
-                    'choices': ['4.x', '5.0', '5.2', '5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2'],
+                    'choices': ['4.x', '5.0', '5.2', '5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4'],
                     'elements': 'str'
                 },
                 'system-support-fgt': {'type': 'list', 'choices': ['5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4', '7.6'], 'elements': 'str'},

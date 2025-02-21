@@ -209,6 +209,8 @@ options:
                     - 'fca'
                     - 'ftc'
                     - 'fss'
+                    - 'sim'
+                    - 'fra'
             state:
                 type: int
                 description: State.
@@ -336,6 +338,8 @@ EXAMPLES = '''
             - "fca"
             - "ftc"
             - "fss"
+            - "sim"
+            - "fra"
           state: <integer>
           uuid: <string>
           create_time: <integer>
@@ -435,7 +439,7 @@ def main():
                     'type': 'raw',
                     'choices': [
                         'fos', 'foc', 'fml', 'fch', 'fwb', 'log', 'fct', 'faz', 'fsa', 'fsw', 'fmg', 'fdd', 'fac', 'fpx', 'fna', 'fdc', 'ffw', 'fsr',
-                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss'
+                        'fad', 'fap', 'fxt', 'fts', 'fai', 'fwc', 'fis', 'fed', 'fabric', 'fpa', 'fca', 'ftc', 'fss', 'sim', 'fra'
                     ]
                 },
                 'state': {'type': 'int'},

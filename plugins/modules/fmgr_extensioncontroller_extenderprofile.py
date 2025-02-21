@@ -240,6 +240,29 @@ options:
                                 aliases: ['sim2-pin-code']
                                 type: raw
                                 description: (list) SIM #2 PIN password.
+                            multiple_PDN:
+                                aliases: ['multiple-PDN']
+                                type: str
+                                description: Multiple-PDN enable/disable.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            pdn1_dataplan:
+                                aliases: ['pdn1-dataplan']
+                                type: raw
+                                description: (list) PDN1-dataplan.
+                            pdn2_dataplan:
+                                aliases: ['pdn2-dataplan']
+                                type: raw
+                                description: (list) PDN2-dataplan.
+                            pdn3_dataplan:
+                                aliases: ['pdn3-dataplan']
+                                type: raw
+                                description: (list) PDN3-dataplan.
+                            pdn4_dataplan:
+                                aliases: ['pdn4-dataplan']
+                                type: raw
+                                description: (list) PDN4-dataplan.
                     modem2:
                         type: dict
                         description: Modem2.
@@ -351,6 +374,29 @@ options:
                                 aliases: ['sim2-pin-code']
                                 type: raw
                                 description: (list) SIM #2 PIN password.
+                            multiple_PDN:
+                                aliases: ['multiple-PDN']
+                                type: str
+                                description: Multiple-PDN enable/disable.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            pdn1_dataplan:
+                                aliases: ['pdn1-dataplan']
+                                type: raw
+                                description: (list) PDN1-dataplan.
+                            pdn2_dataplan:
+                                aliases: ['pdn2-dataplan']
+                                type: raw
+                                description: (list) PDN2-dataplan.
+                            pdn3_dataplan:
+                                aliases: ['pdn3-dataplan']
+                                type: raw
+                                description: (list) PDN3-dataplan.
+                            pdn4_dataplan:
+                                aliases: ['pdn4-dataplan']
+                                type: raw
+                                description: (list) PDN4-dataplan.
                     sms_notification:
                         aliases: ['sms-notification']
                         type: dict
@@ -526,6 +572,27 @@ options:
                             vap:
                                 type: raw
                                 description: (list) FortiExtender LAN extension downlink vap.
+                    traffic_split_services:
+                        aliases: ['traffic-split-services']
+                        type: list
+                        elements: dict
+                        description: Traffic split services.
+                        suboptions:
+                            address:
+                                type: raw
+                                description: (list) Address selection.
+                            name:
+                                type: str
+                                description: FortiExtender LAN extension tunnel split entry name.
+                            service:
+                                type: raw
+                                description: (list) Service selection.
+                            vsdb:
+                                type: str
+                                description: Select vsdb [enable/disable].
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
             login_password:
                 aliases: ['login-password']
                 type: raw
@@ -569,6 +636,7 @@ options:
                     - 'BS20GN'
                     - 'FXN51G'
                     - 'FXW51G'
+                    - 'FVG51G'
             name:
                 type: str
                 description: FortiExtender profile name.
@@ -1117,6 +1185,11 @@ EXAMPLES = '''
               sim1_pin_code: <list or string>
               sim2_pin: <value in [disable, enable]>
               sim2_pin_code: <list or string>
+              multiple_PDN: <value in [disable, enable]>
+              pdn1_dataplan: <list or string>
+              pdn2_dataplan: <list or string>
+              pdn3_dataplan: <list or string>
+              pdn4_dataplan: <list or string>
             modem2:
               auto_switch:
                 dataplan: <value in [disable, enable]>
@@ -1140,6 +1213,11 @@ EXAMPLES = '''
               sim1_pin_code: <list or string>
               sim2_pin: <value in [disable, enable]>
               sim2_pin_code: <list or string>
+              multiple_PDN: <value in [disable, enable]>
+              pdn1_dataplan: <list or string>
+              pdn2_dataplan: <list or string>
+              pdn3_dataplan: <list or string>
+              pdn4_dataplan: <list or string>
             sms_notification:
               alert:
                 data_exhausted: <string>
@@ -1184,6 +1262,12 @@ EXAMPLES = '''
                 pvid: <integer>
                 type: <value in [port, vap]>
                 vap: <list or string>
+            traffic_split_services:
+              -
+                address: <list or string>
+                name: <string>
+                service: <list or string>
+                vsdb: <value in [disable, enable]>
           login_password: <list or string>
           login_password_change: <value in [no, yes, default]>
           model: <value in [FX201E, FX211E, FX200F, ...]>
@@ -1373,7 +1457,12 @@ def main():
                                 'sim1-pin': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'sim1-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                                 'sim2-pin': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'sim2-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'}
+                                'sim2-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'},
+                                'multiple-PDN': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'pdn1-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn2-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn3-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn4-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'}
                             }
                         },
                         'modem2': {
@@ -1404,7 +1493,12 @@ def main():
                                 'sim1-pin': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'sim1-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                                 'sim2-pin': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'sim2-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'}
+                                'sim2-pin-code': {'v_range': [['7.2.1', '']], 'type': 'raw'},
+                                'multiple-PDN': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'pdn1-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn2-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn3-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'pdn4-dataplan': {'v_range': [['7.6.2', '']], 'type': 'raw'}
                             }
                         },
                         'sms-notification': {
@@ -1489,6 +1583,17 @@ def main():
                                 'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'}
                             },
                             'elements': 'dict'
+                        },
+                        'traffic-split-services': {
+                            'v_range': [['7.6.2', '']],
+                            'type': 'list',
+                            'options': {
+                                'address': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'name': {'v_range': [['7.6.2', '']], 'type': 'str'},
+                                'service': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                                'vsdb': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                            },
+                            'elements': 'dict'
                         }
                     }
                 },
@@ -1499,7 +1604,7 @@ def main():
                     'choices': [
                         'FX201E', 'FX211E', 'FX200F', 'FXA11F', 'FXE11F', 'FXA21F', 'FXE21F', 'FXA22F', 'FXE22F', 'FX212F', 'FX311F', 'FX312F', 'FX511F',
                         'FVG21F', 'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI', 'FXR51G', 'FG', 'BS10FW', 'BS20GW', 'BS20GN', 'FXN51G',
-                        'FXW51G'
+                        'FXW51G', 'FVG51G'
                     ],
                     'type': 'str'
                 },

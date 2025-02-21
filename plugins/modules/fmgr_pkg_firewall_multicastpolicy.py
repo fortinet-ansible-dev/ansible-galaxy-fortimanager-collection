@@ -288,7 +288,7 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.8'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dnat': {'type': 'str'},
                 'dstaddr': {'type': 'raw'},
                 'dstintf': {'type': 'str'},

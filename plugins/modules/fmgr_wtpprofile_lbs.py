@@ -500,19 +500,19 @@ def main():
                 'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                'ble-rtls': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5']], 'type': 'raw'},
-                'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5']], 'choices': ['WSS'], 'type': 'str'},
-                'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5']], 'type': 'str'},
-                'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5']], 'type': 'int'},
-                'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5']], 'no_log': True, 'type': 'str'}
+                'ble-rtls': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'raw'},
+                'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
+                'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
+                'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
             }
         }
     }
