@@ -232,34 +232,34 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extensioncontroller_extenderprofile_wifi_radio1:
-          d80211d: <value in [disable, enable]>
-          band: <value in [2.4GHz]>
-          bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
-          beacon_interval: <integer>
-          bss_color: <integer>
-          bss_color_mode: <value in [auto, static]>
-          channel:
-            - "CH1"
-            - "CH2"
-            - "CH3"
-            - "CH4"
-            - "CH5"
-            - "CH6"
-            - "CH7"
-            - "CH8"
-            - "CH9"
-            - "CH10"
-            - "CH11"
-          extension_channel: <value in [auto, higher, lower]>
-          guard_interval: <value in [auto, 400ns, 800ns]>
-          lan_ext_vap: <list or string>
-          local_vaps: <list or string>
-          max_clients: <integer>
-          mode: <value in [AP, Client]>
-          operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
-          power_level: <integer>
-          radio_id: <integer>
-          status: <value in [disable, enable]>
+          # d80211d: <value in [disable, enable]>
+          # band: <value in [2.4GHz]>
+          # bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+          # beacon_interval: <integer>
+          # bss_color: <integer>
+          # bss_color_mode: <value in [auto, static]>
+          # channel:
+          #   - "CH1"
+          #   - "CH2"
+          #   - "CH3"
+          #   - "CH4"
+          #   - "CH5"
+          #   - "CH6"
+          #   - "CH7"
+          #   - "CH8"
+          #   - "CH9"
+          #   - "CH10"
+          #   - "CH11"
+          # extension_channel: <value in [auto, higher, lower]>
+          # guard_interval: <value in [auto, 400ns, 800ns]>
+          # lan_ext_vap: <list or string>
+          # local_vaps: <list or string>
+          # max_clients: <integer>
+          # mode: <value in [AP, Client]>
+          # operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+          # power_level: <integer>
+          # radio_id: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

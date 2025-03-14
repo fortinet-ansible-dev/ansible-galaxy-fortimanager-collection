@@ -208,28 +208,28 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         bleprofile:
-          advertising:
-            - "ibeacon"
-            - "eddystone-uid"
-            - "eddystone-url"
-          beacon_interval: <integer>
-          ble_scanning: <value in [disable, enable]>
-          comment: <string>
-          eddystone_instance: <string>
-          eddystone_namespace: <string>
-          eddystone_url: <string>
-          eddystone_url_encode_hex: <string>
-          ibeacon_uuid: <string>
-          major_id: <integer>
-          minor_id: <integer>
-          name: <string>
-          txpower: <value in [0, 1, 2, ...]>
-          scan_interval: <integer>
-          scan_period: <integer>
-          scan_threshold: <string>
-          scan_time: <integer>
-          scan_type: <value in [active, passive]>
-          scan_window: <integer>
+          name: "your value" # Required variable, string
+          # advertising:
+          #   - "ibeacon"
+          #   - "eddystone-uid"
+          #   - "eddystone-url"
+          # beacon_interval: <integer>
+          # ble_scanning: <value in [disable, enable]>
+          # comment: <string>
+          # eddystone_instance: <string>
+          # eddystone_namespace: <string>
+          # eddystone_url: <string>
+          # eddystone_url_encode_hex: <string>
+          # ibeacon_uuid: <string>
+          # major_id: <integer>
+          # minor_id: <integer>
+          # txpower: <value in [0, 1, 2, ...]>
+          # scan_interval: <integer>
+          # scan_period: <integer>
+          # scan_threshold: <string>
+          # scan_time: <integer>
+          # scan_type: <value in [active, passive]>
+          # scan_window: <integer>
 '''
 
 RETURN = '''

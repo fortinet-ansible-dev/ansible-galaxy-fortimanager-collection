@@ -121,8 +121,8 @@ EXAMPLES = '''
         vip: <your own value>
         state: present # <value in [present, absent]>
         firewall_vip_gslbpublicips:
-          index: <integer>
-          ip: <string>
+          # index: <integer>
+          # ip: <string>
 '''
 
 RETURN = '''

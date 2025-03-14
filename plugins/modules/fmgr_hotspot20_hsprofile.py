@@ -389,49 +389,49 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_hsprofile:
-          3gpp_plmn: <string>
-          access_network_asra: <value in [disable, enable]>
-          access_network_esr: <value in [disable, enable]>
-          access_network_internet: <value in [disable, enable]>
-          access_network_type: <value in [private-network, private-network-with-guest-access, chargeable-public-network, ...]>
-          access_network_uesa: <value in [disable, enable]>
-          anqp_domain_id: <integer>
-          bss_transition: <value in [disable, enable]>
-          conn_cap: <string>
-          deauth_request_timeout: <integer>
-          dgaf: <value in [disable, enable]>
-          domain_name: <string>
-          gas_comeback_delay: <integer>
-          gas_fragmentation_limit: <integer>
-          hessid: <string>
-          ip_addr_type: <string>
-          l2tif: <value in [disable, enable]>
-          nai_realm: <string>
-          name: <string>
-          network_auth: <string>
-          oper_friendly_name: <string>
-          osu_provider: <list or string>
-          osu_ssid: <string>
-          pame_bi: <value in [disable, enable]>
-          proxy_arp: <value in [disable, enable]>
-          qos_map: <string>
-          roaming_consortium: <string>
-          venue_group: <value in [unspecified, assembly, business, ...]>
-          venue_name: <string>
-          venue_type: <value in [unspecified, arena, stadium, ...]>
-          wan_metrics: <string>
-          wnm_sleep_mode: <value in [disable, enable]>
-          advice_of_charge: <string>
-          oper_icon: <string>
-          osu_provider_nai: <string>
-          release: <integer>
-          terms_and_conditions: <string>
-          venue_url: <string>
-          wba_charging_currency: <string>
-          wba_charging_rate: <integer>
-          wba_data_clearing_provider: <string>
-          wba_financial_clearing_provider: <string>
-          wba_open_roaming: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # 3gpp_plmn: <string>
+          # access_network_asra: <value in [disable, enable]>
+          # access_network_esr: <value in [disable, enable]>
+          # access_network_internet: <value in [disable, enable]>
+          # access_network_type: <value in [private-network, private-network-with-guest-access, chargeable-public-network, ...]>
+          # access_network_uesa: <value in [disable, enable]>
+          # anqp_domain_id: <integer>
+          # bss_transition: <value in [disable, enable]>
+          # conn_cap: <string>
+          # deauth_request_timeout: <integer>
+          # dgaf: <value in [disable, enable]>
+          # domain_name: <string>
+          # gas_comeback_delay: <integer>
+          # gas_fragmentation_limit: <integer>
+          # hessid: <string>
+          # ip_addr_type: <string>
+          # l2tif: <value in [disable, enable]>
+          # nai_realm: <string>
+          # network_auth: <string>
+          # oper_friendly_name: <string>
+          # osu_provider: <list or string>
+          # osu_ssid: <string>
+          # pame_bi: <value in [disable, enable]>
+          # proxy_arp: <value in [disable, enable]>
+          # qos_map: <string>
+          # roaming_consortium: <string>
+          # venue_group: <value in [unspecified, assembly, business, ...]>
+          # venue_name: <string>
+          # venue_type: <value in [unspecified, arena, stadium, ...]>
+          # wan_metrics: <string>
+          # wnm_sleep_mode: <value in [disable, enable]>
+          # advice_of_charge: <string>
+          # oper_icon: <string>
+          # osu_provider_nai: <string>
+          # release: <integer>
+          # terms_and_conditions: <string>
+          # venue_url: <string>
+          # wba_charging_currency: <string>
+          # wba_charging_rate: <integer>
+          # wba_data_clearing_provider: <string>
+          # wba_financial_clearing_provider: <string>
+          # wba_open_roaming: <value in [disable, enable]>
 '''
 
 RETURN = '''

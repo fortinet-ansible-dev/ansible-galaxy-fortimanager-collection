@@ -131,10 +131,10 @@ EXAMPLES = '''
         lldp_profile: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_lldpprofile_customtlvs:
-          information_string: <string>
-          name: <string>
-          oui: <string>
-          subtype: <integer>
+          name: "your value" # Required variable, string
+          # information_string: <string>
+          # oui: <string>
+          # subtype: <integer>
 '''
 
 RETURN = '''

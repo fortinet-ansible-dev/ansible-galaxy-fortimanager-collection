@@ -152,18 +152,16 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_internetserviceaddition:
-          comment: <string>
-          entry:
-            -
-              id: <integer>
-              port_range:
-                -
-                  end_port: <integer>
-                  id: <integer>
-                  start_port: <integer>
-              protocol: <integer>
-              addr_mode: <value in [ipv4, ipv6]>
-          id: <string>
+          id: "your value" # Required variable, string
+          # comment: <string>
+          # entry:
+          #   - id: <integer>
+          #     port_range:
+          #       - end_port: <integer>
+          #         id: <integer>
+          #         start_port: <integer>
+          #     protocol: <integer>
+          #     addr_mode: <value in [ipv4, ipv6]>
 '''
 
 RETURN = '''

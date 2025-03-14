@@ -232,25 +232,25 @@ EXAMPLES = '''
         adom: <your own value>
         gtp: <your own value>
         firewall_gtp_ievalidation:
-          apn_restriction: <value in [disable, enable]>
-          charging_ID: <value in [disable, enable]>
-          charging_gateway_addr: <value in [disable, enable]>
-          end_user_addr: <value in [disable, enable]>
-          gsn_addr: <value in [disable, enable]>
-          imei: <value in [disable, enable]>
-          imsi: <value in [disable, enable]>
-          mm_context: <value in [disable, enable]>
-          ms_tzone: <value in [disable, enable]>
-          ms_validated: <value in [disable, enable]>
-          msisdn: <value in [disable, enable]>
-          nsapi: <value in [disable, enable]>
-          pdp_context: <value in [disable, enable]>
-          qos_profile: <value in [disable, enable]>
-          rai: <value in [disable, enable]>
-          rat_type: <value in [disable, enable]>
-          reordering_required: <value in [disable, enable]>
-          selection_mode: <value in [disable, enable]>
-          uli: <value in [disable, enable]>
+          # apn_restriction: <value in [disable, enable]>
+          # charging_ID: <value in [disable, enable]>
+          # charging_gateway_addr: <value in [disable, enable]>
+          # end_user_addr: <value in [disable, enable]>
+          # gsn_addr: <value in [disable, enable]>
+          # imei: <value in [disable, enable]>
+          # imsi: <value in [disable, enable]>
+          # mm_context: <value in [disable, enable]>
+          # ms_tzone: <value in [disable, enable]>
+          # ms_validated: <value in [disable, enable]>
+          # msisdn: <value in [disable, enable]>
+          # nsapi: <value in [disable, enable]>
+          # pdp_context: <value in [disable, enable]>
+          # qos_profile: <value in [disable, enable]>
+          # rai: <value in [disable, enable]>
+          # rat_type: <value in [disable, enable]>
+          # reordering_required: <value in [disable, enable]>
+          # selection_mode: <value in [disable, enable]>
+          # uli: <value in [disable, enable]>
 '''
 
 RETURN = '''

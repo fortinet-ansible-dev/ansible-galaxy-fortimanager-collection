@@ -246,30 +246,29 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webproxy_profile:
-          header_client_ip: <value in [pass, add, remove]>
-          header_front_end_https: <value in [pass, add, remove]>
-          header_via_request: <value in [pass, add, remove]>
-          header_via_response: <value in [pass, add, remove]>
-          header_x_authenticated_groups: <value in [pass, add, remove]>
-          header_x_authenticated_user: <value in [pass, add, remove]>
-          header_x_forwarded_for: <value in [pass, add, remove]>
-          headers:
-            -
-              action: <value in [add-to-request, add-to-response, remove-from-request, ...]>
-              content: <string>
-              id: <integer>
-              name: <string>
-              add_option: <value in [append, new-on-not-found, new, ...]>
-              base64_encoding: <value in [disable, enable]>
-              dstaddr: <list or string>
-              dstaddr6: <list or string>
-              protocol:
-                - "https"
-                - "http"
-          log_header_change: <value in [disable, enable]>
-          name: <string>
-          strip_encoding: <value in [disable, enable]>
-          header_x_forwarded_client_cert: <value in [pass, add, remove]>
+          name: "your value" # Required variable, string
+          # header_client_ip: <value in [pass, add, remove]>
+          # header_front_end_https: <value in [pass, add, remove]>
+          # header_via_request: <value in [pass, add, remove]>
+          # header_via_response: <value in [pass, add, remove]>
+          # header_x_authenticated_groups: <value in [pass, add, remove]>
+          # header_x_authenticated_user: <value in [pass, add, remove]>
+          # header_x_forwarded_for: <value in [pass, add, remove]>
+          # headers:
+          #   - action: <value in [add-to-request, add-to-response, remove-from-request, ...]>
+          #     content: <string>
+          #     id: <integer>
+          #     name: <string>
+          #     add_option: <value in [append, new-on-not-found, new, ...]>
+          #     base64_encoding: <value in [disable, enable]>
+          #     dstaddr: <list or string>
+          #     dstaddr6: <list or string>
+          #     protocol:
+          #       - "https"
+          #       - "http"
+          # log_header_change: <value in [disable, enable]>
+          # strip_encoding: <value in [disable, enable]>
+          # header_x_forwarded_client_cert: <value in [pass, add, remove]>
 '''
 
 RETURN = '''

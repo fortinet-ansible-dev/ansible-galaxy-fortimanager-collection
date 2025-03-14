@@ -272,50 +272,47 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         webfilter_profile_ftgdwf:
-          exempt_quota: <list or string>
-          filters:
-            -
-              action: <value in [block, monitor, warning, ...]>
-              auth_usr_grp: <list or string>
-              category: <string>
-              id: <integer>
-              log: <value in [disable, enable]>
-              override_replacemsg: <string>
-              warn_duration: <string>
-              warning_duration_type: <value in [session, timeout]>
-              warning_prompt: <value in [per-domain, per-category]>
-          max_quota_timeout: <integer>
-          options:
-            - "error-allow"
-            - "http-err-detail"
-            - "rate-image-urls"
-            - "strict-blocking"
-            - "rate-server-ip"
-            - "redir-block"
-            - "connect-request-bypass"
-            - "log-all-url"
-            - "ftgd-disable"
-          ovrd: <list or string>
-          quota:
-            -
-              category: <list or string>
-              duration: <string>
-              id: <integer>
-              override_replacemsg: <string>
-              type: <value in [time, traffic]>
-              unit: <value in [B, KB, MB, ...]>
-              value: <integer>
-          rate_crl_urls: <value in [disable, enable]>
-          rate_css_urls: <value in [disable, enable]>
-          rate_image_urls: <value in [disable, enable]>
-          rate_javascript_urls: <value in [disable, enable]>
-          category_override: <string>
-          risk:
-            -
-              action: <value in [block, monitor]>
-              id: <integer>
-              log: <value in [disable, enable]>
-              risk_level: <list or string>
+          # exempt_quota: <list or string>
+          # filters:
+          #   - action: <value in [block, monitor, warning, ...]>
+          #     auth_usr_grp: <list or string>
+          #     category: <string>
+          #     id: <integer>
+          #     log: <value in [disable, enable]>
+          #     override_replacemsg: <string>
+          #     warn_duration: <string>
+          #     warning_duration_type: <value in [session, timeout]>
+          #     warning_prompt: <value in [per-domain, per-category]>
+          # max_quota_timeout: <integer>
+          # options:
+          #   - "error-allow"
+          #   - "http-err-detail"
+          #   - "rate-image-urls"
+          #   - "strict-blocking"
+          #   - "rate-server-ip"
+          #   - "redir-block"
+          #   - "connect-request-bypass"
+          #   - "log-all-url"
+          #   - "ftgd-disable"
+          # ovrd: <list or string>
+          # quota:
+          #   - category: <list or string>
+          #     duration: <string>
+          #     id: <integer>
+          #     override_replacemsg: <string>
+          #     type: <value in [time, traffic]>
+          #     unit: <value in [B, KB, MB, ...]>
+          #     value: <integer>
+          # rate_crl_urls: <value in [disable, enable]>
+          # rate_css_urls: <value in [disable, enable]>
+          # rate_image_urls: <value in [disable, enable]>
+          # rate_javascript_urls: <value in [disable, enable]>
+          # category_override: <string>
+          # risk:
+          #   - action: <value in [block, monitor]>
+          #     id: <integer>
+          #     log: <value in [disable, enable]>
+          #     risk_level: <list or string>
 '''
 
 RETURN = '''

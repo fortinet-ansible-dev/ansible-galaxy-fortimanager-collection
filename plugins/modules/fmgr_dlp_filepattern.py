@@ -210,14 +210,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dlp_filepattern:
-          comment: <string>
-          entries:
-            -
-              file_type: <value in [unknown, ignored, exe, ...]>
-              filter_type: <value in [pattern, type]>
-              pattern: <string>
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - file_type: <value in [unknown, ignored, exe, ...]>
+          #     filter_type: <value in [pattern, type]>
+          #     pattern: <string>
+          # name: <string>
 '''
 
 RETURN = '''

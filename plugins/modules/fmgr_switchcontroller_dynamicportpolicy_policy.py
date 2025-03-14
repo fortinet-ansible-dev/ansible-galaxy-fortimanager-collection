@@ -201,25 +201,25 @@ EXAMPLES = '''
         dynamic_port_policy: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_dynamicportpolicy_policy:
-          802_1x: <string>
-          bounce_port_link: <value in [disable, enable]>
-          category: <value in [device, interface-tag]>
-          description: <string>
-          family: <string>
-          host: <string>
-          hw_vendor: <string>
-          interface_tags: <list or string>
-          lldp_profile: <string>
-          mac: <string>
-          name: <string>
-          qos_policy: <string>
-          status: <value in [disable, enable]>
-          type: <string>
-          vlan_policy: <string>
-          match_period: <integer>
-          match_type: <value in [dynamic, override]>
-          bounce_port_duration: <integer>
-          poe_reset: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # 802_1x: <string>
+          # bounce_port_link: <value in [disable, enable]>
+          # category: <value in [device, interface-tag]>
+          # description: <string>
+          # family: <string>
+          # host: <string>
+          # hw_vendor: <string>
+          # interface_tags: <list or string>
+          # lldp_profile: <string>
+          # mac: <string>
+          # qos_policy: <string>
+          # status: <value in [disable, enable]>
+          # type: <string>
+          # vlan_policy: <string>
+          # match_period: <integer>
+          # match_type: <value in [dynamic, override]>
+          # bounce_port_duration: <integer>
+          # poe_reset: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -225,30 +225,29 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_ntp:
-          ntpserver:
-            -
-              authentication: <value in [disable, enable]>
-              id: <integer>
-              key: <list or string>
-              key_id: <integer>
-              ntpv3: <value in [disable, enable]>
-              server: <string>
-              interface: <string>
-              interface_select_method: <value in [auto, sdwan, specify]>
-              ip_type: <value in [IPv6, IPv4, Both]>
-              key_type: <value in [SHA1, SHA256, MD5]>
-              vrf_select: <integer>
-          ntpsync: <value in [disable, enable]>
-          source_ip6: <string>
-          syncinterval: <integer>
-          type: <value in [fortiguard, custom]>
-          authentication: <value in [disable, enable]>
-          key: <list or string>
-          key_id: <integer>
-          key_type: <value in [MD5, SHA1, SHA256]>
-          interface: <list or string>
-          server_mode: <value in [disable, enable]>
-          source_ip: <string>
+          # ntpserver:
+          #   - authentication: <value in [disable, enable]>
+          #     id: <integer>
+          #     key: <list or string>
+          #     key_id: <integer>
+          #     ntpv3: <value in [disable, enable]>
+          #     server: <string>
+          #     interface: <string>
+          #     interface_select_method: <value in [auto, sdwan, specify]>
+          #     ip_type: <value in [IPv6, IPv4, Both]>
+          #     key_type: <value in [SHA1, SHA256, MD5]>
+          #     vrf_select: <integer>
+          # ntpsync: <value in [disable, enable]>
+          # source_ip6: <string>
+          # syncinterval: <integer>
+          # type: <value in [fortiguard, custom]>
+          # authentication: <value in [disable, enable]>
+          # key: <list or string>
+          # key_id: <integer>
+          # key_type: <value in [MD5, SHA1, SHA256]>
+          # interface: <list or string>
+          # server_mode: <value in [disable, enable]>
+          # source_ip: <string>
 '''
 
 RETURN = '''

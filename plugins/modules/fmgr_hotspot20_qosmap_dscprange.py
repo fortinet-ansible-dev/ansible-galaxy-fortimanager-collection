@@ -130,10 +130,10 @@ EXAMPLES = '''
         qos_map: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_qosmap_dscprange:
-          high: <integer>
-          index: <integer>
-          low: <integer>
-          up: <integer>
+          index: 0 # Required variable, integer
+          # high: <integer>
+          # low: <integer>
+          # up: <integer>
 '''
 
 RETURN = '''

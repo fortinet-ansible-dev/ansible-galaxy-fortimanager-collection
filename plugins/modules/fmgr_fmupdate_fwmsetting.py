@@ -280,38 +280,38 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fwmsetting:
-          fds_image_timeout: <integer>
-          max_fds_retry: <integer>
-          multiple_steps_interval: <integer>
-          skip_disk_check: <value in [disable, enable]>
-          auto_scan_fgt_disk: <value in [disable, enable]>
-          check_fgt_disk: <value in [disable, enable]>
-          fds_failover_fmg: <value in [disable, enable]>
-          immx_source: <value in [fmg, fgt, cloud]>
-          log: <value in [fwm, fwm_dm, fwm_dm_json]>
-          upgrade_timeout:
-            check_status_timeout: <integer>
-            ctrl_check_status_timeout: <integer>
-            ctrl_put_image_by_fds_timeout: <integer>
-            ha_sync_timeout: <integer>
-            license_check_timeout: <integer>
-            prepare_image_timeout: <integer>
-            put_image_by_fds_timeout: <integer>
-            put_image_timeout: <integer>
-            reboot_of_fsck_timeout: <integer>
-            reboot_of_upgrade_timeout: <integer>
-            retrieve_timeout: <integer>
-            rpc_timeout: <integer>
-            total_timeout: <integer>
-            health_check_timeout: <integer>
-          retry_interval: <integer>
-          retry_max: <integer>
-          health_check: <value in [disable, enable]>
-          max_device_history: <integer>
-          max_profile_history: <integer>
-          retrieve: <value in [disable, enable]>
-          revision_diff: <value in [disable, enable]>
-          send_image_retry: <integer>
+          # fds_image_timeout: <integer>
+          # max_fds_retry: <integer>
+          # multiple_steps_interval: <integer>
+          # skip_disk_check: <value in [disable, enable]>
+          # auto_scan_fgt_disk: <value in [disable, enable]>
+          # check_fgt_disk: <value in [disable, enable]>
+          # fds_failover_fmg: <value in [disable, enable]>
+          # immx_source: <value in [fmg, fgt, cloud]>
+          # log: <value in [fwm, fwm_dm, fwm_dm_json]>
+          # upgrade_timeout:
+          #   check_status_timeout: <integer>
+          #   ctrl_check_status_timeout: <integer>
+          #   ctrl_put_image_by_fds_timeout: <integer>
+          #   ha_sync_timeout: <integer>
+          #   license_check_timeout: <integer>
+          #   prepare_image_timeout: <integer>
+          #   put_image_by_fds_timeout: <integer>
+          #   put_image_timeout: <integer>
+          #   reboot_of_fsck_timeout: <integer>
+          #   reboot_of_upgrade_timeout: <integer>
+          #   retrieve_timeout: <integer>
+          #   rpc_timeout: <integer>
+          #   total_timeout: <integer>
+          #   health_check_timeout: <integer>
+          # retry_interval: <integer>
+          # retry_max: <integer>
+          # health_check: <value in [disable, enable]>
+          # max_device_history: <integer>
+          # max_profile_history: <integer>
+          # retrieve: <value in [disable, enable]>
+          # revision_diff: <value in [disable, enable]>
+          # send_image_retry: <integer>
 '''
 
 RETURN = '''

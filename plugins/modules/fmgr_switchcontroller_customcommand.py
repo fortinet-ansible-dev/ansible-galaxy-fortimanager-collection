@@ -120,9 +120,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_customcommand:
-          command: <string>
-          command_name: <string>
-          description: <string>
+          # command: <string>
+          # command_name: <string>
+          # description: <string>
 '''
 
 RETURN = '''

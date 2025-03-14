@@ -140,11 +140,11 @@ EXAMPLES = '''
         iptrust: <your own value>
         state: present # <value in [present, absent]>
         emailfilter_iptrust_entries:
-          addr_type: <value in [ipv4, ipv6]>
-          id: <integer>
-          ip4_subnet: <string>
-          ip6_subnet: <string>
-          status: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # addr_type: <value in [ipv4, ipv6]>
+          # ip4_subnet: <string>
+          # ip6_subnet: <string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

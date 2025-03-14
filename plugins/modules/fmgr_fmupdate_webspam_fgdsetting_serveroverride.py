@@ -137,20 +137,19 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_webspam_fgdsetting_serveroverride:
-          servlist:
-            -
-              id: <integer>
-              ip: <string>
-              ip6: <string>
-              port: <integer>
-              service_type: # <list or string>
-                - "fgd"
-                - "fgc"
-                - "fsa"
-                - "fgfq"
-                - "geoip"
-                - "iot-collect"
-          status: <value in [disable, enable]>
+          # servlist:
+          #   - id: <integer>
+          #     ip: <string>
+          #     ip6: <string>
+          #     port: <integer>
+          #     service_type: # <list or string>
+          #       - "fgd"
+          #       - "fgc"
+          #       - "fsa"
+          #       - "fgfq"
+          #       - "geoip"
+          #       - "iot-collect"
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -129,8 +129,8 @@ EXAMPLES = '''
         policy: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_consolidated_policy_sectionvalue:
-          attr: <value in [label, global-label]>
-          name: <string>
+          # attr: <value in [label, global-label]>
+          # name: <string>
 '''
 
 RETURN = '''

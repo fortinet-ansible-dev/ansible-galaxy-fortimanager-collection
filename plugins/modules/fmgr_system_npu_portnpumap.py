@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_portnpumap:
-          interface: <string>
-          npu_group_index: <integer>
+          # interface: <string>
+          # npu_group_index: <integer>
 '''
 
 RETURN = '''

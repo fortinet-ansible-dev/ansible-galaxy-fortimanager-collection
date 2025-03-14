@@ -144,15 +144,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_icon:
-          icon_list:
-            -
-              file: <string>
-              height: <integer>
-              lang: <string>
-              name: <string>
-              type: <value in [bmp, gif, jpeg, ...]>
-              width: <integer>
-          name: <string>
+          name: "your value" # Required variable, string
+          # icon_list:
+          #   - file: <string>
+          #     height: <integer>
+          #     lang: <string>
+          #     name: <string>
+          #     type: <value in [bmp, gif, jpeg, ...]>
+          #     width: <integer>
 '''
 
 RETURN = '''

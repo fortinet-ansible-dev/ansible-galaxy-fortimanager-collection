@@ -119,12 +119,11 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fdssetting_pushoverridetoclient:
-          announce_ip:
-            -
-              id: <integer>
-              ip: <string>
-              port: <integer>
-          status: <value in [disable, enable]>
+          # announce_ip:
+          #   - id: <integer>
+          #     ip: <string>
+          #     port: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

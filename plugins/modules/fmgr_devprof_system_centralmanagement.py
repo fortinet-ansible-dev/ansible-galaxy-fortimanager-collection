@@ -313,48 +313,47 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_centralmanagement:
-          include_default_servers: <value in [disable, enable]>
-          server_list:
-            -
-              addr_type: <value in [fqdn, ipv4, ipv6]>
-              fqdn: <string>
-              id: <integer>
-              server_address: <string>
-              server_address6: <string>
-              server_type:
-                - "update"
-                - "rating"
-                - "iot-query"
-                - "iot-collect"
-                - "vpatch-query"
-          ltefw_upgrade_time: <string>
-          vdom: <list or string>
-          allow_remote_firmware_upgrade: <value in [disable, enable]>
-          local_cert: <string>
-          allow_push_firmware: <value in [disable, enable]>
-          ltefw_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
-          mode: <value in [normal, backup]>
-          serial_number: <list or string>
-          fmg_source_ip6: <string>
-          allow_monitor: <value in [disable, enable]>
-          allow_push_configuration: <value in [disable, enable]>
-          ca_cert: <string>
-          fmg_update_port: <value in [443, 8890]>
-          use_elbc_vdom: <value in [disable, enable]>
-          allow_remote_lte_firmware_upgrade: <value in [disable, enable]>
-          interface: <list or string>
-          schedule_script_restore: <value in [disable, enable]>
-          schedule_config_restore: <value in [disable, enable]>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          type: <value in [fortimanager, fortiguard, none]>
-          fmg_source_ip: <string>
-          fortigate_cloud_sso_default_profile: <list or string>
-          fmg: <list or string>
-          enc_algorithm: <value in [default, high, low]>
-          allow_remote_modem_firmware_upgrade: <value in [disable, enable]>
-          modem_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
-          modem_upgrade_time: <string>
-          vrf_select: <integer>
+          # include_default_servers: <value in [disable, enable]>
+          # server_list:
+          #   - addr_type: <value in [fqdn, ipv4, ipv6]>
+          #     fqdn: <string>
+          #     id: <integer>
+          #     server_address: <string>
+          #     server_address6: <string>
+          #     server_type:
+          #       - "update"
+          #       - "rating"
+          #       - "iot-query"
+          #       - "iot-collect"
+          #       - "vpatch-query"
+          # ltefw_upgrade_time: <string>
+          # vdom: <list or string>
+          # allow_remote_firmware_upgrade: <value in [disable, enable]>
+          # local_cert: <string>
+          # allow_push_firmware: <value in [disable, enable]>
+          # ltefw_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
+          # mode: <value in [normal, backup]>
+          # serial_number: <list or string>
+          # fmg_source_ip6: <string>
+          # allow_monitor: <value in [disable, enable]>
+          # allow_push_configuration: <value in [disable, enable]>
+          # ca_cert: <string>
+          # fmg_update_port: <value in [443, 8890]>
+          # use_elbc_vdom: <value in [disable, enable]>
+          # allow_remote_lte_firmware_upgrade: <value in [disable, enable]>
+          # interface: <list or string>
+          # schedule_script_restore: <value in [disable, enable]>
+          # schedule_config_restore: <value in [disable, enable]>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # type: <value in [fortimanager, fortiguard, none]>
+          # fmg_source_ip: <string>
+          # fortigate_cloud_sso_default_profile: <list or string>
+          # fmg: <list or string>
+          # enc_algorithm: <value in [default, high, low]>
+          # allow_remote_modem_firmware_upgrade: <value in [disable, enable]>
+          # modem_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
+          # modem_upgrade_time: <string>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

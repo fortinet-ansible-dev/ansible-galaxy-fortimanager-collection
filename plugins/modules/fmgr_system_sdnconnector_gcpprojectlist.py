@@ -125,8 +125,8 @@ EXAMPLES = '''
         sdn_connector: <your own value>
         state: present # <value in [present, absent]>
         system_sdnconnector_gcpprojectlist:
-          gcp_zone_list: <list or string>
-          id: <string>
+          id: "your value" # Required variable, string
+          # gcp_zone_list: <list or string>
 '''
 
 RETURN = '''

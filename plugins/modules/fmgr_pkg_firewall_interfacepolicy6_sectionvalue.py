@@ -131,8 +131,8 @@ EXAMPLES = '''
         interface_policy6: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_interfacepolicy6_sectionvalue:
-          attr: <value in [label, global-label]>
-          name: <string>
+          # attr: <value in [label, global-label]>
+          # name: <string>
 '''
 
 RETURN = '''

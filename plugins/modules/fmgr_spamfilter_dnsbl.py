@@ -143,15 +143,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         spamfilter_dnsbl:
-          comment: <string>
-          entries:
-            -
-              action: <value in [spam, reject]>
-              id: <integer>
-              server: <string>
-              status: <value in [disable, enable]>
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - action: <value in [spam, reject]>
+          #     id: <integer>
+          #     server: <string>
+          #     status: <value in [disable, enable]>
+          # name: <string>
 '''
 
 RETURN = '''

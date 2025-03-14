@@ -168,18 +168,18 @@ EXAMPLES = '''
         vlan: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_interface_ipv6_vrrp6:
-          accept_mode: <value in [disable, enable]>
-          adv_interval: <integer>
-          preempt: <value in [disable, enable]>
-          priority: <integer>
-          start_time: <integer>
-          status: <value in [disable, enable]>
-          vrdst6: <string>
-          vrgrp: <integer>
-          vrid: <integer>
-          vrip6: <string>
-          ignore_default_route: <value in [disable, enable]>
-          vrdst_priority: <integer>
+          # accept_mode: <value in [disable, enable]>
+          # adv_interval: <integer>
+          # preempt: <value in [disable, enable]>
+          # priority: <integer>
+          # start_time: <integer>
+          # status: <value in [disable, enable]>
+          # vrdst6: <string>
+          # vrgrp: <integer>
+          # vrid: <integer>
+          # vrip6: <string>
+          # ignore_default_route: <value in [disable, enable]>
+          # vrdst_priority: <integer>
 '''
 
 RETURN = '''

@@ -5,6 +5,20 @@ Fortinet.Fortimanager Release Notes
 .. contents:: Topics
 
 
+v2.9.1
+======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.9.1
+
+Bugfixes
+--------
+
+- Changed the default playbook examples for each module to pass ansible-lint.
+- Corrected mainkey of some modules.
+
 v2.9.0
 ======
 

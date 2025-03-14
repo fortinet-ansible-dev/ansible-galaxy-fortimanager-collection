@@ -136,10 +136,10 @@ EXAMPLES = '''
         access_proxy_ssh_client_cert: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxysshclientcert_certextension:
-          critical: <value in [no, yes]>
-          data: <string>
-          name: <string>
-          type: <value in [fixed, user]>
+          name: "your value" # Required variable, string
+          # critical: <value in [no, yes]>
+          # data: <string>
+          # type: <value in [fixed, user]>
 '''
 
 RETURN = '''

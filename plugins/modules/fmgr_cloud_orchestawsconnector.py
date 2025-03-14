@@ -129,10 +129,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         cloud_orchestawsconnector:
-          access_key_id: <string>
-          access_key_secret: <list or string>
-          name: <string>
-          use_metadata_iam: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # access_key_id: <string>
+          # access_key_secret: <list or string>
+          # use_metadata_iam: <value in [disable, enable]>
 '''
 
 RETURN = '''

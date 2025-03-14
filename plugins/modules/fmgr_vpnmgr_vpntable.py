@@ -480,81 +480,81 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnmgr_vpntable:
-          authmethod: <value in [psk, rsa-signature, signature]>
-          auto_zone_policy: <value in [disable, enable]>
-          certificate: <list or string>
-          description: <string>
-          dpd: <value in [disable, enable, on-idle, ...]>
-          dpd_retrycount: <integer>
-          dpd_retryinterval: <list or integer>
-          fcc_enforcement: <value in [disable, enable]>
-          hub2spoke_zone: <list or string>
-          ike_version: <value in [1, 2]>
-          ike1dhgroup:
-            - "1"
-            - "2"
-            - "5"
-            - "14"
-            - "15"
-            - "16"
-            - "17"
-            - "18"
-            - "19"
-            - "20"
-            - "21"
-            - "27"
-            - "28"
-            - "29"
-            - "30"
-            - "31"
-            - "32"
-          ike1dpd: <value in [disable, enable]>
-          ike1keylifesec: <integer>
-          ike1localid: <string>
-          ike1mode: <value in [main, aggressive]>
-          ike1natkeepalive: <integer>
-          ike1nattraversal: <value in [disable, enable, forced]>
-          ike1proposal: <value in [des-md5, des-sha1, 3des-md5, ...]>
-          ike2autonego: <value in [disable, enable]>
-          ike2dhgroup:
-            - "1"
-            - "2"
-            - "5"
-            - "14"
-            - "15"
-            - "16"
-            - "17"
-            - "18"
-            - "19"
-            - "20"
-            - "21"
-            - "27"
-            - "28"
-            - "29"
-            - "30"
-            - "31"
-            - "32"
-          ike2keepalive: <value in [disable, enable]>
-          ike2keylifekbs: <integer>
-          ike2keylifesec: <integer>
-          ike2keylifetype: <value in [seconds, kbs, both]>
-          ike2proposal: <value in [null-md5, null-sha1, des-null, ...]>
-          inter_vdom: <value in [disable, enable]>
-          intf_mode: <value in [off, on]>
-          localid_type: <value in [auto, fqdn, user-fqdn, ...]>
-          name: <string>
-          negotiate_timeout: <integer>
-          npu_offload: <value in [disable, enable]>
-          pfs: <value in [disable, enable]>
-          psk_auto_generate: <value in [disable, enable]>
-          psksecret: <list or string>
-          replay: <value in [disable, enable]>
-          rsa_certificate: <string>
-          spoke2hub_zone: <list or string>
-          topology: <value in [meshed, star, dialup]>
-          vpn_zone: <list or string>
-          network_id: <integer>
-          network_overlay: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # authmethod: <value in [psk, rsa-signature, signature]>
+          # auto_zone_policy: <value in [disable, enable]>
+          # certificate: <list or string>
+          # description: <string>
+          # dpd: <value in [disable, enable, on-idle, ...]>
+          # dpd_retrycount: <integer>
+          # dpd_retryinterval: <list or integer>
+          # fcc_enforcement: <value in [disable, enable]>
+          # hub2spoke_zone: <list or string>
+          # ike_version: <value in [1, 2]>
+          # ike1dhgroup:
+          #   - "1"
+          #   - "2"
+          #   - "5"
+          #   - "14"
+          #   - "15"
+          #   - "16"
+          #   - "17"
+          #   - "18"
+          #   - "19"
+          #   - "20"
+          #   - "21"
+          #   - "27"
+          #   - "28"
+          #   - "29"
+          #   - "30"
+          #   - "31"
+          #   - "32"
+          # ike1dpd: <value in [disable, enable]>
+          # ike1keylifesec: <integer>
+          # ike1localid: <string>
+          # ike1mode: <value in [main, aggressive]>
+          # ike1natkeepalive: <integer>
+          # ike1nattraversal: <value in [disable, enable, forced]>
+          # ike1proposal: <value in [des-md5, des-sha1, 3des-md5, ...]>
+          # ike2autonego: <value in [disable, enable]>
+          # ike2dhgroup:
+          #   - "1"
+          #   - "2"
+          #   - "5"
+          #   - "14"
+          #   - "15"
+          #   - "16"
+          #   - "17"
+          #   - "18"
+          #   - "19"
+          #   - "20"
+          #   - "21"
+          #   - "27"
+          #   - "28"
+          #   - "29"
+          #   - "30"
+          #   - "31"
+          #   - "32"
+          # ike2keepalive: <value in [disable, enable]>
+          # ike2keylifekbs: <integer>
+          # ike2keylifesec: <integer>
+          # ike2keylifetype: <value in [seconds, kbs, both]>
+          # ike2proposal: <value in [null-md5, null-sha1, des-null, ...]>
+          # inter_vdom: <value in [disable, enable]>
+          # intf_mode: <value in [off, on]>
+          # localid_type: <value in [auto, fqdn, user-fqdn, ...]>
+          # negotiate_timeout: <integer>
+          # npu_offload: <value in [disable, enable]>
+          # pfs: <value in [disable, enable]>
+          # psk_auto_generate: <value in [disable, enable]>
+          # psksecret: <list or string>
+          # replay: <value in [disable, enable]>
+          # rsa_certificate: <string>
+          # spoke2hub_zone: <list or string>
+          # topology: <value in [meshed, star, dialup]>
+          # vpn_zone: <list or string>
+          # network_id: <integer>
+          # network_overlay: <value in [disable, enable]>
 '''
 
 RETURN = '''

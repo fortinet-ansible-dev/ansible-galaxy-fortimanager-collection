@@ -465,75 +465,74 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_sdwan_service:
-          addr_mode: <value in [ipv4, ipv6]>
-          bandwidth_weight: <integer>
-          default: <value in [disable, enable]>
-          dscp_forward: <value in [disable, enable]>
-          dscp_forward_tag: <string>
-          dscp_reverse: <value in [disable, enable]>
-          dscp_reverse_tag: <string>
-          dst: <list or string>
-          dst_negate: <value in [disable, enable]>
-          dst6: <list or string>
-          end_port: <integer>
-          gateway: <value in [disable, enable]>
-          groups: <list or string>
-          hash_mode: <value in [round-robin, source-ip-based, source-dest-ip-based, ...]>
-          health_check: <list or string>
-          hold_down_time: <integer>
-          id: <integer>
-          input_device: <list or string>
-          input_device_negate: <value in [disable, enable]>
-          internet_service: <value in [disable, enable]>
-          internet_service_app_ctrl: <list or integer>
-          internet_service_app_ctrl_group: <list or string>
-          internet_service_custom: <list or string>
-          internet_service_custom_group: <list or string>
-          internet_service_group: <list or string>
-          internet_service_name: <list or string>
-          jitter_weight: <integer>
-          latency_weight: <integer>
-          link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
-          link_cost_threshold: <integer>
-          minimum_sla_meet_members: <integer>
-          mode: <value in [auto, manual, priority, ...]>
-          name: <string>
-          packet_loss_weight: <integer>
-          priority_members: <list or string>
-          protocol: <integer>
-          quality_link: <integer>
-          role: <value in [primary, secondary, standalone]>
-          route_tag: <integer>
-          sla:
-            -
-              health_check: <string>
-              id: <integer>
-          sla_compare_method: <value in [order, number]>
-          src: <list or string>
-          src_negate: <value in [disable, enable]>
-          src6: <list or string>
-          standalone_action: <value in [disable, enable]>
-          start_port: <integer>
-          status: <value in [disable, enable]>
-          tos: <string>
-          tos_mask: <string>
-          users: <list or string>
-          tie_break: <value in [zone, cfg-order, fib-best-match, ...]>
-          use_shortcut_sla: <value in [disable, enable]>
-          input_zone: <list or string>
-          internet_service_app_ctrl_category: <list or integer>
-          passive_measurement: <value in [disable, enable]>
-          priority_zone: <list or string>
-          agent_exclusive: <value in [disable, enable]>
-          shortcut: <value in [disable, enable]>
-          shortcut_stickiness: <value in [disable, enable]>
-          end_src_port: <integer>
-          load_balance: <value in [disable, enable]>
-          sla_stickiness: <value in [disable, enable]>
-          start_src_port: <integer>
-          zone_mode: <value in [disable, enable]>
-          shortcut_priority: <value in [disable, enable, auto]>
-          comment: <string>
+          id: 0 # Required variable, integer
+          # addr_mode: <value in [ipv4, ipv6]>
+          # bandwidth_weight: <integer>
+          # default: <value in [disable, enable]>
+          # dscp_forward: <value in [disable, enable]>
+          # dscp_forward_tag: <string>
+          # dscp_reverse: <value in [disable, enable]>
+          # dscp_reverse_tag: <string>
+          # dst: <list or string>
+          # dst_negate: <value in [disable, enable]>
+          # dst6: <list or string>
+          # end_port: <integer>
+          # gateway: <value in [disable, enable]>
+          # groups: <list or string>
+          # hash_mode: <value in [round-robin, source-ip-based, source-dest-ip-based, ...]>
+          # health_check: <list or string>
+          # hold_down_time: <integer>
+          # input_device: <list or string>
+          # input_device_negate: <value in [disable, enable]>
+          # internet_service: <value in [disable, enable]>
+          # internet_service_app_ctrl: <list or integer>
+          # internet_service_app_ctrl_group: <list or string>
+          # internet_service_custom: <list or string>
+          # internet_service_custom_group: <list or string>
+          # internet_service_group: <list or string>
+          # internet_service_name: <list or string>
+          # jitter_weight: <integer>
+          # latency_weight: <integer>
+          # link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
+          # link_cost_threshold: <integer>
+          # minimum_sla_meet_members: <integer>
+          # mode: <value in [auto, manual, priority, ...]>
+          # name: <string>
+          # packet_loss_weight: <integer>
+          # priority_members: <list or string>
+          # protocol: <integer>
+          # quality_link: <integer>
+          # role: <value in [primary, secondary, standalone]>
+          # route_tag: <integer>
+          # sla:
+          #   - health_check: <string>
+          #     id: <integer>
+          # sla_compare_method: <value in [order, number]>
+          # src: <list or string>
+          # src_negate: <value in [disable, enable]>
+          # src6: <list or string>
+          # standalone_action: <value in [disable, enable]>
+          # start_port: <integer>
+          # status: <value in [disable, enable]>
+          # tos: <string>
+          # tos_mask: <string>
+          # users: <list or string>
+          # tie_break: <value in [zone, cfg-order, fib-best-match, ...]>
+          # use_shortcut_sla: <value in [disable, enable]>
+          # input_zone: <list or string>
+          # internet_service_app_ctrl_category: <list or integer>
+          # passive_measurement: <value in [disable, enable]>
+          # priority_zone: <list or string>
+          # agent_exclusive: <value in [disable, enable]>
+          # shortcut: <value in [disable, enable]>
+          # shortcut_stickiness: <value in [disable, enable]>
+          # end_src_port: <integer>
+          # load_balance: <value in [disable, enable]>
+          # sla_stickiness: <value in [disable, enable]>
+          # start_src_port: <integer>
+          # zone_mode: <value in [disable, enable]>
+          # shortcut_priority: <value in [disable, enable, auto]>
+          # comment: <string>
 '''
 
 RETURN = '''

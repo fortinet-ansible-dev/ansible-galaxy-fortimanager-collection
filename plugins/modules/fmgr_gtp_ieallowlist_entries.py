@@ -127,9 +127,9 @@ EXAMPLES = '''
         ie_allow_list: <your own value>
         state: present # <value in [present, absent]>
         gtp_ieallowlist_entries:
-          id: <integer>
-          ie: <integer>
-          fmgr_message: <integer>
+          id: 0 # Required variable, integer
+          # ie: <integer>
+          # fmgr_message: <integer>
 '''
 
 RETURN = '''

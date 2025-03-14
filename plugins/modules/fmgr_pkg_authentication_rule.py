@@ -206,24 +206,24 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_authentication_rule:
-          active_auth_method: <string>
-          comments: <string>
-          ip_based: <value in [disable, enable]>
-          name: <string>
-          protocol: <value in [http, ftp, socks, ...]>
-          srcaddr: <list or string>
-          srcaddr6: <list or string>
-          sso_auth_method: <string>
-          status: <value in [disable, enable]>
-          transaction_based: <value in [disable, enable]>
-          web_auth_cookie: <value in [disable, enable]>
-          web_portal: <value in [disable, enable]>
-          dstaddr: <list or string>
-          dstaddr6: <list or string>
-          srcintf: <list or string>
-          cors_depth: <integer>
-          cors_stateful: <value in [disable, enable]>
-          cert_auth_cookie: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # active_auth_method: <string>
+          # comments: <string>
+          # ip_based: <value in [disable, enable]>
+          # protocol: <value in [http, ftp, socks, ...]>
+          # srcaddr: <list or string>
+          # srcaddr6: <list or string>
+          # sso_auth_method: <string>
+          # status: <value in [disable, enable]>
+          # transaction_based: <value in [disable, enable]>
+          # web_auth_cookie: <value in [disable, enable]>
+          # web_portal: <value in [disable, enable]>
+          # dstaddr: <list or string>
+          # dstaddr6: <list or string>
+          # srcintf: <list or string>
+          # cors_depth: <integer>
+          # cors_stateful: <value in [disable, enable]>
+          # cert_auth_cookie: <value in [disable, enable]>
 '''
 
 RETURN = '''

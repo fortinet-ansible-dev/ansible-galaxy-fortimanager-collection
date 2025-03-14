@@ -164,15 +164,15 @@ EXAMPLES = '''
         bwl: <your own value>
         state: present # <value in [present, absent]>
         spamfilter_bwl_entries:
-          action: <value in [spam, clear, reject]>
-          addr_type: <value in [ipv4, ipv6]>
-          email_pattern: <string>
-          id: <integer>
-          ip4_subnet: <string>
-          ip6_subnet: <string>
-          pattern_type: <value in [wildcard, regexp]>
-          status: <value in [disable, enable]>
-          type: <value in [ip, email]>
+          id: 0 # Required variable, integer
+          # action: <value in [spam, clear, reject]>
+          # addr_type: <value in [ipv4, ipv6]>
+          # email_pattern: <string>
+          # ip4_subnet: <string>
+          # ip6_subnet: <string>
+          # pattern_type: <value in [wildcard, regexp]>
+          # status: <value in [disable, enable]>
+          # type: <value in [ip, email]>
 '''
 
 RETURN = '''

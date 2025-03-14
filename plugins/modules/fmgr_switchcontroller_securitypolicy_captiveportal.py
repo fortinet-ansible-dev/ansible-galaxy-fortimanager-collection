@@ -123,9 +123,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_securitypolicy_captiveportal:
-          name: <string>
-          policy_type: <value in [captive-portal]>
-          vlan: <string>
+          name: "your value" # Required variable, string
+          # policy_type: <value in [captive-portal]>
+          # vlan: <string>
 '''
 
 RETURN = '''

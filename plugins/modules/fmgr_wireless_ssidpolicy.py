@@ -120,9 +120,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wireless_ssidpolicy:
-          description: <string>
-          name: <string>
-          vlan: <string>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # vlan: <string>
 '''
 
 RETURN = '''

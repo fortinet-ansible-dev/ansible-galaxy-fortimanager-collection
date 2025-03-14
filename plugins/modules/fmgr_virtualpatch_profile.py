@@ -161,22 +161,21 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         virtualpatch_profile:
-          action: <value in [pass, block]>
-          comment: <string>
-          exemption:
-            -
-              device: <list or string>
-              id: <integer>
-              rule: <list or integer>
-              status: <value in [disable, enable]>
-          log: <value in [disable, enable]>
-          name: <string>
-          severity:
-            - "low"
-            - "medium"
-            - "high"
-            - "critical"
-            - "info"
+          name: "your value" # Required variable, string
+          # action: <value in [pass, block]>
+          # comment: <string>
+          # exemption:
+          #   - device: <list or string>
+          #     id: <integer>
+          #     rule: <list or integer>
+          #     status: <value in [disable, enable]>
+          # log: <value in [disable, enable]>
+          # severity:
+          #   - "low"
+          #   - "medium"
+          #   - "high"
+          #   - "critical"
+          #   - "info"
 '''
 
 RETURN = '''

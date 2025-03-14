@@ -386,51 +386,49 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_saml:
-          cert: <string>
-          entity_id: <string>
-          group_name: <string>
-          idp_cert: <string>
-          idp_entity_id: <string>
-          idp_single_logout_url: <string>
-          idp_single_sign_on_url: <string>
-          name: <string>
-          single_logout_url: <string>
-          single_sign_on_url: <string>
-          user_name: <string>
-          adfs_claim: <value in [disable, enable]>
-          digest_method: <value in [sha1, sha256]>
-          group_claim_type: <value in [email, given-name, name, ...]>
-          limit_relaystate: <value in [disable, enable]>
-          user_claim_type: <value in [email, given-name, name, ...]>
-          clock_tolerance: <integer>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              adfs_claim: <value in [disable, enable]>
-              cert: <string>
-              clock_tolerance: <integer>
-              digest_method: <value in [sha1, sha256]>
-              entity_id: <string>
-              group_claim_type: <value in [email, given-name, name, ...]>
-              group_name: <string>
-              idp_cert: <string>
-              idp_entity_id: <string>
-              idp_single_logout_url: <string>
-              idp_single_sign_on_url: <string>
-              limit_relaystate: <value in [disable, enable]>
-              single_logout_url: <string>
-              single_sign_on_url: <string>
-              user_claim_type: <value in [email, given-name, name, ...]>
-              user_name: <string>
-              auth_url: <string>
-              reauth: <value in [disable, enable]>
-              scim_client: <list or string>
-          auth_url: <string>
-          reauth: <value in [disable, enable]>
-          scim_client: <list or string>
+          name: "your value" # Required variable, string
+          # cert: <string>
+          # entity_id: <string>
+          # group_name: <string>
+          # idp_cert: <string>
+          # idp_entity_id: <string>
+          # idp_single_logout_url: <string>
+          # idp_single_sign_on_url: <string>
+          # single_logout_url: <string>
+          # single_sign_on_url: <string>
+          # user_name: <string>
+          # adfs_claim: <value in [disable, enable]>
+          # digest_method: <value in [sha1, sha256]>
+          # group_claim_type: <value in [email, given-name, name, ...]>
+          # limit_relaystate: <value in [disable, enable]>
+          # user_claim_type: <value in [email, given-name, name, ...]>
+          # clock_tolerance: <integer>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     adfs_claim: <value in [disable, enable]>
+          #     cert: <string>
+          #     clock_tolerance: <integer>
+          #     digest_method: <value in [sha1, sha256]>
+          #     entity_id: <string>
+          #     group_claim_type: <value in [email, given-name, name, ...]>
+          #     group_name: <string>
+          #     idp_cert: <string>
+          #     idp_entity_id: <string>
+          #     idp_single_logout_url: <string>
+          #     idp_single_sign_on_url: <string>
+          #     limit_relaystate: <value in [disable, enable]>
+          #     single_logout_url: <string>
+          #     single_sign_on_url: <string>
+          #     user_claim_type: <value in [email, given-name, name, ...]>
+          #     user_name: <string>
+          #     auth_url: <string>
+          #     reauth: <value in [disable, enable]>
+          #     scim_client: <list or string>
+          # auth_url: <string>
+          # reauth: <value in [disable, enable]>
+          # scim_client: <list or string>
 '''
 
 RETURN = '''

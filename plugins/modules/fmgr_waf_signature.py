@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         waf_signature:
-          desc: <string>
-          id: <integer>
+          id: 0 # Required variable, integer
+          # desc: <string>
 '''
 
 RETURN = '''

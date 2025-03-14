@@ -541,58 +541,58 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_admin_setting:
-          access_banner: <value in [disable, enable]>
-          admin_https_redirect: <value in [disable, enable]>
-          admin_login_max: <integer>
-          admin_server_cert: <string>
-          allow_register: <value in [disable, enable]>
-          auto_update: <value in [disable, enable]>
-          banner_message: <string>
-          chassis_mgmt: <value in [disable, enable]>
-          chassis_update_interval: <integer>
-          device_sync_status: <value in [disable, enable]>
-          gui_theme: <value in [blue, green, red, ...]>
-          http_port: <integer>
-          https_port: <integer>
-          idle_timeout: <integer>
-          install_ifpolicy_only: <value in [disable, enable]>
-          mgmt_addr: <string>
-          mgmt_fqdn: <string>
-          objects_force_deletion: <value in [disable, enable]>
-          offline_mode: <value in [disable, enable]>
-          register_passwd: <list or string>
-          sdwan_monitor_history: <value in [disable, enable]>
-          shell_access: <value in [disable, enable]>
-          shell_password: <list or string>
-          show_add_multiple: <value in [disable, enable]>
-          show_adom_devman: <value in [disable, enable]>
-          show_checkbox_in_table: <value in [disable, enable]>
-          show_device_import_export: <value in [disable, enable]>
-          show_hostname: <value in [disable, enable]>
-          show_automatic_script: <value in [disable, enable]>
-          show_grouping_script: <value in [disable, enable]>
-          show_schedule_script: <value in [disable, enable]>
-          show_tcl_script: <value in [disable, enable]>
-          unreg_dev_opt: <value in [add_no_service, ignore, add_allow_service]>
-          webadmin_language: <value in [auto_detect, english, simplified_chinese, ...]>
-          show_fct_manager: <value in [disable, enable]>
-          sdwan_skip_unmapped_input_device: <value in [disable, enable]>
-          auth_addr: <string>
-          auth_port: <integer>
-          idle_timeout_api: <integer>
-          idle_timeout_gui: <integer>
-          central_ftgd_local_cat_id: <value in [disable, enable]>
-          idle_timeout_sso: <integer>
-          preferred_fgfm_intf: <string>
-          traffic_shaping_history: <value in [disable, enable]>
-          fsw_ignore_platform_check: <value in [disable, enable]>
-          rtm_max_monitor_by_days: <integer>
-          rtm_temp_file_limit: <integer>
-          firmware_upgrade_check: <value in [disable, enable]>
-          fgt_gui_proxy: <value in [disable, enable]>
-          fgt_gui_proxy_port: <integer>
-          object_threshold_limit: <value in [disable, enable]>
-          object_threshold_limit_value: <integer>
+          # access_banner: <value in [disable, enable]>
+          # admin_https_redirect: <value in [disable, enable]>
+          # admin_login_max: <integer>
+          # admin_server_cert: <string>
+          # allow_register: <value in [disable, enable]>
+          # auto_update: <value in [disable, enable]>
+          # banner_message: <string>
+          # chassis_mgmt: <value in [disable, enable]>
+          # chassis_update_interval: <integer>
+          # device_sync_status: <value in [disable, enable]>
+          # gui_theme: <value in [blue, green, red, ...]>
+          # http_port: <integer>
+          # https_port: <integer>
+          # idle_timeout: <integer>
+          # install_ifpolicy_only: <value in [disable, enable]>
+          # mgmt_addr: <string>
+          # mgmt_fqdn: <string>
+          # objects_force_deletion: <value in [disable, enable]>
+          # offline_mode: <value in [disable, enable]>
+          # register_passwd: <list or string>
+          # sdwan_monitor_history: <value in [disable, enable]>
+          # shell_access: <value in [disable, enable]>
+          # shell_password: <list or string>
+          # show_add_multiple: <value in [disable, enable]>
+          # show_adom_devman: <value in [disable, enable]>
+          # show_checkbox_in_table: <value in [disable, enable]>
+          # show_device_import_export: <value in [disable, enable]>
+          # show_hostname: <value in [disable, enable]>
+          # show_automatic_script: <value in [disable, enable]>
+          # show_grouping_script: <value in [disable, enable]>
+          # show_schedule_script: <value in [disable, enable]>
+          # show_tcl_script: <value in [disable, enable]>
+          # unreg_dev_opt: <value in [add_no_service, ignore, add_allow_service]>
+          # webadmin_language: <value in [auto_detect, english, simplified_chinese, ...]>
+          # show_fct_manager: <value in [disable, enable]>
+          # sdwan_skip_unmapped_input_device: <value in [disable, enable]>
+          # auth_addr: <string>
+          # auth_port: <integer>
+          # idle_timeout_api: <integer>
+          # idle_timeout_gui: <integer>
+          # central_ftgd_local_cat_id: <value in [disable, enable]>
+          # idle_timeout_sso: <integer>
+          # preferred_fgfm_intf: <string>
+          # traffic_shaping_history: <value in [disable, enable]>
+          # fsw_ignore_platform_check: <value in [disable, enable]>
+          # rtm_max_monitor_by_days: <integer>
+          # rtm_temp_file_limit: <integer>
+          # firmware_upgrade_check: <value in [disable, enable]>
+          # fgt_gui_proxy: <value in [disable, enable]>
+          # fgt_gui_proxy_port: <integer>
+          # object_threshold_limit: <value in [disable, enable]>
+          # object_threshold_limit_value: <integer>
 '''
 
 RETURN = '''

@@ -169,19 +169,17 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_report_group:
-          adom: <string>
-          case_insensitive: <value in [disable, enable]>
-          chart_alternative:
-            -
-              chart_name: <string>
-              chart_replace: <string>
-          group_by:
-            -
-              var_expression: <string>
-              var_name: <string>
-              var_type: <value in [integer, string, enum, ...]>
-          group_id: <integer>
-          report_like: <string>
+          group_id: 0 # Required variable, integer
+          # adom: <string>
+          # case_insensitive: <value in [disable, enable]>
+          # chart_alternative:
+          #   - chart_name: <string>
+          #     chart_replace: <string>
+          # group_by:
+          #   - var_expression: <string>
+          #     var_name: <string>
+          #     var_type: <value in [integer, string, enum, ...]>
+          # report_like: <string>
 '''
 
 RETURN = '''

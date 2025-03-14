@@ -146,14 +146,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_vlanpolicy:
-          allowed_vlans: <list or string>
-          allowed_vlans_all: <value in [disable, enable]>
-          description: <string>
-          discard_mode: <value in [none, all-untagged, all-tagged]>
-          name: <string>
-          untagged_vlans: <list or string>
-          vlan: <string>
-          fortilink: <list or string>
+          name: "your value" # Required variable, string
+          # allowed_vlans: <list or string>
+          # allowed_vlans_all: <value in [disable, enable]>
+          # description: <string>
+          # discard_mode: <value in [none, all-untagged, all-tagged]>
+          # untagged_vlans: <list or string>
+          # vlan: <string>
+          # fortilink: <list or string>
 '''
 
 RETURN = '''

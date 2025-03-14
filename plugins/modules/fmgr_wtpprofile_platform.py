@@ -219,10 +219,10 @@ EXAMPLES = '''
         adom: <your own value>
         wtp_profile: <your own value>
         wtpprofile_platform:
-          type: <value in [30B-50B, 60B, 80CM-81CM, ...]>
-          mode: <value in [dual-5G, single-5G]>
-          ddscan: <value in [disable, enable]>
-          _local_platform_str: <string>
+          # type: <value in [30B-50B, 60B, 80CM-81CM, ...]>
+          # mode: <value in [dual-5G, single-5G]>
+          # ddscan: <value in [disable, enable]>
+          # _local_platform_str: <string>
 '''
 
 RETURN = '''

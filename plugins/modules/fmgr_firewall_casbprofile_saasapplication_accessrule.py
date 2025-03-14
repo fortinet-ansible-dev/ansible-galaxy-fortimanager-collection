@@ -145,14 +145,14 @@ EXAMPLES = '''
         saas_application: <your own value>
         state: present # <value in [present, absent]>
         firewall_casbprofile_saasapplication_accessrule:
-          action: <value in [block, monitor, bypass]>
-          bypass:
-            - "av"
-            - "dlp"
-            - "web-filter"
-            - "file-filter"
-            - "video-filter"
-          name: <string>
+          name: "your value" # Required variable, string
+          # action: <value in [block, monitor, bypass]>
+          # bypass:
+          #   - "av"
+          #   - "dlp"
+          #   - "web-filter"
+          #   - "file-filter"
+          #   - "video-filter"
 '''
 
 RETURN = '''

@@ -121,8 +121,8 @@ EXAMPLES = '''
         adom: <your own value>
         mms_profile: <your own value>
         firewall_mmsprofile_outbreakprevention:
-          external_blocklist: <value in [disable, enable]>
-          ftgd_service: <value in [disable, enable]>
+          # external_blocklist: <value in [disable, enable]>
+          # ftgd_service: <value in [disable, enable]>
 '''
 
 RETURN = '''

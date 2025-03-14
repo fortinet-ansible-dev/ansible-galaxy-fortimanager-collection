@@ -200,21 +200,21 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_exchange:
-          addr_type: <value in [ipv4, ipv6]>
-          auth_level: <value in [low, medium, normal, ...]>
-          auth_type: <value in [spnego, ntlm, kerberos]>
-          connect_protocol: <value in [rpc-over-tcp, rpc-over-http, rpc-over-https]>
-          domain_name: <string>
-          http_auth_type: <value in [ntlm, basic]>
-          ip: <string>
-          ip6: <string>
-          kdc_ip: <list or string>
-          name: <string>
-          password: <list or string>
-          server_name: <string>
-          ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
-          username: <string>
-          auto_discover_kdc: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # addr_type: <value in [ipv4, ipv6]>
+          # auth_level: <value in [low, medium, normal, ...]>
+          # auth_type: <value in [spnego, ntlm, kerberos]>
+          # connect_protocol: <value in [rpc-over-tcp, rpc-over-http, rpc-over-https]>
+          # domain_name: <string>
+          # http_auth_type: <value in [ntlm, basic]>
+          # ip: <string>
+          # ip6: <string>
+          # kdc_ip: <list or string>
+          # password: <list or string>
+          # server_name: <string>
+          # ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
+          # username: <string>
+          # auto_discover_kdc: <value in [disable, enable]>
 '''
 
 RETURN = '''

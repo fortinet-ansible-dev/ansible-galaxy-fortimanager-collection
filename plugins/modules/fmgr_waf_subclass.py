@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         waf_subclass:
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # name: <string>
 '''
 
 RETURN = '''

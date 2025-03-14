@@ -122,8 +122,8 @@ EXAMPLES = '''
         vcenter: <your own value>
         state: present # <value in [present, absent]>
         user_vcenter_rule:
-          name: <string>
-          rule: <string>
+          name: "your value" # Required variable, string
+          # rule: <string>
 '''
 
 RETURN = '''

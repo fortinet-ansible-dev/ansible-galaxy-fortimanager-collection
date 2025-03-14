@@ -297,42 +297,42 @@ EXAMPLES = '''
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_tact:
-          act: <integer>
-          act_v: <value in [disable, enable]>
-          fmtuv4_s: <integer>
-          fmtuv4_s_v: <value in [disable, enable]>
-          fmtuv6_s: <integer>
-          fmtuv6_s_v: <value in [disable, enable]>
-          lnkid: <integer>
-          lnkid_v: <value in [disable, enable]>
-          mac_id: <integer>
-          mac_id_v: <value in [disable, enable]>
-          mss_t: <integer>
-          mss_t_v: <value in [disable, enable]>
-          mtuv4: <integer>
-          mtuv4_v: <value in [disable, enable]>
-          mtuv6: <integer>
-          mtuv6_v: <value in [disable, enable]>
-          slif_act: <integer>
-          slif_act_v: <value in [disable, enable]>
-          sublnkid: <integer>
-          sublnkid_v: <value in [disable, enable]>
-          tgtv_act: <integer>
-          tgtv_act_v: <value in [disable, enable]>
-          tlif_act: <integer>
-          tlif_act_v: <value in [disable, enable]>
-          tpeid: <integer>
-          tpeid_v: <value in [disable, enable]>
-          v6fe: <integer>
-          v6fe_v: <value in [disable, enable]>
-          vep_en_v: <value in [disable, enable]>
-          vep_slid: <integer>
-          vep_slid_v: <value in [disable, enable]>
-          vep_en: <integer>
-          xlt_lif: <integer>
-          xlt_lif_v: <value in [disable, enable]>
-          xlt_vid: <integer>
-          xlt_vid_v: <value in [disable, enable]>
+          # act: <integer>
+          # act_v: <value in [disable, enable]>
+          # fmtuv4_s: <integer>
+          # fmtuv4_s_v: <value in [disable, enable]>
+          # fmtuv6_s: <integer>
+          # fmtuv6_s_v: <value in [disable, enable]>
+          # lnkid: <integer>
+          # lnkid_v: <value in [disable, enable]>
+          # mac_id: <integer>
+          # mac_id_v: <value in [disable, enable]>
+          # mss_t: <integer>
+          # mss_t_v: <value in [disable, enable]>
+          # mtuv4: <integer>
+          # mtuv4_v: <value in [disable, enable]>
+          # mtuv6: <integer>
+          # mtuv6_v: <value in [disable, enable]>
+          # slif_act: <integer>
+          # slif_act_v: <value in [disable, enable]>
+          # sublnkid: <integer>
+          # sublnkid_v: <value in [disable, enable]>
+          # tgtv_act: <integer>
+          # tgtv_act_v: <value in [disable, enable]>
+          # tlif_act: <integer>
+          # tlif_act_v: <value in [disable, enable]>
+          # tpeid: <integer>
+          # tpeid_v: <value in [disable, enable]>
+          # v6fe: <integer>
+          # v6fe_v: <value in [disable, enable]>
+          # vep_en_v: <value in [disable, enable]>
+          # vep_slid: <integer>
+          # vep_slid_v: <value in [disable, enable]>
+          # vep_en: <integer>
+          # xlt_lif: <integer>
+          # xlt_lif_v: <value in [disable, enable]>
+          # xlt_vid: <integer>
+          # xlt_vid_v: <value in [disable, enable]>
 '''
 
 RETURN = '''

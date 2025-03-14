@@ -114,7 +114,7 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         application_categories:
-          id: <integer>
+          id: 0 # Required variable, integer
 '''
 
 RETURN = '''

@@ -199,34 +199,34 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         authentication_scheme:
-          domain_controller: <string>
-          fsso_agent_for_ntlm: <string>
-          fsso_guest: <value in [disable, enable]>
-          kerberos_keytab: <string>
-          method:
-            - "ntlm"
-            - "basic"
-            - "digest"
-            - "form"
-            - "negotiate"
-            - "fsso"
-            - "rsso"
-            - "ssh-publickey"
-            - "saml"
-            - "cert"
-            - "x-auth-user"
-            - "saml-sp"
-            - "entra-sso"
-          name: <string>
-          negotiate_ntlm: <value in [disable, enable]>
-          require_tfa: <value in [disable, enable]>
-          ssh_ca: <string>
-          user_database: <list or string>
-          ems_device_owner: <value in [disable, enable]>
-          saml_server: <string>
-          saml_timeout: <integer>
-          user_cert: <value in [disable, enable]>
-          external_idp: <list or string>
+          name: "your value" # Required variable, string
+          # domain_controller: <string>
+          # fsso_agent_for_ntlm: <string>
+          # fsso_guest: <value in [disable, enable]>
+          # kerberos_keytab: <string>
+          # method:
+          #   - "ntlm"
+          #   - "basic"
+          #   - "digest"
+          #   - "form"
+          #   - "negotiate"
+          #   - "fsso"
+          #   - "rsso"
+          #   - "ssh-publickey"
+          #   - "saml"
+          #   - "cert"
+          #   - "x-auth-user"
+          #   - "saml-sp"
+          #   - "entra-sso"
+          # negotiate_ntlm: <value in [disable, enable]>
+          # require_tfa: <value in [disable, enable]>
+          # ssh_ca: <string>
+          # user_database: <list or string>
+          # ems_device_owner: <value in [disable, enable]>
+          # saml_server: <string>
+          # saml_timeout: <integer>
+          # user_cert: <value in [disable, enable]>
+          # external_idp: <list or string>
 '''
 
 RETURN = '''

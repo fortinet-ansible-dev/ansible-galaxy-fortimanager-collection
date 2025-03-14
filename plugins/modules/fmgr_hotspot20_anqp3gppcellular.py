@@ -129,12 +129,11 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_anqp3gppcellular:
-          mcc_mnc_list:
-            -
-              id: <integer>
-              mcc: <string>
-              mnc: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # mcc_mnc_list:
+          #   - id: <integer>
+          #     mcc: <string>
+          #     mnc: <string>
 '''
 
 RETURN = '''

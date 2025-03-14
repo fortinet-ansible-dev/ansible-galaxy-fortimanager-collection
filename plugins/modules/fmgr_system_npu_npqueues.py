@@ -1056,107 +1056,102 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_npqueues:
-          ethernet_type:
-            -
-              name: <string>
-              queue: <integer>
-              type: <integer>
-              weight: <integer>
-          ip_protocol:
-            -
-              name: <string>
-              protocol: <integer>
-              queue: <integer>
-              weight: <integer>
-          ip_service:
-            -
-              dport: <integer>
-              name: <string>
-              protocol: <integer>
-              queue: <integer>
-              sport: <integer>
-              weight: <integer>
-          profile:
-            -
-              cos0: <value in [queue0, queue1, queue2, ...]>
-              cos1: <value in [queue0, queue1, queue2, ...]>
-              cos2: <value in [queue0, queue1, queue2, ...]>
-              cos3: <value in [queue0, queue1, queue2, ...]>
-              cos4: <value in [queue0, queue1, queue2, ...]>
-              cos5: <value in [queue0, queue1, queue2, ...]>
-              cos6: <value in [queue0, queue1, queue2, ...]>
-              cos7: <value in [queue0, queue1, queue2, ...]>
-              dscp0: <value in [queue0, queue1, queue2, ...]>
-              dscp1: <value in [queue0, queue1, queue2, ...]>
-              dscp10: <value in [queue0, queue1, queue2, ...]>
-              dscp11: <value in [queue0, queue1, queue2, ...]>
-              dscp12: <value in [queue0, queue1, queue2, ...]>
-              dscp13: <value in [queue0, queue1, queue2, ...]>
-              dscp14: <value in [queue0, queue1, queue2, ...]>
-              dscp15: <value in [queue0, queue1, queue2, ...]>
-              dscp16: <value in [queue0, queue1, queue2, ...]>
-              dscp17: <value in [queue0, queue1, queue2, ...]>
-              dscp18: <value in [queue0, queue1, queue2, ...]>
-              dscp19: <value in [queue0, queue1, queue2, ...]>
-              dscp2: <value in [queue0, queue1, queue2, ...]>
-              dscp20: <value in [queue0, queue1, queue2, ...]>
-              dscp21: <value in [queue0, queue1, queue2, ...]>
-              dscp22: <value in [queue0, queue1, queue2, ...]>
-              dscp23: <value in [queue0, queue1, queue2, ...]>
-              dscp24: <value in [queue0, queue1, queue2, ...]>
-              dscp25: <value in [queue0, queue1, queue2, ...]>
-              dscp26: <value in [queue0, queue1, queue2, ...]>
-              dscp27: <value in [queue0, queue1, queue2, ...]>
-              dscp28: <value in [queue0, queue1, queue2, ...]>
-              dscp29: <value in [queue0, queue1, queue2, ...]>
-              dscp3: <value in [queue0, queue1, queue2, ...]>
-              dscp30: <value in [queue0, queue1, queue2, ...]>
-              dscp31: <value in [queue0, queue1, queue2, ...]>
-              dscp32: <value in [queue0, queue1, queue2, ...]>
-              dscp33: <value in [queue0, queue1, queue2, ...]>
-              dscp34: <value in [queue0, queue1, queue2, ...]>
-              dscp35: <value in [queue0, queue1, queue2, ...]>
-              dscp36: <value in [queue0, queue1, queue2, ...]>
-              dscp37: <value in [queue0, queue1, queue2, ...]>
-              dscp38: <value in [queue0, queue1, queue2, ...]>
-              dscp39: <value in [queue0, queue1, queue2, ...]>
-              dscp4: <value in [queue0, queue1, queue2, ...]>
-              dscp40: <value in [queue0, queue1, queue2, ...]>
-              dscp41: <value in [queue0, queue1, queue2, ...]>
-              dscp42: <value in [queue0, queue1, queue2, ...]>
-              dscp43: <value in [queue0, queue1, queue2, ...]>
-              dscp44: <value in [queue0, queue1, queue2, ...]>
-              dscp45: <value in [queue0, queue1, queue2, ...]>
-              dscp46: <value in [queue0, queue1, queue2, ...]>
-              dscp47: <value in [queue0, queue1, queue2, ...]>
-              dscp48: <value in [queue0, queue1, queue2, ...]>
-              dscp49: <value in [queue0, queue1, queue2, ...]>
-              dscp5: <value in [queue0, queue1, queue2, ...]>
-              dscp50: <value in [queue0, queue1, queue2, ...]>
-              dscp51: <value in [queue0, queue1, queue2, ...]>
-              dscp52: <value in [queue0, queue1, queue2, ...]>
-              dscp53: <value in [queue0, queue1, queue2, ...]>
-              dscp54: <value in [queue0, queue1, queue2, ...]>
-              dscp55: <value in [queue0, queue1, queue2, ...]>
-              dscp56: <value in [queue0, queue1, queue2, ...]>
-              dscp57: <value in [queue0, queue1, queue2, ...]>
-              dscp58: <value in [queue0, queue1, queue2, ...]>
-              dscp59: <value in [queue0, queue1, queue2, ...]>
-              dscp6: <value in [queue0, queue1, queue2, ...]>
-              dscp60: <value in [queue0, queue1, queue2, ...]>
-              dscp61: <value in [queue0, queue1, queue2, ...]>
-              dscp62: <value in [queue0, queue1, queue2, ...]>
-              dscp63: <value in [queue0, queue1, queue2, ...]>
-              dscp7: <value in [queue0, queue1, queue2, ...]>
-              dscp8: <value in [queue0, queue1, queue2, ...]>
-              dscp9: <value in [queue0, queue1, queue2, ...]>
-              id: <integer>
-              type: <value in [cos, dscp]>
-              weight: <integer>
-          scheduler:
-            -
-              mode: <value in [none, priority, round-robin]>
-              name: <string>
+          # ethernet_type:
+          #   - name: <string>
+          #     queue: <integer>
+          #     type: <integer>
+          #     weight: <integer>
+          # ip_protocol:
+          #   - name: <string>
+          #     protocol: <integer>
+          #     queue: <integer>
+          #     weight: <integer>
+          # ip_service:
+          #   - dport: <integer>
+          #     name: <string>
+          #     protocol: <integer>
+          #     queue: <integer>
+          #     sport: <integer>
+          #     weight: <integer>
+          # profile:
+          #   - cos0: <value in [queue0, queue1, queue2, ...]>
+          #     cos1: <value in [queue0, queue1, queue2, ...]>
+          #     cos2: <value in [queue0, queue1, queue2, ...]>
+          #     cos3: <value in [queue0, queue1, queue2, ...]>
+          #     cos4: <value in [queue0, queue1, queue2, ...]>
+          #     cos5: <value in [queue0, queue1, queue2, ...]>
+          #     cos6: <value in [queue0, queue1, queue2, ...]>
+          #     cos7: <value in [queue0, queue1, queue2, ...]>
+          #     dscp0: <value in [queue0, queue1, queue2, ...]>
+          #     dscp1: <value in [queue0, queue1, queue2, ...]>
+          #     dscp10: <value in [queue0, queue1, queue2, ...]>
+          #     dscp11: <value in [queue0, queue1, queue2, ...]>
+          #     dscp12: <value in [queue0, queue1, queue2, ...]>
+          #     dscp13: <value in [queue0, queue1, queue2, ...]>
+          #     dscp14: <value in [queue0, queue1, queue2, ...]>
+          #     dscp15: <value in [queue0, queue1, queue2, ...]>
+          #     dscp16: <value in [queue0, queue1, queue2, ...]>
+          #     dscp17: <value in [queue0, queue1, queue2, ...]>
+          #     dscp18: <value in [queue0, queue1, queue2, ...]>
+          #     dscp19: <value in [queue0, queue1, queue2, ...]>
+          #     dscp2: <value in [queue0, queue1, queue2, ...]>
+          #     dscp20: <value in [queue0, queue1, queue2, ...]>
+          #     dscp21: <value in [queue0, queue1, queue2, ...]>
+          #     dscp22: <value in [queue0, queue1, queue2, ...]>
+          #     dscp23: <value in [queue0, queue1, queue2, ...]>
+          #     dscp24: <value in [queue0, queue1, queue2, ...]>
+          #     dscp25: <value in [queue0, queue1, queue2, ...]>
+          #     dscp26: <value in [queue0, queue1, queue2, ...]>
+          #     dscp27: <value in [queue0, queue1, queue2, ...]>
+          #     dscp28: <value in [queue0, queue1, queue2, ...]>
+          #     dscp29: <value in [queue0, queue1, queue2, ...]>
+          #     dscp3: <value in [queue0, queue1, queue2, ...]>
+          #     dscp30: <value in [queue0, queue1, queue2, ...]>
+          #     dscp31: <value in [queue0, queue1, queue2, ...]>
+          #     dscp32: <value in [queue0, queue1, queue2, ...]>
+          #     dscp33: <value in [queue0, queue1, queue2, ...]>
+          #     dscp34: <value in [queue0, queue1, queue2, ...]>
+          #     dscp35: <value in [queue0, queue1, queue2, ...]>
+          #     dscp36: <value in [queue0, queue1, queue2, ...]>
+          #     dscp37: <value in [queue0, queue1, queue2, ...]>
+          #     dscp38: <value in [queue0, queue1, queue2, ...]>
+          #     dscp39: <value in [queue0, queue1, queue2, ...]>
+          #     dscp4: <value in [queue0, queue1, queue2, ...]>
+          #     dscp40: <value in [queue0, queue1, queue2, ...]>
+          #     dscp41: <value in [queue0, queue1, queue2, ...]>
+          #     dscp42: <value in [queue0, queue1, queue2, ...]>
+          #     dscp43: <value in [queue0, queue1, queue2, ...]>
+          #     dscp44: <value in [queue0, queue1, queue2, ...]>
+          #     dscp45: <value in [queue0, queue1, queue2, ...]>
+          #     dscp46: <value in [queue0, queue1, queue2, ...]>
+          #     dscp47: <value in [queue0, queue1, queue2, ...]>
+          #     dscp48: <value in [queue0, queue1, queue2, ...]>
+          #     dscp49: <value in [queue0, queue1, queue2, ...]>
+          #     dscp5: <value in [queue0, queue1, queue2, ...]>
+          #     dscp50: <value in [queue0, queue1, queue2, ...]>
+          #     dscp51: <value in [queue0, queue1, queue2, ...]>
+          #     dscp52: <value in [queue0, queue1, queue2, ...]>
+          #     dscp53: <value in [queue0, queue1, queue2, ...]>
+          #     dscp54: <value in [queue0, queue1, queue2, ...]>
+          #     dscp55: <value in [queue0, queue1, queue2, ...]>
+          #     dscp56: <value in [queue0, queue1, queue2, ...]>
+          #     dscp57: <value in [queue0, queue1, queue2, ...]>
+          #     dscp58: <value in [queue0, queue1, queue2, ...]>
+          #     dscp59: <value in [queue0, queue1, queue2, ...]>
+          #     dscp6: <value in [queue0, queue1, queue2, ...]>
+          #     dscp60: <value in [queue0, queue1, queue2, ...]>
+          #     dscp61: <value in [queue0, queue1, queue2, ...]>
+          #     dscp62: <value in [queue0, queue1, queue2, ...]>
+          #     dscp63: <value in [queue0, queue1, queue2, ...]>
+          #     dscp7: <value in [queue0, queue1, queue2, ...]>
+          #     dscp8: <value in [queue0, queue1, queue2, ...]>
+          #     dscp9: <value in [queue0, queue1, queue2, ...]>
+          #     id: <integer>
+          #     type: <value in [cos, dscp]>
+          #     weight: <integer>
+          # scheduler:
+          #   - mode: <value in [none, priority, round-robin]>
+          #     name: <string>
 '''
 
 RETURN = '''

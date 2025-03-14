@@ -143,12 +143,12 @@ EXAMPLES = '''
         host_check_software: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_hostchecksoftware_checkitemlist:
-          action: <value in [deny, require]>
-          id: <integer>
-          md5s: <list or string>
-          target: <string>
-          type: <value in [file, registry, process]>
-          version: <string>
+          id: 0 # Required variable, integer
+          # action: <value in [deny, require]>
+          # md5s: <list or string>
+          # target: <string>
+          # type: <value in [file, registry, process]>
+          # version: <string>
 '''
 
 RETURN = '''

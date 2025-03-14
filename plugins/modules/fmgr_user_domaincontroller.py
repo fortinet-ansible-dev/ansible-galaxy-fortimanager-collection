@@ -234,36 +234,35 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_domaincontroller:
-          domain_name: <string>
-          extra_server:
-            -
-              id: <integer>
-              ip_address: <string>
-              port: <integer>
-              source_ip_address: <string>
-              source_port: <integer>
-          ip_address: <string>
-          ldap_server: <list or string>
-          name: <string>
-          port: <integer>
-          ad_mode: <value in [none, ds, lds]>
-          adlds_dn: <string>
-          adlds_ip_address: <string>
-          adlds_ip6: <string>
-          adlds_port: <integer>
-          dns_srv_lookup: <value in [disable, enable]>
-          hostname: <string>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          ip6: <string>
-          password: <list or string>
-          replication_port: <integer>
-          source_ip_address: <string>
-          source_ip6: <string>
-          source_port: <integer>
-          username: <string>
-          change_detection: <value in [disable, enable]>
-          change_detection_period: <integer>
+          name: "your value" # Required variable, string
+          # domain_name: <string>
+          # extra_server:
+          #   - id: <integer>
+          #     ip_address: <string>
+          #     port: <integer>
+          #     source_ip_address: <string>
+          #     source_port: <integer>
+          # ip_address: <string>
+          # ldap_server: <list or string>
+          # port: <integer>
+          # ad_mode: <value in [none, ds, lds]>
+          # adlds_dn: <string>
+          # adlds_ip_address: <string>
+          # adlds_ip6: <string>
+          # adlds_port: <integer>
+          # dns_srv_lookup: <value in [disable, enable]>
+          # hostname: <string>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # ip6: <string>
+          # password: <list or string>
+          # replication_port: <integer>
+          # source_ip_address: <string>
+          # source_ip6: <string>
+          # source_port: <integer>
+          # username: <string>
+          # change_detection: <value in [disable, enable]>
+          # change_detection_period: <integer>
 '''
 
 RETURN = '''

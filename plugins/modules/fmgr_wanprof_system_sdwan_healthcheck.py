@@ -387,69 +387,68 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_sdwan_healthcheck:
-          _dynamic_server: <string>
-          addr_mode: <value in [ipv4, ipv6]>
-          diffservcode: <string>
-          dns_match_ip: <string>
-          dns_request_domain: <string>
-          failtime: <integer>
-          ftp_file: <string>
-          ftp_mode: <value in [passive, port]>
-          ha_priority: <integer>
-          http_agent: <string>
-          http_get: <string>
-          http_match: <string>
-          interval: <integer>
-          members: <list or string>
-          name: <string>
-          packet_size: <integer>
-          password: <list or string>
-          port: <integer>
-          probe_count: <integer>
-          probe_packets: <value in [disable, enable]>
-          probe_timeout: <integer>
-          protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-          quality_measured_method: <value in [half-close, half-open]>
-          recoverytime: <integer>
-          security_mode: <value in [none, authentication]>
-          server: <list or string>
-          sla:
-            -
-              id: <integer>
-              jitter_threshold: <integer>
-              latency_threshold: <integer>
-              link_cost_factor:
-                - "latency"
-                - "jitter"
-                - "packet-loss"
-                - "mos"
-                - "remote"
-              packetloss_threshold: <integer>
-              mos_threshold: <string>
-              priority_in_sla: <integer>
-              priority_out_sla: <integer>
-          sla_fail_log_period: <integer>
-          sla_pass_log_period: <integer>
-          system_dns: <value in [disable, enable]>
-          threshold_alert_jitter: <integer>
-          threshold_alert_latency: <integer>
-          threshold_alert_packetloss: <integer>
-          threshold_warning_jitter: <integer>
-          threshold_warning_latency: <integer>
-          threshold_warning_packetloss: <integer>
-          update_cascade_interface: <value in [disable, enable]>
-          update_static_route: <value in [disable, enable]>
-          user: <string>
-          detect_mode: <value in [active, passive, prefer-passive, ...]>
-          mos_codec: <value in [g711, g722, g729]>
-          source: <string>
-          vrf: <integer>
-          embed_measured_health: <value in [disable, enable]>
-          sla_id_redistribute: <integer>
-          class_id: <string>
-          source6: <string>
-          fortiguard: <value in [disable, enable]>
-          fortiguard_name: <list or string>
+          name: "your value" # Required variable, string
+          # _dynamic_server: <string>
+          # addr_mode: <value in [ipv4, ipv6]>
+          # diffservcode: <string>
+          # dns_match_ip: <string>
+          # dns_request_domain: <string>
+          # failtime: <integer>
+          # ftp_file: <string>
+          # ftp_mode: <value in [passive, port]>
+          # ha_priority: <integer>
+          # http_agent: <string>
+          # http_get: <string>
+          # http_match: <string>
+          # interval: <integer>
+          # members: <list or string>
+          # packet_size: <integer>
+          # password: <list or string>
+          # port: <integer>
+          # probe_count: <integer>
+          # probe_packets: <value in [disable, enable]>
+          # probe_timeout: <integer>
+          # protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          # quality_measured_method: <value in [half-close, half-open]>
+          # recoverytime: <integer>
+          # security_mode: <value in [none, authentication]>
+          # server: <list or string>
+          # sla:
+          #   - id: <integer>
+          #     jitter_threshold: <integer>
+          #     latency_threshold: <integer>
+          #     link_cost_factor:
+          #       - "latency"
+          #       - "jitter"
+          #       - "packet-loss"
+          #       - "mos"
+          #       - "remote"
+          #     packetloss_threshold: <integer>
+          #     mos_threshold: <string>
+          #     priority_in_sla: <integer>
+          #     priority_out_sla: <integer>
+          # sla_fail_log_period: <integer>
+          # sla_pass_log_period: <integer>
+          # system_dns: <value in [disable, enable]>
+          # threshold_alert_jitter: <integer>
+          # threshold_alert_latency: <integer>
+          # threshold_alert_packetloss: <integer>
+          # threshold_warning_jitter: <integer>
+          # threshold_warning_latency: <integer>
+          # threshold_warning_packetloss: <integer>
+          # update_cascade_interface: <value in [disable, enable]>
+          # update_static_route: <value in [disable, enable]>
+          # user: <string>
+          # detect_mode: <value in [active, passive, prefer-passive, ...]>
+          # mos_codec: <value in [g711, g722, g729]>
+          # source: <string>
+          # vrf: <integer>
+          # embed_measured_health: <value in [disable, enable]>
+          # sla_id_redistribute: <integer>
+          # class_id: <string>
+          # source6: <string>
+          # fortiguard: <value in [disable, enable]>
+          # fortiguard_name: <list or string>
 '''
 
 RETURN = '''

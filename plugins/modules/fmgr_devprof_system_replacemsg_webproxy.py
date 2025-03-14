@@ -129,10 +129,10 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_replacemsg_webproxy:
-          buffer: <string>
-          format: <value in [none, text, html, ...]>
-          header: <value in [none, http, 8bit, ...]>
-          msg_type: <string>
+          # buffer: <string>
+          # format: <value in [none, text, html, ...]>
+          # header: <value in [none, http, 8bit, ...]>
+          # msg_type: <string>
 '''
 
 RETURN = '''

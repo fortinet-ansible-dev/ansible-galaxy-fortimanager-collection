@@ -111,9 +111,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_ssehascan:
-          gap: <integer>
-          max_session_cnt: <integer>
-          min_duration: <integer>
+          # gap: <integer>
+          # max_session_cnt: <integer>
+          # min_duration: <integer>
 '''
 
 RETURN = '''

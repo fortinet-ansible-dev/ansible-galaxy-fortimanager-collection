@@ -134,9 +134,9 @@ EXAMPLES = '''
         entry: <your own value>
         state: present # <value in [present, absent]>
         firewall_internetserviceaddition_entry_portrange:
-          end_port: <integer>
-          id: <integer>
-          start_port: <integer>
+          id: 0 # Required variable, integer
+          # end_port: <integer>
+          # start_port: <integer>
 '''
 
 RETURN = '''

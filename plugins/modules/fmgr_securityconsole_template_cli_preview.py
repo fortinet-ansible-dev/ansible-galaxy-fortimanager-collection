@@ -108,13 +108,12 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_template_cli_preview:
-          adom: <string>
-          filename: <string>
-          pkg: <string>
-          scope:
-            -
-              name: <string>
-              vdom: <string>
+          # adom: <string>
+          # filename: <string>
+          # pkg: <string>
+          # scope:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''

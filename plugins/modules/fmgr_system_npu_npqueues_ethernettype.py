@@ -123,10 +123,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_npqueues_ethernettype:
-          name: <string>
-          queue: <integer>
-          type: <integer>
-          weight: <integer>
+          name: "your value" # Required variable, string
+          # queue: <integer>
+          # type: <integer>
+          # weight: <integer>
 '''
 
 RETURN = '''

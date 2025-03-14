@@ -144,15 +144,15 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         spamfilter_profile_smtp:
-          action: <value in [pass, tag, discard]>
-          hdrip: <value in [disable, enable]>
-          local_override: <value in [disable, enable]>
-          log: <value in [disable, enable]>
-          tag_msg: <string>
-          tag_type:
-            - "subject"
-            - "header"
-            - "spaminfo"
+          # action: <value in [pass, tag, discard]>
+          # hdrip: <value in [disable, enable]>
+          # local_override: <value in [disable, enable]>
+          # log: <value in [disable, enable]>
+          # tag_msg: <string>
+          # tag_type:
+          #   - "subject"
+          #   - "header"
+          #   - "spaminfo"
 '''
 
 RETURN = '''

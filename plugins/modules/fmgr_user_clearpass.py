@@ -132,12 +132,12 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_clearpass:
-          client: <string>
-          name: <string>
-          password: <list or string>
-          server: <string>
-          status: <value in [disable, enable]>
-          user: <string>
+          name: "your value" # Required variable, string
+          # client: <string>
+          # password: <list or string>
+          # server: <string>
+          # status: <value in [disable, enable]>
+          # user: <string>
 '''
 
 RETURN = '''

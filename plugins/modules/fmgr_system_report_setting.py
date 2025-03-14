@@ -179,17 +179,17 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_report_setting:
-          aggregate_report: <value in [disable, enable]>
-          hcache_lossless: <value in [disable, enable]>
-          ldap_cache_timeout: <integer>
-          max_table_rows: <integer>
-          report_priority: <value in [high, low, auto]>
-          template_auto_install: <value in [default, english]>
-          week_start: <value in [sun, mon]>
-          capwap_port: <integer>
-          capwap_service: <string>
-          exclude_capwap: <value in [disable, by-port, by-service]>
-          max_rpt_pdf_rows: <integer>
+          # aggregate_report: <value in [disable, enable]>
+          # hcache_lossless: <value in [disable, enable]>
+          # ldap_cache_timeout: <integer>
+          # max_table_rows: <integer>
+          # report_priority: <value in [high, low, auto]>
+          # template_auto_install: <value in [default, english]>
+          # week_start: <value in [sun, mon]>
+          # capwap_port: <integer>
+          # capwap_service: <string>
+          # exclude_capwap: <value in [disable, by-port, by-service]>
+          # max_rpt_pdf_rows: <integer>
 '''
 
 RETURN = '''

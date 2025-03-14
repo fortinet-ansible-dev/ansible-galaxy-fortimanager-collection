@@ -157,16 +157,16 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_macpolicy:
-          bounce_port_link: <value in [disable, enable]>
-          count: <value in [disable, enable]>
-          description: <string>
-          name: <string>
-          traffic_policy: <string>
-          vlan: <string>
-          drop: <value in [disable, enable]>
-          fortilink: <list or string>
-          bounce_port_duration: <integer>
-          poe_reset: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # bounce_port_link: <value in [disable, enable]>
+          # count: <value in [disable, enable]>
+          # description: <string>
+          # traffic_policy: <string>
+          # vlan: <string>
+          # drop: <value in [disable, enable]>
+          # fortilink: <list or string>
+          # bounce_port_duration: <integer>
+          # poe_reset: <value in [disable, enable]>
 '''
 
 RETURN = '''

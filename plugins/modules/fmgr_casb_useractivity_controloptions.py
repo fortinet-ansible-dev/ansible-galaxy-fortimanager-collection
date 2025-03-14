@@ -192,20 +192,19 @@ EXAMPLES = '''
         user_activity: <your own value>
         state: present # <value in [present, absent]>
         casb_useractivity_controloptions:
-          name: <string>
-          operations:
-            -
-              action: <value in [append, prepend, replace, ...]>
-              case_sensitive: <value in [disable, enable]>
-              direction: <value in [request, response]>
-              header_name: <string>
-              name: <string>
-              search_key: <string>
-              search_pattern: <value in [simple, substr, regexp]>
-              target: <value in [header, path, body]>
-              value_from_input: <value in [disable, enable]>
-              values: <list or string>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # operations:
+          #   - action: <value in [append, prepend, replace, ...]>
+          #     case_sensitive: <value in [disable, enable]>
+          #     direction: <value in [request, response]>
+          #     header_name: <string>
+          #     name: <string>
+          #     search_key: <string>
+          #     search_pattern: <value in [simple, substr, regexp]>
+          #     target: <value in [header, path, body]>
+          #     value_from_input: <value in [disable, enable]>
+          #     values: <list or string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -202,18 +202,18 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qpconncapability:
-          esp_port: <value in [closed, open, unknown]>
-          ftp_port: <value in [closed, open, unknown]>
-          http_port: <value in [closed, open, unknown]>
-          icmp_port: <value in [closed, open, unknown]>
-          ikev2_port: <value in [closed, open, unknown]>
-          ikev2_xx_port: <value in [closed, open, unknown]>
-          name: <string>
-          pptp_vpn_port: <value in [closed, open, unknown]>
-          ssh_port: <value in [closed, open, unknown]>
-          tls_port: <value in [closed, open, unknown]>
-          voip_tcp_port: <value in [closed, open, unknown]>
-          voip_udp_port: <value in [closed, open, unknown]>
+          name: "your value" # Required variable, string
+          # esp_port: <value in [closed, open, unknown]>
+          # ftp_port: <value in [closed, open, unknown]>
+          # http_port: <value in [closed, open, unknown]>
+          # icmp_port: <value in [closed, open, unknown]>
+          # ikev2_port: <value in [closed, open, unknown]>
+          # ikev2_xx_port: <value in [closed, open, unknown]>
+          # pptp_vpn_port: <value in [closed, open, unknown]>
+          # ssh_port: <value in [closed, open, unknown]>
+          # tls_port: <value in [closed, open, unknown]>
+          # voip_tcp_port: <value in [closed, open, unknown]>
+          # voip_udp_port: <value in [closed, open, unknown]>
 '''
 
 RETURN = '''

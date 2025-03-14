@@ -123,7 +123,7 @@ EXAMPLES = '''
         dynamic_mapping: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_dynamicmapping_interface_ipv6_ip6extraaddr:
-          prefix: <string>
+          # prefix: <string>
 '''
 
 RETURN = '''

@@ -145,14 +145,13 @@ EXAMPLES = '''
         interface: <your own value>
         state: present # <value in [present, absent]>
         dynamic_interface_dynamicmapping:
-          _scope:
-            -
-              name: <string>
+          _scope: # Required variable, list of device
+            - name: <string>
               vdom: <string>
-          egress_shaping_profile: <list or string>
-          intrazone_deny: <value in [disable, enable]>
-          local_intf: <list or string>
-          ingress_shaping_profile: <list or string>
+          # egress_shaping_profile: <list or string>
+          # intrazone_deny: <value in [disable, enable]>
+          # local_intf: <list or string>
+          # ingress_shaping_profile: <list or string>
 '''
 
 RETURN = '''

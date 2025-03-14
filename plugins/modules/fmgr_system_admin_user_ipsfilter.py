@@ -115,7 +115,7 @@ EXAMPLES = '''
         user: <your own value>
         state: present # <value in [present, absent]>
         system_admin_user_ipsfilter:
-          ips_filter_name: <string>
+          ips_filter_name: "your value" # Required variable, string
 '''
 
 RETURN = '''

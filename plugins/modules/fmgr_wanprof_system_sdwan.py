@@ -1280,273 +1280,263 @@ EXAMPLES = '''
         adom: <your own value>
         wanprof: <your own value>
         wanprof_system_sdwan:
-          duplication:
-            -
-              dstaddr: <list or string>
-              dstaddr6: <list or string>
-              dstintf: <list or string>
-              id: <integer>
-              packet_de_duplication: <value in [disable, enable]>
-              packet_duplication: <value in [disable, force, on-demand]>
-              service: <list or string>
-              srcaddr: <list or string>
-              srcaddr6: <list or string>
-              srcintf: <list or string>
-              service_id: <list or string>
-              sla_match_service: <value in [disable, enable]>
-          duplication_max_num: <integer>
-          fail_detect: <value in [disable, enable]>
-          health_check:
-            -
-              _dynamic_server: <string>
-              addr_mode: <value in [ipv4, ipv6]>
-              diffservcode: <string>
-              dns_match_ip: <string>
-              dns_request_domain: <string>
-              failtime: <integer>
-              ftp_file: <string>
-              ftp_mode: <value in [passive, port]>
-              ha_priority: <integer>
-              http_agent: <string>
-              http_get: <string>
-              http_match: <string>
-              interval: <integer>
-              members: <list or string>
-              name: <string>
-              packet_size: <integer>
-              password: <list or string>
-              port: <integer>
-              probe_count: <integer>
-              probe_packets: <value in [disable, enable]>
-              probe_timeout: <integer>
-              protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-              quality_measured_method: <value in [half-close, half-open]>
-              recoverytime: <integer>
-              security_mode: <value in [none, authentication]>
-              server: <list or string>
-              sla:
-                -
-                  id: <integer>
-                  jitter_threshold: <integer>
-                  latency_threshold: <integer>
-                  link_cost_factor:
-                    - "latency"
-                    - "jitter"
-                    - "packet-loss"
-                    - "mos"
-                    - "remote"
-                  packetloss_threshold: <integer>
-                  mos_threshold: <string>
-                  priority_in_sla: <integer>
-                  priority_out_sla: <integer>
-              sla_fail_log_period: <integer>
-              sla_pass_log_period: <integer>
-              system_dns: <value in [disable, enable]>
-              threshold_alert_jitter: <integer>
-              threshold_alert_latency: <integer>
-              threshold_alert_packetloss: <integer>
-              threshold_warning_jitter: <integer>
-              threshold_warning_latency: <integer>
-              threshold_warning_packetloss: <integer>
-              update_cascade_interface: <value in [disable, enable]>
-              update_static_route: <value in [disable, enable]>
-              user: <string>
-              detect_mode: <value in [active, passive, prefer-passive, ...]>
-              mos_codec: <value in [g711, g722, g729]>
-              source: <string>
-              vrf: <integer>
-              embed_measured_health: <value in [disable, enable]>
-              sla_id_redistribute: <integer>
-              class_id: <string>
-              source6: <string>
-              fortiguard: <value in [disable, enable]>
-              fortiguard_name: <list or string>
-          load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
-          members:
-            -
-              _dynamic_member: <string>
-              comment: <string>
-              cost: <integer>
-              gateway: <string>
-              gateway6: <string>
-              ingress_spillover_threshold: <integer>
-              interface: <string>
-              priority: <integer>
-              seq_num: <integer>
-              source: <string>
-              source6: <string>
-              spillover_threshold: <integer>
-              status: <value in [disable, enable]>
-              volume_ratio: <integer>
-              weight: <integer>
-              zone: <string>
-              priority6: <integer>
-              preferred_source: <string>
-              transport_group: <integer>
-              priority_in_sla: <integer>
-              priority_out_sla: <integer>
-          neighbor:
-            -
-              health_check: <string>
-              ip: <string>
-              member: <list or string>
-              role: <value in [primary, secondary, standalone]>
-              sla_id: <integer>
-              minimum_sla_meet_members: <integer>
-              mode: <value in [sla, speedtest]>
-              service_id: <string>
-              route_metric: <value in [preferable, priority]>
-          neighbor_hold_boot_time: <integer>
-          neighbor_hold_down: <value in [disable, enable]>
-          neighbor_hold_down_time: <integer>
-          service:
-            -
-              addr_mode: <value in [ipv4, ipv6]>
-              bandwidth_weight: <integer>
-              default: <value in [disable, enable]>
-              dscp_forward: <value in [disable, enable]>
-              dscp_forward_tag: <string>
-              dscp_reverse: <value in [disable, enable]>
-              dscp_reverse_tag: <string>
-              dst: <list or string>
-              dst_negate: <value in [disable, enable]>
-              dst6: <list or string>
-              end_port: <integer>
-              gateway: <value in [disable, enable]>
-              groups: <list or string>
-              hash_mode: <value in [round-robin, source-ip-based, source-dest-ip-based, ...]>
-              health_check: <list or string>
-              hold_down_time: <integer>
-              id: <integer>
-              input_device: <list or string>
-              input_device_negate: <value in [disable, enable]>
-              internet_service: <value in [disable, enable]>
-              internet_service_app_ctrl: <list or integer>
-              internet_service_app_ctrl_group: <list or string>
-              internet_service_custom: <list or string>
-              internet_service_custom_group: <list or string>
-              internet_service_group: <list or string>
-              internet_service_name: <list or string>
-              jitter_weight: <integer>
-              latency_weight: <integer>
-              link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
-              link_cost_threshold: <integer>
-              minimum_sla_meet_members: <integer>
-              mode: <value in [auto, manual, priority, ...]>
-              name: <string>
-              packet_loss_weight: <integer>
-              priority_members: <list or string>
-              protocol: <integer>
-              quality_link: <integer>
-              role: <value in [primary, secondary, standalone]>
-              route_tag: <integer>
-              sla:
-                -
-                  health_check: <string>
-                  id: <integer>
-              sla_compare_method: <value in [order, number]>
-              src: <list or string>
-              src_negate: <value in [disable, enable]>
-              src6: <list or string>
-              standalone_action: <value in [disable, enable]>
-              start_port: <integer>
-              status: <value in [disable, enable]>
-              tos: <string>
-              tos_mask: <string>
-              users: <list or string>
-              tie_break: <value in [zone, cfg-order, fib-best-match, ...]>
-              use_shortcut_sla: <value in [disable, enable]>
-              input_zone: <list or string>
-              internet_service_app_ctrl_category: <list or integer>
-              passive_measurement: <value in [disable, enable]>
-              priority_zone: <list or string>
-              agent_exclusive: <value in [disable, enable]>
-              shortcut: <value in [disable, enable]>
-              shortcut_stickiness: <value in [disable, enable]>
-              end_src_port: <integer>
-              load_balance: <value in [disable, enable]>
-              sla_stickiness: <value in [disable, enable]>
-              start_src_port: <integer>
-              zone_mode: <value in [disable, enable]>
-              shortcut_priority: <value in [disable, enable, auto]>
-              comment: <string>
-          status: <value in [disable, enable]>
-          zone:
-            -
-              name: <string>
-              service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device]>
-              minimum_sla_meet_members: <integer>
-              advpn_health_check: <string>
-              advpn_select: <value in [disable, enable]>
-          speedtest_bypass_routing: <value in [disable, enable]>
-          fail_alert_interfaces: <list or string>
-          app_perf_log_period: <integer>
-          health_check_fortiguard:
-            -
-              addr_mode: <value in [ipv4, ipv6]>
-              class_id: <list or string>
-              detect_mode: <value in [active, passive, prefer-passive, ...]>
-              diffservcode: <string>
-              dns_match_ip: <string>
-              dns_request_domain: <string>
-              embed_measured_health: <value in [disable, enable]>
-              failtime: <integer>
-              ftp_file: <string>
-              ftp_mode: <value in [passive, port]>
-              ha_priority: <integer>
-              http_agent: <string>
-              http_get: <string>
-              http_match: <string>
-              interval: <integer>
-              members: <list or string>
-              mos_codec: <value in [g711, g722, g729]>
-              packet_size: <integer>
-              password: <list or string>
-              port: <integer>
-              probe_count: <integer>
-              probe_packets: <value in [disable, enable]>
-              probe_timeout: <integer>
-              protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-              quality_measured_method: <value in [half-close, half-open]>
-              recoverytime: <integer>
-              security_mode: <value in [none, authentication]>
-              server: <list or string>
-              sla:
-                -
-                  id: <integer>
-                  jitter_threshold: <integer>
-                  latency_threshold: <integer>
-                  link_cost_factor:
-                    - "latency"
-                    - "jitter"
-                    - "packet-loss"
-                    - "mos"
-                    - "remote"
-                  mos_threshold: <string>
-                  packetloss_threshold: <integer>
-                  priority_in_sla: <integer>
-                  priority_out_sla: <integer>
-              sla_fail_log_period: <integer>
-              sla_id_redistribute: <integer>
-              sla_pass_log_period: <integer>
-              source: <string>
-              source6: <string>
-              system_dns: <value in [disable, enable]>
-              target_name: <string>
-              threshold_alert_jitter: <integer>
-              threshold_alert_latency: <integer>
-              threshold_alert_packetloss: <integer>
-              threshold_warning_jitter: <integer>
-              threshold_warning_latency: <integer>
-              threshold_warning_packetloss: <integer>
-              update_cascade_interface: <value in [disable, enable]>
-              update_static_route: <value in [disable, enable]>
-              user: <string>
-              vrf: <integer>
-          option:
-            - "sdwan-overlay"
-            - "sdwan-manager"
-          duplication_max_discrepancy: <integer>
+          # duplication:
+          #   - dstaddr: <list or string>
+          #     dstaddr6: <list or string>
+          #     dstintf: <list or string>
+          #     id: <integer>
+          #     packet_de_duplication: <value in [disable, enable]>
+          #     packet_duplication: <value in [disable, force, on-demand]>
+          #     service: <list or string>
+          #     srcaddr: <list or string>
+          #     srcaddr6: <list or string>
+          #     srcintf: <list or string>
+          #     service_id: <list or string>
+          #     sla_match_service: <value in [disable, enable]>
+          # duplication_max_num: <integer>
+          # fail_detect: <value in [disable, enable]>
+          # health_check:
+          #   - _dynamic_server: <string>
+          #     addr_mode: <value in [ipv4, ipv6]>
+          #     diffservcode: <string>
+          #     dns_match_ip: <string>
+          #     dns_request_domain: <string>
+          #     failtime: <integer>
+          #     ftp_file: <string>
+          #     ftp_mode: <value in [passive, port]>
+          #     ha_priority: <integer>
+          #     http_agent: <string>
+          #     http_get: <string>
+          #     http_match: <string>
+          #     interval: <integer>
+          #     members: <list or string>
+          #     name: <string>
+          #     packet_size: <integer>
+          #     password: <list or string>
+          #     port: <integer>
+          #     probe_count: <integer>
+          #     probe_packets: <value in [disable, enable]>
+          #     probe_timeout: <integer>
+          #     protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          #     quality_measured_method: <value in [half-close, half-open]>
+          #     recoverytime: <integer>
+          #     security_mode: <value in [none, authentication]>
+          #     server: <list or string>
+          #     sla:
+          #       - id: <integer>
+          #         jitter_threshold: <integer>
+          #         latency_threshold: <integer>
+          #         link_cost_factor:
+          #           - "latency"
+          #           - "jitter"
+          #           - "packet-loss"
+          #           - "mos"
+          #           - "remote"
+          #         packetloss_threshold: <integer>
+          #         mos_threshold: <string>
+          #         priority_in_sla: <integer>
+          #         priority_out_sla: <integer>
+          #     sla_fail_log_period: <integer>
+          #     sla_pass_log_period: <integer>
+          #     system_dns: <value in [disable, enable]>
+          #     threshold_alert_jitter: <integer>
+          #     threshold_alert_latency: <integer>
+          #     threshold_alert_packetloss: <integer>
+          #     threshold_warning_jitter: <integer>
+          #     threshold_warning_latency: <integer>
+          #     threshold_warning_packetloss: <integer>
+          #     update_cascade_interface: <value in [disable, enable]>
+          #     update_static_route: <value in [disable, enable]>
+          #     user: <string>
+          #     detect_mode: <value in [active, passive, prefer-passive, ...]>
+          #     mos_codec: <value in [g711, g722, g729]>
+          #     source: <string>
+          #     vrf: <integer>
+          #     embed_measured_health: <value in [disable, enable]>
+          #     sla_id_redistribute: <integer>
+          #     class_id: <string>
+          #     source6: <string>
+          #     fortiguard: <value in [disable, enable]>
+          #     fortiguard_name: <list or string>
+          # load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
+          # members:
+          #   - _dynamic_member: <string>
+          #     comment: <string>
+          #     cost: <integer>
+          #     gateway: <string>
+          #     gateway6: <string>
+          #     ingress_spillover_threshold: <integer>
+          #     interface: <string>
+          #     priority: <integer>
+          #     seq_num: <integer>
+          #     source: <string>
+          #     source6: <string>
+          #     spillover_threshold: <integer>
+          #     status: <value in [disable, enable]>
+          #     volume_ratio: <integer>
+          #     weight: <integer>
+          #     zone: <string>
+          #     priority6: <integer>
+          #     preferred_source: <string>
+          #     transport_group: <integer>
+          #     priority_in_sla: <integer>
+          #     priority_out_sla: <integer>
+          # neighbor:
+          #   - health_check: <string>
+          #     ip: <string>
+          #     member: <list or string>
+          #     role: <value in [primary, secondary, standalone]>
+          #     sla_id: <integer>
+          #     minimum_sla_meet_members: <integer>
+          #     mode: <value in [sla, speedtest]>
+          #     service_id: <string>
+          #     route_metric: <value in [preferable, priority]>
+          # neighbor_hold_boot_time: <integer>
+          # neighbor_hold_down: <value in [disable, enable]>
+          # neighbor_hold_down_time: <integer>
+          # service:
+          #   - addr_mode: <value in [ipv4, ipv6]>
+          #     bandwidth_weight: <integer>
+          #     default: <value in [disable, enable]>
+          #     dscp_forward: <value in [disable, enable]>
+          #     dscp_forward_tag: <string>
+          #     dscp_reverse: <value in [disable, enable]>
+          #     dscp_reverse_tag: <string>
+          #     dst: <list or string>
+          #     dst_negate: <value in [disable, enable]>
+          #     dst6: <list or string>
+          #     end_port: <integer>
+          #     gateway: <value in [disable, enable]>
+          #     groups: <list or string>
+          #     hash_mode: <value in [round-robin, source-ip-based, source-dest-ip-based, ...]>
+          #     health_check: <list or string>
+          #     hold_down_time: <integer>
+          #     id: <integer>
+          #     input_device: <list or string>
+          #     input_device_negate: <value in [disable, enable]>
+          #     internet_service: <value in [disable, enable]>
+          #     internet_service_app_ctrl: <list or integer>
+          #     internet_service_app_ctrl_group: <list or string>
+          #     internet_service_custom: <list or string>
+          #     internet_service_custom_group: <list or string>
+          #     internet_service_group: <list or string>
+          #     internet_service_name: <list or string>
+          #     jitter_weight: <integer>
+          #     latency_weight: <integer>
+          #     link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
+          #     link_cost_threshold: <integer>
+          #     minimum_sla_meet_members: <integer>
+          #     mode: <value in [auto, manual, priority, ...]>
+          #     name: <string>
+          #     packet_loss_weight: <integer>
+          #     priority_members: <list or string>
+          #     protocol: <integer>
+          #     quality_link: <integer>
+          #     role: <value in [primary, secondary, standalone]>
+          #     route_tag: <integer>
+          #     sla:
+          #       - health_check: <string>
+          #         id: <integer>
+          #     sla_compare_method: <value in [order, number]>
+          #     src: <list or string>
+          #     src_negate: <value in [disable, enable]>
+          #     src6: <list or string>
+          #     standalone_action: <value in [disable, enable]>
+          #     start_port: <integer>
+          #     status: <value in [disable, enable]>
+          #     tos: <string>
+          #     tos_mask: <string>
+          #     users: <list or string>
+          #     tie_break: <value in [zone, cfg-order, fib-best-match, ...]>
+          #     use_shortcut_sla: <value in [disable, enable]>
+          #     input_zone: <list or string>
+          #     internet_service_app_ctrl_category: <list or integer>
+          #     passive_measurement: <value in [disable, enable]>
+          #     priority_zone: <list or string>
+          #     agent_exclusive: <value in [disable, enable]>
+          #     shortcut: <value in [disable, enable]>
+          #     shortcut_stickiness: <value in [disable, enable]>
+          #     end_src_port: <integer>
+          #     load_balance: <value in [disable, enable]>
+          #     sla_stickiness: <value in [disable, enable]>
+          #     start_src_port: <integer>
+          #     zone_mode: <value in [disable, enable]>
+          #     shortcut_priority: <value in [disable, enable, auto]>
+          #     comment: <string>
+          # status: <value in [disable, enable]>
+          # zone:
+          #   - name: <string>
+          #     service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device]>
+          #     minimum_sla_meet_members: <integer>
+          #     advpn_health_check: <string>
+          #     advpn_select: <value in [disable, enable]>
+          # speedtest_bypass_routing: <value in [disable, enable]>
+          # fail_alert_interfaces: <list or string>
+          # app_perf_log_period: <integer>
+          # health_check_fortiguard:
+          #   - addr_mode: <value in [ipv4, ipv6]>
+          #     class_id: <list or string>
+          #     detect_mode: <value in [active, passive, prefer-passive, ...]>
+          #     diffservcode: <string>
+          #     dns_match_ip: <string>
+          #     dns_request_domain: <string>
+          #     embed_measured_health: <value in [disable, enable]>
+          #     failtime: <integer>
+          #     ftp_file: <string>
+          #     ftp_mode: <value in [passive, port]>
+          #     ha_priority: <integer>
+          #     http_agent: <string>
+          #     http_get: <string>
+          #     http_match: <string>
+          #     interval: <integer>
+          #     members: <list or string>
+          #     mos_codec: <value in [g711, g722, g729]>
+          #     packet_size: <integer>
+          #     password: <list or string>
+          #     port: <integer>
+          #     probe_count: <integer>
+          #     probe_packets: <value in [disable, enable]>
+          #     probe_timeout: <integer>
+          #     protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          #     quality_measured_method: <value in [half-close, half-open]>
+          #     recoverytime: <integer>
+          #     security_mode: <value in [none, authentication]>
+          #     server: <list or string>
+          #     sla:
+          #       - id: <integer>
+          #         jitter_threshold: <integer>
+          #         latency_threshold: <integer>
+          #         link_cost_factor:
+          #           - "latency"
+          #           - "jitter"
+          #           - "packet-loss"
+          #           - "mos"
+          #           - "remote"
+          #         mos_threshold: <string>
+          #         packetloss_threshold: <integer>
+          #         priority_in_sla: <integer>
+          #         priority_out_sla: <integer>
+          #     sla_fail_log_period: <integer>
+          #     sla_id_redistribute: <integer>
+          #     sla_pass_log_period: <integer>
+          #     source: <string>
+          #     source6: <string>
+          #     system_dns: <value in [disable, enable]>
+          #     target_name: <string>
+          #     threshold_alert_jitter: <integer>
+          #     threshold_alert_latency: <integer>
+          #     threshold_alert_packetloss: <integer>
+          #     threshold_warning_jitter: <integer>
+          #     threshold_warning_latency: <integer>
+          #     threshold_warning_packetloss: <integer>
+          #     update_cascade_interface: <value in [disable, enable]>
+          #     update_static_route: <value in [disable, enable]>
+          #     user: <string>
+          #     vrf: <integer>
+          # option:
+          #   - "sdwan-overlay"
+          #   - "sdwan-manager"
+          # duplication_max_discrepancy: <integer>
 '''
 
 RETURN = '''

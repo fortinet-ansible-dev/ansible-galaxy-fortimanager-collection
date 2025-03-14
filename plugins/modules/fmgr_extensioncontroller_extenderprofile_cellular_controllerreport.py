@@ -120,9 +120,9 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extensioncontroller_extenderprofile_cellular_controllerreport:
-          interval: <integer>
-          signal_threshold: <integer>
-          status: <value in [disable, enable]>
+          # interval: <integer>
+          # signal_threshold: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

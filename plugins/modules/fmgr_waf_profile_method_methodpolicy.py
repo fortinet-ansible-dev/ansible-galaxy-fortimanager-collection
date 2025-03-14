@@ -146,20 +146,20 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         waf_profile_method_methodpolicy:
-          address: <string>
-          allowed_methods:
-            - "delete"
-            - "get"
-            - "head"
-            - "options"
-            - "post"
-            - "put"
-            - "trace"
-            - "others"
-            - "connect"
-          id: <integer>
-          pattern: <string>
-          regex: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # address: <string>
+          # allowed_methods:
+          #   - "delete"
+          #   - "get"
+          #   - "head"
+          #   - "options"
+          #   - "post"
+          #   - "put"
+          #   - "trace"
+          #   - "others"
+          #   - "connect"
+          # pattern: <string>
+          # regex: <value in [disable, enable]>
 '''
 
 RETURN = '''

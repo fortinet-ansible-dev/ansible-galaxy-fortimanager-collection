@@ -118,10 +118,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         fmupdate_serveraccesspriorities_privateserver:
-          id: <integer>
-          ip: <string>
-          ip6: <string>
-          time_zone: <integer>
+          id: 0 # Required variable, integer
+          # ip: <string>
+          # ip6: <string>
+          # time_zone: <integer>
 '''
 
 RETURN = '''

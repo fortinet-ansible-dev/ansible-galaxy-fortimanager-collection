@@ -125,9 +125,9 @@ EXAMPLES = '''
         devprof: <your own value>
         state: present # <value in [present, absent]>
         devprof_log_syslogd_setting_customfieldname:
-          custom: <string>
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # custom: <string>
+          # name: <string>
 '''
 
 RETURN = '''

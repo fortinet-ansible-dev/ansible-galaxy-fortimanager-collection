@@ -793,236 +793,230 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         dvm_cmd_import_devlist:
-          adom: <string>
-          flags:
-            - "none"
-            - "create_task"
-            - "nonblocking"
-            - "log_dev"
-          import_adom_members:
-            -
-              adom: <string>
-              dev: <string>
-              vdom: <string>
-          import_adoms:
-            -
-              desc: <string>
-              flags:
-                - "migration"
-                - "db_export"
-                - "no_vpn_console"
-                - "backup"
-                - "other_devices"
-                - "central_sdwan"
-                - "is_autosync"
-                - "per_device_wtp"
-                - "policy_check_on_install"
-                - "install_on_policy_check_fail"
-                - "auto_push_cfg"
-                - "per_device_fsw"
-                - "install_deselect_all"
-              log_db_retention_hours: <integer>
-              log_disk_quota: <integer>
-              log_disk_quota_alert_thres: <integer>
-              log_disk_quota_split_ratio: <integer>
-              log_file_retention_hours: <integer>
-              meta_fields: <dict>
-              mig_mr: <integer>
-              mig_os_ver: <value in [unknown, 0.0, 1.0, ...]>
-              mode: <value in [ems, gms, provider]>
-              mr: <integer>
-              name: <string>
-              os_ver: <value in [unknown, 0.0, 1.0, ...]>
-              restricted_prds: # <list or string>
-                - "fos"
-                - "foc"
-                - "fml"
-                - "fch"
-                - "fwb"
-                - "log"
-                - "fct"
-                - "faz"
-                - "fsa"
-                - "fsw"
-                - "fmg"
-                - "fdd"
-                - "fac"
-                - "fpx"
-                - "fna"
-                - "fdc"
-                - "ffw"
-                - "fsr"
-                - "fad"
-                - "fap"
-                - "fxt"
-                - "fts"
-                - "fai"
-                - "fwc"
-                - "fis"
-                - "fed"
-                - "fabric"
-                - "fpa"
-                - "fca"
-                - "ftc"
-                - "fss"
-                - "sim"
-                - "fra"
-              state: <integer>
-              uuid: <string>
-              create_time: <integer>
-              workspace_mode: <integer>
-              tz: <integer>
-              lock_override: <integer>
-              primary_dns_ip4: <string>
-              primary_dns_ip6_1: <integer>
-              primary_dns_ip6_2: <integer>
-              primary_dns_ip6_3: <integer>
-              primary_dns_ip6_4: <integer>
-              secondary_dns_ip4: <string>
-              secondary_dns_ip6_1: <integer>
-              secondary_dns_ip6_2: <integer>
-              secondary_dns_ip6_3: <integer>
-              secondary_dns_ip6_4: <integer>
-          import_devices:
-            -
-              adm_pass: <list or string>
-              adm_usr: <string>
-              app_ver: <string>
-              av_ver: <string>
-              beta: <integer>
-              branch_pt: <integer>
-              build: <integer>
-              checksum: <string>
-              conf_status: <value in [unknown, insync, outofsync]>
-              conn_mode: <value in [active, passive]>
-              conn_status: <value in [UNKNOWN, up, down]>
-              db_status: <value in [unknown, nomod, mod]>
-              desc: <string>
-              dev_status: <value in [none, unknown, checkedin, ...]>
-              fap_cnt: <integer>
-              faz_full_act: <integer>
-              faz_perm: <integer>
-              faz_quota: <integer>
-              faz_used: <integer>
-              fex_cnt: <integer>
-              flags:
-                - "has_hdd"
-                - "vdom_enabled"
-                - "discover"
-                - "reload"
-                - "interim_build"
-                - "offline_mode"
-                - "is_model"
-                - "fips_mode"
-                - "linked_to_model"
-                - "ip-conflict"
-                - "faz-autosync"
-                - "need_reset"
-                - "backup_mode"
-                - "azure_vwan_nva"
-                - "fgsp_configured"
-                - "cnf_mode"
-                - "sase_managed"
-                - "override_management_intf"
-                - "sdwan_management"
-                - "deny_api_access"
-              foslic_cpu: <integer>
-              foslic_dr_site: <value in [disable, enable]>
-              foslic_inst_time: <integer>
-              foslic_last_sync: <integer>
-              foslic_ram: <integer>
-              foslic_type: <value in [temporary, trial, regular, ...]>
-              foslic_utm:
-                - "fw"
-                - "av"
-                - "ips"
-                - "app"
-                - "url"
-                - "utm"
-                - "fwb"
-              fsw_cnt: <integer>
-              ha_group_id: <integer>
-              ha_group_name: <string>
-              ha_mode: <value in [standalone, AP, AA, ...]>
-              ha_slave:
-                -
-                  idx: <integer>
-                  name: <string>
-                  prio: <integer>
-                  role: <value in [slave, master]>
-                  sn: <string>
-                  status: <integer>
-                  conf_status: <integer>
-              hdisk_size: <integer>
-              hostname: <string>
-              hw_rev_major: <integer>
-              hw_rev_minor: <integer>
-              ip: <string>
-              ips_ext: <integer>
-              ips_ver: <string>
-              last_checked: <integer>
-              last_resync: <integer>
-              latitude: <string>
-              lic_flags: <integer>
-              lic_region: <string>
-              location_from: <string>
-              logdisk_size: <integer>
-              longitude: <string>
-              maxvdom: <integer>
-              meta_fields: <dict>
-              mgmt_id: <integer>
-              mgmt_if: <string>
-              mgmt_mode: <value in [unreg, fmg, faz, ...]>
-              mgt_vdom: <string>
-              mr: <integer>
-              name: <string>
-              os_type: <value in [unknown, fos, fsw, ...]>
-              os_ver: <value in [unknown, 0.0, 1.0, ...]>
-              patch: <integer>
-              platform_str: <string>
-              psk: <string>
-              sn: <string>
-              vdom:
-                -
-                  comments: <string>
-                  name: <string>
-                  opmode: <value in [nat, transparent]>
-                  rtm_prof_id: <integer>
-                  status: <string>
-                  vpn_id: <integer>
-                  meta_fields: <dict>
-                  vdom_type: <value in [traffic, admin]>
-              version: <integer>
-              vm_cpu: <integer>
-              vm_cpu_limit: <integer>
-              vm_lic_expire: <integer>
-              vm_mem: <integer>
-              vm_mem_limit: <integer>
-              vm_status: <integer or string> <value in [N/A, No License, Startup, ...]>
-              module_sn: <string>
-              prefer_img_ver: <string>
-              prio: <integer>
-              role: <value in [master, ha-slave, autoscale-slave]>
-              hyperscale: <integer>
-              nsxt_service_name: <string>
-              private_key: <string>
-              private_key_status: <integer>
-              vm_lic_overdue_since: <integer>
-              first_tunnel_up: <integer>
-              eip: <string>
-              mgmt_uuid: <string>
-              hw_generation: <integer>
-              relver_info: <string>
-              cluster_worker: <string>
-              ha_vsn: <string>
-              ha_upgrade_mode: <integer>
-              vm_payg_status: <integer>
-          import_group_members:
-            -
-              adom: <string>
-              dev: <string>
-              grp: <string>
-              vdom: <string>
+          # adom: <string>
+          # flags:
+          #   - "none"
+          #   - "create_task"
+          #   - "nonblocking"
+          #   - "log_dev"
+          # import_adom_members:
+          #   - adom: <string>
+          #     dev: <string>
+          #     vdom: <string>
+          # import_adoms:
+          #   - desc: <string>
+          #     flags:
+          #       - "migration"
+          #       - "db_export"
+          #       - "no_vpn_console"
+          #       - "backup"
+          #       - "other_devices"
+          #       - "central_sdwan"
+          #       - "is_autosync"
+          #       - "per_device_wtp"
+          #       - "policy_check_on_install"
+          #       - "install_on_policy_check_fail"
+          #       - "auto_push_cfg"
+          #       - "per_device_fsw"
+          #       - "install_deselect_all"
+          #     log_db_retention_hours: <integer>
+          #     log_disk_quota: <integer>
+          #     log_disk_quota_alert_thres: <integer>
+          #     log_disk_quota_split_ratio: <integer>
+          #     log_file_retention_hours: <integer>
+          #     meta_fields: <dict>
+          #     mig_mr: <integer>
+          #     mig_os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          #     mode: <value in [ems, gms, provider]>
+          #     mr: <integer>
+          #     name: <string>
+          #     os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          #     restricted_prds: # <list or string>
+          #       - "fos"
+          #       - "foc"
+          #       - "fml"
+          #       - "fch"
+          #       - "fwb"
+          #       - "log"
+          #       - "fct"
+          #       - "faz"
+          #       - "fsa"
+          #       - "fsw"
+          #       - "fmg"
+          #       - "fdd"
+          #       - "fac"
+          #       - "fpx"
+          #       - "fna"
+          #       - "fdc"
+          #       - "ffw"
+          #       - "fsr"
+          #       - "fad"
+          #       - "fap"
+          #       - "fxt"
+          #       - "fts"
+          #       - "fai"
+          #       - "fwc"
+          #       - "fis"
+          #       - "fed"
+          #       - "fabric"
+          #       - "fpa"
+          #       - "fca"
+          #       - "ftc"
+          #       - "fss"
+          #       - "sim"
+          #       - "fra"
+          #     state: <integer>
+          #     uuid: <string>
+          #     create_time: <integer>
+          #     workspace_mode: <integer>
+          #     tz: <integer>
+          #     lock_override: <integer>
+          #     primary_dns_ip4: <string>
+          #     primary_dns_ip6_1: <integer>
+          #     primary_dns_ip6_2: <integer>
+          #     primary_dns_ip6_3: <integer>
+          #     primary_dns_ip6_4: <integer>
+          #     secondary_dns_ip4: <string>
+          #     secondary_dns_ip6_1: <integer>
+          #     secondary_dns_ip6_2: <integer>
+          #     secondary_dns_ip6_3: <integer>
+          #     secondary_dns_ip6_4: <integer>
+          # import_devices:
+          #   - adm_pass: <list or string>
+          #     adm_usr: <string>
+          #     app_ver: <string>
+          #     av_ver: <string>
+          #     beta: <integer>
+          #     branch_pt: <integer>
+          #     build: <integer>
+          #     checksum: <string>
+          #     conf_status: <value in [unknown, insync, outofsync]>
+          #     conn_mode: <value in [active, passive]>
+          #     conn_status: <value in [UNKNOWN, up, down]>
+          #     db_status: <value in [unknown, nomod, mod]>
+          #     desc: <string>
+          #     dev_status: <value in [none, unknown, checkedin, ...]>
+          #     fap_cnt: <integer>
+          #     faz_full_act: <integer>
+          #     faz_perm: <integer>
+          #     faz_quota: <integer>
+          #     faz_used: <integer>
+          #     fex_cnt: <integer>
+          #     flags:
+          #       - "has_hdd"
+          #       - "vdom_enabled"
+          #       - "discover"
+          #       - "reload"
+          #       - "interim_build"
+          #       - "offline_mode"
+          #       - "is_model"
+          #       - "fips_mode"
+          #       - "linked_to_model"
+          #       - "ip-conflict"
+          #       - "faz-autosync"
+          #       - "need_reset"
+          #       - "backup_mode"
+          #       - "azure_vwan_nva"
+          #       - "fgsp_configured"
+          #       - "cnf_mode"
+          #       - "sase_managed"
+          #       - "override_management_intf"
+          #       - "sdwan_management"
+          #       - "deny_api_access"
+          #     foslic_cpu: <integer>
+          #     foslic_dr_site: <value in [disable, enable]>
+          #     foslic_inst_time: <integer>
+          #     foslic_last_sync: <integer>
+          #     foslic_ram: <integer>
+          #     foslic_type: <value in [temporary, trial, regular, ...]>
+          #     foslic_utm:
+          #       - "fw"
+          #       - "av"
+          #       - "ips"
+          #       - "app"
+          #       - "url"
+          #       - "utm"
+          #       - "fwb"
+          #     fsw_cnt: <integer>
+          #     ha_group_id: <integer>
+          #     ha_group_name: <string>
+          #     ha_mode: <value in [standalone, AP, AA, ...]>
+          #     ha_slave:
+          #       - idx: <integer>
+          #         name: <string>
+          #         prio: <integer>
+          #         role: <value in [slave, master]>
+          #         sn: <string>
+          #         status: <integer>
+          #         conf_status: <integer>
+          #     hdisk_size: <integer>
+          #     hostname: <string>
+          #     hw_rev_major: <integer>
+          #     hw_rev_minor: <integer>
+          #     ip: <string>
+          #     ips_ext: <integer>
+          #     ips_ver: <string>
+          #     last_checked: <integer>
+          #     last_resync: <integer>
+          #     latitude: <string>
+          #     lic_flags: <integer>
+          #     lic_region: <string>
+          #     location_from: <string>
+          #     logdisk_size: <integer>
+          #     longitude: <string>
+          #     maxvdom: <integer>
+          #     meta_fields: <dict>
+          #     mgmt_id: <integer>
+          #     mgmt_if: <string>
+          #     mgmt_mode: <value in [unreg, fmg, faz, ...]>
+          #     mgt_vdom: <string>
+          #     mr: <integer>
+          #     name: <string>
+          #     os_type: <value in [unknown, fos, fsw, ...]>
+          #     os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          #     patch: <integer>
+          #     platform_str: <string>
+          #     psk: <string>
+          #     sn: <string>
+          #     vdom:
+          #       - comments: <string>
+          #         name: <string>
+          #         opmode: <value in [nat, transparent]>
+          #         rtm_prof_id: <integer>
+          #         status: <string>
+          #         vpn_id: <integer>
+          #         meta_fields: <dict>
+          #         vdom_type: <value in [traffic, admin]>
+          #     version: <integer>
+          #     vm_cpu: <integer>
+          #     vm_cpu_limit: <integer>
+          #     vm_lic_expire: <integer>
+          #     vm_mem: <integer>
+          #     vm_mem_limit: <integer>
+          #     vm_status: <value in [N/A, No License, Startup, ...]>
+          #     module_sn: <string>
+          #     prefer_img_ver: <string>
+          #     prio: <integer>
+          #     role: <value in [master, ha-slave, autoscale-slave]>
+          #     hyperscale: <integer>
+          #     nsxt_service_name: <string>
+          #     private_key: <string>
+          #     private_key_status: <integer>
+          #     vm_lic_overdue_since: <integer>
+          #     first_tunnel_up: <integer>
+          #     eip: <string>
+          #     mgmt_uuid: <string>
+          #     hw_generation: <integer>
+          #     relver_info: <string>
+          #     cluster_worker: <string>
+          #     ha_vsn: <string>
+          #     ha_upgrade_mode: <integer>
+          #     vm_payg_status: <integer>
+          # import_group_members:
+          #   - adom: <string>
+          #     dev: <string>
+          #     grp: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''

@@ -141,13 +141,13 @@ EXAMPLES = '''
         adom: <your own value>
         fortilink_settings: <your own value>
         switchcontroller_fortilinksettings_nacports:
-          lan_segment: <value in [disabled, enabled]>
-          member_change: <integer>
-          nac_lan_interface: <string>
-          nac_segment_vlans: <list or string>
-          onboarding_vlan: <string>
-          parent_key: <string>
-          bounce_nac_port: <value in [disable, enable]>
+          # lan_segment: <value in [disabled, enabled]>
+          # member_change: <integer>
+          # nac_lan_interface: <string>
+          # nac_segment_vlans: <list or string>
+          # onboarding_vlan: <string>
+          # parent_key: <string>
+          # bounce_nac_port: <value in [disable, enable]>
 '''
 
 RETURN = '''

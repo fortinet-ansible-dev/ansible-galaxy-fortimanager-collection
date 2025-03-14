@@ -162,15 +162,15 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         webfilter_profile_ftgdwf_filters:
-          action: <value in [block, monitor, warning, ...]>
-          auth_usr_grp: <list or string>
-          category: <string>
-          id: <integer>
-          log: <value in [disable, enable]>
-          override_replacemsg: <string>
-          warn_duration: <string>
-          warning_duration_type: <value in [session, timeout]>
-          warning_prompt: <value in [per-domain, per-category]>
+          id: 0 # Required variable, integer
+          # action: <value in [block, monitor, warning, ...]>
+          # auth_usr_grp: <list or string>
+          # category: <string>
+          # log: <value in [disable, enable]>
+          # override_replacemsg: <string>
+          # warn_duration: <string>
+          # warning_duration_type: <value in [session, timeout]>
+          # warning_prompt: <value in [per-domain, per-category]>
 '''
 
 RETURN = '''

@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         gtp_apn:
-          apn: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # apn: <string>
 '''
 
 RETURN = '''

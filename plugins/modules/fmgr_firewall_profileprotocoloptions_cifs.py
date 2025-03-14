@@ -240,37 +240,35 @@ EXAMPLES = '''
         adom: <your own value>
         profile_protocol_options: <your own value>
         firewall_profileprotocoloptions_cifs:
-          ports: <list or integer>
-          status: <value in [disable, enable]>
-          options:
-            - "oversize"
-          oversize_limit: <integer>
-          scan_bzip2: <value in [disable, enable]>
-          tcp_window_maximum: <integer>
-          tcp_window_minimum: <integer>
-          tcp_window_size: <integer>
-          tcp_window_type: <value in [system, static, dynamic, ...]>
-          uncompressed_nest_limit: <integer>
-          uncompressed_oversize_limit: <integer>
-          domain_controller: <string>
-          file_filter:
-            entries:
-              -
-                action: <value in [log, block]>
-                comment: <string>
-                direction: <value in [any, incoming, outgoing]>
-                file_type: <list or string>
-                filter: <string>
-                protocol:
-                  - "cifs"
-            log: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-          server_credential_type: <value in [none, credential-replication, credential-keytab]>
-          server_keytab:
-            -
-              keytab: <string>
-              password: <list or string>
-              principal: <string>
+          # ports: <list or integer>
+          # status: <value in [disable, enable]>
+          # options:
+          #   - "oversize"
+          # oversize_limit: <integer>
+          # scan_bzip2: <value in [disable, enable]>
+          # tcp_window_maximum: <integer>
+          # tcp_window_minimum: <integer>
+          # tcp_window_size: <integer>
+          # tcp_window_type: <value in [system, static, dynamic, ...]>
+          # uncompressed_nest_limit: <integer>
+          # uncompressed_oversize_limit: <integer>
+          # domain_controller: <string>
+          # file_filter:
+          #   entries:
+          #     - action: <value in [log, block]>
+          #       comment: <string>
+          #       direction: <value in [any, incoming, outgoing]>
+          #       file_type: <list or string>
+          #       filter: <string>
+          #       protocol:
+          #         - "cifs"
+          #   log: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          # server_credential_type: <value in [none, credential-replication, credential-keytab]>
+          # server_keytab:
+          #   - keytab: <string>
+          #     password: <list or string>
+          #     principal: <string>
 '''
 
 RETURN = '''

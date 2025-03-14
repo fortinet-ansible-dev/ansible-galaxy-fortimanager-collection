@@ -338,67 +338,67 @@ EXAMPLES = '''
         adom: <your own value>
         profile_protocol_options: <your own value>
         firewall_profileprotocoloptions_http:
-          block_page_status_code: <integer>
-          comfort_amount: <integer>
-          comfort_interval: <integer>
-          fortinet_bar: <value in [disable, enable]>
-          fortinet_bar_port: <integer>
-          http_policy: <value in [disable, enable]>
-          inspect_all: <value in [disable, enable]>
-          options:
-            - "oversize"
-            - "chunkedbypass"
-            - "clientcomfort"
-            - "no-content-summary"
-            - "servercomfort"
-          oversize_limit: <integer>
-          ports: <list or integer>
-          post_lang:
-            - "jisx0201"
-            - "jisx0208"
-            - "jisx0212"
-            - "gb2312"
-            - "ksc5601-ex"
-            - "euc-jp"
-            - "sjis"
-            - "iso2022-jp"
-            - "iso2022-jp-1"
-            - "iso2022-jp-2"
-            - "euc-cn"
-            - "ces-gbk"
-            - "hz"
-            - "ces-big5"
-            - "euc-kr"
-            - "iso2022-jp-3"
-            - "iso8859-1"
-            - "tis620"
-            - "cp874"
-            - "cp1252"
-            - "cp1251"
-          range_block: <value in [disable, enable]>
-          retry_count: <integer>
-          scan_bzip2: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          streaming_content_bypass: <value in [disable, enable]>
-          strip_x_forwarded_for: <value in [disable, enable]>
-          switching_protocols: <value in [bypass, block]>
-          uncompressed_nest_limit: <integer>
-          uncompressed_oversize_limit: <integer>
-          tcp_window_maximum: <integer>
-          tcp_window_minimum: <integer>
-          tcp_window_size: <integer>
-          tcp_window_type: <value in [system, static, dynamic, ...]>
-          ssl_offloaded: <value in [no, yes]>
-          stream_based_uncompressed_limit: <integer>
-          proxy_after_tcp_handshake: <value in [disable, enable]>
-          tunnel_non_http: <value in [disable, enable]>
-          unknown_http_version: <value in [best-effort, reject, tunnel]>
-          address_ip_rating: <value in [disable, enable]>
-          h2c: <value in [disable, enable]>
-          verify_dns_for_policy_matching: <value in [disable, enable]>
-          unknown_content_encoding: <value in [block, inspect, bypass]>
-          domain_fronting: <value in [block, monitor, allow]>
-          http_0_9: <value in [block, allow]>
+          # block_page_status_code: <integer>
+          # comfort_amount: <integer>
+          # comfort_interval: <integer>
+          # fortinet_bar: <value in [disable, enable]>
+          # fortinet_bar_port: <integer>
+          # http_policy: <value in [disable, enable]>
+          # inspect_all: <value in [disable, enable]>
+          # options:
+          #   - "oversize"
+          #   - "chunkedbypass"
+          #   - "clientcomfort"
+          #   - "no-content-summary"
+          #   - "servercomfort"
+          # oversize_limit: <integer>
+          # ports: <list or integer>
+          # post_lang:
+          #   - "jisx0201"
+          #   - "jisx0208"
+          #   - "jisx0212"
+          #   - "gb2312"
+          #   - "ksc5601-ex"
+          #   - "euc-jp"
+          #   - "sjis"
+          #   - "iso2022-jp"
+          #   - "iso2022-jp-1"
+          #   - "iso2022-jp-2"
+          #   - "euc-cn"
+          #   - "ces-gbk"
+          #   - "hz"
+          #   - "ces-big5"
+          #   - "euc-kr"
+          #   - "iso2022-jp-3"
+          #   - "iso8859-1"
+          #   - "tis620"
+          #   - "cp874"
+          #   - "cp1252"
+          #   - "cp1251"
+          # range_block: <value in [disable, enable]>
+          # retry_count: <integer>
+          # scan_bzip2: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # streaming_content_bypass: <value in [disable, enable]>
+          # strip_x_forwarded_for: <value in [disable, enable]>
+          # switching_protocols: <value in [bypass, block]>
+          # uncompressed_nest_limit: <integer>
+          # uncompressed_oversize_limit: <integer>
+          # tcp_window_maximum: <integer>
+          # tcp_window_minimum: <integer>
+          # tcp_window_size: <integer>
+          # tcp_window_type: <value in [system, static, dynamic, ...]>
+          # ssl_offloaded: <value in [no, yes]>
+          # stream_based_uncompressed_limit: <integer>
+          # proxy_after_tcp_handshake: <value in [disable, enable]>
+          # tunnel_non_http: <value in [disable, enable]>
+          # unknown_http_version: <value in [best-effort, reject, tunnel]>
+          # address_ip_rating: <value in [disable, enable]>
+          # h2c: <value in [disable, enable]>
+          # verify_dns_for_policy_matching: <value in [disable, enable]>
+          # unknown_content_encoding: <value in [block, inspect, bypass]>
+          # domain_fronting: <value in [block, monitor, allow]>
+          # http_0_9: <value in [block, allow]>
 '''
 
 RETURN = '''

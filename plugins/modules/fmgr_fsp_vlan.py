@@ -4463,916 +4463,892 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan:
-          _dhcp_status: <value in [disable, enable]>
-          auth: <value in [radius, usergroup]>
-          color: <integer>
-          comments: <string>
-          dynamic_mapping:
-            -
-              _dhcp_status: <value in [disable, enable]>
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              dhcp_server:
-                auto_configuration: <value in [disable, enable]>
-                auto_managed_status: <value in [disable, enable]>
-                conflicted_ip_timeout: <integer>
-                ddns_auth: <value in [disable, tsig]>
-                ddns_key: <list or string>
-                ddns_keyname: <string>
-                ddns_server_ip: <string>
-                ddns_ttl: <integer>
-                ddns_update: <value in [disable, enable]>
-                ddns_update_override: <value in [disable, enable]>
-                ddns_zone: <string>
-                default_gateway: <string>
-                dhcp_settings_from_fortiipam: <value in [disable, enable]>
-                dns_server1: <string>
-                dns_server2: <string>
-                dns_server3: <string>
-                dns_server4: <string>
-                dns_service: <value in [default, specify, local]>
-                domain: <string>
-                enable: <value in [disable, enable]>
-                exclude_range:
-                  -
-                    end_ip: <string>
-                    id: <integer>
-                    start_ip: <string>
-                    vci_match: <value in [disable, enable]>
-                    vci_string: <list or string>
-                    lease_time: <integer>
-                    uci_match: <value in [disable, enable]>
-                    uci_string: <list or string>
-                filename: <string>
-                forticlient_on_net_status: <value in [disable, enable]>
-                id: <integer>
-                ip_mode: <value in [range, usrgrp]>
-                ip_range:
-                  -
-                    end_ip: <string>
-                    id: <integer>
-                    start_ip: <string>
-                    vci_match: <value in [disable, enable]>
-                    vci_string: <list or string>
-                    lease_time: <integer>
-                    uci_match: <value in [disable, enable]>
-                    uci_string: <list or string>
-                ipsec_lease_hold: <integer>
-                lease_time: <integer>
-                mac_acl_default_action: <value in [assign, block]>
-                netmask: <string>
-                next_server: <string>
-                ntp_server1: <string>
-                ntp_server2: <string>
-                ntp_server3: <string>
-                ntp_service: <value in [default, specify, local]>
-                option1: <list or string>
-                option2: <list or string>
-                option3: <list or string>
-                option4: <string>
-                option5: <string>
-                option6: <string>
-                options:
-                  -
-                    code: <integer>
-                    id: <integer>
-                    ip: <list or string>
-                    type: <value in [hex, string, ip, ...]>
-                    value: <string>
-                    vci_match: <value in [disable, enable]>
-                    vci_string: <list or string>
-                    uci_match: <value in [disable, enable]>
-                    uci_string: <list or string>
-                reserved_address:
-                  -
-                    action: <value in [assign, block, reserved]>
-                    circuit_id: <string>
-                    circuit_id_type: <value in [hex, string]>
-                    description: <string>
-                    id: <integer>
-                    ip: <string>
-                    mac: <string>
-                    remote_id: <string>
-                    remote_id_type: <value in [hex, string]>
-                    type: <value in [mac, option82]>
-                server_type: <value in [regular, ipsec]>
-                status: <value in [disable, enable]>
-                tftp_server: <list or string>
-                timezone: <value in [00, 01, 02, ...]>
-                timezone_option: <value in [disable, default, specify]>
-                vci_match: <value in [disable, enable]>
-                vci_string: <list or string>
-                wifi_ac_service: <value in [specify, local]>
-                wifi_ac1: <string>
-                wifi_ac2: <string>
-                wifi_ac3: <string>
-                wins_server1: <string>
-                wins_server2: <string>
-                relay_agent: <string>
-                shared_subnet: <value in [disable, enable]>
-              interface:
-                dhcp_relay_agent_option: <value in [disable, enable]>
-                dhcp_relay_ip: <list or string>
-                dhcp_relay_service: <value in [disable, enable]>
-                dhcp_relay_type: <value in [regular, ipsec]>
-                ip: <string>
-                ipv6:
-                  autoconf: <value in [disable, enable]>
-                  dhcp6_client_options:
-                    - "rapid"
-                    - "iapd"
-                    - "iana"
-                    - "dns"
-                    - "dnsname"
-                  dhcp6_information_request: <value in [disable, enable]>
-                  dhcp6_prefix_delegation: <value in [disable, enable]>
-                  dhcp6_prefix_hint: <string>
-                  dhcp6_prefix_hint_plt: <integer>
-                  dhcp6_prefix_hint_vlt: <integer>
-                  dhcp6_relay_ip: <string>
-                  dhcp6_relay_service: <value in [disable, enable]>
-                  dhcp6_relay_type: <value in [regular]>
-                  icmp6_send_redirect: <value in [disable, enable]>
-                  interface_identifier: <string>
-                  ip6_address: <string>
-                  ip6_allowaccess:
-                    - "https"
-                    - "ping"
-                    - "ssh"
-                    - "snmp"
-                    - "http"
-                    - "telnet"
-                    - "fgfm"
-                    - "capwap"
-                    - "fabric"
-                  ip6_default_life: <integer>
-                  ip6_delegated_prefix_list:
-                    -
-                      autonomous_flag: <value in [disable, enable]>
-                      onlink_flag: <value in [disable, enable]>
-                      prefix_id: <integer>
-                      rdnss: <list or string>
-                      rdnss_service: <value in [delegated, default, specify]>
-                      subnet: <string>
-                      upstream_interface: <string>
-                      delegated_prefix_iaid: <integer>
-                  ip6_dns_server_override: <value in [disable, enable]>
-                  ip6_extra_addr:
-                    -
-                      prefix: <string>
-                  ip6_hop_limit: <integer>
-                  ip6_link_mtu: <integer>
-                  ip6_manage_flag: <value in [disable, enable]>
-                  ip6_max_interval: <integer>
-                  ip6_min_interval: <integer>
-                  ip6_mode: <value in [static, dhcp, pppoe, ...]>
-                  ip6_other_flag: <value in [disable, enable]>
-                  ip6_prefix_list:
-                    -
-                      autonomous_flag: <value in [disable, enable]>
-                      dnssl: <list or string>
-                      onlink_flag: <value in [disable, enable]>
-                      preferred_life_time: <integer>
-                      prefix: <string>
-                      rdnss: <list or string>
-                      valid_life_time: <integer>
-                  ip6_reachable_time: <integer>
-                  ip6_retrans_time: <integer>
-                  ip6_send_adv: <value in [disable, enable]>
-                  ip6_subnet: <string>
-                  ip6_upstream_interface: <string>
-                  nd_cert: <string>
-                  nd_cga_modifier: <string>
-                  nd_mode: <value in [basic, SEND-compatible]>
-                  nd_security_level: <integer>
-                  nd_timestamp_delta: <integer>
-                  nd_timestamp_fuzz: <integer>
-                  unique_autoconf_addr: <value in [disable, enable]>
-                  vrip6_link_local: <string>
-                  vrrp_virtual_mac6: <value in [disable, enable]>
-                  vrrp6:
-                    -
-                      accept_mode: <value in [disable, enable]>
-                      adv_interval: <integer>
-                      preempt: <value in [disable, enable]>
-                      priority: <integer>
-                      start_time: <integer>
-                      status: <value in [disable, enable]>
-                      vrdst6: <string>
-                      vrgrp: <integer>
-                      vrid: <integer>
-                      vrip6: <string>
-                      ignore_default_route: <value in [disable, enable]>
-                      vrdst_priority: <integer>
-                  cli_conn6_status: <integer>
-                  ip6_prefix_mode: <value in [dhcp6, ra]>
-                  ra_send_mtu: <value in [disable, enable]>
-                  ip6_delegated_prefix_iaid: <integer>
-                  dhcp6_relay_source_interface: <value in [disable, enable]>
-                  dhcp6_relay_interface_id: <string>
-                  dhcp6_relay_source_ip: <string>
-                  ip6_adv_rio: <value in [disable, enable]>
-                  ip6_route_pref: <value in [medium, high, low]>
-                secondary_IP: <value in [disable, enable]>
-                secondaryip:
-                  -
-                    allowaccess:
-                      - "https"
-                      - "ping"
-                      - "ssh"
-                      - "snmp"
-                      - "http"
-                      - "telnet"
-                      - "fgfm"
-                      - "auto-ipsec"
-                      - "radius-acct"
-                      - "probe-response"
-                      - "capwap"
-                      - "dnp"
-                      - "ftm"
-                      - "fabric"
-                      - "speed-test"
-                      - "icond"
-                      - "scim"
-                    detectprotocol:
-                      - "ping"
-                      - "tcp-echo"
-                      - "udp-echo"
-                    detectserver: <string>
-                    gwdetect: <value in [disable, enable]>
-                    ha_priority: <integer>
-                    id: <integer>
-                    ip: <string>
-                    ping_serv_status: <integer>
-                    seq: <integer>
-                    secip_relay_ip: <string>
-                vlanid: <integer>
-                dhcp_relay_interface_select_method: <value in [auto, sdwan, specify]>
-                vrrp:
-                  -
-                    accept_mode: <value in [disable, enable]>
-                    adv_interval: <integer>
-                    ignore_default_route: <value in [disable, enable]>
-                    preempt: <value in [disable, enable]>
-                    priority: <integer>
-                    proxy_arp:
-                      -
-                        id: <integer>
-                        ip: <string>
-                    start_time: <integer>
-                    status: <value in [disable, enable]>
-                    version: <value in [2, 3]>
-                    vrdst: <list or string>
-                    vrdst_priority: <integer>
-                    vrgrp: <integer>
-                    vrid: <integer>
-                    vrip: <string>
-          name: <string>
-          portal_message_override_group: <string>
-          radius_server: <string>
-          security: <value in [open, captive-portal, 8021x]>
-          selected_usergroups: <string>
-          usergroup: <string>
-          vdom: <string>
-          vlanid: <integer>
-          dhcp_server:
-            auto_configuration: <value in [disable, enable]>
-            auto_managed_status: <value in [disable, enable]>
-            conflicted_ip_timeout: <integer>
-            ddns_auth: <value in [disable, tsig]>
-            ddns_key: <list or string>
-            ddns_keyname: <string>
-            ddns_server_ip: <string>
-            ddns_ttl: <integer>
-            ddns_update: <value in [disable, enable]>
-            ddns_update_override: <value in [disable, enable]>
-            ddns_zone: <string>
-            default_gateway: <string>
-            dhcp_settings_from_fortiipam: <value in [disable, enable]>
-            dns_server1: <string>
-            dns_server2: <string>
-            dns_server3: <string>
-            dns_server4: <string>
-            dns_service: <value in [default, specify, local]>
-            domain: <string>
-            enable: <value in [disable, enable]>
-            exclude_range:
-              -
-                end_ip: <string>
-                id: <integer>
-                start_ip: <string>
-                vci_match: <value in [disable, enable]>
-                vci_string: <list or string>
-                lease_time: <integer>
-                uci_match: <value in [disable, enable]>
-                uci_string: <list or string>
-            filename: <string>
-            forticlient_on_net_status: <value in [disable, enable]>
-            id: <integer>
-            ip_mode: <value in [range, usrgrp]>
-            ip_range:
-              -
-                end_ip: <string>
-                id: <integer>
-                start_ip: <string>
-                vci_match: <value in [disable, enable]>
-                vci_string: <list or string>
-                lease_time: <integer>
-                uci_match: <value in [disable, enable]>
-                uci_string: <list or string>
-            ipsec_lease_hold: <integer>
-            lease_time: <integer>
-            mac_acl_default_action: <value in [assign, block]>
-            netmask: <string>
-            next_server: <string>
-            ntp_server1: <string>
-            ntp_server2: <string>
-            ntp_server3: <string>
-            ntp_service: <value in [default, specify, local]>
-            option1: <list or string>
-            option2: <list or string>
-            option3: <list or string>
-            option4: <string>
-            option5: <string>
-            option6: <string>
-            options:
-              -
-                code: <integer>
-                id: <integer>
-                ip: <list or string>
-                type: <value in [hex, string, ip, ...]>
-                value: <string>
-                vci_match: <value in [disable, enable]>
-                vci_string: <list or string>
-                uci_match: <value in [disable, enable]>
-                uci_string: <list or string>
-            reserved_address:
-              -
-                action: <value in [assign, block, reserved]>
-                circuit_id: <string>
-                circuit_id_type: <value in [hex, string]>
-                description: <string>
-                id: <integer>
-                ip: <string>
-                mac: <string>
-                remote_id: <string>
-                remote_id_type: <value in [hex, string]>
-                type: <value in [mac, option82]>
-            server_type: <value in [regular, ipsec]>
-            status: <value in [disable, enable]>
-            tftp_server: <list or string>
-            timezone: <value in [00, 01, 02, ...]>
-            timezone_option: <value in [disable, default, specify]>
-            vci_match: <value in [disable, enable]>
-            vci_string: <list or string>
-            wifi_ac_service: <value in [specify, local]>
-            wifi_ac1: <string>
-            wifi_ac2: <string>
-            wifi_ac3: <string>
-            wins_server1: <string>
-            wins_server2: <string>
-            relay_agent: <string>
-            shared_subnet: <value in [disable, enable]>
-          interface:
-            ac_name: <string>
-            aggregate: <string>
-            algorithm: <value in [L2, L3, L4, ...]>
-            alias: <string>
-            allowaccess:
-              - "https"
-              - "ping"
-              - "ssh"
-              - "snmp"
-              - "http"
-              - "telnet"
-              - "fgfm"
-              - "auto-ipsec"
-              - "radius-acct"
-              - "probe-response"
-              - "capwap"
-              - "dnp"
-              - "ftm"
-              - "fabric"
-              - "speed-test"
-            ap_discover: <value in [disable, enable]>
-            arpforward: <value in [disable, enable]>
-            atm_protocol: <value in [none, ipoa]>
-            auth_type: <value in [auto, pap, chap, ...]>
-            auto_auth_extension_device: <value in [disable, enable]>
-            bandwidth_measure_time: <integer>
-            bfd: <value in [global, enable, disable]>
-            bfd_desired_min_tx: <integer>
-            bfd_detect_mult: <integer>
-            bfd_required_min_rx: <integer>
-            broadcast_forticlient_discovery: <value in [disable, enable]>
-            broadcast_forward: <value in [disable, enable]>
-            captive_portal: <integer>
-            cli_conn_status: <integer>
-            color: <integer>
-            ddns: <value in [disable, enable]>
-            ddns_auth: <value in [disable, tsig]>
-            ddns_domain: <string>
-            ddns_key: <list or string>
-            ddns_keyname: <string>
-            ddns_password: <list or string>
-            ddns_server: <value in [dhs.org, dyndns.org, dyns.net, ...]>
-            ddns_server_ip: <string>
-            ddns_sn: <string>
-            ddns_ttl: <integer>
-            ddns_username: <string>
-            ddns_zone: <string>
-            dedicated_to: <value in [none, management]>
-            defaultgw: <value in [disable, enable]>
-            description: <string>
-            detected_peer_mtu: <integer>
-            detectprotocol:
-              - "ping"
-              - "tcp-echo"
-              - "udp-echo"
-            detectserver: <string>
-            device_access_list: <list or string>
-            device_identification: <value in [disable, enable]>
-            device_identification_active_scan: <value in [disable, enable]>
-            device_netscan: <value in [disable, enable]>
-            device_user_identification: <value in [disable, enable]>
-            devindex: <integer>
-            dhcp_client_identifier: <string>
-            dhcp_relay_agent_option: <value in [disable, enable]>
-            dhcp_relay_interface: <string>
-            dhcp_relay_interface_select_method: <value in [auto, sdwan, specify]>
-            dhcp_relay_ip: <list or string>
-            dhcp_relay_service: <value in [disable, enable]>
-            dhcp_relay_type: <value in [regular, ipsec]>
-            dhcp_renew_time: <integer>
-            disc_retry_timeout: <integer>
-            disconnect_threshold: <integer>
-            distance: <integer>
-            dns_query: <value in [disable, recursive, non-recursive]>
-            dns_server_override: <value in [disable, enable]>
-            drop_fragment: <value in [disable, enable]>
-            drop_overlapped_fragment: <value in [disable, enable]>
-            egress_cos: <value in [disable, cos0, cos1, ...]>
-            egress_shaping_profile: <string>
-            eip: <string>
-            endpoint_compliance: <value in [disable, enable]>
-            estimated_downstream_bandwidth: <integer>
-            estimated_upstream_bandwidth: <integer>
-            explicit_ftp_proxy: <value in [disable, enable]>
-            explicit_web_proxy: <value in [disable, enable]>
-            external: <value in [disable, enable]>
-            fail_action_on_extender: <value in [soft-restart, hard-restart, reboot]>
-            fail_alert_interfaces: <list or string>
-            fail_alert_method: <value in [link-failed-signal, link-down]>
-            fail_detect: <value in [disable, enable]>
-            fail_detect_option:
-              - "detectserver"
-              - "link-down"
-            fdp: <value in [disable, enable]>
-            fortiheartbeat: <value in [disable, enable]>
-            fortilink: <value in [disable, enable]>
-            fortilink_backup_link: <integer>
-            fortilink_neighbor_detect: <value in [lldp, fortilink]>
-            fortilink_split_interface: <value in [disable, enable]>
-            fortilink_stacking: <value in [disable, enable]>
-            forward_domain: <integer>
-            forward_error_correction: <value in [disable, enable, rs-fec, ...]>
-            fp_anomaly:
-              - "drop_tcp_fin_noack"
-              - "pass_winnuke"
-              - "pass_tcpland"
-              - "pass_udpland"
-              - "pass_icmpland"
-              - "pass_ipland"
-              - "pass_iprr"
-              - "pass_ipssrr"
-              - "pass_iplsrr"
-              - "pass_ipstream"
-              - "pass_ipsecurity"
-              - "pass_iptimestamp"
-              - "pass_ipunknown_option"
-              - "pass_ipunknown_prot"
-              - "pass_icmp_frag"
-              - "pass_tcp_no_flag"
-              - "pass_tcp_fin_noack"
-              - "drop_winnuke"
-              - "drop_tcpland"
-              - "drop_udpland"
-              - "drop_icmpland"
-              - "drop_ipland"
-              - "drop_iprr"
-              - "drop_ipssrr"
-              - "drop_iplsrr"
-              - "drop_ipstream"
-              - "drop_ipsecurity"
-              - "drop_iptimestamp"
-              - "drop_ipunknown_option"
-              - "drop_ipunknown_prot"
-              - "drop_icmp_frag"
-              - "drop_tcp_no_flag"
-            fp_disable:
-              - "all"
-              - "ipsec"
-              - "none"
-            gateway_address: <string>
-            gi_gk: <value in [disable, enable]>
-            gwaddr: <string>
-            gwdetect: <value in [disable, enable]>
-            ha_priority: <integer>
-            icmp_accept_redirect: <value in [disable, enable]>
-            icmp_redirect: <value in [disable, enable]>
-            icmp_send_redirect: <value in [disable, enable]>
-            ident_accept: <value in [disable, enable]>
-            idle_timeout: <integer>
-            if_mdix: <value in [auto, normal, crossover]>
-            if_media: <value in [auto, copper, fiber]>
-            in_force_vlan_cos: <integer>
-            inbandwidth: <integer>
-            ingress_cos: <value in [disable, cos0, cos1, ...]>
-            ingress_shaping_profile: <string>
-            ingress_spillover_threshold: <integer>
-            internal: <integer>
-            ip: <string>
-            ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
-            ipmac: <value in [disable, enable]>
-            ips_sniffer_mode: <value in [disable, enable]>
-            ipunnumbered: <string>
-            ipv6:
-              autoconf: <value in [disable, enable]>
-              dhcp6_client_options:
-                - "rapid"
-                - "iapd"
-                - "iana"
-                - "dns"
-                - "dnsname"
-              dhcp6_information_request: <value in [disable, enable]>
-              dhcp6_prefix_delegation: <value in [disable, enable]>
-              dhcp6_prefix_hint: <string>
-              dhcp6_prefix_hint_plt: <integer>
-              dhcp6_prefix_hint_vlt: <integer>
-              dhcp6_relay_ip: <string>
-              dhcp6_relay_service: <value in [disable, enable]>
-              dhcp6_relay_type: <value in [regular]>
-              icmp6_send_redirect: <value in [disable, enable]>
-              interface_identifier: <string>
-              ip6_address: <string>
-              ip6_allowaccess:
-                - "https"
-                - "ping"
-                - "ssh"
-                - "snmp"
-                - "http"
-                - "telnet"
-                - "fgfm"
-                - "capwap"
-                - "fabric"
-              ip6_default_life: <integer>
-              ip6_delegated_prefix_list:
-                -
-                  autonomous_flag: <value in [disable, enable]>
-                  onlink_flag: <value in [disable, enable]>
-                  prefix_id: <integer>
-                  rdnss: <list or string>
-                  rdnss_service: <value in [delegated, default, specify]>
-                  subnet: <string>
-                  upstream_interface: <string>
-                  delegated_prefix_iaid: <integer>
-              ip6_dns_server_override: <value in [disable, enable]>
-              ip6_extra_addr:
-                -
-                  prefix: <string>
-              ip6_hop_limit: <integer>
-              ip6_link_mtu: <integer>
-              ip6_manage_flag: <value in [disable, enable]>
-              ip6_max_interval: <integer>
-              ip6_min_interval: <integer>
-              ip6_mode: <value in [static, dhcp, pppoe, ...]>
-              ip6_other_flag: <value in [disable, enable]>
-              ip6_prefix_list:
-                -
-                  autonomous_flag: <value in [disable, enable]>
-                  dnssl: <list or string>
-                  onlink_flag: <value in [disable, enable]>
-                  preferred_life_time: <integer>
-                  prefix: <string>
-                  rdnss: <list or string>
-                  valid_life_time: <integer>
-              ip6_reachable_time: <integer>
-              ip6_retrans_time: <integer>
-              ip6_send_adv: <value in [disable, enable]>
-              ip6_subnet: <string>
-              ip6_upstream_interface: <string>
-              nd_cert: <string>
-              nd_cga_modifier: <string>
-              nd_mode: <value in [basic, SEND-compatible]>
-              nd_security_level: <integer>
-              nd_timestamp_delta: <integer>
-              nd_timestamp_fuzz: <integer>
-              unique_autoconf_addr: <value in [disable, enable]>
-              vrip6_link_local: <string>
-              vrrp_virtual_mac6: <value in [disable, enable]>
-              vrrp6:
-                -
-                  accept_mode: <value in [disable, enable]>
-                  adv_interval: <integer>
-                  preempt: <value in [disable, enable]>
-                  priority: <integer>
-                  start_time: <integer>
-                  status: <value in [disable, enable]>
-                  vrdst6: <string>
-                  vrgrp: <integer>
-                  vrid: <integer>
-                  vrip6: <string>
-                  ignore_default_route: <value in [disable, enable]>
-                  vrdst_priority: <integer>
-              cli_conn6_status: <integer>
-              ip6_prefix_mode: <value in [dhcp6, ra]>
-              ra_send_mtu: <value in [disable, enable]>
-              ip6_delegated_prefix_iaid: <integer>
-              dhcp6_relay_source_interface: <value in [disable, enable]>
-              dhcp6_relay_interface_id: <string>
-              dhcp6_relay_source_ip: <string>
-              ip6_adv_rio: <value in [disable, enable]>
-              ip6_route_pref: <value in [medium, high, low]>
-            l2forward: <value in [disable, enable]>
-            l2tp_client: <value in [disable, enable]>
-            lacp_ha_slave: <value in [disable, enable]>
-            lacp_mode: <value in [static, passive, active]>
-            lacp_speed: <value in [slow, fast]>
-            lcp_echo_interval: <integer>
-            lcp_max_echo_fails: <integer>
-            link_up_delay: <integer>
-            listen_forticlient_connection: <value in [disable, enable]>
-            lldp_network_policy: <string>
-            lldp_reception: <value in [disable, enable, vdom]>
-            lldp_transmission: <value in [enable, disable, vdom]>
-            log: <value in [disable, enable]>
-            macaddr: <string>
-            managed_subnetwork_size: <value in [256, 512, 1024, ...]>
-            management_ip: <string>
-            max_egress_burst_rate: <integer>
-            max_egress_rate: <integer>
-            measured_downstream_bandwidth: <integer>
-            measured_upstream_bandwidth: <integer>
-            mediatype: <value in [serdes-sfp, sgmii-sfp, cfp2-sr10, ...]>
-            member: <list or string>
-            min_links: <integer>
-            min_links_down: <value in [operational, administrative]>
-            mode: <value in [static, dhcp, pppoe, ...]>
-            monitor_bandwidth: <value in [disable, enable]>
-            mtu: <integer>
-            mtu_override: <value in [disable, enable]>
-            mux_type: <value in [llc-encaps, vc-encaps]>
-            name: <string>
-            ndiscforward: <value in [disable, enable]>
-            netbios_forward: <value in [disable, enable]>
-            netflow_sampler: <value in [disable, tx, rx, ...]>
-            np_qos_profile: <integer>
-            npu_fastpath: <value in [disable, enable]>
-            nst: <value in [disable, enable]>
-            out_force_vlan_cos: <integer>
-            outbandwidth: <integer>
-            padt_retry_timeout: <integer>
-            password: <list or string>
-            peer_interface: <list or string>
-            phy_mode: <value in [auto, adsl, vdsl, ...]>
-            ping_serv_status: <integer>
-            poe: <value in [disable, enable]>
-            polling_interval: <integer>
-            pppoe_unnumbered_negotiate: <value in [disable, enable]>
-            pptp_auth_type: <value in [auto, pap, chap, ...]>
-            pptp_client: <value in [disable, enable]>
-            pptp_password: <list or string>
-            pptp_server_ip: <string>
-            pptp_timeout: <integer>
-            pptp_user: <string>
-            preserve_session_route: <value in [disable, enable]>
-            priority: <integer>
-            priority_override: <value in [disable, enable]>
-            proxy_captive_portal: <value in [disable, enable]>
-            redundant_interface: <string>
-            remote_ip: <string>
-            replacemsg_override_group: <string>
-            retransmission: <value in [disable, enable]>
-            ring_rx: <integer>
-            ring_tx: <integer>
-            role: <value in [lan, wan, dmz, ...]>
-            sample_direction: <value in [rx, tx, both]>
-            sample_rate: <integer>
-            scan_botnet_connections: <value in [disable, block, monitor]>
-            secondary_IP: <value in [disable, enable]>
-            secondaryip:
-              -
-                allowaccess:
-                  - "https"
-                  - "ping"
-                  - "ssh"
-                  - "snmp"
-                  - "http"
-                  - "telnet"
-                  - "fgfm"
-                  - "auto-ipsec"
-                  - "radius-acct"
-                  - "probe-response"
-                  - "capwap"
-                  - "dnp"
-                  - "ftm"
-                  - "fabric"
-                  - "speed-test"
-                  - "icond"
-                  - "scim"
-                detectprotocol:
-                  - "ping"
-                  - "tcp-echo"
-                  - "udp-echo"
-                detectserver: <string>
-                gwdetect: <value in [disable, enable]>
-                ha_priority: <integer>
-                id: <integer>
-                ip: <string>
-                ping_serv_status: <integer>
-                seq: <integer>
-                secip_relay_ip: <string>
-            security_8021x_dynamic_vlan_id: <integer>
-            security_8021x_master: <string>
-            security_8021x_mode: <value in [default, dynamic-vlan, fallback, ...]>
-            security_exempt_list: <string>
-            security_external_logout: <string>
-            security_external_web: <string>
-            security_groups: <list or string>
-            security_mac_auth_bypass: <value in [disable, enable, mac-auth-only]>
-            security_mode: <value in [none, captive-portal, 802.1X]>
-            security_redirect_url: <string>
-            service_name: <string>
-            sflow_sampler: <value in [disable, enable]>
-            speed: <value in [auto, 10full, 10half, ...]>
-            spillover_threshold: <integer>
-            src_check: <value in [disable, enable]>
-            status: <value in [down, up]>
-            stp: <value in [disable, enable]>
-            stp_ha_slave: <value in [disable, enable, priority-adjust]>
-            stpforward: <value in [disable, enable]>
-            stpforward_mode: <value in [rpl-all-ext-id, rpl-bridge-ext-id, rpl-nothing]>
-            strip_priority_vlan_tag: <value in [disable, enable]>
-            subst: <value in [disable, enable]>
-            substitute_dst_mac: <string>
-            swc_first_create: <integer>
-            swc_vlan: <integer>
-            switch: <string>
-            switch_controller_access_vlan: <value in [disable, enable]>
-            switch_controller_arp_inspection: <value in [disable, enable, monitor]>
-            switch_controller_auth: <value in [radius, usergroup]>
-            switch_controller_dhcp_snooping: <value in [disable, enable]>
-            switch_controller_dhcp_snooping_option82: <value in [disable, enable]>
-            switch_controller_dhcp_snooping_verify_mac: <value in [disable, enable]>
-            switch_controller_feature: <value in [none, default-vlan, quarantine, ...]>
-            switch_controller_igmp_snooping: <value in [disable, enable]>
-            switch_controller_igmp_snooping_fast_leave: <value in [disable, enable]>
-            switch_controller_igmp_snooping_proxy: <value in [disable, enable]>
-            switch_controller_iot_scanning: <value in [disable, enable]>
-            switch_controller_learning_limit: <integer>
-            switch_controller_mgmt_vlan: <integer>
-            switch_controller_nac: <string>
-            switch_controller_radius_server: <string>
-            switch_controller_rspan_mode: <value in [disable, enable]>
-            switch_controller_source_ip: <value in [outbound, fixed]>
-            switch_controller_traffic_policy: <string>
-            tc_mode: <value in [ptm, atm]>
-            tcp_mss: <integer>
-            trunk: <value in [disable, enable]>
-            trust_ip_1: <string>
-            trust_ip_2: <string>
-            trust_ip_3: <string>
-            trust_ip6_1: <string>
-            trust_ip6_2: <string>
-            trust_ip6_3: <string>
-            type: <value in [physical, vlan, aggregate, ...]>
-            username: <string>
-            vci: <integer>
-            vectoring: <value in [disable, enable]>
-            vindex: <integer>
-            vlan_protocol: <value in [8021q, 8021ad]>
-            vlanforward: <value in [disable, enable]>
-            vlanid: <integer>
-            vpi: <integer>
-            vrf: <integer>
-            vrrp:
-              -
-                accept_mode: <value in [disable, enable]>
-                adv_interval: <integer>
-                ignore_default_route: <value in [disable, enable]>
-                preempt: <value in [disable, enable]>
-                priority: <integer>
-                start_time: <integer>
-                status: <value in [disable, enable]>
-                version: <value in [2, 3]>
-                vrdst: <list or string>
-                vrdst_priority: <integer>
-                vrgrp: <integer>
-                vrid: <integer>
-                vrip: <string>
-                proxy_arp:
-                  -
-                    id: <integer>
-                    ip: <string>
-            vrrp_virtual_mac: <value in [disable, enable]>
-            wccp: <value in [disable, enable]>
-            weight: <integer>
-            wifi_5g_threshold: <string>
-            wifi_acl: <value in [deny, allow]>
-            wifi_ap_band: <value in [any, 5g-preferred, 5g-only]>
-            wifi_auth: <value in [PSK, RADIUS, radius, ...]>
-            wifi_auto_connect: <value in [disable, enable]>
-            wifi_auto_save: <value in [disable, enable]>
-            wifi_broadcast_ssid: <value in [disable, enable]>
-            wifi_encrypt: <value in [TKIP, AES]>
-            wifi_fragment_threshold: <integer>
-            wifi_key: <list or string>
-            wifi_keyindex: <integer>
-            wifi_mac_filter: <value in [disable, enable]>
-            wifi_passphrase: <list or string>
-            wifi_radius_server: <string>
-            wifi_rts_threshold: <integer>
-            wifi_security: <value in [None, WEP64, wep64, ...]>
-            wifi_ssid: <string>
-            wifi_usergroup: <string>
-            wins_ip: <string>
-            dhcp_relay_request_all_server: <value in [disable, enable]>
-            stp_ha_secondary: <value in [disable, enable, priority-adjust]>
-            switch_controller_dynamic: <string>
-            auth_cert: <string>
-            auth_portal_addr: <string>
-            dhcp_classless_route_addition: <value in [disable, enable]>
-            dhcp_relay_link_selection: <string>
-            dns_server_protocol:
-              - "cleartext"
-              - "dot"
-              - "doh"
-            eap_ca_cert: <string>
-            eap_identity: <string>
-            eap_method: <value in [tls, peap]>
-            eap_password: <list or string>
-            eap_supplicant: <value in [disable, enable]>
-            eap_user_cert: <string>
-            ike_saml_server: <string>
-            lacp_ha_secondary: <value in [disable, enable]>
-            pvc_atm_qos: <value in [cbr, rt-vbr, nrt-vbr, ...]>
-            pvc_chan: <integer>
-            pvc_crc: <integer>
-            pvc_pcr: <integer>
-            pvc_scr: <integer>
-            pvc_vlan_id: <integer>
-            pvc_vlan_rx_id: <integer>
-            pvc_vlan_rx_op: <value in [pass-through, replace, remove]>
-            pvc_vlan_tx_id: <integer>
-            pvc_vlan_tx_op: <value in [pass-through, replace, remove]>
-            reachable_time: <integer>
-            select_profile_30a_35b: <value in [30A, 35B]>
-            sfp_dsl: <value in [disable, enable]>
-            sfp_dsl_adsl_fallback: <value in [disable, enable]>
-            sfp_dsl_autodetect: <value in [disable, enable]>
-            sfp_dsl_mac: <string>
-            sw_algorithm: <value in [l2, l3, eh, ...]>
-            system_id: <string>
-            system_id_type: <value in [auto, user]>
-            vlan_id: <integer>
-            vlan_op_mode: <value in [tag, untag, passthrough]>
-            generic_receive_offload: <value in [disable, enable]>
-            interconnect_profile: <value in [default, profile1, profile2]>
-            large_receive_offload: <value in [disable, enable]>
-            annex: <value in [a, b, j, ...]>
-            aggregate_type: <value in [physical, vxlan]>
-            switch_controller_netflow_collect: <value in [disable, enable]>
-            wifi_dns_server1: <string>
-            wifi_dns_server2: <string>
-            wifi_gateway: <string>
-            default_purdue_level: <value in [1, 2, 3, ...]>
-            dhcp_broadcast_flag: <value in [disable, enable]>
-            dhcp_smart_relay: <value in [disable, enable]>
-            switch_controller_offloading: <value in [disable, enable]>
-            switch_controller_offloading_gw: <value in [disable, enable]>
-            switch_controller_offloading_ip: <string>
-            dhcp_relay_circuit_id: <string>
-            dhcp_relay_source_ip: <string>
-            switch_controller_offload: <value in [disable, enable]>
-            switch_controller_offload_gw: <value in [disable, enable]>
-            switch_controller_offload_ip: <string>
-            mirroring_direction: <value in [rx, tx, both]>
-            mirroring_port: <string>
-            port_mirroring: <value in [disable, enable]>
-            security_8021x_member_mode: <value in [disable, switch]>
-            stp_edge: <value in [disable, enable]>
-            dhcp_relay_allow_no_end_option: <value in [disable, enable]>
-            netflow_sample_rate: <integer>
-            netflow_sampler_id: <integer>
-            pppoe_egress_cos: <value in [cos0, cos1, cos2, ...]>
-            security_ip_auth_bypass: <value in [disable, enable]>
-            virtual_mac: <string>
-            dhcp_relay_vrf_select: <integer>
-            exclude_signatures:
-              - "iot"
-              - "ot"
+          name: "your value" # Required variable, string
+          # _dhcp_status: <value in [disable, enable]>
+          # auth: <value in [radius, usergroup]>
+          # color: <integer>
+          # comments: <string>
+          # dynamic_mapping:
+          #   - _dhcp_status: <value in [disable, enable]>
+          #     _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     dhcp_server:
+          #       auto_configuration: <value in [disable, enable]>
+          #       auto_managed_status: <value in [disable, enable]>
+          #       conflicted_ip_timeout: <integer>
+          #       ddns_auth: <value in [disable, tsig]>
+          #       ddns_key: <list or string>
+          #       ddns_keyname: <string>
+          #       ddns_server_ip: <string>
+          #       ddns_ttl: <integer>
+          #       ddns_update: <value in [disable, enable]>
+          #       ddns_update_override: <value in [disable, enable]>
+          #       ddns_zone: <string>
+          #       default_gateway: <string>
+          #       dhcp_settings_from_fortiipam: <value in [disable, enable]>
+          #       dns_server1: <string>
+          #       dns_server2: <string>
+          #       dns_server3: <string>
+          #       dns_server4: <string>
+          #       dns_service: <value in [default, specify, local]>
+          #       domain: <string>
+          #       enable: <value in [disable, enable]>
+          #       exclude_range:
+          #         - end_ip: <string>
+          #           id: <integer>
+          #           start_ip: <string>
+          #           vci_match: <value in [disable, enable]>
+          #           vci_string: <list or string>
+          #           lease_time: <integer>
+          #           uci_match: <value in [disable, enable]>
+          #           uci_string: <list or string>
+          #       filename: <string>
+          #       forticlient_on_net_status: <value in [disable, enable]>
+          #       id: <integer>
+          #       ip_mode: <value in [range, usrgrp]>
+          #       ip_range:
+          #         - end_ip: <string>
+          #           id: <integer>
+          #           start_ip: <string>
+          #           vci_match: <value in [disable, enable]>
+          #           vci_string: <list or string>
+          #           lease_time: <integer>
+          #           uci_match: <value in [disable, enable]>
+          #           uci_string: <list or string>
+          #       ipsec_lease_hold: <integer>
+          #       lease_time: <integer>
+          #       mac_acl_default_action: <value in [assign, block]>
+          #       netmask: <string>
+          #       next_server: <string>
+          #       ntp_server1: <string>
+          #       ntp_server2: <string>
+          #       ntp_server3: <string>
+          #       ntp_service: <value in [default, specify, local]>
+          #       option1: <list or string>
+          #       option2: <list or string>
+          #       option3: <list or string>
+          #       option4: <string>
+          #       option5: <string>
+          #       option6: <string>
+          #       options:
+          #         - code: <integer>
+          #           id: <integer>
+          #           ip: <list or string>
+          #           type: <value in [hex, string, ip, ...]>
+          #           value: <string>
+          #           vci_match: <value in [disable, enable]>
+          #           vci_string: <list or string>
+          #           uci_match: <value in [disable, enable]>
+          #           uci_string: <list or string>
+          #       reserved_address:
+          #         - action: <value in [assign, block, reserved]>
+          #           circuit_id: <string>
+          #           circuit_id_type: <value in [hex, string]>
+          #           description: <string>
+          #           id: <integer>
+          #           ip: <string>
+          #           mac: <string>
+          #           remote_id: <string>
+          #           remote_id_type: <value in [hex, string]>
+          #           type: <value in [mac, option82]>
+          #       server_type: <value in [regular, ipsec]>
+          #       status: <value in [disable, enable]>
+          #       tftp_server: <list or string>
+          #       timezone: <value in [00, 01, 02, ...]>
+          #       timezone_option: <value in [disable, default, specify]>
+          #       vci_match: <value in [disable, enable]>
+          #       vci_string: <list or string>
+          #       wifi_ac_service: <value in [specify, local]>
+          #       wifi_ac1: <string>
+          #       wifi_ac2: <string>
+          #       wifi_ac3: <string>
+          #       wins_server1: <string>
+          #       wins_server2: <string>
+          #       relay_agent: <string>
+          #       shared_subnet: <value in [disable, enable]>
+          #     interface:
+          #       dhcp_relay_agent_option: <value in [disable, enable]>
+          #       dhcp_relay_ip: <list or string>
+          #       dhcp_relay_service: <value in [disable, enable]>
+          #       dhcp_relay_type: <value in [regular, ipsec]>
+          #       ip: <string>
+          #       ipv6:
+          #         autoconf: <value in [disable, enable]>
+          #         dhcp6_client_options:
+          #           - "rapid"
+          #           - "iapd"
+          #           - "iana"
+          #           - "dns"
+          #           - "dnsname"
+          #         dhcp6_information_request: <value in [disable, enable]>
+          #         dhcp6_prefix_delegation: <value in [disable, enable]>
+          #         dhcp6_prefix_hint: <string>
+          #         dhcp6_prefix_hint_plt: <integer>
+          #         dhcp6_prefix_hint_vlt: <integer>
+          #         dhcp6_relay_ip: <string>
+          #         dhcp6_relay_service: <value in [disable, enable]>
+          #         dhcp6_relay_type: <value in [regular]>
+          #         icmp6_send_redirect: <value in [disable, enable]>
+          #         interface_identifier: <string>
+          #         ip6_address: <string>
+          #         ip6_allowaccess:
+          #           - "https"
+          #           - "ping"
+          #           - "ssh"
+          #           - "snmp"
+          #           - "http"
+          #           - "telnet"
+          #           - "fgfm"
+          #           - "capwap"
+          #           - "fabric"
+          #         ip6_default_life: <integer>
+          #         ip6_delegated_prefix_list:
+          #           - autonomous_flag: <value in [disable, enable]>
+          #             onlink_flag: <value in [disable, enable]>
+          #             prefix_id: <integer>
+          #             rdnss: <list or string>
+          #             rdnss_service: <value in [delegated, default, specify]>
+          #             subnet: <string>
+          #             upstream_interface: <string>
+          #             delegated_prefix_iaid: <integer>
+          #         ip6_dns_server_override: <value in [disable, enable]>
+          #         ip6_extra_addr:
+          #           - prefix: <string>
+          #         ip6_hop_limit: <integer>
+          #         ip6_link_mtu: <integer>
+          #         ip6_manage_flag: <value in [disable, enable]>
+          #         ip6_max_interval: <integer>
+          #         ip6_min_interval: <integer>
+          #         ip6_mode: <value in [static, dhcp, pppoe, ...]>
+          #         ip6_other_flag: <value in [disable, enable]>
+          #         ip6_prefix_list:
+          #           - autonomous_flag: <value in [disable, enable]>
+          #             dnssl: <list or string>
+          #             onlink_flag: <value in [disable, enable]>
+          #             preferred_life_time: <integer>
+          #             prefix: <string>
+          #             rdnss: <list or string>
+          #             valid_life_time: <integer>
+          #         ip6_reachable_time: <integer>
+          #         ip6_retrans_time: <integer>
+          #         ip6_send_adv: <value in [disable, enable]>
+          #         ip6_subnet: <string>
+          #         ip6_upstream_interface: <string>
+          #         nd_cert: <string>
+          #         nd_cga_modifier: <string>
+          #         nd_mode: <value in [basic, SEND-compatible]>
+          #         nd_security_level: <integer>
+          #         nd_timestamp_delta: <integer>
+          #         nd_timestamp_fuzz: <integer>
+          #         unique_autoconf_addr: <value in [disable, enable]>
+          #         vrip6_link_local: <string>
+          #         vrrp_virtual_mac6: <value in [disable, enable]>
+          #         vrrp6:
+          #           - accept_mode: <value in [disable, enable]>
+          #             adv_interval: <integer>
+          #             preempt: <value in [disable, enable]>
+          #             priority: <integer>
+          #             start_time: <integer>
+          #             status: <value in [disable, enable]>
+          #             vrdst6: <string>
+          #             vrgrp: <integer>
+          #             vrid: <integer>
+          #             vrip6: <string>
+          #             ignore_default_route: <value in [disable, enable]>
+          #             vrdst_priority: <integer>
+          #         cli_conn6_status: <integer>
+          #         ip6_prefix_mode: <value in [dhcp6, ra]>
+          #         ra_send_mtu: <value in [disable, enable]>
+          #         ip6_delegated_prefix_iaid: <integer>
+          #         dhcp6_relay_source_interface: <value in [disable, enable]>
+          #         dhcp6_relay_interface_id: <string>
+          #         dhcp6_relay_source_ip: <string>
+          #         ip6_adv_rio: <value in [disable, enable]>
+          #         ip6_route_pref: <value in [medium, high, low]>
+          #       secondary_IP: <value in [disable, enable]>
+          #       secondaryip:
+          #         - allowaccess:
+          #             - "https"
+          #             - "ping"
+          #             - "ssh"
+          #             - "snmp"
+          #             - "http"
+          #             - "telnet"
+          #             - "fgfm"
+          #             - "auto-ipsec"
+          #             - "radius-acct"
+          #             - "probe-response"
+          #             - "capwap"
+          #             - "dnp"
+          #             - "ftm"
+          #             - "fabric"
+          #             - "speed-test"
+          #             - "icond"
+          #             - "scim"
+          #           detectprotocol:
+          #             - "ping"
+          #             - "tcp-echo"
+          #             - "udp-echo"
+          #           detectserver: <string>
+          #           gwdetect: <value in [disable, enable]>
+          #           ha_priority: <integer>
+          #           id: <integer>
+          #           ip: <string>
+          #           ping_serv_status: <integer>
+          #           seq: <integer>
+          #           secip_relay_ip: <string>
+          #       vlanid: <integer>
+          #       dhcp_relay_interface_select_method: <value in [auto, sdwan, specify]>
+          #       vrrp:
+          #         - accept_mode: <value in [disable, enable]>
+          #           adv_interval: <integer>
+          #           ignore_default_route: <value in [disable, enable]>
+          #           preempt: <value in [disable, enable]>
+          #           priority: <integer>
+          #           proxy_arp:
+          #             - id: <integer>
+          #               ip: <string>
+          #           start_time: <integer>
+          #           status: <value in [disable, enable]>
+          #           version: <value in [2, 3]>
+          #           vrdst: <list or string>
+          #           vrdst_priority: <integer>
+          #           vrgrp: <integer>
+          #           vrid: <integer>
+          #           vrip: <string>
+          # portal_message_override_group: <string>
+          # radius_server: <string>
+          # security: <value in [open, captive-portal, 8021x]>
+          # selected_usergroups: <string>
+          # usergroup: <string>
+          # vdom: <string>
+          # vlanid: <integer>
+          # dhcp_server:
+          #   auto_configuration: <value in [disable, enable]>
+          #   auto_managed_status: <value in [disable, enable]>
+          #   conflicted_ip_timeout: <integer>
+          #   ddns_auth: <value in [disable, tsig]>
+          #   ddns_key: <list or string>
+          #   ddns_keyname: <string>
+          #   ddns_server_ip: <string>
+          #   ddns_ttl: <integer>
+          #   ddns_update: <value in [disable, enable]>
+          #   ddns_update_override: <value in [disable, enable]>
+          #   ddns_zone: <string>
+          #   default_gateway: <string>
+          #   dhcp_settings_from_fortiipam: <value in [disable, enable]>
+          #   dns_server1: <string>
+          #   dns_server2: <string>
+          #   dns_server3: <string>
+          #   dns_server4: <string>
+          #   dns_service: <value in [default, specify, local]>
+          #   domain: <string>
+          #   enable: <value in [disable, enable]>
+          #   exclude_range:
+          #     - end_ip: <string>
+          #       id: <integer>
+          #       start_ip: <string>
+          #       vci_match: <value in [disable, enable]>
+          #       vci_string: <list or string>
+          #       lease_time: <integer>
+          #       uci_match: <value in [disable, enable]>
+          #       uci_string: <list or string>
+          #   filename: <string>
+          #   forticlient_on_net_status: <value in [disable, enable]>
+          #   id: <integer>
+          #   ip_mode: <value in [range, usrgrp]>
+          #   ip_range:
+          #     - end_ip: <string>
+          #       id: <integer>
+          #       start_ip: <string>
+          #       vci_match: <value in [disable, enable]>
+          #       vci_string: <list or string>
+          #       lease_time: <integer>
+          #       uci_match: <value in [disable, enable]>
+          #       uci_string: <list or string>
+          #   ipsec_lease_hold: <integer>
+          #   lease_time: <integer>
+          #   mac_acl_default_action: <value in [assign, block]>
+          #   netmask: <string>
+          #   next_server: <string>
+          #   ntp_server1: <string>
+          #   ntp_server2: <string>
+          #   ntp_server3: <string>
+          #   ntp_service: <value in [default, specify, local]>
+          #   option1: <list or string>
+          #   option2: <list or string>
+          #   option3: <list or string>
+          #   option4: <string>
+          #   option5: <string>
+          #   option6: <string>
+          #   options:
+          #     - code: <integer>
+          #       id: <integer>
+          #       ip: <list or string>
+          #       type: <value in [hex, string, ip, ...]>
+          #       value: <string>
+          #       vci_match: <value in [disable, enable]>
+          #       vci_string: <list or string>
+          #       uci_match: <value in [disable, enable]>
+          #       uci_string: <list or string>
+          #   reserved_address:
+          #     - action: <value in [assign, block, reserved]>
+          #       circuit_id: <string>
+          #       circuit_id_type: <value in [hex, string]>
+          #       description: <string>
+          #       id: <integer>
+          #       ip: <string>
+          #       mac: <string>
+          #       remote_id: <string>
+          #       remote_id_type: <value in [hex, string]>
+          #       type: <value in [mac, option82]>
+          #   server_type: <value in [regular, ipsec]>
+          #   status: <value in [disable, enable]>
+          #   tftp_server: <list or string>
+          #   timezone: <value in [00, 01, 02, ...]>
+          #   timezone_option: <value in [disable, default, specify]>
+          #   vci_match: <value in [disable, enable]>
+          #   vci_string: <list or string>
+          #   wifi_ac_service: <value in [specify, local]>
+          #   wifi_ac1: <string>
+          #   wifi_ac2: <string>
+          #   wifi_ac3: <string>
+          #   wins_server1: <string>
+          #   wins_server2: <string>
+          #   relay_agent: <string>
+          #   shared_subnet: <value in [disable, enable]>
+          # interface:
+          #   ac_name: <string>
+          #   aggregate: <string>
+          #   algorithm: <value in [L2, L3, L4, ...]>
+          #   alias: <string>
+          #   allowaccess:
+          #     - "https"
+          #     - "ping"
+          #     - "ssh"
+          #     - "snmp"
+          #     - "http"
+          #     - "telnet"
+          #     - "fgfm"
+          #     - "auto-ipsec"
+          #     - "radius-acct"
+          #     - "probe-response"
+          #     - "capwap"
+          #     - "dnp"
+          #     - "ftm"
+          #     - "fabric"
+          #     - "speed-test"
+          #   ap_discover: <value in [disable, enable]>
+          #   arpforward: <value in [disable, enable]>
+          #   atm_protocol: <value in [none, ipoa]>
+          #   auth_type: <value in [auto, pap, chap, ...]>
+          #   auto_auth_extension_device: <value in [disable, enable]>
+          #   bandwidth_measure_time: <integer>
+          #   bfd: <value in [global, enable, disable]>
+          #   bfd_desired_min_tx: <integer>
+          #   bfd_detect_mult: <integer>
+          #   bfd_required_min_rx: <integer>
+          #   broadcast_forticlient_discovery: <value in [disable, enable]>
+          #   broadcast_forward: <value in [disable, enable]>
+          #   captive_portal: <integer>
+          #   cli_conn_status: <integer>
+          #   color: <integer>
+          #   ddns: <value in [disable, enable]>
+          #   ddns_auth: <value in [disable, tsig]>
+          #   ddns_domain: <string>
+          #   ddns_key: <list or string>
+          #   ddns_keyname: <string>
+          #   ddns_password: <list or string>
+          #   ddns_server: <value in [dhs.org, dyndns.org, dyns.net, ...]>
+          #   ddns_server_ip: <string>
+          #   ddns_sn: <string>
+          #   ddns_ttl: <integer>
+          #   ddns_username: <string>
+          #   ddns_zone: <string>
+          #   dedicated_to: <value in [none, management]>
+          #   defaultgw: <value in [disable, enable]>
+          #   description: <string>
+          #   detected_peer_mtu: <integer>
+          #   detectprotocol:
+          #     - "ping"
+          #     - "tcp-echo"
+          #     - "udp-echo"
+          #   detectserver: <string>
+          #   device_access_list: <list or string>
+          #   device_identification: <value in [disable, enable]>
+          #   device_identification_active_scan: <value in [disable, enable]>
+          #   device_netscan: <value in [disable, enable]>
+          #   device_user_identification: <value in [disable, enable]>
+          #   devindex: <integer>
+          #   dhcp_client_identifier: <string>
+          #   dhcp_relay_agent_option: <value in [disable, enable]>
+          #   dhcp_relay_interface: <string>
+          #   dhcp_relay_interface_select_method: <value in [auto, sdwan, specify]>
+          #   dhcp_relay_ip: <list or string>
+          #   dhcp_relay_service: <value in [disable, enable]>
+          #   dhcp_relay_type: <value in [regular, ipsec]>
+          #   dhcp_renew_time: <integer>
+          #   disc_retry_timeout: <integer>
+          #   disconnect_threshold: <integer>
+          #   distance: <integer>
+          #   dns_query: <value in [disable, recursive, non-recursive]>
+          #   dns_server_override: <value in [disable, enable]>
+          #   drop_fragment: <value in [disable, enable]>
+          #   drop_overlapped_fragment: <value in [disable, enable]>
+          #   egress_cos: <value in [disable, cos0, cos1, ...]>
+          #   egress_shaping_profile: <string>
+          #   eip: <string>
+          #   endpoint_compliance: <value in [disable, enable]>
+          #   estimated_downstream_bandwidth: <integer>
+          #   estimated_upstream_bandwidth: <integer>
+          #   explicit_ftp_proxy: <value in [disable, enable]>
+          #   explicit_web_proxy: <value in [disable, enable]>
+          #   external: <value in [disable, enable]>
+          #   fail_action_on_extender: <value in [soft-restart, hard-restart, reboot]>
+          #   fail_alert_interfaces: <list or string>
+          #   fail_alert_method: <value in [link-failed-signal, link-down]>
+          #   fail_detect: <value in [disable, enable]>
+          #   fail_detect_option:
+          #     - "detectserver"
+          #     - "link-down"
+          #   fdp: <value in [disable, enable]>
+          #   fortiheartbeat: <value in [disable, enable]>
+          #   fortilink: <value in [disable, enable]>
+          #   fortilink_backup_link: <integer>
+          #   fortilink_neighbor_detect: <value in [lldp, fortilink]>
+          #   fortilink_split_interface: <value in [disable, enable]>
+          #   fortilink_stacking: <value in [disable, enable]>
+          #   forward_domain: <integer>
+          #   forward_error_correction: <value in [disable, enable, rs-fec, ...]>
+          #   fp_anomaly:
+          #     - "drop_tcp_fin_noack"
+          #     - "pass_winnuke"
+          #     - "pass_tcpland"
+          #     - "pass_udpland"
+          #     - "pass_icmpland"
+          #     - "pass_ipland"
+          #     - "pass_iprr"
+          #     - "pass_ipssrr"
+          #     - "pass_iplsrr"
+          #     - "pass_ipstream"
+          #     - "pass_ipsecurity"
+          #     - "pass_iptimestamp"
+          #     - "pass_ipunknown_option"
+          #     - "pass_ipunknown_prot"
+          #     - "pass_icmp_frag"
+          #     - "pass_tcp_no_flag"
+          #     - "pass_tcp_fin_noack"
+          #     - "drop_winnuke"
+          #     - "drop_tcpland"
+          #     - "drop_udpland"
+          #     - "drop_icmpland"
+          #     - "drop_ipland"
+          #     - "drop_iprr"
+          #     - "drop_ipssrr"
+          #     - "drop_iplsrr"
+          #     - "drop_ipstream"
+          #     - "drop_ipsecurity"
+          #     - "drop_iptimestamp"
+          #     - "drop_ipunknown_option"
+          #     - "drop_ipunknown_prot"
+          #     - "drop_icmp_frag"
+          #     - "drop_tcp_no_flag"
+          #   fp_disable:
+          #     - "all"
+          #     - "ipsec"
+          #     - "none"
+          #   gateway_address: <string>
+          #   gi_gk: <value in [disable, enable]>
+          #   gwaddr: <string>
+          #   gwdetect: <value in [disable, enable]>
+          #   ha_priority: <integer>
+          #   icmp_accept_redirect: <value in [disable, enable]>
+          #   icmp_redirect: <value in [disable, enable]>
+          #   icmp_send_redirect: <value in [disable, enable]>
+          #   ident_accept: <value in [disable, enable]>
+          #   idle_timeout: <integer>
+          #   if_mdix: <value in [auto, normal, crossover]>
+          #   if_media: <value in [auto, copper, fiber]>
+          #   in_force_vlan_cos: <integer>
+          #   inbandwidth: <integer>
+          #   ingress_cos: <value in [disable, cos0, cos1, ...]>
+          #   ingress_shaping_profile: <string>
+          #   ingress_spillover_threshold: <integer>
+          #   internal: <integer>
+          #   ip: <string>
+          #   ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
+          #   ipmac: <value in [disable, enable]>
+          #   ips_sniffer_mode: <value in [disable, enable]>
+          #   ipunnumbered: <string>
+          #   ipv6:
+          #     autoconf: <value in [disable, enable]>
+          #     dhcp6_client_options:
+          #       - "rapid"
+          #       - "iapd"
+          #       - "iana"
+          #       - "dns"
+          #       - "dnsname"
+          #     dhcp6_information_request: <value in [disable, enable]>
+          #     dhcp6_prefix_delegation: <value in [disable, enable]>
+          #     dhcp6_prefix_hint: <string>
+          #     dhcp6_prefix_hint_plt: <integer>
+          #     dhcp6_prefix_hint_vlt: <integer>
+          #     dhcp6_relay_ip: <string>
+          #     dhcp6_relay_service: <value in [disable, enable]>
+          #     dhcp6_relay_type: <value in [regular]>
+          #     icmp6_send_redirect: <value in [disable, enable]>
+          #     interface_identifier: <string>
+          #     ip6_address: <string>
+          #     ip6_allowaccess:
+          #       - "https"
+          #       - "ping"
+          #       - "ssh"
+          #       - "snmp"
+          #       - "http"
+          #       - "telnet"
+          #       - "fgfm"
+          #       - "capwap"
+          #       - "fabric"
+          #     ip6_default_life: <integer>
+          #     ip6_delegated_prefix_list:
+          #       - autonomous_flag: <value in [disable, enable]>
+          #         onlink_flag: <value in [disable, enable]>
+          #         prefix_id: <integer>
+          #         rdnss: <list or string>
+          #         rdnss_service: <value in [delegated, default, specify]>
+          #         subnet: <string>
+          #         upstream_interface: <string>
+          #         delegated_prefix_iaid: <integer>
+          #     ip6_dns_server_override: <value in [disable, enable]>
+          #     ip6_extra_addr:
+          #       - prefix: <string>
+          #     ip6_hop_limit: <integer>
+          #     ip6_link_mtu: <integer>
+          #     ip6_manage_flag: <value in [disable, enable]>
+          #     ip6_max_interval: <integer>
+          #     ip6_min_interval: <integer>
+          #     ip6_mode: <value in [static, dhcp, pppoe, ...]>
+          #     ip6_other_flag: <value in [disable, enable]>
+          #     ip6_prefix_list:
+          #       - autonomous_flag: <value in [disable, enable]>
+          #         dnssl: <list or string>
+          #         onlink_flag: <value in [disable, enable]>
+          #         preferred_life_time: <integer>
+          #         prefix: <string>
+          #         rdnss: <list or string>
+          #         valid_life_time: <integer>
+          #     ip6_reachable_time: <integer>
+          #     ip6_retrans_time: <integer>
+          #     ip6_send_adv: <value in [disable, enable]>
+          #     ip6_subnet: <string>
+          #     ip6_upstream_interface: <string>
+          #     nd_cert: <string>
+          #     nd_cga_modifier: <string>
+          #     nd_mode: <value in [basic, SEND-compatible]>
+          #     nd_security_level: <integer>
+          #     nd_timestamp_delta: <integer>
+          #     nd_timestamp_fuzz: <integer>
+          #     unique_autoconf_addr: <value in [disable, enable]>
+          #     vrip6_link_local: <string>
+          #     vrrp_virtual_mac6: <value in [disable, enable]>
+          #     vrrp6:
+          #       - accept_mode: <value in [disable, enable]>
+          #         adv_interval: <integer>
+          #         preempt: <value in [disable, enable]>
+          #         priority: <integer>
+          #         start_time: <integer>
+          #         status: <value in [disable, enable]>
+          #         vrdst6: <string>
+          #         vrgrp: <integer>
+          #         vrid: <integer>
+          #         vrip6: <string>
+          #         ignore_default_route: <value in [disable, enable]>
+          #         vrdst_priority: <integer>
+          #     cli_conn6_status: <integer>
+          #     ip6_prefix_mode: <value in [dhcp6, ra]>
+          #     ra_send_mtu: <value in [disable, enable]>
+          #     ip6_delegated_prefix_iaid: <integer>
+          #     dhcp6_relay_source_interface: <value in [disable, enable]>
+          #     dhcp6_relay_interface_id: <string>
+          #     dhcp6_relay_source_ip: <string>
+          #     ip6_adv_rio: <value in [disable, enable]>
+          #     ip6_route_pref: <value in [medium, high, low]>
+          #   l2forward: <value in [disable, enable]>
+          #   l2tp_client: <value in [disable, enable]>
+          #   lacp_ha_slave: <value in [disable, enable]>
+          #   lacp_mode: <value in [static, passive, active]>
+          #   lacp_speed: <value in [slow, fast]>
+          #   lcp_echo_interval: <integer>
+          #   lcp_max_echo_fails: <integer>
+          #   link_up_delay: <integer>
+          #   listen_forticlient_connection: <value in [disable, enable]>
+          #   lldp_network_policy: <string>
+          #   lldp_reception: <value in [disable, enable, vdom]>
+          #   lldp_transmission: <value in [enable, disable, vdom]>
+          #   log: <value in [disable, enable]>
+          #   macaddr: <string>
+          #   managed_subnetwork_size: <value in [256, 512, 1024, ...]>
+          #   management_ip: <string>
+          #   max_egress_burst_rate: <integer>
+          #   max_egress_rate: <integer>
+          #   measured_downstream_bandwidth: <integer>
+          #   measured_upstream_bandwidth: <integer>
+          #   mediatype: <value in [serdes-sfp, sgmii-sfp, cfp2-sr10, ...]>
+          #   member: <list or string>
+          #   min_links: <integer>
+          #   min_links_down: <value in [operational, administrative]>
+          #   mode: <value in [static, dhcp, pppoe, ...]>
+          #   monitor_bandwidth: <value in [disable, enable]>
+          #   mtu: <integer>
+          #   mtu_override: <value in [disable, enable]>
+          #   mux_type: <value in [llc-encaps, vc-encaps]>
+          #   name: <string>
+          #   ndiscforward: <value in [disable, enable]>
+          #   netbios_forward: <value in [disable, enable]>
+          #   netflow_sampler: <value in [disable, tx, rx, ...]>
+          #   np_qos_profile: <integer>
+          #   npu_fastpath: <value in [disable, enable]>
+          #   nst: <value in [disable, enable]>
+          #   out_force_vlan_cos: <integer>
+          #   outbandwidth: <integer>
+          #   padt_retry_timeout: <integer>
+          #   password: <list or string>
+          #   peer_interface: <list or string>
+          #   phy_mode: <value in [auto, adsl, vdsl, ...]>
+          #   ping_serv_status: <integer>
+          #   poe: <value in [disable, enable]>
+          #   polling_interval: <integer>
+          #   pppoe_unnumbered_negotiate: <value in [disable, enable]>
+          #   pptp_auth_type: <value in [auto, pap, chap, ...]>
+          #   pptp_client: <value in [disable, enable]>
+          #   pptp_password: <list or string>
+          #   pptp_server_ip: <string>
+          #   pptp_timeout: <integer>
+          #   pptp_user: <string>
+          #   preserve_session_route: <value in [disable, enable]>
+          #   priority: <integer>
+          #   priority_override: <value in [disable, enable]>
+          #   proxy_captive_portal: <value in [disable, enable]>
+          #   redundant_interface: <string>
+          #   remote_ip: <string>
+          #   replacemsg_override_group: <string>
+          #   retransmission: <value in [disable, enable]>
+          #   ring_rx: <integer>
+          #   ring_tx: <integer>
+          #   role: <value in [lan, wan, dmz, ...]>
+          #   sample_direction: <value in [rx, tx, both]>
+          #   sample_rate: <integer>
+          #   scan_botnet_connections: <value in [disable, block, monitor]>
+          #   secondary_IP: <value in [disable, enable]>
+          #   secondaryip:
+          #     - allowaccess:
+          #         - "https"
+          #         - "ping"
+          #         - "ssh"
+          #         - "snmp"
+          #         - "http"
+          #         - "telnet"
+          #         - "fgfm"
+          #         - "auto-ipsec"
+          #         - "radius-acct"
+          #         - "probe-response"
+          #         - "capwap"
+          #         - "dnp"
+          #         - "ftm"
+          #         - "fabric"
+          #         - "speed-test"
+          #         - "icond"
+          #         - "scim"
+          #       detectprotocol:
+          #         - "ping"
+          #         - "tcp-echo"
+          #         - "udp-echo"
+          #       detectserver: <string>
+          #       gwdetect: <value in [disable, enable]>
+          #       ha_priority: <integer>
+          #       id: <integer>
+          #       ip: <string>
+          #       ping_serv_status: <integer>
+          #       seq: <integer>
+          #       secip_relay_ip: <string>
+          #   security_8021x_dynamic_vlan_id: <integer>
+          #   security_8021x_master: <string>
+          #   security_8021x_mode: <value in [default, dynamic-vlan, fallback, ...]>
+          #   security_exempt_list: <string>
+          #   security_external_logout: <string>
+          #   security_external_web: <string>
+          #   security_groups: <list or string>
+          #   security_mac_auth_bypass: <value in [disable, enable, mac-auth-only]>
+          #   security_mode: <value in [none, captive-portal, 802.1X]>
+          #   security_redirect_url: <string>
+          #   service_name: <string>
+          #   sflow_sampler: <value in [disable, enable]>
+          #   speed: <value in [auto, 10full, 10half, ...]>
+          #   spillover_threshold: <integer>
+          #   src_check: <value in [disable, enable]>
+          #   status: <value in [down, up]>
+          #   stp: <value in [disable, enable]>
+          #   stp_ha_slave: <value in [disable, enable, priority-adjust]>
+          #   stpforward: <value in [disable, enable]>
+          #   stpforward_mode: <value in [rpl-all-ext-id, rpl-bridge-ext-id, rpl-nothing]>
+          #   strip_priority_vlan_tag: <value in [disable, enable]>
+          #   subst: <value in [disable, enable]>
+          #   substitute_dst_mac: <string>
+          #   swc_first_create: <integer>
+          #   swc_vlan: <integer>
+          #   switch: <string>
+          #   switch_controller_access_vlan: <value in [disable, enable]>
+          #   switch_controller_arp_inspection: <value in [disable, enable, monitor]>
+          #   switch_controller_auth: <value in [radius, usergroup]>
+          #   switch_controller_dhcp_snooping: <value in [disable, enable]>
+          #   switch_controller_dhcp_snooping_option82: <value in [disable, enable]>
+          #   switch_controller_dhcp_snooping_verify_mac: <value in [disable, enable]>
+          #   switch_controller_feature: <value in [none, default-vlan, quarantine, ...]>
+          #   switch_controller_igmp_snooping: <value in [disable, enable]>
+          #   switch_controller_igmp_snooping_fast_leave: <value in [disable, enable]>
+          #   switch_controller_igmp_snooping_proxy: <value in [disable, enable]>
+          #   switch_controller_iot_scanning: <value in [disable, enable]>
+          #   switch_controller_learning_limit: <integer>
+          #   switch_controller_mgmt_vlan: <integer>
+          #   switch_controller_nac: <string>
+          #   switch_controller_radius_server: <string>
+          #   switch_controller_rspan_mode: <value in [disable, enable]>
+          #   switch_controller_source_ip: <value in [outbound, fixed]>
+          #   switch_controller_traffic_policy: <string>
+          #   tc_mode: <value in [ptm, atm]>
+          #   tcp_mss: <integer>
+          #   trunk: <value in [disable, enable]>
+          #   trust_ip_1: <string>
+          #   trust_ip_2: <string>
+          #   trust_ip_3: <string>
+          #   trust_ip6_1: <string>
+          #   trust_ip6_2: <string>
+          #   trust_ip6_3: <string>
+          #   type: <value in [physical, vlan, aggregate, ...]>
+          #   username: <string>
+          #   vci: <integer>
+          #   vectoring: <value in [disable, enable]>
+          #   vindex: <integer>
+          #   vlan_protocol: <value in [8021q, 8021ad]>
+          #   vlanforward: <value in [disable, enable]>
+          #   vlanid: <integer>
+          #   vpi: <integer>
+          #   vrf: <integer>
+          #   vrrp:
+          #     - accept_mode: <value in [disable, enable]>
+          #       adv_interval: <integer>
+          #       ignore_default_route: <value in [disable, enable]>
+          #       preempt: <value in [disable, enable]>
+          #       priority: <integer>
+          #       start_time: <integer>
+          #       status: <value in [disable, enable]>
+          #       version: <value in [2, 3]>
+          #       vrdst: <list or string>
+          #       vrdst_priority: <integer>
+          #       vrgrp: <integer>
+          #       vrid: <integer>
+          #       vrip: <string>
+          #       proxy_arp:
+          #         - id: <integer>
+          #           ip: <string>
+          #   vrrp_virtual_mac: <value in [disable, enable]>
+          #   wccp: <value in [disable, enable]>
+          #   weight: <integer>
+          #   wifi_5g_threshold: <string>
+          #   wifi_acl: <value in [deny, allow]>
+          #   wifi_ap_band: <value in [any, 5g-preferred, 5g-only]>
+          #   wifi_auth: <value in [PSK, RADIUS, radius, ...]>
+          #   wifi_auto_connect: <value in [disable, enable]>
+          #   wifi_auto_save: <value in [disable, enable]>
+          #   wifi_broadcast_ssid: <value in [disable, enable]>
+          #   wifi_encrypt: <value in [TKIP, AES]>
+          #   wifi_fragment_threshold: <integer>
+          #   wifi_key: <list or string>
+          #   wifi_keyindex: <integer>
+          #   wifi_mac_filter: <value in [disable, enable]>
+          #   wifi_passphrase: <list or string>
+          #   wifi_radius_server: <string>
+          #   wifi_rts_threshold: <integer>
+          #   wifi_security: <value in [None, WEP64, wep64, ...]>
+          #   wifi_ssid: <string>
+          #   wifi_usergroup: <string>
+          #   wins_ip: <string>
+          #   dhcp_relay_request_all_server: <value in [disable, enable]>
+          #   stp_ha_secondary: <value in [disable, enable, priority-adjust]>
+          #   switch_controller_dynamic: <string>
+          #   auth_cert: <string>
+          #   auth_portal_addr: <string>
+          #   dhcp_classless_route_addition: <value in [disable, enable]>
+          #   dhcp_relay_link_selection: <string>
+          #   dns_server_protocol:
+          #     - "cleartext"
+          #     - "dot"
+          #     - "doh"
+          #   eap_ca_cert: <string>
+          #   eap_identity: <string>
+          #   eap_method: <value in [tls, peap]>
+          #   eap_password: <list or string>
+          #   eap_supplicant: <value in [disable, enable]>
+          #   eap_user_cert: <string>
+          #   ike_saml_server: <string>
+          #   lacp_ha_secondary: <value in [disable, enable]>
+          #   pvc_atm_qos: <value in [cbr, rt-vbr, nrt-vbr, ...]>
+          #   pvc_chan: <integer>
+          #   pvc_crc: <integer>
+          #   pvc_pcr: <integer>
+          #   pvc_scr: <integer>
+          #   pvc_vlan_id: <integer>
+          #   pvc_vlan_rx_id: <integer>
+          #   pvc_vlan_rx_op: <value in [pass-through, replace, remove]>
+          #   pvc_vlan_tx_id: <integer>
+          #   pvc_vlan_tx_op: <value in [pass-through, replace, remove]>
+          #   reachable_time: <integer>
+          #   select_profile_30a_35b: <value in [30A, 35B]>
+          #   sfp_dsl: <value in [disable, enable]>
+          #   sfp_dsl_adsl_fallback: <value in [disable, enable]>
+          #   sfp_dsl_autodetect: <value in [disable, enable]>
+          #   sfp_dsl_mac: <string>
+          #   sw_algorithm: <value in [l2, l3, eh, ...]>
+          #   system_id: <string>
+          #   system_id_type: <value in [auto, user]>
+          #   vlan_id: <integer>
+          #   vlan_op_mode: <value in [tag, untag, passthrough]>
+          #   generic_receive_offload: <value in [disable, enable]>
+          #   interconnect_profile: <value in [default, profile1, profile2]>
+          #   large_receive_offload: <value in [disable, enable]>
+          #   annex: <value in [a, b, j, ...]>
+          #   aggregate_type: <value in [physical, vxlan]>
+          #   switch_controller_netflow_collect: <value in [disable, enable]>
+          #   wifi_dns_server1: <string>
+          #   wifi_dns_server2: <string>
+          #   wifi_gateway: <string>
+          #   default_purdue_level: <value in [1, 2, 3, ...]>
+          #   dhcp_broadcast_flag: <value in [disable, enable]>
+          #   dhcp_smart_relay: <value in [disable, enable]>
+          #   switch_controller_offloading: <value in [disable, enable]>
+          #   switch_controller_offloading_gw: <value in [disable, enable]>
+          #   switch_controller_offloading_ip: <string>
+          #   dhcp_relay_circuit_id: <string>
+          #   dhcp_relay_source_ip: <string>
+          #   switch_controller_offload: <value in [disable, enable]>
+          #   switch_controller_offload_gw: <value in [disable, enable]>
+          #   switch_controller_offload_ip: <string>
+          #   mirroring_direction: <value in [rx, tx, both]>
+          #   mirroring_port: <string>
+          #   port_mirroring: <value in [disable, enable]>
+          #   security_8021x_member_mode: <value in [disable, switch]>
+          #   stp_edge: <value in [disable, enable]>
+          #   dhcp_relay_allow_no_end_option: <value in [disable, enable]>
+          #   netflow_sample_rate: <integer>
+          #   netflow_sampler_id: <integer>
+          #   pppoe_egress_cos: <value in [cos0, cos1, cos2, ...]>
+          #   security_ip_auth_bypass: <value in [disable, enable]>
+          #   virtual_mac: <string>
+          #   dhcp_relay_vrf_select: <integer>
+          #   exclude_signatures:
+          #     - "iot"
+          #     - "ot"
 '''
 
 RETURN = '''

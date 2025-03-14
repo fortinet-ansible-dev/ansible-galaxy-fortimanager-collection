@@ -181,19 +181,18 @@ EXAMPLES = '''
         sensor: <your own value>
         state: present # <value in [present, absent]>
         ips_baseline_sensor_override:
-          action: <value in [pass, block, reset]>
-          exempt_ip:
-            -
-              dst_ip: <string>
-              id: <integer>
-              src_ip: <string>
-          log: <value in [disable, enable]>
-          log_packet: <value in [disable, enable]>
-          quarantine: <value in [none, attacker, both, ...]>
-          quarantine_expiry: <integer>
-          quarantine_log: <value in [disable, enable]>
-          rule_id: <integer>
-          status: <value in [disable, enable]>
+          # action: <value in [pass, block, reset]>
+          # exempt_ip:
+          #   - dst_ip: <string>
+          #     id: <integer>
+          #     src_ip: <string>
+          # log: <value in [disable, enable]>
+          # log_packet: <value in [disable, enable]>
+          # quarantine: <value in [none, attacker, both, ...]>
+          # quarantine_expiry: <integer>
+          # quarantine_log: <value in [disable, enable]>
+          # rule_id: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

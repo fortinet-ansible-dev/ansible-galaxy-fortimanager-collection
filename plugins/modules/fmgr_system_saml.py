@@ -287,44 +287,42 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_saml:
-          acs_url: <string>
-          cert: <string>
-          entity_id: <string>
-          idp_cert: <string>
-          idp_entity_id: <string>
-          idp_single_logout_url: <string>
-          idp_single_sign_on_url: <string>
-          login_auto_redirect: <value in [disable, enable]>
-          role: <value in [IDP, SP, FAB-SP]>
-          server_address: <string>
-          service_providers:
-            -
-              idp_entity_id: <string>
-              idp_single_logout_url: <string>
-              idp_single_sign_on_url: <string>
-              name: <string>
-              prefix: <string>
-              sp_cert: <string>
-              sp_entity_id: <string>
-              sp_single_logout_url: <string>
-              sp_single_sign_on_url: <string>
-              sp_adom: <string>
-              sp_profile: <string>
-          sls_url: <string>
-          status: <value in [disable, enable]>
-          default_profile: <string>
-          fabric_idp:
-            -
-              dev_id: <string>
-              idp_cert: <string>
-              idp_entity_id: <string>
-              idp_single_logout_url: <string>
-              idp_single_sign_on_url: <string>
-              idp_status: <value in [disable, enable]>
-          forticloud_sso: <value in [disable, enable]>
-          user_auto_create: <value in [disable, enable]>
-          auth_request_signed: <value in [disable, enable]>
-          want_assertions_signed: <value in [disable, enable]>
+          # acs_url: <string>
+          # cert: <string>
+          # entity_id: <string>
+          # idp_cert: <string>
+          # idp_entity_id: <string>
+          # idp_single_logout_url: <string>
+          # idp_single_sign_on_url: <string>
+          # login_auto_redirect: <value in [disable, enable]>
+          # role: <value in [IDP, SP, FAB-SP]>
+          # server_address: <string>
+          # service_providers:
+          #   - idp_entity_id: <string>
+          #     idp_single_logout_url: <string>
+          #     idp_single_sign_on_url: <string>
+          #     name: <string>
+          #     prefix: <string>
+          #     sp_cert: <string>
+          #     sp_entity_id: <string>
+          #     sp_single_logout_url: <string>
+          #     sp_single_sign_on_url: <string>
+          #     sp_adom: <string>
+          #     sp_profile: <string>
+          # sls_url: <string>
+          # status: <value in [disable, enable]>
+          # default_profile: <string>
+          # fabric_idp:
+          #   - dev_id: <string>
+          #     idp_cert: <string>
+          #     idp_entity_id: <string>
+          #     idp_single_logout_url: <string>
+          #     idp_single_sign_on_url: <string>
+          #     idp_status: <value in [disable, enable]>
+          # forticloud_sso: <value in [disable, enable]>
+          # user_auto_create: <value in [disable, enable]>
+          # auth_request_signed: <value in [disable, enable]>
+          # want_assertions_signed: <value in [disable, enable]>
 '''
 
 RETURN = '''

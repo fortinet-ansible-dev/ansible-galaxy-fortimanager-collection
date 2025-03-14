@@ -107,9 +107,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         pm_config_metafields_firewall_service_custom:
-          importance: <value in [optional, required]>
-          length: <integer>
-          name: <string>
+          # importance: <value in [optional, required]>
+          # length: <integer>
+          # name: <string>
 '''
 
 RETURN = '''

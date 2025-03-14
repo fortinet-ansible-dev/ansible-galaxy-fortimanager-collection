@@ -143,12 +143,12 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         voip_profile_sccp:
-          block_mcast: <value in [disable, enable]>
-          log_call_summary: <value in [disable, enable]>
-          log_violations: <value in [disable, enable]>
-          max_calls: <integer>
-          status: <value in [disable, enable]>
-          verify_header: <value in [disable, enable]>
+          # block_mcast: <value in [disable, enable]>
+          # log_call_summary: <value in [disable, enable]>
+          # log_violations: <value in [disable, enable]>
+          # max_calls: <integer>
+          # status: <value in [disable, enable]>
+          # verify_header: <value in [disable, enable]>
 '''
 
 RETURN = '''

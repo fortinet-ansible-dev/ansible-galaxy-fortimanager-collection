@@ -119,8 +119,8 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         antivirus_profile_outbreakprevention:
-          external_blocklist: <value in [disable, enable]>
-          ftgd_service: <value in [disable, enable]>
+          # external_blocklist: <value in [disable, enable]>
+          # ftgd_service: <value in [disable, enable]>
 '''
 
 RETURN = '''

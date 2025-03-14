@@ -138,12 +138,12 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wanopt_authgroup:
-          auth_method: <value in [cert, psk]>
-          cert: <string>
-          name: <string>
-          peer: <string>
-          peer_accept: <value in [any, defined, one]>
-          psk: <list or string>
+          name: "your value" # Required variable, string
+          # auth_method: <value in [cert, psk]>
+          # cert: <string>
+          # peer: <string>
+          # peer_accept: <value in [any, defined, one]>
+          # psk: <list or string>
 '''
 
 RETURN = '''

@@ -127,8 +127,8 @@ EXAMPLES = '''
         vrrp: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_interface_vrrp_proxyarp:
-          id: <integer>
-          ip: <string>
+          id: 0 # Required variable, integer
+          # ip: <string>
 '''
 
 RETURN = '''

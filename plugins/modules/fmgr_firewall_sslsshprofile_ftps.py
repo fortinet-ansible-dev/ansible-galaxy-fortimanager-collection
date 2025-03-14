@@ -242,24 +242,24 @@ EXAMPLES = '''
         adom: <your own value>
         ssl_ssh_profile: <your own value>
         firewall_sslsshprofile_ftps:
-          allow_invalid_server_cert: <value in [disable, enable]>
-          client_cert_request: <value in [bypass, inspect, block]>
-          ports: <list or integer>
-          status: <value in [disable, deep-inspection]>
-          unsupported_ssl: <value in [bypass, inspect, block]>
-          untrusted_cert: <value in [allow, block, ignore]>
-          invalid_server_cert: <value in [allow, block]>
-          sni_server_cert_check: <value in [disable, enable, strict]>
-          untrusted_server_cert: <value in [allow, block, ignore]>
-          cert_validation_failure: <value in [allow, block, ignore]>
-          cert_validation_timeout: <value in [allow, block, ignore]>
-          client_certificate: <value in [bypass, inspect, block]>
-          expired_server_cert: <value in [allow, block, ignore]>
-          revoked_server_cert: <value in [allow, block, ignore]>
-          unsupported_ssl_cipher: <value in [allow, block]>
-          unsupported_ssl_negotiation: <value in [allow, block]>
-          min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
-          unsupported_ssl_version: <value in [block, allow, inspect]>
+          # allow_invalid_server_cert: <value in [disable, enable]>
+          # client_cert_request: <value in [bypass, inspect, block]>
+          # ports: <list or integer>
+          # status: <value in [disable, deep-inspection]>
+          # unsupported_ssl: <value in [bypass, inspect, block]>
+          # untrusted_cert: <value in [allow, block, ignore]>
+          # invalid_server_cert: <value in [allow, block]>
+          # sni_server_cert_check: <value in [disable, enable, strict]>
+          # untrusted_server_cert: <value in [allow, block, ignore]>
+          # cert_validation_failure: <value in [allow, block, ignore]>
+          # cert_validation_timeout: <value in [allow, block, ignore]>
+          # client_certificate: <value in [bypass, inspect, block]>
+          # expired_server_cert: <value in [allow, block, ignore]>
+          # revoked_server_cert: <value in [allow, block, ignore]>
+          # unsupported_ssl_cipher: <value in [allow, block]>
+          # unsupported_ssl_negotiation: <value in [allow, block]>
+          # min_allowed_ssl_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
+          # unsupported_ssl_version: <value in [block, allow, inspect]>
 '''
 
 RETURN = '''

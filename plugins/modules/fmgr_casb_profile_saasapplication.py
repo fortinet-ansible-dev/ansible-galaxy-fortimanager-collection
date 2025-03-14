@@ -279,49 +279,42 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         casb_profile_saasapplication:
-          access_rule:
-            -
-              action: <value in [block, bypass, monitor]>
-              bypass:
-                - "av"
-                - "dlp"
-                - "web-filter"
-                - "file-filter"
-                - "video-filter"
-              name: <string>
-              attribute_filter:
-                -
-                  action: <value in [block, monitor, bypass]>
-                  attribute_match: <list or string>
-                  id: <integer>
-          custom_control:
-            -
-              name: <string>
-              option:
-                -
-                  name: <string>
-                  user_input: <list or string>
-              attribute_filter:
-                -
-                  action: <value in [block, monitor, bypass]>
-                  attribute_match: <list or string>
-                  id: <integer>
-          domain_control: <value in [disable, enable]>
-          domain_control_domains: <list or string>
-          log: <value in [disable, enable]>
-          name: <string>
-          safe_search: <value in [disable, enable]>
-          safe_search_control: <list or string>
-          tenant_control: <value in [disable, enable]>
-          tenant_control_tenants: <list or string>
-          status: <value in [disable, enable]>
-          advanced_tenant_control:
-            -
-              attribute:
-                -
-                  input: <list or string>
-                  name: <string>
-              name: <list or string>
+          name: "your value" # Required variable, string
+          # access_rule:
+          #   - action: <value in [block, bypass, monitor]>
+          #     bypass:
+          #       - "av"
+          #       - "dlp"
+          #       - "web-filter"
+          #       - "file-filter"
+          #       - "video-filter"
+          #     name: <string>
+          #     attribute_filter:
+          #       - action: <value in [block, monitor, bypass]>
+          #         attribute_match: <list or string>
+          #         id: <integer>
+          # custom_control:
+          #   - name: <string>
+          #     option:
+          #       - name: <string>
+          #         user_input: <list or string>
+          #     attribute_filter:
+          #       - action: <value in [block, monitor, bypass]>
+          #         attribute_match: <list or string>
+          #         id: <integer>
+          # domain_control: <value in [disable, enable]>
+          # domain_control_domains: <list or string>
+          # log: <value in [disable, enable]>
+          # safe_search: <value in [disable, enable]>
+          # safe_search_control: <list or string>
+          # tenant_control: <value in [disable, enable]>
+          # tenant_control_tenants: <list or string>
+          # status: <value in [disable, enable]>
+          # advanced_tenant_control:
+          #   - attribute:
+          #       - input: <list or string>
+          #         name: <string>
+          #     name: <list or string>
 '''
 
 RETURN = '''

@@ -118,8 +118,8 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         emailfilter_profile_gmail:
-          log: <value in [disable, enable]>
-          log_all: <value in [disable, enable]>
+          # log: <value in [disable, enable]>
+          # log_all: <value in [disable, enable]>
 '''
 
 RETURN = '''

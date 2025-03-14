@@ -135,13 +135,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_flexvm:
-          config: <string>
-          folder: <string>
-          name: <string>
-          password: <string>
-          program: <string>
-          status: <value in [disable, enable]>
-          user: <string>
+          name: "your value" # Required variable, string
+          # config: <string>
+          # folder: <string>
+          # password: <string>
+          # program: <string>
+          # status: <value in [disable, enable]>
+          # user: <string>
 '''
 
 RETURN = '''

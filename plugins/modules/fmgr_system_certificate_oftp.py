@@ -131,13 +131,13 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_certificate_oftp:
-          certificate: <list or string>
-          comment: <string>
-          custom: <value in [disable, enable]>
-          password: <list or string>
-          private_key: <list or string>
-          local: <string>
-          mode: <value in [default, custom, local]>
+          # certificate: <list or string>
+          # comment: <string>
+          # custom: <value in [disable, enable]>
+          # password: <list or string>
+          # private_key: <list or string>
+          # local: <string>
+          # mode: <value in [default, custom, local]>
 '''
 
 RETURN = '''

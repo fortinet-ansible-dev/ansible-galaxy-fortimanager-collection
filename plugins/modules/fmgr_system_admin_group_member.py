@@ -114,7 +114,7 @@ EXAMPLES = '''
         group: <your own value>
         state: present # <value in [present, absent]>
         system_admin_group_member:
-          name: <string>
+          name: "your value" # Required variable, string
 '''
 
 RETURN = '''

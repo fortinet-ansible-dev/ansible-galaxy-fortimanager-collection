@@ -115,7 +115,7 @@ EXAMPLES = '''
         user: <your own value>
         state: present # <value in [present, absent]>
         system_admin_user_policypackage:
-          policy_package_name: <string>
+          policy_package_name: "your value" # Required variable, string
 '''
 
 RETURN = '''

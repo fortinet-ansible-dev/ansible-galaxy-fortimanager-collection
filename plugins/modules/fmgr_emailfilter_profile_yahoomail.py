@@ -111,7 +111,7 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         emailfilter_profile_yahoomail:
-          log: <value in [disable, enable]>
+          # log: <value in [disable, enable]>
 '''
 
 RETURN = '''

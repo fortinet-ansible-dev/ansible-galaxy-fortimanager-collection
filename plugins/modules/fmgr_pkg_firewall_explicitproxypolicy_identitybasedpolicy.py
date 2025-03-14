@@ -235,30 +235,30 @@ EXAMPLES = '''
         explicit_proxy_policy: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_explicitproxypolicy_identitybasedpolicy:
-          application_list: <string>
-          av_profile: <string>
-          casi_profile: <string>
-          disclaimer: <value in [disable, domain, policy, ...]>
-          dlp_sensor: <string>
-          groups: <string>
-          icap_profile: <string>
-          id: <integer>
-          ips_sensor: <string>
-          logtraffic: <value in [disable, all, utm]>
-          logtraffic_start: <value in [disable, enable]>
-          mms_profile: <string>
-          profile_group: <string>
-          profile_protocol_options: <string>
-          profile_type: <value in [single, group]>
-          replacemsg_override_group: <string>
-          scan_botnet_connections: <value in [disable, block, monitor]>
-          schedule: <string>
-          spamfilter_profile: <string>
-          ssl_ssh_profile: <string>
-          users: <string>
-          utm_status: <value in [disable, enable]>
-          waf_profile: <string>
-          webfilter_profile: <string>
+          id: 0 # Required variable, integer
+          # application_list: <string>
+          # av_profile: <string>
+          # casi_profile: <string>
+          # disclaimer: <value in [disable, domain, policy, ...]>
+          # dlp_sensor: <string>
+          # groups: <string>
+          # icap_profile: <string>
+          # ips_sensor: <string>
+          # logtraffic: <value in [disable, all, utm]>
+          # logtraffic_start: <value in [disable, enable]>
+          # mms_profile: <string>
+          # profile_group: <string>
+          # profile_protocol_options: <string>
+          # profile_type: <value in [single, group]>
+          # replacemsg_override_group: <string>
+          # scan_botnet_connections: <value in [disable, block, monitor]>
+          # schedule: <string>
+          # spamfilter_profile: <string>
+          # ssl_ssh_profile: <string>
+          # users: <string>
+          # utm_status: <value in [disable, enable]>
+          # waf_profile: <string>
+          # webfilter_profile: <string>
 '''
 
 RETURN = '''

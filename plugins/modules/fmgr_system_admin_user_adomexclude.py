@@ -115,7 +115,7 @@ EXAMPLES = '''
         user: <your own value>
         state: present # <value in [present, absent]>
         system_admin_user_adomexclude:
-          adom_name: <string>
+          adom_name: "your value" # Required variable, string
 '''
 
 RETURN = '''

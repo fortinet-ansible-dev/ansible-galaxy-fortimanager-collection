@@ -238,34 +238,34 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_user_nacpolicy:
-          category: <value in [device, firewall-user, ems-tag, ...]>
-          description: <string>
-          ems_tag: <string>
-          family: <string>
-          host: <string>
-          hw_vendor: <string>
-          hw_version: <string>
-          mac: <string>
-          name: <string>
-          os: <string>
-          src: <string>
-          ssid_policy: <string>
-          status: <value in [disable, enable]>
-          sw_version: <string>
-          type: <string>
-          user: <string>
-          user_group: <string>
-          severity: <list or integer>
-          firewall_address: <list or string>
-          fortivoice_tag: <list or string>
-          match_period: <integer>
-          match_type: <value in [dynamic, override]>
-          switch_fortilink: <list or string>
-          switch_group: <list or string>
-          switch_mac_policy: <list or string>
-          switch_scope: <list or string>
-          switch_port_policy: <list or string>
-          switch_auto_auth: <value in [disable, enable, global]>
+          name: "your value" # Required variable, string
+          # category: <value in [device, firewall-user, ems-tag, ...]>
+          # description: <string>
+          # ems_tag: <string>
+          # family: <string>
+          # host: <string>
+          # hw_vendor: <string>
+          # hw_version: <string>
+          # mac: <string>
+          # os: <string>
+          # src: <string>
+          # ssid_policy: <string>
+          # status: <value in [disable, enable]>
+          # sw_version: <string>
+          # type: <string>
+          # user: <string>
+          # user_group: <string>
+          # severity: <list or integer>
+          # firewall_address: <list or string>
+          # fortivoice_tag: <list or string>
+          # match_period: <integer>
+          # match_type: <value in [dynamic, override]>
+          # switch_fortilink: <list or string>
+          # switch_group: <list or string>
+          # switch_mac_policy: <list or string>
+          # switch_scope: <list or string>
+          # switch_port_policy: <list or string>
+          # switch_auto_auth: <value in [disable, enable, global]>
 '''
 
 RETURN = '''

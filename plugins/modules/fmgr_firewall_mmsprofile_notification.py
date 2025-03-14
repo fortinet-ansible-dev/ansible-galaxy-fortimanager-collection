@@ -349,56 +349,56 @@ EXAMPLES = '''
         adom: <your own value>
         mms_profile: <your own value>
         firewall_mmsprofile_notification:
-          alert_int: <integer>
-          alert_int_mode: <value in [hours, minutes]>
-          alert_src_msisdn: <string>
-          alert_status: <value in [disable, enable]>
-          bword_int: <integer>
-          bword_int_mode: <value in [hours, minutes]>
-          bword_status: <value in [disable, enable]>
-          carrier_endpoint_bwl_int: <integer>
-          carrier_endpoint_bwl_int_mode: <value in [hours, minutes]>
-          carrier_endpoint_bwl_status: <value in [disable, enable]>
-          days_allowed:
-            - "sunday"
-            - "monday"
-            - "tuesday"
-            - "wednesday"
-            - "thursday"
-            - "friday"
-            - "saturday"
-          detect_server: <value in [disable, enable]>
-          dupe_int: <integer>
-          dupe_int_mode: <value in [hours, minutes]>
-          dupe_status: <value in [disable, enable]>
-          file_block_int: <integer>
-          file_block_int_mode: <value in [hours, minutes]>
-          file_block_status: <value in [disable, enable]>
-          flood_int: <integer>
-          flood_int_mode: <value in [hours, minutes]>
-          flood_status: <value in [disable, enable]>
-          from_in_header: <value in [disable, enable]>
-          mms_checksum_int: <integer>
-          mms_checksum_int_mode: <value in [hours, minutes]>
-          mms_checksum_status: <value in [disable, enable]>
-          mmsc_hostname: <string>
-          mmsc_password: <list or string>
-          mmsc_port: <integer>
-          mmsc_url: <string>
-          mmsc_username: <string>
-          msg_protocol: <value in [mm1, mm3, mm4, ...]>
-          msg_type: <value in [submit-req, deliver-req]>
-          protocol: <string>
-          rate_limit: <integer>
-          tod_window_duration: <string>
-          tod_window_end: <string>
-          tod_window_start: <string>
-          user_domain: <string>
-          vas_id: <string>
-          vasp_id: <string>
-          virus_int: <integer>
-          virus_int_mode: <value in [hours, minutes]>
-          virus_status: <value in [disable, enable]>
+          # alert_int: <integer>
+          # alert_int_mode: <value in [hours, minutes]>
+          # alert_src_msisdn: <string>
+          # alert_status: <value in [disable, enable]>
+          # bword_int: <integer>
+          # bword_int_mode: <value in [hours, minutes]>
+          # bword_status: <value in [disable, enable]>
+          # carrier_endpoint_bwl_int: <integer>
+          # carrier_endpoint_bwl_int_mode: <value in [hours, minutes]>
+          # carrier_endpoint_bwl_status: <value in [disable, enable]>
+          # days_allowed:
+          #   - "sunday"
+          #   - "monday"
+          #   - "tuesday"
+          #   - "wednesday"
+          #   - "thursday"
+          #   - "friday"
+          #   - "saturday"
+          # detect_server: <value in [disable, enable]>
+          # dupe_int: <integer>
+          # dupe_int_mode: <value in [hours, minutes]>
+          # dupe_status: <value in [disable, enable]>
+          # file_block_int: <integer>
+          # file_block_int_mode: <value in [hours, minutes]>
+          # file_block_status: <value in [disable, enable]>
+          # flood_int: <integer>
+          # flood_int_mode: <value in [hours, minutes]>
+          # flood_status: <value in [disable, enable]>
+          # from_in_header: <value in [disable, enable]>
+          # mms_checksum_int: <integer>
+          # mms_checksum_int_mode: <value in [hours, minutes]>
+          # mms_checksum_status: <value in [disable, enable]>
+          # mmsc_hostname: <string>
+          # mmsc_password: <list or string>
+          # mmsc_port: <integer>
+          # mmsc_url: <string>
+          # mmsc_username: <string>
+          # msg_protocol: <value in [mm1, mm3, mm4, ...]>
+          # msg_type: <value in [submit-req, deliver-req]>
+          # protocol: <string>
+          # rate_limit: <integer>
+          # tod_window_duration: <string>
+          # tod_window_end: <string>
+          # tod_window_start: <string>
+          # user_domain: <string>
+          # vas_id: <string>
+          # vasp_id: <string>
+          # virus_int: <integer>
+          # virus_int_mode: <value in [hours, minutes]>
+          # virus_status: <value in [disable, enable]>
 '''
 
 RETURN = '''

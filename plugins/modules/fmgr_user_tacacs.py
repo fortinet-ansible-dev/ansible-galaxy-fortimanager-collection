@@ -258,41 +258,39 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_tacacs:
-          authen_type: <value in [auto, ascii, pap, ...]>
-          authorization: <value in [disable, enable]>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              authen_type: <value in [auto, ascii, pap, ...]>
-              authorization: <value in [disable, enable]>
-              key: <list or string>
-              port: <integer>
-              secondary_key: <list or string>
-              secondary_server: <string>
-              server: <string>
-              source_ip: <string>
-              tertiary_key: <list or string>
-              tertiary_server: <string>
-              interface: <string>
-              interface_select_method: <value in [auto, sdwan, specify]>
-              status_ttl: <integer>
-              vrf_select: <integer>
-          key: <list or string>
-          name: <string>
-          port: <integer>
-          secondary_key: <list or string>
-          secondary_server: <string>
-          server: <string>
-          source_ip: <string>
-          tertiary_key: <list or string>
-          tertiary_server: <string>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          status_ttl: <integer>
-          vrf_select: <integer>
+          name: "your value" # Required variable, string
+          # authen_type: <value in [auto, ascii, pap, ...]>
+          # authorization: <value in [disable, enable]>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     authen_type: <value in [auto, ascii, pap, ...]>
+          #     authorization: <value in [disable, enable]>
+          #     key: <list or string>
+          #     port: <integer>
+          #     secondary_key: <list or string>
+          #     secondary_server: <string>
+          #     server: <string>
+          #     source_ip: <string>
+          #     tertiary_key: <list or string>
+          #     tertiary_server: <string>
+          #     interface: <string>
+          #     interface_select_method: <value in [auto, sdwan, specify]>
+          #     status_ttl: <integer>
+          #     vrf_select: <integer>
+          # key: <list or string>
+          # port: <integer>
+          # secondary_key: <list or string>
+          # secondary_server: <string>
+          # server: <string>
+          # source_ip: <string>
+          # tertiary_key: <list or string>
+          # tertiary_server: <string>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # status_ttl: <integer>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

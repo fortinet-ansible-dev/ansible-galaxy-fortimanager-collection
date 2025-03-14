@@ -179,13 +179,13 @@ EXAMPLES = '''
         managed_switch: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_remotelog:
-          csv: <value in [disable, enable]>
-          facility: <value in [kernel, user, mail, ...]>
-          name: <string>
-          port: <integer>
-          server: <string>
-          severity: <value in [emergency, alert, critical, ...]>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # csv: <value in [disable, enable]>
+          # facility: <value in [kernel, user, mail, ...]>
+          # port: <integer>
+          # server: <string>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -152,10 +152,10 @@ EXAMPLES = '''
         devprof: <your own value>
         state: present # <value in [present, absent]>
         devprof_log_syslogd_filter_freestyle:
-          category: <value in [traffic, event, virus, ...]>
-          filter: <string>
-          filter_type: <value in [include, exclude]>
-          id: <integer>
+          id: 0 # Required variable, integer
+          # category: <value in [traffic, event, virus, ...]>
+          # filter: <string>
+          # filter_type: <value in [include, exclude]>
 '''
 
 RETURN = '''

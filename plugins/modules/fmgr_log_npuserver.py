@@ -240,34 +240,32 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         log_npuserver:
-          log_processing: <value in [may-drop, no-drop]>
-          log_processor: <value in [hardware, host]>
-          netflow_ver: <value in [v9, v10]>
-          server_group:
-            -
-              group_name: <string>
-              log_format: <value in [syslog, netflow]>
-              log_mode: <value in [per-session, per-nat-mapping, per-session-ending]>
-              log_tx_mode: <value in [multicast, roundrobin]>
-              server_number: <integer>
-              server_start_id: <integer>
-              sw_log_flags: <integer or string> <value in [tcp-udp-only, enable-all-log, disable-all-log]>
-              log_gen_event: <value in [disable, enable]>
-              log_user_info: <value in [disable, enable]>
-          server_info:
-            -
-              dest_port: <integer>
-              id: <integer>
-              ip_family: <value in [v4, v6]>
-              ipv4_server: <string>
-              ipv6_server: <string>
-              source_port: <integer>
-              template_tx_timeout: <integer>
-              vdom: <string>
-              log_transport: <value in [udp, tcp]>
-          fmgr_syslog_facility: <integer>
-          syslog_severity: <integer>
-          enforce_seq_order: <value in [disable, enable]>
+          # log_processing: <value in [may-drop, no-drop]>
+          # log_processor: <value in [hardware, host]>
+          # netflow_ver: <value in [v9, v10]>
+          # server_group:
+          #   - group_name: <string>
+          #     log_format: <value in [syslog, netflow]>
+          #     log_mode: <value in [per-session, per-nat-mapping, per-session-ending]>
+          #     log_tx_mode: <value in [multicast, roundrobin]>
+          #     server_number: <integer>
+          #     server_start_id: <integer>
+          #     sw_log_flags: <value in [tcp-udp-only, enable-all-log, disable-all-log]>
+          #     log_gen_event: <value in [disable, enable]>
+          #     log_user_info: <value in [disable, enable]>
+          # server_info:
+          #   - dest_port: <integer>
+          #     id: <integer>
+          #     ip_family: <value in [v4, v6]>
+          #     ipv4_server: <string>
+          #     ipv6_server: <string>
+          #     source_port: <integer>
+          #     template_tx_timeout: <integer>
+          #     vdom: <string>
+          #     log_transport: <value in [udp, tcp]>
+          # fmgr_syslog_facility: <integer>
+          # syslog_severity: <integer>
+          # enforce_seq_order: <value in [disable, enable]>
 '''
 
 RETURN = '''

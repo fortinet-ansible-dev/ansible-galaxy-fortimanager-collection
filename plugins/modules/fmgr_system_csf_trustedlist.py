@@ -151,14 +151,14 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_csf_trustedlist:
-          action: <value in [accept, deny]>
-          authorization_type: <value in [serial, certificate]>
-          certificate: <string>
-          downstream_authorization: <value in [disable, enable]>
-          ha_members: <string>
-          index: <integer>
-          name: <string>
-          serial: <string>
+          name: "your value" # Required variable, string
+          # action: <value in [accept, deny]>
+          # authorization_type: <value in [serial, certificate]>
+          # certificate: <string>
+          # downstream_authorization: <value in [disable, enable]>
+          # ha_members: <string>
+          # index: <integer>
+          # serial: <string>
 '''
 
 RETURN = '''

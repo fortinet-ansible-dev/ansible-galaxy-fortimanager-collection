@@ -160,14 +160,14 @@ EXAMPLES = '''
         dynamic_mapping: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_dynamicmapping_interface_ipv6_ip6delegatedprefixlist:
-          autonomous_flag: <value in [disable, enable]>
-          onlink_flag: <value in [disable, enable]>
-          prefix_id: <integer>
-          rdnss: <list or string>
-          rdnss_service: <value in [delegated, default, specify]>
-          subnet: <string>
-          upstream_interface: <string>
-          delegated_prefix_iaid: <integer>
+          # autonomous_flag: <value in [disable, enable]>
+          # onlink_flag: <value in [disable, enable]>
+          # prefix_id: <integer>
+          # rdnss: <list or string>
+          # rdnss_service: <value in [delegated, default, specify]>
+          # subnet: <string>
+          # upstream_interface: <string>
+          # delegated_prefix_iaid: <integer>
 '''
 
 RETURN = '''

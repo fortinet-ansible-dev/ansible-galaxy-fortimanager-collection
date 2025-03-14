@@ -149,15 +149,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_realm:
-          login_page: <string>
-          max_concurrent_user: <integer>
-          url_path: <string>
-          virtual_host: <string>
-          nas_ip: <string>
-          radius_server: <string>
-          radius_port: <integer>
-          virtual_host_only: <value in [disable, enable]>
-          virtual_host_server_cert: <string>
+          # login_page: <string>
+          # max_concurrent_user: <integer>
+          # url_path: <string>
+          # virtual_host: <string>
+          # nas_ip: <string>
+          # radius_server: <string>
+          # radius_port: <integer>
+          # virtual_host_only: <value in [disable, enable]>
+          # virtual_host_server_cert: <string>
 '''
 
 RETURN = '''

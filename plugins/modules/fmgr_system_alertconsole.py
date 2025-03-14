@@ -137,16 +137,16 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_alertconsole:
-          period: <value in [1, 2, 3, ...]>
-          severity_level:
-            - "debug"
-            - "information"
-            - "notify"
-            - "warning"
-            - "error"
-            - "critical"
-            - "alert"
-            - "emergency"
+          # period: <value in [1, 2, 3, ...]>
+          # severity_level:
+          #   - "debug"
+          #   - "information"
+          #   - "notify"
+          #   - "warning"
+          #   - "error"
+          #   - "critical"
+          #   - "alert"
+          #   - "emergency"
 '''
 
 RETURN = '''

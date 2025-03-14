@@ -519,71 +519,69 @@ EXAMPLES = '''
         access_proxy6: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxy6_apigateway6:
-          application: <list or string>
-          http_cookie_age: <integer>
-          http_cookie_domain: <string>
-          http_cookie_domain_from_host: <value in [disable, enable]>
-          http_cookie_generation: <integer>
-          http_cookie_path: <string>
-          http_cookie_share: <value in [disable, same-ip]>
-          https_cookie_secure: <value in [disable, enable]>
-          id: <integer>
-          ldb_method: <value in [static, round-robin, weighted, ...]>
-          persistence: <value in [none, http-cookie]>
-          realservers:
-            -
-              addr_type: <value in [fqdn, ip]>
-              address: <string>
-              domain: <string>
-              health_check: <value in [disable, enable]>
-              health_check_proto: <value in [ping, http, tcp-connect]>
-              holddown_interval: <value in [disable, enable]>
-              http_host: <string>
-              id: <integer>
-              ip: <string>
-              mappedport: <list or string>
-              port: <integer>
-              ssh_client_cert: <string>
-              ssh_host_key: <list or string>
-              ssh_host_key_validation: <value in [disable, enable]>
-              status: <value in [active, standby, disable]>
-              type: <value in [tcp-forwarding, ssh]>
-              weight: <integer>
-              translate_host: <value in [disable, enable]>
-              external_auth: <value in [disable, enable]>
-              tunnel_encryption: <value in [disable, enable]>
-          saml_redirect: <value in [disable, enable]>
-          saml_server: <string>
-          service: <value in [http, https, tcp-forwarding, ...]>
-          ssl_algorithm: <value in [high, medium, low]>
-          ssl_cipher_suites:
-            -
-              cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
-              priority: <integer>
-              versions:
-                - "tls-1.0"
-                - "tls-1.1"
-                - "tls-1.2"
-                - "tls-1.3"
-          ssl_dh_bits: <value in [768, 1024, 1536, ...]>
-          ssl_max_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
-          ssl_min_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
-          ssl_vpn_web_portal: <string>
-          url_map: <string>
-          url_map_type: <value in [sub-string, wildcard, regex]>
-          virtual_host: <string>
-          ssl_renegotiation: <value in [disable, enable]>
-          h2_support: <value in [disable, enable]>
-          h3_support: <value in [disable, enable]>
-          quic:
-            ack_delay_exponent: <integer>
-            active_connection_id_limit: <integer>
-            active_migration: <value in [disable, enable]>
-            grease_quic_bit: <value in [disable, enable]>
-            max_ack_delay: <integer>
-            max_datagram_frame_size: <integer>
-            max_idle_timeout: <integer>
-            max_udp_payload_size: <integer>
+          id: 0 # Required variable, integer
+          # application: <list or string>
+          # http_cookie_age: <integer>
+          # http_cookie_domain: <string>
+          # http_cookie_domain_from_host: <value in [disable, enable]>
+          # http_cookie_generation: <integer>
+          # http_cookie_path: <string>
+          # http_cookie_share: <value in [disable, same-ip]>
+          # https_cookie_secure: <value in [disable, enable]>
+          # ldb_method: <value in [static, round-robin, weighted, ...]>
+          # persistence: <value in [none, http-cookie]>
+          # realservers:
+          #   - addr_type: <value in [fqdn, ip]>
+          #     address: <string>
+          #     domain: <string>
+          #     health_check: <value in [disable, enable]>
+          #     health_check_proto: <value in [ping, http, tcp-connect]>
+          #     holddown_interval: <value in [disable, enable]>
+          #     http_host: <string>
+          #     id: <integer>
+          #     ip: <string>
+          #     mappedport: <list or string>
+          #     port: <integer>
+          #     ssh_client_cert: <string>
+          #     ssh_host_key: <list or string>
+          #     ssh_host_key_validation: <value in [disable, enable]>
+          #     status: <value in [active, standby, disable]>
+          #     type: <value in [tcp-forwarding, ssh]>
+          #     weight: <integer>
+          #     translate_host: <value in [disable, enable]>
+          #     external_auth: <value in [disable, enable]>
+          #     tunnel_encryption: <value in [disable, enable]>
+          # saml_redirect: <value in [disable, enable]>
+          # saml_server: <string>
+          # service: <value in [http, https, tcp-forwarding, ...]>
+          # ssl_algorithm: <value in [high, medium, low]>
+          # ssl_cipher_suites:
+          #   - cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
+          #     priority: <integer>
+          #     versions:
+          #       - "tls-1.0"
+          #       - "tls-1.1"
+          #       - "tls-1.2"
+          #       - "tls-1.3"
+          # ssl_dh_bits: <value in [768, 1024, 1536, ...]>
+          # ssl_max_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
+          # ssl_min_version: <value in [tls-1.0, tls-1.1, tls-1.2, ...]>
+          # ssl_vpn_web_portal: <string>
+          # url_map: <string>
+          # url_map_type: <value in [sub-string, wildcard, regex]>
+          # virtual_host: <string>
+          # ssl_renegotiation: <value in [disable, enable]>
+          # h2_support: <value in [disable, enable]>
+          # h3_support: <value in [disable, enable]>
+          # quic:
+          #   ack_delay_exponent: <integer>
+          #   active_connection_id_limit: <integer>
+          #   active_migration: <value in [disable, enable]>
+          #   grease_quic_bit: <value in [disable, enable]>
+          #   max_ack_delay: <integer>
+          #   max_datagram_frame_size: <integer>
+          #   max_idle_timeout: <integer>
+          #   max_udp_payload_size: <integer>
 '''
 
 RETURN = '''

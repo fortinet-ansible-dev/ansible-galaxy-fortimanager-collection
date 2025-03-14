@@ -364,59 +364,54 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         casb_useractivity:
-          application: <string>
-          casb_name: <string>
-          category: <value in [activity-control, tenant-control, domain-control, ...]>
-          control_options:
-            -
-              name: <string>
-              operations:
-                -
-                  action: <value in [append, prepend, replace, ...]>
-                  case_sensitive: <value in [disable, enable]>
-                  direction: <value in [request, response]>
-                  header_name: <string>
-                  name: <string>
-                  search_key: <string>
-                  search_pattern: <value in [simple, substr, regexp]>
-                  target: <value in [header, path, body]>
-                  value_from_input: <value in [disable, enable]>
-                  values: <list or string>
-              status: <value in [disable, enable]>
-          description: <string>
-          match:
-            -
-              id: <integer>
-              rules:
-                -
-                  case_sensitive: <value in [disable, enable]>
-                  domains: <list or string>
-                  header_name: <string>
-                  id: <integer>
-                  match_pattern: <value in [simple, substr, regexp]>
-                  match_value: <string>
-                  methods: <list or string>
-                  negate: <value in [disable, enable]>
-                  type: <value in [domains, host, path, ...]>
-                  body_type: <value in [json]>
-                  jq: <string>
-              strategy: <value in [or, and]>
-              tenant_extraction:
-                filters:
-                  -
-                    body_type: <value in [json]>
-                    direction: <value in [request, response]>
-                    header_name: <string>
-                    id: <integer>
-                    place: <value in [path, header, body]>
-                jq: <string>
-                status: <value in [disable, enable]>
-                type: <value in [json-query]>
-          match_strategy: <value in [or, and]>
-          name: <string>
-          type: <value in [built-in, customized]>
-          uuid: <string>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # application: <string>
+          # casb_name: <string>
+          # category: <value in [activity-control, tenant-control, domain-control, ...]>
+          # control_options:
+          #   - name: <string>
+          #     operations:
+          #       - action: <value in [append, prepend, replace, ...]>
+          #         case_sensitive: <value in [disable, enable]>
+          #         direction: <value in [request, response]>
+          #         header_name: <string>
+          #         name: <string>
+          #         search_key: <string>
+          #         search_pattern: <value in [simple, substr, regexp]>
+          #         target: <value in [header, path, body]>
+          #         value_from_input: <value in [disable, enable]>
+          #         values: <list or string>
+          #     status: <value in [disable, enable]>
+          # description: <string>
+          # match:
+          #   - id: <integer>
+          #     rules:
+          #       - case_sensitive: <value in [disable, enable]>
+          #         domains: <list or string>
+          #         header_name: <string>
+          #         id: <integer>
+          #         match_pattern: <value in [simple, substr, regexp]>
+          #         match_value: <string>
+          #         methods: <list or string>
+          #         negate: <value in [disable, enable]>
+          #         type: <value in [domains, host, path, ...]>
+          #         body_type: <value in [json]>
+          #         jq: <string>
+          #     strategy: <value in [or, and]>
+          #     tenant_extraction:
+          #       filters:
+          #         - body_type: <value in [json]>
+          #           direction: <value in [request, response]>
+          #           header_name: <string>
+          #           id: <integer>
+          #           place: <value in [path, header, body]>
+          #       jq: <string>
+          #       status: <value in [disable, enable]>
+          #       type: <value in [json-query]>
+          # match_strategy: <value in [or, and]>
+          # type: <value in [built-in, customized]>
+          # uuid: <string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

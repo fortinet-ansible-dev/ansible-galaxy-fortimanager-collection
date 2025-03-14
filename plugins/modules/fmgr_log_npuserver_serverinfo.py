@@ -151,15 +151,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         log_npuserver_serverinfo:
-          dest_port: <integer>
-          id: <integer>
-          ip_family: <value in [v4, v6]>
-          ipv4_server: <string>
-          ipv6_server: <string>
-          source_port: <integer>
-          template_tx_timeout: <integer>
-          vdom: <string>
-          log_transport: <value in [udp, tcp]>
+          id: 0 # Required variable, integer
+          # dest_port: <integer>
+          # ip_family: <value in [v4, v6]>
+          # ipv4_server: <string>
+          # ipv6_server: <string>
+          # source_port: <integer>
+          # template_tx_timeout: <integer>
+          # vdom: <string>
+          # log_transport: <value in [udp, tcp]>
 '''
 
 RETURN = '''

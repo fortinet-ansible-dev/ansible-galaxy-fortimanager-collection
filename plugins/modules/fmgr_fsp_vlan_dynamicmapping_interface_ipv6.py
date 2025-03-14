@@ -485,96 +485,92 @@ EXAMPLES = '''
         vlan: <your own value>
         dynamic_mapping: <your own value>
         fsp_vlan_dynamicmapping_interface_ipv6:
-          autoconf: <value in [disable, enable]>
-          dhcp6_client_options:
-            - "rapid"
-            - "iapd"
-            - "iana"
-            - "dns"
-            - "dnsname"
-          dhcp6_information_request: <value in [disable, enable]>
-          dhcp6_prefix_delegation: <value in [disable, enable]>
-          dhcp6_prefix_hint: <string>
-          dhcp6_prefix_hint_plt: <integer>
-          dhcp6_prefix_hint_vlt: <integer>
-          dhcp6_relay_ip: <string>
-          dhcp6_relay_service: <value in [disable, enable]>
-          dhcp6_relay_type: <value in [regular]>
-          ip6_address: <string>
-          ip6_allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-            - "fgfm"
-            - "capwap"
-            - "fabric"
-          ip6_default_life: <integer>
-          ip6_delegated_prefix_list:
-            -
-              autonomous_flag: <value in [disable, enable]>
-              onlink_flag: <value in [disable, enable]>
-              prefix_id: <integer>
-              rdnss: <list or string>
-              rdnss_service: <value in [delegated, default, specify]>
-              subnet: <string>
-              upstream_interface: <string>
-              delegated_prefix_iaid: <integer>
-          ip6_dns_server_override: <value in [disable, enable]>
-          ip6_extra_addr:
-            -
-              prefix: <string>
-          ip6_hop_limit: <integer>
-          ip6_link_mtu: <integer>
-          ip6_manage_flag: <value in [disable, enable]>
-          ip6_max_interval: <integer>
-          ip6_min_interval: <integer>
-          ip6_mode: <value in [static, dhcp, pppoe, ...]>
-          ip6_other_flag: <value in [disable, enable]>
-          ip6_prefix_list:
-            -
-              autonomous_flag: <value in [disable, enable]>
-              dnssl: <list or string>
-              onlink_flag: <value in [disable, enable]>
-              preferred_life_time: <integer>
-              prefix: <string>
-              rdnss: <list or string>
-              valid_life_time: <integer>
-          ip6_reachable_time: <integer>
-          ip6_retrans_time: <integer>
-          ip6_send_adv: <value in [disable, enable]>
-          ip6_subnet: <string>
-          ip6_upstream_interface: <string>
-          nd_cert: <string>
-          nd_cga_modifier: <string>
-          nd_mode: <value in [basic, SEND-compatible]>
-          nd_security_level: <integer>
-          nd_timestamp_delta: <integer>
-          nd_timestamp_fuzz: <integer>
-          vrip6_link_local: <string>
-          vrrp_virtual_mac6: <value in [disable, enable]>
-          vrrp6:
-            -
-              accept_mode: <value in [disable, enable]>
-              adv_interval: <integer>
-              preempt: <value in [disable, enable]>
-              priority: <integer>
-              start_time: <integer>
-              status: <value in [disable, enable]>
-              vrdst6: <string>
-              vrgrp: <integer>
-              vrid: <integer>
-              vrip6: <string>
-          interface_identifier: <string>
-          unique_autoconf_addr: <value in [disable, enable]>
-          icmp6_send_redirect: <value in [disable, enable]>
-          cli_conn6_status: <integer>
-          ip6_prefix_mode: <value in [dhcp6, ra]>
-          ra_send_mtu: <value in [disable, enable]>
-          ip6_delegated_prefix_iaid: <integer>
-          dhcp6_relay_source_interface: <value in [disable, enable]>
+          # autoconf: <value in [disable, enable]>
+          # dhcp6_client_options:
+          #   - "rapid"
+          #   - "iapd"
+          #   - "iana"
+          #   - "dns"
+          #   - "dnsname"
+          # dhcp6_information_request: <value in [disable, enable]>
+          # dhcp6_prefix_delegation: <value in [disable, enable]>
+          # dhcp6_prefix_hint: <string>
+          # dhcp6_prefix_hint_plt: <integer>
+          # dhcp6_prefix_hint_vlt: <integer>
+          # dhcp6_relay_ip: <string>
+          # dhcp6_relay_service: <value in [disable, enable]>
+          # dhcp6_relay_type: <value in [regular]>
+          # ip6_address: <string>
+          # ip6_allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          #   - "fgfm"
+          #   - "capwap"
+          #   - "fabric"
+          # ip6_default_life: <integer>
+          # ip6_delegated_prefix_list:
+          #   - autonomous_flag: <value in [disable, enable]>
+          #     onlink_flag: <value in [disable, enable]>
+          #     prefix_id: <integer>
+          #     rdnss: <list or string>
+          #     rdnss_service: <value in [delegated, default, specify]>
+          #     subnet: <string>
+          #     upstream_interface: <string>
+          #     delegated_prefix_iaid: <integer>
+          # ip6_dns_server_override: <value in [disable, enable]>
+          # ip6_extra_addr:
+          #   - prefix: <string>
+          # ip6_hop_limit: <integer>
+          # ip6_link_mtu: <integer>
+          # ip6_manage_flag: <value in [disable, enable]>
+          # ip6_max_interval: <integer>
+          # ip6_min_interval: <integer>
+          # ip6_mode: <value in [static, dhcp, pppoe, ...]>
+          # ip6_other_flag: <value in [disable, enable]>
+          # ip6_prefix_list:
+          #   - autonomous_flag: <value in [disable, enable]>
+          #     dnssl: <list or string>
+          #     onlink_flag: <value in [disable, enable]>
+          #     preferred_life_time: <integer>
+          #     prefix: <string>
+          #     rdnss: <list or string>
+          #     valid_life_time: <integer>
+          # ip6_reachable_time: <integer>
+          # ip6_retrans_time: <integer>
+          # ip6_send_adv: <value in [disable, enable]>
+          # ip6_subnet: <string>
+          # ip6_upstream_interface: <string>
+          # nd_cert: <string>
+          # nd_cga_modifier: <string>
+          # nd_mode: <value in [basic, SEND-compatible]>
+          # nd_security_level: <integer>
+          # nd_timestamp_delta: <integer>
+          # nd_timestamp_fuzz: <integer>
+          # vrip6_link_local: <string>
+          # vrrp_virtual_mac6: <value in [disable, enable]>
+          # vrrp6:
+          #   - accept_mode: <value in [disable, enable]>
+          #     adv_interval: <integer>
+          #     preempt: <value in [disable, enable]>
+          #     priority: <integer>
+          #     start_time: <integer>
+          #     status: <value in [disable, enable]>
+          #     vrdst6: <string>
+          #     vrgrp: <integer>
+          #     vrid: <integer>
+          #     vrip6: <string>
+          # interface_identifier: <string>
+          # unique_autoconf_addr: <value in [disable, enable]>
+          # icmp6_send_redirect: <value in [disable, enable]>
+          # cli_conn6_status: <integer>
+          # ip6_prefix_mode: <value in [dhcp6, ra]>
+          # ra_send_mtu: <value in [disable, enable]>
+          # ip6_delegated_prefix_iaid: <integer>
+          # dhcp6_relay_source_interface: <value in [disable, enable]>
 '''
 
 RETURN = '''

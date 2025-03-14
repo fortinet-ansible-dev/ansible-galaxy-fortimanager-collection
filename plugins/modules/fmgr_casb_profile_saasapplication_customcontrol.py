@@ -160,16 +160,14 @@ EXAMPLES = '''
         saas_application: <your own value>
         state: present # <value in [present, absent]>
         casb_profile_saasapplication_customcontrol:
-          name: <string>
-          option:
-            -
-              name: <string>
-              user_input: <list or string>
-          attribute_filter:
-            -
-              action: <value in [block, monitor, bypass]>
-              attribute_match: <list or string>
-              id: <integer>
+          name: "your value" # Required variable, string
+          # option:
+          #   - name: <string>
+          #     user_input: <list or string>
+          # attribute_filter:
+          #   - action: <value in [block, monitor, bypass]>
+          #     attribute_match: <list or string>
+          #     id: <integer>
 '''
 
 RETURN = '''

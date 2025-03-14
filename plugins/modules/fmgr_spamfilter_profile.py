@@ -346,69 +346,69 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         spamfilter_profile:
-          comment: <string>
-          external: <value in [disable, enable]>
-          flow_based: <value in [disable, enable]>
-          name: <string>
-          options:
-            - "bannedword"
-            - "spamemailbwl"
-            - "spamfsip"
-            - "spamfssubmit"
-            - "spamfschksum"
-            - "spamfsurl"
-            - "spamhelodns"
-            - "spamipbwl"
-            - "spamraddrdns"
-            - "spamrbl"
-            - "spamhdrcheck"
-            - "spamfsphish"
-            - "spambwl"
-          replacemsg_group: <string>
-          spam_bwl_table: <string>
-          spam_bword_table: <string>
-          spam_bword_threshold: <integer>
-          spam_filtering: <value in [disable, enable]>
-          spam_iptrust_table: <string>
-          spam_log: <value in [disable, enable]>
-          spam_log_fortiguard_response: <value in [disable, enable]>
-          spam_mheader_table: <string>
-          spam_rbl_table: <string>
-          gmail:
-            log: <value in [disable, enable]>
-          imap:
-            action: <value in [pass, tag]>
-            log: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          mapi:
-            action: <value in [pass, discard]>
-            log: <value in [disable, enable]>
-          msn_hotmail:
-            log: <value in [disable, enable]>
-          pop3:
-            action: <value in [pass, tag]>
-            log: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          smtp:
-            action: <value in [pass, tag, discard]>
-            hdrip: <value in [disable, enable]>
-            local_override: <value in [disable, enable]>
-            log: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          yahoo_mail:
-            log: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # external: <value in [disable, enable]>
+          # flow_based: <value in [disable, enable]>
+          # options:
+          #   - "bannedword"
+          #   - "spamemailbwl"
+          #   - "spamfsip"
+          #   - "spamfssubmit"
+          #   - "spamfschksum"
+          #   - "spamfsurl"
+          #   - "spamhelodns"
+          #   - "spamipbwl"
+          #   - "spamraddrdns"
+          #   - "spamrbl"
+          #   - "spamhdrcheck"
+          #   - "spamfsphish"
+          #   - "spambwl"
+          # replacemsg_group: <string>
+          # spam_bwl_table: <string>
+          # spam_bword_table: <string>
+          # spam_bword_threshold: <integer>
+          # spam_filtering: <value in [disable, enable]>
+          # spam_iptrust_table: <string>
+          # spam_log: <value in [disable, enable]>
+          # spam_log_fortiguard_response: <value in [disable, enable]>
+          # spam_mheader_table: <string>
+          # spam_rbl_table: <string>
+          # gmail:
+          #   log: <value in [disable, enable]>
+          # imap:
+          #   action: <value in [pass, tag]>
+          #   log: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # mapi:
+          #   action: <value in [pass, discard]>
+          #   log: <value in [disable, enable]>
+          # msn_hotmail:
+          #   log: <value in [disable, enable]>
+          # pop3:
+          #   action: <value in [pass, tag]>
+          #   log: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # smtp:
+          #   action: <value in [pass, tag, discard]>
+          #   hdrip: <value in [disable, enable]>
+          #   local_override: <value in [disable, enable]>
+          #   log: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # yahoo_mail:
+          #   log: <value in [disable, enable]>
 '''
 
 RETURN = '''

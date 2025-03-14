@@ -179,21 +179,20 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         emailfilter_blockallowlist:
-          comment: <string>
-          entries:
-            -
-              action: <value in [spam, clear, reject]>
-              addr_type: <value in [ipv4, ipv6]>
-              email_pattern: <string>
-              id: <integer>
-              ip4_subnet: <string>
-              ip6_subnet: <string>
-              pattern_type: <value in [wildcard, regexp]>
-              status: <value in [disable, enable]>
-              type: <value in [ip, email, email-to, ...]>
-              pattern: <string>
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - action: <value in [spam, clear, reject]>
+          #     addr_type: <value in [ipv4, ipv6]>
+          #     email_pattern: <string>
+          #     id: <integer>
+          #     ip4_subnet: <string>
+          #     ip6_subnet: <string>
+          #     pattern_type: <value in [wildcard, regexp]>
+          #     status: <value in [disable, enable]>
+          #     type: <value in [ip, email, email-to, ...]>
+          #     pattern: <string>
+          # name: <string>
 '''
 
 RETURN = '''

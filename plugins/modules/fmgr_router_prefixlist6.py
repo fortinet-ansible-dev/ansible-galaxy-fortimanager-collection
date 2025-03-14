@@ -143,16 +143,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         router_prefixlist6:
-          comments: <string>
-          name: <string>
-          rule:
-            -
-              action: <value in [permit, deny]>
-              flags: <integer>
-              ge: <integer>
-              id: <integer>
-              le: <integer>
-              prefix6: <string>
+          name: "your value" # Required variable, string
+          # comments: <string>
+          # rule:
+          #   - action: <value in [permit, deny]>
+          #     flags: <integer>
+          #     ge: <integer>
+          #     id: <integer>
+          #     le: <integer>
+          #     prefix6: <string>
 '''
 
 RETURN = '''

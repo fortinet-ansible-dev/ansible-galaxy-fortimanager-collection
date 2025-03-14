@@ -139,14 +139,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         sctpfilter_profile:
-          comment: <string>
-          name: <string>
-          ppid_filters:
-            -
-              action: <value in [pass, reset, replace]>
-              comment: <string>
-              id: <integer>
-              ppid: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # ppid_filters:
+          #   - action: <value in [pass, reset, replace]>
+          #     comment: <string>
+          #     id: <integer>
+          #     ppid: <integer>
 '''
 
 RETURN = '''

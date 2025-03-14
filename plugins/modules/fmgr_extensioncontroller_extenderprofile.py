@@ -1148,206 +1148,202 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         extensioncontroller_extenderprofile:
-          allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-          bandwidth_limit: <integer>
-          cellular:
-            controller_report:
-              interval: <integer>
-              signal_threshold: <integer>
-              status: <value in [disable, enable]>
-            dataplan: <list or string>
-            modem1:
-              auto_switch:
-                dataplan: <value in [disable, enable]>
-                disconnect: <value in [disable, enable]>
-                disconnect_period: <integer>
-                disconnect_threshold: <integer>
-                signal: <value in [disable, enable]>
-                switch_back:
-                  - "time"
-                  - "timer"
-                switch_back_time: <string>
-                switch_back_timer: <integer>
-              conn_status: <integer>
-              default_sim: <value in [sim1, sim2, carrier, ...]>
-              gps: <value in [disable, enable]>
-              modem_id: <integer>
-              preferred_carrier: <string>
-              redundant_intf: <string>
-              redundant_mode: <value in [disable, enable]>
-              sim1_pin: <value in [disable, enable]>
-              sim1_pin_code: <list or string>
-              sim2_pin: <value in [disable, enable]>
-              sim2_pin_code: <list or string>
-              multiple_PDN: <value in [disable, enable]>
-              pdn1_dataplan: <list or string>
-              pdn2_dataplan: <list or string>
-              pdn3_dataplan: <list or string>
-              pdn4_dataplan: <list or string>
-            modem2:
-              auto_switch:
-                dataplan: <value in [disable, enable]>
-                disconnect: <value in [disable, enable]>
-                disconnect_period: <integer>
-                disconnect_threshold: <integer>
-                signal: <value in [disable, enable]>
-                switch_back:
-                  - "time"
-                  - "timer"
-                switch_back_time: <string>
-                switch_back_timer: <integer>
-              conn_status: <integer>
-              default_sim: <value in [sim1, sim2, carrier, ...]>
-              gps: <value in [disable, enable]>
-              modem_id: <integer>
-              preferred_carrier: <string>
-              redundant_intf: <string>
-              redundant_mode: <value in [disable, enable]>
-              sim1_pin: <value in [disable, enable]>
-              sim1_pin_code: <list or string>
-              sim2_pin: <value in [disable, enable]>
-              sim2_pin_code: <list or string>
-              multiple_PDN: <value in [disable, enable]>
-              pdn1_dataplan: <list or string>
-              pdn2_dataplan: <list or string>
-              pdn3_dataplan: <list or string>
-              pdn4_dataplan: <list or string>
-            sms_notification:
-              alert:
-                data_exhausted: <string>
-                fgt_backup_mode_switch: <string>
-                low_signal_strength: <string>
-                mode_switch: <string>
-                os_image_fallback: <string>
-                session_disconnect: <string>
-                system_reboot: <string>
-              receiver:
-                -
-                  alert:
-                    - "system-reboot"
-                    - "data-exhausted"
-                    - "session-disconnect"
-                    - "low-signal-strength"
-                    - "mode-switch"
-                    - "os-image-fallback"
-                    - "fgt-backup-mode-switch"
-                  name: <string>
-                  phone_number: <string>
-                  status: <value in [disable, enable]>
-              status: <value in [disable, enable]>
-          enforce_bandwidth: <value in [disable, enable]>
-          extension: <value in [wan-extension, lan-extension]>
-          id: <integer>
-          lan_extension:
-            backhaul:
-              -
-                name: <string>
-                port: <value in [wan, lte1, lte2, ...]>
-                role: <value in [primary, secondary]>
-                weight: <integer>
-            backhaul_interface: <string>
-            backhaul_ip: <string>
-            ipsec_tunnel: <string>
-            link_loadbalance: <value in [activebackup, loadbalance]>
-            downlinks:
-              -
-                name: <string>
-                port: <value in [port1, port2, port3, ...]>
-                pvid: <integer>
-                type: <value in [port, vap]>
-                vap: <list or string>
-            traffic_split_services:
-              -
-                address: <list or string>
-                name: <string>
-                service: <list or string>
-                vsdb: <value in [disable, enable]>
-          login_password: <list or string>
-          login_password_change: <value in [no, yes, default]>
-          model: <value in [FX201E, FX211E, FX200F, ...]>
-          name: <string>
-          _is_factory_setting: <value in [disable, enable, ext]>
-          wifi:
-            DFS: <value in [disable, enable]>
-            country: <value in [AL, DZ, AR, ...]>
-            radio_1:
-              d80211d: <value in [disable, enable]>
-              band: <value in [2.4GHz]>
-              bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
-              beacon_interval: <integer>
-              bss_color: <integer>
-              bss_color_mode: <value in [auto, static]>
-              channel:
-                - "CH1"
-                - "CH2"
-                - "CH3"
-                - "CH4"
-                - "CH5"
-                - "CH6"
-                - "CH7"
-                - "CH8"
-                - "CH9"
-                - "CH10"
-                - "CH11"
-              extension_channel: <value in [auto, higher, lower]>
-              guard_interval: <value in [auto, 400ns, 800ns]>
-              lan_ext_vap: <list or string>
-              local_vaps: <list or string>
-              max_clients: <integer>
-              mode: <value in [AP, Client]>
-              operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
-              power_level: <integer>
-              radio_id: <integer>
-              status: <value in [disable, enable]>
-            radio_2:
-              d80211d: <value in [disable, enable]>
-              band: <value in [5GHz]>
-              bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
-              beacon_interval: <integer>
-              bss_color: <integer>
-              bss_color_mode: <value in [auto, static]>
-              channel:
-                - "CH36"
-                - "CH40"
-                - "CH44"
-                - "CH48"
-                - "CH52"
-                - "CH56"
-                - "CH60"
-                - "CH64"
-                - "CH100"
-                - "CH104"
-                - "CH108"
-                - "CH112"
-                - "CH116"
-                - "CH120"
-                - "CH124"
-                - "CH128"
-                - "CH132"
-                - "CH136"
-                - "CH140"
-                - "CH144"
-                - "CH149"
-                - "CH153"
-                - "CH157"
-                - "CH161"
-                - "CH165"
-              extension_channel: <value in [auto, higher, lower]>
-              guard_interval: <value in [auto, 400ns, 800ns]>
-              lan_ext_vap: <list or string>
-              local_vaps: <list or string>
-              max_clients: <integer>
-              mode: <value in [AP, Client]>
-              operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
-              power_level: <integer>
-              radio_id: <integer>
-              status: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          # bandwidth_limit: <integer>
+          # cellular:
+          #   controller_report:
+          #     interval: <integer>
+          #     signal_threshold: <integer>
+          #     status: <value in [disable, enable]>
+          #   dataplan: <list or string>
+          #   modem1:
+          #     auto_switch:
+          #       dataplan: <value in [disable, enable]>
+          #       disconnect: <value in [disable, enable]>
+          #       disconnect_period: <integer>
+          #       disconnect_threshold: <integer>
+          #       signal: <value in [disable, enable]>
+          #       switch_back:
+          #         - "time"
+          #         - "timer"
+          #       switch_back_time: <string>
+          #       switch_back_timer: <integer>
+          #     conn_status: <integer>
+          #     default_sim: <value in [sim1, sim2, carrier, ...]>
+          #     gps: <value in [disable, enable]>
+          #     modem_id: <integer>
+          #     preferred_carrier: <string>
+          #     redundant_intf: <string>
+          #     redundant_mode: <value in [disable, enable]>
+          #     sim1_pin: <value in [disable, enable]>
+          #     sim1_pin_code: <list or string>
+          #     sim2_pin: <value in [disable, enable]>
+          #     sim2_pin_code: <list or string>
+          #     multiple_PDN: <value in [disable, enable]>
+          #     pdn1_dataplan: <list or string>
+          #     pdn2_dataplan: <list or string>
+          #     pdn3_dataplan: <list or string>
+          #     pdn4_dataplan: <list or string>
+          #   modem2:
+          #     auto_switch:
+          #       dataplan: <value in [disable, enable]>
+          #       disconnect: <value in [disable, enable]>
+          #       disconnect_period: <integer>
+          #       disconnect_threshold: <integer>
+          #       signal: <value in [disable, enable]>
+          #       switch_back:
+          #         - "time"
+          #         - "timer"
+          #       switch_back_time: <string>
+          #       switch_back_timer: <integer>
+          #     conn_status: <integer>
+          #     default_sim: <value in [sim1, sim2, carrier, ...]>
+          #     gps: <value in [disable, enable]>
+          #     modem_id: <integer>
+          #     preferred_carrier: <string>
+          #     redundant_intf: <string>
+          #     redundant_mode: <value in [disable, enable]>
+          #     sim1_pin: <value in [disable, enable]>
+          #     sim1_pin_code: <list or string>
+          #     sim2_pin: <value in [disable, enable]>
+          #     sim2_pin_code: <list or string>
+          #     multiple_PDN: <value in [disable, enable]>
+          #     pdn1_dataplan: <list or string>
+          #     pdn2_dataplan: <list or string>
+          #     pdn3_dataplan: <list or string>
+          #     pdn4_dataplan: <list or string>
+          #   sms_notification:
+          #     alert:
+          #       data_exhausted: <string>
+          #       fgt_backup_mode_switch: <string>
+          #       low_signal_strength: <string>
+          #       mode_switch: <string>
+          #       os_image_fallback: <string>
+          #       session_disconnect: <string>
+          #       system_reboot: <string>
+          #     receiver:
+          #       - alert:
+          #           - "system-reboot"
+          #           - "data-exhausted"
+          #           - "session-disconnect"
+          #           - "low-signal-strength"
+          #           - "mode-switch"
+          #           - "os-image-fallback"
+          #           - "fgt-backup-mode-switch"
+          #         name: <string>
+          #         phone_number: <string>
+          #         status: <value in [disable, enable]>
+          #     status: <value in [disable, enable]>
+          # enforce_bandwidth: <value in [disable, enable]>
+          # extension: <value in [wan-extension, lan-extension]>
+          # lan_extension:
+          #   backhaul:
+          #     - name: <string>
+          #       port: <value in [wan, lte1, lte2, ...]>
+          #       role: <value in [primary, secondary]>
+          #       weight: <integer>
+          #   backhaul_interface: <string>
+          #   backhaul_ip: <string>
+          #   ipsec_tunnel: <string>
+          #   link_loadbalance: <value in [activebackup, loadbalance]>
+          #   downlinks:
+          #     - name: <string>
+          #       port: <value in [port1, port2, port3, ...]>
+          #       pvid: <integer>
+          #       type: <value in [port, vap]>
+          #       vap: <list or string>
+          #   traffic_split_services:
+          #     - address: <list or string>
+          #       name: <string>
+          #       service: <list or string>
+          #       vsdb: <value in [disable, enable]>
+          # login_password: <list or string>
+          # login_password_change: <value in [no, yes, default]>
+          # model: <value in [FX201E, FX211E, FX200F, ...]>
+          # name: <string>
+          # _is_factory_setting: <value in [disable, enable, ext]>
+          # wifi:
+          #   DFS: <value in [disable, enable]>
+          #   country: <value in [AL, DZ, AR, ...]>
+          #   radio_1:
+          #     d80211d: <value in [disable, enable]>
+          #     band: <value in [2.4GHz]>
+          #     bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+          #     beacon_interval: <integer>
+          #     bss_color: <integer>
+          #     bss_color_mode: <value in [auto, static]>
+          #     channel:
+          #       - "CH1"
+          #       - "CH2"
+          #       - "CH3"
+          #       - "CH4"
+          #       - "CH5"
+          #       - "CH6"
+          #       - "CH7"
+          #       - "CH8"
+          #       - "CH9"
+          #       - "CH10"
+          #       - "CH11"
+          #     extension_channel: <value in [auto, higher, lower]>
+          #     guard_interval: <value in [auto, 400ns, 800ns]>
+          #     lan_ext_vap: <list or string>
+          #     local_vaps: <list or string>
+          #     max_clients: <integer>
+          #     mode: <value in [AP, Client]>
+          #     operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+          #     power_level: <integer>
+          #     radio_id: <integer>
+          #     status: <value in [disable, enable]>
+          #   radio_2:
+          #     d80211d: <value in [disable, enable]>
+          #     band: <value in [5GHz]>
+          #     bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+          #     beacon_interval: <integer>
+          #     bss_color: <integer>
+          #     bss_color_mode: <value in [auto, static]>
+          #     channel:
+          #       - "CH36"
+          #       - "CH40"
+          #       - "CH44"
+          #       - "CH48"
+          #       - "CH52"
+          #       - "CH56"
+          #       - "CH60"
+          #       - "CH64"
+          #       - "CH100"
+          #       - "CH104"
+          #       - "CH108"
+          #       - "CH112"
+          #       - "CH116"
+          #       - "CH120"
+          #       - "CH124"
+          #       - "CH128"
+          #       - "CH132"
+          #       - "CH136"
+          #       - "CH140"
+          #       - "CH144"
+          #       - "CH149"
+          #       - "CH153"
+          #       - "CH157"
+          #       - "CH161"
+          #       - "CH165"
+          #     extension_channel: <value in [auto, higher, lower]>
+          #     guard_interval: <value in [auto, 400ns, 800ns]>
+          #     lan_ext_vap: <list or string>
+          #     local_vaps: <list or string>
+          #     max_clients: <integer>
+          #     mode: <value in [AP, Client]>
+          #     operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+          #     power_level: <integer>
+          #     radio_id: <integer>
+          #     status: <value in [disable, enable]>
 '''
 
 RETURN = '''

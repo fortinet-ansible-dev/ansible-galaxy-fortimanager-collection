@@ -196,30 +196,29 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         filefilter_profile:
-          comment: <string>
-          extended_log: <value in [disable, enable]>
-          feature_set: <value in [proxy, flow]>
-          log: <value in [disable, enable]>
-          name: <string>
-          replacemsg_group: <string>
-          rules:
-            -
-              action: <value in [log-only, block]>
-              comment: <string>
-              direction: <value in [any, incoming, outgoing]>
-              file_type: <list or string>
-              name: <string>
-              password_protected: <value in [any, yes]>
-              protocol:
-                - "imap"
-                - "smtp"
-                - "pop3"
-                - "http"
-                - "ftp"
-                - "mapi"
-                - "cifs"
-                - "ssh"
-          scan_archive_contents: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # extended_log: <value in [disable, enable]>
+          # feature_set: <value in [proxy, flow]>
+          # log: <value in [disable, enable]>
+          # replacemsg_group: <string>
+          # rules:
+          #   - action: <value in [log-only, block]>
+          #     comment: <string>
+          #     direction: <value in [any, incoming, outgoing]>
+          #     file_type: <list or string>
+          #     name: <string>
+          #     password_protected: <value in [any, yes]>
+          #     protocol:
+          #       - "imap"
+          #       - "smtp"
+          #       - "pop3"
+          #       - "http"
+          #       - "ftp"
+          #       - "mapi"
+          #       - "cifs"
+          #       - "ssh"
+          # scan_archive_contents: <value in [disable, enable]>
 '''
 
 RETURN = '''

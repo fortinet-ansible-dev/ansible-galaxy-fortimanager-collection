@@ -138,10 +138,10 @@ EXAMPLES = '''
         replacemsg_group: <your own value>
         state: present # <value in [present, absent]>
         system_replacemsggroup_automation:
-          buffer: <string>
-          format: <value in [none, text, html]>
-          header: <value in [none, http, 8bit]>
-          msg_type: <string>
+          # buffer: <string>
+          # format: <value in [none, text, html]>
+          # header: <value in [none, http, 8bit]>
+          # msg_type: <string>
 '''
 
 RETURN = '''

@@ -108,8 +108,8 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_report_estbrowsetime:
-          max_read_time: <integer>
-          status: <value in [disable, enable]>
+          # max_read_time: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

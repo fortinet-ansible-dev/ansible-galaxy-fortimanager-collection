@@ -164,19 +164,18 @@ EXAMPLES = '''
         saas_application: <your own value>
         state: present # <value in [present, absent]>
         casb_profile_saasapplication_accessrule:
-          action: <value in [block, bypass, monitor]>
-          bypass:
-            - "av"
-            - "dlp"
-            - "web-filter"
-            - "file-filter"
-            - "video-filter"
-          name: <string>
-          attribute_filter:
-            -
-              action: <value in [block, monitor, bypass]>
-              attribute_match: <list or string>
-              id: <integer>
+          name: "your value" # Required variable, string
+          # action: <value in [block, bypass, monitor]>
+          # bypass:
+          #   - "av"
+          #   - "dlp"
+          #   - "web-filter"
+          #   - "file-filter"
+          #   - "video-filter"
+          # attribute_filter:
+          #   - action: <value in [block, monitor, bypass]>
+          #     attribute_match: <list or string>
+          #     id: <integer>
 '''
 
 RETURN = '''

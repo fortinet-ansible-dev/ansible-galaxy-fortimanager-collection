@@ -119,7 +119,7 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_central_dnat6:
-          name: <list or string>
+          name: "your value" # Required variable, string
 '''
 
 RETURN = '''

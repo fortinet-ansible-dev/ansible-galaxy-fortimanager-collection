@@ -491,92 +491,87 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnmgr_node:
-          add_route: <value in [disable, enable]>
-          assign_ip: <value in [disable, enable]>
-          assign_ip_from: <value in [range, usrgrp, dhcp, ...]>
-          authpasswd: <list or string>
-          authusr: <string>
-          authusrgrp: <string>
-          auto_configuration: <value in [disable, enable]>
-          automatic_routing: <value in [disable, enable]>
-          banner: <string>
-          default_gateway: <string>
-          dhcp_server: <value in [disable, enable]>
-          dns_mode: <value in [auto, manual]>
-          dns_service: <value in [default, specify, local]>
-          domain: <string>
-          extgw: <string>
-          extgw_hubip: <string>
-          extgw_p2_per_net: <value in [disable, enable]>
-          extgwip: <string>
-          hub_iface: <list or string>
-          id: <integer>
-          iface: <list or string>
-          ip_range:
-            -
-              end_ip: <string>
-              id: <integer>
-              start_ip: <string>
-          ipsec_lease_hold: <integer>
-          ipv4_dns_server1: <string>
-          ipv4_dns_server2: <string>
-          ipv4_dns_server3: <string>
-          ipv4_end_ip: <string>
-          ipv4_exclude_range:
-            -
-              end_ip: <string>
-              id: <integer>
-              start_ip: <string>
-          ipv4_netmask: <string>
-          ipv4_split_include: <string>
-          ipv4_start_ip: <string>
-          ipv4_wins_server1: <string>
-          ipv4_wins_server2: <string>
-          local_gw: <string>
-          localid: <string>
-          mode_cfg: <value in [disable, enable]>
-          mode_cfg_ip_version: <value in [4, 6]>
-          net_device: <value in [disable, enable]>
-          peer: <list or string>
-          peergrp: <string>
-          peerid: <string>
-          peertype: <value in [any, one, dialup, ...]>
-          protected_subnet:
-            -
-              addr: <list or string>
-              seq: <integer>
-          public_ip: <string>
-          role: <value in [hub, spoke]>
-          route_overlap: <value in [use-old, use-new, allow]>
-          spoke_zone: <list or string>
-          summary_addr:
-            -
-              addr: <string>
-              priority: <integer>
-              seq: <integer>
-          tunnel_search: <value in [selectors, nexthop]>
-          unity_support: <value in [disable, enable]>
-          usrgrp: <string>
-          vpn_interface_priority: <integer>
-          vpn_zone: <list or string>
-          vpntable: <list or string>
-          xauthtype: <value in [disable, client, pap, ...]>
-          exchange_interface_ip: <value in [disable, enable]>
-          hub_public_ip: <string>
-          ipv4_split_exclude: <string>
-          scope_member:
-            -
-              name: <string>
-              vdom: <string>
-          dhcp_ra_giaddr: <string>
-          encapsulation: <value in [tunnel-mode, transport-mode]>
-          ipv4_name: <string>
-          l2tp: <value in [disable, enable]>
-          auto_discovery_receiver: <value in [disable, enable]>
-          auto_discovery_sender: <value in [disable, enable]>
-          network_id: <integer>
-          network_overlay: <value in [enable, disable]>
-          protocol: <integer>
+          id: 0 # Required variable, integer
+          # add_route: <value in [disable, enable]>
+          # assign_ip: <value in [disable, enable]>
+          # assign_ip_from: <value in [range, usrgrp, dhcp, ...]>
+          # authpasswd: <list or string>
+          # authusr: <string>
+          # authusrgrp: <string>
+          # auto_configuration: <value in [disable, enable]>
+          # automatic_routing: <value in [disable, enable]>
+          # banner: <string>
+          # default_gateway: <string>
+          # dhcp_server: <value in [disable, enable]>
+          # dns_mode: <value in [auto, manual]>
+          # dns_service: <value in [default, specify, local]>
+          # domain: <string>
+          # extgw: <string>
+          # extgw_hubip: <string>
+          # extgw_p2_per_net: <value in [disable, enable]>
+          # extgwip: <string>
+          # hub_iface: <list or string>
+          # iface: <list or string>
+          # ip_range:
+          #   - end_ip: <string>
+          #     id: <integer>
+          #     start_ip: <string>
+          # ipsec_lease_hold: <integer>
+          # ipv4_dns_server1: <string>
+          # ipv4_dns_server2: <string>
+          # ipv4_dns_server3: <string>
+          # ipv4_end_ip: <string>
+          # ipv4_exclude_range:
+          #   - end_ip: <string>
+          #     id: <integer>
+          #     start_ip: <string>
+          # ipv4_netmask: <string>
+          # ipv4_split_include: <string>
+          # ipv4_start_ip: <string>
+          # ipv4_wins_server1: <string>
+          # ipv4_wins_server2: <string>
+          # local_gw: <string>
+          # localid: <string>
+          # mode_cfg: <value in [disable, enable]>
+          # mode_cfg_ip_version: <value in [4, 6]>
+          # net_device: <value in [disable, enable]>
+          # peer: <list or string>
+          # peergrp: <string>
+          # peerid: <string>
+          # peertype: <value in [any, one, dialup, ...]>
+          # protected_subnet:
+          #   - addr: <list or string>
+          #     seq: <integer>
+          # public_ip: <string>
+          # role: <value in [hub, spoke]>
+          # route_overlap: <value in [use-old, use-new, allow]>
+          # spoke_zone: <list or string>
+          # summary_addr:
+          #   - addr: <string>
+          #     priority: <integer>
+          #     seq: <integer>
+          # tunnel_search: <value in [selectors, nexthop]>
+          # unity_support: <value in [disable, enable]>
+          # usrgrp: <string>
+          # vpn_interface_priority: <integer>
+          # vpn_zone: <list or string>
+          # vpntable: <list or string>
+          # xauthtype: <value in [disable, client, pap, ...]>
+          # exchange_interface_ip: <value in [disable, enable]>
+          # hub_public_ip: <string>
+          # ipv4_split_exclude: <string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
+          # dhcp_ra_giaddr: <string>
+          # encapsulation: <value in [tunnel-mode, transport-mode]>
+          # ipv4_name: <string>
+          # l2tp: <value in [disable, enable]>
+          # auto_discovery_receiver: <value in [disable, enable]>
+          # auto_discovery_sender: <value in [disable, enable]>
+          # network_id: <integer>
+          # network_overlay: <value in [enable, disable]>
+          # protocol: <integer>
 '''
 
 RETURN = '''

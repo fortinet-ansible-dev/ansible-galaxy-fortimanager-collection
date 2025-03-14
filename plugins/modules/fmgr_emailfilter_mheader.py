@@ -153,17 +153,16 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         emailfilter_mheader:
-          comment: <string>
-          entries:
-            -
-              action: <value in [spam, clear]>
-              fieldbody: <string>
-              fieldname: <string>
-              id: <integer>
-              pattern_type: <value in [wildcard, regexp]>
-              status: <value in [disable, enable]>
-          id: <integer>
-          name: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - action: <value in [spam, clear]>
+          #     fieldbody: <string>
+          #     fieldname: <string>
+          #     id: <integer>
+          #     pattern_type: <value in [wildcard, regexp]>
+          #     status: <value in [disable, enable]>
+          # name: <string>
 '''
 
 RETURN = '''

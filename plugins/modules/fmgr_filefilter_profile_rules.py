@@ -159,21 +159,21 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         filefilter_profile_rules:
-          action: <value in [log-only, block]>
-          comment: <string>
-          direction: <value in [any, incoming, outgoing]>
-          file_type: <list or string>
-          name: <string>
-          password_protected: <value in [any, yes]>
-          protocol:
-            - "imap"
-            - "smtp"
-            - "pop3"
-            - "http"
-            - "ftp"
-            - "mapi"
-            - "cifs"
-            - "ssh"
+          name: "your value" # Required variable, string
+          # action: <value in [log-only, block]>
+          # comment: <string>
+          # direction: <value in [any, incoming, outgoing]>
+          # file_type: <list or string>
+          # password_protected: <value in [any, yes]>
+          # protocol:
+          #   - "imap"
+          #   - "smtp"
+          #   - "pop3"
+          #   - "http"
+          #   - "ftp"
+          #   - "mapi"
+          #   - "cifs"
+          #   - "ssh"
 '''
 
 RETURN = '''

@@ -118,8 +118,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         gtp_tunnellimit:
-          name: <string>
-          tunnel_limit: <integer>
+          name: "your value" # Required variable, string
+          # tunnel_limit: <integer>
 '''
 
 RETURN = '''

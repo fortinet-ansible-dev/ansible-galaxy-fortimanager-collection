@@ -192,26 +192,24 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         cifs_profile:
-          domain_controller: <string>
-          name: <string>
-          server_credential_type: <value in [none, credential-replication, credential-keytab]>
-          server_keytab:
-            -
-              keytab: <string>
-              principal: <string>
-              password: <list or string>
-          file_filter:
-            entries:
-              -
-                action: <value in [block, log]>
-                comment: <string>
-                direction: <value in [incoming, outgoing, any]>
-                file_type: <list or string>
-                filter: <string>
-                protocol:
-                  - "cifs"
-            log: <value in [disable, enable]>
-            status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # domain_controller: <string>
+          # server_credential_type: <value in [none, credential-replication, credential-keytab]>
+          # server_keytab:
+          #   - keytab: <string>
+          #     principal: <string>
+          #     password: <list or string>
+          # file_filter:
+          #   entries:
+          #     - action: <value in [block, log]>
+          #       comment: <string>
+          #       direction: <value in [incoming, outgoing, any]>
+          #       file_type: <list or string>
+          #       filter: <string>
+          #       protocol:
+          #         - "cifs"
+          #   log: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
 '''
 
 RETURN = '''

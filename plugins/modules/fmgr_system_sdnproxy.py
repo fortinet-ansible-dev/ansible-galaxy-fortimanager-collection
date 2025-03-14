@@ -134,12 +134,12 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_sdnproxy:
-          name: <string>
-          password: <list or string>
-          server: <string>
-          server_port: <integer>
-          type: <value in [general, fortimanager]>
-          username: <string>
+          name: "your value" # Required variable, string
+          # password: <list or string>
+          # server: <string>
+          # server_port: <integer>
+          # type: <value in [general, fortimanager]>
+          # username: <string>
 '''
 
 RETURN = '''

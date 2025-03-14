@@ -100,10 +100,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_package_move:
-          adom: <string>
-          dst_name: <string>
-          dst_parent: <string>
-          pkg: <string>
+          # adom: <string>
+          # dst_name: <string>
+          # dst_parent: <string>
+          # pkg: <string>
 '''
 
 RETURN = '''

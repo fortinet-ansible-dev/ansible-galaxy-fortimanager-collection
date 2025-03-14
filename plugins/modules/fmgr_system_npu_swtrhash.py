@@ -113,8 +113,8 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_swtrhash:
-          draco15: <value in [disable, enable]>
-          tcp_udp_port: <value in [include, exclude]>
+          # draco15: <value in [disable, enable]>
+          # tcp_udp_port: <value in [include, exclude]>
 '''
 
 RETURN = '''

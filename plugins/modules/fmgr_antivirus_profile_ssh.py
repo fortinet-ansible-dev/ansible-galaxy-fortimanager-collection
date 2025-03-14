@@ -203,38 +203,38 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         antivirus_profile_ssh:
-          archive_block:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          archive_log:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          emulator: <value in [disable, enable]>
-          options:
-            - "avmonitor"
-            - "quarantine"
-            - "scan"
-          outbreak_prevention: <value in [disabled, files, full-archive, ...]>
-          av_scan: <value in [disable, monitor, block]>
-          external_blocklist: <value in [disable, monitor, block]>
-          quarantine: <value in [disable, enable]>
-          fortindr: <value in [disable, block, monitor]>
-          fortisandbox: <value in [disable, block, monitor]>
-          fortiai: <value in [disable, monitor, block]>
+          # archive_block:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # archive_log:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # emulator: <value in [disable, enable]>
+          # options:
+          #   - "avmonitor"
+          #   - "quarantine"
+          #   - "scan"
+          # outbreak_prevention: <value in [disabled, files, full-archive, ...]>
+          # av_scan: <value in [disable, monitor, block]>
+          # external_blocklist: <value in [disable, monitor, block]>
+          # quarantine: <value in [disable, enable]>
+          # fortindr: <value in [disable, block, monitor]>
+          # fortisandbox: <value in [disable, block, monitor]>
+          # fortiai: <value in [disable, monitor, block]>
 '''
 
 RETURN = '''

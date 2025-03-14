@@ -118,9 +118,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         emailfilter_fortishield:
-          spam_submit_force: <value in [disable, enable]>
-          spam_submit_srv: <string>
-          spam_submit_txt2htm: <value in [disable, enable]>
+          # spam_submit_force: <value in [disable, enable]>
+          # spam_submit_srv: <string>
+          # spam_submit_txt2htm: <value in [disable, enable]>
 '''
 
 RETURN = '''

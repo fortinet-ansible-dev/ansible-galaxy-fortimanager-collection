@@ -242,32 +242,30 @@ EXAMPLES = '''
         user_activity: <your own value>
         state: present # <value in [present, absent]>
         casb_useractivity_match:
-          id: <integer>
-          rules:
-            -
-              case_sensitive: <value in [disable, enable]>
-              domains: <list or string>
-              header_name: <string>
-              id: <integer>
-              match_pattern: <value in [simple, substr, regexp]>
-              match_value: <string>
-              methods: <list or string>
-              negate: <value in [disable, enable]>
-              type: <value in [domains, host, path, ...]>
-              body_type: <value in [json]>
-              jq: <string>
-          strategy: <value in [or, and]>
-          tenant_extraction:
-            filters:
-              -
-                body_type: <value in [json]>
-                direction: <value in [request, response]>
-                header_name: <string>
-                id: <integer>
-                place: <value in [path, header, body]>
-            jq: <string>
-            status: <value in [disable, enable]>
-            type: <value in [json-query]>
+          id: 0 # Required variable, integer
+          # rules:
+          #   - case_sensitive: <value in [disable, enable]>
+          #     domains: <list or string>
+          #     header_name: <string>
+          #     id: <integer>
+          #     match_pattern: <value in [simple, substr, regexp]>
+          #     match_value: <string>
+          #     methods: <list or string>
+          #     negate: <value in [disable, enable]>
+          #     type: <value in [domains, host, path, ...]>
+          #     body_type: <value in [json]>
+          #     jq: <string>
+          # strategy: <value in [or, and]>
+          # tenant_extraction:
+          #   filters:
+          #     - body_type: <value in [json]>
+          #       direction: <value in [request, response]>
+          #       header_name: <string>
+          #       id: <integer>
+          #       place: <value in [path, header, body]>
+          #   jq: <string>
+          #   status: <value in [disable, enable]>
+          #   type: <value in [json-query]>
 '''
 
 RETURN = '''

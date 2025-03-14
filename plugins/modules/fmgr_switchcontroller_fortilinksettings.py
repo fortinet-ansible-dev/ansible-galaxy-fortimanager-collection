@@ -175,19 +175,19 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_fortilinksettings:
-          fortilink: <string>
-          inactive_timer: <integer>
-          link_down_flush: <value in [disable, enable]>
-          nac_ports:
-            lan_segment: <value in [disabled, enabled]>
-            member_change: <integer>
-            nac_lan_interface: <string>
-            nac_segment_vlans: <list or string>
-            onboarding_vlan: <string>
-            parent_key: <string>
-            bounce_nac_port: <value in [disable, enable]>
-          name: <string>
-          access_vlan_mode: <value in [legacy, fail-open, fail-close]>
+          name: "your value" # Required variable, string
+          # fortilink: <string>
+          # inactive_timer: <integer>
+          # link_down_flush: <value in [disable, enable]>
+          # nac_ports:
+          #   lan_segment: <value in [disabled, enabled]>
+          #   member_change: <integer>
+          #   nac_lan_interface: <string>
+          #   nac_segment_vlans: <list or string>
+          #   onboarding_vlan: <string>
+          #   parent_key: <string>
+          #   bounce_nac_port: <value in [disable, enable]>
+          # access_vlan_mode: <value in [legacy, fail-open, fail-close]>
 '''
 
 RETURN = '''

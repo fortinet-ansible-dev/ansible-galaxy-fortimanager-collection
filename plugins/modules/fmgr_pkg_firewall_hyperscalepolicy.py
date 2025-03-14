@@ -284,42 +284,42 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_hyperscalepolicy:
-          action: <value in [deny, accept]>
-          auto_asic_offload: <value in [disable, enable]>
-          cgn_eif: <value in [disable, enable]>
-          cgn_eim: <value in [disable, enable]>
-          cgn_log_server_grp: <string>
-          cgn_resource_quota: <integer>
-          cgn_session_quota: <integer>
-          comments: <string>
-          delay_tcp_npu_session: <value in [disable, enable]>
-          dstaddr: <list or string>
-          dstaddr_negate: <value in [disable, enable]>
-          dstaddr6: <list or string>
-          dstintf: <list or string>
-          firewall_session_dirty: <value in [check-all, check-new]>
-          global_label: <string>
-          ippool: <value in [disable, enable]>
-          label: <string>
-          name: <string>
-          nat: <value in [disable, enable]>
-          policy_offload: <value in [disable, enable]>
-          policyid: <integer>
-          poolname: <list or string>
-          poolname6: <list or string>
-          send_deny_packet: <value in [disable, enable]>
-          service: <list or string>
-          service_negate: <value in [disable, enable]>
-          srcaddr: <list or string>
-          srcaddr_negate: <value in [disable, enable]>
-          srcaddr6: <list or string>
-          srcintf: <list or string>
-          status: <value in [disable, enable]>
-          tcp_timeout_pid: <string>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          udp_timeout_pid: <string>
-          uuid: <string>
+          policyid: 0 # Required variable, integer
+          # action: <value in [deny, accept]>
+          # auto_asic_offload: <value in [disable, enable]>
+          # cgn_eif: <value in [disable, enable]>
+          # cgn_eim: <value in [disable, enable]>
+          # cgn_log_server_grp: <string>
+          # cgn_resource_quota: <integer>
+          # cgn_session_quota: <integer>
+          # comments: <string>
+          # delay_tcp_npu_session: <value in [disable, enable]>
+          # dstaddr: <list or string>
+          # dstaddr_negate: <value in [disable, enable]>
+          # dstaddr6: <list or string>
+          # dstintf: <list or string>
+          # firewall_session_dirty: <value in [check-all, check-new]>
+          # global_label: <string>
+          # ippool: <value in [disable, enable]>
+          # label: <string>
+          # name: <string>
+          # nat: <value in [disable, enable]>
+          # policy_offload: <value in [disable, enable]>
+          # poolname: <list or string>
+          # poolname6: <list or string>
+          # send_deny_packet: <value in [disable, enable]>
+          # service: <list or string>
+          # service_negate: <value in [disable, enable]>
+          # srcaddr: <list or string>
+          # srcaddr_negate: <value in [disable, enable]>
+          # srcaddr6: <list or string>
+          # srcintf: <list or string>
+          # status: <value in [disable, enable]>
+          # tcp_timeout_pid: <string>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # udp_timeout_pid: <string>
+          # uuid: <string>
 '''
 
 RETURN = '''

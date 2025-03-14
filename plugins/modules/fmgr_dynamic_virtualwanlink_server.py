@@ -139,16 +139,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_server:
-          description: <string>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              server: <list or string>
-          name: <string>
-          server: <list or string>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     server: <list or string>
+          # server: <list or string>
 '''
 
 RETURN = '''

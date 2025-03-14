@@ -928,192 +928,185 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webfilter_profile:
-          comment: <string>
-          extended_log: <value in [disable, enable]>
-          https_replacemsg: <value in [disable, enable]>
-          inspection_mode: <value in [proxy, flow-based, dns]>
-          log_all_url: <value in [disable, enable]>
-          name: <string>
-          options:
-            - "block-invalid-url"
-            - "jscript"
-            - "js"
-            - "vbs"
-            - "unknown"
-            - "wf-referer"
-            - "https-scan"
-            - "intrinsic"
-            - "wf-cookie"
-            - "per-user-bwl"
-            - "activexfilter"
-            - "cookiefilter"
-            - "https-url-scan"
-            - "javafilter"
-            - "rangeblock"
-            - "contenttype-check"
-            - "per-user-bal"
-          ovrd_perm:
-            - "bannedword-override"
-            - "urlfilter-override"
-            - "fortiguard-wf-override"
-            - "contenttype-check-override"
-          post_action: <value in [normal, comfort, block]>
-          replacemsg_group: <string>
-          web_content_log: <value in [disable, enable]>
-          web_extended_all_action_log: <value in [disable, enable]>
-          web_filter_activex_log: <value in [disable, enable]>
-          web_filter_applet_log: <value in [disable, enable]>
-          web_filter_command_block_log: <value in [disable, enable]>
-          web_filter_cookie_log: <value in [disable, enable]>
-          web_filter_cookie_removal_log: <value in [disable, enable]>
-          web_filter_js_log: <value in [disable, enable]>
-          web_filter_jscript_log: <value in [disable, enable]>
-          web_filter_referer_log: <value in [disable, enable]>
-          web_filter_unknown_log: <value in [disable, enable]>
-          web_filter_vbs_log: <value in [disable, enable]>
-          web_ftgd_err_log: <value in [disable, enable]>
-          web_ftgd_quota_usage: <value in [disable, enable]>
-          web_invalid_domain_log: <value in [disable, enable]>
-          web_url_log: <value in [disable, enable]>
-          wisp: <value in [disable, enable]>
-          wisp_algorithm: <value in [auto-learning, primary-secondary, round-robin]>
-          wisp_servers: <list or string>
-          youtube_channel_filter:
-            -
-              channel_id: <string>
-              comment: <string>
-              id: <integer>
-          youtube_channel_status: <value in [disable, blacklist, whitelist]>
-          feature_set: <value in [proxy, flow]>
-          web_antiphishing_log: <value in [disable, enable]>
-          antiphish:
-            check_basic_auth: <value in [disable, enable]>
-            check_uri: <value in [disable, enable]>
-            check_username_only: <value in [disable, enable]>
-            custom_patterns:
-              -
-                category: <value in [username, password]>
-                pattern: <string>
-                type: <value in [regex, literal]>
-            default_action: <value in [log, block, exempt]>
-            domain_controller: <string>
-            inspection_entries:
-              -
-                action: <value in [log, block, exempt]>
-                fortiguard_category: <list or string>
-                name: <string>
-            max_body_len: <integer>
-            status: <value in [disable, enable]>
-            authentication: <value in [domain-controller, ldap]>
-            ldap: <string>
-          ftgd_wf:
-            exempt_quota: <list or string>
-            filters:
-              -
-                action: <value in [block, monitor, warning, ...]>
-                auth_usr_grp: <list or string>
-                category: <string>
-                id: <integer>
-                log: <value in [disable, enable]>
-                override_replacemsg: <string>
-                warn_duration: <string>
-                warning_duration_type: <value in [session, timeout]>
-                warning_prompt: <value in [per-domain, per-category]>
-            max_quota_timeout: <integer>
-            options:
-              - "error-allow"
-              - "http-err-detail"
-              - "rate-image-urls"
-              - "strict-blocking"
-              - "rate-server-ip"
-              - "redir-block"
-              - "connect-request-bypass"
-              - "log-all-url"
-              - "ftgd-disable"
-            ovrd: <list or string>
-            quota:
-              -
-                category: <list or string>
-                duration: <string>
-                id: <integer>
-                override_replacemsg: <string>
-                type: <value in [time, traffic]>
-                unit: <value in [B, KB, MB, ...]>
-                value: <integer>
-            rate_crl_urls: <value in [disable, enable]>
-            rate_css_urls: <value in [disable, enable]>
-            rate_image_urls: <value in [disable, enable]>
-            rate_javascript_urls: <value in [disable, enable]>
-            category_override: <string>
-            risk:
-              -
-                action: <value in [block, monitor]>
-                id: <integer>
-                log: <value in [disable, enable]>
-                risk_level: <list or string>
-          override:
-            ovrd_cookie: <value in [deny, allow]>
-            ovrd_dur: <string>
-            ovrd_dur_mode: <value in [constant, ask]>
-            ovrd_scope: <value in [user, user-group, ip, ...]>
-            ovrd_user_group: <list or string>
-            profile: <list or string>
-            profile_attribute: <value in [User-Name, User-Password, CHAP-Password, ...]>
-            profile_type: <value in [list, radius]>
-          url_extraction:
-            redirect_header: <string>
-            redirect_no_content: <value in [disable, enable]>
-            redirect_url: <string>
-            server_fqdn: <string>
-            status: <value in [disable, enable]>
-          web:
-            blacklist: <value in [disable, enable]>
-            bword_table: <string>
-            bword_threshold: <integer>
-            content_header_list: <string>
-            keyword_match: <list or string>
-            log_search: <value in [disable, enable]>
-            safe_search:
-              - "google"
-              - "yahoo"
-              - "bing"
-              - "url"
-              - "header"
-            urlfilter_table: <string>
-            whitelist:
-              - "exempt-av"
-              - "exempt-webcontent"
-              - "exempt-activex-java-cookie"
-              - "exempt-dlp"
-              - "exempt-rangeblock"
-              - "extended-log-others"
-            youtube_restrict: <value in [strict, none, moderate]>
-            allowlist:
-              - "exempt-av"
-              - "exempt-webcontent"
-              - "exempt-activex-java-cookie"
-              - "exempt-dlp"
-              - "exempt-rangeblock"
-              - "extended-log-others"
-            blocklist: <value in [disable, enable]>
-            vimeo_restrict: <string>
-          file_filter:
-            entries:
-              -
-                action: <value in [log, block]>
-                comment: <string>
-                direction: <value in [any, incoming, outgoing]>
-                encryption: <value in [any, yes]>
-                file_type: <list or string>
-                filter: <string>
-                password_protected: <value in [any, yes]>
-                protocol:
-                  - "http"
-                  - "ftp"
-            log: <value in [disable, enable]>
-            scan_archive_contents: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-          web_flow_log_encoding: <value in [utf-8, punycode]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # extended_log: <value in [disable, enable]>
+          # https_replacemsg: <value in [disable, enable]>
+          # inspection_mode: <value in [proxy, flow-based, dns]>
+          # log_all_url: <value in [disable, enable]>
+          # options:
+          #   - "block-invalid-url"
+          #   - "jscript"
+          #   - "js"
+          #   - "vbs"
+          #   - "unknown"
+          #   - "wf-referer"
+          #   - "https-scan"
+          #   - "intrinsic"
+          #   - "wf-cookie"
+          #   - "per-user-bwl"
+          #   - "activexfilter"
+          #   - "cookiefilter"
+          #   - "https-url-scan"
+          #   - "javafilter"
+          #   - "rangeblock"
+          #   - "contenttype-check"
+          #   - "per-user-bal"
+          # ovrd_perm:
+          #   - "bannedword-override"
+          #   - "urlfilter-override"
+          #   - "fortiguard-wf-override"
+          #   - "contenttype-check-override"
+          # post_action: <value in [normal, comfort, block]>
+          # replacemsg_group: <string>
+          # web_content_log: <value in [disable, enable]>
+          # web_extended_all_action_log: <value in [disable, enable]>
+          # web_filter_activex_log: <value in [disable, enable]>
+          # web_filter_applet_log: <value in [disable, enable]>
+          # web_filter_command_block_log: <value in [disable, enable]>
+          # web_filter_cookie_log: <value in [disable, enable]>
+          # web_filter_cookie_removal_log: <value in [disable, enable]>
+          # web_filter_js_log: <value in [disable, enable]>
+          # web_filter_jscript_log: <value in [disable, enable]>
+          # web_filter_referer_log: <value in [disable, enable]>
+          # web_filter_unknown_log: <value in [disable, enable]>
+          # web_filter_vbs_log: <value in [disable, enable]>
+          # web_ftgd_err_log: <value in [disable, enable]>
+          # web_ftgd_quota_usage: <value in [disable, enable]>
+          # web_invalid_domain_log: <value in [disable, enable]>
+          # web_url_log: <value in [disable, enable]>
+          # wisp: <value in [disable, enable]>
+          # wisp_algorithm: <value in [auto-learning, primary-secondary, round-robin]>
+          # wisp_servers: <list or string>
+          # youtube_channel_filter:
+          #   - channel_id: <string>
+          #     comment: <string>
+          #     id: <integer>
+          # youtube_channel_status: <value in [disable, blacklist, whitelist]>
+          # feature_set: <value in [proxy, flow]>
+          # web_antiphishing_log: <value in [disable, enable]>
+          # antiphish:
+          #   check_basic_auth: <value in [disable, enable]>
+          #   check_uri: <value in [disable, enable]>
+          #   check_username_only: <value in [disable, enable]>
+          #   custom_patterns:
+          #     - category: <value in [username, password]>
+          #       pattern: <string>
+          #       type: <value in [regex, literal]>
+          #   default_action: <value in [log, block, exempt]>
+          #   domain_controller: <string>
+          #   inspection_entries:
+          #     - action: <value in [log, block, exempt]>
+          #       fortiguard_category: <list or string>
+          #       name: <string>
+          #   max_body_len: <integer>
+          #   status: <value in [disable, enable]>
+          #   authentication: <value in [domain-controller, ldap]>
+          #   ldap: <string>
+          # ftgd_wf:
+          #   exempt_quota: <list or string>
+          #   filters:
+          #     - action: <value in [block, monitor, warning, ...]>
+          #       auth_usr_grp: <list or string>
+          #       category: <string>
+          #       id: <integer>
+          #       log: <value in [disable, enable]>
+          #       override_replacemsg: <string>
+          #       warn_duration: <string>
+          #       warning_duration_type: <value in [session, timeout]>
+          #       warning_prompt: <value in [per-domain, per-category]>
+          #   max_quota_timeout: <integer>
+          #   options:
+          #     - "error-allow"
+          #     - "http-err-detail"
+          #     - "rate-image-urls"
+          #     - "strict-blocking"
+          #     - "rate-server-ip"
+          #     - "redir-block"
+          #     - "connect-request-bypass"
+          #     - "log-all-url"
+          #     - "ftgd-disable"
+          #   ovrd: <list or string>
+          #   quota:
+          #     - category: <list or string>
+          #       duration: <string>
+          #       id: <integer>
+          #       override_replacemsg: <string>
+          #       type: <value in [time, traffic]>
+          #       unit: <value in [B, KB, MB, ...]>
+          #       value: <integer>
+          #   rate_crl_urls: <value in [disable, enable]>
+          #   rate_css_urls: <value in [disable, enable]>
+          #   rate_image_urls: <value in [disable, enable]>
+          #   rate_javascript_urls: <value in [disable, enable]>
+          #   category_override: <string>
+          #   risk:
+          #     - action: <value in [block, monitor]>
+          #       id: <integer>
+          #       log: <value in [disable, enable]>
+          #       risk_level: <list or string>
+          # override:
+          #   ovrd_cookie: <value in [deny, allow]>
+          #   ovrd_dur: <string>
+          #   ovrd_dur_mode: <value in [constant, ask]>
+          #   ovrd_scope: <value in [user, user-group, ip, ...]>
+          #   ovrd_user_group: <list or string>
+          #   profile: <list or string>
+          #   profile_attribute: <value in [User-Name, User-Password, CHAP-Password, ...]>
+          #   profile_type: <value in [list, radius]>
+          # url_extraction:
+          #   redirect_header: <string>
+          #   redirect_no_content: <value in [disable, enable]>
+          #   redirect_url: <string>
+          #   server_fqdn: <string>
+          #   status: <value in [disable, enable]>
+          # web:
+          #   blacklist: <value in [disable, enable]>
+          #   bword_table: <string>
+          #   bword_threshold: <integer>
+          #   content_header_list: <string>
+          #   keyword_match: <list or string>
+          #   log_search: <value in [disable, enable]>
+          #   safe_search:
+          #     - "google"
+          #     - "yahoo"
+          #     - "bing"
+          #     - "url"
+          #     - "header"
+          #   urlfilter_table: <string>
+          #   whitelist:
+          #     - "exempt-av"
+          #     - "exempt-webcontent"
+          #     - "exempt-activex-java-cookie"
+          #     - "exempt-dlp"
+          #     - "exempt-rangeblock"
+          #     - "extended-log-others"
+          #   youtube_restrict: <value in [strict, none, moderate]>
+          #   allowlist:
+          #     - "exempt-av"
+          #     - "exempt-webcontent"
+          #     - "exempt-activex-java-cookie"
+          #     - "exempt-dlp"
+          #     - "exempt-rangeblock"
+          #     - "extended-log-others"
+          #   blocklist: <value in [disable, enable]>
+          #   vimeo_restrict: <string>
+          # file_filter:
+          #   entries:
+          #     - action: <value in [log, block]>
+          #       comment: <string>
+          #       direction: <value in [any, incoming, outgoing]>
+          #       encryption: <value in [any, yes]>
+          #       file_type: <list or string>
+          #       filter: <string>
+          #       password_protected: <value in [any, yes]>
+          #       protocol:
+          #         - "http"
+          #         - "ftp"
+          #   log: <value in [disable, enable]>
+          #   scan_archive_contents: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          # web_flow_log_encoding: <value in [utf-8, punycode]>
 '''
 
 RETURN = '''

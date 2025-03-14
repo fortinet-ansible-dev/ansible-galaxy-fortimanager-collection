@@ -248,30 +248,29 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_log_syslogd_setting:
-          certificate: <string>
-          enc_algorithm: <value in [high, low, disable, ...]>
-          facility: <value in [kernel, user, mail, ...]>
-          mode: <value in [udp, legacy-reliable, reliable]>
-          port: <integer>
-          server: <string>
-          ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
-          status: <value in [disable, enable]>
-          reliable: <value in [disable, enable]>
-          csv: <value in [disable, enable]>
-          max_log_rate: <integer>
-          priority: <value in [low, default]>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          format: <value in [default, csv, cef, ...]>
-          syslog_type: <integer>
-          custom_field_name:
-            -
-              custom: <string>
-              id: <integer>
-              name: <string>
-          source_ip: <string>
-          source_ip_interface: <list or string>
-          vrf_select: <integer>
+          # certificate: <string>
+          # enc_algorithm: <value in [high, low, disable, ...]>
+          # facility: <value in [kernel, user, mail, ...]>
+          # mode: <value in [udp, legacy-reliable, reliable]>
+          # port: <integer>
+          # server: <string>
+          # ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
+          # status: <value in [disable, enable]>
+          # reliable: <value in [disable, enable]>
+          # csv: <value in [disable, enable]>
+          # max_log_rate: <integer>
+          # priority: <value in [low, default]>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # format: <value in [default, csv, cef, ...]>
+          # syslog_type: <integer>
+          # custom_field_name:
+          #   - custom: <string>
+          #     id: <integer>
+          #     name: <string>
+          # source_ip: <string>
+          # source_ip_interface: <list or string>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

@@ -594,72 +594,72 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_fpanomaly:
-          esp_minlen_err: <value in [drop, trap-to-host]>
-          icmp_csum_err: <value in [drop, trap-to-host]>
-          icmp_minlen_err: <value in [drop, trap-to-host]>
-          ipv4_csum_err: <value in [drop, trap-to-host]>
-          ipv4_ihl_err: <value in [drop, trap-to-host]>
-          ipv4_len_err: <value in [drop, trap-to-host]>
-          ipv4_opt_err: <value in [drop, trap-to-host]>
-          ipv4_ttlzero_err: <value in [drop, trap-to-host]>
-          ipv4_ver_err: <value in [drop, trap-to-host]>
-          ipv6_exthdr_len_err: <value in [drop, trap-to-host]>
-          ipv6_exthdr_order_err: <value in [drop, trap-to-host]>
-          ipv6_ihl_err: <value in [drop, trap-to-host]>
-          ipv6_plen_zero: <value in [drop, trap-to-host]>
-          ipv6_ver_err: <value in [drop, trap-to-host]>
-          tcp_csum_err: <value in [drop, trap-to-host]>
-          tcp_hlen_err: <value in [drop, trap-to-host]>
-          tcp_plen_err: <value in [drop, trap-to-host]>
-          udp_csum_err: <value in [drop, trap-to-host]>
-          udp_hlen_err: <value in [drop, trap-to-host]>
-          udp_len_err: <value in [drop, trap-to-host]>
-          udp_plen_err: <value in [drop, trap-to-host]>
-          udplite_cover_err: <value in [drop, trap-to-host]>
-          udplite_csum_err: <value in [drop, trap-to-host]>
-          unknproto_minlen_err: <value in [drop, trap-to-host]>
-          tcp_fin_only: <value in [allow, drop, trap-to-host]>
-          ipv4_optsecurity: <value in [allow, drop, trap-to-host]>
-          ipv6_optralert: <value in [allow, drop, trap-to-host]>
-          tcp_syn_fin: <value in [allow, drop, trap-to-host]>
-          ipv4_proto_err: <value in [allow, drop, trap-to-host]>
-          ipv6_saddr_err: <value in [allow, drop, trap-to-host]>
-          icmp_frag: <value in [allow, drop, trap-to-host]>
-          ipv4_optssrr: <value in [allow, drop, trap-to-host]>
-          ipv6_opthomeaddr: <value in [allow, drop, trap-to-host]>
-          udp_land: <value in [allow, drop, trap-to-host]>
-          ipv6_optinvld: <value in [allow, drop, trap-to-host]>
-          tcp_fin_noack: <value in [allow, drop, trap-to-host]>
-          ipv6_proto_err: <value in [allow, drop, trap-to-host]>
-          tcp_land: <value in [allow, drop, trap-to-host]>
-          ipv4_unknopt: <value in [allow, drop, trap-to-host]>
-          ipv4_optstream: <value in [allow, drop, trap-to-host]>
-          ipv6_optjumbo: <value in [allow, drop, trap-to-host]>
-          icmp_land: <value in [allow, drop, trap-to-host]>
-          tcp_winnuke: <value in [allow, drop, trap-to-host]>
-          ipv6_daddr_err: <value in [allow, drop, trap-to-host]>
-          ipv4_land: <value in [allow, drop, trap-to-host]>
-          ipv6_opttunnel: <value in [allow, drop, trap-to-host]>
-          tcp_no_flag: <value in [allow, drop, trap-to-host]>
-          ipv6_land: <value in [allow, drop, trap-to-host]>
-          ipv4_optlsrr: <value in [allow, drop, trap-to-host]>
-          ipv4_opttimestamp: <value in [allow, drop, trap-to-host]>
-          ipv4_optrr: <value in [allow, drop, trap-to-host]>
-          ipv6_optnsap: <value in [allow, drop, trap-to-host]>
-          ipv6_unknopt: <value in [allow, drop, trap-to-host]>
-          tcp_syn_data: <value in [allow, drop, trap-to-host]>
-          ipv6_optendpid: <value in [allow, drop, trap-to-host]>
-          gtpu_plen_err: <value in [drop, trap-to-host]>
-          vxlan_minlen_err: <value in [drop, trap-to-host]>
-          capwap_minlen_err: <value in [drop, trap-to-host]>
-          gre_csum_err: <value in [drop, trap-to-host]>
-          nvgre_minlen_err: <value in [drop, trap-to-host]>
-          sctp_l4len_err: <value in [drop, trap-to-host]>
-          tcp_hlenvsl4len_err: <value in [drop, trap-to-host]>
-          sctp_crc_err: <value in [drop, trap-to-host]>
-          sctp_clen_err: <value in [drop, trap-to-host]>
-          uesp_minlen_err: <value in [drop, trap-to-host]>
-          sctp_csum_err: <value in [allow, drop, trap-to-host]>
+          # esp_minlen_err: <value in [drop, trap-to-host]>
+          # icmp_csum_err: <value in [drop, trap-to-host]>
+          # icmp_minlen_err: <value in [drop, trap-to-host]>
+          # ipv4_csum_err: <value in [drop, trap-to-host]>
+          # ipv4_ihl_err: <value in [drop, trap-to-host]>
+          # ipv4_len_err: <value in [drop, trap-to-host]>
+          # ipv4_opt_err: <value in [drop, trap-to-host]>
+          # ipv4_ttlzero_err: <value in [drop, trap-to-host]>
+          # ipv4_ver_err: <value in [drop, trap-to-host]>
+          # ipv6_exthdr_len_err: <value in [drop, trap-to-host]>
+          # ipv6_exthdr_order_err: <value in [drop, trap-to-host]>
+          # ipv6_ihl_err: <value in [drop, trap-to-host]>
+          # ipv6_plen_zero: <value in [drop, trap-to-host]>
+          # ipv6_ver_err: <value in [drop, trap-to-host]>
+          # tcp_csum_err: <value in [drop, trap-to-host]>
+          # tcp_hlen_err: <value in [drop, trap-to-host]>
+          # tcp_plen_err: <value in [drop, trap-to-host]>
+          # udp_csum_err: <value in [drop, trap-to-host]>
+          # udp_hlen_err: <value in [drop, trap-to-host]>
+          # udp_len_err: <value in [drop, trap-to-host]>
+          # udp_plen_err: <value in [drop, trap-to-host]>
+          # udplite_cover_err: <value in [drop, trap-to-host]>
+          # udplite_csum_err: <value in [drop, trap-to-host]>
+          # unknproto_minlen_err: <value in [drop, trap-to-host]>
+          # tcp_fin_only: <value in [allow, drop, trap-to-host]>
+          # ipv4_optsecurity: <value in [allow, drop, trap-to-host]>
+          # ipv6_optralert: <value in [allow, drop, trap-to-host]>
+          # tcp_syn_fin: <value in [allow, drop, trap-to-host]>
+          # ipv4_proto_err: <value in [allow, drop, trap-to-host]>
+          # ipv6_saddr_err: <value in [allow, drop, trap-to-host]>
+          # icmp_frag: <value in [allow, drop, trap-to-host]>
+          # ipv4_optssrr: <value in [allow, drop, trap-to-host]>
+          # ipv6_opthomeaddr: <value in [allow, drop, trap-to-host]>
+          # udp_land: <value in [allow, drop, trap-to-host]>
+          # ipv6_optinvld: <value in [allow, drop, trap-to-host]>
+          # tcp_fin_noack: <value in [allow, drop, trap-to-host]>
+          # ipv6_proto_err: <value in [allow, drop, trap-to-host]>
+          # tcp_land: <value in [allow, drop, trap-to-host]>
+          # ipv4_unknopt: <value in [allow, drop, trap-to-host]>
+          # ipv4_optstream: <value in [allow, drop, trap-to-host]>
+          # ipv6_optjumbo: <value in [allow, drop, trap-to-host]>
+          # icmp_land: <value in [allow, drop, trap-to-host]>
+          # tcp_winnuke: <value in [allow, drop, trap-to-host]>
+          # ipv6_daddr_err: <value in [allow, drop, trap-to-host]>
+          # ipv4_land: <value in [allow, drop, trap-to-host]>
+          # ipv6_opttunnel: <value in [allow, drop, trap-to-host]>
+          # tcp_no_flag: <value in [allow, drop, trap-to-host]>
+          # ipv6_land: <value in [allow, drop, trap-to-host]>
+          # ipv4_optlsrr: <value in [allow, drop, trap-to-host]>
+          # ipv4_opttimestamp: <value in [allow, drop, trap-to-host]>
+          # ipv4_optrr: <value in [allow, drop, trap-to-host]>
+          # ipv6_optnsap: <value in [allow, drop, trap-to-host]>
+          # ipv6_unknopt: <value in [allow, drop, trap-to-host]>
+          # tcp_syn_data: <value in [allow, drop, trap-to-host]>
+          # ipv6_optendpid: <value in [allow, drop, trap-to-host]>
+          # gtpu_plen_err: <value in [drop, trap-to-host]>
+          # vxlan_minlen_err: <value in [drop, trap-to-host]>
+          # capwap_minlen_err: <value in [drop, trap-to-host]>
+          # gre_csum_err: <value in [drop, trap-to-host]>
+          # nvgre_minlen_err: <value in [drop, trap-to-host]>
+          # sctp_l4len_err: <value in [drop, trap-to-host]>
+          # tcp_hlenvsl4len_err: <value in [drop, trap-to-host]>
+          # sctp_crc_err: <value in [drop, trap-to-host]>
+          # sctp_clen_err: <value in [drop, trap-to-host]>
+          # uesp_minlen_err: <value in [drop, trap-to-host]>
+          # sctp_csum_err: <value in [allow, drop, trap-to-host]>
 '''
 
 RETURN = '''

@@ -101,7 +101,7 @@ EXAMPLES = '''
         adom: <your own value>
         device_name: <your own value>
         dvmdb_device_replace_sn:
-          sn: <string>
+          # sn: <string>
 '''
 
 RETURN = '''

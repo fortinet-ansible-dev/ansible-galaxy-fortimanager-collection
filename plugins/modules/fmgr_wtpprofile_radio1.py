@@ -653,108 +653,108 @@ EXAMPLES = '''
         adom: <your own value>
         wtp_profile: <your own value>
         wtpprofile_radio1:
-          amsdu: <value in [disable, enable]>
-          ap_handoff: <value in [disable, enable]>
-          ap_sniffer_addr: <string>
-          ap_sniffer_bufsize: <integer>
-          ap_sniffer_chan: <integer>
-          ap_sniffer_ctl: <value in [disable, enable]>
-          ap_sniffer_data: <value in [disable, enable]>
-          ap_sniffer_mgmt_beacon: <value in [disable, enable]>
-          ap_sniffer_mgmt_other: <value in [disable, enable]>
-          ap_sniffer_mgmt_probe: <value in [disable, enable]>
-          auto_power_high: <integer>
-          auto_power_level: <value in [disable, enable]>
-          auto_power_low: <integer>
-          band: <value in [802.11b, 802.11a, 802.11g, ...]>
-          bandwidth_admission_control: <value in [disable, enable]>
-          bandwidth_capacity: <integer>
-          beacon_interval: <integer>
-          call_admission_control: <value in [disable, enable]>
-          call_capacity: <integer>
-          channel: <list or string>
-          channel_bonding: <value in [disable, enable, 80MHz, ...]>
-          channel_utilization: <value in [disable, enable]>
-          coexistence: <value in [disable, enable]>
-          darrp: <value in [disable, enable]>
-          dtim: <integer>
-          frag_threshold: <integer>
-          frequency_handoff: <value in [disable, enable]>
-          max_clients: <integer>
-          max_distance: <integer>
-          mode: <value in [disabled, ap, monitor, ...]>
-          power_level: <integer>
-          powersave_optimize:
-            - "tim"
-            - "ac-vo"
-            - "no-obss-scan"
-            - "no-11b-rate"
-            - "client-rate-follow"
-          protection_mode: <value in [rtscts, ctsonly, disable]>
-          radio_id: <integer>
-          rts_threshold: <integer>
-          short_guard_interval: <value in [disable, enable]>
-          spectrum_analysis: <value in [disable, enable, scan-only]>
-          transmit_optimize:
-            - "disable"
-            - "power-save"
-            - "aggr-limit"
-            - "retry-limit"
-            - "send-bar"
-          vap_all: <value in [disable, enable, tunnel, ...]>
-          vaps: <list or string>
-          wids_profile: <string>
-          airtime_fairness: <value in [disable, enable]>
-          band_5g_type: <value in [5g-full, 5g-high, 5g-low]>
-          zero_wait_dfs: <value in [disable, enable]>
-          vap1: <string>
-          vap2: <string>
-          vap3: <string>
-          vap4: <string>
-          vap5: <string>
-          vap6: <string>
-          vap7: <string>
-          vap8: <string>
-          bss_color: <integer>
-          auto_power_target: <string>
-          drma: <value in [disable, enable]>
-          drma_sensitivity: <value in [low, medium, high]>
-          iperf_protocol: <value in [udp, tcp]>
-          iperf_server_port: <integer>
-          power_mode: <value in [dBm, percentage]>
-          power_value: <integer>
-          sam_bssid: <string>
-          sam_captive_portal: <value in [disable, enable]>
-          sam_password: <list or string>
-          sam_report_intv: <integer>
-          sam_security_type: <value in [open, wpa-personal, wpa-enterprise, ...]>
-          sam_server: <string>
-          sam_ssid: <string>
-          sam_test: <value in [ping, iperf]>
-          sam_username: <string>
-          arrp_profile: <string>
-          bss_color_mode: <value in [auto, static]>
-          sam_cwp_failure_string: <string>
-          sam_cwp_match_string: <string>
-          sam_cwp_password: <list or string>
-          sam_cwp_success_string: <string>
-          sam_cwp_test_url: <string>
-          sam_cwp_username: <string>
-          sam_server_fqdn: <string>
-          sam_server_ip: <string>
-          sam_server_type: <value in [ip, fqdn]>
-          d80211d: <value in [disable, enable]>
-          optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
-          mimo_mode: <value in [default, 1x1, 2x2, ...]>
-          optional_antenna_gain: <string>
-          sam_ca_certificate: <string>
-          sam_client_certificate: <string>
-          sam_eap_method: <value in [tls, peap, both]>
-          sam_private_key: <string>
-          sam_private_key_password: <list or string>
-          channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
-          d80211mc: <value in [disable, enable]>
-          ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          # amsdu: <value in [disable, enable]>
+          # ap_handoff: <value in [disable, enable]>
+          # ap_sniffer_addr: <string>
+          # ap_sniffer_bufsize: <integer>
+          # ap_sniffer_chan: <integer>
+          # ap_sniffer_ctl: <value in [disable, enable]>
+          # ap_sniffer_data: <value in [disable, enable]>
+          # ap_sniffer_mgmt_beacon: <value in [disable, enable]>
+          # ap_sniffer_mgmt_other: <value in [disable, enable]>
+          # ap_sniffer_mgmt_probe: <value in [disable, enable]>
+          # auto_power_high: <integer>
+          # auto_power_level: <value in [disable, enable]>
+          # auto_power_low: <integer>
+          # band: <value in [802.11b, 802.11a, 802.11g, ...]>
+          # bandwidth_admission_control: <value in [disable, enable]>
+          # bandwidth_capacity: <integer>
+          # beacon_interval: <integer>
+          # call_admission_control: <value in [disable, enable]>
+          # call_capacity: <integer>
+          # channel: <list or string>
+          # channel_bonding: <value in [disable, enable, 80MHz, ...]>
+          # channel_utilization: <value in [disable, enable]>
+          # coexistence: <value in [disable, enable]>
+          # darrp: <value in [disable, enable]>
+          # dtim: <integer>
+          # frag_threshold: <integer>
+          # frequency_handoff: <value in [disable, enable]>
+          # max_clients: <integer>
+          # max_distance: <integer>
+          # mode: <value in [disabled, ap, monitor, ...]>
+          # power_level: <integer>
+          # powersave_optimize:
+          #   - "tim"
+          #   - "ac-vo"
+          #   - "no-obss-scan"
+          #   - "no-11b-rate"
+          #   - "client-rate-follow"
+          # protection_mode: <value in [rtscts, ctsonly, disable]>
+          # radio_id: <integer>
+          # rts_threshold: <integer>
+          # short_guard_interval: <value in [disable, enable]>
+          # spectrum_analysis: <value in [disable, enable, scan-only]>
+          # transmit_optimize:
+          #   - "disable"
+          #   - "power-save"
+          #   - "aggr-limit"
+          #   - "retry-limit"
+          #   - "send-bar"
+          # vap_all: <value in [disable, enable, tunnel, ...]>
+          # vaps: <list or string>
+          # wids_profile: <string>
+          # airtime_fairness: <value in [disable, enable]>
+          # band_5g_type: <value in [5g-full, 5g-high, 5g-low]>
+          # zero_wait_dfs: <value in [disable, enable]>
+          # vap1: <string>
+          # vap2: <string>
+          # vap3: <string>
+          # vap4: <string>
+          # vap5: <string>
+          # vap6: <string>
+          # vap7: <string>
+          # vap8: <string>
+          # bss_color: <integer>
+          # auto_power_target: <string>
+          # drma: <value in [disable, enable]>
+          # drma_sensitivity: <value in [low, medium, high]>
+          # iperf_protocol: <value in [udp, tcp]>
+          # iperf_server_port: <integer>
+          # power_mode: <value in [dBm, percentage]>
+          # power_value: <integer>
+          # sam_bssid: <string>
+          # sam_captive_portal: <value in [disable, enable]>
+          # sam_password: <list or string>
+          # sam_report_intv: <integer>
+          # sam_security_type: <value in [open, wpa-personal, wpa-enterprise, ...]>
+          # sam_server: <string>
+          # sam_ssid: <string>
+          # sam_test: <value in [ping, iperf]>
+          # sam_username: <string>
+          # arrp_profile: <string>
+          # bss_color_mode: <value in [auto, static]>
+          # sam_cwp_failure_string: <string>
+          # sam_cwp_match_string: <string>
+          # sam_cwp_password: <list or string>
+          # sam_cwp_success_string: <string>
+          # sam_cwp_test_url: <string>
+          # sam_cwp_username: <string>
+          # sam_server_fqdn: <string>
+          # sam_server_ip: <string>
+          # sam_server_type: <value in [ip, fqdn]>
+          # d80211d: <value in [disable, enable]>
+          # optional_antenna: <value in [none, FANT-04ABGN-0606-O-N, FANT-04ABGN-1414-P-N, ...]>
+          # mimo_mode: <value in [default, 1x1, 2x2, ...]>
+          # optional_antenna_gain: <string>
+          # sam_ca_certificate: <string>
+          # sam_client_certificate: <string>
+          # sam_eap_method: <value in [tls, peap, both]>
+          # sam_private_key: <string>
+          # sam_private_key_password: <list or string>
+          # channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
+          # d80211mc: <value in [disable, enable]>
+          # ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
 '''
 
 RETURN = '''

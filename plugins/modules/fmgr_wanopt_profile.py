@@ -427,59 +427,59 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wanopt_profile:
-          auth_group: <string>
-          comments: <string>
-          name: <string>
-          transparent: <value in [disable, enable]>
-          cifs:
-            byte_caching: <value in [disable, enable]>
-            log_traffic: <value in [disable, enable]>
-            prefer_chunking: <value in [dynamic, fix]>
-            protocol_opt: <value in [protocol, tcp]>
-            secure_tunnel: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-            tunnel_sharing: <value in [private, shared, express-shared]>
-            port: <list or integer>
-          ftp:
-            byte_caching: <value in [disable, enable]>
-            log_traffic: <value in [disable, enable]>
-            prefer_chunking: <value in [dynamic, fix]>
-            protocol_opt: <value in [protocol, tcp]>
-            secure_tunnel: <value in [disable, enable]>
-            ssl: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-            tunnel_sharing: <value in [private, shared, express-shared]>
-            port: <list or integer>
-          http:
-            byte_caching: <value in [disable, enable]>
-            log_traffic: <value in [disable, enable]>
-            prefer_chunking: <value in [dynamic, fix]>
-            protocol_opt: <value in [protocol, tcp]>
-            secure_tunnel: <value in [disable, enable]>
-            ssl: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-            tunnel_sharing: <value in [private, shared, express-shared]>
-            tunnel_non_http: <value in [disable, enable]>
-            unknown_http_version: <value in [best-effort, reject, tunnel]>
-            port: <list or integer>
-            ssl_port: <list or integer>
-          mapi:
-            byte_caching: <value in [disable, enable]>
-            log_traffic: <value in [disable, enable]>
-            secure_tunnel: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-            tunnel_sharing: <value in [private, shared, express-shared]>
-            port: <list or integer>
-          tcp:
-            byte_caching: <value in [disable, enable]>
-            byte_caching_opt: <value in [mem-only, mem-disk]>
-            log_traffic: <value in [disable, enable]>
-            port: <string>
-            secure_tunnel: <value in [disable, enable]>
-            ssl: <value in [disable, enable]>
-            ssl_port: <list or integer>
-            status: <value in [disable, enable]>
-            tunnel_sharing: <value in [private, shared, express-shared]>
+          name: "your value" # Required variable, string
+          # auth_group: <string>
+          # comments: <string>
+          # transparent: <value in [disable, enable]>
+          # cifs:
+          #   byte_caching: <value in [disable, enable]>
+          #   log_traffic: <value in [disable, enable]>
+          #   prefer_chunking: <value in [dynamic, fix]>
+          #   protocol_opt: <value in [protocol, tcp]>
+          #   secure_tunnel: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          #   tunnel_sharing: <value in [private, shared, express-shared]>
+          #   port: <list or integer>
+          # ftp:
+          #   byte_caching: <value in [disable, enable]>
+          #   log_traffic: <value in [disable, enable]>
+          #   prefer_chunking: <value in [dynamic, fix]>
+          #   protocol_opt: <value in [protocol, tcp]>
+          #   secure_tunnel: <value in [disable, enable]>
+          #   ssl: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          #   tunnel_sharing: <value in [private, shared, express-shared]>
+          #   port: <list or integer>
+          # http:
+          #   byte_caching: <value in [disable, enable]>
+          #   log_traffic: <value in [disable, enable]>
+          #   prefer_chunking: <value in [dynamic, fix]>
+          #   protocol_opt: <value in [protocol, tcp]>
+          #   secure_tunnel: <value in [disable, enable]>
+          #   ssl: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          #   tunnel_sharing: <value in [private, shared, express-shared]>
+          #   tunnel_non_http: <value in [disable, enable]>
+          #   unknown_http_version: <value in [best-effort, reject, tunnel]>
+          #   port: <list or integer>
+          #   ssl_port: <list or integer>
+          # mapi:
+          #   byte_caching: <value in [disable, enable]>
+          #   log_traffic: <value in [disable, enable]>
+          #   secure_tunnel: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          #   tunnel_sharing: <value in [private, shared, express-shared]>
+          #   port: <list or integer>
+          # tcp:
+          #   byte_caching: <value in [disable, enable]>
+          #   byte_caching_opt: <value in [mem-only, mem-disk]>
+          #   log_traffic: <value in [disable, enable]>
+          #   port: <string>
+          #   secure_tunnel: <value in [disable, enable]>
+          #   ssl: <value in [disable, enable]>
+          #   ssl_port: <list or integer>
+          #   status: <value in [disable, enable]>
+          #   tunnel_sharing: <value in [private, shared, express-shared]>
 '''
 
 RETURN = '''

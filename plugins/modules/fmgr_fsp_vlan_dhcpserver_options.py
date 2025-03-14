@@ -158,15 +158,15 @@ EXAMPLES = '''
         vlan: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_dhcpserver_options:
-          code: <integer>
-          id: <integer>
-          ip: <list or string>
-          type: <value in [hex, string, ip, ...]>
-          value: <string>
-          vci_match: <value in [disable, enable]>
-          vci_string: <list or string>
-          uci_match: <value in [disable, enable]>
-          uci_string: <list or string>
+          id: 0 # Required variable, integer
+          # code: <integer>
+          # ip: <list or string>
+          # type: <value in [hex, string, ip, ...]>
+          # value: <string>
+          # vci_match: <value in [disable, enable]>
+          # vci_string: <list or string>
+          # uci_match: <value in [disable, enable]>
+          # uci_string: <list or string>
 '''
 
 RETURN = '''

@@ -152,16 +152,16 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_acl:
-          comments: <string>
-          dstaddr: <list or string>
-          interface: <string>
-          name: <string>
-          policyid: <integer>
-          service: <list or string>
-          srcaddr: <list or string>
-          status: <value in [disable, enable]>
-          uuid: <string>
-          fragment: <value in [pass, drop]>
+          policyid: 0 # Required variable, integer
+          # comments: <string>
+          # dstaddr: <list or string>
+          # interface: <string>
+          # name: <string>
+          # service: <list or string>
+          # srcaddr: <list or string>
+          # status: <value in [disable, enable]>
+          # uuid: <string>
+          # fragment: <value in [pass, drop]>
 '''
 
 RETURN = '''

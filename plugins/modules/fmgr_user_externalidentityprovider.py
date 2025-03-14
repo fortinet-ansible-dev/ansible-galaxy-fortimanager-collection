@@ -169,19 +169,19 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_externalidentityprovider:
-          group_attr_name: <string>
-          interface: <list or string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          name: <string>
-          port: <integer>
-          server_identity_check: <value in [disable, enable]>
-          source_ip: <string>
-          timeout: <integer>
-          type: <value in [ms-graph]>
-          url: <string>
-          user_attr_name: <string>
-          version: <value in [beta, v1.0]>
-          vrf_select: <integer>
+          name: "your value" # Required variable, string
+          # group_attr_name: <string>
+          # interface: <list or string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # port: <integer>
+          # server_identity_check: <value in [disable, enable]>
+          # source_ip: <string>
+          # timeout: <integer>
+          # type: <value in [ms-graph]>
+          # url: <string>
+          # user_attr_name: <string>
+          # version: <value in [beta, v1.0]>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

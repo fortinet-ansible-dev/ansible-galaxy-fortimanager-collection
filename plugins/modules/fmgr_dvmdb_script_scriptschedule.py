@@ -157,12 +157,12 @@ EXAMPLES = '''
         script: <your own value>
         state: present # <value in [present, absent]>
         dvmdb_script_scriptschedule:
-          datetime: <string>
-          day_of_week: <value in [unknown, sun, mon, ...]>
-          device: <integer>
-          name: <string>
-          run_on_db: <value in [disable, enable]>
-          type: <value in [auto, onetime, daily, ...]>
+          name: "your value" # Required variable, string
+          # datetime: <string>
+          # day_of_week: <value in [unknown, sun, mon, ...]>
+          # device: <integer>
+          # run_on_db: <value in [disable, enable]>
+          # type: <value in [auto, onetime, daily, ...]>
 '''
 
 RETURN = '''

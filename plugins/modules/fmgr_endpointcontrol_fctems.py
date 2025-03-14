@@ -298,51 +298,51 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         endpointcontrol_fctems:
-          call_timeout: <integer>
-          capabilities:
-            - "fabric-auth"
-            - "silent-approval"
-            - "websocket"
-            - "websocket-malware"
-            - "push-ca-certs"
-            - "common-tags-api"
-            - "tenant-id"
-            - "single-vdom-connector"
-            - "client-avatars"
-            - "fgt-sysinfo-api"
-            - "ztna-server-info"
-          certificate_fingerprint: <string>
-          cloud_server_type: <value in [production, alpha, beta]>
-          fortinetone_cloud_authentication: <value in [disable, enable]>
-          https_port: <integer>
-          name: <string>
-          out_of_sync_threshold: <integer>
-          preserve_ssl_session: <value in [disable, enable]>
-          pull_avatars: <value in [disable, enable]>
-          pull_malware_hash: <value in [disable, enable]>
-          pull_sysinfo: <value in [disable, enable]>
-          pull_tags: <value in [disable, enable]>
-          pull_vulnerabilities: <value in [disable, enable]>
-          server: <string>
-          source_ip: <string>
-          websocket_override: <value in [disable, enable]>
-          status_check_interval: <integer>
-          certificate: <string>
-          admin_username: <string>
-          serial_number: <string>
-          admin_password: <list or string>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          dirty_reason: <value in [none, mismatched-ems-sn]>
-          ems_id: <integer>
-          status: <value in [disable, enable]>
-          ca_cn_info: <string>
-          trust_ca_cn: <value in [disable, enable]>
-          tenant_id: <string>
-          send_tags_to_all_vdoms: <value in [disable, enable]>
-          verified_cn: <string>
-          verifying_ca: <string>
-          cloud_authentication_access_key: <string>
+          name: "your value" # Required variable, string
+          # call_timeout: <integer>
+          # capabilities:
+          #   - "fabric-auth"
+          #   - "silent-approval"
+          #   - "websocket"
+          #   - "websocket-malware"
+          #   - "push-ca-certs"
+          #   - "common-tags-api"
+          #   - "tenant-id"
+          #   - "single-vdom-connector"
+          #   - "client-avatars"
+          #   - "fgt-sysinfo-api"
+          #   - "ztna-server-info"
+          # certificate_fingerprint: <string>
+          # cloud_server_type: <value in [production, alpha, beta]>
+          # fortinetone_cloud_authentication: <value in [disable, enable]>
+          # https_port: <integer>
+          # out_of_sync_threshold: <integer>
+          # preserve_ssl_session: <value in [disable, enable]>
+          # pull_avatars: <value in [disable, enable]>
+          # pull_malware_hash: <value in [disable, enable]>
+          # pull_sysinfo: <value in [disable, enable]>
+          # pull_tags: <value in [disable, enable]>
+          # pull_vulnerabilities: <value in [disable, enable]>
+          # server: <string>
+          # source_ip: <string>
+          # websocket_override: <value in [disable, enable]>
+          # status_check_interval: <integer>
+          # certificate: <string>
+          # admin_username: <string>
+          # serial_number: <string>
+          # admin_password: <list or string>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # dirty_reason: <value in [none, mismatched-ems-sn]>
+          # ems_id: <integer>
+          # status: <value in [disable, enable]>
+          # ca_cn_info: <string>
+          # trust_ca_cn: <value in [disable, enable]>
+          # tenant_id: <string>
+          # send_tags_to_all_vdoms: <value in [disable, enable]>
+          # verified_cn: <string>
+          # verifying_ca: <string>
+          # cloud_authentication_access_key: <string>
 '''
 
 RETURN = '''

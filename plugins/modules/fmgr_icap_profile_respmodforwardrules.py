@@ -155,16 +155,15 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         icap_profile_respmodforwardrules:
-          action: <value in [bypass, forward]>
-          header_group:
-            -
-              case_sensitivity: <value in [disable, enable]>
-              header: <string>
-              header_name: <string>
-              id: <integer>
-          host: <string>
-          http_resp_status_code: <list or integer>
-          name: <string>
+          name: "your value" # Required variable, string
+          # action: <value in [bypass, forward]>
+          # header_group:
+          #   - case_sensitivity: <value in [disable, enable]>
+          #     header: <string>
+          #     header_name: <string>
+          #     id: <integer>
+          # host: <string>
+          # http_resp_status_code: <list or integer>
 '''
 
 RETURN = '''

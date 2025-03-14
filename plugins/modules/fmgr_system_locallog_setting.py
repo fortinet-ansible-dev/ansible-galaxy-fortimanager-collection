@@ -125,12 +125,12 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_setting:
-          log_interval_dev_no_logging: <integer>
-          log_interval_disk_full: <integer>
-          log_interval_gbday_exceeded: <integer>
-          log_daemon_crash: <value in [disable, enable]>
-          no_log_detection_threshold: <integer>
-          log_interval_adom_perf_stats: <integer>
+          # log_interval_dev_no_logging: <integer>
+          # log_interval_disk_full: <integer>
+          # log_interval_gbday_exceeded: <integer>
+          # log_daemon_crash: <value in [disable, enable]>
+          # no_log_detection_threshold: <integer>
+          # log_interval_adom_perf_stats: <integer>
 '''
 
 RETURN = '''

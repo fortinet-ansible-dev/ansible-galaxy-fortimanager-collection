@@ -126,9 +126,9 @@ EXAMPLES = '''
         profile_protocol_options: <your own value>
         state: present # <value in [present, absent]>
         firewall_profileprotocoloptions_cifs_serverkeytab:
-          keytab: <string>
-          password: <list or string>
-          principal: <string>
+          # keytab: <string>
+          # password: <list or string>
+          # principal: <string>
 '''
 
 RETURN = '''

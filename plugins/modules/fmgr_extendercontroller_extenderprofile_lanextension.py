@@ -156,16 +156,15 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extendercontroller_extenderprofile_lanextension:
-          backhaul:
-            -
-              name: <string>
-              port: <value in [wan, lte1, lte2, ...]>
-              role: <value in [primary, secondary]>
-              weight: <integer>
-          backhaul_interface: <string>
-          backhaul_ip: <string>
-          ipsec_tunnel: <string>
-          link_loadbalance: <value in [activebackup, loadbalance]>
+          # backhaul:
+          #   - name: <string>
+          #     port: <value in [wan, lte1, lte2, ...]>
+          #     role: <value in [primary, secondary]>
+          #     weight: <integer>
+          # backhaul_interface: <string>
+          # backhaul_ip: <string>
+          # ipsec_tunnel: <string>
+          # link_loadbalance: <value in [activebackup, loadbalance]>
 '''
 
 RETURN = '''

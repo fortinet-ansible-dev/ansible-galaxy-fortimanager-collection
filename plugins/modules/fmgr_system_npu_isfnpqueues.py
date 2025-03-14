@@ -124,14 +124,14 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_isfnpqueues:
-          cos0: <string>
-          cos1: <string>
-          cos2: <string>
-          cos3: <string>
-          cos4: <string>
-          cos5: <string>
-          cos6: <string>
-          cos7: <string>
+          # cos0: <string>
+          # cos1: <string>
+          # cos2: <string>
+          # cos3: <string>
+          # cos4: <string>
+          # cos5: <string>
+          # cos6: <string>
+          # cos7: <string>
 '''
 
 RETURN = '''

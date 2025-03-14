@@ -180,21 +180,21 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_emailserver:
-          authenticate: <value in [disable, enable]>
-          password: <list or string>
-          port: <integer>
-          reply_to: <string>
-          security: <value in [none, starttls, smtps]>
-          server: <string>
-          source_ip: <string>
-          source_ip6: <string>
-          ssl_min_proto_version: <value in [default, TLSv1, TLSv1-1, ...]>
-          type: <value in [custom]>
-          username: <string>
-          validate_server: <value in [disable, enable]>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          vrf_select: <integer>
+          # authenticate: <value in [disable, enable]>
+          # password: <list or string>
+          # port: <integer>
+          # reply_to: <string>
+          # security: <value in [none, starttls, smtps]>
+          # server: <string>
+          # source_ip: <string>
+          # source_ip6: <string>
+          # ssl_min_proto_version: <value in [default, TLSv1, TLSv1-1, ...]>
+          # type: <value in [custom]>
+          # username: <string>
+          # validate_server: <value in [disable, enable]>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

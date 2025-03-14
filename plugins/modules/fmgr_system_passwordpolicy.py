@@ -140,16 +140,16 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_passwordpolicy:
-          change_4_characters: <value in [disable, enable]>
-          expire: <integer>
-          minimum_length: <integer>
-          must_contain:
-            - "upper-case-letter"
-            - "lower-case-letter"
-            - "number"
-            - "non-alphanumeric"
-          status: <value in [disable, enable]>
-          password_history: <integer>
+          # change_4_characters: <value in [disable, enable]>
+          # expire: <integer>
+          # minimum_length: <integer>
+          # must_contain:
+          #   - "upper-case-letter"
+          #   - "lower-case-letter"
+          #   - "number"
+          #   - "non-alphanumeric"
+          # status: <value in [disable, enable]>
+          # password_history: <integer>
 '''
 
 RETURN = '''

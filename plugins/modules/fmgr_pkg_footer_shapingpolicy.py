@@ -314,54 +314,54 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_footer_shapingpolicy:
-          app_category: <list or string>
-          app_group: <list or string>
-          application: <list or integer>
-          class_id: <integer or string>
-          comment: <string>
-          diffserv_forward: <value in [disable, enable]>
-          diffserv_reverse: <value in [disable, enable]>
-          diffservcode_forward: <string>
-          diffservcode_rev: <string>
-          dstaddr: <list or string>
-          dstaddr6: <list or string>
-          dstintf: <list or string>
-          groups: <list or string>
-          id: <integer>
-          internet_service: <value in [disable, enable]>
-          internet_service_custom: <list or string>
-          internet_service_custom_group: <list or string>
-          internet_service_group: <list or string>
-          internet_service_id: <list or string>
-          internet_service_src: <value in [disable, enable]>
-          internet_service_src_custom: <list or string>
-          internet_service_src_custom_group: <list or string>
-          internet_service_src_group: <list or string>
-          internet_service_src_id: <list or string>
-          ip_version: <value in [4, 6]>
-          per_ip_shaper: <string>
-          schedule: <string>
-          service: <list or string>
-          srcaddr: <list or string>
-          srcaddr6: <list or string>
-          srcintf: <list or string>
-          status: <value in [disable, enable]>
-          tos: <string>
-          tos_mask: <string>
-          tos_negate: <value in [disable, enable]>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          url_category: <list or string>
-          users: <list or string>
-          uuid: <string>
-          internet_service_name: <list or string>
-          internet_service_src_name: <list or string>
-          class_id_reverse: <integer>
-          service_type: <value in [service, internet-service]>
-          uuid_idx: <integer>
-          cos: <string>
-          cos_mask: <string>
-          traffic_type: <value in [forwarding, local-in, local-out]>
+          id: 0 # Required variable, integer
+          # app_category: <list or string>
+          # app_group: <list or string>
+          # application: <list or integer>
+          # class_id: <integer or string>
+          # comment: <string>
+          # diffserv_forward: <value in [disable, enable]>
+          # diffserv_reverse: <value in [disable, enable]>
+          # diffservcode_forward: <string>
+          # diffservcode_rev: <string>
+          # dstaddr: <list or string>
+          # dstaddr6: <list or string>
+          # dstintf: <list or string>
+          # groups: <list or string>
+          # internet_service: <value in [disable, enable]>
+          # internet_service_custom: <list or string>
+          # internet_service_custom_group: <list or string>
+          # internet_service_group: <list or string>
+          # internet_service_id: <list or string>
+          # internet_service_src: <value in [disable, enable]>
+          # internet_service_src_custom: <list or string>
+          # internet_service_src_custom_group: <list or string>
+          # internet_service_src_group: <list or string>
+          # internet_service_src_id: <list or string>
+          # ip_version: <value in [4, 6]>
+          # per_ip_shaper: <string>
+          # schedule: <string>
+          # service: <list or string>
+          # srcaddr: <list or string>
+          # srcaddr6: <list or string>
+          # srcintf: <list or string>
+          # status: <value in [disable, enable]>
+          # tos: <string>
+          # tos_mask: <string>
+          # tos_negate: <value in [disable, enable]>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # url_category: <list or string>
+          # users: <list or string>
+          # uuid: <string>
+          # internet_service_name: <list or string>
+          # internet_service_src_name: <list or string>
+          # class_id_reverse: <integer>
+          # service_type: <value in [service, internet-service]>
+          # uuid_idx: <integer>
+          # cos: <string>
+          # cos_mask: <string>
+          # traffic_type: <value in [forwarding, local-in, local-out]>
 '''
 
 RETURN = '''

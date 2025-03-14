@@ -214,18 +214,18 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_service:
-          avips: <value in [disable, enable]>
-          query_antispam: <value in [disable, enable]>
-          query_antivirus: <value in [disable, enable]>
-          query_filequery: <value in [disable, enable]>
-          query_geoip: <value in [disable, enable]>
-          query_outbreak_prevention: <value in [disable, enable]>
-          query_webfilter: <value in [disable, enable]>
-          webfilter_https_traversal: <value in [disable, enable]>
-          query_iot: <value in [disable, enable]>
-          query_iot_collection: <value in [disable, enable]>
-          query_iot_vulnerability: <value in [disable, enable]>
-          query_ioc: <value in [disable, enable]>
+          # avips: <value in [disable, enable]>
+          # query_antispam: <value in [disable, enable]>
+          # query_antivirus: <value in [disable, enable]>
+          # query_filequery: <value in [disable, enable]>
+          # query_geoip: <value in [disable, enable]>
+          # query_outbreak_prevention: <value in [disable, enable]>
+          # query_webfilter: <value in [disable, enable]>
+          # webfilter_https_traversal: <value in [disable, enable]>
+          # query_iot: <value in [disable, enable]>
+          # query_iot_collection: <value in [disable, enable]>
+          # query_iot_vulnerability: <value in [disable, enable]>
+          # query_ioc: <value in [disable, enable]>
 '''
 
 RETURN = '''

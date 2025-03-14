@@ -1174,220 +1174,220 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_nputcam:
-          data:
-            df: <value in [disable, enable]>
-            dstip: <string>
-            dstipv6: <string>
-            dstmac: <string>
-            dstport: <integer>
-            ethertype: <string>
-            ext_tag: <value in [disable, enable]>
-            frag_off: <integer>
-            gen_buf_cnt: <integer>
-            gen_iv: <value in [invalid, valid]>
-            gen_l3_flags: <integer>
-            gen_l4_flags: <integer>
-            gen_pkt_ctrl: <integer>
-            gen_pri: <integer>
-            gen_pri_v: <value in [invalid, valid]>
-            gen_tv: <value in [invalid, valid]>
-            ihl: <integer>
-            ip4_id: <integer>
-            ip6_fl: <integer>
-            ipver: <integer>
-            l4_wd10: <integer>
-            l4_wd11: <integer>
-            l4_wd8: <integer>
-            l4_wd9: <integer>
-            mf: <value in [disable, enable]>
-            protocol: <integer>
-            slink: <integer>
-            smac_change: <value in [disable, enable]>
-            sp: <integer>
-            src_cfi: <value in [disable, enable]>
-            src_prio: <integer>
-            src_updt: <value in [disable, enable]>
-            srcip: <string>
-            srcipv6: <string>
-            srcmac: <string>
-            srcport: <integer>
-            svid: <integer>
-            tcp_ack: <value in [disable, enable]>
-            tcp_cwr: <value in [disable, enable]>
-            tcp_ece: <value in [disable, enable]>
-            tcp_fin: <value in [disable, enable]>
-            tcp_push: <value in [disable, enable]>
-            tcp_rst: <value in [disable, enable]>
-            tcp_syn: <value in [disable, enable]>
-            tcp_urg: <value in [disable, enable]>
-            tgt_cfi: <value in [disable, enable]>
-            tgt_prio: <integer>
-            tgt_updt: <value in [disable, enable]>
-            tgt_v: <value in [invalid, valid]>
-            tos: <integer>
-            tp: <integer>
-            ttl: <integer>
-            tvid: <integer>
-            vdid: <integer>
-          dbg_dump: <integer>
-          mask:
-            df: <value in [disable, enable]>
-            dstip: <string>
-            dstipv6: <string>
-            dstmac: <string>
-            dstport: <integer>
-            ethertype: <string>
-            ext_tag: <value in [disable, enable]>
-            frag_off: <integer>
-            gen_buf_cnt: <integer>
-            gen_iv: <value in [invalid, valid]>
-            gen_l3_flags: <integer>
-            gen_l4_flags: <integer>
-            gen_pkt_ctrl: <integer>
-            gen_pri: <integer>
-            gen_pri_v: <value in [invalid, valid]>
-            gen_tv: <value in [invalid, valid]>
-            ihl: <integer>
-            ip4_id: <integer>
-            ip6_fl: <integer>
-            ipver: <integer>
-            l4_wd10: <integer>
-            l4_wd11: <integer>
-            l4_wd8: <integer>
-            l4_wd9: <integer>
-            mf: <value in [disable, enable]>
-            protocol: <integer>
-            slink: <integer>
-            smac_change: <value in [disable, enable]>
-            sp: <integer>
-            src_cfi: <value in [disable, enable]>
-            src_prio: <integer>
-            src_updt: <value in [disable, enable]>
-            srcip: <string>
-            srcipv6: <string>
-            srcmac: <string>
-            srcport: <integer>
-            svid: <integer>
-            tcp_ack: <value in [disable, enable]>
-            tcp_cwr: <value in [disable, enable]>
-            tcp_ece: <value in [disable, enable]>
-            tcp_fin: <value in [disable, enable]>
-            tcp_push: <value in [disable, enable]>
-            tcp_rst: <value in [disable, enable]>
-            tcp_syn: <value in [disable, enable]>
-            tcp_urg: <value in [disable, enable]>
-            tgt_cfi: <value in [disable, enable]>
-            tgt_prio: <integer>
-            tgt_updt: <value in [disable, enable]>
-            tgt_v: <value in [invalid, valid]>
-            tos: <integer>
-            tp: <integer>
-            ttl: <integer>
-            tvid: <integer>
-            vdid: <integer>
-          mir_act:
-            vlif: <integer>
-          name: <string>
-          oid: <integer>
-          pri_act:
-            priority: <integer>
-            weight: <integer>
-          sact:
-            act: <integer>
-            act_v: <value in [disable, enable]>
-            bmproc: <integer>
-            bmproc_v: <value in [disable, enable]>
-            df_lif: <integer>
-            df_lif_v: <value in [disable, enable]>
-            dfr: <integer>
-            dfr_v: <value in [disable, enable]>
-            dmac_skip: <integer>
-            dmac_skip_v: <value in [disable, enable]>
-            dosen: <integer>
-            dosen_v: <value in [disable, enable]>
-            espff_proc: <integer>
-            espff_proc_v: <value in [disable, enable]>
-            etype_pid: <integer>
-            etype_pid_v: <value in [disable, enable]>
-            frag_proc: <integer>
-            frag_proc_v: <value in [disable, enable]>
-            fwd: <integer>
-            fwd_lif: <integer>
-            fwd_lif_v: <value in [disable, enable]>
-            fwd_tvid: <integer>
-            fwd_tvid_v: <value in [disable, enable]>
-            fwd_v: <value in [disable, enable]>
-            icpen: <integer>
-            icpen_v: <value in [disable, enable]>
-            igmp_mld_snp: <integer>
-            igmp_mld_snp_v: <value in [disable, enable]>
-            learn: <integer>
-            learn_v: <value in [disable, enable]>
-            m_srh_ctrl: <integer>
-            m_srh_ctrl_v: <value in [disable, enable]>
-            mac_id: <integer>
-            mac_id_v: <value in [disable, enable]>
-            mss: <integer>
-            mss_v: <value in [disable, enable]>
-            pleen: <integer>
-            pleen_v: <value in [disable, enable]>
-            prio_pid: <integer>
-            prio_pid_v: <value in [disable, enable]>
-            promis: <integer>
-            promis_v: <value in [disable, enable]>
-            rfsh: <integer>
-            rfsh_v: <value in [disable, enable]>
-            smac_skip: <integer>
-            smac_skip_v: <value in [disable, enable]>
-            tp_smchk_v: <value in [disable, enable]>
-            tp_smchk: <integer>
-            tpe_id: <integer>
-            tpe_id_v: <value in [disable, enable]>
-            vdm: <integer>
-            vdm_v: <value in [disable, enable]>
-            vdom_id: <integer>
-            vdom_id_v: <value in [disable, enable]>
-            x_mode: <integer>
-            x_mode_v: <value in [disable, enable]>
-          tact:
-            act: <integer>
-            act_v: <value in [disable, enable]>
-            fmtuv4_s: <integer>
-            fmtuv4_s_v: <value in [disable, enable]>
-            fmtuv6_s: <integer>
-            fmtuv6_s_v: <value in [disable, enable]>
-            lnkid: <integer>
-            lnkid_v: <value in [disable, enable]>
-            mac_id: <integer>
-            mac_id_v: <value in [disable, enable]>
-            mss_t: <integer>
-            mss_t_v: <value in [disable, enable]>
-            mtuv4: <integer>
-            mtuv4_v: <value in [disable, enable]>
-            mtuv6: <integer>
-            mtuv6_v: <value in [disable, enable]>
-            slif_act: <integer>
-            slif_act_v: <value in [disable, enable]>
-            sublnkid: <integer>
-            sublnkid_v: <value in [disable, enable]>
-            tgtv_act: <integer>
-            tgtv_act_v: <value in [disable, enable]>
-            tlif_act: <integer>
-            tlif_act_v: <value in [disable, enable]>
-            tpeid: <integer>
-            tpeid_v: <value in [disable, enable]>
-            v6fe: <integer>
-            v6fe_v: <value in [disable, enable]>
-            vep_en_v: <value in [disable, enable]>
-            vep_slid: <integer>
-            vep_slid_v: <value in [disable, enable]>
-            vep_en: <integer>
-            xlt_lif: <integer>
-            xlt_lif_v: <value in [disable, enable]>
-            xlt_vid: <integer>
-            xlt_vid_v: <value in [disable, enable]>
-          type: <value in [L2_src_tc, L2_tgt_tc, L2_src_mir, ...]>
-          vid: <integer>
+          name: "your value" # Required variable, string
+          # data:
+          #   df: <value in [disable, enable]>
+          #   dstip: <string>
+          #   dstipv6: <string>
+          #   dstmac: <string>
+          #   dstport: <integer>
+          #   ethertype: <string>
+          #   ext_tag: <value in [disable, enable]>
+          #   frag_off: <integer>
+          #   gen_buf_cnt: <integer>
+          #   gen_iv: <value in [invalid, valid]>
+          #   gen_l3_flags: <integer>
+          #   gen_l4_flags: <integer>
+          #   gen_pkt_ctrl: <integer>
+          #   gen_pri: <integer>
+          #   gen_pri_v: <value in [invalid, valid]>
+          #   gen_tv: <value in [invalid, valid]>
+          #   ihl: <integer>
+          #   ip4_id: <integer>
+          #   ip6_fl: <integer>
+          #   ipver: <integer>
+          #   l4_wd10: <integer>
+          #   l4_wd11: <integer>
+          #   l4_wd8: <integer>
+          #   l4_wd9: <integer>
+          #   mf: <value in [disable, enable]>
+          #   protocol: <integer>
+          #   slink: <integer>
+          #   smac_change: <value in [disable, enable]>
+          #   sp: <integer>
+          #   src_cfi: <value in [disable, enable]>
+          #   src_prio: <integer>
+          #   src_updt: <value in [disable, enable]>
+          #   srcip: <string>
+          #   srcipv6: <string>
+          #   srcmac: <string>
+          #   srcport: <integer>
+          #   svid: <integer>
+          #   tcp_ack: <value in [disable, enable]>
+          #   tcp_cwr: <value in [disable, enable]>
+          #   tcp_ece: <value in [disable, enable]>
+          #   tcp_fin: <value in [disable, enable]>
+          #   tcp_push: <value in [disable, enable]>
+          #   tcp_rst: <value in [disable, enable]>
+          #   tcp_syn: <value in [disable, enable]>
+          #   tcp_urg: <value in [disable, enable]>
+          #   tgt_cfi: <value in [disable, enable]>
+          #   tgt_prio: <integer>
+          #   tgt_updt: <value in [disable, enable]>
+          #   tgt_v: <value in [invalid, valid]>
+          #   tos: <integer>
+          #   tp: <integer>
+          #   ttl: <integer>
+          #   tvid: <integer>
+          #   vdid: <integer>
+          # dbg_dump: <integer>
+          # mask:
+          #   df: <value in [disable, enable]>
+          #   dstip: <string>
+          #   dstipv6: <string>
+          #   dstmac: <string>
+          #   dstport: <integer>
+          #   ethertype: <string>
+          #   ext_tag: <value in [disable, enable]>
+          #   frag_off: <integer>
+          #   gen_buf_cnt: <integer>
+          #   gen_iv: <value in [invalid, valid]>
+          #   gen_l3_flags: <integer>
+          #   gen_l4_flags: <integer>
+          #   gen_pkt_ctrl: <integer>
+          #   gen_pri: <integer>
+          #   gen_pri_v: <value in [invalid, valid]>
+          #   gen_tv: <value in [invalid, valid]>
+          #   ihl: <integer>
+          #   ip4_id: <integer>
+          #   ip6_fl: <integer>
+          #   ipver: <integer>
+          #   l4_wd10: <integer>
+          #   l4_wd11: <integer>
+          #   l4_wd8: <integer>
+          #   l4_wd9: <integer>
+          #   mf: <value in [disable, enable]>
+          #   protocol: <integer>
+          #   slink: <integer>
+          #   smac_change: <value in [disable, enable]>
+          #   sp: <integer>
+          #   src_cfi: <value in [disable, enable]>
+          #   src_prio: <integer>
+          #   src_updt: <value in [disable, enable]>
+          #   srcip: <string>
+          #   srcipv6: <string>
+          #   srcmac: <string>
+          #   srcport: <integer>
+          #   svid: <integer>
+          #   tcp_ack: <value in [disable, enable]>
+          #   tcp_cwr: <value in [disable, enable]>
+          #   tcp_ece: <value in [disable, enable]>
+          #   tcp_fin: <value in [disable, enable]>
+          #   tcp_push: <value in [disable, enable]>
+          #   tcp_rst: <value in [disable, enable]>
+          #   tcp_syn: <value in [disable, enable]>
+          #   tcp_urg: <value in [disable, enable]>
+          #   tgt_cfi: <value in [disable, enable]>
+          #   tgt_prio: <integer>
+          #   tgt_updt: <value in [disable, enable]>
+          #   tgt_v: <value in [invalid, valid]>
+          #   tos: <integer>
+          #   tp: <integer>
+          #   ttl: <integer>
+          #   tvid: <integer>
+          #   vdid: <integer>
+          # mir_act:
+          #   vlif: <integer>
+          # oid: <integer>
+          # pri_act:
+          #   priority: <integer>
+          #   weight: <integer>
+          # sact:
+          #   act: <integer>
+          #   act_v: <value in [disable, enable]>
+          #   bmproc: <integer>
+          #   bmproc_v: <value in [disable, enable]>
+          #   df_lif: <integer>
+          #   df_lif_v: <value in [disable, enable]>
+          #   dfr: <integer>
+          #   dfr_v: <value in [disable, enable]>
+          #   dmac_skip: <integer>
+          #   dmac_skip_v: <value in [disable, enable]>
+          #   dosen: <integer>
+          #   dosen_v: <value in [disable, enable]>
+          #   espff_proc: <integer>
+          #   espff_proc_v: <value in [disable, enable]>
+          #   etype_pid: <integer>
+          #   etype_pid_v: <value in [disable, enable]>
+          #   frag_proc: <integer>
+          #   frag_proc_v: <value in [disable, enable]>
+          #   fwd: <integer>
+          #   fwd_lif: <integer>
+          #   fwd_lif_v: <value in [disable, enable]>
+          #   fwd_tvid: <integer>
+          #   fwd_tvid_v: <value in [disable, enable]>
+          #   fwd_v: <value in [disable, enable]>
+          #   icpen: <integer>
+          #   icpen_v: <value in [disable, enable]>
+          #   igmp_mld_snp: <integer>
+          #   igmp_mld_snp_v: <value in [disable, enable]>
+          #   learn: <integer>
+          #   learn_v: <value in [disable, enable]>
+          #   m_srh_ctrl: <integer>
+          #   m_srh_ctrl_v: <value in [disable, enable]>
+          #   mac_id: <integer>
+          #   mac_id_v: <value in [disable, enable]>
+          #   mss: <integer>
+          #   mss_v: <value in [disable, enable]>
+          #   pleen: <integer>
+          #   pleen_v: <value in [disable, enable]>
+          #   prio_pid: <integer>
+          #   prio_pid_v: <value in [disable, enable]>
+          #   promis: <integer>
+          #   promis_v: <value in [disable, enable]>
+          #   rfsh: <integer>
+          #   rfsh_v: <value in [disable, enable]>
+          #   smac_skip: <integer>
+          #   smac_skip_v: <value in [disable, enable]>
+          #   tp_smchk_v: <value in [disable, enable]>
+          #   tp_smchk: <integer>
+          #   tpe_id: <integer>
+          #   tpe_id_v: <value in [disable, enable]>
+          #   vdm: <integer>
+          #   vdm_v: <value in [disable, enable]>
+          #   vdom_id: <integer>
+          #   vdom_id_v: <value in [disable, enable]>
+          #   x_mode: <integer>
+          #   x_mode_v: <value in [disable, enable]>
+          # tact:
+          #   act: <integer>
+          #   act_v: <value in [disable, enable]>
+          #   fmtuv4_s: <integer>
+          #   fmtuv4_s_v: <value in [disable, enable]>
+          #   fmtuv6_s: <integer>
+          #   fmtuv6_s_v: <value in [disable, enable]>
+          #   lnkid: <integer>
+          #   lnkid_v: <value in [disable, enable]>
+          #   mac_id: <integer>
+          #   mac_id_v: <value in [disable, enable]>
+          #   mss_t: <integer>
+          #   mss_t_v: <value in [disable, enable]>
+          #   mtuv4: <integer>
+          #   mtuv4_v: <value in [disable, enable]>
+          #   mtuv6: <integer>
+          #   mtuv6_v: <value in [disable, enable]>
+          #   slif_act: <integer>
+          #   slif_act_v: <value in [disable, enable]>
+          #   sublnkid: <integer>
+          #   sublnkid_v: <value in [disable, enable]>
+          #   tgtv_act: <integer>
+          #   tgtv_act_v: <value in [disable, enable]>
+          #   tlif_act: <integer>
+          #   tlif_act_v: <value in [disable, enable]>
+          #   tpeid: <integer>
+          #   tpeid_v: <value in [disable, enable]>
+          #   v6fe: <integer>
+          #   v6fe_v: <value in [disable, enable]>
+          #   vep_en_v: <value in [disable, enable]>
+          #   vep_slid: <integer>
+          #   vep_slid_v: <value in [disable, enable]>
+          #   vep_en: <integer>
+          #   xlt_lif: <integer>
+          #   xlt_lif_v: <value in [disable, enable]>
+          #   xlt_vid: <integer>
+          #   xlt_vid_v: <value in [disable, enable]>
+          # type: <value in [L2_src_tc, L2_tgt_tc, L2_src_mir, ...]>
+          # vid: <integer>
 '''
 
 RETURN = '''

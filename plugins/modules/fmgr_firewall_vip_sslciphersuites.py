@@ -207,15 +207,15 @@ EXAMPLES = '''
         vip: <your own value>
         state: present # <value in [present, absent]>
         firewall_vip_sslciphersuites:
-          cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
-          id: <integer>
-          versions:
-            - "ssl-3.0"
-            - "tls-1.0"
-            - "tls-1.1"
-            - "tls-1.2"
-            - "tls-1.3"
-          priority: <integer>
+          id: 0 # Required variable, integer
+          # cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
+          # versions:
+          #   - "ssl-3.0"
+          #   - "tls-1.0"
+          #   - "tls-1.1"
+          #   - "tls-1.2"
+          #   - "tls-1.3"
+          # priority: <integer>
 '''
 
 RETURN = '''

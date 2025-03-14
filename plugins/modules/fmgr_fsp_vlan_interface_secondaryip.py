@@ -176,36 +176,36 @@ EXAMPLES = '''
         vlan: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_interface_secondaryip:
-          allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-            - "fgfm"
-            - "auto-ipsec"
-            - "radius-acct"
-            - "probe-response"
-            - "capwap"
-            - "dnp"
-            - "ftm"
-            - "fabric"
-            - "speed-test"
-            - "icond"
-            - "scim"
-          detectprotocol:
-            - "ping"
-            - "tcp-echo"
-            - "udp-echo"
-          detectserver: <string>
-          gwdetect: <value in [disable, enable]>
-          ha_priority: <integer>
-          id: <integer>
-          ip: <string>
-          ping_serv_status: <integer>
-          seq: <integer>
-          secip_relay_ip: <string>
+          id: 0 # Required variable, integer
+          # allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          #   - "fgfm"
+          #   - "auto-ipsec"
+          #   - "radius-acct"
+          #   - "probe-response"
+          #   - "capwap"
+          #   - "dnp"
+          #   - "ftm"
+          #   - "fabric"
+          #   - "speed-test"
+          #   - "icond"
+          #   - "scim"
+          # detectprotocol:
+          #   - "ping"
+          #   - "tcp-echo"
+          #   - "udp-echo"
+          # detectserver: <string>
+          # gwdetect: <value in [disable, enable]>
+          # ha_priority: <integer>
+          # ip: <string>
+          # ping_serv_status: <integer>
+          # seq: <integer>
+          # secip_relay_ip: <string>
 '''
 
 RETURN = '''

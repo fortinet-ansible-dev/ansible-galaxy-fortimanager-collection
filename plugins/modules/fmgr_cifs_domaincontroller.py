@@ -133,13 +133,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         cifs_domaincontroller:
-          domain_name: <string>
-          ip: <string>
-          ip6: <string>
-          password: <list or string>
-          port: <integer>
-          server_name: <string>
-          username: <string>
+          # domain_name: <string>
+          # ip: <string>
+          # ip6: <string>
+          # password: <list or string>
+          # port: <integer>
+          # server_name: <string>
+          # username: <string>
 '''
 
 RETURN = '''

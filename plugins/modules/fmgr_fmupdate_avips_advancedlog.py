@@ -115,8 +115,8 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_avips_advancedlog:
-          log_fortigate: <value in [disable, enable]>
-          log_server: <value in [disable, enable]>
+          # log_fortigate: <value in [disable, enable]>
+          # log_server: <value in [disable, enable]>
 '''
 
 RETURN = '''

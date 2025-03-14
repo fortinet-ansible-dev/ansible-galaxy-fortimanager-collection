@@ -178,18 +178,18 @@ EXAMPLES = '''
         mpsk_group: <your own value>
         state: present # <value in [present, absent]>
         mpskprofile_mpskgroup_mpskkey:
-          comment: <string>
-          concurrent_client_limit_type: <value in [default, unlimited, specified]>
-          concurrent_clients: <integer>
-          mac: <string>
-          mpsk_schedules: <list or string>
-          name: <string>
-          passphrase: <list or string>
-          pmk: <list or string>
-          key_type: <value in [wpa2-personal, wpa3-sae]>
-          sae_password: <list or string>
-          sae_pk: <value in [disable, enable]>
-          sae_private_key: <string>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # concurrent_client_limit_type: <value in [default, unlimited, specified]>
+          # concurrent_clients: <integer>
+          # mac: <string>
+          # mpsk_schedules: <list or string>
+          # passphrase: <list or string>
+          # pmk: <list or string>
+          # key_type: <value in [wpa2-personal, wpa3-sae]>
+          # sae_password: <list or string>
+          # sae_pk: <value in [disable, enable]>
+          # sae_private_key: <string>
 '''
 
 RETURN = '''

@@ -2185,508 +2185,507 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_global:
-          admin_https_redirect: <value in [disable, enable]>
-          admin_port: <integer>
-          admin_scp: <value in [disable, enable]>
-          admin_sport: <integer>
-          admin_ssh_port: <integer>
-          admin_ssh_v1: <value in [disable, enable]>
-          admin_telnet_port: <integer>
-          admintimeout: <integer>
-          gui_ipv6: <value in [disable, enable]>
-          gui_lines_per_page: <integer>
-          gui_theme: <value in [blue, green, melongene, ...]>
-          language: <value in [english, simch, japanese, ...]>
-          switch_controller: <value in [disable, enable]>
-          gui_device_latitude: <string>
-          gui_device_longitude: <string>
-          hostname: <string>
-          timezone:
-            - "00"
-            - "01"
-            - "02"
-            - "03"
-            - "04"
-            - "05"
-            - "06"
-            - "07"
-            - "08"
-            - "09"
-            - "10"
-            - "11"
-            - "12"
-            - "13"
-            - "14"
-            - "15"
-            - "16"
-            - "17"
-            - "18"
-            - "19"
-            - "20"
-            - "21"
-            - "22"
-            - "23"
-            - "24"
-            - "25"
-            - "26"
-            - "27"
-            - "28"
-            - "29"
-            - "30"
-            - "31"
-            - "32"
-            - "33"
-            - "34"
-            - "35"
-            - "36"
-            - "37"
-            - "38"
-            - "39"
-            - "40"
-            - "41"
-            - "42"
-            - "43"
-            - "44"
-            - "45"
-            - "46"
-            - "47"
-            - "48"
-            - "49"
-            - "50"
-            - "51"
-            - "52"
-            - "53"
-            - "54"
-            - "55"
-            - "56"
-            - "57"
-            - "58"
-            - "59"
-            - "60"
-            - "61"
-            - "62"
-            - "63"
-            - "64"
-            - "65"
-            - "66"
-            - "67"
-            - "68"
-            - "69"
-            - "70"
-            - "71"
-            - "72"
-            - "73"
-            - "74"
-            - "75"
-            - "76"
-            - "77"
-            - "78"
-            - "79"
-            - "80"
-            - "81"
-            - "82"
-            - "83"
-            - "84"
-            - "85"
-            - "86"
-            - "87"
-          check_reset_range: <value in [disable, strict]>
-          pmtu_discovery: <value in [disable, enable]>
-          gui_allow_incompatible_fabric_fgt: <value in [disable, enable]>
-          admin_restrict_local: <value in [disable, enable, all, ...]>
-          gui_workflow_management: <value in [disable, enable]>
-          send_pmtu_icmp: <value in [disable, enable]>
-          tcp_halfclose_timer: <integer>
-          admin_server_cert: <list or string>
-          dnsproxy_worker_count: <integer>
-          show_backplane_intf: <value in [disable, enable]>
-          gui_custom_language: <value in [disable, enable]>
-          ldapconntimeout: <integer>
-          auth_https_port: <integer>
-          revision_backup_on_logout: <value in [disable, enable]>
-          arp_max_entry: <integer>
-          long_vdom_name: <value in [disable, enable]>
-          pre_login_banner: <value in [disable, enable]>
-          qsfpdd_split8_port: <list or string>
-          max_route_cache_size: <integer>
-          fortitoken_cloud_push_status: <value in [disable, enable]>
-          ssh_hostkey_override: <value in [disable, enable]>
-          proxy_hardware_acceleration: <value in [disable, enable]>
-          switch_controller_reserved_network: <list or string>
-          ssd_trim_date: <integer>
-          wad_worker_count: <integer>
-          ssh_hostkey: <string>
-          wireless_controller_port: <integer>
-          fgd_alert_subscription:
-            - "advisory"
-            - "latest-threat"
-            - "latest-virus"
-            - "latest-attack"
-            - "new-antivirus-db"
-            - "new-attack-db"
-          forticontroller_proxy_port: <integer>
-          dh_params: <value in [1024, 1536, 2048, ...]>
-          memory_use_threshold_green: <integer>
-          proxy_cert_use_mgmt_vdom: <value in [disable, enable]>
-          proxy_auth_lifetime_timeout: <integer>
-          gui_auto_upgrade_setup_warning: <value in [disable, enable]>
-          gui_cdn_usage: <value in [disable, enable]>
-          two_factor_email_expiry: <integer>
-          udp_idle_timer: <integer>
-          interface_subnet_usage: <value in [disable, enable]>
-          forticontroller_proxy: <value in [disable, enable]>
-          ssh_enc_algo:
-            - "chacha20-poly1305@openssh.com"
-            - "aes128-ctr"
-            - "aes192-ctr"
-            - "aes256-ctr"
-            - "arcfour256"
-            - "arcfour128"
-            - "aes128-cbc"
-            - "3des-cbc"
-            - "blowfish-cbc"
-            - "cast128-cbc"
-            - "aes192-cbc"
-            - "aes256-cbc"
-            - "arcfour"
-            - "rijndael-cbc@lysator.liu.se"
-            - "aes128-gcm@openssh.com"
-            - "aes256-gcm@openssh.com"
-          block_session_timer: <integer>
-          quic_pmtud: <value in [disable, enable]>
-          admin_https_ssl_ciphersuites:
-            - "TLS-AES-128-GCM-SHA256"
-            - "TLS-AES-256-GCM-SHA384"
-            - "TLS-CHACHA20-POLY1305-SHA256"
-            - "TLS-AES-128-CCM-SHA256"
-            - "TLS-AES-128-CCM-8-SHA256"
-          security_rating_result_submission: <value in [disable, enable]>
-          user_device_store_max_unified_mem: <integer>
-          management_port: <integer>
-          fortigslb_integration: <value in [disable, enable]>
-          admin_https_ssl_versions:
-            - "tlsv1-0"
-            - "tlsv1-1"
-            - "tlsv1-2"
-            - "sslv3"
-            - "tlsv1-3"
-          cert_chain_max: <integer>
-          qsfp28_40g_port: <list or string>
-          strong_crypto: <value in [disable, enable]>
-          multi_factor_authentication: <value in [optional, mandatory]>
-          fds_statistics: <value in [disable, enable]>
-          gui_display_hostname: <value in [disable, enable]>
-          two_factor_ftk_expiry: <integer>
-          wad_source_affinity: <value in [disable, enable]>
-          ssl_static_key_ciphers: <value in [disable, enable]>
-          daily_restart: <value in [disable, enable]>
-          snat_route_change: <value in [disable, enable]>
-          tcp_rst_timer: <integer>
-          anti_replay: <value in [disable, loose, strict]>
-          ssl_min_proto_version: <value in [TLSv1, TLSv1-1, TLSv1-2, ...]>
-          speedtestd_server_port: <integer>
-          cpu_use_threshold: <integer>
-          admin_host: <string>
-          csr_ca_attribute: <value in [disable, enable]>
-          fortiservice_port: <integer>
-          ssd_trim_hour: <integer>
-          purdue_level: <value in [1, 2, 3, ...]>
-          management_vdom: <list or string>
-          quic_ack_thresold: <integer>
-          qsfpdd_100g_port: <list or string>
-          ips_affinity: <string>
-          vip_arp_range: <value in [restricted, unlimited]>
-          internet_service_database: <value in [mini, standard, full, ...]>
-          revision_image_auto_backup: <value in [disable, enable]>
-          sflowd_max_children_num: <integer>
-          admin_https_pki_required: <value in [disable, enable]>
-          special_file_23_support: <value in [disable, enable]>
-          npu_neighbor_update: <value in [disable, enable]>
-          log_single_cpu_high: <value in [disable, enable]>
-          management_ip: <string>
-          proxy_resource_mode: <value in [disable, enable]>
-          admin_ble_button: <value in [disable, enable]>
-          gui_firmware_upgrade_warning: <value in [disable, enable]>
-          dp_tcp_normal_timer: <integer>
-          ipv6_allow_traffic_redirect: <value in [disable, enable]>
-          cli_audit_log: <value in [disable, enable]>
-          memory_use_threshold_extreme: <integer>
-          ha_affinity: <string>
-          restart_time: <string>
-          speedtestd_ctrl_port: <integer>
-          gui_wireless_opensecurity: <value in [disable, enable]>
-          memory_use_threshold_red: <integer>
-          dp_fragment_timer: <integer>
-          wad_restart_start_time: <string>
-          proxy_re_authentication_time: <integer>
-          gui_app_detection_sdwan: <value in [disable, enable]>
-          scanunit_count: <integer>
-          tftp: <value in [disable, enable]>
-          xstools_update_frequency: <integer>
-          clt_cert_req: <value in [disable, enable]>
-          fortiextender_vlan_mode: <value in [disable, enable]>
-          auth_http_port: <integer>
-          per_user_bal: <value in [disable, enable]>
-          gui_date_format: <value in [yyyy/MM/dd, dd/MM/yyyy, MM/dd/yyyy, ...]>
-          log_uuid_address: <value in [disable, enable]>
-          cloud_communication: <value in [disable, enable]>
-          lldp_reception: <value in [disable, enable]>
-          two_factor_ftm_expiry: <integer>
-          quic_udp_payload_size_shaping_per_cid: <value in [disable, enable]>
-          autorun_log_fsck: <value in [disable, enable]>
-          vpn_ems_sn_check: <value in [disable, enable]>
-          admin_ssh_password: <value in [disable, enable]>
-          airplane_mode: <value in [disable, enable]>
-          batch_cmdb: <value in [disable, enable]>
-          ip_src_port_range: <list or string>
-          strict_dirty_session_check: <value in [disable, enable]>
-          user_device_store_max_devices: <integer>
-          dp_udp_idle_timer: <integer>
-          internal_switch_speed:
-            - "auto"
-            - "10full"
-            - "10half"
-            - "100full"
-            - "100half"
-            - "1000full"
-            - "1000auto"
-          forticonverter_config_upload: <value in [disable, once]>
-          ipsec_round_robin: <value in [disable, enable]>
-          wad_affinity: <string>
-          wifi_ca_certificate: <list or string>
-          wimax_4g_usb: <value in [disable, enable]>
-          miglog_affinity: <string>
-          faz_disk_buffer_size: <integer>
-          ssh_kex_algo:
-            - "diffie-hellman-group1-sha1"
-            - "diffie-hellman-group14-sha1"
-            - "diffie-hellman-group-exchange-sha1"
-            - "diffie-hellman-group-exchange-sha256"
-            - "curve25519-sha256@libssh.org"
-            - "ecdh-sha2-nistp256"
-            - "ecdh-sha2-nistp384"
-            - "ecdh-sha2-nistp521"
-            - "diffie-hellman-group14-sha256"
-            - "diffie-hellman-group16-sha512"
-            - "diffie-hellman-group18-sha512"
-          auto_auth_extension_device: <value in [disable, enable]>
-          forticarrier_bypass: <value in [disable, enable]>
-          reset_sessionless_tcp: <value in [disable, enable]>
-          early_tcp_npu_session: <value in [disable, enable]>
-          http_unauthenticated_request_limit: <integer>
-          gui_local_out: <value in [disable, enable]>
-          tcp_option: <value in [disable, enable]>
-          proxy_auth_timeout: <integer>
-          fortiextender_discovery_lockdown: <value in [disable, enable]>
-          lldp_transmission: <value in [disable, enable]>
-          split_port: <list or string>
-          gui_certificates: <value in [disable, enable]>
-          cfg_save: <value in [automatic, manual, revert]>
-          auth_keepalive: <value in [disable, enable]>
-          split_port_mode:
-            -
-              interface: <string>
-              split_mode: <value in [disable, 4x10G, 4x25G, ...]>
-          admin_forticloud_sso_login: <value in [disable, enable]>
-          post_login_banner: <value in [disable, enable]>
-          br_fdb_max_entry: <integer>
-          ip_fragment_mem_thresholds: <integer>
-          fortiextender_provision_on_authorization: <value in [disable, enable]>
-          reboot_upon_config_restore: <value in [disable, enable]>
-          syslog_affinity: <string>
-          fortiextender_data_port: <integer>
-          quic_tls_handshake_timeout: <integer>
-          forticonverter_integration: <value in [disable, enable]>
-          proxy_keep_alive_mode: <value in [session, traffic, re-authentication]>
-          cmdbsvr_affinity: <string>
-          wad_memory_change_granularity: <integer>
-          dhcp_lease_backup_interval: <integer>
-          check_protocol_header: <value in [loose, strict]>
-          av_failopen_session: <value in [disable, enable]>
-          ipsec_ha_seqjump_rate: <integer>
-          admin_hsts_max_age: <integer>
-          igmp_state_limit: <integer>
-          admin_login_max: <integer>
-          ipv6_allow_multicast_probe: <value in [disable, enable]>
-          virtual_switch_vlan: <value in [disable, enable]>
-          admin_lockout_threshold: <integer>
-          dp_pinhole_timer: <integer>
-          wireless_controller: <value in [disable, enable]>
-          bfd_affinity: <string>
-          ssd_trim_freq: <value in [daily, weekly, monthly, ...]>
-          two_factor_sms_expiry: <integer>
-          traffic_priority: <value in [tos, dscp]>
-          proxy_and_explicit_proxy: <value in [disable, enable]>
-          sslvpn_web_mode: <value in [disable, enable]>
-          ssh_hostkey_password: <list or string>
-          wad_csvc_db_count: <integer>
-          ipv6_allow_anycast_probe: <value in [disable, enable]>
-          honor_df: <value in [disable, enable]>
-          hyper_scale_vdom_num: <integer>
-          wad_csvc_cs_count: <integer>
-          internal_switch_mode: <value in [switch, interface, hub]>
-          cfg_revert_timeout: <integer>
-          admin_concurrent: <value in [disable, enable]>
-          ipv6_allow_local_in_silent_drop: <value in [disable, enable]>
-          tcp_halfopen_timer: <integer>
-          dp_rsync_timer: <integer>
-          management_port_use_admin_sport: <value in [disable, enable]>
-          gui_forticare_registration_setup_warning: <value in [disable, enable]>
-          gui_replacement_message_groups: <value in [disable, enable]>
-          security_rating_run_on_schedule: <value in [disable, enable]>
-          admin_lockout_duration: <integer>
-          optimize_flow_mode: <value in [disable, enable]>
-          private_data_encryption: <value in [disable, enable]>
-          wireless_mode: <value in [ac, client, wtp, ...]>
-          alias: <string>
-          ssh_hostkey_algo:
-            - "ssh-rsa"
-            - "ecdsa-sha2-nistp521"
-            - "rsa-sha2-256"
-            - "rsa-sha2-512"
-            - "ssh-ed25519"
-            - "ecdsa-sha2-nistp384"
-            - "ecdsa-sha2-nistp256"
-          fortitoken_cloud: <value in [disable, enable]>
-          av_affinity: <string>
-          proxy_worker_count: <integer>
-          ipsec_asic_offload: <value in [disable, enable]>
-          miglogd_children: <integer>
-          sslvpn_max_worker_count: <integer>
-          ssh_mac_algo:
-            - "hmac-md5"
-            - "hmac-md5-etm@openssh.com"
-            - "hmac-md5-96"
-            - "hmac-md5-96-etm@openssh.com"
-            - "hmac-sha1"
-            - "hmac-sha1-etm@openssh.com"
-            - "hmac-sha2-256"
-            - "hmac-sha2-256-etm@openssh.com"
-            - "hmac-sha2-512"
-            - "hmac-sha2-512-etm@openssh.com"
-            - "hmac-ripemd160"
-            - "hmac-ripemd160@openssh.com"
-            - "hmac-ripemd160-etm@openssh.com"
-            - "umac-64@openssh.com"
-            - "umac-128@openssh.com"
-            - "umac-64-etm@openssh.com"
-            - "umac-128-etm@openssh.com"
-          url_filter_count: <integer>
-          wifi_certificate: <list or string>
-          radius_port: <integer>
-          sys_perf_log_interval: <integer>
-          gui_fortigate_cloud_sandbox: <value in [disable, enable]>
-          auth_cert: <list or string>
-          fortiextender: <value in [disable, enable]>
-          admin_reset_button: <value in [disable, enable]>
-          av_failopen: <value in [off, pass, one-shot, ...]>
-          user_device_store_max_users: <integer>
-          auth_session_limit: <value in [block-new, logout-inactive]>
-          ipv6_allow_local_in_slient_drop: <value in [disable, enable]>
-          quic_congestion_control_algo: <value in [cubic, bbr, bbr2, ...]>
-          auth_ike_saml_port: <integer>
-          wad_restart_end_time: <string>
-          http_request_limit: <integer>
-          irq_time_accounting: <value in [auto, force]>
-          remoteauthtimeout: <integer>
-          admin_https_ssl_banned_ciphers:
-            - "RSA"
-            - "DHE"
-            - "ECDHE"
-            - "DSS"
-            - "ECDSA"
-            - "AES"
-            - "AESGCM"
-            - "CAMELLIA"
-            - "3DES"
-            - "SHA1"
-            - "SHA256"
-            - "SHA384"
-            - "STATIC"
-            - "CHACHA20"
-            - "ARIA"
-            - "AESCCM"
-          allow_traffic_redirect: <value in [disable, enable]>
-          legacy_poe_device_support: <value in [disable, enable]>
-          wad_restart_mode: <value in [none, time, memory]>
-          fds_statistics_period: <integer>
-          admin_telnet: <value in [disable, enable]>
-          ipv6_accept_dad: <integer>
-          tcp_timewait_timer: <integer>
-          admin_console_timeout: <integer>
-          default_service_source_port: <string>
-          quic_max_datagram_size: <integer>
-          refresh: <integer>
-          extender_controller_reserved_network: <list or string>
-          url_filter_affinity: <string>
-          policy_auth_concurrent: <integer>
-          ipsec_hmac_offload: <value in [disable, enable]>
-          traffic_priority_level: <value in [high, medium, low]>
-          ipsec_qat_offload: <value in [disable, enable]>
-          ssd_trim_min: <integer>
-          gui_date_time_source: <value in [system, browser]>
-          log_ssl_connection: <value in [disable, enable]>
-          ndp_max_entry: <integer>
-          vdom_mode: <value in [no-vdom, multi-vdom, split-vdom]>
-          internet_service_download_list: <list or string>
-          fortitoken_cloud_sync_interval: <integer>
-          ssd_trim_weekday: <value in [sunday, monday, tuesday, ...]>
-          two_factor_fac_expiry: <integer>
-          gui_rest_api_cache: <value in [disable, enable]>
-          admin_forticloud_sso_default_profile: <list or string>
-          proxy_auth_lifetime: <value in [disable, enable]>
-          device_idle_timeout: <integer>
-          login_timestamp: <value in [disable, enable]>
-          speedtest_server: <value in [disable, enable]>
-          edit_vdom_prompt: <value in [disable, enable]>
-          gui_cdn_domain_override: <string>
-          admin_ssh_grace_time: <integer>
-          sslvpn_ems_sn_check: <value in [disable, enable]>
-          user_server_cert: <list or string>
-          gui_allow_default_hostname: <value in [disable, enable]>
-          proxy_re_authentication_mode: <value in [session, traffic, absolute]>
-          ipsec_soft_dec_async: <value in [disable, enable]>
-          admin_maintainer: <value in [disable, enable]>
-          dst: <value in [disable, enable]>
-          fec_port: <integer>
-          ssh_kex_sha1: <value in [disable, enable]>
-          ssh_mac_weak: <value in [disable, enable]>
-          sslvpn_cipher_hardware_acceleration: <value in [disable, enable]>
-          sys_file_check_interval: <integer>
-          ssh_hmac_md5: <value in [disable, enable]>
-          ssh_cbc_cipher: <value in [disable, enable]>
-          gui_fortiguard_resource_fetch: <value in [disable, enable]>
-          sslvpn_kxp_hardware_acceleration: <value in [disable, enable]>
-          sslvpn_plugin_version_check: <value in [disable, enable]>
-          fortiipam_integration: <value in [disable, enable]>
-          gui_firmware_upgrade_setup_warning: <value in [disable, enable]>
-          log_uuid_policy: <value in [disable, enable]>
-          per_user_bwl: <value in [disable, enable]>
-          gui_fortisandbox_cloud: <value in [disable, enable]>
-          fortitoken_cloud_service: <value in [disable, enable]>
-          hw_switch_ether_filter: <value in [disable, enable]>
-          virtual_server_count: <integer>
-          endpoint_control_fds_access: <value in [disable, enable]>
-          proxy_cipher_hardware_acceleration: <value in [disable, enable]>
-          proxy_kxp_hardware_acceleration: <value in [disable, enable]>
-          virtual_server_hardware_acceleration: <value in [disable, enable]>
-          user_history_password_threshold: <integer>
-          delay_tcp_npu_session: <value in [disable, enable]>
-          auth_session_auto_backup_interval: <value in [1min, 5min, 15min, ...]>
-          ip_conflict_detection: <value in [disable, enable]>
-          gtpu_dynamic_source_port: <value in [disable, enable]>
-          ip_fragment_timeout: <integer>
-          ipv6_fragment_timeout: <integer>
-          scim_server_cert: <list or string>
-          scim_http_port: <integer>
-          auth_session_auto_backup: <value in [disable, enable]>
-          scim_https_port: <integer>
-          httpd_max_worker_count: <integer>
-          rest_api_key_url_query: <value in [disable, enable]>
-          single_vdom_npuvlink: <value in [disable, enable]>
-          slbc_fragment_mem_thresholds: <integer>
-          upgrade_report: <value in [disable, enable]>
-          application_bandwidth_tracking: <value in [disable, enable]>
+          # admin_https_redirect: <value in [disable, enable]>
+          # admin_port: <integer>
+          # admin_scp: <value in [disable, enable]>
+          # admin_sport: <integer>
+          # admin_ssh_port: <integer>
+          # admin_ssh_v1: <value in [disable, enable]>
+          # admin_telnet_port: <integer>
+          # admintimeout: <integer>
+          # gui_ipv6: <value in [disable, enable]>
+          # gui_lines_per_page: <integer>
+          # gui_theme: <value in [blue, green, melongene, ...]>
+          # language: <value in [english, simch, japanese, ...]>
+          # switch_controller: <value in [disable, enable]>
+          # gui_device_latitude: <string>
+          # gui_device_longitude: <string>
+          # hostname: <string>
+          # timezone:
+          #   - "00"
+          #   - "01"
+          #   - "02"
+          #   - "03"
+          #   - "04"
+          #   - "05"
+          #   - "06"
+          #   - "07"
+          #   - "08"
+          #   - "09"
+          #   - "10"
+          #   - "11"
+          #   - "12"
+          #   - "13"
+          #   - "14"
+          #   - "15"
+          #   - "16"
+          #   - "17"
+          #   - "18"
+          #   - "19"
+          #   - "20"
+          #   - "21"
+          #   - "22"
+          #   - "23"
+          #   - "24"
+          #   - "25"
+          #   - "26"
+          #   - "27"
+          #   - "28"
+          #   - "29"
+          #   - "30"
+          #   - "31"
+          #   - "32"
+          #   - "33"
+          #   - "34"
+          #   - "35"
+          #   - "36"
+          #   - "37"
+          #   - "38"
+          #   - "39"
+          #   - "40"
+          #   - "41"
+          #   - "42"
+          #   - "43"
+          #   - "44"
+          #   - "45"
+          #   - "46"
+          #   - "47"
+          #   - "48"
+          #   - "49"
+          #   - "50"
+          #   - "51"
+          #   - "52"
+          #   - "53"
+          #   - "54"
+          #   - "55"
+          #   - "56"
+          #   - "57"
+          #   - "58"
+          #   - "59"
+          #   - "60"
+          #   - "61"
+          #   - "62"
+          #   - "63"
+          #   - "64"
+          #   - "65"
+          #   - "66"
+          #   - "67"
+          #   - "68"
+          #   - "69"
+          #   - "70"
+          #   - "71"
+          #   - "72"
+          #   - "73"
+          #   - "74"
+          #   - "75"
+          #   - "76"
+          #   - "77"
+          #   - "78"
+          #   - "79"
+          #   - "80"
+          #   - "81"
+          #   - "82"
+          #   - "83"
+          #   - "84"
+          #   - "85"
+          #   - "86"
+          #   - "87"
+          # check_reset_range: <value in [disable, strict]>
+          # pmtu_discovery: <value in [disable, enable]>
+          # gui_allow_incompatible_fabric_fgt: <value in [disable, enable]>
+          # admin_restrict_local: <value in [disable, enable, all, ...]>
+          # gui_workflow_management: <value in [disable, enable]>
+          # send_pmtu_icmp: <value in [disable, enable]>
+          # tcp_halfclose_timer: <integer>
+          # admin_server_cert: <list or string>
+          # dnsproxy_worker_count: <integer>
+          # show_backplane_intf: <value in [disable, enable]>
+          # gui_custom_language: <value in [disable, enable]>
+          # ldapconntimeout: <integer>
+          # auth_https_port: <integer>
+          # revision_backup_on_logout: <value in [disable, enable]>
+          # arp_max_entry: <integer>
+          # long_vdom_name: <value in [disable, enable]>
+          # pre_login_banner: <value in [disable, enable]>
+          # qsfpdd_split8_port: <list or string>
+          # max_route_cache_size: <integer>
+          # fortitoken_cloud_push_status: <value in [disable, enable]>
+          # ssh_hostkey_override: <value in [disable, enable]>
+          # proxy_hardware_acceleration: <value in [disable, enable]>
+          # switch_controller_reserved_network: <list or string>
+          # ssd_trim_date: <integer>
+          # wad_worker_count: <integer>
+          # ssh_hostkey: <string>
+          # wireless_controller_port: <integer>
+          # fgd_alert_subscription:
+          #   - "advisory"
+          #   - "latest-threat"
+          #   - "latest-virus"
+          #   - "latest-attack"
+          #   - "new-antivirus-db"
+          #   - "new-attack-db"
+          # forticontroller_proxy_port: <integer>
+          # dh_params: <value in [1024, 1536, 2048, ...]>
+          # memory_use_threshold_green: <integer>
+          # proxy_cert_use_mgmt_vdom: <value in [disable, enable]>
+          # proxy_auth_lifetime_timeout: <integer>
+          # gui_auto_upgrade_setup_warning: <value in [disable, enable]>
+          # gui_cdn_usage: <value in [disable, enable]>
+          # two_factor_email_expiry: <integer>
+          # udp_idle_timer: <integer>
+          # interface_subnet_usage: <value in [disable, enable]>
+          # forticontroller_proxy: <value in [disable, enable]>
+          # ssh_enc_algo:
+          #   - "chacha20-poly1305@openssh.com"
+          #   - "aes128-ctr"
+          #   - "aes192-ctr"
+          #   - "aes256-ctr"
+          #   - "arcfour256"
+          #   - "arcfour128"
+          #   - "aes128-cbc"
+          #   - "3des-cbc"
+          #   - "blowfish-cbc"
+          #   - "cast128-cbc"
+          #   - "aes192-cbc"
+          #   - "aes256-cbc"
+          #   - "arcfour"
+          #   - "rijndael-cbc@lysator.liu.se"
+          #   - "aes128-gcm@openssh.com"
+          #   - "aes256-gcm@openssh.com"
+          # block_session_timer: <integer>
+          # quic_pmtud: <value in [disable, enable]>
+          # admin_https_ssl_ciphersuites:
+          #   - "TLS-AES-128-GCM-SHA256"
+          #   - "TLS-AES-256-GCM-SHA384"
+          #   - "TLS-CHACHA20-POLY1305-SHA256"
+          #   - "TLS-AES-128-CCM-SHA256"
+          #   - "TLS-AES-128-CCM-8-SHA256"
+          # security_rating_result_submission: <value in [disable, enable]>
+          # user_device_store_max_unified_mem: <integer>
+          # management_port: <integer>
+          # fortigslb_integration: <value in [disable, enable]>
+          # admin_https_ssl_versions:
+          #   - "tlsv1-0"
+          #   - "tlsv1-1"
+          #   - "tlsv1-2"
+          #   - "sslv3"
+          #   - "tlsv1-3"
+          # cert_chain_max: <integer>
+          # qsfp28_40g_port: <list or string>
+          # strong_crypto: <value in [disable, enable]>
+          # multi_factor_authentication: <value in [optional, mandatory]>
+          # fds_statistics: <value in [disable, enable]>
+          # gui_display_hostname: <value in [disable, enable]>
+          # two_factor_ftk_expiry: <integer>
+          # wad_source_affinity: <value in [disable, enable]>
+          # ssl_static_key_ciphers: <value in [disable, enable]>
+          # daily_restart: <value in [disable, enable]>
+          # snat_route_change: <value in [disable, enable]>
+          # tcp_rst_timer: <integer>
+          # anti_replay: <value in [disable, loose, strict]>
+          # ssl_min_proto_version: <value in [TLSv1, TLSv1-1, TLSv1-2, ...]>
+          # speedtestd_server_port: <integer>
+          # cpu_use_threshold: <integer>
+          # admin_host: <string>
+          # csr_ca_attribute: <value in [disable, enable]>
+          # fortiservice_port: <integer>
+          # ssd_trim_hour: <integer>
+          # purdue_level: <value in [1, 2, 3, ...]>
+          # management_vdom: <list or string>
+          # quic_ack_thresold: <integer>
+          # qsfpdd_100g_port: <list or string>
+          # ips_affinity: <string>
+          # vip_arp_range: <value in [restricted, unlimited]>
+          # internet_service_database: <value in [mini, standard, full, ...]>
+          # revision_image_auto_backup: <value in [disable, enable]>
+          # sflowd_max_children_num: <integer>
+          # admin_https_pki_required: <value in [disable, enable]>
+          # special_file_23_support: <value in [disable, enable]>
+          # npu_neighbor_update: <value in [disable, enable]>
+          # log_single_cpu_high: <value in [disable, enable]>
+          # management_ip: <string>
+          # proxy_resource_mode: <value in [disable, enable]>
+          # admin_ble_button: <value in [disable, enable]>
+          # gui_firmware_upgrade_warning: <value in [disable, enable]>
+          # dp_tcp_normal_timer: <integer>
+          # ipv6_allow_traffic_redirect: <value in [disable, enable]>
+          # cli_audit_log: <value in [disable, enable]>
+          # memory_use_threshold_extreme: <integer>
+          # ha_affinity: <string>
+          # restart_time: <string>
+          # speedtestd_ctrl_port: <integer>
+          # gui_wireless_opensecurity: <value in [disable, enable]>
+          # memory_use_threshold_red: <integer>
+          # dp_fragment_timer: <integer>
+          # wad_restart_start_time: <string>
+          # proxy_re_authentication_time: <integer>
+          # gui_app_detection_sdwan: <value in [disable, enable]>
+          # scanunit_count: <integer>
+          # tftp: <value in [disable, enable]>
+          # xstools_update_frequency: <integer>
+          # clt_cert_req: <value in [disable, enable]>
+          # fortiextender_vlan_mode: <value in [disable, enable]>
+          # auth_http_port: <integer>
+          # per_user_bal: <value in [disable, enable]>
+          # gui_date_format: <value in [yyyy/MM/dd, dd/MM/yyyy, MM/dd/yyyy, ...]>
+          # log_uuid_address: <value in [disable, enable]>
+          # cloud_communication: <value in [disable, enable]>
+          # lldp_reception: <value in [disable, enable]>
+          # two_factor_ftm_expiry: <integer>
+          # quic_udp_payload_size_shaping_per_cid: <value in [disable, enable]>
+          # autorun_log_fsck: <value in [disable, enable]>
+          # vpn_ems_sn_check: <value in [disable, enable]>
+          # admin_ssh_password: <value in [disable, enable]>
+          # airplane_mode: <value in [disable, enable]>
+          # batch_cmdb: <value in [disable, enable]>
+          # ip_src_port_range: <list or string>
+          # strict_dirty_session_check: <value in [disable, enable]>
+          # user_device_store_max_devices: <integer>
+          # dp_udp_idle_timer: <integer>
+          # internal_switch_speed:
+          #   - "auto"
+          #   - "10full"
+          #   - "10half"
+          #   - "100full"
+          #   - "100half"
+          #   - "1000full"
+          #   - "1000auto"
+          # forticonverter_config_upload: <value in [disable, once]>
+          # ipsec_round_robin: <value in [disable, enable]>
+          # wad_affinity: <string>
+          # wifi_ca_certificate: <list or string>
+          # wimax_4g_usb: <value in [disable, enable]>
+          # miglog_affinity: <string>
+          # faz_disk_buffer_size: <integer>
+          # ssh_kex_algo:
+          #   - "diffie-hellman-group1-sha1"
+          #   - "diffie-hellman-group14-sha1"
+          #   - "diffie-hellman-group-exchange-sha1"
+          #   - "diffie-hellman-group-exchange-sha256"
+          #   - "curve25519-sha256@libssh.org"
+          #   - "ecdh-sha2-nistp256"
+          #   - "ecdh-sha2-nistp384"
+          #   - "ecdh-sha2-nistp521"
+          #   - "diffie-hellman-group14-sha256"
+          #   - "diffie-hellman-group16-sha512"
+          #   - "diffie-hellman-group18-sha512"
+          # auto_auth_extension_device: <value in [disable, enable]>
+          # forticarrier_bypass: <value in [disable, enable]>
+          # reset_sessionless_tcp: <value in [disable, enable]>
+          # early_tcp_npu_session: <value in [disable, enable]>
+          # http_unauthenticated_request_limit: <integer>
+          # gui_local_out: <value in [disable, enable]>
+          # tcp_option: <value in [disable, enable]>
+          # proxy_auth_timeout: <integer>
+          # fortiextender_discovery_lockdown: <value in [disable, enable]>
+          # lldp_transmission: <value in [disable, enable]>
+          # split_port: <list or string>
+          # gui_certificates: <value in [disable, enable]>
+          # cfg_save: <value in [automatic, manual, revert]>
+          # auth_keepalive: <value in [disable, enable]>
+          # split_port_mode:
+          #   - interface: <string>
+          #     split_mode: <value in [disable, 4x10G, 4x25G, ...]>
+          # admin_forticloud_sso_login: <value in [disable, enable]>
+          # post_login_banner: <value in [disable, enable]>
+          # br_fdb_max_entry: <integer>
+          # ip_fragment_mem_thresholds: <integer>
+          # fortiextender_provision_on_authorization: <value in [disable, enable]>
+          # reboot_upon_config_restore: <value in [disable, enable]>
+          # syslog_affinity: <string>
+          # fortiextender_data_port: <integer>
+          # quic_tls_handshake_timeout: <integer>
+          # forticonverter_integration: <value in [disable, enable]>
+          # proxy_keep_alive_mode: <value in [session, traffic, re-authentication]>
+          # cmdbsvr_affinity: <string>
+          # wad_memory_change_granularity: <integer>
+          # dhcp_lease_backup_interval: <integer>
+          # check_protocol_header: <value in [loose, strict]>
+          # av_failopen_session: <value in [disable, enable]>
+          # ipsec_ha_seqjump_rate: <integer>
+          # admin_hsts_max_age: <integer>
+          # igmp_state_limit: <integer>
+          # admin_login_max: <integer>
+          # ipv6_allow_multicast_probe: <value in [disable, enable]>
+          # virtual_switch_vlan: <value in [disable, enable]>
+          # admin_lockout_threshold: <integer>
+          # dp_pinhole_timer: <integer>
+          # wireless_controller: <value in [disable, enable]>
+          # bfd_affinity: <string>
+          # ssd_trim_freq: <value in [daily, weekly, monthly, ...]>
+          # two_factor_sms_expiry: <integer>
+          # traffic_priority: <value in [tos, dscp]>
+          # proxy_and_explicit_proxy: <value in [disable, enable]>
+          # sslvpn_web_mode: <value in [disable, enable]>
+          # ssh_hostkey_password: <list or string>
+          # wad_csvc_db_count: <integer>
+          # ipv6_allow_anycast_probe: <value in [disable, enable]>
+          # honor_df: <value in [disable, enable]>
+          # hyper_scale_vdom_num: <integer>
+          # wad_csvc_cs_count: <integer>
+          # internal_switch_mode: <value in [switch, interface, hub]>
+          # cfg_revert_timeout: <integer>
+          # admin_concurrent: <value in [disable, enable]>
+          # ipv6_allow_local_in_silent_drop: <value in [disable, enable]>
+          # tcp_halfopen_timer: <integer>
+          # dp_rsync_timer: <integer>
+          # management_port_use_admin_sport: <value in [disable, enable]>
+          # gui_forticare_registration_setup_warning: <value in [disable, enable]>
+          # gui_replacement_message_groups: <value in [disable, enable]>
+          # security_rating_run_on_schedule: <value in [disable, enable]>
+          # admin_lockout_duration: <integer>
+          # optimize_flow_mode: <value in [disable, enable]>
+          # private_data_encryption: <value in [disable, enable]>
+          # wireless_mode: <value in [ac, client, wtp, ...]>
+          # alias: <string>
+          # ssh_hostkey_algo:
+          #   - "ssh-rsa"
+          #   - "ecdsa-sha2-nistp521"
+          #   - "rsa-sha2-256"
+          #   - "rsa-sha2-512"
+          #   - "ssh-ed25519"
+          #   - "ecdsa-sha2-nistp384"
+          #   - "ecdsa-sha2-nistp256"
+          # fortitoken_cloud: <value in [disable, enable]>
+          # av_affinity: <string>
+          # proxy_worker_count: <integer>
+          # ipsec_asic_offload: <value in [disable, enable]>
+          # miglogd_children: <integer>
+          # sslvpn_max_worker_count: <integer>
+          # ssh_mac_algo:
+          #   - "hmac-md5"
+          #   - "hmac-md5-etm@openssh.com"
+          #   - "hmac-md5-96"
+          #   - "hmac-md5-96-etm@openssh.com"
+          #   - "hmac-sha1"
+          #   - "hmac-sha1-etm@openssh.com"
+          #   - "hmac-sha2-256"
+          #   - "hmac-sha2-256-etm@openssh.com"
+          #   - "hmac-sha2-512"
+          #   - "hmac-sha2-512-etm@openssh.com"
+          #   - "hmac-ripemd160"
+          #   - "hmac-ripemd160@openssh.com"
+          #   - "hmac-ripemd160-etm@openssh.com"
+          #   - "umac-64@openssh.com"
+          #   - "umac-128@openssh.com"
+          #   - "umac-64-etm@openssh.com"
+          #   - "umac-128-etm@openssh.com"
+          # url_filter_count: <integer>
+          # wifi_certificate: <list or string>
+          # radius_port: <integer>
+          # sys_perf_log_interval: <integer>
+          # gui_fortigate_cloud_sandbox: <value in [disable, enable]>
+          # auth_cert: <list or string>
+          # fortiextender: <value in [disable, enable]>
+          # admin_reset_button: <value in [disable, enable]>
+          # av_failopen: <value in [off, pass, one-shot, ...]>
+          # user_device_store_max_users: <integer>
+          # auth_session_limit: <value in [block-new, logout-inactive]>
+          # ipv6_allow_local_in_slient_drop: <value in [disable, enable]>
+          # quic_congestion_control_algo: <value in [cubic, bbr, bbr2, ...]>
+          # auth_ike_saml_port: <integer>
+          # wad_restart_end_time: <string>
+          # http_request_limit: <integer>
+          # irq_time_accounting: <value in [auto, force]>
+          # remoteauthtimeout: <integer>
+          # admin_https_ssl_banned_ciphers:
+          #   - "RSA"
+          #   - "DHE"
+          #   - "ECDHE"
+          #   - "DSS"
+          #   - "ECDSA"
+          #   - "AES"
+          #   - "AESGCM"
+          #   - "CAMELLIA"
+          #   - "3DES"
+          #   - "SHA1"
+          #   - "SHA256"
+          #   - "SHA384"
+          #   - "STATIC"
+          #   - "CHACHA20"
+          #   - "ARIA"
+          #   - "AESCCM"
+          # allow_traffic_redirect: <value in [disable, enable]>
+          # legacy_poe_device_support: <value in [disable, enable]>
+          # wad_restart_mode: <value in [none, time, memory]>
+          # fds_statistics_period: <integer>
+          # admin_telnet: <value in [disable, enable]>
+          # ipv6_accept_dad: <integer>
+          # tcp_timewait_timer: <integer>
+          # admin_console_timeout: <integer>
+          # default_service_source_port: <string>
+          # quic_max_datagram_size: <integer>
+          # refresh: <integer>
+          # extender_controller_reserved_network: <list or string>
+          # url_filter_affinity: <string>
+          # policy_auth_concurrent: <integer>
+          # ipsec_hmac_offload: <value in [disable, enable]>
+          # traffic_priority_level: <value in [high, medium, low]>
+          # ipsec_qat_offload: <value in [disable, enable]>
+          # ssd_trim_min: <integer>
+          # gui_date_time_source: <value in [system, browser]>
+          # log_ssl_connection: <value in [disable, enable]>
+          # ndp_max_entry: <integer>
+          # vdom_mode: <value in [no-vdom, multi-vdom, split-vdom]>
+          # internet_service_download_list: <list or string>
+          # fortitoken_cloud_sync_interval: <integer>
+          # ssd_trim_weekday: <value in [sunday, monday, tuesday, ...]>
+          # two_factor_fac_expiry: <integer>
+          # gui_rest_api_cache: <value in [disable, enable]>
+          # admin_forticloud_sso_default_profile: <list or string>
+          # proxy_auth_lifetime: <value in [disable, enable]>
+          # device_idle_timeout: <integer>
+          # login_timestamp: <value in [disable, enable]>
+          # speedtest_server: <value in [disable, enable]>
+          # edit_vdom_prompt: <value in [disable, enable]>
+          # gui_cdn_domain_override: <string>
+          # admin_ssh_grace_time: <integer>
+          # sslvpn_ems_sn_check: <value in [disable, enable]>
+          # user_server_cert: <list or string>
+          # gui_allow_default_hostname: <value in [disable, enable]>
+          # proxy_re_authentication_mode: <value in [session, traffic, absolute]>
+          # ipsec_soft_dec_async: <value in [disable, enable]>
+          # admin_maintainer: <value in [disable, enable]>
+          # dst: <value in [disable, enable]>
+          # fec_port: <integer>
+          # ssh_kex_sha1: <value in [disable, enable]>
+          # ssh_mac_weak: <value in [disable, enable]>
+          # sslvpn_cipher_hardware_acceleration: <value in [disable, enable]>
+          # sys_file_check_interval: <integer>
+          # ssh_hmac_md5: <value in [disable, enable]>
+          # ssh_cbc_cipher: <value in [disable, enable]>
+          # gui_fortiguard_resource_fetch: <value in [disable, enable]>
+          # sslvpn_kxp_hardware_acceleration: <value in [disable, enable]>
+          # sslvpn_plugin_version_check: <value in [disable, enable]>
+          # fortiipam_integration: <value in [disable, enable]>
+          # gui_firmware_upgrade_setup_warning: <value in [disable, enable]>
+          # log_uuid_policy: <value in [disable, enable]>
+          # per_user_bwl: <value in [disable, enable]>
+          # gui_fortisandbox_cloud: <value in [disable, enable]>
+          # fortitoken_cloud_service: <value in [disable, enable]>
+          # hw_switch_ether_filter: <value in [disable, enable]>
+          # virtual_server_count: <integer>
+          # endpoint_control_fds_access: <value in [disable, enable]>
+          # proxy_cipher_hardware_acceleration: <value in [disable, enable]>
+          # proxy_kxp_hardware_acceleration: <value in [disable, enable]>
+          # virtual_server_hardware_acceleration: <value in [disable, enable]>
+          # user_history_password_threshold: <integer>
+          # delay_tcp_npu_session: <value in [disable, enable]>
+          # auth_session_auto_backup_interval: <value in [1min, 5min, 15min, ...]>
+          # ip_conflict_detection: <value in [disable, enable]>
+          # gtpu_dynamic_source_port: <value in [disable, enable]>
+          # ip_fragment_timeout: <integer>
+          # ipv6_fragment_timeout: <integer>
+          # scim_server_cert: <list or string>
+          # scim_http_port: <integer>
+          # auth_session_auto_backup: <value in [disable, enable]>
+          # scim_https_port: <integer>
+          # httpd_max_worker_count: <integer>
+          # rest_api_key_url_query: <value in [disable, enable]>
+          # single_vdom_npuvlink: <value in [disable, enable]>
+          # slbc_fragment_mem_thresholds: <integer>
+          # upgrade_report: <value in [disable, enable]>
+          # application_bandwidth_tracking: <value in [disable, enable]>
 '''
 
 RETURN = '''

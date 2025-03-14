@@ -172,17 +172,17 @@ EXAMPLES = '''
         devprof: <your own value>
         state: present # <value in [present, absent]>
         devprof_system_ntp_ntpserver:
-          authentication: <value in [disable, enable]>
-          id: <integer>
-          key: <list or string>
-          key_id: <integer>
-          ntpv3: <value in [disable, enable]>
-          server: <string>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          ip_type: <value in [IPv6, IPv4, Both]>
-          key_type: <value in [SHA1, SHA256, MD5]>
-          vrf_select: <integer>
+          id: 0 # Required variable, integer
+          # authentication: <value in [disable, enable]>
+          # key: <list or string>
+          # key_id: <integer>
+          # ntpv3: <value in [disable, enable]>
+          # server: <string>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # ip_type: <value in [IPv6, IPv4, Both]>
+          # key_type: <value in [SHA1, SHA256, MD5]>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

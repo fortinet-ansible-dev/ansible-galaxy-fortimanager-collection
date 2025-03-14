@@ -132,9 +132,9 @@ EXAMPLES = '''
         entries: <your own value>
         state: present # <value in [present, absent]>
         ips_sensor_entries_exemptip:
-          dst_ip: <string>
-          id: <integer>
-          src_ip: <string>
+          id: 0 # Required variable, integer
+          # dst_ip: <string>
+          # src_ip: <string>
 '''
 
 RETURN = '''

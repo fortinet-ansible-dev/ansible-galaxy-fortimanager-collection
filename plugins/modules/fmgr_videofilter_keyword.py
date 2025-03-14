@@ -150,16 +150,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         videofilter_keyword:
-          comment: <string>
-          id: <integer>
-          match: <value in [or, and]>
-          name: <string>
-          word:
-            -
-              comment: <string>
-              name: <string>
-              pattern_type: <value in [wildcard, regex]>
-              status: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # match: <value in [or, and]>
+          # name: <string>
+          # word:
+          #   - comment: <string>
+          #     name: <string>
+          #     pattern_type: <value in [wildcard, regex]>
+          #     status: <value in [disable, enable]>
 '''
 
 RETURN = '''

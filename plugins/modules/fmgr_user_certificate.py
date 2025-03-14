@@ -136,12 +136,12 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_certificate:
-          common_name: <string>
-          id: <integer>
-          issuer: <string>
-          name: <string>
-          status: <value in [disable, enable]>
-          type: <value in [single-certificate, trusted-issuer]>
+          id: 0 # Required variable, integer
+          # common_name: <string>
+          # issuer: <string>
+          # name: <string>
+          # status: <value in [disable, enable]>
+          # type: <value in [single-certificate, trusted-issuer]>
 '''
 
 RETURN = '''

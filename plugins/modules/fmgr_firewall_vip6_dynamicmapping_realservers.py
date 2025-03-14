@@ -173,18 +173,18 @@ EXAMPLES = '''
         dynamic_mapping: <your own value>
         state: present # <value in [present, absent]>
         firewall_vip6_dynamicmapping_realservers:
-          client_ip: <string>
-          healthcheck: <value in [disable, enable, vip]>
-          holddown_interval: <integer>
-          http_host: <string>
-          id: <integer>
-          ip: <string>
-          max_connections: <integer>
-          monitor: <list or string>
-          port: <integer>
-          status: <value in [active, standby, disable]>
-          weight: <integer>
-          translate_host: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # client_ip: <string>
+          # healthcheck: <value in [disable, enable, vip]>
+          # holddown_interval: <integer>
+          # http_host: <string>
+          # ip: <string>
+          # max_connections: <integer>
+          # monitor: <list or string>
+          # port: <integer>
+          # status: <value in [active, standby, disable]>
+          # weight: <integer>
+          # translate_host: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -127,11 +127,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qposuprovidernai:
-          nai_list:
-            -
-              name: <string>
-              osu_nai: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # nai_list:
+          #   - name: <string>
+          #     osu_nai: <string>
 '''
 
 RETURN = '''

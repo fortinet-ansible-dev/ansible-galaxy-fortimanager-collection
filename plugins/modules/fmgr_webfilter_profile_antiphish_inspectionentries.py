@@ -130,9 +130,9 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         webfilter_profile_antiphish_inspectionentries:
-          action: <value in [log, block, exempt]>
-          fortiguard_category: <list or string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # action: <value in [log, block, exempt]>
+          # fortiguard_category: <list or string>
 '''
 
 RETURN = '''

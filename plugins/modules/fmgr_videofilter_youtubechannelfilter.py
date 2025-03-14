@@ -164,18 +164,17 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         videofilter_youtubechannelfilter:
-          comment: <string>
-          entries:
-            -
-              action: <value in [block, bypass, monitor, ...]>
-              channel_id: <string>
-              comment: <string>
-              id: <integer>
-          id: <integer>
-          name: <string>
-          default_action: <value in [monitor, block, allow]>
-          log: <value in [disable, enable]>
-          override_category: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - action: <value in [block, bypass, monitor, ...]>
+          #     channel_id: <string>
+          #     comment: <string>
+          #     id: <integer>
+          # name: <string>
+          # default_action: <value in [monitor, block, allow]>
+          # log: <value in [disable, enable]>
+          # override_category: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -126,9 +126,9 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         webfilter_profile_youtubechannelfilter:
-          channel_id: <string>
-          comment: <string>
-          id: <integer>
+          id: 0 # Required variable, integer
+          # channel_id: <string>
+          # comment: <string>
 '''
 
 RETURN = '''

@@ -182,26 +182,26 @@ EXAMPLES = '''
         urlfilter: <your own value>
         state: present # <value in [present, absent]>
         webfilter_urlfilter_entries:
-          action: <value in [exempt, block, allow, ...]>
-          dns_address_family: <value in [ipv4, ipv6, both]>
-          exempt:
-            - "av"
-            - "web-content"
-            - "activex-java-cookie"
-            - "dlp"
-            - "fortiguard"
-            - "all"
-            - "filepattern"
-            - "pass"
-            - "range-block"
-            - "antiphish"
-          id: <integer>
-          referrer_host: <string>
-          status: <value in [disable, enable]>
-          type: <value in [simple, regex, wildcard]>
-          url: <string>
-          web_proxy_profile: <string>
-          antiphish_action: <value in [block, log]>
+          id: 0 # Required variable, integer
+          # action: <value in [exempt, block, allow, ...]>
+          # dns_address_family: <value in [ipv4, ipv6, both]>
+          # exempt:
+          #   - "av"
+          #   - "web-content"
+          #   - "activex-java-cookie"
+          #   - "dlp"
+          #   - "fortiguard"
+          #   - "all"
+          #   - "filepattern"
+          #   - "pass"
+          #   - "range-block"
+          #   - "antiphish"
+          # referrer_host: <string>
+          # status: <value in [disable, enable]>
+          # type: <value in [simple, regex, wildcard]>
+          # url: <string>
+          # web_proxy_profile: <string>
+          # antiphish_action: <value in [block, log]>
 '''
 
 RETURN = '''

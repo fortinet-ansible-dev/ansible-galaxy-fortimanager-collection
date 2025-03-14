@@ -131,10 +131,10 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         voip_profile_msrp:
-          log_violations: <value in [disable, enable]>
-          max_msg_size: <integer>
-          max_msg_size_action: <value in [pass, block, reset, ...]>
-          status: <value in [disable, enable]>
+          # log_violations: <value in [disable, enable]>
+          # max_msg_size: <integer>
+          # max_msg_size_action: <value in [pass, block, reset, ...]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

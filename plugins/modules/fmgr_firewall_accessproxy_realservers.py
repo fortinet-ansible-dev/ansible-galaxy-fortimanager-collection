@@ -137,11 +137,11 @@ EXAMPLES = '''
         access_proxy: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxy_realservers:
-          id: <integer>
-          ip: <string>
-          port: <integer>
-          status: <value in [active, standby, disable]>
-          weight: <integer>
+          id: 0 # Required variable, integer
+          # ip: <string>
+          # port: <integer>
+          # status: <value in [active, standby, disable]>
+          # weight: <integer>
 '''
 
 RETURN = '''

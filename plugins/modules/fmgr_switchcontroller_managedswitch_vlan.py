@@ -125,8 +125,8 @@ EXAMPLES = '''
         managed_switch: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_vlan:
-          assignment_priority: <integer>
-          vlan_name: <string>
+          # assignment_priority: <integer>
+          # vlan_name: <string>
 '''
 
 RETURN = '''

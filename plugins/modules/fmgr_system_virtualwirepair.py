@@ -147,13 +147,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_virtualwirepair:
-          member: <list or string>
-          name: <string>
-          vlan_filter: <string>
-          wildcard_vlan: <value in [disable, enable]>
-          poweron_bypass: <value in [disable, enable]>
-          poweroff_bypass: <value in [disable, enable]>
-          outer_vlan_id: <list or integer>
+          name: "your value" # Required variable, string
+          # member: <list or string>
+          # vlan_filter: <string>
+          # wildcard_vlan: <value in [disable, enable]>
+          # poweron_bypass: <value in [disable, enable]>
+          # poweroff_bypass: <value in [disable, enable]>
+          # outer_vlan_id: <list or integer>
 '''
 
 RETURN = '''

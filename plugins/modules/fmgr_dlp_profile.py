@@ -270,62 +270,61 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dlp_profile:
-          comment: <string>
-          dlp_log: <value in [disable, enable]>
-          extended_log: <value in [disable, enable]>
-          feature_set: <value in [flow, proxy]>
-          full_archive_proto:
-            - "smtp"
-            - "pop3"
-            - "imap"
-            - "http-post"
-            - "http-get"
-            - "ftp"
-            - "nntp"
-            - "mapi"
-            - "ssh"
-            - "cifs"
-          nac_quar_log: <value in [disable, enable]>
-          name: <string>
-          replacemsg_group: <string>
-          rule:
-            -
-              action: <value in [log-only, block, quarantine-ip, ...]>
-              archive: <value in [disable, enable]>
-              expiry: <string>
-              file_size: <integer>
-              file_type: <string>
-              filter_by: <value in [fingerprint, sensor, encrypted, ...]>
-              id: <integer>
-              label: <string>
-              match_percentage: <integer>
-              name: <string>
-              proto:
-                - "smtp"
-                - "pop3"
-                - "imap"
-                - "http-post"
-                - "http-get"
-                - "ftp"
-                - "nntp"
-                - "mapi"
-                - "ssh"
-                - "cifs"
-              sensitivity: <list or string>
-              sensor: <list or string>
-              severity: <value in [info, low, medium, ...]>
-              type: <value in [file, message]>
-          summary_proto:
-            - "smtp"
-            - "pop3"
-            - "imap"
-            - "http-post"
-            - "http-get"
-            - "ftp"
-            - "nntp"
-            - "mapi"
-            - "ssh"
-            - "cifs"
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # dlp_log: <value in [disable, enable]>
+          # extended_log: <value in [disable, enable]>
+          # feature_set: <value in [flow, proxy]>
+          # full_archive_proto:
+          #   - "smtp"
+          #   - "pop3"
+          #   - "imap"
+          #   - "http-post"
+          #   - "http-get"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mapi"
+          #   - "ssh"
+          #   - "cifs"
+          # nac_quar_log: <value in [disable, enable]>
+          # replacemsg_group: <string>
+          # rule:
+          #   - action: <value in [log-only, block, quarantine-ip, ...]>
+          #     archive: <value in [disable, enable]>
+          #     expiry: <string>
+          #     file_size: <integer>
+          #     file_type: <string>
+          #     filter_by: <value in [fingerprint, sensor, encrypted, ...]>
+          #     id: <integer>
+          #     label: <string>
+          #     match_percentage: <integer>
+          #     name: <string>
+          #     proto:
+          #       - "smtp"
+          #       - "pop3"
+          #       - "imap"
+          #       - "http-post"
+          #       - "http-get"
+          #       - "ftp"
+          #       - "nntp"
+          #       - "mapi"
+          #       - "ssh"
+          #       - "cifs"
+          #     sensitivity: <list or string>
+          #     sensor: <list or string>
+          #     severity: <value in [info, low, medium, ...]>
+          #     type: <value in [file, message]>
+          # summary_proto:
+          #   - "smtp"
+          #   - "pop3"
+          #   - "imap"
+          #   - "http-post"
+          #   - "http-get"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mapi"
+          #   - "ssh"
+          #   - "cifs"
 '''
 
 RETURN = '''

@@ -147,17 +147,16 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_socfabric:
-          name: <string>
-          port: <integer>
-          psk: <list or string>
-          role: <value in [member, supervisor]>
-          secure_connection: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          supervisor: <string>
-          trusted_list:
-            -
-              id: <integer>
-              serial: <string>
+          # name: <string>
+          # port: <integer>
+          # psk: <list or string>
+          # role: <value in [member, supervisor]>
+          # secure_connection: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # supervisor: <string>
+          # trusted_list:
+          #   - id: <integer>
+          #     serial: <string>
 '''
 
 RETURN = '''

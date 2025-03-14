@@ -156,17 +156,17 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_acl_ingress:
-          action:
-            count: <value in [disable, enable]>
-            drop: <value in [disable, enable]>
-          classifier:
-            dst_ip_prefix: <string>
-            dst_mac: <string>
-            src_ip_prefix: <string>
-            src_mac: <string>
-            vlan: <integer>
-          description: <string>
-          id: <integer>
+          id: 0 # Required variable, integer
+          # action:
+          #   count: <value in [disable, enable]>
+          #   drop: <value in [disable, enable]>
+          # classifier:
+          #   dst_ip_prefix: <string>
+          #   dst_mac: <string>
+          #   src_ip_prefix: <string>
+          #   src_mac: <string>
+          #   vlan: <integer>
+          # description: <string>
 '''
 
 RETURN = '''

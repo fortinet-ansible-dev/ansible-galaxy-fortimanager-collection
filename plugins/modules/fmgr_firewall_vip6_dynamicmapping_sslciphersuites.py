@@ -208,14 +208,14 @@ EXAMPLES = '''
         dynamic_mapping: <your own value>
         state: present # <value in [present, absent]>
         firewall_vip6_dynamicmapping_sslciphersuites:
-          cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
-          priority: <integer>
-          versions:
-            - "ssl-3.0"
-            - "tls-1.0"
-            - "tls-1.1"
-            - "tls-1.2"
-            - "tls-1.3"
+          # cipher: <value in [TLS-RSA-WITH-RC4-128-MD5, TLS-RSA-WITH-RC4-128-SHA, TLS-RSA-WITH-DES-CBC-SHA, ...]>
+          # priority: <integer>
+          # versions:
+          #   - "ssl-3.0"
+          #   - "tls-1.0"
+          #   - "tls-1.1"
+          #   - "tls-1.2"
+          #   - "tls-1.3"
 '''
 
 RETURN = '''

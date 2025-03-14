@@ -203,18 +203,16 @@ EXAMPLES = '''
         anqp_nai_realm: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_anqpnairealm_nailist:
-          eap_method:
-            -
-              auth_param:
-                -
-                  id: <value in [non-eap-inner-auth, inner-auth-eap, credential, ...]>
-                  index: <integer>
-                  val: <value in [eap-identity, eap-md5, eap-tls, ...]>
-              index: <integer>
-              method: <value in [eap-identity, eap-md5, eap-tls, ...]>
-          encoding: <value in [disable, enable]>
-          nai_realm: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # eap_method:
+          #   - auth_param:
+          #       - id: <value in [non-eap-inner-auth, inner-auth-eap, credential, ...]>
+          #         index: <integer>
+          #         val: <value in [eap-identity, eap-md5, eap-tls, ...]>
+          #     index: <integer>
+          #     method: <value in [eap-identity, eap-md5, eap-tls, ...]>
+          # encoding: <value in [disable, enable]>
+          # nai_realm: <string>
 '''
 
 RETURN = '''

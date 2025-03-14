@@ -113,7 +113,7 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         system_admin_profile_writepasswduserlist:
-          userid: <string>
+          # userid: <string>
 '''
 
 RETURN = '''

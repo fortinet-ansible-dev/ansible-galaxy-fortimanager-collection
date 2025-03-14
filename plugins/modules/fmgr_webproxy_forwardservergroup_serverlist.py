@@ -124,8 +124,8 @@ EXAMPLES = '''
         forward_server_group: <your own value>
         state: present # <value in [present, absent]>
         webproxy_forwardservergroup_serverlist:
-          name: <string>
-          weight: <integer>
+          name: "your value" # Required variable, string
+          # weight: <integer>
 '''
 
 RETURN = '''

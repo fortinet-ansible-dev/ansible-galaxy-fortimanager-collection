@@ -211,27 +211,27 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_hyperscalepolicy6:
-          action: <value in [deny, accept, ipsec]>
-          auto_asic_offload: <value in [disable, enable]>
-          cgn_log_server_grp: <string>
-          comments: <string>
-          dstaddr: <list or string>
-          dstaddr_negate: <value in [disable, enable]>
-          dstintf: <list or string>
-          name: <string>
-          policy_offload: <value in [disable, enable]>
-          policyid: <integer>
-          service: <list or string>
-          service_negate: <value in [disable, enable]>
-          srcaddr: <list or string>
-          srcaddr_negate: <value in [disable, enable]>
-          srcintf: <list or string>
-          status: <value in [disable, enable]>
-          tcp_timeout_pid: <string>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          udp_timeout_pid: <string>
-          uuid: <string>
+          policyid: 0 # Required variable, integer
+          # action: <value in [deny, accept, ipsec]>
+          # auto_asic_offload: <value in [disable, enable]>
+          # cgn_log_server_grp: <string>
+          # comments: <string>
+          # dstaddr: <list or string>
+          # dstaddr_negate: <value in [disable, enable]>
+          # dstintf: <list or string>
+          # name: <string>
+          # policy_offload: <value in [disable, enable]>
+          # service: <list or string>
+          # service_negate: <value in [disable, enable]>
+          # srcaddr: <list or string>
+          # srcaddr_negate: <value in [disable, enable]>
+          # srcintf: <list or string>
+          # status: <value in [disable, enable]>
+          # tcp_timeout_pid: <string>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # udp_timeout_pid: <string>
+          # uuid: <string>
 '''
 
 RETURN = '''

@@ -374,45 +374,45 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         gtp_messagefilterv0v1:
-          create_mbms: <value in [allow, deny]>
-          create_pdp: <value in [allow, deny]>
-          data_record: <value in [allow, deny]>
-          delete_aa_pdp: <value in [allow, deny]>
-          delete_mbms: <value in [allow, deny]>
-          delete_pdp: <value in [allow, deny]>
-          echo: <value in [allow, deny]>
-          end_marker: <value in [allow, deny]>
-          error_indication: <value in [allow, deny]>
-          failure_report: <value in [allow, deny]>
-          fwd_relocation: <value in [allow, deny]>
-          fwd_srns_context: <value in [allow, deny]>
-          gtp_pdu: <value in [allow, deny]>
-          identification: <value in [allow, deny]>
-          mbms_de_registration: <value in [allow, deny]>
-          mbms_notification: <value in [allow, deny]>
-          mbms_registration: <value in [allow, deny]>
-          mbms_session_start: <value in [allow, deny]>
-          mbms_session_stop: <value in [allow, deny]>
-          mbms_session_update: <value in [allow, deny]>
-          ms_info_change_notif: <value in [allow, deny]>
-          name: <string>
-          node_alive: <value in [allow, deny]>
-          note_ms_present: <value in [allow, deny]>
-          pdu_notification: <value in [allow, deny]>
-          ran_info: <value in [allow, deny]>
-          redirection: <value in [allow, deny]>
-          relocation_cancel: <value in [allow, deny]>
-          send_route: <value in [allow, deny]>
-          sgsn_context: <value in [allow, deny]>
-          support_extension: <value in [allow, deny]>
-          unknown_message: <value in [allow, deny]>
-          unknown_message_white_list: <list or integer>
-          update_mbms: <value in [allow, deny]>
-          update_pdp: <value in [allow, deny]>
-          v0_create_aa_pdp__v1_init_pdp_ctx: <value in [deny, allow]>
-          version_not_support: <value in [allow, deny]>
-          create_aa_pdp|init_pdp_ctx: <value in [allow, deny]>
-          ue_registration_query: <value in [allow, deny]>
+          name: "your value" # Required variable, string
+          # create_mbms: <value in [allow, deny]>
+          # create_pdp: <value in [allow, deny]>
+          # data_record: <value in [allow, deny]>
+          # delete_aa_pdp: <value in [allow, deny]>
+          # delete_mbms: <value in [allow, deny]>
+          # delete_pdp: <value in [allow, deny]>
+          # echo: <value in [allow, deny]>
+          # end_marker: <value in [allow, deny]>
+          # error_indication: <value in [allow, deny]>
+          # failure_report: <value in [allow, deny]>
+          # fwd_relocation: <value in [allow, deny]>
+          # fwd_srns_context: <value in [allow, deny]>
+          # gtp_pdu: <value in [allow, deny]>
+          # identification: <value in [allow, deny]>
+          # mbms_de_registration: <value in [allow, deny]>
+          # mbms_notification: <value in [allow, deny]>
+          # mbms_registration: <value in [allow, deny]>
+          # mbms_session_start: <value in [allow, deny]>
+          # mbms_session_stop: <value in [allow, deny]>
+          # mbms_session_update: <value in [allow, deny]>
+          # ms_info_change_notif: <value in [allow, deny]>
+          # node_alive: <value in [allow, deny]>
+          # note_ms_present: <value in [allow, deny]>
+          # pdu_notification: <value in [allow, deny]>
+          # ran_info: <value in [allow, deny]>
+          # redirection: <value in [allow, deny]>
+          # relocation_cancel: <value in [allow, deny]>
+          # send_route: <value in [allow, deny]>
+          # sgsn_context: <value in [allow, deny]>
+          # support_extension: <value in [allow, deny]>
+          # unknown_message: <value in [allow, deny]>
+          # unknown_message_white_list: <list or integer>
+          # update_mbms: <value in [allow, deny]>
+          # update_pdp: <value in [allow, deny]>
+          # v0_create_aa_pdp__v1_init_pdp_ctx: <value in [deny, allow]>
+          # version_not_support: <value in [allow, deny]>
+          # create_aa_pdp|init_pdp_ctx: <value in [allow, deny]>
+          # ue_registration_query: <value in [allow, deny]>
 '''
 
 RETURN = '''

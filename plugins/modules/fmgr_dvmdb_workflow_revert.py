@@ -113,11 +113,11 @@ EXAMPLES = '''
         adom: <your own value>
         session_id: <your own value>
         dvmdb_workflow_revert:
-          desc: <string>
-          fmgip: <string>
-          mail_user: <list or string>
-          no_diff: <integer>
-          no_mail: <integer>
+          # desc: <string>
+          # fmgip: <string>
+          # mail_user: <list or string>
+          # no_diff: <integer>
+          # no_mail: <integer>
 '''
 
 RETURN = '''

@@ -123,10 +123,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qptermsandconditions:
-          filename: <string>
-          name: <string>
-          timestamp: <integer>
-          url: <string>
+          name: "your value" # Required variable, string
+          # filename: <string>
+          # timestamp: <integer>
+          # url: <string>
 '''
 
 RETURN = '''

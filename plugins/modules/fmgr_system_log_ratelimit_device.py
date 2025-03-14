@@ -123,10 +123,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_log_ratelimit_device:
-          device: <string>
-          filter_type: <value in [devid]>
-          id: <integer>
-          ratelimit: <integer>
+          id: 0 # Required variable, integer
+          # device: <string>
+          # filter_type: <value in [devid]>
+          # ratelimit: <integer>
 '''
 
 RETURN = '''

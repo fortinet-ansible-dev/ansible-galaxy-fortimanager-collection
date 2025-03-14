@@ -104,7 +104,7 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         emailfilter_options:
-          dns_timeout: <integer>
+          # dns_timeout: <integer>
 '''
 
 RETURN = '''

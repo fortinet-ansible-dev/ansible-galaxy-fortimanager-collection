@@ -136,17 +136,17 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         interface: <your own value>
         system_interface_ipv6:
-          ip6_address: <string>
-          ip6_allowaccess:
-            - "ping"
-            - "https"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "webservice"
-            - "https-logging"
-            - "fabric"
-          ip6_autoconf: <value in [disable, enable]>
+          # ip6_address: <string>
+          # ip6_allowaccess:
+          #   - "ping"
+          #   - "https"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "webservice"
+          #   - "https-logging"
+          #   - "fabric"
+          # ip6_autoconf: <value in [disable, enable]>
 '''
 
 RETURN = '''

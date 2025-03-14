@@ -132,10 +132,10 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         sctpfilter_profile_ppidfilters:
-          action: <value in [pass, reset, replace]>
-          comment: <string>
-          id: <integer>
-          ppid: <integer>
+          id: 0 # Required variable, integer
+          # action: <value in [pass, reset, replace]>
+          # comment: <string>
+          # ppid: <integer>
 '''
 
 RETURN = '''

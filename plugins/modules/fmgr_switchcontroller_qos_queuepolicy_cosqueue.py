@@ -156,15 +156,15 @@ EXAMPLES = '''
         queue_policy: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_qos_queuepolicy_cosqueue:
-          description: <string>
-          drop_policy: <value in [taildrop, weighted-random-early-detection]>
-          max_rate: <integer>
-          min_rate: <integer>
-          name: <string>
-          weight: <integer>
-          max_rate_percent: <integer>
-          min_rate_percent: <integer>
-          ecn: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # drop_policy: <value in [taildrop, weighted-random-early-detection]>
+          # max_rate: <integer>
+          # min_rate: <integer>
+          # weight: <integer>
+          # max_rate_percent: <integer>
+          # min_rate_percent: <integer>
+          # ecn: <value in [disable, enable]>
 '''
 
 RETURN = '''

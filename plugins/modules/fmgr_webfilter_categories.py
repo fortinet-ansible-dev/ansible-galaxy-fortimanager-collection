@@ -114,7 +114,7 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webfilter_categories:
-          id: <string>
+          id: "your value" # Required variable, string
 '''
 
 RETURN = '''

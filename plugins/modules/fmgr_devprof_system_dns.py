@@ -170,21 +170,21 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_dns:
-          cache_notfound_responses: <value in [disable, enable]>
-          dns_cache_limit: <integer>
-          dns_cache_ttl: <integer>
-          domain: <list or string>
-          ip6_primary: <string>
-          ip6_secondary: <string>
-          primary: <string>
-          secondary: <string>
-          dns_over_tls: <value in [disable, enable, enforce]>
-          retry: <integer>
-          server_hostname: <list or string>
-          ssl_certificate: <string>
-          timeout: <integer>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
+          # cache_notfound_responses: <value in [disable, enable]>
+          # dns_cache_limit: <integer>
+          # dns_cache_ttl: <integer>
+          # domain: <list or string>
+          # ip6_primary: <string>
+          # ip6_secondary: <string>
+          # primary: <string>
+          # secondary: <string>
+          # dns_over_tls: <value in [disable, enable, enforce]>
+          # retry: <integer>
+          # server_hostname: <list or string>
+          # ssl_certificate: <string>
+          # timeout: <integer>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
 '''
 
 RETURN = '''

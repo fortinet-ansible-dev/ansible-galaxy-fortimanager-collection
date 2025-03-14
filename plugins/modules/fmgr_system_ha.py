@@ -219,35 +219,32 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_ha:
-          clusterid: <integer>
-          file_quota: <integer>
-          hb_interval: <integer>
-          hb_lost_threshold: <integer>
-          mode: <value in [standalone, master, slave, ...]>
-          password: <list or string>
-          peer:
-            -
-              id: <integer>
-              ip: <string>
-              ip6: <string>
-              serial_number: <string>
-              status: <value in [disable, enable]>
-          local_cert: <string>
-          failover_mode: <value in [manual, vrrp]>
-          monitored_interfaces:
-            -
-              interface_name: <string>
-          monitored_ips:
-            -
-              id: <integer>
-              interface: <string>
-              ip: <string>
-          priority: <integer>
-          unicast: <value in [disable, enable]>
-          vip: <string>
-          vrrp_adv_interval: <integer>
-          vrrp_interface: <string>
-          vip_interface: <string>
+          # clusterid: <integer>
+          # file_quota: <integer>
+          # hb_interval: <integer>
+          # hb_lost_threshold: <integer>
+          # mode: <value in [standalone, master, slave, ...]>
+          # password: <list or string>
+          # peer:
+          #   - id: <integer>
+          #     ip: <string>
+          #     ip6: <string>
+          #     serial_number: <string>
+          #     status: <value in [disable, enable]>
+          # local_cert: <string>
+          # failover_mode: <value in [manual, vrrp]>
+          # monitored_interfaces:
+          #   - interface_name: <string>
+          # monitored_ips:
+          #   - id: <integer>
+          #     interface: <string>
+          #     ip: <string>
+          # priority: <integer>
+          # unicast: <value in [disable, enable]>
+          # vip: <string>
+          # vrrp_adv_interval: <integer>
+          # vrrp_interface: <string>
+          # vip_interface: <string>
 '''
 
 RETURN = '''

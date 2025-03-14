@@ -151,24 +151,24 @@ EXAMPLES = '''
         bonjour_profile: <your own value>
         state: present # <value in [present, absent]>
         bonjourprofile_policylist:
-          description: <string>
-          from_vlan: <string>
-          policy_id: <integer>
-          services:
-            - "airplay"
-            - "afp"
-            - "bit-torrent"
-            - "ftp"
-            - "ichat"
-            - "itunes"
-            - "printers"
-            - "samba"
-            - "scanners"
-            - "ssh"
-            - "chromecast"
-            - "all"
-            - "miracast"
-          to_vlan: <string>
+          policy_id: 0 # Required variable, integer
+          # description: <string>
+          # from_vlan: <string>
+          # services:
+          #   - "airplay"
+          #   - "afp"
+          #   - "bit-torrent"
+          #   - "ftp"
+          #   - "ichat"
+          #   - "itunes"
+          #   - "printers"
+          #   - "samba"
+          #   - "scanners"
+          #   - "ssh"
+          #   - "chromecast"
+          #   - "all"
+          #   - "miracast"
+          # to_vlan: <string>
 '''
 
 RETURN = '''

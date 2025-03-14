@@ -979,137 +979,137 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         voip_profile:
-          comment: <string>
-          name: <string>
-          sccp:
-            block_mcast: <value in [disable, enable]>
-            log_call_summary: <value in [disable, enable]>
-            log_violations: <value in [disable, enable]>
-            max_calls: <integer>
-            status: <value in [disable, enable]>
-            verify_header: <value in [disable, enable]>
-          sip:
-            ack_rate: <integer>
-            block_ack: <value in [disable, enable]>
-            block_bye: <value in [disable, enable]>
-            block_cancel: <value in [disable, enable]>
-            block_geo_red_options: <value in [disable, enable]>
-            block_info: <value in [disable, enable]>
-            block_invite: <value in [disable, enable]>
-            block_long_lines: <value in [disable, enable]>
-            block_message: <value in [disable, enable]>
-            block_notify: <value in [disable, enable]>
-            block_options: <value in [disable, enable]>
-            block_prack: <value in [disable, enable]>
-            block_publish: <value in [disable, enable]>
-            block_refer: <value in [disable, enable]>
-            block_register: <value in [disable, enable]>
-            block_subscribe: <value in [disable, enable]>
-            block_unknown: <value in [disable, enable]>
-            block_update: <value in [disable, enable]>
-            bye_rate: <integer>
-            call_keepalive: <integer>
-            cancel_rate: <integer>
-            contact_fixup: <value in [disable, enable]>
-            hnt_restrict_source_ip: <value in [disable, enable]>
-            hosted_nat_traversal: <value in [disable, enable]>
-            info_rate: <integer>
-            invite_rate: <integer>
-            ips_rtp: <value in [disable, enable]>
-            log_call_summary: <value in [disable, enable]>
-            log_violations: <value in [disable, enable]>
-            malformed_header_allow: <value in [pass, discard, respond]>
-            malformed_header_call_id: <value in [pass, discard, respond]>
-            malformed_header_contact: <value in [pass, discard, respond]>
-            malformed_header_content_length: <value in [pass, discard, respond]>
-            malformed_header_content_type: <value in [pass, discard, respond]>
-            malformed_header_cseq: <value in [pass, discard, respond]>
-            malformed_header_expires: <value in [pass, discard, respond]>
-            malformed_header_from: <value in [pass, discard, respond]>
-            malformed_header_max_forwards: <value in [pass, discard, respond]>
-            malformed_header_p_asserted_identity: <value in [pass, discard, respond]>
-            malformed_header_rack: <value in [pass, discard, respond]>
-            malformed_header_record_route: <value in [pass, discard, respond]>
-            malformed_header_route: <value in [pass, discard, respond]>
-            malformed_header_rseq: <value in [pass, discard, respond]>
-            malformed_header_sdp_a: <value in [pass, discard, respond]>
-            malformed_header_sdp_b: <value in [pass, discard, respond]>
-            malformed_header_sdp_c: <value in [pass, discard, respond]>
-            malformed_header_sdp_i: <value in [pass, discard, respond]>
-            malformed_header_sdp_k: <value in [pass, discard, respond]>
-            malformed_header_sdp_m: <value in [pass, discard, respond]>
-            malformed_header_sdp_o: <value in [pass, discard, respond]>
-            malformed_header_sdp_r: <value in [pass, discard, respond]>
-            malformed_header_sdp_s: <value in [pass, discard, respond]>
-            malformed_header_sdp_t: <value in [pass, discard, respond]>
-            malformed_header_sdp_v: <value in [pass, discard, respond]>
-            malformed_header_sdp_z: <value in [pass, discard, respond]>
-            malformed_header_to: <value in [pass, discard, respond]>
-            malformed_header_via: <value in [pass, discard, respond]>
-            malformed_request_line: <value in [pass, discard, respond]>
-            max_body_length: <integer>
-            max_dialogs: <integer>
-            max_idle_dialogs: <integer>
-            max_line_length: <integer>
-            message_rate: <integer>
-            nat_port_range: <string>
-            nat_trace: <value in [disable, enable]>
-            no_sdp_fixup: <value in [disable, enable]>
-            notify_rate: <integer>
-            open_contact_pinhole: <value in [disable, enable]>
-            open_record_route_pinhole: <value in [disable, enable]>
-            open_register_pinhole: <value in [disable, enable]>
-            open_via_pinhole: <value in [disable, enable]>
-            options_rate: <integer>
-            prack_rate: <integer>
-            preserve_override: <value in [disable, enable]>
-            provisional_invite_expiry_time: <integer>
-            publish_rate: <integer>
-            refer_rate: <integer>
-            register_contact_trace: <value in [disable, enable]>
-            register_rate: <integer>
-            rfc2543_branch: <value in [disable, enable]>
-            rtp: <value in [disable, enable]>
-            ssl_algorithm: <value in [high, medium, low]>
-            ssl_auth_client: <string>
-            ssl_auth_server: <string>
-            ssl_client_certificate: <string>
-            ssl_client_renegotiation: <value in [allow, deny, secure]>
-            ssl_max_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
-            ssl_min_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
-            ssl_mode: <value in [off, full]>
-            ssl_pfs: <value in [require, deny, allow]>
-            ssl_send_empty_frags: <value in [disable, enable]>
-            ssl_server_certificate: <string>
-            status: <value in [disable, enable]>
-            strict_register: <value in [disable, enable]>
-            subscribe_rate: <integer>
-            unknown_header: <value in [pass, discard, respond]>
-            update_rate: <integer>
-            ack_rate_track: <value in [none, src-ip, dest-ip]>
-            bye_rate_track: <value in [none, src-ip, dest-ip]>
-            cancel_rate_track: <value in [none, src-ip, dest-ip]>
-            info_rate_track: <value in [none, src-ip, dest-ip]>
-            invite_rate_track: <value in [none, src-ip, dest-ip]>
-            malformed_header_no_proxy_require: <value in [pass, discard, respond]>
-            malformed_header_no_require: <value in [pass, discard, respond]>
-            message_rate_track: <value in [none, src-ip, dest-ip]>
-            notify_rate_track: <value in [none, src-ip, dest-ip]>
-            options_rate_track: <value in [none, src-ip, dest-ip]>
-            prack_rate_track: <value in [none, src-ip, dest-ip]>
-            publish_rate_track: <value in [none, src-ip, dest-ip]>
-            refer_rate_track: <value in [none, src-ip, dest-ip]>
-            register_rate_track: <value in [none, src-ip, dest-ip]>
-            subscribe_rate_track: <value in [none, src-ip, dest-ip]>
-            update_rate_track: <value in [none, src-ip, dest-ip]>
-            call_id_regex: <string>
-            content_type_regex: <string>
-          feature_set: <value in [flow, proxy, ips, ...]>
-          msrp:
-            log_violations: <value in [disable, enable]>
-            max_msg_size: <integer>
-            max_msg_size_action: <value in [pass, block, reset, ...]>
-            status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # sccp:
+          #   block_mcast: <value in [disable, enable]>
+          #   log_call_summary: <value in [disable, enable]>
+          #   log_violations: <value in [disable, enable]>
+          #   max_calls: <integer>
+          #   status: <value in [disable, enable]>
+          #   verify_header: <value in [disable, enable]>
+          # sip:
+          #   ack_rate: <integer>
+          #   block_ack: <value in [disable, enable]>
+          #   block_bye: <value in [disable, enable]>
+          #   block_cancel: <value in [disable, enable]>
+          #   block_geo_red_options: <value in [disable, enable]>
+          #   block_info: <value in [disable, enable]>
+          #   block_invite: <value in [disable, enable]>
+          #   block_long_lines: <value in [disable, enable]>
+          #   block_message: <value in [disable, enable]>
+          #   block_notify: <value in [disable, enable]>
+          #   block_options: <value in [disable, enable]>
+          #   block_prack: <value in [disable, enable]>
+          #   block_publish: <value in [disable, enable]>
+          #   block_refer: <value in [disable, enable]>
+          #   block_register: <value in [disable, enable]>
+          #   block_subscribe: <value in [disable, enable]>
+          #   block_unknown: <value in [disable, enable]>
+          #   block_update: <value in [disable, enable]>
+          #   bye_rate: <integer>
+          #   call_keepalive: <integer>
+          #   cancel_rate: <integer>
+          #   contact_fixup: <value in [disable, enable]>
+          #   hnt_restrict_source_ip: <value in [disable, enable]>
+          #   hosted_nat_traversal: <value in [disable, enable]>
+          #   info_rate: <integer>
+          #   invite_rate: <integer>
+          #   ips_rtp: <value in [disable, enable]>
+          #   log_call_summary: <value in [disable, enable]>
+          #   log_violations: <value in [disable, enable]>
+          #   malformed_header_allow: <value in [pass, discard, respond]>
+          #   malformed_header_call_id: <value in [pass, discard, respond]>
+          #   malformed_header_contact: <value in [pass, discard, respond]>
+          #   malformed_header_content_length: <value in [pass, discard, respond]>
+          #   malformed_header_content_type: <value in [pass, discard, respond]>
+          #   malformed_header_cseq: <value in [pass, discard, respond]>
+          #   malformed_header_expires: <value in [pass, discard, respond]>
+          #   malformed_header_from: <value in [pass, discard, respond]>
+          #   malformed_header_max_forwards: <value in [pass, discard, respond]>
+          #   malformed_header_p_asserted_identity: <value in [pass, discard, respond]>
+          #   malformed_header_rack: <value in [pass, discard, respond]>
+          #   malformed_header_record_route: <value in [pass, discard, respond]>
+          #   malformed_header_route: <value in [pass, discard, respond]>
+          #   malformed_header_rseq: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_a: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_b: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_c: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_i: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_k: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_m: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_o: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_r: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_s: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_t: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_v: <value in [pass, discard, respond]>
+          #   malformed_header_sdp_z: <value in [pass, discard, respond]>
+          #   malformed_header_to: <value in [pass, discard, respond]>
+          #   malformed_header_via: <value in [pass, discard, respond]>
+          #   malformed_request_line: <value in [pass, discard, respond]>
+          #   max_body_length: <integer>
+          #   max_dialogs: <integer>
+          #   max_idle_dialogs: <integer>
+          #   max_line_length: <integer>
+          #   message_rate: <integer>
+          #   nat_port_range: <string>
+          #   nat_trace: <value in [disable, enable]>
+          #   no_sdp_fixup: <value in [disable, enable]>
+          #   notify_rate: <integer>
+          #   open_contact_pinhole: <value in [disable, enable]>
+          #   open_record_route_pinhole: <value in [disable, enable]>
+          #   open_register_pinhole: <value in [disable, enable]>
+          #   open_via_pinhole: <value in [disable, enable]>
+          #   options_rate: <integer>
+          #   prack_rate: <integer>
+          #   preserve_override: <value in [disable, enable]>
+          #   provisional_invite_expiry_time: <integer>
+          #   publish_rate: <integer>
+          #   refer_rate: <integer>
+          #   register_contact_trace: <value in [disable, enable]>
+          #   register_rate: <integer>
+          #   rfc2543_branch: <value in [disable, enable]>
+          #   rtp: <value in [disable, enable]>
+          #   ssl_algorithm: <value in [high, medium, low]>
+          #   ssl_auth_client: <string>
+          #   ssl_auth_server: <string>
+          #   ssl_client_certificate: <string>
+          #   ssl_client_renegotiation: <value in [allow, deny, secure]>
+          #   ssl_max_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
+          #   ssl_min_version: <value in [ssl-3.0, tls-1.0, tls-1.1, ...]>
+          #   ssl_mode: <value in [off, full]>
+          #   ssl_pfs: <value in [require, deny, allow]>
+          #   ssl_send_empty_frags: <value in [disable, enable]>
+          #   ssl_server_certificate: <string>
+          #   status: <value in [disable, enable]>
+          #   strict_register: <value in [disable, enable]>
+          #   subscribe_rate: <integer>
+          #   unknown_header: <value in [pass, discard, respond]>
+          #   update_rate: <integer>
+          #   ack_rate_track: <value in [none, src-ip, dest-ip]>
+          #   bye_rate_track: <value in [none, src-ip, dest-ip]>
+          #   cancel_rate_track: <value in [none, src-ip, dest-ip]>
+          #   info_rate_track: <value in [none, src-ip, dest-ip]>
+          #   invite_rate_track: <value in [none, src-ip, dest-ip]>
+          #   malformed_header_no_proxy_require: <value in [pass, discard, respond]>
+          #   malformed_header_no_require: <value in [pass, discard, respond]>
+          #   message_rate_track: <value in [none, src-ip, dest-ip]>
+          #   notify_rate_track: <value in [none, src-ip, dest-ip]>
+          #   options_rate_track: <value in [none, src-ip, dest-ip]>
+          #   prack_rate_track: <value in [none, src-ip, dest-ip]>
+          #   publish_rate_track: <value in [none, src-ip, dest-ip]>
+          #   refer_rate_track: <value in [none, src-ip, dest-ip]>
+          #   register_rate_track: <value in [none, src-ip, dest-ip]>
+          #   subscribe_rate_track: <value in [none, src-ip, dest-ip]>
+          #   update_rate_track: <value in [none, src-ip, dest-ip]>
+          #   call_id_regex: <string>
+          #   content_type_regex: <string>
+          # feature_set: <value in [flow, proxy, ips, ...]>
+          # msrp:
+          #   log_violations: <value in [disable, enable]>
+          #   max_msg_size: <integer>
+          #   max_msg_size_action: <value in [pass, block, reset, ...]>
+          #   status: <value in [disable, enable]>
 '''
 
 RETURN = '''

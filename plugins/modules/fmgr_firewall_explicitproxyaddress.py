@@ -217,41 +217,40 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_explicitproxyaddress:
-          case_sensitivity: <value in [disable, enable]>
-          category: <string>
-          color: <integer>
-          comment: <string>
-          header: <string>
-          header_group:
-            -
-              case_sensitivity: <value in [disable, enable]>
-              header: <string>
-              header_name: <string>
-              id: <integer>
-          header_name: <string>
-          host: <string>
-          host_regex: <string>
-          method:
-            - "delete"
-            - "get"
-            - "head"
-            - "options"
-            - "post"
-            - "put"
-            - "trace"
-            - "connect"
-          name: <string>
-          path: <string>
-          tags: <string>
-          type: <value in [host-regex, url, category, ...]>
-          ua:
-            - "chrome"
-            - "ms"
-            - "firefox"
-            - "safari"
-            - "other"
-          uuid: <string>
-          visibility: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # case_sensitivity: <value in [disable, enable]>
+          # category: <string>
+          # color: <integer>
+          # comment: <string>
+          # header: <string>
+          # header_group:
+          #   - case_sensitivity: <value in [disable, enable]>
+          #     header: <string>
+          #     header_name: <string>
+          #     id: <integer>
+          # header_name: <string>
+          # host: <string>
+          # host_regex: <string>
+          # method:
+          #   - "delete"
+          #   - "get"
+          #   - "head"
+          #   - "options"
+          #   - "post"
+          #   - "put"
+          #   - "trace"
+          #   - "connect"
+          # path: <string>
+          # tags: <string>
+          # type: <value in [host-regex, url, category, ...]>
+          # ua:
+          #   - "chrome"
+          #   - "ms"
+          #   - "firefox"
+          #   - "safari"
+          #   - "other"
+          # uuid: <string>
+          # visibility: <value in [disable, enable]>
 '''
 
 RETURN = '''

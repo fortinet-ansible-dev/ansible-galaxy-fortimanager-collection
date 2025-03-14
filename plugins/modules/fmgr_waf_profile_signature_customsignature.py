@@ -179,28 +179,28 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         waf_profile_signature_customsignature:
-          action: <value in [allow, block, erase]>
-          case_sensitivity: <value in [disable, enable]>
-          direction: <value in [request, response]>
-          log: <value in [disable, enable]>
-          name: <string>
-          pattern: <string>
-          severity: <value in [low, medium, high]>
-          status: <value in [disable, enable]>
-          target:
-            - "arg"
-            - "arg-name"
-            - "req-body"
-            - "req-cookie"
-            - "req-cookie-name"
-            - "req-filename"
-            - "req-header"
-            - "req-header-name"
-            - "req-raw-uri"
-            - "req-uri"
-            - "resp-body"
-            - "resp-hdr"
-            - "resp-status"
+          name: "your value" # Required variable, string
+          # action: <value in [allow, block, erase]>
+          # case_sensitivity: <value in [disable, enable]>
+          # direction: <value in [request, response]>
+          # log: <value in [disable, enable]>
+          # pattern: <string>
+          # severity: <value in [low, medium, high]>
+          # status: <value in [disable, enable]>
+          # target:
+          #   - "arg"
+          #   - "arg-name"
+          #   - "req-body"
+          #   - "req-cookie"
+          #   - "req-cookie-name"
+          #   - "req-filename"
+          #   - "req-header"
+          #   - "req-header-name"
+          #   - "req-raw-uri"
+          #   - "req-uri"
+          #   - "resp-body"
+          #   - "resp-hdr"
+          #   - "resp-status"
 '''
 
 RETURN = '''

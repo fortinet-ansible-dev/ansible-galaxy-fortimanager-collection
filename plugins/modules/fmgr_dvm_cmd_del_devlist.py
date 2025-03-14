@@ -114,16 +114,15 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         dvm_cmd_del_devlist:
-          adom: <string>
-          del_dev_member_list:
-            -
-              name: <string>
-              vdom: <string>
-          flags:
-            - "none"
-            - "create_task"
-            - "nonblocking"
-            - "log_dev"
+          # adom: <string>
+          # del_dev_member_list:
+          #   - name: <string>
+          #     vdom: <string>
+          # flags:
+          #   - "none"
+          #   - "create_task"
+          #   - "nonblocking"
+          #   - "log_dev"
 '''
 
 RETURN = '''

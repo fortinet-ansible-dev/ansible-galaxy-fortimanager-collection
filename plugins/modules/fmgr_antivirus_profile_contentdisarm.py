@@ -247,26 +247,26 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         antivirus_profile_contentdisarm:
-          cover_page: <value in [disable, enable]>
-          detect_only: <value in [disable, enable]>
-          office_embed: <value in [disable, enable]>
-          office_hylink: <value in [disable, enable]>
-          office_linked: <value in [disable, enable]>
-          office_macro: <value in [disable, enable]>
-          original_file_destination: <value in [fortisandbox, quarantine, discard]>
-          pdf_act_form: <value in [disable, enable]>
-          pdf_act_gotor: <value in [disable, enable]>
-          pdf_act_java: <value in [disable, enable]>
-          pdf_act_launch: <value in [disable, enable]>
-          pdf_act_movie: <value in [disable, enable]>
-          pdf_act_sound: <value in [disable, enable]>
-          pdf_embedfile: <value in [disable, enable]>
-          pdf_hyperlink: <value in [disable, enable]>
-          pdf_javacode: <value in [disable, enable]>
-          office_action: <value in [disable, enable]>
-          office_dde: <value in [disable, enable]>
-          error_action: <value in [block, log-only, ignore]>
-          analytics_suspicious: <value in [disable, enable]>
+          # cover_page: <value in [disable, enable]>
+          # detect_only: <value in [disable, enable]>
+          # office_embed: <value in [disable, enable]>
+          # office_hylink: <value in [disable, enable]>
+          # office_linked: <value in [disable, enable]>
+          # office_macro: <value in [disable, enable]>
+          # original_file_destination: <value in [fortisandbox, quarantine, discard]>
+          # pdf_act_form: <value in [disable, enable]>
+          # pdf_act_gotor: <value in [disable, enable]>
+          # pdf_act_java: <value in [disable, enable]>
+          # pdf_act_launch: <value in [disable, enable]>
+          # pdf_act_movie: <value in [disable, enable]>
+          # pdf_act_sound: <value in [disable, enable]>
+          # pdf_embedfile: <value in [disable, enable]>
+          # pdf_hyperlink: <value in [disable, enable]>
+          # pdf_javacode: <value in [disable, enable]>
+          # office_action: <value in [disable, enable]>
+          # office_dde: <value in [disable, enable]>
+          # error_action: <value in [block, log-only, ignore]>
+          # analytics_suspicious: <value in [disable, enable]>
 '''
 
 RETURN = '''

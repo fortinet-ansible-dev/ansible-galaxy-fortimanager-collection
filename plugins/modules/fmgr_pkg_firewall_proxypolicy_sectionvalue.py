@@ -131,8 +131,8 @@ EXAMPLES = '''
         proxy_policy: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_proxypolicy_sectionvalue:
-          attr: <value in [label, global-label]>
-          name: <string>
+          # attr: <value in [label, global-label]>
+          # name: <string>
 '''
 
 RETURN = '''

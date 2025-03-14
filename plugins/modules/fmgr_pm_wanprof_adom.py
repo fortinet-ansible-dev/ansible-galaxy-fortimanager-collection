@@ -126,14 +126,13 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         pm_wanprof_adom:
-          description: <string>
-          name: <string>
-          oid: <integer>
-          scope_member:
-            -
-              name: <string>
-              vdom: <string>
-          type: <value in [wanprof]>
+          # description: <string>
+          # name: <string>
+          # oid: <integer>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
+          # type: <value in [wanprof]>
 '''
 
 RETURN = '''

@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_acl_group:
-          ingress: <list or string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # ingress: <list or string>
 '''
 
 RETURN = '''

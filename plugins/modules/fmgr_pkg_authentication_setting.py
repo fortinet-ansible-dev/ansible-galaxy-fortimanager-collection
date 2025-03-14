@@ -208,28 +208,28 @@ EXAMPLES = '''
         adom: <your own value>
         pkg: <your own value>
         pkg_authentication_setting:
-          active_auth_scheme: <string>
-          auth_https: <value in [disable, enable]>
-          captive_portal: <string>
-          captive_portal_ip: <string>
-          captive_portal_ip6: <string>
-          captive_portal_port: <integer>
-          captive_portal_ssl_port: <integer>
-          captive_portal_type: <value in [fqdn, ip]>
-          captive_portal6: <string>
-          rewrite_https_port: <integer>
-          sso_auth_scheme: <string>
-          dev_range: <list or string>
-          user_cert_ca: <list or string>
-          cert_auth: <value in [disable, enable]>
-          cert_captive_portal: <string>
-          cert_captive_portal_ip: <string>
-          cert_captive_portal_port: <integer>
-          cookie_max_age: <integer>
-          cookie_refresh_div: <integer>
-          ip_auth_cookie: <value in [disable, enable]>
-          persistent_cookie: <value in [disable, enable]>
-          update_time: <string>
+          # active_auth_scheme: <string>
+          # auth_https: <value in [disable, enable]>
+          # captive_portal: <string>
+          # captive_portal_ip: <string>
+          # captive_portal_ip6: <string>
+          # captive_portal_port: <integer>
+          # captive_portal_ssl_port: <integer>
+          # captive_portal_type: <value in [fqdn, ip]>
+          # captive_portal6: <string>
+          # rewrite_https_port: <integer>
+          # sso_auth_scheme: <string>
+          # dev_range: <list or string>
+          # user_cert_ca: <list or string>
+          # cert_auth: <value in [disable, enable]>
+          # cert_captive_portal: <string>
+          # cert_captive_portal_ip: <string>
+          # cert_captive_portal_port: <integer>
+          # cookie_max_age: <integer>
+          # cookie_refresh_div: <integer>
+          # ip_auth_cookie: <value in [disable, enable]>
+          # persistent_cookie: <value in [disable, enable]>
+          # update_time: <string>
 '''
 
 RETURN = '''

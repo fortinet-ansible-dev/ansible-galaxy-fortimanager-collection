@@ -138,15 +138,15 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_backgroundssescan:
-          scan: <value in [disable, enable]>
-          stats_update_interval: <integer>
-          udp_keepalive_interval: <integer>
-          scan_stale: <integer>
-          scan_vt: <integer>
-          stats_qual_access: <integer>
-          stats_qual_duration: <integer>
-          udp_qual_access: <integer>
-          udp_qual_duration: <integer>
+          # scan: <value in [disable, enable]>
+          # stats_update_interval: <integer>
+          # udp_keepalive_interval: <integer>
+          # scan_stale: <integer>
+          # scan_vt: <integer>
+          # stats_qual_access: <integer>
+          # stats_qual_duration: <integer>
+          # udp_qual_access: <integer>
+          # udp_qual_duration: <integer>
 '''
 
 RETURN = '''

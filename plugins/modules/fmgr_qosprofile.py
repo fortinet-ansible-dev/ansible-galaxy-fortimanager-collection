@@ -218,29 +218,29 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         qosprofile:
-          bandwidth_admission_control: <value in [disable, enable]>
-          bandwidth_capacity: <integer>
-          burst: <value in [disable, enable]>
-          call_admission_control: <value in [disable, enable]>
-          call_capacity: <integer>
-          comment: <string>
-          downlink: <integer>
-          downlink_sta: <integer>
-          dscp_wmm_be: <list or integer>
-          dscp_wmm_bk: <list or integer>
-          dscp_wmm_mapping: <value in [disable, enable]>
-          dscp_wmm_vi: <list or integer>
-          dscp_wmm_vo: <list or integer>
-          name: <string>
-          uplink: <integer>
-          uplink_sta: <integer>
-          wmm: <value in [disable, enable]>
-          wmm_uapsd: <value in [disable, enable]>
-          wmm_be_dscp: <integer>
-          wmm_bk_dscp: <integer>
-          wmm_dscp_marking: <value in [disable, enable]>
-          wmm_vi_dscp: <integer>
-          wmm_vo_dscp: <integer>
+          name: "your value" # Required variable, string
+          # bandwidth_admission_control: <value in [disable, enable]>
+          # bandwidth_capacity: <integer>
+          # burst: <value in [disable, enable]>
+          # call_admission_control: <value in [disable, enable]>
+          # call_capacity: <integer>
+          # comment: <string>
+          # downlink: <integer>
+          # downlink_sta: <integer>
+          # dscp_wmm_be: <list or integer>
+          # dscp_wmm_bk: <list or integer>
+          # dscp_wmm_mapping: <value in [disable, enable]>
+          # dscp_wmm_vi: <list or integer>
+          # dscp_wmm_vo: <list or integer>
+          # uplink: <integer>
+          # uplink_sta: <integer>
+          # wmm: <value in [disable, enable]>
+          # wmm_uapsd: <value in [disable, enable]>
+          # wmm_be_dscp: <integer>
+          # wmm_bk_dscp: <integer>
+          # wmm_dscp_marking: <value in [disable, enable]>
+          # wmm_vi_dscp: <integer>
+          # wmm_vo_dscp: <integer>
 '''
 
 RETURN = '''

@@ -127,9 +127,9 @@ EXAMPLES = '''
         anqp_3gpp_cellular: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_anqp3gppcellular_mccmnclist:
-          id: <integer>
-          mcc: <string>
-          mnc: <string>
+          id: 0 # Required variable, integer
+          # mcc: <string>
+          # mnc: <string>
 '''
 
 RETURN = '''

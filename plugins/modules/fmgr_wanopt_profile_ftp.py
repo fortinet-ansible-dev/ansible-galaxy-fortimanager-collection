@@ -163,15 +163,15 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         wanopt_profile_ftp:
-          byte_caching: <value in [disable, enable]>
-          log_traffic: <value in [disable, enable]>
-          port: <list or integer>
-          prefer_chunking: <value in [dynamic, fix]>
-          secure_tunnel: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          tunnel_sharing: <value in [private, shared, express-shared]>
-          protocol_opt: <value in [protocol, tcp]>
-          ssl: <value in [disable, enable]>
+          # byte_caching: <value in [disable, enable]>
+          # log_traffic: <value in [disable, enable]>
+          # port: <list or integer>
+          # prefer_chunking: <value in [dynamic, fix]>
+          # secure_tunnel: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # tunnel_sharing: <value in [private, shared, express-shared]>
+          # protocol_opt: <value in [protocol, tcp]>
+          # ssl: <value in [disable, enable]>
 '''
 
 RETURN = '''

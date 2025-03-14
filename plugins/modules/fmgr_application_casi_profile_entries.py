@@ -135,10 +135,10 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         application_casi_profile_entries:
-          action: <value in [pass, block, reset]>
-          application: <list or integer>
-          id: <integer>
-          log: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # action: <value in [pass, block, reset]>
+          # application: <list or integer>
+          # log: <value in [disable, enable]>
 '''
 
 RETURN = '''

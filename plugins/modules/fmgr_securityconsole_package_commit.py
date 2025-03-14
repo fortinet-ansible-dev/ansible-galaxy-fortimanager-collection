@@ -108,13 +108,12 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_package_commit:
-          adom: <string>
-          scope:
-            -
-              name: <string>
-              vdom: <string>
-          flags:
-            - "auto_lock_ws"
+          # adom: <string>
+          # scope:
+          #   - name: <string>
+          #     vdom: <string>
+          # flags:
+          #   - "auto_lock_ws"
 '''
 
 RETURN = '''

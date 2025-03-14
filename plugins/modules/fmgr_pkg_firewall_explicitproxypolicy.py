@@ -496,83 +496,82 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_explicitproxypolicy:
-          action: <value in [deny, accept]>
-          active_auth_method: <value in [ntlm, basic, digest, ...]>
-          application_list: <string>
-          av_profile: <string>
-          casi_profile: <string>
-          comments: <string>
-          disclaimer: <value in [disable, domain, policy, ...]>
-          dlp_sensor: <string>
-          dstaddr: <string>
-          dstaddr_negate: <value in [disable, enable]>
-          dstaddr6: <string>
-          dstintf: <string>
-          global_label: <string>
-          icap_profile: <string>
-          identity_based: <value in [disable, enable]>
-          identity_based_policy:
-            -
-              application_list: <string>
-              av_profile: <string>
-              casi_profile: <string>
-              disclaimer: <value in [disable, domain, policy, ...]>
-              dlp_sensor: <string>
-              groups: <string>
-              icap_profile: <string>
-              id: <integer>
-              ips_sensor: <string>
-              logtraffic: <value in [disable, all, utm]>
-              logtraffic_start: <value in [disable, enable]>
-              mms_profile: <string>
-              profile_group: <string>
-              profile_protocol_options: <string>
-              profile_type: <value in [single, group]>
-              replacemsg_override_group: <string>
-              scan_botnet_connections: <value in [disable, block, monitor]>
-              schedule: <string>
-              spamfilter_profile: <string>
-              ssl_ssh_profile: <string>
-              users: <string>
-              utm_status: <value in [disable, enable]>
-              waf_profile: <string>
-              webfilter_profile: <string>
-          ip_based: <value in [disable, enable]>
-          ips_sensor: <string>
-          label: <string>
-          logtraffic: <value in [disable, all, utm]>
-          logtraffic_start: <value in [disable, enable]>
-          mms_profile: <string>
-          policyid: <integer>
-          profile_group: <string>
-          profile_protocol_options: <string>
-          profile_type: <value in [single, group]>
-          proxy: <value in [web, ftp, wanopt]>
-          replacemsg_override_group: <string>
-          require_tfa: <value in [disable, enable]>
-          scan_botnet_connections: <value in [disable, block, monitor]>
-          schedule: <string>
-          service: <string>
-          service_negate: <value in [disable, enable]>
-          spamfilter_profile: <string>
-          srcaddr: <string>
-          srcaddr_negate: <value in [disable, enable]>
-          srcaddr6: <string>
-          ssl_ssh_profile: <string>
-          sso_auth_method: <value in [fsso, rsso, none]>
-          status: <value in [disable, enable]>
-          tags: <string>
-          transaction_based: <value in [disable, enable]>
-          transparent: <value in [disable, enable]>
-          utm_status: <value in [disable, enable]>
-          uuid: <string>
-          waf_profile: <string>
-          web_auth_cookie: <value in [disable, enable]>
-          webcache: <value in [disable, enable]>
-          webcache_https: <value in [disable, any, enable]>
-          webfilter_profile: <string>
-          webproxy_forward_server: <string>
-          webproxy_profile: <string>
+          policyid: 0 # Required variable, integer
+          # action: <value in [deny, accept]>
+          # active_auth_method: <value in [ntlm, basic, digest, ...]>
+          # application_list: <string>
+          # av_profile: <string>
+          # casi_profile: <string>
+          # comments: <string>
+          # disclaimer: <value in [disable, domain, policy, ...]>
+          # dlp_sensor: <string>
+          # dstaddr: <string>
+          # dstaddr_negate: <value in [disable, enable]>
+          # dstaddr6: <string>
+          # dstintf: <string>
+          # global_label: <string>
+          # icap_profile: <string>
+          # identity_based: <value in [disable, enable]>
+          # identity_based_policy:
+          #   - application_list: <string>
+          #     av_profile: <string>
+          #     casi_profile: <string>
+          #     disclaimer: <value in [disable, domain, policy, ...]>
+          #     dlp_sensor: <string>
+          #     groups: <string>
+          #     icap_profile: <string>
+          #     id: <integer>
+          #     ips_sensor: <string>
+          #     logtraffic: <value in [disable, all, utm]>
+          #     logtraffic_start: <value in [disable, enable]>
+          #     mms_profile: <string>
+          #     profile_group: <string>
+          #     profile_protocol_options: <string>
+          #     profile_type: <value in [single, group]>
+          #     replacemsg_override_group: <string>
+          #     scan_botnet_connections: <value in [disable, block, monitor]>
+          #     schedule: <string>
+          #     spamfilter_profile: <string>
+          #     ssl_ssh_profile: <string>
+          #     users: <string>
+          #     utm_status: <value in [disable, enable]>
+          #     waf_profile: <string>
+          #     webfilter_profile: <string>
+          # ip_based: <value in [disable, enable]>
+          # ips_sensor: <string>
+          # label: <string>
+          # logtraffic: <value in [disable, all, utm]>
+          # logtraffic_start: <value in [disable, enable]>
+          # mms_profile: <string>
+          # profile_group: <string>
+          # profile_protocol_options: <string>
+          # profile_type: <value in [single, group]>
+          # proxy: <value in [web, ftp, wanopt]>
+          # replacemsg_override_group: <string>
+          # require_tfa: <value in [disable, enable]>
+          # scan_botnet_connections: <value in [disable, block, monitor]>
+          # schedule: <string>
+          # service: <string>
+          # service_negate: <value in [disable, enable]>
+          # spamfilter_profile: <string>
+          # srcaddr: <string>
+          # srcaddr_negate: <value in [disable, enable]>
+          # srcaddr6: <string>
+          # ssl_ssh_profile: <string>
+          # sso_auth_method: <value in [fsso, rsso, none]>
+          # status: <value in [disable, enable]>
+          # tags: <string>
+          # transaction_based: <value in [disable, enable]>
+          # transparent: <value in [disable, enable]>
+          # utm_status: <value in [disable, enable]>
+          # uuid: <string>
+          # waf_profile: <string>
+          # web_auth_cookie: <value in [disable, enable]>
+          # webcache: <value in [disable, enable]>
+          # webcache_https: <value in [disable, any, enable]>
+          # webfilter_profile: <string>
+          # webproxy_forward_server: <string>
+          # webproxy_profile: <string>
 '''
 
 RETURN = '''

@@ -128,12 +128,11 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         gtp_ieallowlist:
-          entries:
-            -
-              id: <integer>
-              ie: <integer>
-              fmgr_message: <integer>
-          name: <string>
+          name: "your value" # Required variable, string
+          # entries:
+          #   - id: <integer>
+          #     ie: <integer>
+          #     fmgr_message: <integer>
 '''
 
 RETURN = '''

@@ -237,26 +237,26 @@ EXAMPLES = '''
         adom: <your own value>
         wtp_profile: <your own value>
         wtpprofile_lan:
-          port_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port_ssid: <string>
-          port1_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port1_ssid: <string>
-          port2_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port2_ssid: <string>
-          port3_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port3_ssid: <string>
-          port4_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port4_ssid: <string>
-          port5_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port5_ssid: <string>
-          port6_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port6_ssid: <string>
-          port7_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port7_ssid: <string>
-          port8_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port8_ssid: <string>
-          port_esl_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
-          port_esl_ssid: <string>
+          # port_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port_ssid: <string>
+          # port1_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port1_ssid: <string>
+          # port2_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port2_ssid: <string>
+          # port3_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port3_ssid: <string>
+          # port4_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port4_ssid: <string>
+          # port5_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port5_ssid: <string>
+          # port6_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port6_ssid: <string>
+          # port7_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port7_ssid: <string>
+          # port8_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port8_ssid: <string>
+          # port_esl_mode: <value in [offline, bridge-to-wan, bridge-to-ssid, ...]>
+          # port_esl_ssid: <string>
 '''
 
 RETURN = '''

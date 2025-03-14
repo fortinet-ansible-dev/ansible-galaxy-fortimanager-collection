@@ -482,49 +482,49 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_fortianalyzer_filter:
-          devcfg: <value in [disable, enable]>
-          devops: <value in [disable, enable]>
-          diskquota: <value in [disable, enable]>
-          dm: <value in [disable, enable]>
-          dvm: <value in [disable, enable]>
-          ediscovery: <value in [disable, enable]>
-          epmgr: <value in [disable, enable]>
-          event: <value in [disable, enable]>
-          eventmgmt: <value in [disable, enable]>
-          faz: <value in [disable, enable]>
-          fazha: <value in [disable, enable]>
-          fazsys: <value in [disable, enable]>
-          fgd: <value in [disable, enable]>
-          fgfm: <value in [disable, enable]>
-          fips: <value in [disable, enable]>
-          fmgws: <value in [disable, enable]>
-          fmlmgr: <value in [disable, enable]>
-          fmwmgr: <value in [disable, enable]>
-          fortiview: <value in [disable, enable]>
-          glbcfg: <value in [disable, enable]>
-          ha: <value in [disable, enable]>
-          hcache: <value in [disable, enable]>
-          iolog: <value in [disable, enable]>
-          logd: <value in [disable, enable]>
-          logdb: <value in [disable, enable]>
-          logdev: <value in [disable, enable]>
-          logfile: <value in [enable, disable]>
-          logging: <value in [disable, enable]>
-          lrmgr: <value in [disable, enable]>
-          objcfg: <value in [disable, enable]>
-          report: <value in [disable, enable]>
-          rev: <value in [disable, enable]>
-          rtmon: <value in [disable, enable]>
-          scfw: <value in [disable, enable]>
-          scply: <value in [disable, enable]>
-          scrmgr: <value in [disable, enable]>
-          scvpn: <value in [disable, enable]>
-          system: <value in [disable, enable]>
-          webport: <value in [disable, enable]>
-          incident: <value in [disable, enable]>
-          aid: <value in [disable, enable]>
-          docker: <value in [disable, enable]>
-          controller: <value in [disable, enable]>
+          # devcfg: <value in [disable, enable]>
+          # devops: <value in [disable, enable]>
+          # diskquota: <value in [disable, enable]>
+          # dm: <value in [disable, enable]>
+          # dvm: <value in [disable, enable]>
+          # ediscovery: <value in [disable, enable]>
+          # epmgr: <value in [disable, enable]>
+          # event: <value in [disable, enable]>
+          # eventmgmt: <value in [disable, enable]>
+          # faz: <value in [disable, enable]>
+          # fazha: <value in [disable, enable]>
+          # fazsys: <value in [disable, enable]>
+          # fgd: <value in [disable, enable]>
+          # fgfm: <value in [disable, enable]>
+          # fips: <value in [disable, enable]>
+          # fmgws: <value in [disable, enable]>
+          # fmlmgr: <value in [disable, enable]>
+          # fmwmgr: <value in [disable, enable]>
+          # fortiview: <value in [disable, enable]>
+          # glbcfg: <value in [disable, enable]>
+          # ha: <value in [disable, enable]>
+          # hcache: <value in [disable, enable]>
+          # iolog: <value in [disable, enable]>
+          # logd: <value in [disable, enable]>
+          # logdb: <value in [disable, enable]>
+          # logdev: <value in [disable, enable]>
+          # logfile: <value in [enable, disable]>
+          # logging: <value in [disable, enable]>
+          # lrmgr: <value in [disable, enable]>
+          # objcfg: <value in [disable, enable]>
+          # report: <value in [disable, enable]>
+          # rev: <value in [disable, enable]>
+          # rtmon: <value in [disable, enable]>
+          # scfw: <value in [disable, enable]>
+          # scply: <value in [disable, enable]>
+          # scrmgr: <value in [disable, enable]>
+          # scvpn: <value in [disable, enable]>
+          # system: <value in [disable, enable]>
+          # webport: <value in [disable, enable]>
+          # incident: <value in [disable, enable]>
+          # aid: <value in [disable, enable]>
+          # docker: <value in [disable, enable]>
+          # controller: <value in [disable, enable]>
 '''
 
 RETURN = '''

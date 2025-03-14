@@ -124,8 +124,8 @@ EXAMPLES = '''
         wtp_profile: <your own value>
         state: present # <value in [present, absent]>
         wtpprofile_denymaclist:
-          id: <integer>
-          mac: <string>
+          id: 0 # Required variable, integer
+          # mac: <string>
 '''
 
 RETURN = '''

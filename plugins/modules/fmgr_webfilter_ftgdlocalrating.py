@@ -126,10 +126,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webfilter_ftgdlocalrating:
-          rating: <list or string>
-          status: <value in [disable, enable]>
-          url: <string>
-          comment: <string>
+          rating: "your value" # Required variable, string
+          # status: <value in [disable, enable]>
+          # url: <string>
+          # comment: <string>
 '''
 
 RETURN = '''

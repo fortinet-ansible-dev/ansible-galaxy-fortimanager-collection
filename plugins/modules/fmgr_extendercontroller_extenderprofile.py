@@ -555,107 +555,105 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         extendercontroller_extenderprofile:
-          allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-          bandwidth_limit: <integer>
-          cellular:
-            controller_report:
-              interval: <integer>
-              signal_threshold: <integer>
-              status: <value in [disable, enable]>
-            dataplan: <list or string>
-            modem1:
-              auto_switch:
-                dataplan: <value in [disable, enable]>
-                disconnect: <value in [disable, enable]>
-                disconnect_period: <integer>
-                disconnect_threshold: <integer>
-                signal: <value in [disable, enable]>
-                switch_back:
-                  - "time"
-                  - "timer"
-                switch_back_time: <string>
-                switch_back_timer: <integer>
-              conn_status: <integer>
-              default_sim: <value in [sim1, sim2, carrier, ...]>
-              gps: <value in [disable, enable]>
-              modem_id: <integer>
-              preferred_carrier: <string>
-              redundant_intf: <string>
-              redundant_mode: <value in [disable, enable]>
-              sim1_pin: <value in [disable, enable]>
-              sim1_pin_code: <list or string>
-              sim2_pin: <value in [disable, enable]>
-              sim2_pin_code: <list or string>
-            modem2:
-              auto_switch:
-                dataplan: <value in [disable, enable]>
-                disconnect: <value in [disable, enable]>
-                disconnect_period: <integer>
-                disconnect_threshold: <integer>
-                signal: <value in [disable, enable]>
-                switch_back:
-                  - "time"
-                  - "timer"
-                switch_back_time: <string>
-                switch_back_timer: <integer>
-              conn_status: <integer>
-              default_sim: <value in [sim1, sim2, carrier, ...]>
-              gps: <value in [disable, enable]>
-              modem_id: <integer>
-              preferred_carrier: <string>
-              redundant_intf: <string>
-              redundant_mode: <value in [disable, enable]>
-              sim1_pin: <value in [disable, enable]>
-              sim1_pin_code: <list or string>
-              sim2_pin: <value in [disable, enable]>
-              sim2_pin_code: <list or string>
-            sms_notification:
-              alert:
-                data_exhausted: <string>
-                fgt_backup_mode_switch: <string>
-                low_signal_strength: <string>
-                mode_switch: <string>
-                os_image_fallback: <string>
-                session_disconnect: <string>
-                system_reboot: <string>
-              receiver:
-                -
-                  alert:
-                    - "system-reboot"
-                    - "data-exhausted"
-                    - "session-disconnect"
-                    - "low-signal-strength"
-                    - "mode-switch"
-                    - "os-image-fallback"
-                    - "fgt-backup-mode-switch"
-                  name: <string>
-                  phone_number: <string>
-                  status: <value in [disable, enable]>
-              status: <value in [disable, enable]>
-          enforce_bandwidth: <value in [disable, enable]>
-          extension: <value in [wan-extension, lan-extension]>
-          id: <integer>
-          lan_extension:
-            backhaul:
-              -
-                name: <string>
-                port: <value in [wan, lte1, lte2, ...]>
-                role: <value in [primary, secondary]>
-                weight: <integer>
-            backhaul_interface: <string>
-            backhaul_ip: <string>
-            ipsec_tunnel: <string>
-            link_loadbalance: <value in [activebackup, loadbalance]>
-          login_password: <list or string>
-          login_password_change: <value in [no, yes, default]>
-          model: <value in [FX201E, FX211E, FX200F, ...]>
-          name: <string>
+          id: 0 # Required variable, integer
+          # allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          # bandwidth_limit: <integer>
+          # cellular:
+          #   controller_report:
+          #     interval: <integer>
+          #     signal_threshold: <integer>
+          #     status: <value in [disable, enable]>
+          #   dataplan: <list or string>
+          #   modem1:
+          #     auto_switch:
+          #       dataplan: <value in [disable, enable]>
+          #       disconnect: <value in [disable, enable]>
+          #       disconnect_period: <integer>
+          #       disconnect_threshold: <integer>
+          #       signal: <value in [disable, enable]>
+          #       switch_back:
+          #         - "time"
+          #         - "timer"
+          #       switch_back_time: <string>
+          #       switch_back_timer: <integer>
+          #     conn_status: <integer>
+          #     default_sim: <value in [sim1, sim2, carrier, ...]>
+          #     gps: <value in [disable, enable]>
+          #     modem_id: <integer>
+          #     preferred_carrier: <string>
+          #     redundant_intf: <string>
+          #     redundant_mode: <value in [disable, enable]>
+          #     sim1_pin: <value in [disable, enable]>
+          #     sim1_pin_code: <list or string>
+          #     sim2_pin: <value in [disable, enable]>
+          #     sim2_pin_code: <list or string>
+          #   modem2:
+          #     auto_switch:
+          #       dataplan: <value in [disable, enable]>
+          #       disconnect: <value in [disable, enable]>
+          #       disconnect_period: <integer>
+          #       disconnect_threshold: <integer>
+          #       signal: <value in [disable, enable]>
+          #       switch_back:
+          #         - "time"
+          #         - "timer"
+          #       switch_back_time: <string>
+          #       switch_back_timer: <integer>
+          #     conn_status: <integer>
+          #     default_sim: <value in [sim1, sim2, carrier, ...]>
+          #     gps: <value in [disable, enable]>
+          #     modem_id: <integer>
+          #     preferred_carrier: <string>
+          #     redundant_intf: <string>
+          #     redundant_mode: <value in [disable, enable]>
+          #     sim1_pin: <value in [disable, enable]>
+          #     sim1_pin_code: <list or string>
+          #     sim2_pin: <value in [disable, enable]>
+          #     sim2_pin_code: <list or string>
+          #   sms_notification:
+          #     alert:
+          #       data_exhausted: <string>
+          #       fgt_backup_mode_switch: <string>
+          #       low_signal_strength: <string>
+          #       mode_switch: <string>
+          #       os_image_fallback: <string>
+          #       session_disconnect: <string>
+          #       system_reboot: <string>
+          #     receiver:
+          #       - alert:
+          #           - "system-reboot"
+          #           - "data-exhausted"
+          #           - "session-disconnect"
+          #           - "low-signal-strength"
+          #           - "mode-switch"
+          #           - "os-image-fallback"
+          #           - "fgt-backup-mode-switch"
+          #         name: <string>
+          #         phone_number: <string>
+          #         status: <value in [disable, enable]>
+          #     status: <value in [disable, enable]>
+          # enforce_bandwidth: <value in [disable, enable]>
+          # extension: <value in [wan-extension, lan-extension]>
+          # lan_extension:
+          #   backhaul:
+          #     - name: <string>
+          #       port: <value in [wan, lte1, lte2, ...]>
+          #       role: <value in [primary, secondary]>
+          #       weight: <integer>
+          #   backhaul_interface: <string>
+          #   backhaul_ip: <string>
+          #   ipsec_tunnel: <string>
+          #   link_loadbalance: <value in [activebackup, loadbalance]>
+          # login_password: <list or string>
+          # login_password_change: <value in [no, yes, default]>
+          # model: <value in [FX201E, FX211E, FX200F, ...]>
+          # name: <string>
 '''
 
 RETURN = '''

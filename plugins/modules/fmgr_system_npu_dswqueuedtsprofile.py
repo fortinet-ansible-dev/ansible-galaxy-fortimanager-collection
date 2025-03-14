@@ -257,11 +257,11 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_dswqueuedtsprofile:
-          iport: <value in [EIF0, eif0, EIF1, ...]>
-          name: <string>
-          oport: <value in [EIF0, eif0, EIF1, ...]>
-          profile_id: <integer>
-          queue_select: <integer>
+          name: "your value" # Required variable, string
+          # iport: <value in [EIF0, eif0, EIF1, ...]>
+          # oport: <value in [EIF0, eif0, EIF1, ...]>
+          # profile_id: <integer>
+          # queue_select: <integer>
 '''
 
 RETURN = '''

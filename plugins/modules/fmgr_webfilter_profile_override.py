@@ -205,14 +205,14 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         webfilter_profile_override:
-          ovrd_cookie: <value in [deny, allow]>
-          ovrd_dur: <string>
-          ovrd_dur_mode: <value in [constant, ask]>
-          ovrd_scope: <value in [user, user-group, ip, ...]>
-          ovrd_user_group: <list or string>
-          profile: <list or string>
-          profile_attribute: <value in [User-Name, User-Password, CHAP-Password, ...]>
-          profile_type: <value in [list, radius]>
+          # ovrd_cookie: <value in [deny, allow]>
+          # ovrd_dur: <string>
+          # ovrd_dur_mode: <value in [constant, ask]>
+          # ovrd_scope: <value in [user, user-group, ip, ...]>
+          # ovrd_user_group: <list or string>
+          # profile: <list or string>
+          # profile_attribute: <value in [User-Name, User-Password, CHAP-Password, ...]>
+          # profile_type: <value in [list, radius]>
 '''
 
 RETURN = '''

@@ -237,33 +237,33 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extensioncontroller_extenderprofile_cellular_modem2:
-          auto_switch:
-            dataplan: <value in [disable, enable]>
-            disconnect: <value in [disable, enable]>
-            disconnect_period: <integer>
-            disconnect_threshold: <integer>
-            signal: <value in [disable, enable]>
-            switch_back:
-              - "time"
-              - "timer"
-            switch_back_time: <string>
-            switch_back_timer: <integer>
-          conn_status: <integer>
-          default_sim: <value in [sim1, sim2, carrier, ...]>
-          gps: <value in [disable, enable]>
-          modem_id: <integer>
-          preferred_carrier: <string>
-          redundant_intf: <string>
-          redundant_mode: <value in [disable, enable]>
-          sim1_pin: <value in [disable, enable]>
-          sim1_pin_code: <list or string>
-          sim2_pin: <value in [disable, enable]>
-          sim2_pin_code: <list or string>
-          multiple_PDN: <value in [disable, enable]>
-          pdn1_dataplan: <list or string>
-          pdn2_dataplan: <list or string>
-          pdn3_dataplan: <list or string>
-          pdn4_dataplan: <list or string>
+          # auto_switch:
+          #   dataplan: <value in [disable, enable]>
+          #   disconnect: <value in [disable, enable]>
+          #   disconnect_period: <integer>
+          #   disconnect_threshold: <integer>
+          #   signal: <value in [disable, enable]>
+          #   switch_back:
+          #     - "time"
+          #     - "timer"
+          #   switch_back_time: <string>
+          #   switch_back_timer: <integer>
+          # conn_status: <integer>
+          # default_sim: <value in [sim1, sim2, carrier, ...]>
+          # gps: <value in [disable, enable]>
+          # modem_id: <integer>
+          # preferred_carrier: <string>
+          # redundant_intf: <string>
+          # redundant_mode: <value in [disable, enable]>
+          # sim1_pin: <value in [disable, enable]>
+          # sim1_pin_code: <list or string>
+          # sim2_pin: <value in [disable, enable]>
+          # sim2_pin_code: <list or string>
+          # multiple_PDN: <value in [disable, enable]>
+          # pdn1_dataplan: <list or string>
+          # pdn2_dataplan: <list or string>
+          # pdn3_dataplan: <list or string>
+          # pdn4_dataplan: <list or string>
 '''
 
 RETURN = '''

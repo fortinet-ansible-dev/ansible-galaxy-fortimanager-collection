@@ -130,11 +130,10 @@ EXAMPLES = '''
         local: <your own value>
         state: present # <value in [present, absent]>
         dynamic_certificate_local_dynamicmapping:
-          _scope:
-            -
-              name: <string>
+          _scope: # Required variable, list of device
+            - name: <string>
               vdom: <string>
-          local_cert: <string>
+          # local_cert: <string>
 '''
 
 RETURN = '''

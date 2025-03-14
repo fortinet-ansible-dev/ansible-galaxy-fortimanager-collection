@@ -134,11 +134,11 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         waf_profile_constraint_maxrangesegment:
-          action: <value in [allow, block]>
-          log: <value in [disable, enable]>
-          max_range_segment: <integer>
-          severity: <value in [low, medium, high]>
-          status: <value in [disable, enable]>
+          # action: <value in [allow, block]>
+          # log: <value in [disable, enable]>
+          # max_range_segment: <integer>
+          # severity: <value in [low, medium, high]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

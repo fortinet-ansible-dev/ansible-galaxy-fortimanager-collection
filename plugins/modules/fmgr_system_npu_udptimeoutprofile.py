@@ -118,8 +118,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_udptimeoutprofile:
-          id: <integer>
-          udp_idle: <integer>
+          id: 0 # Required variable, integer
+          # udp_idle: <integer>
 '''
 
 RETURN = '''

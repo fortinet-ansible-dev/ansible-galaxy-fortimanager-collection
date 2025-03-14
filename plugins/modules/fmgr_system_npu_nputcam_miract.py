@@ -110,7 +110,7 @@ EXAMPLES = '''
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_miract:
-          vlif: <integer>
+          # vlif: <integer>
 '''
 
 RETURN = '''

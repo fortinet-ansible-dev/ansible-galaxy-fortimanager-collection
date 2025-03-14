@@ -1711,322 +1711,306 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch:
-          _platform: <string>
-          description: <string>
-          name: <string>
-          ports:
-            -
-              allowed_vlans: <list or string>
-              allowed_vlans_all: <value in [disable, enable]>
-              arp_inspection_trust: <value in [untrusted, trusted]>
-              bundle: <value in [disable, enable]>
-              description: <string>
-              dhcp_snoop_option82_trust: <value in [disable, enable]>
-              dhcp_snooping: <value in [trusted, untrusted]>
-              discard_mode: <value in [none, all-untagged, all-tagged]>
-              edge_port: <value in [disable, enable]>
-              igmp_snooping: <value in [disable, enable]>
-              igmps_flood_reports: <value in [disable, enable]>
-              igmps_flood_traffic: <value in [disable, enable]>
-              lacp_speed: <value in [slow, fast]>
-              learning_limit: <integer>
-              lldp_profile: <string>
-              lldp_status: <value in [disable, rx-only, tx-only, ...]>
-              loop_guard: <value in [disabled, enabled]>
-              loop_guard_timeout: <integer>
-              max_bundle: <integer>
-              mclag: <value in [disable, enable]>
-              member_withdrawal_behavior: <value in [forward, block]>
-              members: <list or string>
-              min_bundle: <integer>
-              mode: <value in [static, lacp-passive, lacp-active]>
-              poe_pre_standard_detection: <value in [disable, enable]>
-              poe_status: <value in [disable, enable]>
-              port_name: <string>
-              port_owner: <string>
-              port_security_policy: <string>
-              port_selection_criteria: <value in [src-mac, dst-mac, src-dst-mac, ...]>
-              qos_policy: <string>
-              sample_direction: <value in [rx, tx, both]>
-              sflow_counter_interval: <integer>
-              sflow_sample_rate: <integer>
-              sflow_sampler: <value in [disabled, enabled]>
-              stp_bpdu_guard: <value in [disabled, enabled]>
-              stp_bpdu_guard_timeout: <integer>
-              stp_root_guard: <value in [disabled, enabled]>
-              stp_state: <value in [disabled, enabled]>
-              type: <value in [physical, trunk]>
-              untagged_vlans: <list or string>
-              vlan: <string>
-              export_to_pool_flag: <integer>
-              mac_addr: <string>
-              packet_sample_rate: <integer>
-              packet_sampler: <value in [disabled, enabled]>
-              sticky_mac: <value in [disable, enable]>
-              storm_control_policy: <string>
-              dot1x_enable: <value in [disable, enable]>
-              max_miss_heartbeats: <integer>
-              access_mode: <value in [normal, nac, dynamic, ...]>
-              ip_source_guard: <value in [disable, enable]>
-              mclag_icl_port: <integer>
-              p2p_port: <integer>
-              aggregator_mode: <value in [bandwidth, count]>
-              rpvst_port: <value in [disabled, enabled]>
-              flow_control: <value in [disable, tx, rx, ...]>
-              media_type: <string>
-              pause_meter: <integer>
-              pause_meter_resume: <value in [25%, 50%, 75%]>
-              trunk_member: <integer>
-              fec_capable: <integer>
-              fec_state: <value in [disabled, cl74, cl91, ...]>
-              matched_dpp_intf_tags: <string>
-              matched_dpp_policy: <string>
-              port_policy: <string>
-              status: <value in [down, up]>
-              dsl_profile: <string>
-              flap_duration: <integer>
-              flap_rate: <integer>
-              flap_timeout: <integer>
-              flapguard: <value in [disable, enable]>
-              interface_tags: <list or string>
-              poe_max_power: <string>
-              poe_standard: <string>
-              igmp_snooping_flood_reports: <value in [disable, enable]>
-              mcast_snooping_flood_traffic: <value in [disable, enable]>
-              link_status: <value in [down, up]>
-              poe_mode_bt_cabable: <integer>
-              poe_port_mode: <value in [ieee802-3af, ieee802-3at, ieee802-3bt]>
-              poe_port_power: <value in [normal, perpetual, perpetual-fast]>
-              poe_port_priority: <value in [critical-priority, high-priority, low-priority, ...]>
-              acl_group: <list or string>
-              dhcp_snoop_option82_override:
-                -
-                  circuit_id: <string>
-                  remote_id: <string>
-                  vlan_name: <string>
-              fortiswitch_acls: <list or integer>
-              isl_peer_device_sn: <string>
-              authenticated_port: <integer>
-              encrypted_port: <integer>
-              ptp_status: <value in [disable, enable]>
-              restricted_auth_port: <integer>
-              allow_arp_monitor: <value in [disable, enable]>
-              export_to: <list or string>
-              export_to_pool: <list or string>
-              fallback_port: <string>
-              fgt_peer_device_name: <string>
-              fgt_peer_port_name: <string>
-              fiber_port: <integer>
-              flags: <integer>
-              fortilink_port: <integer>
-              isl_local_trunk_name: <string>
-              isl_peer_device_name: <string>
-              isl_peer_port_name: <string>
-              poe_capable: <integer>
-              port_number: <integer>
-              port_prefix_type: <integer>
-              ptp_policy: <list or string>
-              speed: <value in [auto, 10full, 10half, ...]>
-              speed_mask: <integer>
-              stacking_port: <integer>
-              switch_id: <string>
-              virtual_port: <integer>
-              export_tags: <list or string>
-              log_mac_event: <value in [disable, enable]>
-              pd_capable: <integer>
-              qnq: <list or string>
-          switch_id: <string>
-          override_snmp_community: <value in [disable, enable]>
-          override_snmp_sysinfo: <value in [disable, enable]>
-          override_snmp_trap_threshold: <value in [disable, enable]>
-          override_snmp_user: <value in [disable, enable]>
-          poe_detection_type: <integer>
-          remote_log:
-            -
-              csv: <value in [disable, enable]>
-              facility: <value in [kernel, user, mail, ...]>
-              name: <string>
-              port: <integer>
-              server: <string>
-              severity: <value in [emergency, alert, critical, ...]>
-              status: <value in [disable, enable]>
-          snmp_community:
-            -
-              events:
-                - "cpu-high"
-                - "mem-low"
-                - "log-full"
-                - "intf-ip"
-                - "ent-conf-change"
-                - "l2mac"
-              hosts:
-                -
-                  id: <integer>
-                  ip: <string>
-              id: <integer>
-              name: <string>
-              query_v1_port: <integer>
-              query_v1_status: <value in [disable, enable]>
-              query_v2c_port: <integer>
-              query_v2c_status: <value in [disable, enable]>
-              status: <value in [disable, enable]>
-              trap_v1_lport: <integer>
-              trap_v1_rport: <integer>
-              trap_v1_status: <value in [disable, enable]>
-              trap_v2c_lport: <integer>
-              trap_v2c_rport: <integer>
-              trap_v2c_status: <value in [disable, enable]>
-          snmp_user:
-            -
-              auth_proto: <value in [md5, sha, sha1, ...]>
-              auth_pwd: <list or string>
-              name: <string>
-              priv_proto: <value in [des, aes, aes128, ...]>
-              priv_pwd: <list or string>
-              queries: <value in [disable, enable]>
-              query_port: <integer>
-              security_level: <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
-          mclag_igmp_snooping_aware: <value in [disable, enable]>
-          ip_source_guard:
-            -
-              binding_entry:
-                -
-                  entry_name: <string>
-                  ip: <string>
-                  mac: <string>
-              description: <string>
-              port: <string>
-          l3_discovered: <integer>
-          qos_drop_policy: <value in [taildrop, random-early-detection]>
-          qos_red_probability: <integer>
-          switch_dhcp_opt43_key: <string>
-          tdr_supported: <string>
-          custom_command:
-            -
-              command_entry: <string>
-              command_name: <string>
-          firmware_provision: <value in [disable, enable]>
-          firmware_provision_version: <string>
-          dhcp_server_access_list: <value in [disable, enable, global]>
-          firmware_provision_latest: <value in [disable, once]>
-          dhcp_snooping_static_client:
-            -
-              ip: <string>
-              mac: <string>
-              name: <string>
-              port: <string>
-              vlan: <string>
-          ptp_profile: <string>
-          ptp_status: <value in [disable, enable]>
-          route_offload: <value in [disable, enable]>
-          route_offload_mclag: <value in [disable, enable]>
-          route_offload_router:
-            -
-              router_ip: <string>
-              vlan_name: <string>
-          mgmt_mode: <integer>
-          purdue_level: <value in [1, 2, 3, ...]>
-          radius_nas_ip: <string>
-          radius_nas_ip_override: <value in [disable, enable]>
-          tunnel_discovered: <integer>
-          vlan:
-            -
-              assignment_priority: <integer>
-              vlan_name: <string>
-          802_1X_settings:
-            link_down_auth: <value in [set-unauth, no-action]>
-            local_override: <value in [disable, enable]>
-            mab_reauth: <value in [disable, enable]>
-            mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-            mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-            mac_case: <value in [uppercase, lowercase]>
-            mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-            mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-            max_reauth_attempt: <integer>
-            reauth_period: <integer>
-            tx_period: <integer>
-          access_profile: <list or string>
-          delayed_restart_trigger: <integer>
-          directly_connected: <integer>
-          dynamic_capability: <string>
-          dynamically_discovered: <integer>
-          flow_identity: <string>
-          fsw_wan1_admin: <value in [disable, enable, discovered]>
-          fsw_wan1_peer: <list or string>
-          fsw_wan2_admin: <value in [disable, enable, discovered]>
-          fsw_wan2_peer: <string>
-          igmp_snooping:
-            aging_time: <integer>
-            flood_unknown_multicast: <value in [disable, enable]>
-            local_override: <value in [disable, enable]>
-            vlans:
-              -
-                proxy: <value in [disable, enable, global]>
-                querier: <value in [disable, enable]>
-                querier_addr: <string>
-                version: <integer>
-                vlan_name: <list or string>
-          max_allowed_trunk_members: <integer>
-          mirror:
-            -
-              dst: <string>
-              name: <string>
-              src_egress: <list or string>
-              src_ingress: <list or string>
-              status: <value in [inactive, active]>
-              switching_packet: <value in [disable, enable]>
-          owner_vdom: <string>
-          poe_pre_standard_detection: <value in [disable, enable]>
-          pre_provisioned: <integer>
-          sn: <string>
-          snmp_sysinfo:
-            contact_info: <string>
-            description: <string>
-            engine_id: <string>
-            location: <string>
-            status: <value in [disable, enable]>
-          snmp_trap_threshold:
-            trap_high_cpu_threshold: <integer>
-            trap_log_full_threshold: <integer>
-            trap_low_memory_threshold: <integer>
-          staged_image_version: <string>
-          static_mac:
-            -
-              description: <string>
-              id: <integer>
-              interface: <string>
-              mac: <string>
-              type: <value in [static, sticky]>
-              vlan: <list or string>
-          storm_control:
-            broadcast: <value in [disable, enable]>
-            local_override: <value in [disable, enable]>
-            rate: <integer>
-            unknown_multicast: <value in [disable, enable]>
-            unknown_unicast: <value in [disable, enable]>
-          stp_instance:
-            -
-              id: <string>
-              priority: <value in [0, 4096, 8192, ...]>
-          stp_settings:
-            forward_time: <integer>
-            hello_time: <integer>
-            local_override: <value in [disable, enable]>
-            max_age: <integer>
-            max_hops: <integer>
-            name: <string>
-            pending_timer: <integer>
-            revision: <integer>
-            status: <value in [disable, enable]>
-          switch_device_tag: <string>
-          switch_log:
-            local_override: <value in [disable, enable]>
-            severity: <value in [emergency, alert, critical, ...]>
-            status: <value in [disable, enable]>
-          switch_profile: <list or string>
-          type: <value in [physical, virtual]>
-          version: <integer>
-          poe_lldp_detection: <value in [disable, enable]>
+          switch_id: "your value" # Required variable, string
+          # _platform: <string>
+          # description: <string>
+          # name: <string>
+          # ports:
+          #   - allowed_vlans: <list or string>
+          #     allowed_vlans_all: <value in [disable, enable]>
+          #     arp_inspection_trust: <value in [untrusted, trusted]>
+          #     bundle: <value in [disable, enable]>
+          #     description: <string>
+          #     dhcp_snoop_option82_trust: <value in [disable, enable]>
+          #     dhcp_snooping: <value in [trusted, untrusted]>
+          #     discard_mode: <value in [none, all-untagged, all-tagged]>
+          #     edge_port: <value in [disable, enable]>
+          #     igmp_snooping: <value in [disable, enable]>
+          #     igmps_flood_reports: <value in [disable, enable]>
+          #     igmps_flood_traffic: <value in [disable, enable]>
+          #     lacp_speed: <value in [slow, fast]>
+          #     learning_limit: <integer>
+          #     lldp_profile: <string>
+          #     lldp_status: <value in [disable, rx-only, tx-only, ...]>
+          #     loop_guard: <value in [disabled, enabled]>
+          #     loop_guard_timeout: <integer>
+          #     max_bundle: <integer>
+          #     mclag: <value in [disable, enable]>
+          #     member_withdrawal_behavior: <value in [forward, block]>
+          #     members: <list or string>
+          #     min_bundle: <integer>
+          #     mode: <value in [static, lacp-passive, lacp-active]>
+          #     poe_pre_standard_detection: <value in [disable, enable]>
+          #     poe_status: <value in [disable, enable]>
+          #     port_name: <string>
+          #     port_owner: <string>
+          #     port_security_policy: <string>
+          #     port_selection_criteria: <value in [src-mac, dst-mac, src-dst-mac, ...]>
+          #     qos_policy: <string>
+          #     sample_direction: <value in [rx, tx, both]>
+          #     sflow_counter_interval: <integer>
+          #     sflow_sample_rate: <integer>
+          #     sflow_sampler: <value in [disabled, enabled]>
+          #     stp_bpdu_guard: <value in [disabled, enabled]>
+          #     stp_bpdu_guard_timeout: <integer>
+          #     stp_root_guard: <value in [disabled, enabled]>
+          #     stp_state: <value in [disabled, enabled]>
+          #     type: <value in [physical, trunk]>
+          #     untagged_vlans: <list or string>
+          #     vlan: <string>
+          #     export_to_pool_flag: <integer>
+          #     mac_addr: <string>
+          #     packet_sample_rate: <integer>
+          #     packet_sampler: <value in [disabled, enabled]>
+          #     sticky_mac: <value in [disable, enable]>
+          #     storm_control_policy: <string>
+          #     dot1x_enable: <value in [disable, enable]>
+          #     max_miss_heartbeats: <integer>
+          #     access_mode: <value in [normal, nac, dynamic, ...]>
+          #     ip_source_guard: <value in [disable, enable]>
+          #     mclag_icl_port: <integer>
+          #     p2p_port: <integer>
+          #     aggregator_mode: <value in [bandwidth, count]>
+          #     rpvst_port: <value in [disabled, enabled]>
+          #     flow_control: <value in [disable, tx, rx, ...]>
+          #     media_type: <string>
+          #     pause_meter: <integer>
+          #     pause_meter_resume: <value in [25%, 50%, 75%]>
+          #     trunk_member: <integer>
+          #     fec_capable: <integer>
+          #     fec_state: <value in [disabled, cl74, cl91, ...]>
+          #     matched_dpp_intf_tags: <string>
+          #     matched_dpp_policy: <string>
+          #     port_policy: <string>
+          #     status: <value in [down, up]>
+          #     dsl_profile: <string>
+          #     flap_duration: <integer>
+          #     flap_rate: <integer>
+          #     flap_timeout: <integer>
+          #     flapguard: <value in [disable, enable]>
+          #     interface_tags: <list or string>
+          #     poe_max_power: <string>
+          #     poe_standard: <string>
+          #     igmp_snooping_flood_reports: <value in [disable, enable]>
+          #     mcast_snooping_flood_traffic: <value in [disable, enable]>
+          #     link_status: <value in [down, up]>
+          #     poe_mode_bt_cabable: <integer>
+          #     poe_port_mode: <value in [ieee802-3af, ieee802-3at, ieee802-3bt]>
+          #     poe_port_power: <value in [normal, perpetual, perpetual-fast]>
+          #     poe_port_priority: <value in [critical-priority, high-priority, low-priority, ...]>
+          #     acl_group: <list or string>
+          #     dhcp_snoop_option82_override:
+          #       - circuit_id: <string>
+          #         remote_id: <string>
+          #         vlan_name: <string>
+          #     fortiswitch_acls: <list or integer>
+          #     isl_peer_device_sn: <string>
+          #     authenticated_port: <integer>
+          #     encrypted_port: <integer>
+          #     ptp_status: <value in [disable, enable]>
+          #     restricted_auth_port: <integer>
+          #     allow_arp_monitor: <value in [disable, enable]>
+          #     export_to: <list or string>
+          #     export_to_pool: <list or string>
+          #     fallback_port: <string>
+          #     fgt_peer_device_name: <string>
+          #     fgt_peer_port_name: <string>
+          #     fiber_port: <integer>
+          #     flags: <integer>
+          #     fortilink_port: <integer>
+          #     isl_local_trunk_name: <string>
+          #     isl_peer_device_name: <string>
+          #     isl_peer_port_name: <string>
+          #     poe_capable: <integer>
+          #     port_number: <integer>
+          #     port_prefix_type: <integer>
+          #     ptp_policy: <list or string>
+          #     speed: <value in [auto, 10full, 10half, ...]>
+          #     speed_mask: <integer>
+          #     stacking_port: <integer>
+          #     switch_id: <string>
+          #     virtual_port: <integer>
+          #     export_tags: <list or string>
+          #     log_mac_event: <value in [disable, enable]>
+          #     pd_capable: <integer>
+          #     qnq: <list or string>
+          # override_snmp_community: <value in [disable, enable]>
+          # override_snmp_sysinfo: <value in [disable, enable]>
+          # override_snmp_trap_threshold: <value in [disable, enable]>
+          # override_snmp_user: <value in [disable, enable]>
+          # poe_detection_type: <integer>
+          # remote_log:
+          #   - csv: <value in [disable, enable]>
+          #     facility: <value in [kernel, user, mail, ...]>
+          #     name: <string>
+          #     port: <integer>
+          #     server: <string>
+          #     severity: <value in [emergency, alert, critical, ...]>
+          #     status: <value in [disable, enable]>
+          # snmp_community:
+          #   - events:
+          #       - "cpu-high"
+          #       - "mem-low"
+          #       - "log-full"
+          #       - "intf-ip"
+          #       - "ent-conf-change"
+          #       - "l2mac"
+          #     hosts:
+          #       - id: <integer>
+          #         ip: <string>
+          #     id: <integer>
+          #     name: <string>
+          #     query_v1_port: <integer>
+          #     query_v1_status: <value in [disable, enable]>
+          #     query_v2c_port: <integer>
+          #     query_v2c_status: <value in [disable, enable]>
+          #     status: <value in [disable, enable]>
+          #     trap_v1_lport: <integer>
+          #     trap_v1_rport: <integer>
+          #     trap_v1_status: <value in [disable, enable]>
+          #     trap_v2c_lport: <integer>
+          #     trap_v2c_rport: <integer>
+          #     trap_v2c_status: <value in [disable, enable]>
+          # snmp_user:
+          #   - auth_proto: <value in [md5, sha, sha1, ...]>
+          #     auth_pwd: <list or string>
+          #     name: <string>
+          #     priv_proto: <value in [des, aes, aes128, ...]>
+          #     priv_pwd: <list or string>
+          #     queries: <value in [disable, enable]>
+          #     query_port: <integer>
+          #     security_level: <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
+          # mclag_igmp_snooping_aware: <value in [disable, enable]>
+          # ip_source_guard:
+          #   - binding_entry:
+          #       - entry_name: <string>
+          #         ip: <string>
+          #         mac: <string>
+          #     description: <string>
+          #     port: <string>
+          # l3_discovered: <integer>
+          # qos_drop_policy: <value in [taildrop, random-early-detection]>
+          # qos_red_probability: <integer>
+          # switch_dhcp_opt43_key: <string>
+          # tdr_supported: <string>
+          # custom_command:
+          #   - command_entry: <string>
+          #     command_name: <string>
+          # firmware_provision: <value in [disable, enable]>
+          # firmware_provision_version: <string>
+          # dhcp_server_access_list: <value in [disable, enable, global]>
+          # firmware_provision_latest: <value in [disable, once]>
+          # dhcp_snooping_static_client:
+          #   - ip: <string>
+          #     mac: <string>
+          #     name: <string>
+          #     port: <string>
+          #     vlan: <string>
+          # ptp_profile: <string>
+          # ptp_status: <value in [disable, enable]>
+          # route_offload: <value in [disable, enable]>
+          # route_offload_mclag: <value in [disable, enable]>
+          # route_offload_router:
+          #   - router_ip: <string>
+          #     vlan_name: <string>
+          # mgmt_mode: <integer>
+          # purdue_level: <value in [1, 2, 3, ...]>
+          # radius_nas_ip: <string>
+          # radius_nas_ip_override: <value in [disable, enable]>
+          # tunnel_discovered: <integer>
+          # vlan:
+          #   - assignment_priority: <integer>
+          #     vlan_name: <string>
+          # 802_1X_settings:
+          #   link_down_auth: <value in [set-unauth, no-action]>
+          #   local_override: <value in [disable, enable]>
+          #   mab_reauth: <value in [disable, enable]>
+          #   mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #   mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #   mac_case: <value in [uppercase, lowercase]>
+          #   mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #   mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #   max_reauth_attempt: <integer>
+          #   reauth_period: <integer>
+          #   tx_period: <integer>
+          # access_profile: <list or string>
+          # delayed_restart_trigger: <integer>
+          # directly_connected: <integer>
+          # dynamic_capability: <string>
+          # dynamically_discovered: <integer>
+          # flow_identity: <string>
+          # fsw_wan1_admin: <value in [disable, enable, discovered]>
+          # fsw_wan1_peer: <list or string>
+          # fsw_wan2_admin: <value in [disable, enable, discovered]>
+          # fsw_wan2_peer: <string>
+          # igmp_snooping:
+          #   aging_time: <integer>
+          #   flood_unknown_multicast: <value in [disable, enable]>
+          #   local_override: <value in [disable, enable]>
+          #   vlans:
+          #     - proxy: <value in [disable, enable, global]>
+          #       querier: <value in [disable, enable]>
+          #       querier_addr: <string>
+          #       version: <integer>
+          #       vlan_name: <list or string>
+          # max_allowed_trunk_members: <integer>
+          # mirror:
+          #   - dst: <string>
+          #     name: <string>
+          #     src_egress: <list or string>
+          #     src_ingress: <list or string>
+          #     status: <value in [inactive, active]>
+          #     switching_packet: <value in [disable, enable]>
+          # owner_vdom: <string>
+          # poe_pre_standard_detection: <value in [disable, enable]>
+          # pre_provisioned: <integer>
+          # sn: <string>
+          # snmp_sysinfo:
+          #   contact_info: <string>
+          #   description: <string>
+          #   engine_id: <string>
+          #   location: <string>
+          #   status: <value in [disable, enable]>
+          # snmp_trap_threshold:
+          #   trap_high_cpu_threshold: <integer>
+          #   trap_log_full_threshold: <integer>
+          #   trap_low_memory_threshold: <integer>
+          # staged_image_version: <string>
+          # static_mac:
+          #   - description: <string>
+          #     id: <integer>
+          #     interface: <string>
+          #     mac: <string>
+          #     type: <value in [static, sticky]>
+          #     vlan: <list or string>
+          # storm_control:
+          #   broadcast: <value in [disable, enable]>
+          #   local_override: <value in [disable, enable]>
+          #   rate: <integer>
+          #   unknown_multicast: <value in [disable, enable]>
+          #   unknown_unicast: <value in [disable, enable]>
+          # stp_instance:
+          #   - id: <string>
+          #     priority: <value in [0, 4096, 8192, ...]>
+          # stp_settings:
+          #   forward_time: <integer>
+          #   hello_time: <integer>
+          #   local_override: <value in [disable, enable]>
+          #   max_age: <integer>
+          #   max_hops: <integer>
+          #   name: <string>
+          #   pending_timer: <integer>
+          #   revision: <integer>
+          #   status: <value in [disable, enable]>
+          # switch_device_tag: <string>
+          # switch_log:
+          #   local_override: <value in [disable, enable]>
+          #   severity: <value in [emergency, alert, critical, ...]>
+          #   status: <value in [disable, enable]>
+          # switch_profile: <list or string>
+          # type: <value in [physical, virtual]>
+          # version: <integer>
+          # poe_lldp_detection: <value in [disable, enable]>
 '''
 
 RETURN = '''

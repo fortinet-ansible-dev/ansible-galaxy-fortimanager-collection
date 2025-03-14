@@ -325,52 +325,52 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         cloud_orchestawstemplate_autoscaletgwnewvpc:
-          availability_zones: <string>
-          bgp_asn: <integer>
-          custom_asset_container: <string>
-          custom_asset_directory: <string>
-          custom_identifier: <string>
-          faz_autoscale_admin_password: <list or string>
-          faz_autoscale_admin_username: <string>
-          faz_custom_private_ipaddress: <string>
-          faz_instance_type: <value in [h1.2xlarge, h1.4xlarge, h1.8xlarge, ...]>
-          faz_integration_options: <value in [no, yes]>
-          faz_version: <string>
-          fgt_admin_cidr: <string>
-          fgt_admin_port: <integer>
-          fgt_instance_type: <value in [t2.small, c5.large, c5.xlarge, ...]>
-          fgt_psk_secret: <string>
-          fgtasg_cool_down: <integer>
-          fgtasg_desired_capacity_byol: <integer>
-          fgtasg_desired_capacity_payg: <integer>
-          fgtasg_health_check_grace_period: <integer>
-          fgtasg_max_size_byol: <integer>
-          fgtasg_max_size_payg: <integer>
-          fgtasg_min_size_byol: <integer>
-          fgtasg_min_size_payg: <integer>
-          fgtasg_scale_in_threshold: <integer>
-          fgtasg_scale_out_threshold: <integer>
-          fos_version: <string>
-          get_license_grace_period: <integer>
-          heartbeat_delay_allowance: <integer>
-          heartbeat_interval: <integer>
-          heartbeat_loss_count: <integer>
-          key_pair_name: <string>
-          lifecycle_hook_timeout: <integer>
-          name: <string>
-          notification_email: <string>
-          primary_election_timeout: <integer>
-          public_subnet1_cidr: <string>
-          public_subnet2_cidr: <string>
-          resource_tag_prefix: <string>
-          s3_bucket_name: <string>
-          s3_key_prefix: <string>
-          sync_recovery_count: <integer>
-          terminate_unhealthy_vm: <value in [no, yes]>
-          transit_gateway_id: <string>
-          transit_gateway_support_options: <value in [create one, use an existing one]>
-          use_custom_asset_location: <value in [no, yes]>
-          vpc_cidr: <string>
+          name: "your value" # Required variable, string
+          # availability_zones: <string>
+          # bgp_asn: <integer>
+          # custom_asset_container: <string>
+          # custom_asset_directory: <string>
+          # custom_identifier: <string>
+          # faz_autoscale_admin_password: <list or string>
+          # faz_autoscale_admin_username: <string>
+          # faz_custom_private_ipaddress: <string>
+          # faz_instance_type: <value in [h1.2xlarge, h1.4xlarge, h1.8xlarge, ...]>
+          # faz_integration_options: <value in [no, yes]>
+          # faz_version: <string>
+          # fgt_admin_cidr: <string>
+          # fgt_admin_port: <integer>
+          # fgt_instance_type: <value in [t2.small, c5.large, c5.xlarge, ...]>
+          # fgt_psk_secret: <string>
+          # fgtasg_cool_down: <integer>
+          # fgtasg_desired_capacity_byol: <integer>
+          # fgtasg_desired_capacity_payg: <integer>
+          # fgtasg_health_check_grace_period: <integer>
+          # fgtasg_max_size_byol: <integer>
+          # fgtasg_max_size_payg: <integer>
+          # fgtasg_min_size_byol: <integer>
+          # fgtasg_min_size_payg: <integer>
+          # fgtasg_scale_in_threshold: <integer>
+          # fgtasg_scale_out_threshold: <integer>
+          # fos_version: <string>
+          # get_license_grace_period: <integer>
+          # heartbeat_delay_allowance: <integer>
+          # heartbeat_interval: <integer>
+          # heartbeat_loss_count: <integer>
+          # key_pair_name: <string>
+          # lifecycle_hook_timeout: <integer>
+          # notification_email: <string>
+          # primary_election_timeout: <integer>
+          # public_subnet1_cidr: <string>
+          # public_subnet2_cidr: <string>
+          # resource_tag_prefix: <string>
+          # s3_bucket_name: <string>
+          # s3_key_prefix: <string>
+          # sync_recovery_count: <integer>
+          # terminate_unhealthy_vm: <value in [no, yes]>
+          # transit_gateway_id: <string>
+          # transit_gateway_support_options: <value in [create one, use an existing one]>
+          # use_custom_asset_location: <value in [no, yes]>
+          # vpc_cidr: <string>
 '''
 
 RETURN = '''

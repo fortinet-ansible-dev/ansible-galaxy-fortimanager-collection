@@ -127,11 +127,11 @@ EXAMPLES = '''
         adom: <your own value>
         managed_switch: <your own value>
         switchcontroller_managedswitch_snmpsysinfo:
-          contact_info: <string>
-          description: <string>
-          engine_id: <string>
-          location: <string>
-          status: <value in [disable, enable]>
+          # contact_info: <string>
+          # description: <string>
+          # engine_id: <string>
+          # location: <string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

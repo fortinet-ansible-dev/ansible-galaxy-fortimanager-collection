@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         spamfilter_profile_mapi:
-          action: <value in [pass, discard]>
-          log: <value in [disable, enable]>
+          # action: <value in [pass, discard]>
+          # log: <value in [disable, enable]>
 '''
 
 RETURN = '''

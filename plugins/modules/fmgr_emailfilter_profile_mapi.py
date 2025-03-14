@@ -124,9 +124,9 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         emailfilter_profile_mapi:
-          action: <value in [pass, discard]>
-          log: <value in [disable, enable]>
-          log_all: <value in [disable, enable]>
+          # action: <value in [pass, discard]>
+          # log: <value in [disable, enable]>
+          # log_all: <value in [disable, enable]>
 '''
 
 RETURN = '''

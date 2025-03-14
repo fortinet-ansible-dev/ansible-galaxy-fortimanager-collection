@@ -156,19 +156,17 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_neighbor:
-          description: <string>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              description: <string>
-              ip: <string>
-              role: <value in [primary, secondary, standalone]>
-          ip: <string>
-          name: <string>
-          role: <value in [primary, secondary, standalone]>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     description: <string>
+          #     ip: <string>
+          #     role: <value in [primary, secondary, standalone]>
+          # ip: <string>
+          # role: <value in [primary, secondary, standalone]>
 '''
 
 RETURN = '''

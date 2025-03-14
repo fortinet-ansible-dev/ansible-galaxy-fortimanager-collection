@@ -445,61 +445,60 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_webspam_fgdsetting:
-          as_cache: <integer>
-          as_log: <value in [disable, nospam, all]>
-          as_preload: <value in [disable, enable]>
-          av_cache: <integer>
-          av_log: <value in [disable, novirus, all]>
-          av_preload: <value in [disable, enable]>
-          av2_cache: <integer>
-          av2_log: <value in [disable, noav2, all]>
-          av2_preload: <value in [disable, enable]>
-          eventlog_query: <value in [disable, enable]>
-          fgd_pull_interval: <integer>
-          fq_cache: <integer>
-          fq_log: <value in [disable, nofilequery, all]>
-          fq_preload: <value in [disable, enable]>
-          linkd_log: <value in [emergency, alert, critical, ...]>
-          max_client_worker: <integer>
-          max_log_quota: <integer>
-          max_unrated_site: <integer>
-          restrict_as1_dbver: <string>
-          restrict_as2_dbver: <string>
-          restrict_as4_dbver: <string>
-          restrict_av_dbver: <string>
-          restrict_av2_dbver: <string>
-          restrict_fq_dbver: <string>
-          restrict_wf_dbver: <string>
-          server_override:
-            servlist:
-              -
-                id: <integer>
-                ip: <string>
-                ip6: <string>
-                port: <integer>
-                service_type: # <list or string>
-                  - "fgd"
-                  - "fgc"
-                  - "fsa"
-                  - "fgfq"
-                  - "geoip"
-                  - "iot-collect"
-            status: <value in [disable, enable]>
-          stat_log_interval: <integer>
-          stat_sync_interval: <integer>
-          update_interval: <integer>
-          update_log: <value in [disable, enable]>
-          wf_cache: <integer>
-          wf_dn_cache_expire_time: <integer>
-          wf_dn_cache_max_number: <integer>
-          wf_log: <value in [disable, nourl, all]>
-          wf_preload: <value in [disable, enable]>
-          iot_cache: <integer>
-          iot_log: <value in [disable, nofilequery, all, ...]>
-          iot_preload: <value in [disable, enable]>
-          restrict_iots_dbver: <string>
-          stat_log: <value in [emergency, alert, critical, ...]>
-          iotv_preload: <value in [disable, enable]>
+          # as_cache: <integer>
+          # as_log: <value in [disable, nospam, all]>
+          # as_preload: <value in [disable, enable]>
+          # av_cache: <integer>
+          # av_log: <value in [disable, novirus, all]>
+          # av_preload: <value in [disable, enable]>
+          # av2_cache: <integer>
+          # av2_log: <value in [disable, noav2, all]>
+          # av2_preload: <value in [disable, enable]>
+          # eventlog_query: <value in [disable, enable]>
+          # fgd_pull_interval: <integer>
+          # fq_cache: <integer>
+          # fq_log: <value in [disable, nofilequery, all]>
+          # fq_preload: <value in [disable, enable]>
+          # linkd_log: <value in [emergency, alert, critical, ...]>
+          # max_client_worker: <integer>
+          # max_log_quota: <integer>
+          # max_unrated_site: <integer>
+          # restrict_as1_dbver: <string>
+          # restrict_as2_dbver: <string>
+          # restrict_as4_dbver: <string>
+          # restrict_av_dbver: <string>
+          # restrict_av2_dbver: <string>
+          # restrict_fq_dbver: <string>
+          # restrict_wf_dbver: <string>
+          # server_override:
+          #   servlist:
+          #     - id: <integer>
+          #       ip: <string>
+          #       ip6: <string>
+          #       port: <integer>
+          #       service_type: # <list or string>
+          #         - "fgd"
+          #         - "fgc"
+          #         - "fsa"
+          #         - "fgfq"
+          #         - "geoip"
+          #         - "iot-collect"
+          #   status: <value in [disable, enable]>
+          # stat_log_interval: <integer>
+          # stat_sync_interval: <integer>
+          # update_interval: <integer>
+          # update_log: <value in [disable, enable]>
+          # wf_cache: <integer>
+          # wf_dn_cache_expire_time: <integer>
+          # wf_dn_cache_max_number: <integer>
+          # wf_log: <value in [disable, nourl, all]>
+          # wf_preload: <value in [disable, enable]>
+          # iot_cache: <integer>
+          # iot_log: <value in [disable, nofilequery, all, ...]>
+          # iot_preload: <value in [disable, enable]>
+          # restrict_iots_dbver: <string>
+          # stat_log: <value in [emergency, alert, critical, ...]>
+          # iotv_preload: <value in [disable, enable]>
 '''
 
 RETURN = '''

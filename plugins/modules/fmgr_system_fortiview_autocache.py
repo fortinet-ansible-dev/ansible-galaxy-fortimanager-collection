@@ -127,10 +127,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_fortiview_autocache:
-          aggressive_fortiview: <value in [disable, enable]>
-          interval: <integer>
-          status: <value in [disable, enable]>
-          incr_fortiview: <value in [disable, enable]>
+          # aggressive_fortiview: <value in [disable, enable]>
+          # interval: <integer>
+          # status: <value in [disable, enable]>
+          # incr_fortiview: <value in [disable, enable]>
 '''
 
 RETURN = '''

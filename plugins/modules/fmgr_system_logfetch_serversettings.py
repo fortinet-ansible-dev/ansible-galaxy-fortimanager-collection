@@ -107,9 +107,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_logfetch_serversettings:
-          max_conn_per_session: <integer>
-          max_sessions: <integer>
-          session_timeout: <integer>
+          # max_conn_per_session: <integer>
+          # max_sessions: <integer>
+          # session_timeout: <integer>
 '''
 
 RETURN = '''

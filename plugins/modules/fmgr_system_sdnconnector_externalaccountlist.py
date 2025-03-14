@@ -129,9 +129,9 @@ EXAMPLES = '''
         sdn_connector: <your own value>
         state: present # <value in [present, absent]>
         system_sdnconnector_externalaccountlist:
-          region_list: <list or string>
-          role_arn: <string>
-          external_id: <string>
+          # region_list: <list or string>
+          # role_arn: <string>
+          # external_id: <string>
 '''
 
 RETURN = '''

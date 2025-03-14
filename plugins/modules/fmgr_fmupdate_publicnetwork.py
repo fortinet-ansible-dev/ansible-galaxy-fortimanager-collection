@@ -112,8 +112,8 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_publicnetwork:
-          status: <value in [disable, enable]>
-          update_server_location: <value in [global, usa, eu]>
+          # status: <value in [disable, enable]>
+          # update_server_location: <value in [global, usa, eu]>
 '''
 
 RETURN = '''

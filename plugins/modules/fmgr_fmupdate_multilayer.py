@@ -105,7 +105,7 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_multilayer:
-          webspam_rating: <value in [disable, enable]>
+          # webspam_rating: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -187,23 +187,22 @@ EXAMPLES = '''
         vlan: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_interface_vrrp:
-          accept_mode: <value in [disable, enable]>
-          adv_interval: <integer>
-          ignore_default_route: <value in [disable, enable]>
-          preempt: <value in [disable, enable]>
-          priority: <integer>
-          start_time: <integer>
-          status: <value in [disable, enable]>
-          version: <value in [2, 3]>
-          vrdst: <list or string>
-          vrdst_priority: <integer>
-          vrgrp: <integer>
-          vrid: <integer>
-          vrip: <string>
-          proxy_arp:
-            -
-              id: <integer>
-              ip: <string>
+          vrid: 0 # Required variable, integer
+          # accept_mode: <value in [disable, enable]>
+          # adv_interval: <integer>
+          # ignore_default_route: <value in [disable, enable]>
+          # preempt: <value in [disable, enable]>
+          # priority: <integer>
+          # start_time: <integer>
+          # status: <value in [disable, enable]>
+          # version: <value in [2, 3]>
+          # vrdst: <list or string>
+          # vrdst_priority: <integer>
+          # vrgrp: <integer>
+          # vrip: <string>
+          # proxy_arp:
+          #   - id: <integer>
+          #     ip: <string>
 '''
 
 RETURN = '''

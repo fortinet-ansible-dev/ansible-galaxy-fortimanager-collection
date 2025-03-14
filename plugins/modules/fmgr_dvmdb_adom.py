@@ -279,83 +279,83 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         dvmdb_adom:
-          desc: <string>
-          flags:
-            - "migration"
-            - "db_export"
-            - "no_vpn_console"
-            - "backup"
-            - "other_devices"
-            - "central_sdwan"
-            - "is_autosync"
-            - "per_device_wtp"
-            - "policy_check_on_install"
-            - "install_on_policy_check_fail"
-            - "auto_push_cfg"
-            - "per_device_fsw"
-            - "install_deselect_all"
-          log_db_retention_hours: <integer>
-          log_disk_quota: <integer>
-          log_disk_quota_alert_thres: <integer>
-          log_disk_quota_split_ratio: <integer>
-          log_file_retention_hours: <integer>
-          meta_fields: <dict>
-          mig_mr: <integer>
-          mig_os_ver: <value in [unknown, 0.0, 1.0, ...]>
-          mode: <value in [ems, gms, provider]>
-          mr: <integer>
-          name: <string>
-          os_ver: <value in [unknown, 0.0, 1.0, ...]>
-          restricted_prds: # <list or string>
-            - "fos"
-            - "foc"
-            - "fml"
-            - "fch"
-            - "fwb"
-            - "log"
-            - "fct"
-            - "faz"
-            - "fsa"
-            - "fsw"
-            - "fmg"
-            - "fdd"
-            - "fac"
-            - "fpx"
-            - "fna"
-            - "fdc"
-            - "ffw"
-            - "fsr"
-            - "fad"
-            - "fap"
-            - "fxt"
-            - "fts"
-            - "fai"
-            - "fwc"
-            - "fis"
-            - "fed"
-            - "fabric"
-            - "fpa"
-            - "fca"
-            - "ftc"
-            - "fss"
-            - "sim"
-            - "fra"
-          state: <integer>
-          uuid: <string>
-          create_time: <integer>
-          workspace_mode: <integer>
-          tz: <integer>
-          lock_override: <integer>
-          primary_dns_ip4: <string>
-          primary_dns_ip6_1: <integer>
-          primary_dns_ip6_2: <integer>
-          primary_dns_ip6_3: <integer>
-          primary_dns_ip6_4: <integer>
-          secondary_dns_ip4: <string>
-          secondary_dns_ip6_1: <integer>
-          secondary_dns_ip6_2: <integer>
-          secondary_dns_ip6_3: <integer>
-          secondary_dns_ip6_4: <integer>
+          name: "your value" # Required variable, string
+          # desc: <string>
+          # flags:
+          #   - "migration"
+          #   - "db_export"
+          #   - "no_vpn_console"
+          #   - "backup"
+          #   - "other_devices"
+          #   - "central_sdwan"
+          #   - "is_autosync"
+          #   - "per_device_wtp"
+          #   - "policy_check_on_install"
+          #   - "install_on_policy_check_fail"
+          #   - "auto_push_cfg"
+          #   - "per_device_fsw"
+          #   - "install_deselect_all"
+          # log_db_retention_hours: <integer>
+          # log_disk_quota: <integer>
+          # log_disk_quota_alert_thres: <integer>
+          # log_disk_quota_split_ratio: <integer>
+          # log_file_retention_hours: <integer>
+          # meta_fields: <dict>
+          # mig_mr: <integer>
+          # mig_os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          # mode: <value in [ems, gms, provider]>
+          # mr: <integer>
+          # os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          # restricted_prds: # <list or string>
+          #   - "fos"
+          #   - "foc"
+          #   - "fml"
+          #   - "fch"
+          #   - "fwb"
+          #   - "log"
+          #   - "fct"
+          #   - "faz"
+          #   - "fsa"
+          #   - "fsw"
+          #   - "fmg"
+          #   - "fdd"
+          #   - "fac"
+          #   - "fpx"
+          #   - "fna"
+          #   - "fdc"
+          #   - "ffw"
+          #   - "fsr"
+          #   - "fad"
+          #   - "fap"
+          #   - "fxt"
+          #   - "fts"
+          #   - "fai"
+          #   - "fwc"
+          #   - "fis"
+          #   - "fed"
+          #   - "fabric"
+          #   - "fpa"
+          #   - "fca"
+          #   - "ftc"
+          #   - "fss"
+          #   - "sim"
+          #   - "fra"
+          # state: <integer>
+          # uuid: <string>
+          # create_time: <integer>
+          # workspace_mode: <integer>
+          # tz: <integer>
+          # lock_override: <integer>
+          # primary_dns_ip4: <string>
+          # primary_dns_ip6_1: <integer>
+          # primary_dns_ip6_2: <integer>
+          # primary_dns_ip6_3: <integer>
+          # primary_dns_ip6_4: <integer>
+          # secondary_dns_ip4: <string>
+          # secondary_dns_ip6_1: <integer>
+          # secondary_dns_ip6_2: <integer>
+          # secondary_dns_ip6_3: <integer>
+          # secondary_dns_ip6_4: <integer>
 '''
 
 RETURN = '''

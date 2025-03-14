@@ -212,32 +212,31 @@ EXAMPLES = '''
         members: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_members_dynamicmapping:
-          _scope:
-            -
-              name: <string>
+          _scope: # Required variable, list of device
+            - name: <string>
               vdom: <string>
-          comment: <string>
-          cost: <integer>
-          detect_failtime: <integer>
-          detect_http_get: <string>
-          detect_http_match: <string>
-          detect_http_port: <integer>
-          detect_interval: <integer>
-          detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-          detect_recoverytime: <integer>
-          detect_server: <string>
-          detect_timeout: <integer>
-          gateway: <string>
-          gateway6: <string>
-          ingress_spillover_threshold: <integer>
-          interface: <string>
-          priority: <integer>
-          source: <string>
-          source6: <string>
-          spillover_threshold: <integer>
-          status: <value in [disable, enable]>
-          volume_ratio: <integer>
-          weight: <integer>
+          # comment: <string>
+          # cost: <integer>
+          # detect_failtime: <integer>
+          # detect_http_get: <string>
+          # detect_http_match: <string>
+          # detect_http_port: <integer>
+          # detect_interval: <integer>
+          # detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          # detect_recoverytime: <integer>
+          # detect_server: <string>
+          # detect_timeout: <integer>
+          # gateway: <string>
+          # gateway6: <string>
+          # ingress_spillover_threshold: <integer>
+          # interface: <string>
+          # priority: <integer>
+          # source: <string>
+          # source6: <string>
+          # spillover_threshold: <integer>
+          # status: <value in [disable, enable]>
+          # volume_ratio: <integer>
+          # weight: <integer>
 '''
 
 RETURN = '''

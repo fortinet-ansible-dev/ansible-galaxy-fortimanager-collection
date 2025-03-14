@@ -163,15 +163,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wireless_syslogprofile:
-          comment: <string>
-          log_level: <value in [emergency, alert, critical, ...]>
-          name: <string>
-          server_addr_type: <value in [fqdn, ip]>
-          server_fqdn: <string>
-          server_ip: <string>
-          server_port: <integer>
-          server_status: <value in [disable, enable]>
-          server_type: <value in [standard, fortianalyzer]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # log_level: <value in [emergency, alert, critical, ...]>
+          # server_addr_type: <value in [fqdn, ip]>
+          # server_fqdn: <string>
+          # server_ip: <string>
+          # server_port: <integer>
+          # server_status: <value in [disable, enable]>
+          # server_type: <value in [standard, fortianalyzer]>
 '''
 
 RETURN = '''

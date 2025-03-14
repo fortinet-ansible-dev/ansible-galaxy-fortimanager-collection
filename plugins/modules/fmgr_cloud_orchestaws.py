@@ -155,10 +155,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         cloud_orchestaws:
-          connector: <string>
-          name: <string>
-          region_name: <value in [us-east-1, us-east-2, us-west-1, ...]>
-          template_configuration: <string>
+          name: "your value" # Required variable, string
+          # connector: <string>
+          # region_name: <value in [us-east-1, us-east-2, us-west-1, ...]>
+          # template_configuration: <string>
 '''
 
 RETURN = '''

@@ -402,62 +402,62 @@ EXAMPLES = '''
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_sact:
-          act: <integer>
-          act_v: <value in [disable, enable]>
-          bmproc: <integer>
-          bmproc_v: <value in [disable, enable]>
-          df_lif: <integer>
-          df_lif_v: <value in [disable, enable]>
-          dfr: <integer>
-          dfr_v: <value in [disable, enable]>
-          dmac_skip: <integer>
-          dmac_skip_v: <value in [disable, enable]>
-          dosen: <integer>
-          dosen_v: <value in [disable, enable]>
-          espff_proc: <integer>
-          espff_proc_v: <value in [disable, enable]>
-          etype_pid: <integer>
-          etype_pid_v: <value in [disable, enable]>
-          frag_proc: <integer>
-          frag_proc_v: <value in [disable, enable]>
-          fwd: <integer>
-          fwd_lif: <integer>
-          fwd_lif_v: <value in [disable, enable]>
-          fwd_tvid: <integer>
-          fwd_tvid_v: <value in [disable, enable]>
-          fwd_v: <value in [disable, enable]>
-          icpen: <integer>
-          icpen_v: <value in [disable, enable]>
-          igmp_mld_snp: <integer>
-          igmp_mld_snp_v: <value in [disable, enable]>
-          learn: <integer>
-          learn_v: <value in [disable, enable]>
-          m_srh_ctrl: <integer>
-          m_srh_ctrl_v: <value in [disable, enable]>
-          mac_id: <integer>
-          mac_id_v: <value in [disable, enable]>
-          mss: <integer>
-          mss_v: <value in [disable, enable]>
-          pleen: <integer>
-          pleen_v: <value in [disable, enable]>
-          prio_pid: <integer>
-          prio_pid_v: <value in [disable, enable]>
-          promis: <integer>
-          promis_v: <value in [disable, enable]>
-          rfsh: <integer>
-          rfsh_v: <value in [disable, enable]>
-          smac_skip: <integer>
-          smac_skip_v: <value in [disable, enable]>
-          tp_smchk_v: <value in [disable, enable]>
-          tp_smchk: <integer>
-          tpe_id: <integer>
-          tpe_id_v: <value in [disable, enable]>
-          vdm: <integer>
-          vdm_v: <value in [disable, enable]>
-          vdom_id: <integer>
-          vdom_id_v: <value in [disable, enable]>
-          x_mode: <integer>
-          x_mode_v: <value in [disable, enable]>
+          # act: <integer>
+          # act_v: <value in [disable, enable]>
+          # bmproc: <integer>
+          # bmproc_v: <value in [disable, enable]>
+          # df_lif: <integer>
+          # df_lif_v: <value in [disable, enable]>
+          # dfr: <integer>
+          # dfr_v: <value in [disable, enable]>
+          # dmac_skip: <integer>
+          # dmac_skip_v: <value in [disable, enable]>
+          # dosen: <integer>
+          # dosen_v: <value in [disable, enable]>
+          # espff_proc: <integer>
+          # espff_proc_v: <value in [disable, enable]>
+          # etype_pid: <integer>
+          # etype_pid_v: <value in [disable, enable]>
+          # frag_proc: <integer>
+          # frag_proc_v: <value in [disable, enable]>
+          # fwd: <integer>
+          # fwd_lif: <integer>
+          # fwd_lif_v: <value in [disable, enable]>
+          # fwd_tvid: <integer>
+          # fwd_tvid_v: <value in [disable, enable]>
+          # fwd_v: <value in [disable, enable]>
+          # icpen: <integer>
+          # icpen_v: <value in [disable, enable]>
+          # igmp_mld_snp: <integer>
+          # igmp_mld_snp_v: <value in [disable, enable]>
+          # learn: <integer>
+          # learn_v: <value in [disable, enable]>
+          # m_srh_ctrl: <integer>
+          # m_srh_ctrl_v: <value in [disable, enable]>
+          # mac_id: <integer>
+          # mac_id_v: <value in [disable, enable]>
+          # mss: <integer>
+          # mss_v: <value in [disable, enable]>
+          # pleen: <integer>
+          # pleen_v: <value in [disable, enable]>
+          # prio_pid: <integer>
+          # prio_pid_v: <value in [disable, enable]>
+          # promis: <integer>
+          # promis_v: <value in [disable, enable]>
+          # rfsh: <integer>
+          # rfsh_v: <value in [disable, enable]>
+          # smac_skip: <integer>
+          # smac_skip_v: <value in [disable, enable]>
+          # tp_smchk_v: <value in [disable, enable]>
+          # tp_smchk: <integer>
+          # tpe_id: <integer>
+          # tpe_id_v: <value in [disable, enable]>
+          # vdm: <integer>
+          # vdm_v: <value in [disable, enable]>
+          # vdom_id: <integer>
+          # vdom_id_v: <value in [disable, enable]>
+          # x_mode: <integer>
+          # x_mode_v: <value in [disable, enable]>
 '''
 
 RETURN = '''

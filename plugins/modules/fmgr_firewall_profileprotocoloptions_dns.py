@@ -116,8 +116,8 @@ EXAMPLES = '''
         adom: <your own value>
         profile_protocol_options: <your own value>
         firewall_profileprotocoloptions_dns:
-          ports: <list or integer>
-          status: <value in [disable, enable]>
+          # ports: <list or integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

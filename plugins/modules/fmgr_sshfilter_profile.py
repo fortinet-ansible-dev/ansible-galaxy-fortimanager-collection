@@ -256,49 +256,47 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         sshfilter_profile:
-          block:
-            - "x11"
-            - "shell"
-            - "exec"
-            - "port-forward"
-            - "tun-forward"
-            - "sftp"
-            - "unknown"
-            - "scp"
-          default_command_log: <value in [disable, enable]>
-          log:
-            - "x11"
-            - "shell"
-            - "exec"
-            - "port-forward"
-            - "tun-forward"
-            - "sftp"
-            - "unknown"
-            - "scp"
-          name: <string>
-          shell_commands:
-            -
-              action: <value in [block, allow]>
-              alert: <value in [disable, enable]>
-              id: <integer>
-              log: <value in [disable, enable]>
-              pattern: <string>
-              severity: <value in [low, medium, high, ...]>
-              type: <value in [regex, simple]>
-          file_filter:
-            entries:
-              -
-                action: <value in [log, block]>
-                comment: <string>
-                direction: <value in [any, incoming, outgoing]>
-                file_type: <list or string>
-                filter: <string>
-                password_protected: <value in [any, yes]>
-                protocol:
-                  - "ssh"
-            log: <value in [disable, enable]>
-            scan_archive_contents: <value in [disable, enable]>
-            status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # block:
+          #   - "x11"
+          #   - "shell"
+          #   - "exec"
+          #   - "port-forward"
+          #   - "tun-forward"
+          #   - "sftp"
+          #   - "unknown"
+          #   - "scp"
+          # default_command_log: <value in [disable, enable]>
+          # log:
+          #   - "x11"
+          #   - "shell"
+          #   - "exec"
+          #   - "port-forward"
+          #   - "tun-forward"
+          #   - "sftp"
+          #   - "unknown"
+          #   - "scp"
+          # shell_commands:
+          #   - action: <value in [block, allow]>
+          #     alert: <value in [disable, enable]>
+          #     id: <integer>
+          #     log: <value in [disable, enable]>
+          #     pattern: <string>
+          #     severity: <value in [low, medium, high, ...]>
+          #     type: <value in [regex, simple]>
+          # file_filter:
+          #   entries:
+          #     - action: <value in [log, block]>
+          #       comment: <string>
+          #       direction: <value in [any, incoming, outgoing]>
+          #       file_type: <list or string>
+          #       filter: <string>
+          #       password_protected: <value in [any, yes]>
+          #       protocol:
+          #         - "ssh"
+          #   log: <value in [disable, enable]>
+          #   scan_archive_contents: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
 '''
 
 RETURN = '''

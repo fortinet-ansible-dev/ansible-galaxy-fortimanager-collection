@@ -135,12 +135,12 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_saml_fabricidp:
-          dev_id: <string>
-          idp_cert: <string>
-          idp_entity_id: <string>
-          idp_single_logout_url: <string>
-          idp_single_sign_on_url: <string>
-          idp_status: <value in [disable, enable]>
+          # dev_id: <string>
+          # idp_cert: <string>
+          # idp_entity_id: <string>
+          # idp_single_logout_url: <string>
+          # idp_single_sign_on_url: <string>
+          # idp_status: <value in [disable, enable]>
 '''
 
 RETURN = '''

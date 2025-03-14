@@ -208,29 +208,26 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extensioncontroller_extenderprofile_lanextension:
-          backhaul:
-            -
-              name: <string>
-              port: <value in [wan, lte1, lte2, ...]>
-              role: <value in [primary, secondary]>
-              weight: <integer>
-          backhaul_interface: <string>
-          backhaul_ip: <string>
-          ipsec_tunnel: <string>
-          link_loadbalance: <value in [activebackup, loadbalance]>
-          downlinks:
-            -
-              name: <string>
-              port: <value in [port1, port2, port3, ...]>
-              pvid: <integer>
-              type: <value in [port, vap]>
-              vap: <list or string>
-          traffic_split_services:
-            -
-              address: <list or string>
-              name: <string>
-              service: <list or string>
-              vsdb: <value in [disable, enable]>
+          # backhaul:
+          #   - name: <string>
+          #     port: <value in [wan, lte1, lte2, ...]>
+          #     role: <value in [primary, secondary]>
+          #     weight: <integer>
+          # backhaul_interface: <string>
+          # backhaul_ip: <string>
+          # ipsec_tunnel: <string>
+          # link_loadbalance: <value in [activebackup, loadbalance]>
+          # downlinks:
+          #   - name: <string>
+          #     port: <value in [port1, port2, port3, ...]>
+          #     pvid: <integer>
+          #     type: <value in [port, vap]>
+          #     vap: <list or string>
+          # traffic_split_services:
+          #   - address: <list or string>
+          #     name: <string>
+          #     service: <list or string>
+          #     vsdb: <value in [disable, enable]>
 '''
 
 RETURN = '''

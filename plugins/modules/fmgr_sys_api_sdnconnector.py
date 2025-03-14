@@ -97,9 +97,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         sys_api_sdnconnector:
-          adom: <string>
-          command: <string>
-          connector_name: <string>
+          # adom: <string>
+          # command: <string>
+          # connector_name: <string>
 '''
 
 RETURN = '''

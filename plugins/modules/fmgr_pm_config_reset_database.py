@@ -94,8 +94,8 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         pm_config_reset_database:
-          mr: <integer>
-          version: <integer>
+          # mr: <integer>
+          # version: <integer>
 '''
 
 RETURN = '''

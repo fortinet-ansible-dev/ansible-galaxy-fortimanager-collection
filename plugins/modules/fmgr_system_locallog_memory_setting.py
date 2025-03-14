@@ -134,9 +134,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_memory_setting:
-          diskfull: <value in [overwrite, nolog]>
-          severity: <value in [emergency, alert, critical, ...]>
-          status: <value in [disable, enable]>
+          # diskfull: <value in [overwrite, nolog]>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

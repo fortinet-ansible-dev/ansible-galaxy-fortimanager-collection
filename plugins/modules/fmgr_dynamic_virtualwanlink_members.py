@@ -302,57 +302,55 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_members:
-          comment: <string>
-          cost: <integer>
-          detect_failtime: <integer>
-          detect_http_get: <string>
-          detect_http_match: <string>
-          detect_http_port: <integer>
-          detect_interval: <integer>
-          detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-          detect_recoverytime: <integer>
-          detect_server: <string>
-          detect_timeout: <integer>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              comment: <string>
-              cost: <integer>
-              detect_failtime: <integer>
-              detect_http_get: <string>
-              detect_http_match: <string>
-              detect_http_port: <integer>
-              detect_interval: <integer>
-              detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-              detect_recoverytime: <integer>
-              detect_server: <string>
-              detect_timeout: <integer>
-              gateway: <string>
-              gateway6: <string>
-              ingress_spillover_threshold: <integer>
-              interface: <string>
-              priority: <integer>
-              source: <string>
-              source6: <string>
-              spillover_threshold: <integer>
-              status: <value in [disable, enable]>
-              volume_ratio: <integer>
-              weight: <integer>
-          gateway: <string>
-          gateway6: <string>
-          ingress_spillover_threshold: <integer>
-          interface: <string>
-          name: <string>
-          priority: <integer>
-          source: <string>
-          source6: <string>
-          spillover_threshold: <integer>
-          status: <value in [disable, enable]>
-          volume_ratio: <integer>
-          weight: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # cost: <integer>
+          # detect_failtime: <integer>
+          # detect_http_get: <string>
+          # detect_http_match: <string>
+          # detect_http_port: <integer>
+          # detect_interval: <integer>
+          # detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          # detect_recoverytime: <integer>
+          # detect_server: <string>
+          # detect_timeout: <integer>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     comment: <string>
+          #     cost: <integer>
+          #     detect_failtime: <integer>
+          #     detect_http_get: <string>
+          #     detect_http_match: <string>
+          #     detect_http_port: <integer>
+          #     detect_interval: <integer>
+          #     detect_protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          #     detect_recoverytime: <integer>
+          #     detect_server: <string>
+          #     detect_timeout: <integer>
+          #     gateway: <string>
+          #     gateway6: <string>
+          #     ingress_spillover_threshold: <integer>
+          #     interface: <string>
+          #     priority: <integer>
+          #     source: <string>
+          #     source6: <string>
+          #     spillover_threshold: <integer>
+          #     status: <value in [disable, enable]>
+          #     volume_ratio: <integer>
+          #     weight: <integer>
+          # gateway: <string>
+          # gateway6: <string>
+          # ingress_spillover_threshold: <integer>
+          # interface: <string>
+          # priority: <integer>
+          # source: <string>
+          # source6: <string>
+          # spillover_threshold: <integer>
+          # status: <value in [disable, enable]>
+          # volume_ratio: <integer>
+          # weight: <integer>
 '''
 
 RETURN = '''

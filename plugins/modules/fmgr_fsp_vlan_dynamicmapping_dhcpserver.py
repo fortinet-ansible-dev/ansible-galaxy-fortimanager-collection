@@ -648,104 +648,100 @@ EXAMPLES = '''
         vlan: <your own value>
         dynamic_mapping: <your own value>
         fsp_vlan_dynamicmapping_dhcpserver:
-          auto_configuration: <value in [disable, enable]>
-          conflicted_ip_timeout: <integer>
-          ddns_auth: <value in [disable, tsig]>
-          ddns_key: <list or string>
-          ddns_keyname: <string>
-          ddns_server_ip: <string>
-          ddns_ttl: <integer>
-          ddns_update: <value in [disable, enable]>
-          ddns_update_override: <value in [disable, enable]>
-          ddns_zone: <string>
-          default_gateway: <string>
-          dns_server1: <string>
-          dns_server2: <string>
-          dns_server3: <string>
-          dns_service: <value in [default, specify, local]>
-          domain: <string>
-          enable: <value in [disable, enable]>
-          exclude_range:
-            -
-              end_ip: <string>
-              id: <integer>
-              start_ip: <string>
-              vci_match: <value in [disable, enable]>
-              vci_string: <list or string>
-              lease_time: <integer>
-              uci_match: <value in [disable, enable]>
-              uci_string: <list or string>
-          filename: <string>
-          forticlient_on_net_status: <value in [disable, enable]>
-          id: <integer>
-          interface: <string>
-          ip_mode: <value in [range, usrgrp]>
-          ip_range:
-            -
-              end_ip: <string>
-              id: <integer>
-              start_ip: <string>
-              vci_match: <value in [disable, enable]>
-              vci_string: <list or string>
-              lease_time: <integer>
-              uci_match: <value in [disable, enable]>
-              uci_string: <list or string>
-          ipsec_lease_hold: <integer>
-          lease_time: <integer>
-          mac_acl_default_action: <value in [assign, block]>
-          netmask: <string>
-          next_server: <string>
-          ntp_server1: <string>
-          ntp_server2: <string>
-          ntp_server3: <string>
-          ntp_service: <value in [default, specify, local]>
-          option1: <list or string>
-          option2: <list or string>
-          option3: <list or string>
-          option4: <string>
-          option5: <string>
-          option6: <string>
-          options:
-            -
-              code: <integer>
-              id: <integer>
-              ip: <list or string>
-              type: <value in [hex, string, ip, ...]>
-              value: <string>
-              vci_match: <value in [disable, enable]>
-              vci_string: <list or string>
-              uci_match: <value in [disable, enable]>
-              uci_string: <list or string>
-          reserved_address:
-            -
-              action: <value in [assign, block, reserved]>
-              circuit_id: <string>
-              circuit_id_type: <value in [hex, string]>
-              description: <string>
-              id: <integer>
-              ip: <string>
-              mac: <string>
-              remote_id: <string>
-              remote_id_type: <value in [hex, string]>
-              type: <value in [mac, option82]>
-          server_type: <value in [regular, ipsec]>
-          status: <value in [disable, enable]>
-          tftp_server: <list or string>
-          timezone: <value in [00, 01, 02, ...]>
-          timezone_option: <value in [disable, default, specify]>
-          vci_match: <value in [disable, enable]>
-          vci_string: <list or string>
-          wifi_ac1: <string>
-          wifi_ac2: <string>
-          wifi_ac3: <string>
-          wins_server1: <string>
-          wins_server2: <string>
-          dns_server4: <string>
-          wifi_ac_service: <value in [specify, local]>
-          auto_managed_status: <value in [disable, enable]>
-          dhcp_settings_from_fortiipam: <value in [disable, enable]>
-          relay_agent: <string>
-          shared_subnet: <value in [disable, enable]>
+          # auto_configuration: <value in [disable, enable]>
+          # conflicted_ip_timeout: <integer>
+          # ddns_auth: <value in [disable, tsig]>
+          # ddns_key: <list or string>
+          # ddns_keyname: <string>
+          # ddns_server_ip: <string>
+          # ddns_ttl: <integer>
+          # ddns_update: <value in [disable, enable]>
+          # ddns_update_override: <value in [disable, enable]>
+          # ddns_zone: <string>
+          # default_gateway: <string>
+          # dns_server1: <string>
+          # dns_server2: <string>
+          # dns_server3: <string>
+          # dns_service: <value in [default, specify, local]>
+          # domain: <string>
+          # enable: <value in [disable, enable]>
+          # exclude_range:
+          #   - end_ip: <string>
+          #     id: <integer>
+          #     start_ip: <string>
+          #     vci_match: <value in [disable, enable]>
+          #     vci_string: <list or string>
+          #     lease_time: <integer>
+          #     uci_match: <value in [disable, enable]>
+          #     uci_string: <list or string>
+          # filename: <string>
+          # forticlient_on_net_status: <value in [disable, enable]>
+          # id: <integer>
+          # interface: <string>
+          # ip_mode: <value in [range, usrgrp]>
+          # ip_range:
+          #   - end_ip: <string>
+          #     id: <integer>
+          #     start_ip: <string>
+          #     vci_match: <value in [disable, enable]>
+          #     vci_string: <list or string>
+          #     lease_time: <integer>
+          #     uci_match: <value in [disable, enable]>
+          #     uci_string: <list or string>
+          # ipsec_lease_hold: <integer>
+          # lease_time: <integer>
+          # mac_acl_default_action: <value in [assign, block]>
+          # netmask: <string>
+          # next_server: <string>
+          # ntp_server1: <string>
+          # ntp_server2: <string>
+          # ntp_server3: <string>
+          # ntp_service: <value in [default, specify, local]>
+          # option1: <list or string>
+          # option2: <list or string>
+          # option3: <list or string>
+          # option4: <string>
+          # option5: <string>
+          # option6: <string>
+          # options:
+          #   - code: <integer>
+          #     id: <integer>
+          #     ip: <list or string>
+          #     type: <value in [hex, string, ip, ...]>
+          #     value: <string>
+          #     vci_match: <value in [disable, enable]>
+          #     vci_string: <list or string>
+          #     uci_match: <value in [disable, enable]>
+          #     uci_string: <list or string>
+          # reserved_address:
+          #   - action: <value in [assign, block, reserved]>
+          #     circuit_id: <string>
+          #     circuit_id_type: <value in [hex, string]>
+          #     description: <string>
+          #     id: <integer>
+          #     ip: <string>
+          #     mac: <string>
+          #     remote_id: <string>
+          #     remote_id_type: <value in [hex, string]>
+          #     type: <value in [mac, option82]>
+          # server_type: <value in [regular, ipsec]>
+          # status: <value in [disable, enable]>
+          # tftp_server: <list or string>
+          # timezone: <value in [00, 01, 02, ...]>
+          # timezone_option: <value in [disable, default, specify]>
+          # vci_match: <value in [disable, enable]>
+          # vci_string: <list or string>
+          # wifi_ac1: <string>
+          # wifi_ac2: <string>
+          # wifi_ac3: <string>
+          # wins_server1: <string>
+          # wins_server2: <string>
+          # dns_server4: <string>
+          # wifi_ac_service: <value in [specify, local]>
+          # auto_managed_status: <value in [disable, enable]>
+          # dhcp_settings_from_fortiipam: <value in [disable, enable]>
+          # relay_agent: <string>
+          # shared_subnet: <value in [disable, enable]>
 '''
 
 RETURN = '''

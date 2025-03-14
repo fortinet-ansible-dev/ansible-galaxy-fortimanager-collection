@@ -190,27 +190,27 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_hpe:
-          all_protocol: <integer>
-          arp_max: <integer>
-          enable_shaper: <value in [disable, enable]>
-          esp_max: <integer>
-          high_priority: <integer>
-          icmp_max: <integer>
-          ip_frag_max: <integer>
-          ip_others_max: <integer>
-          l2_others_max: <integer>
-          pri_type_max: <integer>
-          sctp_max: <integer>
-          tcp_max: <integer>
-          tcpfin_rst_max: <integer>
-          tcpsyn_ack_max: <integer>
-          tcpsyn_max: <integer>
-          udp_max: <integer>
-          enable_queue_shaper: <value in [disable, enable]>
-          exception_code: <integer>
-          fragment_with_sess: <integer>
-          fragment_without_session: <integer>
-          queue_shaper_max: <integer>
+          # all_protocol: <integer>
+          # arp_max: <integer>
+          # enable_shaper: <value in [disable, enable]>
+          # esp_max: <integer>
+          # high_priority: <integer>
+          # icmp_max: <integer>
+          # ip_frag_max: <integer>
+          # ip_others_max: <integer>
+          # l2_others_max: <integer>
+          # pri_type_max: <integer>
+          # sctp_max: <integer>
+          # tcp_max: <integer>
+          # tcpfin_rst_max: <integer>
+          # tcpsyn_ack_max: <integer>
+          # tcpsyn_max: <integer>
+          # udp_max: <integer>
+          # enable_queue_shaper: <value in [disable, enable]>
+          # exception_code: <integer>
+          # fragment_with_sess: <integer>
+          # fragment_without_session: <integer>
+          # queue_shaper_max: <integer>
 '''
 
 RETURN = '''

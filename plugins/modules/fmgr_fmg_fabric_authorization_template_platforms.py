@@ -138,11 +138,11 @@ EXAMPLES = '''
         template: <your own value>
         state: present # <value in [present, absent]>
         fmg_fabric_authorization_template_platforms:
-          count: <integer>
-          extension_type: <value in [wan-extension, lan-extension]>
-          fortilink: <string>
-          prefix: <string>
-          type: <value in [ap, extender, switch]>
+          # count: <integer>
+          # extension_type: <value in [wan-extension, lan-extension]>
+          # fortilink: <string>
+          # prefix: <string>
+          # type: <value in [ap, extender, switch]>
 '''
 
 RETURN = '''

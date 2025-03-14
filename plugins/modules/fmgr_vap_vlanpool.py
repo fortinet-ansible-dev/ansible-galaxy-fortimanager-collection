@@ -127,9 +127,9 @@ EXAMPLES = '''
         vap: <your own value>
         state: present # <value in [present, absent]>
         vap_vlanpool:
-          _wtp_group: <string>
-          id: <integer>
-          wtp_group: <string>
+          id: 0 # Required variable, integer
+          # _wtp_group: <string>
+          # wtp_group: <string>
 '''
 
 RETURN = '''

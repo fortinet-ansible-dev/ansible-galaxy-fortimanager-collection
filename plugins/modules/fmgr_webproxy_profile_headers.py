@@ -165,17 +165,17 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         webproxy_profile_headers:
-          action: <value in [add-to-request, add-to-response, remove-from-request, ...]>
-          content: <string>
-          id: <integer>
-          name: <string>
-          add_option: <value in [append, new-on-not-found, new, ...]>
-          base64_encoding: <value in [disable, enable]>
-          dstaddr: <list or string>
-          dstaddr6: <list or string>
-          protocol:
-            - "https"
-            - "http"
+          id: 0 # Required variable, integer
+          # action: <value in [add-to-request, add-to-response, remove-from-request, ...]>
+          # content: <string>
+          # name: <string>
+          # add_option: <value in [append, new-on-not-found, new, ...]>
+          # base64_encoding: <value in [disable, enable]>
+          # dstaddr: <list or string>
+          # dstaddr6: <list or string>
+          # protocol:
+          #   - "https"
+          #   - "http"
 '''
 
 RETURN = '''

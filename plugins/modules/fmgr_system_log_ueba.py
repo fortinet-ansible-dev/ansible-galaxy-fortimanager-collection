@@ -122,9 +122,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_ueba:
-          ip_only_ep: <value in [disable, enable]>
-          ip_unique_scope: <value in [adom, vdom]>
-          hostname_ep_unifier: <value in [disable, enable]>
+          # ip_only_ep: <value in [disable, enable]>
+          # ip_unique_scope: <value in [adom, vdom]>
+          # hostname_ep_unifier: <value in [disable, enable]>
 '''
 
 RETURN = '''

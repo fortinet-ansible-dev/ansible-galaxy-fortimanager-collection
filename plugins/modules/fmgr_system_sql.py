@@ -467,70 +467,67 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_sql:
-          background_rebuild: <value in [disable, enable]>
-          custom_index:
-            -
-              case_sensitive: <value in [disable, enable]>
-              device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
-              id: <integer>
-              index_field: <string>
-              log_type: <value in [none, app-ctrl, attack, ...]>
-          database_name: <string>
-          database_type: <value in [mysql, postgres]>
-          device_count_high: <value in [disable, enable]>
-          event_table_partition_time: <integer>
-          fct_table_partition_time: <integer>
-          logtype:
-            - "none"
-            - "app-ctrl"
-            - "attack"
-            - "content"
-            - "dlp"
-            - "emailfilter"
-            - "event"
-            - "generic"
-            - "history"
-            - "traffic"
-            - "virus"
-            - "voip"
-            - "webfilter"
-            - "netscan"
-            - "fct-event"
-            - "fct-traffic"
-            - "fct-netscan"
-            - "waf"
-            - "gtp"
-            - "dns"
-            - "ssh"
-            - "ssl"
-            - "file-filter"
-            - "asset"
-            - "protocol"
-            - "siem"
-            - "ztna"
-            - "security"
-          password: <list or string>
-          prompt_sql_upgrade: <value in [disable, enable]>
-          rebuild_event: <value in [disable, enable]>
-          rebuild_event_start_time: <list or string>
-          server: <string>
-          start_time: <list or string>
-          status: <value in [disable, local]>
-          text_search_index: <value in [disable, enable]>
-          traffic_table_partition_time: <integer>
-          ts_index_field:
-            -
-              category: <string>
-              value: <string>
-          username: <string>
-          utm_table_partition_time: <integer>
-          custom_skipidx:
-            -
-              device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
-              id: <integer>
-              index_field: <string>
-              log_type: <value in [app-ctrl, attack, content, ...]>
-          compress_table_min_age: <integer>
+          # background_rebuild: <value in [disable, enable]>
+          # custom_index:
+          #   - case_sensitive: <value in [disable, enable]>
+          #     device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
+          #     id: <integer>
+          #     index_field: <string>
+          #     log_type: <value in [none, app-ctrl, attack, ...]>
+          # database_name: <string>
+          # database_type: <value in [mysql, postgres]>
+          # device_count_high: <value in [disable, enable]>
+          # event_table_partition_time: <integer>
+          # fct_table_partition_time: <integer>
+          # logtype:
+          #   - "none"
+          #   - "app-ctrl"
+          #   - "attack"
+          #   - "content"
+          #   - "dlp"
+          #   - "emailfilter"
+          #   - "event"
+          #   - "generic"
+          #   - "history"
+          #   - "traffic"
+          #   - "virus"
+          #   - "voip"
+          #   - "webfilter"
+          #   - "netscan"
+          #   - "fct-event"
+          #   - "fct-traffic"
+          #   - "fct-netscan"
+          #   - "waf"
+          #   - "gtp"
+          #   - "dns"
+          #   - "ssh"
+          #   - "ssl"
+          #   - "file-filter"
+          #   - "asset"
+          #   - "protocol"
+          #   - "siem"
+          #   - "ztna"
+          #   - "security"
+          # password: <list or string>
+          # prompt_sql_upgrade: <value in [disable, enable]>
+          # rebuild_event: <value in [disable, enable]>
+          # rebuild_event_start_time: <list or string>
+          # server: <string>
+          # start_time: <list or string>
+          # status: <value in [disable, local]>
+          # text_search_index: <value in [disable, enable]>
+          # traffic_table_partition_time: <integer>
+          # ts_index_field:
+          #   - category: <string>
+          #     value: <string>
+          # username: <string>
+          # utm_table_partition_time: <integer>
+          # custom_skipidx:
+          #   - device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
+          #     id: <integer>
+          #     index_field: <string>
+          #     log_type: <value in [app-ctrl, attack, content, ...]>
+          # compress_table_min_age: <integer>
 '''
 
 RETURN = '''

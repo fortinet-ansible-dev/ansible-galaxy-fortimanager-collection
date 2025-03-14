@@ -139,13 +139,12 @@ EXAMPLES = '''
         neighbor: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_neighbor_dynamicmapping:
-          _scope:
-            -
-              name: <string>
-              vdom: <string>
-          description: <string>
-          ip: <string>
-          role: <value in [primary, secondary, standalone]>
+          # _scope:
+          #   - name: <string>
+          #     vdom: <string>
+          # description: <string>
+          # ip: <string>
+          # role: <value in [primary, secondary, standalone]>
 '''
 
 RETURN = '''

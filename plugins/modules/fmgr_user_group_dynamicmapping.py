@@ -471,83 +471,80 @@ EXAMPLES = '''
         group: <your own value>
         state: present # <value in [present, absent]>
         user_group_dynamicmapping:
-          _scope:
-            -
-              name: <string>
-              vdom: <string>
-          auth_concurrent_override: <value in [disable, enable]>
-          auth_concurrent_value: <integer>
-          authtimeout: <integer>
-          company: <value in [optional, mandatory, disabled]>
-          email: <value in [disable, enable]>
-          expire: <integer>
-          expire_type: <value in [immediately, first-successful-login]>
-          group_type: <value in [firewall, directory-service, fsso-service, ...]>
-          guest:
-            -
-              comment: <string>
-              company: <string>
-              email: <string>
-              expiration: <string>
-              group: <string>
-              id: <integer>
-              mobile_phone: <string>
-              name: <string>
-              password: <list or string>
-              sponsor: <string>
-              user_id: <string>
-          http_digest_realm: <string>
-          id: <integer>
-          ldap_memberof: <string>
-          logic_type: <value in [or, and]>
-          match:
-            -
-              _gui_meta: <string>
-              group_name: <string>
-              id: <integer>
-              server_name: <string>
-          max_accounts: <integer>
-          member: <list or string>
-          mobile_phone: <value in [disable, enable]>
-          multiple_guest_add: <value in [disable, enable]>
-          password: <value in [auto-generate, specify, disable]>
-          redir_url: <string>
-          sms_custom_server: <string>
-          sms_server: <value in [fortiguard, custom]>
-          sponsor: <value in [optional, mandatory, disabled]>
-          sslvpn_bookmarks_group: <list or string>
-          sslvpn_cache_cleaner: <value in [disable, enable]>
-          sslvpn_client_check:
-            - "forticlient"
-            - "forticlient-av"
-            - "forticlient-fw"
-            - "3rdAV"
-            - "3rdFW"
-          sslvpn_ftp: <value in [disable, enable]>
-          sslvpn_http: <value in [disable, enable]>
-          sslvpn_os_check: <value in [disable, enable]>
-          sslvpn_os_check_list:
-            action: <value in [allow, check-up-to-date, deny]>
-            latest_patch_level: <string>
-            name: <string>
-            tolerance: <integer>
-          sslvpn_portal: <list or string>
-          sslvpn_portal_heading: <string>
-          sslvpn_rdp: <value in [disable, enable]>
-          sslvpn_samba: <value in [disable, enable]>
-          sslvpn_split_tunneling: <value in [disable, enable]>
-          sslvpn_ssh: <value in [disable, enable]>
-          sslvpn_telnet: <value in [disable, enable]>
-          sslvpn_tunnel: <value in [disable, enable]>
-          sslvpn_tunnel_endip: <string>
-          sslvpn_tunnel_ip_mode: <value in [range, usrgrp]>
-          sslvpn_tunnel_startip: <string>
-          sslvpn_virtual_desktop: <value in [disable, enable]>
-          sslvpn_vnc: <value in [disable, enable]>
-          sslvpn_webapp: <value in [disable, enable]>
-          sso_attribute_value: <string>
-          user_id: <value in [email, auto-generate, specify]>
-          user_name: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # _scope:
+          #   - name: <string>
+          #     vdom: <string>
+          # auth_concurrent_override: <value in [disable, enable]>
+          # auth_concurrent_value: <integer>
+          # authtimeout: <integer>
+          # company: <value in [optional, mandatory, disabled]>
+          # email: <value in [disable, enable]>
+          # expire: <integer>
+          # expire_type: <value in [immediately, first-successful-login]>
+          # group_type: <value in [firewall, directory-service, fsso-service, ...]>
+          # guest:
+          #   - comment: <string>
+          #     company: <string>
+          #     email: <string>
+          #     expiration: <string>
+          #     group: <string>
+          #     id: <integer>
+          #     mobile_phone: <string>
+          #     name: <string>
+          #     password: <list or string>
+          #     sponsor: <string>
+          #     user_id: <string>
+          # http_digest_realm: <string>
+          # ldap_memberof: <string>
+          # logic_type: <value in [or, and]>
+          # match:
+          #   - _gui_meta: <string>
+          #     group_name: <string>
+          #     id: <integer>
+          #     server_name: <string>
+          # max_accounts: <integer>
+          # member: <list or string>
+          # mobile_phone: <value in [disable, enable]>
+          # multiple_guest_add: <value in [disable, enable]>
+          # password: <value in [auto-generate, specify, disable]>
+          # redir_url: <string>
+          # sms_custom_server: <string>
+          # sms_server: <value in [fortiguard, custom]>
+          # sponsor: <value in [optional, mandatory, disabled]>
+          # sslvpn_bookmarks_group: <list or string>
+          # sslvpn_cache_cleaner: <value in [disable, enable]>
+          # sslvpn_client_check:
+          #   - "forticlient"
+          #   - "forticlient-av"
+          #   - "forticlient-fw"
+          #   - "3rdAV"
+          #   - "3rdFW"
+          # sslvpn_ftp: <value in [disable, enable]>
+          # sslvpn_http: <value in [disable, enable]>
+          # sslvpn_os_check: <value in [disable, enable]>
+          # sslvpn_os_check_list:
+          #   action: <value in [allow, check-up-to-date, deny]>
+          #   latest_patch_level: <string>
+          #   name: <string>
+          #   tolerance: <integer>
+          # sslvpn_portal: <list or string>
+          # sslvpn_portal_heading: <string>
+          # sslvpn_rdp: <value in [disable, enable]>
+          # sslvpn_samba: <value in [disable, enable]>
+          # sslvpn_split_tunneling: <value in [disable, enable]>
+          # sslvpn_ssh: <value in [disable, enable]>
+          # sslvpn_telnet: <value in [disable, enable]>
+          # sslvpn_tunnel: <value in [disable, enable]>
+          # sslvpn_tunnel_endip: <string>
+          # sslvpn_tunnel_ip_mode: <value in [range, usrgrp]>
+          # sslvpn_tunnel_startip: <string>
+          # sslvpn_virtual_desktop: <value in [disable, enable]>
+          # sslvpn_vnc: <value in [disable, enable]>
+          # sslvpn_webapp: <value in [disable, enable]>
+          # sso_attribute_value: <string>
+          # user_id: <value in [email, auto-generate, specify]>
+          # user_name: <value in [disable, enable]>
 '''
 
 RETURN = '''

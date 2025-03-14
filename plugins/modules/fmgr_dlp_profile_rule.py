@@ -200,31 +200,31 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         dlp_profile_rule:
-          action: <value in [log-only, block, quarantine-ip, ...]>
-          archive: <value in [disable, enable]>
-          expiry: <string>
-          file_size: <integer>
-          file_type: <string>
-          filter_by: <value in [fingerprint, sensor, encrypted, ...]>
-          id: <integer>
-          label: <string>
-          match_percentage: <integer>
-          name: <string>
-          proto:
-            - "smtp"
-            - "pop3"
-            - "imap"
-            - "http-post"
-            - "http-get"
-            - "ftp"
-            - "nntp"
-            - "mapi"
-            - "ssh"
-            - "cifs"
-          sensitivity: <list or string>
-          sensor: <list or string>
-          severity: <value in [info, low, medium, ...]>
-          type: <value in [file, message]>
+          id: 0 # Required variable, integer
+          # action: <value in [log-only, block, quarantine-ip, ...]>
+          # archive: <value in [disable, enable]>
+          # expiry: <string>
+          # file_size: <integer>
+          # file_type: <string>
+          # filter_by: <value in [fingerprint, sensor, encrypted, ...]>
+          # label: <string>
+          # match_percentage: <integer>
+          # name: <string>
+          # proto:
+          #   - "smtp"
+          #   - "pop3"
+          #   - "imap"
+          #   - "http-post"
+          #   - "http-get"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mapi"
+          #   - "ssh"
+          #   - "cifs"
+          # sensitivity: <list or string>
+          # sensor: <list or string>
+          # severity: <value in [info, low, medium, ...]>
+          # type: <value in [file, message]>
 '''
 
 RETURN = '''

@@ -114,9 +114,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_ipreassembly:
-          max_timeout: <integer>
-          min_timeout: <integer>
-          status: <value in [disable, enable]>
+          # max_timeout: <integer>
+          # min_timeout: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

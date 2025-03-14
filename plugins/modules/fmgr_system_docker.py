@@ -216,22 +216,22 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_docker:
-          fortiportal: <value in [disable, enable]>
-          fortiwlm: <value in [disable, enable]>
-          sdwancontroller: <value in [disable, enable]>
-          status: <value in [disable, enable, qa, ...]>
-          cpu: <integer>
-          default_address_pool_base: <string>
-          default_address_pool_size: <integer>
-          fortiauthenticator: <value in [disable, enable]>
-          fortisigconverter: <value in [disable, enable]>
-          mem: <integer>
-          docker_user_login_max: <integer>
-          fortisoar: <value in [disable, enable]>
-          fortiaiops: <value in [disable, enable]>
-          policyanalyzer: <value in [disable, enable]>
-          universalconnector: <value in [disable, enable]>
-          fsmcollector: <value in [disable, enable]>
+          # fortiportal: <value in [disable, enable]>
+          # fortiwlm: <value in [disable, enable]>
+          # sdwancontroller: <value in [disable, enable]>
+          # status: <value in [disable, enable, qa, ...]>
+          # cpu: <integer>
+          # default_address_pool_base: <string>
+          # default_address_pool_size: <integer>
+          # fortiauthenticator: <value in [disable, enable]>
+          # fortisigconverter: <value in [disable, enable]>
+          # mem: <integer>
+          # docker_user_login_max: <integer>
+          # fortisoar: <value in [disable, enable]>
+          # fortiaiops: <value in [disable, enable]>
+          # policyanalyzer: <value in [disable, enable]>
+          # universalconnector: <value in [disable, enable]>
+          # fsmcollector: <value in [disable, enable]>
 '''
 
 RETURN = '''

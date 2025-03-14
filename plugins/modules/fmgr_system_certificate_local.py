@@ -125,12 +125,12 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_certificate_local:
-          certificate: <list or string>
-          comment: <string>
-          csr: <list or string>
-          name: <string>
-          password: <list or string>
-          private_key: <list or string>
+          name: "your value" # Required variable, string
+          # certificate: <list or string>
+          # comment: <string>
+          # csr: <list or string>
+          # password: <list or string>
+          # private_key: <list or string>
 '''
 
 RETURN = '''

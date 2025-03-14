@@ -236,36 +236,33 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dynamic_interface:
-          color: <integer>
-          default_mapping: <value in [disable, enable]>
-          defmap_intf: <string>
-          defmap_intrazone_deny: <value in [disable, enable]>
-          defmap_zonemember: <list or string>
-          description: <string>
-          dynamic_mapping:
-            -
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              egress_shaping_profile: <list or string>
-              intrazone_deny: <value in [disable, enable]>
-              local_intf: <list or string>
-              ingress_shaping_profile: <list or string>
-          egress_shaping_profile: <list or string>
-          name: <string>
-          single_intf: <value in [disable, enable]>
-          ingress_shaping_profile: <list or string>
-          platform_mapping:
-            -
-              egress_shaping_profile: <list or string>
-              ingress_shaping_profile: <list or string>
-              intf_zone: <string>
-              intrazone_deny: <value in [disable, enable]>
-              name: <string>
-          wildcard: <value in [disable, enable]>
-          wildcard_intf: <string>
-          zone_only: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # color: <integer>
+          # default_mapping: <value in [disable, enable]>
+          # defmap_intf: <string>
+          # defmap_intrazone_deny: <value in [disable, enable]>
+          # defmap_zonemember: <list or string>
+          # description: <string>
+          # dynamic_mapping:
+          #   - _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     egress_shaping_profile: <list or string>
+          #     intrazone_deny: <value in [disable, enable]>
+          #     local_intf: <list or string>
+          #     ingress_shaping_profile: <list or string>
+          # egress_shaping_profile: <list or string>
+          # single_intf: <value in [disable, enable]>
+          # ingress_shaping_profile: <list or string>
+          # platform_mapping:
+          #   - egress_shaping_profile: <list or string>
+          #     ingress_shaping_profile: <list or string>
+          #     intf_zone: <string>
+          #     intrazone_deny: <value in [disable, enable]>
+          #     name: <string>
+          # wildcard: <value in [disable, enable]>
+          # wildcard_intf: <string>
+          # zone_only: <value in [disable, enable]>
 '''
 
 RETURN = '''

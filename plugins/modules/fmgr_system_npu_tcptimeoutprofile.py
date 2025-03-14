@@ -138,13 +138,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_tcptimeoutprofile:
-          close_wait: <integer>
-          fin_wait: <integer>
-          id: <integer>
-          syn_sent: <integer>
-          syn_wait: <integer>
-          tcp_idle: <integer>
-          time_wait: <integer>
+          id: 0 # Required variable, integer
+          # close_wait: <integer>
+          # fin_wait: <integer>
+          # syn_sent: <integer>
+          # syn_wait: <integer>
+          # tcp_idle: <integer>
+          # time_wait: <integer>
 '''
 
 RETURN = '''

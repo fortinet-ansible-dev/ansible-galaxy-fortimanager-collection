@@ -210,28 +210,28 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         arrpprofile:
-          comment: <string>
-          darrp_optimize: <integer>
-          darrp_optimize_schedules: <list or string>
-          include_dfs_channel: <value in [no, disable, yes, ...]>
-          include_weather_channel: <value in [no, disable, yes, ...]>
-          monitor_period: <integer>
-          name: <string>
-          override_darrp_optimize: <value in [disable, enable]>
-          selection_period: <integer>
-          threshold_ap: <integer>
-          threshold_channel_load: <integer>
-          threshold_noise_floor: <string>
-          threshold_rx_errors: <integer>
-          threshold_spectral_rssi: <string>
-          threshold_tx_retries: <integer>
-          weight_channel_load: <integer>
-          weight_dfs_channel: <integer>
-          weight_managed_ap: <integer>
-          weight_noise_floor: <integer>
-          weight_rogue_ap: <integer>
-          weight_spectral_rssi: <integer>
-          weight_weather_channel: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # darrp_optimize: <integer>
+          # darrp_optimize_schedules: <list or string>
+          # include_dfs_channel: <value in [no, disable, yes, ...]>
+          # include_weather_channel: <value in [no, disable, yes, ...]>
+          # monitor_period: <integer>
+          # override_darrp_optimize: <value in [disable, enable]>
+          # selection_period: <integer>
+          # threshold_ap: <integer>
+          # threshold_channel_load: <integer>
+          # threshold_noise_floor: <string>
+          # threshold_rx_errors: <integer>
+          # threshold_spectral_rssi: <string>
+          # threshold_tx_retries: <integer>
+          # weight_channel_load: <integer>
+          # weight_dfs_channel: <integer>
+          # weight_managed_ap: <integer>
+          # weight_noise_floor: <integer>
+          # weight_rogue_ap: <integer>
+          # weight_spectral_rssi: <integer>
+          # weight_weather_channel: <integer>
 '''
 
 RETURN = '''

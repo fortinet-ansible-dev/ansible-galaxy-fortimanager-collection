@@ -180,22 +180,22 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webproxy_forwardserver:
-          addr_type: <value in [fqdn, ip, ipv6]>
-          comment: <string>
-          fqdn: <string>
-          healthcheck: <value in [disable, enable]>
-          ip: <string>
-          monitor: <string>
-          name: <string>
-          port: <integer>
-          server_down_option: <value in [block, pass]>
-          password: <list or string>
-          username: <string>
-          ipv6: <string>
-          masquerade: <value in [disable, enable]>
-          interface: <list or string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          vrf_select: <integer>
+          name: "your value" # Required variable, string
+          # addr_type: <value in [fqdn, ip, ipv6]>
+          # comment: <string>
+          # fqdn: <string>
+          # healthcheck: <value in [disable, enable]>
+          # ip: <string>
+          # monitor: <string>
+          # port: <integer>
+          # server_down_option: <value in [block, pass]>
+          # password: <list or string>
+          # username: <string>
+          # ipv6: <string>
+          # masquerade: <value in [disable, enable]>
+          # interface: <list or string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

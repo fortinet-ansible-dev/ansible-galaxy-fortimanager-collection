@@ -270,48 +270,45 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_lldpprofile:
-          802_1_tlvs:
-            - "port-vlan-id"
-          802_3_tlvs:
-            - "max-frame-size"
-            - "power-negotiation"
-          auto_isl: <value in [disable, enable]>
-          auto_isl_hello_timer: <integer>
-          auto_isl_port_group: <integer>
-          auto_isl_receive_timeout: <integer>
-          custom_tlvs:
-            -
-              information_string: <string>
-              name: <string>
-              oui: <string>
-              subtype: <integer>
-          med_network_policy:
-            -
-              dscp: <integer>
-              name: <string>
-              priority: <integer>
-              status: <value in [disable, enable]>
-              vlan: <integer>
-              vlan_intf: <string>
-              assign_vlan: <value in [disable, enable]>
-          med_tlvs:
-            - "inventory-management"
-            - "network-policy"
-            - "power-management"
-            - "location-identification"
-          name: <string>
-          med_location_service:
-            -
-              name: <string>
-              status: <value in [disable, enable]>
-              sys_location_id: <string>
-          auto_mclag_icl: <value in [disable, enable]>
-          auto_isl_auth: <value in [legacy, strict, relax]>
-          auto_isl_auth_encrypt: <value in [none, mixed, must]>
-          auto_isl_auth_identity: <string>
-          auto_isl_auth_macsec_profile: <string>
-          auto_isl_auth_reauth: <integer>
-          auto_isl_auth_user: <string>
+          name: "your value" # Required variable, string
+          # 802_1_tlvs:
+          #   - "port-vlan-id"
+          # 802_3_tlvs:
+          #   - "max-frame-size"
+          #   - "power-negotiation"
+          # auto_isl: <value in [disable, enable]>
+          # auto_isl_hello_timer: <integer>
+          # auto_isl_port_group: <integer>
+          # auto_isl_receive_timeout: <integer>
+          # custom_tlvs:
+          #   - information_string: <string>
+          #     name: <string>
+          #     oui: <string>
+          #     subtype: <integer>
+          # med_network_policy:
+          #   - dscp: <integer>
+          #     name: <string>
+          #     priority: <integer>
+          #     status: <value in [disable, enable]>
+          #     vlan: <integer>
+          #     vlan_intf: <string>
+          #     assign_vlan: <value in [disable, enable]>
+          # med_tlvs:
+          #   - "inventory-management"
+          #   - "network-policy"
+          #   - "power-management"
+          #   - "location-identification"
+          # med_location_service:
+          #   - name: <string>
+          #     status: <value in [disable, enable]>
+          #     sys_location_id: <string>
+          # auto_mclag_icl: <value in [disable, enable]>
+          # auto_isl_auth: <value in [legacy, strict, relax]>
+          # auto_isl_auth_encrypt: <value in [none, mixed, must]>
+          # auto_isl_auth_identity: <string>
+          # auto_isl_auth_macsec_profile: <string>
+          # auto_isl_auth_reauth: <integer>
+          # auto_isl_auth_user: <string>
 '''
 
 RETURN = '''

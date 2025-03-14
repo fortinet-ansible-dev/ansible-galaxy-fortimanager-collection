@@ -241,34 +241,32 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         videofilter_profile:
-          comment: <string>
-          dailymotion: <value in [disable, enable]>
-          fortiguard_category:
-            filters:
-              -
-                action: <value in [block, bypass, monitor, ...]>
-                category_id: <integer>
-                id: <integer>
-                log: <value in [disable, enable]>
-          name: <string>
-          vimeo: <value in [disable, enable]>
-          vimeo_restrict: <string>
-          youtube: <value in [disable, enable]>
-          youtube_channel_filter: <string>
-          youtube_restrict: <value in [strict, none, moderate]>
-          replacemsg_group: <string>
-          default_action: <value in [block, monitor, allow]>
-          log: <value in [disable, enable]>
-          filters:
-            -
-              action: <value in [block, monitor, allow]>
-              category: <string>
-              channel: <string>
-              comment: <string>
-              id: <integer>
-              keyword: <string>
-              log: <value in [disable, enable]>
-              type: <value in [category, channel, title, ...]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # dailymotion: <value in [disable, enable]>
+          # fortiguard_category:
+          #   filters:
+          #     - action: <value in [block, bypass, monitor, ...]>
+          #       category_id: <integer>
+          #       id: <integer>
+          #       log: <value in [disable, enable]>
+          # vimeo: <value in [disable, enable]>
+          # vimeo_restrict: <string>
+          # youtube: <value in [disable, enable]>
+          # youtube_channel_filter: <string>
+          # youtube_restrict: <value in [strict, none, moderate]>
+          # replacemsg_group: <string>
+          # default_action: <value in [block, monitor, allow]>
+          # log: <value in [disable, enable]>
+          # filters:
+          #   - action: <value in [block, monitor, allow]>
+          #     category: <string>
+          #     channel: <string>
+          #     comment: <string>
+          #     id: <integer>
+          #     keyword: <string>
+          #     log: <value in [disable, enable]>
+          #     type: <value in [category, channel, title, ...]>
 '''
 
 RETURN = '''

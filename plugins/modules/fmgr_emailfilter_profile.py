@@ -463,96 +463,95 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         emailfilter_profile:
-          comment: <string>
-          external: <value in [disable, enable]>
-          name: <string>
-          options:
-            - "bannedword"
-            - "spambwl"
-            - "spamfsip"
-            - "spamfssubmit"
-            - "spamfschksum"
-            - "spamfsurl"
-            - "spamhelodns"
-            - "spamraddrdns"
-            - "spamrbl"
-            - "spamhdrcheck"
-            - "spamfsphish"
-            - "spambal"
-            - "spamfgip"
-            - "spamfgsubmit"
-            - "spamfgchksum"
-            - "spamfgurl"
-            - "spamfgphish"
-          replacemsg_group: <string>
-          spam_bwl_table: <string>
-          spam_bword_table: <string>
-          spam_bword_threshold: <integer>
-          spam_filtering: <value in [disable, enable]>
-          spam_iptrust_table: <string>
-          spam_log: <value in [disable, enable]>
-          spam_log_fortiguard_response: <value in [disable, enable]>
-          spam_mheader_table: <string>
-          spam_rbl_table: <string>
-          feature_set: <value in [proxy, flow]>
-          gmail:
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-          imap:
-            action: <value in [pass, tag]>
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          mapi:
-            action: <value in [pass, discard]>
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-          msn_hotmail:
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-          other_webmails:
-            log_all: <value in [disable, enable]>
-          pop3:
-            action: <value in [pass, tag]>
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          smtp:
-            action: <value in [pass, tag, discard]>
-            hdrip: <value in [disable, enable]>
-            local_override: <value in [disable, enable]>
-            log: <value in [disable, enable]>
-            log_all: <value in [disable, enable]>
-            tag_msg: <string>
-            tag_type:
-              - "subject"
-              - "header"
-              - "spaminfo"
-          file_filter:
-            entries:
-              -
-                action: <value in [log, block]>
-                comment: <string>
-                encryption: <value in [any, yes]>
-                file_type: <list or string>
-                filter: <string>
-                password_protected: <value in [any, yes]>
-                protocol:
-                  - "smtp"
-                  - "imap"
-                  - "pop3"
-            log: <value in [disable, enable]>
-            scan_archive_contents: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-          spam_bal_table: <string>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # external: <value in [disable, enable]>
+          # options:
+          #   - "bannedword"
+          #   - "spambwl"
+          #   - "spamfsip"
+          #   - "spamfssubmit"
+          #   - "spamfschksum"
+          #   - "spamfsurl"
+          #   - "spamhelodns"
+          #   - "spamraddrdns"
+          #   - "spamrbl"
+          #   - "spamhdrcheck"
+          #   - "spamfsphish"
+          #   - "spambal"
+          #   - "spamfgip"
+          #   - "spamfgsubmit"
+          #   - "spamfgchksum"
+          #   - "spamfgurl"
+          #   - "spamfgphish"
+          # replacemsg_group: <string>
+          # spam_bwl_table: <string>
+          # spam_bword_table: <string>
+          # spam_bword_threshold: <integer>
+          # spam_filtering: <value in [disable, enable]>
+          # spam_iptrust_table: <string>
+          # spam_log: <value in [disable, enable]>
+          # spam_log_fortiguard_response: <value in [disable, enable]>
+          # spam_mheader_table: <string>
+          # spam_rbl_table: <string>
+          # feature_set: <value in [proxy, flow]>
+          # gmail:
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          # imap:
+          #   action: <value in [pass, tag]>
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # mapi:
+          #   action: <value in [pass, discard]>
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          # msn_hotmail:
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          # other_webmails:
+          #   log_all: <value in [disable, enable]>
+          # pop3:
+          #   action: <value in [pass, tag]>
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # smtp:
+          #   action: <value in [pass, tag, discard]>
+          #   hdrip: <value in [disable, enable]>
+          #   local_override: <value in [disable, enable]>
+          #   log: <value in [disable, enable]>
+          #   log_all: <value in [disable, enable]>
+          #   tag_msg: <string>
+          #   tag_type:
+          #     - "subject"
+          #     - "header"
+          #     - "spaminfo"
+          # file_filter:
+          #   entries:
+          #     - action: <value in [log, block]>
+          #       comment: <string>
+          #       encryption: <value in [any, yes]>
+          #       file_type: <list or string>
+          #       filter: <string>
+          #       password_protected: <value in [any, yes]>
+          #       protocol:
+          #         - "smtp"
+          #         - "imap"
+          #         - "pop3"
+          #   log: <value in [disable, enable]>
+          #   scan_archive_contents: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          # spam_bal_table: <string>
 '''
 
 RETURN = '''

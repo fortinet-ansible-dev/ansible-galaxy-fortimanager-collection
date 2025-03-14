@@ -133,10 +133,10 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         virtualpatch_profile_exemption:
-          device: <list or string>
-          id: <integer>
-          rule: <list or integer>
-          status: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # device: <list or string>
+          # rule: <list or integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

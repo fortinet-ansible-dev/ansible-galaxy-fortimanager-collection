@@ -137,27 +137,25 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_reinstall_package:
-          adom: <string>
-          flags:
-            - "none"
-            - "cp_all_objs"
-            - "preview"
-            - "generate_rev"
-            - "copy_assigned_pkg"
-            - "unassign"
-            - "ifpolicy_only"
-            - "no_ifpolicy"
-            - "objs_only"
-            - "auto_lock_ws"
-            - "check_pkg_st"
-            - "copy_only"
-          target:
-            -
-              pkg: <string>
-              scope:
-                -
-                  name: <string>
-                  vdom: <string>
+          # adom: <string>
+          # flags:
+          #   - "none"
+          #   - "cp_all_objs"
+          #   - "preview"
+          #   - "generate_rev"
+          #   - "copy_assigned_pkg"
+          #   - "unassign"
+          #   - "ifpolicy_only"
+          #   - "no_ifpolicy"
+          #   - "objs_only"
+          #   - "auto_lock_ws"
+          #   - "check_pkg_st"
+          #   - "copy_only"
+          # target:
+          #   - pkg: <string>
+          #     scope:
+          #       - name: <string>
+          #         vdom: <string>
 '''
 
 RETURN = '''

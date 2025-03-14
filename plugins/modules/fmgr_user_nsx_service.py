@@ -132,10 +132,10 @@ EXAMPLES = '''
         nsx: <your own value>
         state: present # <value in [present, absent]>
         user_nsx_service:
-          id: <string>
-          integration: <value in [east-west, north-south]>
-          name: <string>
-          ref_id: <string>
+          id: "your value" # Required variable, string
+          # integration: <value in [east-west, north-south]>
+          # name: <string>
+          # ref_id: <string>
 '''
 
 RETURN = '''

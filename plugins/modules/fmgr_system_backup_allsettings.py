@@ -156,23 +156,23 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_backup_allsettings:
-          cert: <string>
-          crptpasswd: <list or string>
-          directory: <string>
-          passwd: <list or string>
-          protocol: <value in [sftp, ftp, scp]>
-          server: <string>
-          status: <value in [disable, enable]>
-          time: <string>
-          user: <string>
-          week_days:
-            - "monday"
-            - "tuesday"
-            - "wednesday"
-            - "thursday"
-            - "friday"
-            - "saturday"
-            - "sunday"
+          # cert: <string>
+          # crptpasswd: <list or string>
+          # directory: <string>
+          # passwd: <list or string>
+          # protocol: <value in [sftp, ftp, scp]>
+          # server: <string>
+          # status: <value in [disable, enable]>
+          # time: <string>
+          # user: <string>
+          # week_days:
+          #   - "monday"
+          #   - "tuesday"
+          #   - "wednesday"
+          #   - "thursday"
+          #   - "friday"
+          #   - "saturday"
+          #   - "sunday"
 '''
 
 RETURN = '''

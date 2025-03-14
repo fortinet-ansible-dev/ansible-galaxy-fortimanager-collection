@@ -172,21 +172,21 @@ EXAMPLES = '''
         adom: <your own value>
         profile_protocol_options: <your own value>
         firewall_profileprotocoloptions_smtp:
-          inspect_all: <value in [disable, enable]>
-          options:
-            - "oversize"
-            - "fragmail"
-            - "no-content-summary"
-            - "splice"
-          oversize_limit: <integer>
-          ports: <list or integer>
-          scan_bzip2: <value in [disable, enable]>
-          server_busy: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          uncompressed_nest_limit: <integer>
-          uncompressed_oversize_limit: <integer>
-          ssl_offloaded: <value in [no, yes]>
-          proxy_after_tcp_handshake: <value in [disable, enable]>
+          # inspect_all: <value in [disable, enable]>
+          # options:
+          #   - "oversize"
+          #   - "fragmail"
+          #   - "no-content-summary"
+          #   - "splice"
+          # oversize_limit: <integer>
+          # ports: <list or integer>
+          # scan_bzip2: <value in [disable, enable]>
+          # server_busy: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # uncompressed_nest_limit: <integer>
+          # uncompressed_oversize_limit: <integer>
+          # ssl_offloaded: <value in [no, yes]>
+          # proxy_after_tcp_handshake: <value in [disable, enable]>
 '''
 
 RETURN = '''

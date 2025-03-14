@@ -3165,957 +3165,951 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vap:
-          _centmgmt: <value in [disable, enable]>
-          _dhcp_svr_id: <string>
-          _intf_allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-            - "fgfm"
-            - "auto-ipsec"
-            - "radius-acct"
-            - "probe-response"
-            - "capwap"
-            - "dnp"
-            - "ftm"
-            - "fabric"
-            - "speed-test"
-          _intf_device_identification: <value in [disable, enable]>
-          _intf_device_netscan: <value in [disable, enable]>
-          _intf_dhcp_relay_ip: <list or string>
-          _intf_dhcp_relay_service: <value in [disable, enable]>
-          _intf_dhcp_relay_type: <value in [regular, ipsec]>
-          _intf_dhcp6_relay_ip: <string>
-          _intf_dhcp6_relay_service: <value in [disable, enable]>
-          _intf_dhcp6_relay_type: <value in [regular]>
-          _intf_ip: <string>
-          _intf_ip6_address: <string>
-          _intf_ip6_allowaccess:
-            - "https"
-            - "ping"
-            - "ssh"
-            - "snmp"
-            - "http"
-            - "telnet"
-            - "any"
-            - "fgfm"
-            - "capwap"
-          _intf_listen_forticlient_connection: <value in [disable, enable]>
-          acct_interim_interval: <integer>
-          alias: <string>
-          auth: <value in [PSK, psk, RADIUS, ...]>
-          broadcast_ssid: <value in [disable, enable]>
-          broadcast_suppression:
-            - "dhcp"
-            - "arp"
-            - "dhcp2"
-            - "arp2"
-            - "netbios-ns"
-            - "netbios-ds"
-            - "arp3"
-            - "dhcp-up"
-            - "dhcp-down"
-            - "arp-known"
-            - "arp-unknown"
-            - "arp-reply"
-            - "ipv6"
-            - "dhcp-starvation"
-            - "arp-poison"
-            - "all-other-mc"
-            - "all-other-bc"
-            - "arp-proxy"
-            - "dhcp-ucast"
-          captive_portal_ac_name: <string>
-          captive_portal_macauth_radius_secret: <list or string>
-          captive_portal_macauth_radius_server: <string>
-          captive_portal_radius_secret: <list or string>
-          captive_portal_radius_server: <string>
-          captive_portal_session_timeout_interval: <integer>
-          dhcp_lease_time: <integer>
-          dhcp_option82_circuit_id_insertion: <value in [disable, style-1, style-2, ...]>
-          dhcp_option82_insertion: <value in [disable, enable]>
-          dhcp_option82_remote_id_insertion: <value in [disable, style-1]>
-          dynamic_vlan: <value in [disable, enable]>
-          dynamic_mapping:
-            -
-              _centmgmt: <value in [disable, enable]>
-              _dhcp_svr_id: <string>
-              _intf_allowaccess:
-                - "https"
-                - "ping"
-                - "ssh"
-                - "snmp"
-                - "http"
-                - "telnet"
-                - "fgfm"
-                - "auto-ipsec"
-                - "radius-acct"
-                - "probe-response"
-                - "capwap"
-                - "dnp"
-                - "ftm"
-                - "fabric"
-                - "speed-test"
-              _intf_device_identification: <value in [disable, enable]>
-              _intf_device_netscan: <value in [disable, enable]>
-              _intf_dhcp_relay_ip: <list or string>
-              _intf_dhcp_relay_service: <value in [disable, enable]>
-              _intf_dhcp_relay_type: <value in [regular, ipsec]>
-              _intf_dhcp6_relay_ip: <string>
-              _intf_dhcp6_relay_service: <value in [disable, enable]>
-              _intf_dhcp6_relay_type: <value in [regular]>
-              _intf_ip: <string>
-              _intf_ip6_address: <string>
-              _intf_ip6_allowaccess:
-                - "https"
-                - "ping"
-                - "ssh"
-                - "snmp"
-                - "http"
-                - "telnet"
-                - "any"
-                - "fgfm"
-                - "capwap"
-              _intf_listen_forticlient_connection: <value in [disable, enable]>
-              _scope:
-                -
-                  name: <string>
-                  vdom: <string>
-              acct_interim_interval: <integer>
-              address_group: <string>
-              alias: <string>
-              atf_weight: <integer>
-              auth: <value in [PSK, psk, RADIUS, ...]>
-              broadcast_ssid: <value in [disable, enable]>
-              broadcast_suppression:
-                - "dhcp"
-                - "arp"
-                - "dhcp2"
-                - "arp2"
-                - "netbios-ns"
-                - "netbios-ds"
-                - "arp3"
-                - "dhcp-up"
-                - "dhcp-down"
-                - "arp-known"
-                - "arp-unknown"
-                - "arp-reply"
-                - "ipv6"
-                - "dhcp-starvation"
-                - "arp-poison"
-                - "all-other-mc"
-                - "all-other-bc"
-                - "arp-proxy"
-                - "dhcp-ucast"
-              captive_portal_ac_name: <string>
-              captive_portal_macauth_radius_secret: <list or string>
-              captive_portal_macauth_radius_server: <string>
-              captive_portal_radius_secret: <list or string>
-              captive_portal_radius_server: <string>
-              captive_portal_session_timeout_interval: <integer>
-              client_count: <integer>
-              dhcp_lease_time: <integer>
-              dhcp_option82_circuit_id_insertion: <value in [disable, style-1, style-2, ...]>
-              dhcp_option82_insertion: <value in [disable, enable]>
-              dhcp_option82_remote_id_insertion: <value in [disable, style-1]>
-              dynamic_vlan: <value in [disable, enable]>
-              eap_reauth: <value in [disable, enable]>
-              eap_reauth_intv: <integer>
-              eapol_key_retries: <value in [disable, enable]>
-              encrypt: <value in [TKIP, AES, TKIP-AES]>
-              external_fast_roaming: <value in [disable, enable]>
-              external_logout: <string>
-              external_web: <string>
-              fast_bss_transition: <value in [disable, enable]>
-              fast_roaming: <value in [disable, enable]>
-              ft_mobility_domain: <integer>
-              ft_over_ds: <value in [disable, enable]>
-              ft_r0_key_lifetime: <integer>
-              gtk_rekey: <value in [disable, enable]>
-              gtk_rekey_intv: <integer>
-              hotspot20_profile: <string>
-              intra_vap_privacy: <value in [disable, enable]>
-              ip: <string>
-              key: <list or string>
-              keyindex: <integer>
-              ldpc: <value in [disable, tx, rx, ...]>
-              local_authentication: <value in [disable, enable]>
-              local_bridging: <value in [disable, enable]>
-              local_lan: <value in [deny, allow]>
-              local_standalone: <value in [disable, enable]>
-              local_standalone_nat: <value in [disable, enable]>
-              local_switching: <value in [disable, enable]>
-              mac_auth_bypass: <value in [disable, enable]>
-              mac_filter: <value in [disable, enable]>
-              mac_filter_policy_other: <value in [deny, allow]>
-              max_clients: <integer>
-              max_clients_ap: <integer>
-              me_disable_thresh: <integer>
-              mesh_backhaul: <value in [disable, enable]>
-              mpsk: <value in [disable, enable]>
-              mpsk_concurrent_clients: <integer>
-              multicast_enhance: <value in [disable, enable]>
-              multicast_rate: <value in [0, 6000, 12000, ...]>
-              okc: <value in [disable, enable]>
-              owe_groups:
-                - "19"
-                - "20"
-                - "21"
-              owe_transition: <value in [disable, enable]>
-              owe_transition_ssid: <string>
-              passphrase: <list or string>
-              pmf: <value in [disable, enable, optional]>
-              pmf_assoc_comeback_timeout: <integer>
-              pmf_sa_query_retry_timeout: <integer>
-              portal_message_override_group: <string>
-              portal_type: <value in [auth, auth+disclaimer, disclaimer, ...]>
-              probe_resp_suppression: <value in [disable, enable]>
-              probe_resp_threshold: <string>
-              ptk_rekey: <value in [disable, enable]>
-              ptk_rekey_intv: <integer>
-              qos_profile: <string>
-              quarantine: <value in [disable, enable]>
-              radio_2g_threshold: <string>
-              radio_5g_threshold: <string>
-              radio_sensitivity: <value in [disable, enable]>
-              radius_mac_auth: <value in [disable, enable]>
-              radius_mac_auth_server: <string>
-              radius_mac_auth_usergroups: <list or string>
-              radius_server: <string>
-              rates_11a:
-                - "1"
-                - "1-basic"
-                - "2"
-                - "2-basic"
-                - "5.5"
-                - "5.5-basic"
-                - "6"
-                - "6-basic"
-                - "9"
-                - "9-basic"
-                - "12"
-                - "12-basic"
-                - "18"
-                - "18-basic"
-                - "24"
-                - "24-basic"
-                - "36"
-                - "36-basic"
-                - "48"
-                - "48-basic"
-                - "54"
-                - "54-basic"
-                - "11"
-                - "11-basic"
-              rates_11ac_ss12:
-                - "mcs0/1"
-                - "mcs1/1"
-                - "mcs2/1"
-                - "mcs3/1"
-                - "mcs4/1"
-                - "mcs5/1"
-                - "mcs6/1"
-                - "mcs7/1"
-                - "mcs8/1"
-                - "mcs9/1"
-                - "mcs0/2"
-                - "mcs1/2"
-                - "mcs2/2"
-                - "mcs3/2"
-                - "mcs4/2"
-                - "mcs5/2"
-                - "mcs6/2"
-                - "mcs7/2"
-                - "mcs8/2"
-                - "mcs9/2"
-                - "mcs10/1"
-                - "mcs11/1"
-                - "mcs10/2"
-                - "mcs11/2"
-              rates_11ac_ss34:
-                - "mcs0/3"
-                - "mcs1/3"
-                - "mcs2/3"
-                - "mcs3/3"
-                - "mcs4/3"
-                - "mcs5/3"
-                - "mcs6/3"
-                - "mcs7/3"
-                - "mcs8/3"
-                - "mcs9/3"
-                - "mcs0/4"
-                - "mcs1/4"
-                - "mcs2/4"
-                - "mcs3/4"
-                - "mcs4/4"
-                - "mcs5/4"
-                - "mcs6/4"
-                - "mcs7/4"
-                - "mcs8/4"
-                - "mcs9/4"
-                - "mcs10/3"
-                - "mcs11/3"
-                - "mcs10/4"
-                - "mcs11/4"
-              rates_11bg:
-                - "1"
-                - "1-basic"
-                - "2"
-                - "2-basic"
-                - "5.5"
-                - "5.5-basic"
-                - "6"
-                - "6-basic"
-                - "9"
-                - "9-basic"
-                - "12"
-                - "12-basic"
-                - "18"
-                - "18-basic"
-                - "24"
-                - "24-basic"
-                - "36"
-                - "36-basic"
-                - "48"
-                - "48-basic"
-                - "54"
-                - "54-basic"
-                - "11"
-                - "11-basic"
-              rates_11n_ss12:
-                - "mcs0/1"
-                - "mcs1/1"
-                - "mcs2/1"
-                - "mcs3/1"
-                - "mcs4/1"
-                - "mcs5/1"
-                - "mcs6/1"
-                - "mcs7/1"
-                - "mcs8/2"
-                - "mcs9/2"
-                - "mcs10/2"
-                - "mcs11/2"
-                - "mcs12/2"
-                - "mcs13/2"
-                - "mcs14/2"
-                - "mcs15/2"
-              rates_11n_ss34:
-                - "mcs16/3"
-                - "mcs17/3"
-                - "mcs18/3"
-                - "mcs19/3"
-                - "mcs20/3"
-                - "mcs21/3"
-                - "mcs22/3"
-                - "mcs23/3"
-                - "mcs24/4"
-                - "mcs25/4"
-                - "mcs26/4"
-                - "mcs27/4"
-                - "mcs28/4"
-                - "mcs29/4"
-                - "mcs30/4"
-                - "mcs31/4"
-              sae_groups:
-                - "1"
-                - "2"
-                - "5"
-                - "14"
-                - "15"
-                - "16"
-                - "17"
-                - "18"
-                - "19"
-                - "20"
-                - "21"
-                - "27"
-                - "28"
-                - "29"
-                - "30"
-                - "31"
-              sae_password: <list or string>
-              schedule: <list or string>
-              security: <value in [None, WEP64, wep64, ...]>
-              security_exempt_list: <string>
-              security_obsolete_option: <value in [disable, enable]>
-              security_redirect_url: <string>
-              selected_usergroups: <list or string>
-              split_tunneling: <value in [disable, enable]>
-              ssid: <string>
-              tkip_counter_measure: <value in [disable, enable]>
-              usergroup: <list or string>
-              utm_profile: <string>
-              vdom: <list or string>
-              vlan_auto: <value in [disable, enable]>
-              vlan_pooling: <value in [wtp-group, round-robin, hash, ...]>
-              vlanid: <integer>
-              voice_enterprise: <value in [disable, enable]>
-              mu_mimo: <value in [disable, enable]>
-              _intf_device_access_list: <string>
-              external_web_format: <value in [auto-detect, no-query-string, partial-query-string]>
-              high_efficiency: <value in [disable, enable]>
-              primary_wag_profile: <string>
-              secondary_wag_profile: <string>
-              target_wake_time: <value in [disable, enable]>
-              tunnel_echo_interval: <integer>
-              tunnel_fallback_interval: <integer>
-              access_control_list: <string>
-              captive_portal_auth_timeout: <integer>
-              ipv6_rules:
-                - "drop-icmp6ra"
-                - "drop-icmp6rs"
-                - "drop-llmnr6"
-                - "drop-icmp6mld2"
-                - "drop-dhcp6s"
-                - "drop-dhcp6c"
-                - "ndp-proxy"
-                - "drop-ns-dad"
-                - "drop-ns-nondad"
-              sticky_client_remove: <value in [disable, enable]>
-              sticky_client_threshold_2g: <string>
-              sticky_client_threshold_5g: <string>
-              bss_color_partial: <value in [disable, enable]>
-              dhcp_option43_insertion: <value in [disable, enable]>
-              mpsk_profile: <string>
-              igmp_snooping: <value in [disable, enable]>
-              port_macauth: <value in [disable, radius, address-group]>
-              port_macauth_reauth_timeout: <integer>
-              port_macauth_timeout: <integer>
-              additional_akms:
-                - "akm6"
-                - "akm24"
-              bstm_disassociation_imminent: <value in [disable, enable]>
-              bstm_load_balancing_disassoc_timer: <integer>
-              bstm_rssi_disassoc_timer: <integer>
-              dhcp_address_enforcement: <value in [disable, enable]>
-              gas_comeback_delay: <integer>
-              gas_fragmentation_limit: <integer>
-              mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-              mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-              mac_case: <value in [uppercase, lowercase]>
-              mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-              mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-              mbo: <value in [disable, enable]>
-              mbo_cell_data_conn_pref: <value in [excluded, prefer-not, prefer-use]>
-              nac: <value in [disable, enable]>
-              nac_profile: <string>
-              neighbor_report_dual_band: <value in [disable, enable]>
-              address_group_policy: <value in [disable, allow, deny]>
-              antivirus_profile: <string>
-              application_detection_engine: <value in [disable, enable]>
-              application_list: <string>
-              application_report_intv: <integer>
-              auth_cert: <string>
-              auth_portal_addr: <string>
-              beacon_advertising:
-                - "name"
-                - "model"
-                - "serial-number"
-              ips_sensor: <string>
-              l3_roaming: <value in [disable, enable]>
-              local_standalone_dns: <value in [disable, enable]>
-              local_standalone_dns_ip: <list or string>
-              osen: <value in [disable, enable]>
-              radius_mac_mpsk_auth: <value in [disable, enable]>
-              radius_mac_mpsk_timeout: <integer>
-              rates_11ax_ss12:
-                - "mcs0/1"
-                - "mcs1/1"
-                - "mcs2/1"
-                - "mcs3/1"
-                - "mcs4/1"
-                - "mcs5/1"
-                - "mcs6/1"
-                - "mcs7/1"
-                - "mcs8/1"
-                - "mcs9/1"
-                - "mcs10/1"
-                - "mcs11/1"
-                - "mcs0/2"
-                - "mcs1/2"
-                - "mcs2/2"
-                - "mcs3/2"
-                - "mcs4/2"
-                - "mcs5/2"
-                - "mcs6/2"
-                - "mcs7/2"
-                - "mcs8/2"
-                - "mcs9/2"
-                - "mcs10/2"
-                - "mcs11/2"
-              rates_11ax_ss34:
-                - "mcs0/3"
-                - "mcs1/3"
-                - "mcs2/3"
-                - "mcs3/3"
-                - "mcs4/3"
-                - "mcs5/3"
-                - "mcs6/3"
-                - "mcs7/3"
-                - "mcs8/3"
-                - "mcs9/3"
-                - "mcs10/3"
-                - "mcs11/3"
-                - "mcs0/4"
-                - "mcs1/4"
-                - "mcs2/4"
-                - "mcs3/4"
-                - "mcs4/4"
-                - "mcs5/4"
-                - "mcs6/4"
-                - "mcs7/4"
-                - "mcs8/4"
-                - "mcs9/4"
-                - "mcs10/4"
-                - "mcs11/4"
-              scan_botnet_connections: <value in [disable, block, monitor]>
-              utm_log: <value in [disable, enable]>
-              utm_status: <value in [disable, enable]>
-              webfilter_profile: <string>
-              sae_h2e_only: <value in [disable, enable]>
-              sae_pk: <value in [disable, enable]>
-              sae_private_key: <string>
-              sticky_client_threshold_6g: <string>
-              application_dscp_marking: <value in [disable, enable]>
-              l3_roaming_mode: <value in [direct, indirect]>
-              rates_11ac_mcs_map: <string>
-              rates_11ax_mcs_map: <string>
-              captive_portal_fw_accounting: <value in [disable, enable]>
-              radius_mac_auth_block_interval: <integer>
-              _is_factory_setting: <value in [disable, enable, ext]>
-              d80211k: <value in [disable, enable]>
-              d80211v: <value in [disable, enable]>
-              roaming_acct_interim_update: <value in [disable, enable]>
-              sae_hnp_only: <value in [disable, enable]>
-              akm24_only: <value in [disable, enable]>
-              beacon_protection: <value in [disable, enable]>
-              captive_portal: <value in [disable, enable]>
-              nas_filter_rule: <value in [disable, enable]>
-              rates_11be_mcs_map: <string>
-              rates_11be_mcs_map_160: <string>
-              rates_11be_mcs_map_320: <string>
-              _intf_ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
-              _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
-              domain_name_stripping: <value in [disable, enable]>
-              local_lan_partition: <value in [disable, enable]>
-              _intf_role: <value in [lan, wan, dmz, ...]>
-              called_station_id_type: <value in [mac, ip, apname]>
-              external_pre_auth: <value in [disable, enable]>
-              pre_auth: <value in [disable, enable]>
-          eap_reauth: <value in [disable, enable]>
-          eap_reauth_intv: <integer>
-          eapol_key_retries: <value in [disable, enable]>
-          encrypt: <value in [TKIP, AES, TKIP-AES]>
-          external_fast_roaming: <value in [disable, enable]>
-          external_logout: <string>
-          external_web: <string>
-          fast_bss_transition: <value in [disable, enable]>
-          fast_roaming: <value in [disable, enable]>
-          ft_mobility_domain: <integer>
-          ft_over_ds: <value in [disable, enable]>
-          ft_r0_key_lifetime: <integer>
-          gtk_rekey: <value in [disable, enable]>
-          gtk_rekey_intv: <integer>
-          hotspot20_profile: <string>
-          intra_vap_privacy: <value in [disable, enable]>
-          ip: <string>
-          key: <list or string>
-          keyindex: <integer>
-          ldpc: <value in [disable, tx, rx, ...]>
-          local_authentication: <value in [disable, enable]>
-          local_bridging: <value in [disable, enable]>
-          local_lan: <value in [deny, allow]>
-          local_standalone: <value in [disable, enable]>
-          local_standalone_nat: <value in [disable, enable]>
-          mac_auth_bypass: <value in [disable, enable]>
-          mac_filter: <value in [disable, enable]>
-          mac_filter_list:
-            -
-              id: <integer>
-              mac: <string>
-              mac_filter_policy: <value in [deny, allow]>
-          mac_filter_policy_other: <value in [deny, allow]>
-          max_clients: <integer>
-          max_clients_ap: <integer>
-          me_disable_thresh: <integer>
-          mesh_backhaul: <value in [disable, enable]>
-          mpsk: <value in [disable, enable]>
-          mpsk_concurrent_clients: <integer>
-          mpsk_key:
-            -
-              comment: <string>
-              concurrent_clients: <string>
-              key_name: <string>
-              passphrase: <list or string>
-              mpsk_schedules: <list or string>
-          multicast_enhance: <value in [disable, enable]>
-          multicast_rate: <value in [0, 6000, 12000, ...]>
-          name: <string>
-          okc: <value in [disable, enable]>
-          passphrase: <list or string>
-          pmf: <value in [disable, enable, optional]>
-          pmf_assoc_comeback_timeout: <integer>
-          pmf_sa_query_retry_timeout: <integer>
-          portal_message_override_group: <string>
-          portal_type: <value in [auth, auth+disclaimer, disclaimer, ...]>
-          probe_resp_suppression: <value in [disable, enable]>
-          probe_resp_threshold: <string>
-          ptk_rekey: <value in [disable, enable]>
-          ptk_rekey_intv: <integer>
-          qos_profile: <string>
-          quarantine: <value in [disable, enable]>
-          radio_2g_threshold: <string>
-          radio_5g_threshold: <string>
-          radio_sensitivity: <value in [disable, enable]>
-          radius_mac_auth: <value in [disable, enable]>
-          radius_mac_auth_server: <string>
-          radius_mac_auth_usergroups: <list or string>
-          radius_server: <string>
-          rates_11a:
-            - "1"
-            - "1-basic"
-            - "2"
-            - "2-basic"
-            - "5.5"
-            - "5.5-basic"
-            - "6"
-            - "6-basic"
-            - "9"
-            - "9-basic"
-            - "12"
-            - "12-basic"
-            - "18"
-            - "18-basic"
-            - "24"
-            - "24-basic"
-            - "36"
-            - "36-basic"
-            - "48"
-            - "48-basic"
-            - "54"
-            - "54-basic"
-            - "11"
-            - "11-basic"
-          rates_11ac_ss12:
-            - "mcs0/1"
-            - "mcs1/1"
-            - "mcs2/1"
-            - "mcs3/1"
-            - "mcs4/1"
-            - "mcs5/1"
-            - "mcs6/1"
-            - "mcs7/1"
-            - "mcs8/1"
-            - "mcs9/1"
-            - "mcs0/2"
-            - "mcs1/2"
-            - "mcs2/2"
-            - "mcs3/2"
-            - "mcs4/2"
-            - "mcs5/2"
-            - "mcs6/2"
-            - "mcs7/2"
-            - "mcs8/2"
-            - "mcs9/2"
-            - "mcs10/1"
-            - "mcs11/1"
-            - "mcs10/2"
-            - "mcs11/2"
-          rates_11ac_ss34:
-            - "mcs0/3"
-            - "mcs1/3"
-            - "mcs2/3"
-            - "mcs3/3"
-            - "mcs4/3"
-            - "mcs5/3"
-            - "mcs6/3"
-            - "mcs7/3"
-            - "mcs8/3"
-            - "mcs9/3"
-            - "mcs0/4"
-            - "mcs1/4"
-            - "mcs2/4"
-            - "mcs3/4"
-            - "mcs4/4"
-            - "mcs5/4"
-            - "mcs6/4"
-            - "mcs7/4"
-            - "mcs8/4"
-            - "mcs9/4"
-            - "mcs10/3"
-            - "mcs11/3"
-            - "mcs10/4"
-            - "mcs11/4"
-          rates_11bg:
-            - "1"
-            - "1-basic"
-            - "2"
-            - "2-basic"
-            - "5.5"
-            - "5.5-basic"
-            - "6"
-            - "6-basic"
-            - "9"
-            - "9-basic"
-            - "12"
-            - "12-basic"
-            - "18"
-            - "18-basic"
-            - "24"
-            - "24-basic"
-            - "36"
-            - "36-basic"
-            - "48"
-            - "48-basic"
-            - "54"
-            - "54-basic"
-            - "11"
-            - "11-basic"
-          rates_11n_ss12:
-            - "mcs0/1"
-            - "mcs1/1"
-            - "mcs2/1"
-            - "mcs3/1"
-            - "mcs4/1"
-            - "mcs5/1"
-            - "mcs6/1"
-            - "mcs7/1"
-            - "mcs8/2"
-            - "mcs9/2"
-            - "mcs10/2"
-            - "mcs11/2"
-            - "mcs12/2"
-            - "mcs13/2"
-            - "mcs14/2"
-            - "mcs15/2"
-          rates_11n_ss34:
-            - "mcs16/3"
-            - "mcs17/3"
-            - "mcs18/3"
-            - "mcs19/3"
-            - "mcs20/3"
-            - "mcs21/3"
-            - "mcs22/3"
-            - "mcs23/3"
-            - "mcs24/4"
-            - "mcs25/4"
-            - "mcs26/4"
-            - "mcs27/4"
-            - "mcs28/4"
-            - "mcs29/4"
-            - "mcs30/4"
-            - "mcs31/4"
-          schedule: <list or string>
-          security: <value in [None, WEP64, wep64, ...]>
-          security_exempt_list: <string>
-          security_obsolete_option: <value in [disable, enable]>
-          security_redirect_url: <string>
-          selected_usergroups: <list or string>
-          split_tunneling: <value in [disable, enable]>
-          ssid: <string>
-          tkip_counter_measure: <value in [disable, enable]>
-          usergroup: <list or string>
-          utm_profile: <string>
-          vdom: <string>
-          vlan_auto: <value in [disable, enable]>
-          vlan_pool:
-            -
-              _wtp_group: <string>
-              id: <integer>
-              wtp_group: <string>
-          vlan_pooling: <value in [wtp-group, round-robin, hash, ...]>
-          vlanid: <integer>
-          voice_enterprise: <value in [disable, enable]>
-          address_group: <string>
-          atf_weight: <integer>
-          mu_mimo: <value in [disable, enable]>
-          owe_groups:
-            - "19"
-            - "20"
-            - "21"
-          owe_transition: <value in [disable, enable]>
-          owe_transition_ssid: <string>
-          sae_groups:
-            - "1"
-            - "2"
-            - "5"
-            - "14"
-            - "15"
-            - "16"
-            - "17"
-            - "18"
-            - "19"
-            - "20"
-            - "21"
-            - "27"
-            - "28"
-            - "29"
-            - "30"
-            - "31"
-          sae_password: <list or string>
-          _intf_device_access_list: <string>
-          external_web_format: <value in [auto-detect, no-query-string, partial-query-string]>
-          high_efficiency: <value in [disable, enable]>
-          primary_wag_profile: <string>
-          secondary_wag_profile: <string>
-          target_wake_time: <value in [disable, enable]>
-          tunnel_echo_interval: <integer>
-          tunnel_fallback_interval: <integer>
-          access_control_list: <string>
-          captive_portal_auth_timeout: <integer>
-          ipv6_rules:
-            - "drop-icmp6ra"
-            - "drop-icmp6rs"
-            - "drop-llmnr6"
-            - "drop-icmp6mld2"
-            - "drop-dhcp6s"
-            - "drop-dhcp6c"
-            - "ndp-proxy"
-            - "drop-ns-dad"
-            - "drop-ns-nondad"
-          sticky_client_remove: <value in [disable, enable]>
-          sticky_client_threshold_2g: <string>
-          sticky_client_threshold_5g: <string>
-          bss_color_partial: <value in [disable, enable]>
-          dhcp_option43_insertion: <value in [disable, enable]>
-          mpsk_profile: <string>
-          igmp_snooping: <value in [disable, enable]>
-          port_macauth: <value in [disable, radius, address-group]>
-          port_macauth_reauth_timeout: <integer>
-          port_macauth_timeout: <integer>
-          portal_message_overrides:
-            auth_disclaimer_page: <string>
-            auth_login_failed_page: <string>
-            auth_login_page: <string>
-            auth_reject_page: <string>
-          additional_akms:
-            - "akm6"
-            - "akm24"
-          bstm_disassociation_imminent: <value in [disable, enable]>
-          bstm_load_balancing_disassoc_timer: <integer>
-          bstm_rssi_disassoc_timer: <integer>
-          dhcp_address_enforcement: <value in [disable, enable]>
-          gas_comeback_delay: <integer>
-          gas_fragmentation_limit: <integer>
-          mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-          mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-          mac_case: <value in [uppercase, lowercase]>
-          mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-          mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
-          mbo: <value in [disable, enable]>
-          mbo_cell_data_conn_pref: <value in [excluded, prefer-not, prefer-use]>
-          nac: <value in [disable, enable]>
-          nac_profile: <string>
-          neighbor_report_dual_band: <value in [disable, enable]>
-          address_group_policy: <value in [disable, allow, deny]>
-          antivirus_profile: <string>
-          application_detection_engine: <value in [disable, enable]>
-          application_list: <string>
-          application_report_intv: <integer>
-          auth_cert: <string>
-          auth_portal_addr: <string>
-          beacon_advertising:
-            - "name"
-            - "model"
-            - "serial-number"
-          ips_sensor: <string>
-          l3_roaming: <value in [disable, enable]>
-          local_standalone_dns: <value in [disable, enable]>
-          local_standalone_dns_ip: <list or string>
-          osen: <value in [disable, enable]>
-          radius_mac_mpsk_auth: <value in [disable, enable]>
-          radius_mac_mpsk_timeout: <integer>
-          rates_11ax_ss12:
-            - "mcs0/1"
-            - "mcs1/1"
-            - "mcs2/1"
-            - "mcs3/1"
-            - "mcs4/1"
-            - "mcs5/1"
-            - "mcs6/1"
-            - "mcs7/1"
-            - "mcs8/1"
-            - "mcs9/1"
-            - "mcs10/1"
-            - "mcs11/1"
-            - "mcs0/2"
-            - "mcs1/2"
-            - "mcs2/2"
-            - "mcs3/2"
-            - "mcs4/2"
-            - "mcs5/2"
-            - "mcs6/2"
-            - "mcs7/2"
-            - "mcs8/2"
-            - "mcs9/2"
-            - "mcs10/2"
-            - "mcs11/2"
-          rates_11ax_ss34:
-            - "mcs0/3"
-            - "mcs1/3"
-            - "mcs2/3"
-            - "mcs3/3"
-            - "mcs4/3"
-            - "mcs5/3"
-            - "mcs6/3"
-            - "mcs7/3"
-            - "mcs8/3"
-            - "mcs9/3"
-            - "mcs10/3"
-            - "mcs11/3"
-            - "mcs0/4"
-            - "mcs1/4"
-            - "mcs2/4"
-            - "mcs3/4"
-            - "mcs4/4"
-            - "mcs5/4"
-            - "mcs6/4"
-            - "mcs7/4"
-            - "mcs8/4"
-            - "mcs9/4"
-            - "mcs10/4"
-            - "mcs11/4"
-          scan_botnet_connections: <value in [disable, block, monitor]>
-          utm_log: <value in [disable, enable]>
-          utm_status: <value in [disable, enable]>
-          vlan_name:
-            -
-              name: <string>
-              vlan_id: <integer>
-          webfilter_profile: <string>
-          sae_h2e_only: <value in [disable, enable]>
-          sae_pk: <value in [disable, enable]>
-          sae_private_key: <string>
-          sticky_client_threshold_6g: <string>
-          application_dscp_marking: <value in [disable, enable]>
-          l3_roaming_mode: <value in [direct, indirect]>
-          rates_11ac_mcs_map: <string>
-          rates_11ax_mcs_map: <string>
-          captive_portal_fw_accounting: <value in [disable, enable]>
-          radius_mac_auth_block_interval: <integer>
-          _is_factory_setting: <value in [disable, enable, ext]>
-          d80211k: <value in [disable, enable]>
-          d80211v: <value in [disable, enable]>
-          roaming_acct_interim_update: <value in [disable, enable]>
-          sae_hnp_only: <value in [disable, enable]>
-          akm24_only: <value in [disable, enable]>
-          beacon_protection: <value in [disable, enable]>
-          captive_portal: <value in [disable, enable]>
-          nas_filter_rule: <value in [disable, enable]>
-          rates_11be_mcs_map: <string>
-          rates_11be_mcs_map_160: <string>
-          rates_11be_mcs_map_320: <string>
-          _intf_ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
-          _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
-          domain_name_stripping: <value in [disable, enable]>
-          local_lan_partition: <value in [disable, enable]>
-          _intf_role: <value in [lan, wan, dmz, ...]>
-          called_station_id_type: <value in [mac, ip, apname]>
-          external_pre_auth: <value in [disable, enable]>
-          pre_auth: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # _centmgmt: <value in [disable, enable]>
+          # _dhcp_svr_id: <string>
+          # _intf_allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          #   - "fgfm"
+          #   - "auto-ipsec"
+          #   - "radius-acct"
+          #   - "probe-response"
+          #   - "capwap"
+          #   - "dnp"
+          #   - "ftm"
+          #   - "fabric"
+          #   - "speed-test"
+          # _intf_device_identification: <value in [disable, enable]>
+          # _intf_device_netscan: <value in [disable, enable]>
+          # _intf_dhcp_relay_ip: <list or string>
+          # _intf_dhcp_relay_service: <value in [disable, enable]>
+          # _intf_dhcp_relay_type: <value in [regular, ipsec]>
+          # _intf_dhcp6_relay_ip: <string>
+          # _intf_dhcp6_relay_service: <value in [disable, enable]>
+          # _intf_dhcp6_relay_type: <value in [regular]>
+          # _intf_ip: <string>
+          # _intf_ip6_address: <string>
+          # _intf_ip6_allowaccess:
+          #   - "https"
+          #   - "ping"
+          #   - "ssh"
+          #   - "snmp"
+          #   - "http"
+          #   - "telnet"
+          #   - "any"
+          #   - "fgfm"
+          #   - "capwap"
+          # _intf_listen_forticlient_connection: <value in [disable, enable]>
+          # acct_interim_interval: <integer>
+          # alias: <string>
+          # auth: <value in [PSK, psk, RADIUS, ...]>
+          # broadcast_ssid: <value in [disable, enable]>
+          # broadcast_suppression:
+          #   - "dhcp"
+          #   - "arp"
+          #   - "dhcp2"
+          #   - "arp2"
+          #   - "netbios-ns"
+          #   - "netbios-ds"
+          #   - "arp3"
+          #   - "dhcp-up"
+          #   - "dhcp-down"
+          #   - "arp-known"
+          #   - "arp-unknown"
+          #   - "arp-reply"
+          #   - "ipv6"
+          #   - "dhcp-starvation"
+          #   - "arp-poison"
+          #   - "all-other-mc"
+          #   - "all-other-bc"
+          #   - "arp-proxy"
+          #   - "dhcp-ucast"
+          # captive_portal_ac_name: <string>
+          # captive_portal_macauth_radius_secret: <list or string>
+          # captive_portal_macauth_radius_server: <string>
+          # captive_portal_radius_secret: <list or string>
+          # captive_portal_radius_server: <string>
+          # captive_portal_session_timeout_interval: <integer>
+          # dhcp_lease_time: <integer>
+          # dhcp_option82_circuit_id_insertion: <value in [disable, style-1, style-2, ...]>
+          # dhcp_option82_insertion: <value in [disable, enable]>
+          # dhcp_option82_remote_id_insertion: <value in [disable, style-1]>
+          # dynamic_vlan: <value in [disable, enable]>
+          # dynamic_mapping:
+          #   - _centmgmt: <value in [disable, enable]>
+          #     _dhcp_svr_id: <string>
+          #     _intf_allowaccess:
+          #       - "https"
+          #       - "ping"
+          #       - "ssh"
+          #       - "snmp"
+          #       - "http"
+          #       - "telnet"
+          #       - "fgfm"
+          #       - "auto-ipsec"
+          #       - "radius-acct"
+          #       - "probe-response"
+          #       - "capwap"
+          #       - "dnp"
+          #       - "ftm"
+          #       - "fabric"
+          #       - "speed-test"
+          #     _intf_device_identification: <value in [disable, enable]>
+          #     _intf_device_netscan: <value in [disable, enable]>
+          #     _intf_dhcp_relay_ip: <list or string>
+          #     _intf_dhcp_relay_service: <value in [disable, enable]>
+          #     _intf_dhcp_relay_type: <value in [regular, ipsec]>
+          #     _intf_dhcp6_relay_ip: <string>
+          #     _intf_dhcp6_relay_service: <value in [disable, enable]>
+          #     _intf_dhcp6_relay_type: <value in [regular]>
+          #     _intf_ip: <string>
+          #     _intf_ip6_address: <string>
+          #     _intf_ip6_allowaccess:
+          #       - "https"
+          #       - "ping"
+          #       - "ssh"
+          #       - "snmp"
+          #       - "http"
+          #       - "telnet"
+          #       - "any"
+          #       - "fgfm"
+          #       - "capwap"
+          #     _intf_listen_forticlient_connection: <value in [disable, enable]>
+          #     _scope:
+          #       - name: <string>
+          #         vdom: <string>
+          #     acct_interim_interval: <integer>
+          #     address_group: <string>
+          #     alias: <string>
+          #     atf_weight: <integer>
+          #     auth: <value in [PSK, psk, RADIUS, ...]>
+          #     broadcast_ssid: <value in [disable, enable]>
+          #     broadcast_suppression:
+          #       - "dhcp"
+          #       - "arp"
+          #       - "dhcp2"
+          #       - "arp2"
+          #       - "netbios-ns"
+          #       - "netbios-ds"
+          #       - "arp3"
+          #       - "dhcp-up"
+          #       - "dhcp-down"
+          #       - "arp-known"
+          #       - "arp-unknown"
+          #       - "arp-reply"
+          #       - "ipv6"
+          #       - "dhcp-starvation"
+          #       - "arp-poison"
+          #       - "all-other-mc"
+          #       - "all-other-bc"
+          #       - "arp-proxy"
+          #       - "dhcp-ucast"
+          #     captive_portal_ac_name: <string>
+          #     captive_portal_macauth_radius_secret: <list or string>
+          #     captive_portal_macauth_radius_server: <string>
+          #     captive_portal_radius_secret: <list or string>
+          #     captive_portal_radius_server: <string>
+          #     captive_portal_session_timeout_interval: <integer>
+          #     client_count: <integer>
+          #     dhcp_lease_time: <integer>
+          #     dhcp_option82_circuit_id_insertion: <value in [disable, style-1, style-2, ...]>
+          #     dhcp_option82_insertion: <value in [disable, enable]>
+          #     dhcp_option82_remote_id_insertion: <value in [disable, style-1]>
+          #     dynamic_vlan: <value in [disable, enable]>
+          #     eap_reauth: <value in [disable, enable]>
+          #     eap_reauth_intv: <integer>
+          #     eapol_key_retries: <value in [disable, enable]>
+          #     encrypt: <value in [TKIP, AES, TKIP-AES]>
+          #     external_fast_roaming: <value in [disable, enable]>
+          #     external_logout: <string>
+          #     external_web: <string>
+          #     fast_bss_transition: <value in [disable, enable]>
+          #     fast_roaming: <value in [disable, enable]>
+          #     ft_mobility_domain: <integer>
+          #     ft_over_ds: <value in [disable, enable]>
+          #     ft_r0_key_lifetime: <integer>
+          #     gtk_rekey: <value in [disable, enable]>
+          #     gtk_rekey_intv: <integer>
+          #     hotspot20_profile: <string>
+          #     intra_vap_privacy: <value in [disable, enable]>
+          #     ip: <string>
+          #     key: <list or string>
+          #     keyindex: <integer>
+          #     ldpc: <value in [disable, tx, rx, ...]>
+          #     local_authentication: <value in [disable, enable]>
+          #     local_bridging: <value in [disable, enable]>
+          #     local_lan: <value in [deny, allow]>
+          #     local_standalone: <value in [disable, enable]>
+          #     local_standalone_nat: <value in [disable, enable]>
+          #     local_switching: <value in [disable, enable]>
+          #     mac_auth_bypass: <value in [disable, enable]>
+          #     mac_filter: <value in [disable, enable]>
+          #     mac_filter_policy_other: <value in [deny, allow]>
+          #     max_clients: <integer>
+          #     max_clients_ap: <integer>
+          #     me_disable_thresh: <integer>
+          #     mesh_backhaul: <value in [disable, enable]>
+          #     mpsk: <value in [disable, enable]>
+          #     mpsk_concurrent_clients: <integer>
+          #     multicast_enhance: <value in [disable, enable]>
+          #     multicast_rate: <value in [0, 6000, 12000, ...]>
+          #     okc: <value in [disable, enable]>
+          #     owe_groups:
+          #       - "19"
+          #       - "20"
+          #       - "21"
+          #     owe_transition: <value in [disable, enable]>
+          #     owe_transition_ssid: <string>
+          #     passphrase: <list or string>
+          #     pmf: <value in [disable, enable, optional]>
+          #     pmf_assoc_comeback_timeout: <integer>
+          #     pmf_sa_query_retry_timeout: <integer>
+          #     portal_message_override_group: <string>
+          #     portal_type: <value in [auth, auth+disclaimer, disclaimer, ...]>
+          #     probe_resp_suppression: <value in [disable, enable]>
+          #     probe_resp_threshold: <string>
+          #     ptk_rekey: <value in [disable, enable]>
+          #     ptk_rekey_intv: <integer>
+          #     qos_profile: <string>
+          #     quarantine: <value in [disable, enable]>
+          #     radio_2g_threshold: <string>
+          #     radio_5g_threshold: <string>
+          #     radio_sensitivity: <value in [disable, enable]>
+          #     radius_mac_auth: <value in [disable, enable]>
+          #     radius_mac_auth_server: <string>
+          #     radius_mac_auth_usergroups: <list or string>
+          #     radius_server: <string>
+          #     rates_11a:
+          #       - "1"
+          #       - "1-basic"
+          #       - "2"
+          #       - "2-basic"
+          #       - "5.5"
+          #       - "5.5-basic"
+          #       - "6"
+          #       - "6-basic"
+          #       - "9"
+          #       - "9-basic"
+          #       - "12"
+          #       - "12-basic"
+          #       - "18"
+          #       - "18-basic"
+          #       - "24"
+          #       - "24-basic"
+          #       - "36"
+          #       - "36-basic"
+          #       - "48"
+          #       - "48-basic"
+          #       - "54"
+          #       - "54-basic"
+          #       - "11"
+          #       - "11-basic"
+          #     rates_11ac_ss12:
+          #       - "mcs0/1"
+          #       - "mcs1/1"
+          #       - "mcs2/1"
+          #       - "mcs3/1"
+          #       - "mcs4/1"
+          #       - "mcs5/1"
+          #       - "mcs6/1"
+          #       - "mcs7/1"
+          #       - "mcs8/1"
+          #       - "mcs9/1"
+          #       - "mcs0/2"
+          #       - "mcs1/2"
+          #       - "mcs2/2"
+          #       - "mcs3/2"
+          #       - "mcs4/2"
+          #       - "mcs5/2"
+          #       - "mcs6/2"
+          #       - "mcs7/2"
+          #       - "mcs8/2"
+          #       - "mcs9/2"
+          #       - "mcs10/1"
+          #       - "mcs11/1"
+          #       - "mcs10/2"
+          #       - "mcs11/2"
+          #     rates_11ac_ss34:
+          #       - "mcs0/3"
+          #       - "mcs1/3"
+          #       - "mcs2/3"
+          #       - "mcs3/3"
+          #       - "mcs4/3"
+          #       - "mcs5/3"
+          #       - "mcs6/3"
+          #       - "mcs7/3"
+          #       - "mcs8/3"
+          #       - "mcs9/3"
+          #       - "mcs0/4"
+          #       - "mcs1/4"
+          #       - "mcs2/4"
+          #       - "mcs3/4"
+          #       - "mcs4/4"
+          #       - "mcs5/4"
+          #       - "mcs6/4"
+          #       - "mcs7/4"
+          #       - "mcs8/4"
+          #       - "mcs9/4"
+          #       - "mcs10/3"
+          #       - "mcs11/3"
+          #       - "mcs10/4"
+          #       - "mcs11/4"
+          #     rates_11bg:
+          #       - "1"
+          #       - "1-basic"
+          #       - "2"
+          #       - "2-basic"
+          #       - "5.5"
+          #       - "5.5-basic"
+          #       - "6"
+          #       - "6-basic"
+          #       - "9"
+          #       - "9-basic"
+          #       - "12"
+          #       - "12-basic"
+          #       - "18"
+          #       - "18-basic"
+          #       - "24"
+          #       - "24-basic"
+          #       - "36"
+          #       - "36-basic"
+          #       - "48"
+          #       - "48-basic"
+          #       - "54"
+          #       - "54-basic"
+          #       - "11"
+          #       - "11-basic"
+          #     rates_11n_ss12:
+          #       - "mcs0/1"
+          #       - "mcs1/1"
+          #       - "mcs2/1"
+          #       - "mcs3/1"
+          #       - "mcs4/1"
+          #       - "mcs5/1"
+          #       - "mcs6/1"
+          #       - "mcs7/1"
+          #       - "mcs8/2"
+          #       - "mcs9/2"
+          #       - "mcs10/2"
+          #       - "mcs11/2"
+          #       - "mcs12/2"
+          #       - "mcs13/2"
+          #       - "mcs14/2"
+          #       - "mcs15/2"
+          #     rates_11n_ss34:
+          #       - "mcs16/3"
+          #       - "mcs17/3"
+          #       - "mcs18/3"
+          #       - "mcs19/3"
+          #       - "mcs20/3"
+          #       - "mcs21/3"
+          #       - "mcs22/3"
+          #       - "mcs23/3"
+          #       - "mcs24/4"
+          #       - "mcs25/4"
+          #       - "mcs26/4"
+          #       - "mcs27/4"
+          #       - "mcs28/4"
+          #       - "mcs29/4"
+          #       - "mcs30/4"
+          #       - "mcs31/4"
+          #     sae_groups:
+          #       - "1"
+          #       - "2"
+          #       - "5"
+          #       - "14"
+          #       - "15"
+          #       - "16"
+          #       - "17"
+          #       - "18"
+          #       - "19"
+          #       - "20"
+          #       - "21"
+          #       - "27"
+          #       - "28"
+          #       - "29"
+          #       - "30"
+          #       - "31"
+          #     sae_password: <list or string>
+          #     schedule: <list or string>
+          #     security: <value in [None, WEP64, wep64, ...]>
+          #     security_exempt_list: <string>
+          #     security_obsolete_option: <value in [disable, enable]>
+          #     security_redirect_url: <string>
+          #     selected_usergroups: <list or string>
+          #     split_tunneling: <value in [disable, enable]>
+          #     ssid: <string>
+          #     tkip_counter_measure: <value in [disable, enable]>
+          #     usergroup: <list or string>
+          #     utm_profile: <string>
+          #     vdom: <list or string>
+          #     vlan_auto: <value in [disable, enable]>
+          #     vlan_pooling: <value in [wtp-group, round-robin, hash, ...]>
+          #     vlanid: <integer>
+          #     voice_enterprise: <value in [disable, enable]>
+          #     mu_mimo: <value in [disable, enable]>
+          #     _intf_device_access_list: <string>
+          #     external_web_format: <value in [auto-detect, no-query-string, partial-query-string]>
+          #     high_efficiency: <value in [disable, enable]>
+          #     primary_wag_profile: <string>
+          #     secondary_wag_profile: <string>
+          #     target_wake_time: <value in [disable, enable]>
+          #     tunnel_echo_interval: <integer>
+          #     tunnel_fallback_interval: <integer>
+          #     access_control_list: <string>
+          #     captive_portal_auth_timeout: <integer>
+          #     ipv6_rules:
+          #       - "drop-icmp6ra"
+          #       - "drop-icmp6rs"
+          #       - "drop-llmnr6"
+          #       - "drop-icmp6mld2"
+          #       - "drop-dhcp6s"
+          #       - "drop-dhcp6c"
+          #       - "ndp-proxy"
+          #       - "drop-ns-dad"
+          #       - "drop-ns-nondad"
+          #     sticky_client_remove: <value in [disable, enable]>
+          #     sticky_client_threshold_2g: <string>
+          #     sticky_client_threshold_5g: <string>
+          #     bss_color_partial: <value in [disable, enable]>
+          #     dhcp_option43_insertion: <value in [disable, enable]>
+          #     mpsk_profile: <string>
+          #     igmp_snooping: <value in [disable, enable]>
+          #     port_macauth: <value in [disable, radius, address-group]>
+          #     port_macauth_reauth_timeout: <integer>
+          #     port_macauth_timeout: <integer>
+          #     additional_akms:
+          #       - "akm6"
+          #       - "akm24"
+          #     bstm_disassociation_imminent: <value in [disable, enable]>
+          #     bstm_load_balancing_disassoc_timer: <integer>
+          #     bstm_rssi_disassoc_timer: <integer>
+          #     dhcp_address_enforcement: <value in [disable, enable]>
+          #     gas_comeback_delay: <integer>
+          #     gas_fragmentation_limit: <integer>
+          #     mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #     mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #     mac_case: <value in [uppercase, lowercase]>
+          #     mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #     mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          #     mbo: <value in [disable, enable]>
+          #     mbo_cell_data_conn_pref: <value in [excluded, prefer-not, prefer-use]>
+          #     nac: <value in [disable, enable]>
+          #     nac_profile: <string>
+          #     neighbor_report_dual_band: <value in [disable, enable]>
+          #     address_group_policy: <value in [disable, allow, deny]>
+          #     antivirus_profile: <string>
+          #     application_detection_engine: <value in [disable, enable]>
+          #     application_list: <string>
+          #     application_report_intv: <integer>
+          #     auth_cert: <string>
+          #     auth_portal_addr: <string>
+          #     beacon_advertising:
+          #       - "name"
+          #       - "model"
+          #       - "serial-number"
+          #     ips_sensor: <string>
+          #     l3_roaming: <value in [disable, enable]>
+          #     local_standalone_dns: <value in [disable, enable]>
+          #     local_standalone_dns_ip: <list or string>
+          #     osen: <value in [disable, enable]>
+          #     radius_mac_mpsk_auth: <value in [disable, enable]>
+          #     radius_mac_mpsk_timeout: <integer>
+          #     rates_11ax_ss12:
+          #       - "mcs0/1"
+          #       - "mcs1/1"
+          #       - "mcs2/1"
+          #       - "mcs3/1"
+          #       - "mcs4/1"
+          #       - "mcs5/1"
+          #       - "mcs6/1"
+          #       - "mcs7/1"
+          #       - "mcs8/1"
+          #       - "mcs9/1"
+          #       - "mcs10/1"
+          #       - "mcs11/1"
+          #       - "mcs0/2"
+          #       - "mcs1/2"
+          #       - "mcs2/2"
+          #       - "mcs3/2"
+          #       - "mcs4/2"
+          #       - "mcs5/2"
+          #       - "mcs6/2"
+          #       - "mcs7/2"
+          #       - "mcs8/2"
+          #       - "mcs9/2"
+          #       - "mcs10/2"
+          #       - "mcs11/2"
+          #     rates_11ax_ss34:
+          #       - "mcs0/3"
+          #       - "mcs1/3"
+          #       - "mcs2/3"
+          #       - "mcs3/3"
+          #       - "mcs4/3"
+          #       - "mcs5/3"
+          #       - "mcs6/3"
+          #       - "mcs7/3"
+          #       - "mcs8/3"
+          #       - "mcs9/3"
+          #       - "mcs10/3"
+          #       - "mcs11/3"
+          #       - "mcs0/4"
+          #       - "mcs1/4"
+          #       - "mcs2/4"
+          #       - "mcs3/4"
+          #       - "mcs4/4"
+          #       - "mcs5/4"
+          #       - "mcs6/4"
+          #       - "mcs7/4"
+          #       - "mcs8/4"
+          #       - "mcs9/4"
+          #       - "mcs10/4"
+          #       - "mcs11/4"
+          #     scan_botnet_connections: <value in [disable, block, monitor]>
+          #     utm_log: <value in [disable, enable]>
+          #     utm_status: <value in [disable, enable]>
+          #     webfilter_profile: <string>
+          #     sae_h2e_only: <value in [disable, enable]>
+          #     sae_pk: <value in [disable, enable]>
+          #     sae_private_key: <string>
+          #     sticky_client_threshold_6g: <string>
+          #     application_dscp_marking: <value in [disable, enable]>
+          #     l3_roaming_mode: <value in [direct, indirect]>
+          #     rates_11ac_mcs_map: <string>
+          #     rates_11ax_mcs_map: <string>
+          #     captive_portal_fw_accounting: <value in [disable, enable]>
+          #     radius_mac_auth_block_interval: <integer>
+          #     _is_factory_setting: <value in [disable, enable, ext]>
+          #     d80211k: <value in [disable, enable]>
+          #     d80211v: <value in [disable, enable]>
+          #     roaming_acct_interim_update: <value in [disable, enable]>
+          #     sae_hnp_only: <value in [disable, enable]>
+          #     akm24_only: <value in [disable, enable]>
+          #     beacon_protection: <value in [disable, enable]>
+          #     captive_portal: <value in [disable, enable]>
+          #     nas_filter_rule: <value in [disable, enable]>
+          #     rates_11be_mcs_map: <string>
+          #     rates_11be_mcs_map_160: <string>
+          #     rates_11be_mcs_map_320: <string>
+          #     _intf_ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
+          #     _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
+          #     domain_name_stripping: <value in [disable, enable]>
+          #     local_lan_partition: <value in [disable, enable]>
+          #     _intf_role: <value in [lan, wan, dmz, ...]>
+          #     called_station_id_type: <value in [mac, ip, apname]>
+          #     external_pre_auth: <value in [disable, enable]>
+          #     pre_auth: <value in [disable, enable]>
+          # eap_reauth: <value in [disable, enable]>
+          # eap_reauth_intv: <integer>
+          # eapol_key_retries: <value in [disable, enable]>
+          # encrypt: <value in [TKIP, AES, TKIP-AES]>
+          # external_fast_roaming: <value in [disable, enable]>
+          # external_logout: <string>
+          # external_web: <string>
+          # fast_bss_transition: <value in [disable, enable]>
+          # fast_roaming: <value in [disable, enable]>
+          # ft_mobility_domain: <integer>
+          # ft_over_ds: <value in [disable, enable]>
+          # ft_r0_key_lifetime: <integer>
+          # gtk_rekey: <value in [disable, enable]>
+          # gtk_rekey_intv: <integer>
+          # hotspot20_profile: <string>
+          # intra_vap_privacy: <value in [disable, enable]>
+          # ip: <string>
+          # key: <list or string>
+          # keyindex: <integer>
+          # ldpc: <value in [disable, tx, rx, ...]>
+          # local_authentication: <value in [disable, enable]>
+          # local_bridging: <value in [disable, enable]>
+          # local_lan: <value in [deny, allow]>
+          # local_standalone: <value in [disable, enable]>
+          # local_standalone_nat: <value in [disable, enable]>
+          # mac_auth_bypass: <value in [disable, enable]>
+          # mac_filter: <value in [disable, enable]>
+          # mac_filter_list:
+          #   - id: <integer>
+          #     mac: <string>
+          #     mac_filter_policy: <value in [deny, allow]>
+          # mac_filter_policy_other: <value in [deny, allow]>
+          # max_clients: <integer>
+          # max_clients_ap: <integer>
+          # me_disable_thresh: <integer>
+          # mesh_backhaul: <value in [disable, enable]>
+          # mpsk: <value in [disable, enable]>
+          # mpsk_concurrent_clients: <integer>
+          # mpsk_key:
+          #   - comment: <string>
+          #     concurrent_clients: <string>
+          #     key_name: <string>
+          #     passphrase: <list or string>
+          #     mpsk_schedules: <list or string>
+          # multicast_enhance: <value in [disable, enable]>
+          # multicast_rate: <value in [0, 6000, 12000, ...]>
+          # okc: <value in [disable, enable]>
+          # passphrase: <list or string>
+          # pmf: <value in [disable, enable, optional]>
+          # pmf_assoc_comeback_timeout: <integer>
+          # pmf_sa_query_retry_timeout: <integer>
+          # portal_message_override_group: <string>
+          # portal_type: <value in [auth, auth+disclaimer, disclaimer, ...]>
+          # probe_resp_suppression: <value in [disable, enable]>
+          # probe_resp_threshold: <string>
+          # ptk_rekey: <value in [disable, enable]>
+          # ptk_rekey_intv: <integer>
+          # qos_profile: <string>
+          # quarantine: <value in [disable, enable]>
+          # radio_2g_threshold: <string>
+          # radio_5g_threshold: <string>
+          # radio_sensitivity: <value in [disable, enable]>
+          # radius_mac_auth: <value in [disable, enable]>
+          # radius_mac_auth_server: <string>
+          # radius_mac_auth_usergroups: <list or string>
+          # radius_server: <string>
+          # rates_11a:
+          #   - "1"
+          #   - "1-basic"
+          #   - "2"
+          #   - "2-basic"
+          #   - "5.5"
+          #   - "5.5-basic"
+          #   - "6"
+          #   - "6-basic"
+          #   - "9"
+          #   - "9-basic"
+          #   - "12"
+          #   - "12-basic"
+          #   - "18"
+          #   - "18-basic"
+          #   - "24"
+          #   - "24-basic"
+          #   - "36"
+          #   - "36-basic"
+          #   - "48"
+          #   - "48-basic"
+          #   - "54"
+          #   - "54-basic"
+          #   - "11"
+          #   - "11-basic"
+          # rates_11ac_ss12:
+          #   - "mcs0/1"
+          #   - "mcs1/1"
+          #   - "mcs2/1"
+          #   - "mcs3/1"
+          #   - "mcs4/1"
+          #   - "mcs5/1"
+          #   - "mcs6/1"
+          #   - "mcs7/1"
+          #   - "mcs8/1"
+          #   - "mcs9/1"
+          #   - "mcs0/2"
+          #   - "mcs1/2"
+          #   - "mcs2/2"
+          #   - "mcs3/2"
+          #   - "mcs4/2"
+          #   - "mcs5/2"
+          #   - "mcs6/2"
+          #   - "mcs7/2"
+          #   - "mcs8/2"
+          #   - "mcs9/2"
+          #   - "mcs10/1"
+          #   - "mcs11/1"
+          #   - "mcs10/2"
+          #   - "mcs11/2"
+          # rates_11ac_ss34:
+          #   - "mcs0/3"
+          #   - "mcs1/3"
+          #   - "mcs2/3"
+          #   - "mcs3/3"
+          #   - "mcs4/3"
+          #   - "mcs5/3"
+          #   - "mcs6/3"
+          #   - "mcs7/3"
+          #   - "mcs8/3"
+          #   - "mcs9/3"
+          #   - "mcs0/4"
+          #   - "mcs1/4"
+          #   - "mcs2/4"
+          #   - "mcs3/4"
+          #   - "mcs4/4"
+          #   - "mcs5/4"
+          #   - "mcs6/4"
+          #   - "mcs7/4"
+          #   - "mcs8/4"
+          #   - "mcs9/4"
+          #   - "mcs10/3"
+          #   - "mcs11/3"
+          #   - "mcs10/4"
+          #   - "mcs11/4"
+          # rates_11bg:
+          #   - "1"
+          #   - "1-basic"
+          #   - "2"
+          #   - "2-basic"
+          #   - "5.5"
+          #   - "5.5-basic"
+          #   - "6"
+          #   - "6-basic"
+          #   - "9"
+          #   - "9-basic"
+          #   - "12"
+          #   - "12-basic"
+          #   - "18"
+          #   - "18-basic"
+          #   - "24"
+          #   - "24-basic"
+          #   - "36"
+          #   - "36-basic"
+          #   - "48"
+          #   - "48-basic"
+          #   - "54"
+          #   - "54-basic"
+          #   - "11"
+          #   - "11-basic"
+          # rates_11n_ss12:
+          #   - "mcs0/1"
+          #   - "mcs1/1"
+          #   - "mcs2/1"
+          #   - "mcs3/1"
+          #   - "mcs4/1"
+          #   - "mcs5/1"
+          #   - "mcs6/1"
+          #   - "mcs7/1"
+          #   - "mcs8/2"
+          #   - "mcs9/2"
+          #   - "mcs10/2"
+          #   - "mcs11/2"
+          #   - "mcs12/2"
+          #   - "mcs13/2"
+          #   - "mcs14/2"
+          #   - "mcs15/2"
+          # rates_11n_ss34:
+          #   - "mcs16/3"
+          #   - "mcs17/3"
+          #   - "mcs18/3"
+          #   - "mcs19/3"
+          #   - "mcs20/3"
+          #   - "mcs21/3"
+          #   - "mcs22/3"
+          #   - "mcs23/3"
+          #   - "mcs24/4"
+          #   - "mcs25/4"
+          #   - "mcs26/4"
+          #   - "mcs27/4"
+          #   - "mcs28/4"
+          #   - "mcs29/4"
+          #   - "mcs30/4"
+          #   - "mcs31/4"
+          # schedule: <list or string>
+          # security: <value in [None, WEP64, wep64, ...]>
+          # security_exempt_list: <string>
+          # security_obsolete_option: <value in [disable, enable]>
+          # security_redirect_url: <string>
+          # selected_usergroups: <list or string>
+          # split_tunneling: <value in [disable, enable]>
+          # ssid: <string>
+          # tkip_counter_measure: <value in [disable, enable]>
+          # usergroup: <list or string>
+          # utm_profile: <string>
+          # vdom: <string>
+          # vlan_auto: <value in [disable, enable]>
+          # vlan_pool:
+          #   - _wtp_group: <string>
+          #     id: <integer>
+          #     wtp_group: <string>
+          # vlan_pooling: <value in [wtp-group, round-robin, hash, ...]>
+          # vlanid: <integer>
+          # voice_enterprise: <value in [disable, enable]>
+          # address_group: <string>
+          # atf_weight: <integer>
+          # mu_mimo: <value in [disable, enable]>
+          # owe_groups:
+          #   - "19"
+          #   - "20"
+          #   - "21"
+          # owe_transition: <value in [disable, enable]>
+          # owe_transition_ssid: <string>
+          # sae_groups:
+          #   - "1"
+          #   - "2"
+          #   - "5"
+          #   - "14"
+          #   - "15"
+          #   - "16"
+          #   - "17"
+          #   - "18"
+          #   - "19"
+          #   - "20"
+          #   - "21"
+          #   - "27"
+          #   - "28"
+          #   - "29"
+          #   - "30"
+          #   - "31"
+          # sae_password: <list or string>
+          # _intf_device_access_list: <string>
+          # external_web_format: <value in [auto-detect, no-query-string, partial-query-string]>
+          # high_efficiency: <value in [disable, enable]>
+          # primary_wag_profile: <string>
+          # secondary_wag_profile: <string>
+          # target_wake_time: <value in [disable, enable]>
+          # tunnel_echo_interval: <integer>
+          # tunnel_fallback_interval: <integer>
+          # access_control_list: <string>
+          # captive_portal_auth_timeout: <integer>
+          # ipv6_rules:
+          #   - "drop-icmp6ra"
+          #   - "drop-icmp6rs"
+          #   - "drop-llmnr6"
+          #   - "drop-icmp6mld2"
+          #   - "drop-dhcp6s"
+          #   - "drop-dhcp6c"
+          #   - "ndp-proxy"
+          #   - "drop-ns-dad"
+          #   - "drop-ns-nondad"
+          # sticky_client_remove: <value in [disable, enable]>
+          # sticky_client_threshold_2g: <string>
+          # sticky_client_threshold_5g: <string>
+          # bss_color_partial: <value in [disable, enable]>
+          # dhcp_option43_insertion: <value in [disable, enable]>
+          # mpsk_profile: <string>
+          # igmp_snooping: <value in [disable, enable]>
+          # port_macauth: <value in [disable, radius, address-group]>
+          # port_macauth_reauth_timeout: <integer>
+          # port_macauth_timeout: <integer>
+          # portal_message_overrides:
+          #   auth_disclaimer_page: <string>
+          #   auth_login_failed_page: <string>
+          #   auth_login_page: <string>
+          #   auth_reject_page: <string>
+          # additional_akms:
+          #   - "akm6"
+          #   - "akm24"
+          # bstm_disassociation_imminent: <value in [disable, enable]>
+          # bstm_load_balancing_disassoc_timer: <integer>
+          # bstm_rssi_disassoc_timer: <integer>
+          # dhcp_address_enforcement: <value in [disable, enable]>
+          # gas_comeback_delay: <integer>
+          # gas_fragmentation_limit: <integer>
+          # mac_called_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          # mac_calling_station_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          # mac_case: <value in [uppercase, lowercase]>
+          # mac_password_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          # mac_username_delimiter: <value in [hyphen, single-hyphen, colon, ...]>
+          # mbo: <value in [disable, enable]>
+          # mbo_cell_data_conn_pref: <value in [excluded, prefer-not, prefer-use]>
+          # nac: <value in [disable, enable]>
+          # nac_profile: <string>
+          # neighbor_report_dual_band: <value in [disable, enable]>
+          # address_group_policy: <value in [disable, allow, deny]>
+          # antivirus_profile: <string>
+          # application_detection_engine: <value in [disable, enable]>
+          # application_list: <string>
+          # application_report_intv: <integer>
+          # auth_cert: <string>
+          # auth_portal_addr: <string>
+          # beacon_advertising:
+          #   - "name"
+          #   - "model"
+          #   - "serial-number"
+          # ips_sensor: <string>
+          # l3_roaming: <value in [disable, enable]>
+          # local_standalone_dns: <value in [disable, enable]>
+          # local_standalone_dns_ip: <list or string>
+          # osen: <value in [disable, enable]>
+          # radius_mac_mpsk_auth: <value in [disable, enable]>
+          # radius_mac_mpsk_timeout: <integer>
+          # rates_11ax_ss12:
+          #   - "mcs0/1"
+          #   - "mcs1/1"
+          #   - "mcs2/1"
+          #   - "mcs3/1"
+          #   - "mcs4/1"
+          #   - "mcs5/1"
+          #   - "mcs6/1"
+          #   - "mcs7/1"
+          #   - "mcs8/1"
+          #   - "mcs9/1"
+          #   - "mcs10/1"
+          #   - "mcs11/1"
+          #   - "mcs0/2"
+          #   - "mcs1/2"
+          #   - "mcs2/2"
+          #   - "mcs3/2"
+          #   - "mcs4/2"
+          #   - "mcs5/2"
+          #   - "mcs6/2"
+          #   - "mcs7/2"
+          #   - "mcs8/2"
+          #   - "mcs9/2"
+          #   - "mcs10/2"
+          #   - "mcs11/2"
+          # rates_11ax_ss34:
+          #   - "mcs0/3"
+          #   - "mcs1/3"
+          #   - "mcs2/3"
+          #   - "mcs3/3"
+          #   - "mcs4/3"
+          #   - "mcs5/3"
+          #   - "mcs6/3"
+          #   - "mcs7/3"
+          #   - "mcs8/3"
+          #   - "mcs9/3"
+          #   - "mcs10/3"
+          #   - "mcs11/3"
+          #   - "mcs0/4"
+          #   - "mcs1/4"
+          #   - "mcs2/4"
+          #   - "mcs3/4"
+          #   - "mcs4/4"
+          #   - "mcs5/4"
+          #   - "mcs6/4"
+          #   - "mcs7/4"
+          #   - "mcs8/4"
+          #   - "mcs9/4"
+          #   - "mcs10/4"
+          #   - "mcs11/4"
+          # scan_botnet_connections: <value in [disable, block, monitor]>
+          # utm_log: <value in [disable, enable]>
+          # utm_status: <value in [disable, enable]>
+          # vlan_name:
+          #   - name: <string>
+          #     vlan_id: <integer>
+          # webfilter_profile: <string>
+          # sae_h2e_only: <value in [disable, enable]>
+          # sae_pk: <value in [disable, enable]>
+          # sae_private_key: <string>
+          # sticky_client_threshold_6g: <string>
+          # application_dscp_marking: <value in [disable, enable]>
+          # l3_roaming_mode: <value in [direct, indirect]>
+          # rates_11ac_mcs_map: <string>
+          # rates_11ax_mcs_map: <string>
+          # captive_portal_fw_accounting: <value in [disable, enable]>
+          # radius_mac_auth_block_interval: <integer>
+          # _is_factory_setting: <value in [disable, enable, ext]>
+          # d80211k: <value in [disable, enable]>
+          # d80211v: <value in [disable, enable]>
+          # roaming_acct_interim_update: <value in [disable, enable]>
+          # sae_hnp_only: <value in [disable, enable]>
+          # akm24_only: <value in [disable, enable]>
+          # beacon_protection: <value in [disable, enable]>
+          # captive_portal: <value in [disable, enable]>
+          # nas_filter_rule: <value in [disable, enable]>
+          # rates_11be_mcs_map: <string>
+          # rates_11be_mcs_map_160: <string>
+          # rates_11be_mcs_map_320: <string>
+          # _intf_ip_managed_by_fortiipam: <value in [disable, enable, inherit-global]>
+          # _intf_managed_subnetwork_size: <value in [32, 64, 128, ...]>
+          # domain_name_stripping: <value in [disable, enable]>
+          # local_lan_partition: <value in [disable, enable]>
+          # _intf_role: <value in [lan, wan, dmz, ...]>
+          # called_station_id_type: <value in [mac, ip, apname]>
+          # external_pre_auth: <value in [disable, enable]>
+          # pre_auth: <value in [disable, enable]>
 '''
 
 RETURN = '''

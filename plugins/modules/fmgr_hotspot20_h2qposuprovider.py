@@ -167,24 +167,22 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qposuprovider:
-          friendly_name:
-            -
-              friendly_name: <string>
-              index: <integer>
-              lang: <string>
-          icon: <string>
-          name: <string>
-          osu_method:
-            - "oma-dm"
-            - "soap-xml-spp"
-            - "reserved"
-          osu_nai: <string>
-          server_uri: <string>
-          service_description:
-            -
-              lang: <string>
-              service_description: <string>
-              service_id: <integer>
+          name: "your value" # Required variable, string
+          # friendly_name:
+          #   - friendly_name: <string>
+          #     index: <integer>
+          #     lang: <string>
+          # icon: <string>
+          # osu_method:
+          #   - "oma-dm"
+          #   - "soap-xml-spp"
+          #   - "reserved"
+          # osu_nai: <string>
+          # server_uri: <string>
+          # service_description:
+          #   - lang: <string>
+          #     service_description: <string>
+          #     service_id: <integer>
 '''
 
 RETURN = '''

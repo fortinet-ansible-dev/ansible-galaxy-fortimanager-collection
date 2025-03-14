@@ -91,7 +91,7 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_abort:
-          adom: <string>
+          # adom: <string>
 '''
 
 RETURN = '''

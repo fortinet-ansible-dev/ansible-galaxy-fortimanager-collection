@@ -202,25 +202,25 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         extensioncontroller_dataplan:
-          apn: <string>
-          auth_type: <value in [none, pap, chap]>
-          billing_date: <integer>
-          capacity: <integer>
-          carrier: <string>
-          iccid: <string>
-          modem_id: <value in [all, modem1, modem2]>
-          monthly_fee: <integer>
-          name: <string>
-          overage: <value in [disable, enable]>
-          password: <list or string>
-          pdn: <value in [ipv4-only, ipv6-only, ipv4-ipv6]>
-          preferred_subnet: <integer>
-          private_network: <value in [disable, enable]>
-          signal_period: <integer>
-          signal_threshold: <integer>
-          slot: <value in [sim1, sim2]>
-          type: <value in [carrier, slot, iccid, ...]>
-          username: <string>
+          name: "your value" # Required variable, string
+          # apn: <string>
+          # auth_type: <value in [none, pap, chap]>
+          # billing_date: <integer>
+          # capacity: <integer>
+          # carrier: <string>
+          # iccid: <string>
+          # modem_id: <value in [all, modem1, modem2]>
+          # monthly_fee: <integer>
+          # overage: <value in [disable, enable]>
+          # password: <list or string>
+          # pdn: <value in [ipv4-only, ipv6-only, ipv4-ipv6]>
+          # preferred_subnet: <integer>
+          # private_network: <value in [disable, enable]>
+          # signal_period: <integer>
+          # signal_threshold: <integer>
+          # slot: <value in [sim1, sim2]>
+          # type: <value in [carrier, slot, iccid, ...]>
+          # username: <string>
 '''
 
 RETURN = '''

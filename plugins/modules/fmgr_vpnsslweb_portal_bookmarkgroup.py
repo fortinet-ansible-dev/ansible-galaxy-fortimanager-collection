@@ -394,44 +394,42 @@ EXAMPLES = '''
         portal: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_portal_bookmarkgroup:
-          bookmarks:
-            -
-              additional_params: <string>
-              apptype: <value in [web, telnet, ssh, ...]>
-              description: <string>
-              folder: <string>
-              form_data:
-                -
-                  name: <string>
-                  value: <string>
-              host: <string>
-              listening_port: <integer>
-              load_balancing_info: <string>
-              logon_password: <list or string>
-              logon_user: <string>
-              name: <string>
-              port: <integer>
-              preconnection_blob: <string>
-              preconnection_id: <integer>
-              remote_port: <integer>
-              security: <value in [rdp, nla, tls, ...]>
-              server_layout: <value in [en-us-qwerty, de-de-qwertz, fr-fr-azerty, ...]>
-              show_status_window: <value in [disable, enable]>
-              sso: <value in [disable, static, auto]>
-              sso_credential: <value in [sslvpn-login, alternative]>
-              sso_credential_sent_once: <value in [disable, enable]>
-              sso_password: <list or string>
-              sso_username: <string>
-              url: <string>
-              domain: <string>
-              color_depth: <value in [8, 16, 32]>
-              height: <integer>
-              keyboard_layout: <value in [ar, da, de, ...]>
-              restricted_admin: <value in [disable, enable]>
-              send_preconnection_id: <value in [disable, enable]>
-              width: <integer>
-              vnc_keyboard_layout: <value in [da, de, de-ch, ...]>
-          name: <string>
+          name: "your value" # Required variable, string
+          # bookmarks:
+          #   - additional_params: <string>
+          #     apptype: <value in [web, telnet, ssh, ...]>
+          #     description: <string>
+          #     folder: <string>
+          #     form_data:
+          #       - name: <string>
+          #         value: <string>
+          #     host: <string>
+          #     listening_port: <integer>
+          #     load_balancing_info: <string>
+          #     logon_password: <list or string>
+          #     logon_user: <string>
+          #     name: <string>
+          #     port: <integer>
+          #     preconnection_blob: <string>
+          #     preconnection_id: <integer>
+          #     remote_port: <integer>
+          #     security: <value in [rdp, nla, tls, ...]>
+          #     server_layout: <value in [en-us-qwerty, de-de-qwertz, fr-fr-azerty, ...]>
+          #     show_status_window: <value in [disable, enable]>
+          #     sso: <value in [disable, static, auto]>
+          #     sso_credential: <value in [sslvpn-login, alternative]>
+          #     sso_credential_sent_once: <value in [disable, enable]>
+          #     sso_password: <list or string>
+          #     sso_username: <string>
+          #     url: <string>
+          #     domain: <string>
+          #     color_depth: <value in [8, 16, 32]>
+          #     height: <integer>
+          #     keyboard_layout: <value in [ar, da, de, ...]>
+          #     restricted_admin: <value in [disable, enable]>
+          #     send_preconnection_id: <value in [disable, enable]>
+          #     width: <integer>
+          #     vnc_keyboard_layout: <value in [da, de, de-ch, ...]>
 '''
 
 RETURN = '''

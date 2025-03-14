@@ -228,17 +228,17 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_qos_dot1pmap:
-          description: <string>
-          name: <string>
-          priority_0: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_1: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_2: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_3: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_4: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_5: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_6: <value in [queue-0, queue-1, queue-2, ...]>
-          priority_7: <value in [queue-0, queue-1, queue-2, ...]>
-          egress_pri_tagging: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # priority_0: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_1: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_2: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_3: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_4: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_5: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_6: <value in [queue-0, queue-1, queue-2, ...]>
+          # priority_7: <value in [queue-0, queue-1, queue-2, ...]>
+          # egress_pri_tagging: <value in [disable, enable]>
 '''
 
 RETURN = '''

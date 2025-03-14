@@ -156,17 +156,17 @@ EXAMPLES = '''
         dynamic_mapping: <your own value>
         state: present # <value in [present, absent]>
         user_group_dynamicmapping_guest:
-          comment: <string>
-          company: <string>
-          email: <string>
-          expiration: <string>
-          group: <string>
-          id: <integer>
-          mobile_phone: <string>
-          name: <string>
-          password: <list or string>
-          sponsor: <string>
-          user_id: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # company: <string>
+          # email: <string>
+          # expiration: <string>
+          # group: <string>
+          # mobile_phone: <string>
+          # name: <string>
+          # password: <list or string>
+          # sponsor: <string>
+          # user_id: <string>
 '''
 
 RETURN = '''

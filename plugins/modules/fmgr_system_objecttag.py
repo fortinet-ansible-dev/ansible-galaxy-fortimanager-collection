@@ -114,7 +114,7 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_objecttag:
-          name: <string>
+          name: "your value" # Required variable, string
 '''
 
 RETURN = '''

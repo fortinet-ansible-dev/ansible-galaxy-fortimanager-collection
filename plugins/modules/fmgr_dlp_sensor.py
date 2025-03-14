@@ -356,98 +356,96 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dlp_sensor:
-          comment: <string>
-          dlp_log: <value in [disable, enable]>
-          extended_log: <value in [disable, enable]>
-          filter:
-            -
-              action: <value in [log-only, block, exempt, ...]>
-              archive: <value in [disable, enable, summary-only]>
-              company_identifier: <string>
-              expiry: <string>
-              file_size: <integer>
-              file_type: <string>
-              filter_by: <value in [credit-card, ssn, regexp, ...]>
-              fp_sensitivity: <list or string>
-              id: <integer>
-              match_percentage: <integer>
-              name: <string>
-              proto:
-                - "imap"
-                - "smtp"
-                - "pop3"
-                - "ftp"
-                - "nntp"
-                - "mm1"
-                - "mm3"
-                - "mm4"
-                - "mm7"
-                - "mapi"
-                - "aim"
-                - "icq"
-                - "msn"
-                - "yahoo"
-                - "http-get"
-                - "http-post"
-                - "ssh"
-                - "cifs"
-              regexp: <string>
-              severity: <value in [info, low, medium, ...]>
-              type: <value in [file, message]>
-              sensitivity: <list or string>
-          flow_based: <value in [disable, enable]>
-          full_archive_proto:
-            - "imap"
-            - "smtp"
-            - "pop3"
-            - "ftp"
-            - "nntp"
-            - "mm1"
-            - "mm3"
-            - "mm4"
-            - "mm7"
-            - "mapi"
-            - "aim"
-            - "icq"
-            - "msn"
-            - "yahoo"
-            - "http-get"
-            - "http-post"
-            - "ssh"
-            - "cifs"
-          nac_quar_log: <value in [disable, enable]>
-          name: <string>
-          options: <value in [strict-file]>
-          replacemsg_group: <string>
-          summary_proto:
-            - "imap"
-            - "smtp"
-            - "pop3"
-            - "ftp"
-            - "nntp"
-            - "mm1"
-            - "mm3"
-            - "mm4"
-            - "mm7"
-            - "mapi"
-            - "aim"
-            - "icq"
-            - "msn"
-            - "yahoo"
-            - "http-get"
-            - "http-post"
-            - "ssh"
-            - "cifs"
-          feature_set: <value in [proxy, flow]>
-          entries:
-            -
-              count: <integer>
-              dictionary: <string>
-              id: <integer>
-              status: <value in [disable, enable]>
-          eval: <string>
-          match_type: <value in [match-all, match-any, match-eval]>
-          fgd_id: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # dlp_log: <value in [disable, enable]>
+          # extended_log: <value in [disable, enable]>
+          # filter:
+          #   - action: <value in [log-only, block, exempt, ...]>
+          #     archive: <value in [disable, enable, summary-only]>
+          #     company_identifier: <string>
+          #     expiry: <string>
+          #     file_size: <integer>
+          #     file_type: <string>
+          #     filter_by: <value in [credit-card, ssn, regexp, ...]>
+          #     fp_sensitivity: <list or string>
+          #     id: <integer>
+          #     match_percentage: <integer>
+          #     name: <string>
+          #     proto:
+          #       - "imap"
+          #       - "smtp"
+          #       - "pop3"
+          #       - "ftp"
+          #       - "nntp"
+          #       - "mm1"
+          #       - "mm3"
+          #       - "mm4"
+          #       - "mm7"
+          #       - "mapi"
+          #       - "aim"
+          #       - "icq"
+          #       - "msn"
+          #       - "yahoo"
+          #       - "http-get"
+          #       - "http-post"
+          #       - "ssh"
+          #       - "cifs"
+          #     regexp: <string>
+          #     severity: <value in [info, low, medium, ...]>
+          #     type: <value in [file, message]>
+          #     sensitivity: <list or string>
+          # flow_based: <value in [disable, enable]>
+          # full_archive_proto:
+          #   - "imap"
+          #   - "smtp"
+          #   - "pop3"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mm1"
+          #   - "mm3"
+          #   - "mm4"
+          #   - "mm7"
+          #   - "mapi"
+          #   - "aim"
+          #   - "icq"
+          #   - "msn"
+          #   - "yahoo"
+          #   - "http-get"
+          #   - "http-post"
+          #   - "ssh"
+          #   - "cifs"
+          # nac_quar_log: <value in [disable, enable]>
+          # options: <value in [strict-file]>
+          # replacemsg_group: <string>
+          # summary_proto:
+          #   - "imap"
+          #   - "smtp"
+          #   - "pop3"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mm1"
+          #   - "mm3"
+          #   - "mm4"
+          #   - "mm7"
+          #   - "mapi"
+          #   - "aim"
+          #   - "icq"
+          #   - "msn"
+          #   - "yahoo"
+          #   - "http-get"
+          #   - "http-post"
+          #   - "ssh"
+          #   - "cifs"
+          # feature_set: <value in [proxy, flow]>
+          # entries:
+          #   - count: <integer>
+          #     dictionary: <string>
+          #     id: <integer>
+          #     status: <value in [disable, enable]>
+          # eval: <string>
+          # match_type: <value in [match-all, match-any, match-eval]>
+          # fgd_id: <integer>
 '''
 
 RETURN = '''

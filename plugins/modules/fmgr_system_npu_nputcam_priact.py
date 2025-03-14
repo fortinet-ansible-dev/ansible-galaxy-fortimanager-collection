@@ -113,8 +113,8 @@ EXAMPLES = '''
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_priact:
-          priority: <integer>
-          weight: <integer>
+          # priority: <integer>
+          # weight: <integer>
 '''
 
 RETURN = '''

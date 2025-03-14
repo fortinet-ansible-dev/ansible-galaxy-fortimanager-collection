@@ -316,40 +316,37 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_log_syslogd_filter:
-          severity: <value in [emergency, alert, critical, ...]>
-          anomaly: <value in [disable, enable]>
-          exclude_list:
-            -
-              category: <value in [app-ctrl, attack, dlp, ...]>
-              fields:
-                -
-                  args: <list or string>
-                  field: <string>
-                  negate: <value in [disable, enable]>
-              id: <integer>
-          forward_traffic: <value in [disable, enable]>
-          free_style:
-            -
-              category: <value in [traffic, event, virus, ...]>
-              filter: <string>
-              filter_type: <value in [include, exclude]>
-              id: <integer>
-          gtp: <value in [disable, enable]>
-          local_traffic: <value in [disable, enable]>
-          multicast_traffic: <value in [disable, enable]>
-          sniffer_traffic: <value in [disable, enable]>
-          voip: <value in [disable, enable]>
-          ztna_traffic: <value in [disable, enable]>
-          filter_type: <value in [include, exclude]>
-          filter: <string>
-          cifs: <value in [disable, enable]>
-          ssl: <value in [disable, enable]>
-          dns: <value in [disable, enable]>
-          ssh: <value in [disable, enable]>
-          netscan_discovery: <value in [disable, enable]>
-          netscan_vulnerability: <value in [disable, enable]>
-          forti_switch: <value in [disable, enable]>
-          http_transaction: <value in [disable, enable]>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # anomaly: <value in [disable, enable]>
+          # exclude_list:
+          #   - category: <value in [app-ctrl, attack, dlp, ...]>
+          #     fields:
+          #       - args: <list or string>
+          #         field: <string>
+          #         negate: <value in [disable, enable]>
+          #     id: <integer>
+          # forward_traffic: <value in [disable, enable]>
+          # free_style:
+          #   - category: <value in [traffic, event, virus, ...]>
+          #     filter: <string>
+          #     filter_type: <value in [include, exclude]>
+          #     id: <integer>
+          # gtp: <value in [disable, enable]>
+          # local_traffic: <value in [disable, enable]>
+          # multicast_traffic: <value in [disable, enable]>
+          # sniffer_traffic: <value in [disable, enable]>
+          # voip: <value in [disable, enable]>
+          # ztna_traffic: <value in [disable, enable]>
+          # filter_type: <value in [include, exclude]>
+          # filter: <string>
+          # cifs: <value in [disable, enable]>
+          # ssl: <value in [disable, enable]>
+          # dns: <value in [disable, enable]>
+          # ssh: <value in [disable, enable]>
+          # netscan_discovery: <value in [disable, enable]>
+          # netscan_vulnerability: <value in [disable, enable]>
+          # forti_switch: <value in [disable, enable]>
+          # http_transaction: <value in [disable, enable]>
 '''
 
 RETURN = '''

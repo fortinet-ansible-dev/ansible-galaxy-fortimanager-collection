@@ -1049,170 +1049,164 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_portal:
-          allow_user_access:
-            - "web"
-            - "ftp"
-            - "telnet"
-            - "smb"
-            - "vnc"
-            - "rdp"
-            - "ssh"
-            - "ping"
-            - "citrix"
-            - "portforward"
-            - "sftp"
-          auto_connect: <value in [disable, enable]>
-          bookmark_group:
-            -
-              bookmarks:
-                -
-                  additional_params: <string>
-                  apptype: <value in [web, telnet, ssh, ...]>
-                  description: <string>
-                  folder: <string>
-                  form_data:
-                    -
-                      name: <string>
-                      value: <string>
-                  host: <string>
-                  listening_port: <integer>
-                  load_balancing_info: <string>
-                  logon_password: <list or string>
-                  logon_user: <string>
-                  name: <string>
-                  port: <integer>
-                  preconnection_blob: <string>
-                  preconnection_id: <integer>
-                  remote_port: <integer>
-                  security: <value in [rdp, nla, tls, ...]>
-                  server_layout: <value in [en-us-qwerty, de-de-qwertz, fr-fr-azerty, ...]>
-                  show_status_window: <value in [disable, enable]>
-                  sso: <value in [disable, static, auto]>
-                  sso_credential: <value in [sslvpn-login, alternative]>
-                  sso_credential_sent_once: <value in [disable, enable]>
-                  sso_password: <list or string>
-                  sso_username: <string>
-                  url: <string>
-                  domain: <string>
-                  color_depth: <value in [8, 16, 32]>
-                  height: <integer>
-                  keyboard_layout: <value in [ar, da, de, ...]>
-                  restricted_admin: <value in [disable, enable]>
-                  send_preconnection_id: <value in [disable, enable]>
-                  width: <integer>
-                  vnc_keyboard_layout: <value in [da, de, de-ch, ...]>
-              name: <string>
-          custom_lang: <string>
-          customize_forticlient_download_url: <value in [disable, enable]>
-          display_bookmark: <value in [disable, enable]>
-          display_connection_tools: <value in [disable, enable]>
-          display_history: <value in [disable, enable]>
-          display_status: <value in [disable, enable]>
-          dns_server1: <string>
-          dns_server2: <string>
-          dns_suffix: <string>
-          exclusive_routing: <value in [disable, enable]>
-          forticlient_download: <value in [disable, enable]>
-          forticlient_download_method: <value in [direct, ssl-vpn]>
-          heading: <string>
-          hide_sso_credential: <value in [disable, enable]>
-          host_check: <value in [none, av, fw, ...]>
-          host_check_interval: <integer>
-          host_check_policy: <list or string>
-          ip_mode: <value in [range, user-group, dhcp, ...]>
-          ip_pools: <list or string>
-          ipv6_dns_server1: <string>
-          ipv6_dns_server2: <string>
-          ipv6_exclusive_routing: <value in [disable, enable]>
-          ipv6_pools: <list or string>
-          ipv6_service_restriction: <value in [disable, enable]>
-          ipv6_split_tunneling: <value in [disable, enable]>
-          ipv6_split_tunneling_routing_address: <list or string>
-          ipv6_tunnel_mode: <value in [disable, enable]>
-          ipv6_wins_server1: <string>
-          ipv6_wins_server2: <string>
-          keep_alive: <value in [disable, enable]>
-          limit_user_logins: <value in [disable, enable]>
-          mac_addr_action: <value in [deny, allow]>
-          mac_addr_check: <value in [disable, enable]>
-          mac_addr_check_rule:
-            -
-              mac_addr_list: <list or string>
-              mac_addr_mask: <integer>
-              name: <string>
-          macos_forticlient_download_url: <string>
-          name: <string>
-          os_check: <value in [disable, enable]>
-          redir_url: <string>
-          save_password: <value in [disable, enable]>
-          service_restriction: <value in [disable, enable]>
-          skip_check_for_unsupported_browser: <value in [disable, enable]>
-          skip_check_for_unsupported_os: <value in [disable, enable]>
-          smb_ntlmv1_auth: <value in [disable, enable]>
-          smbv1: <value in [disable, enable]>
-          split_dns:
-            -
-              dns_server1: <string>
-              dns_server2: <string>
-              domains: <string>
-              id: <integer>
-              ipv6_dns_server1: <string>
-              ipv6_dns_server2: <string>
-          split_tunneling: <value in [disable, enable]>
-          split_tunneling_routing_address: <list or string>
-          theme: <value in [gray, blue, orange, ...]>
-          tunnel_mode: <value in [disable, enable]>
-          user_bookmark: <value in [disable, enable]>
-          user_group_bookmark: <value in [disable, enable]>
-          web_mode: <value in [disable, enable]>
-          windows_forticlient_download_url: <string>
-          wins_server1: <string>
-          wins_server2: <string>
-          skip_check_for_browser: <value in [disable, enable]>
-          smb_max_version: <value in [smbv1, smbv2, smbv3]>
-          smb_min_version: <value in [smbv1, smbv2, smbv3]>
-          virtual_desktop_logout_when_browser_close: <value in [disable, enable]>
-          virtual_desktop_clipboard_share: <value in [disable, enable]>
-          virtual_desktop_desktop_switch: <value in [disable, enable]>
-          virtual_desktop: <value in [disable, enable]>
-          virtual_desktop_network_share_access: <value in [disable, enable]>
-          virtual_desktop_printing: <value in [disable, enable]>
-          virtual_desktop_app_list: <string>
-          virtual_desktop_removable_media_access: <value in [disable, enable]>
-          transform_backward_slashes: <value in [disable, enable]>
-          ipv6_split_tunneling_routing_negate: <value in [disable, enable]>
-          split_tunneling_routing_negate: <value in [disable, enable]>
-          os_check_list:
-            action: <value in [allow, check-up-to-date, deny]>
-            latest_patch_level: <string>
-            name: <string>
-            tolerance: <integer>
-            minor_version: <integer>
-          use_sdwan: <value in [disable, enable]>
-          prefer_ipv6_dns: <value in [disable, enable]>
-          rewrite_ip_uri_ui: <value in [disable, enable]>
-          clipboard: <value in [disable, enable]>
-          default_window_height: <integer>
-          default_window_width: <integer>
-          dhcp_ip_overlap: <value in [use-old, use-new]>
-          client_src_range: <value in [disable, enable]>
-          dhcp_ra_giaddr: <string>
-          dhcp6_ra_linkaddr: <string>
-          landing_page:
-            form_data:
-              -
-                name: <string>
-                value: <string>
-            logout_url: <string>
-            sso: <value in [disable, static, auto]>
-            sso_credential: <value in [sslvpn-login, alternative]>
-            sso_password: <list or string>
-            sso_username: <string>
-            url: <string>
-          landing_page_mode: <value in [disable, enable]>
-          default_protocol: <value in [web, ftp, telnet, ...]>
-          focus_bookmark: <value in [disable, enable]>
-          dhcp_reservation: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # allow_user_access:
+          #   - "web"
+          #   - "ftp"
+          #   - "telnet"
+          #   - "smb"
+          #   - "vnc"
+          #   - "rdp"
+          #   - "ssh"
+          #   - "ping"
+          #   - "citrix"
+          #   - "portforward"
+          #   - "sftp"
+          # auto_connect: <value in [disable, enable]>
+          # bookmark_group:
+          #   - bookmarks:
+          #       - additional_params: <string>
+          #         apptype: <value in [web, telnet, ssh, ...]>
+          #         description: <string>
+          #         folder: <string>
+          #         form_data:
+          #           - name: <string>
+          #             value: <string>
+          #         host: <string>
+          #         listening_port: <integer>
+          #         load_balancing_info: <string>
+          #         logon_password: <list or string>
+          #         logon_user: <string>
+          #         name: <string>
+          #         port: <integer>
+          #         preconnection_blob: <string>
+          #         preconnection_id: <integer>
+          #         remote_port: <integer>
+          #         security: <value in [rdp, nla, tls, ...]>
+          #         server_layout: <value in [en-us-qwerty, de-de-qwertz, fr-fr-azerty, ...]>
+          #         show_status_window: <value in [disable, enable]>
+          #         sso: <value in [disable, static, auto]>
+          #         sso_credential: <value in [sslvpn-login, alternative]>
+          #         sso_credential_sent_once: <value in [disable, enable]>
+          #         sso_password: <list or string>
+          #         sso_username: <string>
+          #         url: <string>
+          #         domain: <string>
+          #         color_depth: <value in [8, 16, 32]>
+          #         height: <integer>
+          #         keyboard_layout: <value in [ar, da, de, ...]>
+          #         restricted_admin: <value in [disable, enable]>
+          #         send_preconnection_id: <value in [disable, enable]>
+          #         width: <integer>
+          #         vnc_keyboard_layout: <value in [da, de, de-ch, ...]>
+          #     name: <string>
+          # custom_lang: <string>
+          # customize_forticlient_download_url: <value in [disable, enable]>
+          # display_bookmark: <value in [disable, enable]>
+          # display_connection_tools: <value in [disable, enable]>
+          # display_history: <value in [disable, enable]>
+          # display_status: <value in [disable, enable]>
+          # dns_server1: <string>
+          # dns_server2: <string>
+          # dns_suffix: <string>
+          # exclusive_routing: <value in [disable, enable]>
+          # forticlient_download: <value in [disable, enable]>
+          # forticlient_download_method: <value in [direct, ssl-vpn]>
+          # heading: <string>
+          # hide_sso_credential: <value in [disable, enable]>
+          # host_check: <value in [none, av, fw, ...]>
+          # host_check_interval: <integer>
+          # host_check_policy: <list or string>
+          # ip_mode: <value in [range, user-group, dhcp, ...]>
+          # ip_pools: <list or string>
+          # ipv6_dns_server1: <string>
+          # ipv6_dns_server2: <string>
+          # ipv6_exclusive_routing: <value in [disable, enable]>
+          # ipv6_pools: <list or string>
+          # ipv6_service_restriction: <value in [disable, enable]>
+          # ipv6_split_tunneling: <value in [disable, enable]>
+          # ipv6_split_tunneling_routing_address: <list or string>
+          # ipv6_tunnel_mode: <value in [disable, enable]>
+          # ipv6_wins_server1: <string>
+          # ipv6_wins_server2: <string>
+          # keep_alive: <value in [disable, enable]>
+          # limit_user_logins: <value in [disable, enable]>
+          # mac_addr_action: <value in [deny, allow]>
+          # mac_addr_check: <value in [disable, enable]>
+          # mac_addr_check_rule:
+          #   - mac_addr_list: <list or string>
+          #     mac_addr_mask: <integer>
+          #     name: <string>
+          # macos_forticlient_download_url: <string>
+          # os_check: <value in [disable, enable]>
+          # redir_url: <string>
+          # save_password: <value in [disable, enable]>
+          # service_restriction: <value in [disable, enable]>
+          # skip_check_for_unsupported_browser: <value in [disable, enable]>
+          # skip_check_for_unsupported_os: <value in [disable, enable]>
+          # smb_ntlmv1_auth: <value in [disable, enable]>
+          # smbv1: <value in [disable, enable]>
+          # split_dns:
+          #   - dns_server1: <string>
+          #     dns_server2: <string>
+          #     domains: <string>
+          #     id: <integer>
+          #     ipv6_dns_server1: <string>
+          #     ipv6_dns_server2: <string>
+          # split_tunneling: <value in [disable, enable]>
+          # split_tunneling_routing_address: <list or string>
+          # theme: <value in [gray, blue, orange, ...]>
+          # tunnel_mode: <value in [disable, enable]>
+          # user_bookmark: <value in [disable, enable]>
+          # user_group_bookmark: <value in [disable, enable]>
+          # web_mode: <value in [disable, enable]>
+          # windows_forticlient_download_url: <string>
+          # wins_server1: <string>
+          # wins_server2: <string>
+          # skip_check_for_browser: <value in [disable, enable]>
+          # smb_max_version: <value in [smbv1, smbv2, smbv3]>
+          # smb_min_version: <value in [smbv1, smbv2, smbv3]>
+          # virtual_desktop_logout_when_browser_close: <value in [disable, enable]>
+          # virtual_desktop_clipboard_share: <value in [disable, enable]>
+          # virtual_desktop_desktop_switch: <value in [disable, enable]>
+          # virtual_desktop: <value in [disable, enable]>
+          # virtual_desktop_network_share_access: <value in [disable, enable]>
+          # virtual_desktop_printing: <value in [disable, enable]>
+          # virtual_desktop_app_list: <string>
+          # virtual_desktop_removable_media_access: <value in [disable, enable]>
+          # transform_backward_slashes: <value in [disable, enable]>
+          # ipv6_split_tunneling_routing_negate: <value in [disable, enable]>
+          # split_tunneling_routing_negate: <value in [disable, enable]>
+          # os_check_list:
+          #   action: <value in [allow, check-up-to-date, deny]>
+          #   latest_patch_level: <string>
+          #   name: <string>
+          #   tolerance: <integer>
+          #   minor_version: <integer>
+          # use_sdwan: <value in [disable, enable]>
+          # prefer_ipv6_dns: <value in [disable, enable]>
+          # rewrite_ip_uri_ui: <value in [disable, enable]>
+          # clipboard: <value in [disable, enable]>
+          # default_window_height: <integer>
+          # default_window_width: <integer>
+          # dhcp_ip_overlap: <value in [use-old, use-new]>
+          # client_src_range: <value in [disable, enable]>
+          # dhcp_ra_giaddr: <string>
+          # dhcp6_ra_linkaddr: <string>
+          # landing_page:
+          #   form_data:
+          #     - name: <string>
+          #       value: <string>
+          #   logout_url: <string>
+          #   sso: <value in [disable, static, auto]>
+          #   sso_credential: <value in [sslvpn-login, alternative]>
+          #   sso_password: <list or string>
+          #   sso_username: <string>
+          #   url: <string>
+          # landing_page_mode: <value in [disable, enable]>
+          # default_protocol: <value in [web, ftp, telnet, ...]>
+          # focus_bookmark: <value in [disable, enable]>
+          # dhcp_reservation: <value in [disable, enable]>
 '''
 
 RETURN = '''

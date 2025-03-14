@@ -134,9 +134,9 @@ EXAMPLES = '''
         exclude_list: <your own value>
         state: present # <value in [present, absent]>
         devprof_log_syslogd_filter_excludelist_fields:
-          args: <list or string>
-          field: <string>
-          negate: <value in [disable, enable]>
+          # args: <list or string>
+          # field: <string>
+          # negate: <value in [disable, enable]>
 '''
 
 RETURN = '''

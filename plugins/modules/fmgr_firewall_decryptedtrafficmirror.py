@@ -136,13 +136,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_decryptedtrafficmirror:
-          dstmac: <string>
-          interface: <list or string>
-          name: <string>
-          traffic_source: <value in [client, server, both]>
-          traffic_type:
-            - "ssl"
-            - "ssh"
+          name: "your value" # Required variable, string
+          # dstmac: <string>
+          # interface: <list or string>
+          # traffic_source: <value in [client, server, both]>
+          # traffic_type:
+          #   - "ssl"
+          #   - "ssh"
 '''
 
 RETURN = '''

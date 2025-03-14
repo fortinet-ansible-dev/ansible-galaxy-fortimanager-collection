@@ -181,18 +181,18 @@ EXAMPLES = '''
         replacemsg_group: <your own value>
         state: present # <value in [present, absent]>
         system_replacemsggroup_mm3:
-          add_html: <value in [disable, enable]>
-          charset: <value in [us-ascii, utf-8]>
-          format: <value in [none, text, html, ...]>
-          from: <string>
-          from_sender: <value in [disable, enable]>
-          header: <value in [none, http, 8bit]>
-          html_part: <string>
-          image: <string>
-          fmgr_message: <string>
-          msg_type: <string>
-          priority: <value in [low, normal, high, ...]>
-          subject: <string>
+          msg_type: "your value" # Required variable, string
+          # add_html: <value in [disable, enable]>
+          # charset: <value in [us-ascii, utf-8]>
+          # format: <value in [none, text, html, ...]>
+          # from: <string>
+          # from_sender: <value in [disable, enable]>
+          # header: <value in [none, http, 8bit]>
+          # html_part: <string>
+          # image: <string>
+          # fmgr_message: <string>
+          # priority: <value in [low, normal, high, ...]>
+          # subject: <string>
 '''
 
 RETURN = '''

@@ -160,14 +160,14 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_syslog:
-          ip: <string>
-          name: <string>
-          port: <integer>
-          local_cert: <string>
-          peer_cert_cn: <string>
-          reliable: <value in [disable, enable]>
-          secure_connection: <value in [disable, enable]>
-          ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
+          name: "your value" # Required variable, string
+          # ip: <string>
+          # port: <integer>
+          # local_cert: <string>
+          # peer_cert_cn: <string>
+          # reliable: <value in [disable, enable]>
+          # secure_connection: <value in [disable, enable]>
+          # ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
 '''
 
 RETURN = '''

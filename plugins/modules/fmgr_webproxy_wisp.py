@@ -136,13 +136,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webproxy_wisp:
-          comment: <string>
-          max_connections: <integer>
-          name: <string>
-          outgoing_ip: <string>
-          server_ip: <string>
-          server_port: <integer>
-          timeout: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # max_connections: <integer>
+          # outgoing_ip: <string>
+          # server_ip: <string>
+          # server_port: <integer>
+          # timeout: <integer>
 '''
 
 RETURN = '''

@@ -298,34 +298,34 @@ EXAMPLES = '''
         adom: <your own value>
         gtp: <your own value>
         firewall_gtp_messagefilter:
-          create_aa_pdp: <value in [allow, deny]>
-          create_mbms: <value in [allow, deny]>
-          create_pdp: <value in [allow, deny]>
-          data_record: <value in [allow, deny]>
-          delete_aa_pdp: <value in [allow, deny]>
-          delete_mbms: <value in [allow, deny]>
-          delete_pdp: <value in [allow, deny]>
-          echo: <value in [allow, deny]>
-          error_indication: <value in [allow, deny]>
-          failure_report: <value in [allow, deny]>
-          fwd_relocation: <value in [allow, deny]>
-          fwd_srns_context: <value in [allow, deny]>
-          gtp_pdu: <value in [allow, deny]>
-          identification: <value in [allow, deny]>
-          mbms_notification: <value in [allow, deny]>
-          node_alive: <value in [allow, deny]>
-          note_ms_present: <value in [allow, deny]>
-          pdu_notification: <value in [allow, deny]>
-          ran_info: <value in [allow, deny]>
-          redirection: <value in [allow, deny]>
-          relocation_cancel: <value in [allow, deny]>
-          send_route: <value in [allow, deny]>
-          sgsn_context: <value in [allow, deny]>
-          support_extension: <value in [allow, deny]>
-          unknown_message_action: <value in [allow, deny]>
-          update_mbms: <value in [allow, deny]>
-          update_pdp: <value in [allow, deny]>
-          version_not_support: <value in [allow, deny]>
+          # create_aa_pdp: <value in [allow, deny]>
+          # create_mbms: <value in [allow, deny]>
+          # create_pdp: <value in [allow, deny]>
+          # data_record: <value in [allow, deny]>
+          # delete_aa_pdp: <value in [allow, deny]>
+          # delete_mbms: <value in [allow, deny]>
+          # delete_pdp: <value in [allow, deny]>
+          # echo: <value in [allow, deny]>
+          # error_indication: <value in [allow, deny]>
+          # failure_report: <value in [allow, deny]>
+          # fwd_relocation: <value in [allow, deny]>
+          # fwd_srns_context: <value in [allow, deny]>
+          # gtp_pdu: <value in [allow, deny]>
+          # identification: <value in [allow, deny]>
+          # mbms_notification: <value in [allow, deny]>
+          # node_alive: <value in [allow, deny]>
+          # note_ms_present: <value in [allow, deny]>
+          # pdu_notification: <value in [allow, deny]>
+          # ran_info: <value in [allow, deny]>
+          # redirection: <value in [allow, deny]>
+          # relocation_cancel: <value in [allow, deny]>
+          # send_route: <value in [allow, deny]>
+          # sgsn_context: <value in [allow, deny]>
+          # support_extension: <value in [allow, deny]>
+          # unknown_message_action: <value in [allow, deny]>
+          # update_mbms: <value in [allow, deny]>
+          # update_pdp: <value in [allow, deny]>
+          # version_not_support: <value in [allow, deny]>
 '''
 
 RETURN = '''

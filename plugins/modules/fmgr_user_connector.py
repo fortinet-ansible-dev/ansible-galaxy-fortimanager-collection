@@ -123,9 +123,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         user_connector:
-          name: <string>
-          status: <value in [disable, enable]>
-          type: <string>
+          name: "your value" # Required variable, string
+          # status: <value in [disable, enable]>
+          # type: <string>
 '''
 
 RETURN = '''

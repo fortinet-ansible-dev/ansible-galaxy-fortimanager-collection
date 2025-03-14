@@ -136,14 +136,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         credentialstore_domaincontroller:
-          domain_name: <string>
-          ip: <string>
-          ip6: <string>
-          password: <list or string>
-          port: <integer>
-          server_name: <string>
-          username: <string>
-          hostname: <string>
+          # domain_name: <string>
+          # ip: <string>
+          # ip6: <string>
+          # password: <list or string>
+          # port: <integer>
+          # server_name: <string>
+          # username: <string>
+          # hostname: <string>
 '''
 
 RETURN = '''

@@ -115,9 +115,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_certificate_remote:
-          cert: <list or string>
-          comment: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # cert: <list or string>
+          # comment: <string>
 '''
 
 RETURN = '''

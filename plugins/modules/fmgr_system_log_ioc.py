@@ -135,12 +135,12 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_ioc:
-          notification: <value in [disable, enable]>
-          notification_throttle: <integer>
-          rescan_max_runner: <integer>
-          rescan_run_at: <integer>
-          rescan_status: <value in [disable, enable]>
-          status: <value in [disable, enable]>
+          # notification: <value in [disable, enable]>
+          # notification_throttle: <integer>
+          # rescan_max_runner: <integer>
+          # rescan_run_at: <integer>
+          # rescan_status: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

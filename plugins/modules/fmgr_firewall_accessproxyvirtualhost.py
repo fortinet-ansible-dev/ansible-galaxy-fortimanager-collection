@@ -154,14 +154,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxyvirtualhost:
-          host: <string>
-          host_type: <value in [sub-string, wildcard]>
-          name: <string>
-          ssl_certificate: <string>
-          replacemsg_group: <string>
-          client_cert: <value in [disable, enable]>
-          empty_cert_action: <value in [block, accept, accept-unmanageable]>
-          user_agent_detect: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # host: <string>
+          # host_type: <value in [sub-string, wildcard]>
+          # ssl_certificate: <string>
+          # replacemsg_group: <string>
+          # client_cert: <value in [disable, enable]>
+          # empty_cert_action: <value in [block, accept, accept-unmanageable]>
+          # user_agent_detect: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -131,12 +131,11 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         videofilter_profile_fortiguardcategory:
-          filters:
-            -
-              action: <value in [block, bypass, monitor, ...]>
-              category_id: <integer>
-              id: <integer>
-              log: <value in [disable, enable]>
+          # filters:
+          #   - action: <value in [block, bypass, monitor, ...]>
+          #     category_id: <integer>
+          #     id: <integer>
+          #     log: <value in [disable, enable]>
 '''
 
 RETURN = '''

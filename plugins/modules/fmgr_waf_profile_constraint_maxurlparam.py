@@ -134,11 +134,11 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         waf_profile_constraint_maxurlparam:
-          action: <value in [allow, block]>
-          log: <value in [disable, enable]>
-          max_url_param: <integer>
-          severity: <value in [low, medium, high]>
-          status: <value in [disable, enable]>
+          # action: <value in [allow, block]>
+          # log: <value in [disable, enable]>
+          # max_url_param: <integer>
+          # severity: <value in [low, medium, high]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

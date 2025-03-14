@@ -251,33 +251,33 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_dm:
-          concurrent_install_image_limit: <integer>
-          concurrent_install_limit: <integer>
-          concurrent_install_script_limit: <integer>
-          discover_timeout: <integer>
-          dpm_logsize: <integer>
-          fgfm_sock_timeout: <integer>
-          fgfm_keepalive_itvl: <integer>
-          force_remote_diff: <value in [disable, enable]>
-          fortiap_refresh_cnt: <integer>
-          fortiap_refresh_itvl: <integer>
-          fortiext_refresh_cnt: <integer>
-          install_image_timeout: <integer>
-          install_tunnel_retry_itvl: <integer>
-          max_revs: <integer>
-          nr_retry: <integer>
-          retry: <value in [disable, enable]>
-          retry_intvl: <integer>
-          rollback_allow_reboot: <value in [disable, enable]>
-          script_logsize: <integer>
-          skip_scep_check: <value in [disable, enable]>
-          skip_tunnel_fcp_req: <value in [disable, enable]>
-          verify_install: <value in [disable, optimal, enable]>
-          fgfm_install_refresh_count: <integer>
-          conf_merge_after_script: <value in [disable, enable]>
-          log_autoupdate: <value in [disable, enable]>
-          fgfm_auto_retrieve_timeout: <integer>
-          install_fds_timeout: <integer>
+          # concurrent_install_image_limit: <integer>
+          # concurrent_install_limit: <integer>
+          # concurrent_install_script_limit: <integer>
+          # discover_timeout: <integer>
+          # dpm_logsize: <integer>
+          # fgfm_sock_timeout: <integer>
+          # fgfm_keepalive_itvl: <integer>
+          # force_remote_diff: <value in [disable, enable]>
+          # fortiap_refresh_cnt: <integer>
+          # fortiap_refresh_itvl: <integer>
+          # fortiext_refresh_cnt: <integer>
+          # install_image_timeout: <integer>
+          # install_tunnel_retry_itvl: <integer>
+          # max_revs: <integer>
+          # nr_retry: <integer>
+          # retry: <value in [disable, enable]>
+          # retry_intvl: <integer>
+          # rollback_allow_reboot: <value in [disable, enable]>
+          # script_logsize: <integer>
+          # skip_scep_check: <value in [disable, enable]>
+          # skip_tunnel_fcp_req: <value in [disable, enable]>
+          # verify_install: <value in [disable, optimal, enable]>
+          # fgfm_install_refresh_count: <integer>
+          # conf_merge_after_script: <value in [disable, enable]>
+          # log_autoupdate: <value in [disable, enable]>
+          # fgfm_auto_retrieve_timeout: <integer>
+          # install_fds_timeout: <integer>
 '''
 
 RETURN = '''

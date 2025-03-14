@@ -239,32 +239,31 @@ EXAMPLES = '''
         sensor: <your own value>
         state: present # <value in [present, absent]>
         ips_baseline_sensor_entries:
-          action: <value in [pass, block, reset, ...]>
-          application: <list or string>
-          cve: <list or string>
-          exempt_ip:
-            -
-              dst_ip: <string>
-              id: <integer>
-              src_ip: <string>
-          id: <integer>
-          location: <list or string>
-          log: <value in [disable, enable]>
-          log_attack_context: <value in [disable, enable]>
-          log_packet: <value in [disable, enable]>
-          os: <list or string>
-          protocol: <list or string>
-          quarantine: <value in [none, attacker, both, ...]>
-          quarantine_expiry: <string>
-          quarantine_log: <value in [disable, enable]>
-          rate_count: <integer>
-          rate_duration: <integer>
-          rate_mode: <value in [periodical, continuous]>
-          rate_track: <value in [none, src-ip, dest-ip, ...]>
-          rule: <string>
-          severity: <list or string>
-          status: <value in [disable, enable, default]>
-          tags: <string>
+          id: 0 # Required variable, integer
+          # action: <value in [pass, block, reset, ...]>
+          # application: <list or string>
+          # cve: <list or string>
+          # exempt_ip:
+          #   - dst_ip: <string>
+          #     id: <integer>
+          #     src_ip: <string>
+          # location: <list or string>
+          # log: <value in [disable, enable]>
+          # log_attack_context: <value in [disable, enable]>
+          # log_packet: <value in [disable, enable]>
+          # os: <list or string>
+          # protocol: <list or string>
+          # quarantine: <value in [none, attacker, both, ...]>
+          # quarantine_expiry: <string>
+          # quarantine_log: <value in [disable, enable]>
+          # rate_count: <integer>
+          # rate_duration: <integer>
+          # rate_mode: <value in [periodical, continuous]>
+          # rate_track: <value in [none, src-ip, dest-ip, ...]>
+          # rule: <string>
+          # severity: <list or string>
+          # status: <value in [disable, enable, default]>
+          # tags: <string>
 '''
 
 RETURN = '''

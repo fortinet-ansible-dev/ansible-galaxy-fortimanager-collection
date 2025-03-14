@@ -156,15 +156,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qpwanmetric:
-          downlink_load: <integer>
-          downlink_speed: <integer>
-          link_at_capacity: <value in [disable, enable]>
-          link_status: <value in [down, up, in-test]>
-          load_measurement_duration: <integer>
-          name: <string>
-          symmetric_wan_link: <value in [asymmetric, symmetric]>
-          uplink_load: <integer>
-          uplink_speed: <integer>
+          name: "your value" # Required variable, string
+          # downlink_load: <integer>
+          # downlink_speed: <integer>
+          # link_at_capacity: <value in [disable, enable]>
+          # link_status: <value in [down, up, in-test]>
+          # load_measurement_duration: <integer>
+          # symmetric_wan_link: <value in [asymmetric, symmetric]>
+          # uplink_load: <integer>
+          # uplink_speed: <integer>
 '''
 
 RETURN = '''

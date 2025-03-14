@@ -134,17 +134,17 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         fmupdate_webspam_fgdsetting_serveroverride_servlist:
-          id: <integer>
-          ip: <string>
-          ip6: <string>
-          port: <integer>
-          service_type: # <list or string>
-            - "fgd"
-            - "fgc"
-            - "fsa"
-            - "fgfq"
-            - "geoip"
-            - "iot-collect"
+          id: 0 # Required variable, integer
+          # ip: <string>
+          # ip6: <string>
+          # port: <integer>
+          # service_type: # <list or string>
+          #   - "fgd"
+          #   - "fgc"
+          #   - "fsa"
+          #   - "fgfq"
+          #   - "geoip"
+          #   - "iot-collect"
 '''
 
 RETURN = '''

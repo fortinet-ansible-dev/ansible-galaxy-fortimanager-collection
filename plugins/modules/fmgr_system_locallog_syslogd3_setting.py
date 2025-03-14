@@ -213,14 +213,14 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_syslogd3_setting:
-          csv: <value in [disable, enable]>
-          facility: <value in [kernel, user, ntp, ...]>
-          severity: <value in [emergency, alert, critical, ...]>
-          status: <value in [disable, enable]>
-          syslog_name: <string>
-          cert: <string>
-          reliable: <value in [disable, enable]>
-          secure_connection: <value in [disable, enable]>
+          # csv: <value in [disable, enable]>
+          # facility: <value in [kernel, user, ntp, ...]>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # status: <value in [disable, enable]>
+          # syslog_name: <string>
+          # cert: <string>
+          # reliable: <value in [disable, enable]>
+          # secure_connection: <value in [disable, enable]>
 '''
 
 RETURN = '''

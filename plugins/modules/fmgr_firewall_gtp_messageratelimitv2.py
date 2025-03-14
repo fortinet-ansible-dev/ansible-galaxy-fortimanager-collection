@@ -117,9 +117,9 @@ EXAMPLES = '''
         adom: <your own value>
         gtp: <your own value>
         firewall_gtp_messageratelimitv2:
-          create_session_request: <integer>
-          delete_session_request: <integer>
-          echo_request: <integer>
+          # create_session_request: <integer>
+          # delete_session_request: <integer>
+          # echo_request: <integer>
 '''
 
 RETURN = '''

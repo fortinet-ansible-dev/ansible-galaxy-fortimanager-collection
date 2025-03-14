@@ -127,10 +127,10 @@ EXAMPLES = '''
         group: <your own value>
         dynamic_mapping: <your own value>
         user_group_dynamicmapping_sslvpnoschecklist:
-          action: <value in [allow, check-up-to-date, deny]>
-          latest_patch_level: <string>
-          name: <string>
-          tolerance: <integer>
+          # action: <value in [allow, check-up-to-date, deny]>
+          # latest_patch_level: <string>
+          # name: <string>
+          # tolerance: <integer>
 '''
 
 RETURN = '''

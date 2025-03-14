@@ -123,10 +123,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         system_npu_npqueues_ipprotocol:
-          name: <string>
-          protocol: <integer>
-          queue: <integer>
-          weight: <integer>
+          name: "your value" # Required variable, string
+          # protocol: <integer>
+          # queue: <integer>
+          # weight: <integer>
 '''
 
 RETURN = '''

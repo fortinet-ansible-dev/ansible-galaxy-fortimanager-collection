@@ -370,61 +370,60 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_virtualwanlink_service:
-          addr_mode: <value in [ipv4, ipv6]>
-          bandwidth_weight: <integer>
-          default: <value in [disable, enable]>
-          dscp_forward: <value in [disable, enable]>
-          dscp_forward_tag: <string>
-          dscp_reverse: <value in [disable, enable]>
-          dscp_reverse_tag: <string>
-          dst: <list or string>
-          dst_negate: <value in [disable, enable]>
-          dst6: <list or string>
-          end_port: <integer>
-          gateway: <value in [disable, enable]>
-          groups: <list or string>
-          health_check: <string>
-          hold_down_time: <integer>
-          id: <integer>
-          internet_service: <value in [disable, enable]>
-          internet_service_ctrl: <list or integer>
-          internet_service_ctrl_group: <list or string>
-          internet_service_custom: <list or string>
-          internet_service_custom_group: <list or string>
-          internet_service_group: <list or string>
-          internet_service_id: <list or string>
-          jitter_weight: <integer>
-          latency_weight: <integer>
-          link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
-          link_cost_threshold: <integer>
-          member: <string>
-          mode: <value in [auto, manual, priority, ...]>
-          name: <string>
-          packet_loss_weight: <integer>
-          priority_members: <list or string>
-          protocol: <integer>
-          quality_link: <integer>
-          route_tag: <integer>
-          sla:
-            -
-              health_check: <string>
-              id: <integer>
-          src: <list or string>
-          src_negate: <value in [disable, enable]>
-          src6: <list or string>
-          start_port: <integer>
-          status: <value in [disable, enable]>
-          tos: <string>
-          tos_mask: <string>
-          users: <list or string>
-          internet_service_app_ctrl: <list or integer>
-          internet_service_app_ctrl_group: <list or string>
-          role: <value in [primary, secondary, standalone]>
-          sla_compare_method: <value in [order, number]>
-          standalone_action: <value in [disable, enable]>
-          input_device: <list or string>
-          internet_service_name: <string>
-          input_device_negate: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # addr_mode: <value in [ipv4, ipv6]>
+          # bandwidth_weight: <integer>
+          # default: <value in [disable, enable]>
+          # dscp_forward: <value in [disable, enable]>
+          # dscp_forward_tag: <string>
+          # dscp_reverse: <value in [disable, enable]>
+          # dscp_reverse_tag: <string>
+          # dst: <list or string>
+          # dst_negate: <value in [disable, enable]>
+          # dst6: <list or string>
+          # end_port: <integer>
+          # gateway: <value in [disable, enable]>
+          # groups: <list or string>
+          # health_check: <string>
+          # hold_down_time: <integer>
+          # internet_service: <value in [disable, enable]>
+          # internet_service_ctrl: <list or integer>
+          # internet_service_ctrl_group: <list or string>
+          # internet_service_custom: <list or string>
+          # internet_service_custom_group: <list or string>
+          # internet_service_group: <list or string>
+          # internet_service_id: <list or string>
+          # jitter_weight: <integer>
+          # latency_weight: <integer>
+          # link_cost_factor: <value in [latency, jitter, packet-loss, ...]>
+          # link_cost_threshold: <integer>
+          # member: <string>
+          # mode: <value in [auto, manual, priority, ...]>
+          # name: <string>
+          # packet_loss_weight: <integer>
+          # priority_members: <list or string>
+          # protocol: <integer>
+          # quality_link: <integer>
+          # route_tag: <integer>
+          # sla:
+          #   - health_check: <string>
+          #     id: <integer>
+          # src: <list or string>
+          # src_negate: <value in [disable, enable]>
+          # src6: <list or string>
+          # start_port: <integer>
+          # status: <value in [disable, enable]>
+          # tos: <string>
+          # tos_mask: <string>
+          # users: <list or string>
+          # internet_service_app_ctrl: <list or integer>
+          # internet_service_app_ctrl_group: <list or string>
+          # role: <value in [primary, secondary, standalone]>
+          # sla_compare_method: <value in [order, number]>
+          # standalone_action: <value in [disable, enable]>
+          # input_device: <list or string>
+          # internet_service_name: <string>
+          # input_device_negate: <value in [disable, enable]>
 '''
 
 RETURN = '''

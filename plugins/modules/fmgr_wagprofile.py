@@ -148,15 +148,15 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wagprofile:
-          comment: <string>
-          dhcp_ip_addr: <string>
-          name: <string>
-          ping_interval: <integer>
-          ping_number: <integer>
-          return_packet_timeout: <integer>
-          tunnel_type: <value in [gre, l2tpv3]>
-          wag_ip: <string>
-          wag_port: <integer>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # dhcp_ip_addr: <string>
+          # ping_interval: <integer>
+          # ping_number: <integer>
+          # return_packet_timeout: <integer>
+          # tunnel_type: <value in [gre, l2tpv3]>
+          # wag_ip: <string>
+          # wag_port: <integer>
 '''
 
 RETURN = '''

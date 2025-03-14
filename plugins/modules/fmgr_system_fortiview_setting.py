@@ -134,10 +134,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_fortiview_setting:
-          not_scanned_apps: <value in [exclude, include]>
-          resolve_ip: <value in [disable, enable]>
-          data_source: <value in [auto, cache-only, log-and-cache]>
-          query_run_mode: <value in [auto, boost]>
+          # not_scanned_apps: <value in [exclude, include]>
+          # resolve_ip: <value in [disable, enable]>
+          # data_source: <value in [auto, cache-only, log-and-cache]>
+          # query_run_mode: <value in [auto, boost]>
 '''
 
 RETURN = '''

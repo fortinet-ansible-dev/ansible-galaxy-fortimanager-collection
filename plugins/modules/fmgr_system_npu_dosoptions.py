@@ -121,9 +121,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_dosoptions:
-          npu_dos_meter_mode: <value in [local, global]>
-          npu_dos_synproxy_mode: <value in [synack2ack, pass-synack]>
-          npu_dos_tpe_mode: <value in [disable, enable]>
+          # npu_dos_meter_mode: <value in [local, global]>
+          # npu_dos_synproxy_mode: <value in [synack2ack, pass-synack]>
+          # npu_dos_tpe_mode: <value in [disable, enable]>
 '''
 
 RETURN = '''

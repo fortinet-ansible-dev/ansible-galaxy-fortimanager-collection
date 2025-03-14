@@ -158,33 +158,33 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         antivirus_profile_smb:
-          archive_block:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          archive_log:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          emulator: <value in [disable, enable]>
-          options:
-            - "scan"
-            - "quarantine"
-            - "avquery"
-            - "avmonitor"
-          outbreak_prevention: <value in [disabled, files, full-archive]>
+          # archive_block:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # archive_log:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # emulator: <value in [disable, enable]>
+          # options:
+          #   - "scan"
+          #   - "quarantine"
+          #   - "avquery"
+          #   - "avmonitor"
+          # outbreak_prevention: <value in [disabled, files, full-archive]>
 '''
 
 RETURN = '''

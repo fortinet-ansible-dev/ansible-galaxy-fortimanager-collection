@@ -136,10 +136,10 @@ EXAMPLES = '''
         access_proxy: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxy_serverpubkeyauthsettings_certextension:
-          critical: <value in [no, yes]>
-          data: <string>
-          name: <string>
-          type: <value in [fixed, user]>
+          name: "your value" # Required variable, string
+          # critical: <value in [no, yes]>
+          # data: <string>
+          # type: <value in [fixed, user]>
 '''
 
 RETURN = '''

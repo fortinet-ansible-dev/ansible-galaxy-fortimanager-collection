@@ -167,19 +167,19 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_snmp_sysinfo:
-          status: <value in [disable, enable]>
-          append_index: <value in [disable, enable]>
-          trap_high_cpu_threshold: <integer>
-          trap_log_full_threshold: <integer>
-          engine_id: <string>
-          trap_freeable_memory_threshold: <integer>
-          contact_info: <string>
-          engine_id_type: <value in [text, hex, mac]>
-          description: <string>
-          trap_free_memory_threshold: <integer>
-          trap_low_memory_threshold: <integer>
-          location: <string>
-          non_mgmt_vdom_query: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # append_index: <value in [disable, enable]>
+          # trap_high_cpu_threshold: <integer>
+          # trap_log_full_threshold: <integer>
+          # engine_id: <string>
+          # trap_freeable_memory_threshold: <integer>
+          # contact_info: <string>
+          # engine_id_type: <value in [text, hex, mac]>
+          # description: <string>
+          # trap_free_memory_threshold: <integer>
+          # trap_low_memory_threshold: <integer>
+          # location: <string>
+          # non_mgmt_vdom_query: <value in [disable, enable]>
 '''
 
 RETURN = '''

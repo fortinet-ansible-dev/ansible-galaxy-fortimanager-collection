@@ -182,18 +182,18 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         wanopt_profile_http:
-          byte_caching: <value in [disable, enable]>
-          log_traffic: <value in [disable, enable]>
-          port: <list or integer>
-          prefer_chunking: <value in [dynamic, fix]>
-          secure_tunnel: <value in [disable, enable]>
-          ssl: <value in [disable, enable]>
-          ssl_port: <list or integer>
-          status: <value in [disable, enable]>
-          tunnel_non_http: <value in [disable, enable]>
-          tunnel_sharing: <value in [private, shared, express-shared]>
-          unknown_http_version: <value in [best-effort, reject, tunnel]>
-          protocol_opt: <value in [protocol, tcp]>
+          # byte_caching: <value in [disable, enable]>
+          # log_traffic: <value in [disable, enable]>
+          # port: <list or integer>
+          # prefer_chunking: <value in [dynamic, fix]>
+          # secure_tunnel: <value in [disable, enable]>
+          # ssl: <value in [disable, enable]>
+          # ssl_port: <list or integer>
+          # status: <value in [disable, enable]>
+          # tunnel_non_http: <value in [disable, enable]>
+          # tunnel_sharing: <value in [private, shared, express-shared]>
+          # unknown_http_version: <value in [best-effort, reject, tunnel]>
+          # protocol_opt: <value in [protocol, tcp]>
 '''
 
 RETURN = '''

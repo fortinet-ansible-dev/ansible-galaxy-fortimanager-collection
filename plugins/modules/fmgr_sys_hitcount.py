@@ -100,10 +100,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         sys_hitcount:
-          adom: <string>
-          adom_oid: <integer>
-          pkg: <string>
-          pkg_oid: <integer>
+          # adom: <string>
+          # adom_oid: <integer>
+          # pkg: <string>
+          # pkg_oid: <integer>
 '''
 
 RETURN = '''

@@ -126,11 +126,11 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_networkservicedynamic:
-          comment: <string>
-          filter: <string>
-          id: <integer>
-          name: <string>
-          sdn: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # filter: <string>
+          # name: <string>
+          # sdn: <string>
 '''
 
 RETURN = '''

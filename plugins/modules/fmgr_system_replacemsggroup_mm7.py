@@ -236,22 +236,22 @@ EXAMPLES = '''
         replacemsg_group: <your own value>
         state: present # <value in [present, absent]>
         system_replacemsggroup_mm7:
-          add_smil: <value in [disable, enable]>
-          addr_type: <value in [rfc2822-addr, number, short-code]>
-          allow_content_adaptation: <value in [disable, enable]>
-          charset: <value in [us-ascii, utf-8]>
-          class: <value in [personal, advertisement, informational, ...]>
-          format: <value in [none, text, html, ...]>
-          from: <string>
-          from_sender: <value in [disable, enable]>
-          header: <value in [none, http, 8bit]>
-          image: <string>
-          fmgr_message: <string>
-          msg_type: <string>
-          priority: <value in [low, normal, high, ...]>
-          rsp_status: <value in [success, partial-success, client-err, ...]>
-          smil_part: <string>
-          subject: <string>
+          msg_type: "your value" # Required variable, string
+          # add_smil: <value in [disable, enable]>
+          # addr_type: <value in [rfc2822-addr, number, short-code]>
+          # allow_content_adaptation: <value in [disable, enable]>
+          # charset: <value in [us-ascii, utf-8]>
+          # class: <value in [personal, advertisement, informational, ...]>
+          # format: <value in [none, text, html, ...]>
+          # from: <string>
+          # from_sender: <value in [disable, enable]>
+          # header: <value in [none, http, 8bit]>
+          # image: <string>
+          # fmgr_message: <string>
+          # priority: <value in [low, normal, high, ...]>
+          # rsp_status: <value in [success, partial-success, client-err, ...]>
+          # smil_part: <string>
+          # subject: <string>
 '''
 
 RETURN = '''

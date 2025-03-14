@@ -160,15 +160,15 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         wanopt_profile_tcp:
-          byte_caching: <value in [disable, enable]>
-          byte_caching_opt: <value in [mem-only, mem-disk]>
-          log_traffic: <value in [disable, enable]>
-          port: <string>
-          secure_tunnel: <value in [disable, enable]>
-          ssl: <value in [disable, enable]>
-          ssl_port: <list or integer>
-          status: <value in [disable, enable]>
-          tunnel_sharing: <value in [private, shared, express-shared]>
+          # byte_caching: <value in [disable, enable]>
+          # byte_caching_opt: <value in [mem-only, mem-disk]>
+          # log_traffic: <value in [disable, enable]>
+          # port: <string>
+          # secure_tunnel: <value in [disable, enable]>
+          # ssl: <value in [disable, enable]>
+          # ssl_port: <list or integer>
+          # status: <value in [disable, enable]>
+          # tunnel_sharing: <value in [private, shared, express-shared]>
 '''
 
 RETURN = '''

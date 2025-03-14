@@ -148,13 +148,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_ptp_profile:
-          description: <string>
-          domain: <integer>
-          mode: <value in [transparent-e2e, transparent-p2p]>
-          name: <string>
-          pdelay_req_interval: <value in [1sec, 2sec, 4sec, ...]>
-          ptp_profile: <value in [C37.238-2017]>
-          transport: <value in [l2-mcast]>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # domain: <integer>
+          # mode: <value in [transparent-e2e, transparent-p2p]>
+          # pdelay_req_interval: <value in [1sec, 2sec, 4sec, ...]>
+          # ptp_profile: <value in [C37.238-2017]>
+          # transport: <value in [l2-mcast]>
 '''
 
 RETURN = '''

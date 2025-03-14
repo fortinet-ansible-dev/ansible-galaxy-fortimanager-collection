@@ -183,17 +183,17 @@ EXAMPLES = '''
         match: <your own value>
         state: present # <value in [present, absent]>
         casb_useractivity_match_rules:
-          case_sensitive: <value in [disable, enable]>
-          domains: <list or string>
-          header_name: <string>
-          id: <integer>
-          match_pattern: <value in [simple, substr, regexp]>
-          match_value: <string>
-          methods: <list or string>
-          negate: <value in [disable, enable]>
-          type: <value in [domains, host, path, ...]>
-          body_type: <value in [json]>
-          jq: <string>
+          id: 0 # Required variable, integer
+          # case_sensitive: <value in [disable, enable]>
+          # domains: <list or string>
+          # header_name: <string>
+          # match_pattern: <value in [simple, substr, regexp]>
+          # match_value: <string>
+          # methods: <list or string>
+          # negate: <value in [disable, enable]>
+          # type: <value in [domains, host, path, ...]>
+          # body_type: <value in [json]>
+          # jq: <string>
 '''
 
 RETURN = '''

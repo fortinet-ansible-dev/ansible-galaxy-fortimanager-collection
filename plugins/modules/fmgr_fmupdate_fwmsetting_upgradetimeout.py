@@ -151,20 +151,20 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fwmsetting_upgradetimeout:
-          check_status_timeout: <integer>
-          ctrl_check_status_timeout: <integer>
-          ctrl_put_image_by_fds_timeout: <integer>
-          ha_sync_timeout: <integer>
-          license_check_timeout: <integer>
-          prepare_image_timeout: <integer>
-          put_image_by_fds_timeout: <integer>
-          put_image_timeout: <integer>
-          reboot_of_fsck_timeout: <integer>
-          reboot_of_upgrade_timeout: <integer>
-          retrieve_timeout: <integer>
-          rpc_timeout: <integer>
-          total_timeout: <integer>
-          health_check_timeout: <integer>
+          # check_status_timeout: <integer>
+          # ctrl_check_status_timeout: <integer>
+          # ctrl_put_image_by_fds_timeout: <integer>
+          # ha_sync_timeout: <integer>
+          # license_check_timeout: <integer>
+          # prepare_image_timeout: <integer>
+          # put_image_by_fds_timeout: <integer>
+          # put_image_timeout: <integer>
+          # reboot_of_fsck_timeout: <integer>
+          # reboot_of_upgrade_timeout: <integer>
+          # retrieve_timeout: <integer>
+          # rpc_timeout: <integer>
+          # total_timeout: <integer>
+          # health_check_timeout: <integer>
 '''
 
 RETURN = '''

@@ -541,96 +541,96 @@ EXAMPLES = '''
         pblock: <your own value>
         state: present # <value in [present, absent]>
         pm_config_pblock_firewall_consolidated_policy:
-          _policy_block: <integer>
-          action: <value in [deny, accept, ipsec]>
-          app_category: <list or string>
-          app_group: <list or string>
-          application: <list or integer>
-          application_list: <string>
-          auto_asic_offload: <value in [disable, enable]>
-          av_profile: <string>
-          captive_portal_exempt: <value in [disable, enable]>
-          cifs_profile: <string>
-          comments: <string>
-          diffserv_forward: <value in [disable, enable]>
-          diffserv_reverse: <value in [disable, enable]>
-          diffservcode_forward: <string>
-          diffservcode_rev: <string>
-          dlp_sensor: <string>
-          dnsfilter_profile: <string>
-          dstaddr_negate: <value in [disable, enable]>
-          dstaddr4: <list or string>
-          dstaddr6: <list or string>
-          dstintf: <list or string>
-          emailfilter_profile: <string>
-          fixedport: <value in [disable, enable]>
-          fsso_groups: <list or string>
-          global_label: <string>
-          groups: <list or string>
-          http_policy_redirect: <value in [disable, enable]>
-          icap_profile: <string>
-          inbound: <value in [disable, enable]>
-          inspection_mode: <value in [proxy, flow]>
-          internet_service: <value in [disable, enable]>
-          internet_service_custom: <list or string>
-          internet_service_custom_group: <list or string>
-          internet_service_group: <list or string>
-          internet_service_id: <list or string>
-          internet_service_negate: <value in [disable, enable]>
-          internet_service_src: <value in [disable, enable]>
-          internet_service_src_custom: <list or string>
-          internet_service_src_custom_group: <list or string>
-          internet_service_src_group: <list or string>
-          internet_service_src_id: <list or string>
-          internet_service_src_negate: <value in [disable, enable]>
-          ippool: <value in [disable, enable]>
-          ips_sensor: <string>
-          logtraffic: <value in [disable, all, utm]>
-          logtraffic_start: <value in [disable, enable]>
-          mms_profile: <string>
-          name: <string>
-          nat: <value in [disable, enable]>
-          outbound: <value in [disable, enable]>
-          per_ip_shaper: <string>
-          policyid: <integer>
-          poolname4: <list or string>
-          poolname6: <list or string>
-          profile_group: <string>
-          profile_protocol_options: <string>
-          profile_type: <value in [single, group]>
-          schedule: <string>
-          service: <list or string>
-          service_negate: <value in [disable, enable]>
-          session_ttl: <integer>
-          srcaddr_negate: <value in [disable, enable]>
-          srcaddr4: <list or string>
-          srcaddr6: <list or string>
-          srcintf: <list or string>
-          ssh_filter_profile: <string>
-          ssh_policy_redirect: <value in [disable, enable]>
-          ssl_ssh_profile: <string>
-          status: <value in [disable, enable]>
-          tcp_mss_receiver: <integer>
-          tcp_mss_sender: <integer>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          url_category: <list or string>
-          users: <list or string>
-          utm_status: <value in [disable, enable]>
-          uuid: <string>
-          voip_profile: <string>
-          vpntunnel: <string>
-          waf_profile: <string>
-          wanopt: <value in [disable, enable]>
-          wanopt_detection: <value in [active, passive, off]>
-          wanopt_passive_opt: <value in [default, transparent, non-transparent]>
-          wanopt_peer: <string>
-          wanopt_profile: <string>
-          webcache: <value in [disable, enable]>
-          webcache_https: <value in [disable, enable]>
-          webfilter_profile: <string>
-          webproxy_forward_server: <string>
-          webproxy_profile: <string>
+          policyid: 0 # Required variable, integer
+          # _policy_block: <integer>
+          # action: <value in [deny, accept, ipsec]>
+          # app_category: <list or string>
+          # app_group: <list or string>
+          # application: <list or integer>
+          # application_list: <string>
+          # auto_asic_offload: <value in [disable, enable]>
+          # av_profile: <string>
+          # captive_portal_exempt: <value in [disable, enable]>
+          # cifs_profile: <string>
+          # comments: <string>
+          # diffserv_forward: <value in [disable, enable]>
+          # diffserv_reverse: <value in [disable, enable]>
+          # diffservcode_forward: <string>
+          # diffservcode_rev: <string>
+          # dlp_sensor: <string>
+          # dnsfilter_profile: <string>
+          # dstaddr_negate: <value in [disable, enable]>
+          # dstaddr4: <list or string>
+          # dstaddr6: <list or string>
+          # dstintf: <list or string>
+          # emailfilter_profile: <string>
+          # fixedport: <value in [disable, enable]>
+          # fsso_groups: <list or string>
+          # global_label: <string>
+          # groups: <list or string>
+          # http_policy_redirect: <value in [disable, enable]>
+          # icap_profile: <string>
+          # inbound: <value in [disable, enable]>
+          # inspection_mode: <value in [proxy, flow]>
+          # internet_service: <value in [disable, enable]>
+          # internet_service_custom: <list or string>
+          # internet_service_custom_group: <list or string>
+          # internet_service_group: <list or string>
+          # internet_service_id: <list or string>
+          # internet_service_negate: <value in [disable, enable]>
+          # internet_service_src: <value in [disable, enable]>
+          # internet_service_src_custom: <list or string>
+          # internet_service_src_custom_group: <list or string>
+          # internet_service_src_group: <list or string>
+          # internet_service_src_id: <list or string>
+          # internet_service_src_negate: <value in [disable, enable]>
+          # ippool: <value in [disable, enable]>
+          # ips_sensor: <string>
+          # logtraffic: <value in [disable, all, utm]>
+          # logtraffic_start: <value in [disable, enable]>
+          # mms_profile: <string>
+          # name: <string>
+          # nat: <value in [disable, enable]>
+          # outbound: <value in [disable, enable]>
+          # per_ip_shaper: <string>
+          # poolname4: <list or string>
+          # poolname6: <list or string>
+          # profile_group: <string>
+          # profile_protocol_options: <string>
+          # profile_type: <value in [single, group]>
+          # schedule: <string>
+          # service: <list or string>
+          # service_negate: <value in [disable, enable]>
+          # session_ttl: <integer>
+          # srcaddr_negate: <value in [disable, enable]>
+          # srcaddr4: <list or string>
+          # srcaddr6: <list or string>
+          # srcintf: <list or string>
+          # ssh_filter_profile: <string>
+          # ssh_policy_redirect: <value in [disable, enable]>
+          # ssl_ssh_profile: <string>
+          # status: <value in [disable, enable]>
+          # tcp_mss_receiver: <integer>
+          # tcp_mss_sender: <integer>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # url_category: <list or string>
+          # users: <list or string>
+          # utm_status: <value in [disable, enable]>
+          # uuid: <string>
+          # voip_profile: <string>
+          # vpntunnel: <string>
+          # waf_profile: <string>
+          # wanopt: <value in [disable, enable]>
+          # wanopt_detection: <value in [active, passive, off]>
+          # wanopt_passive_opt: <value in [default, transparent, non-transparent]>
+          # wanopt_peer: <string>
+          # wanopt_profile: <string>
+          # webcache: <value in [disable, enable]>
+          # webcache_https: <value in [disable, enable]>
+          # webfilter_profile: <string>
+          # webproxy_forward_server: <string>
+          # webproxy_profile: <string>
 '''
 
 RETURN = '''

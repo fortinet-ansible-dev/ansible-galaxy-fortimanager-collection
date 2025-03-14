@@ -116,10 +116,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_icmpratectrl:
-          icmp_v4_bucket_size: <integer>
-          icmp_v4_rate: <integer>
-          icmp_v6_bucket_size: <integer>
-          icmp_v6_rate: <integer>
+          # icmp_v4_bucket_size: <integer>
+          # icmp_v4_rate: <integer>
+          # icmp_v6_bucket_size: <integer>
+          # icmp_v6_rate: <integer>
 '''
 
 RETURN = '''

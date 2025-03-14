@@ -121,10 +121,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_autodelete_reportautodeletion:
-          retention: <value in [days, weeks, months]>
-          runat: <integer>
-          status: <value in [disable, enable]>
-          value: <integer>
+          # retention: <value in [days, weeks, months]>
+          # runat: <integer>
+          # status: <value in [disable, enable]>
+          # value: <integer>
 '''
 
 RETURN = '''

@@ -135,15 +135,14 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         dnsfilter_profile_ftgddns:
-          filters:
-            -
-              action: <value in [monitor, block]>
-              category: <string>
-              id: <integer>
-              log: <value in [disable, enable]>
-          options:
-            - "error-allow"
-            - "ftgd-disable"
+          # filters:
+          #   - action: <value in [monitor, block]>
+          #     category: <string>
+          #     id: <integer>
+          #     log: <value in [disable, enable]>
+          # options:
+          #   - "error-allow"
+          #   - "ftgd-disable"
 '''
 
 RETURN = '''

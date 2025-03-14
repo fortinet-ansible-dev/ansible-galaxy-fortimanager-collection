@@ -123,10 +123,10 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_ippoolgrp:
-          comments: <string>
-          member: <list or string>
-          name: <string>
-          uuid: <string>
+          name: "your value" # Required variable, string
+          # comments: <string>
+          # member: <list or string>
+          # uuid: <string>
 '''
 
 RETURN = '''

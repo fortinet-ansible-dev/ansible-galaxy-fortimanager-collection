@@ -134,9 +134,9 @@ EXAMPLES = '''
         ports: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_ports_dhcpsnoopoption82override:
-          circuit_id: <string>
-          remote_id: <string>
-          vlan_name: <string>
+          # circuit_id: <string>
+          # remote_id: <string>
+          # vlan_name: <string>
 '''
 
 RETURN = '''

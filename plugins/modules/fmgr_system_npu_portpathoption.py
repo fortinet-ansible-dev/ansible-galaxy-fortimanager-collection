@@ -104,7 +104,7 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         system_npu_portpathoption:
-          ports_using_npu: <list or string>
+          # ports_using_npu: <list or string>
 '''
 
 RETURN = '''

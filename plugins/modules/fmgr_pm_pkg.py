@@ -273,31 +273,30 @@ EXAMPLES = '''
         pkg_path: <your own value>
         state: present # <value in [present, absent]>
         pm_pkg:
-          name: <string>
-          obj_ver: <integer>
-          oid: <integer>
-          package_setting:
-            central_nat: <value in [disable, enable]>
-            consolidated_firewall_mode: <value in [disable, enable]>
-            fwpolicy_implicit_log: <value in [disable, enable]>
-            fwpolicy6_implicit_log: <value in [disable, enable]>
-            inspection_mode: <value in [proxy, flow]>
-            ngfw_mode: <value in [profile-based, policy-based]>
-            ssl_ssh_profile: <string>
-          scope_member:
-            -
-              name: <string>
-              vdom: <string>
-          type: <value in [pkg, folder]>
-          package_settings:
-            central_nat: <value in [disable, enable]>
-            consolidated_firewall_mode: <value in [disable, enable]>
-            fwpolicy_implicit_log: <value in [disable, enable]>
-            fwpolicy6_implicit_log: <value in [disable, enable]>
-            inspection_mode: <value in [proxy, flow]>
-            ngfw_mode: <value in [profile-based, policy-based]>
-            policy_offload_level: <value in [disable, default, dos-offload, ...]>
-            ssl_ssh_profile: <string>
+          name: "your value" # Required variable, string
+          # obj_ver: <integer>
+          # oid: <integer>
+          # package_setting:
+          #   central_nat: <value in [disable, enable]>
+          #   consolidated_firewall_mode: <value in [disable, enable]>
+          #   fwpolicy_implicit_log: <value in [disable, enable]>
+          #   fwpolicy6_implicit_log: <value in [disable, enable]>
+          #   inspection_mode: <value in [proxy, flow]>
+          #   ngfw_mode: <value in [profile-based, policy-based]>
+          #   ssl_ssh_profile: <string>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
+          # type: <value in [pkg, folder]>
+          # package_settings:
+          #   central_nat: <value in [disable, enable]>
+          #   consolidated_firewall_mode: <value in [disable, enable]>
+          #   fwpolicy_implicit_log: <value in [disable, enable]>
+          #   fwpolicy6_implicit_log: <value in [disable, enable]>
+          #   inspection_mode: <value in [proxy, flow]>
+          #   ngfw_mode: <value in [profile-based, policy-based]>
+          #   policy_offload_level: <value in [disable, default, dos-offload, ...]>
+          #   ssl_ssh_profile: <string>
 '''
 
 RETURN = '''

@@ -212,34 +212,33 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webfilter_urlfilter:
-          comment: <string>
-          entries:
-            -
-              action: <value in [exempt, block, allow, ...]>
-              dns_address_family: <value in [ipv4, ipv6, both]>
-              exempt:
-                - "av"
-                - "web-content"
-                - "activex-java-cookie"
-                - "dlp"
-                - "fortiguard"
-                - "all"
-                - "filepattern"
-                - "pass"
-                - "range-block"
-                - "antiphish"
-              id: <integer>
-              referrer_host: <string>
-              status: <value in [disable, enable]>
-              type: <value in [simple, regex, wildcard]>
-              url: <string>
-              web_proxy_profile: <string>
-              antiphish_action: <value in [block, log]>
-          id: <integer>
-          ip_addr_block: <value in [disable, enable]>
-          name: <string>
-          one_arm_ips_urlfilter: <value in [disable, enable]>
-          ip4_mapped_ip6: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # entries:
+          #   - action: <value in [exempt, block, allow, ...]>
+          #     dns_address_family: <value in [ipv4, ipv6, both]>
+          #     exempt:
+          #       - "av"
+          #       - "web-content"
+          #       - "activex-java-cookie"
+          #       - "dlp"
+          #       - "fortiguard"
+          #       - "all"
+          #       - "filepattern"
+          #       - "pass"
+          #       - "range-block"
+          #       - "antiphish"
+          #     id: <integer>
+          #     referrer_host: <string>
+          #     status: <value in [disable, enable]>
+          #     type: <value in [simple, regex, wildcard]>
+          #     url: <string>
+          #     web_proxy_profile: <string>
+          #     antiphish_action: <value in [block, log]>
+          # ip_addr_block: <value in [disable, enable]>
+          # name: <string>
+          # one_arm_ips_urlfilter: <value in [disable, enable]>
+          # ip4_mapped_ip6: <value in [disable, enable]>
 '''
 
 RETURN = '''

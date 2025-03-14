@@ -115,7 +115,7 @@ EXAMPLES = '''
         user: <your own value>
         state: present # <value in [present, absent]>
         system_admin_user_appfilter:
-          app_filter_name: <string>
+          app_filter_name: "your value" # Required variable, string
 '''
 
 RETURN = '''

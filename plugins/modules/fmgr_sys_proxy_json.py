@@ -109,11 +109,11 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         sys_proxy_json:
-          action: <value in [get, post, put, ...]>
-          payload: <dict>
-          resource: <string>
-          target: <list or string>
-          timeout: <integer>
+          # action: <value in [get, post, put, ...]>
+          # payload: <dict>
+          # resource: <string>
+          # target: <list or string>
+          # timeout: <integer>
 '''
 
 RETURN = '''

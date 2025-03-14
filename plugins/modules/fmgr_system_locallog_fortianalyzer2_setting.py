@@ -161,14 +161,14 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_fortianalyzer2_setting:
-          reliable: <value in [disable, enable]>
-          secure_connection: <value in [disable, enable]>
-          server_ip: <string>
-          severity: <value in [emergency, alert, critical, ...]>
-          status: <value in [disable, realtime, upload]>
-          upload_time: <list or string>
-          server: <string>
-          peer_cert_cn: <string>
+          # reliable: <value in [disable, enable]>
+          # secure_connection: <value in [disable, enable]>
+          # server_ip: <string>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # status: <value in [disable, realtime, upload]>
+          # upload_time: <list or string>
+          # server: <string>
+          # peer_cert_cn: <string>
 '''
 
 RETURN = '''

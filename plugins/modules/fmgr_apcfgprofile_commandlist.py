@@ -137,11 +137,11 @@ EXAMPLES = '''
         apcfg_profile: <your own value>
         state: present # <value in [present, absent]>
         apcfgprofile_commandlist:
-          id: <integer>
-          name: <string>
-          passwd_value: <list or string>
-          type: <value in [non-password, password]>
-          value: <string>
+          id: 0 # Required variable, integer
+          # name: <string>
+          # passwd_value: <list or string>
+          # type: <value in [non-password, password]>
+          # value: <string>
 '''
 
 RETURN = '''

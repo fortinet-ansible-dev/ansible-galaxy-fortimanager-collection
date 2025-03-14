@@ -629,99 +629,98 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         waf_profile_constraint:
-          content_length:
-            action: <value in [allow, block]>
-            length: <integer>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          exception:
-            -
-              address: <string>
-              content_length: <value in [disable, enable]>
-              header_length: <value in [disable, enable]>
-              hostname: <value in [disable, enable]>
-              id: <integer>
-              line_length: <value in [disable, enable]>
-              malformed: <value in [disable, enable]>
-              max_cookie: <value in [disable, enable]>
-              max_header_line: <value in [disable, enable]>
-              max_range_segment: <value in [disable, enable]>
-              max_url_param: <value in [disable, enable]>
-              method: <value in [disable, enable]>
-              param_length: <value in [disable, enable]>
-              pattern: <string>
-              regex: <value in [disable, enable]>
-              url_param_length: <value in [disable, enable]>
-              version: <value in [disable, enable]>
-          header_length:
-            action: <value in [allow, block]>
-            length: <integer>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          hostname:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          line_length:
-            action: <value in [allow, block]>
-            length: <integer>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          malformed:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          max_cookie:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            max_cookie: <integer>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          max_header_line:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            max_header_line: <integer>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          max_range_segment:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            max_range_segment: <integer>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          max_url_param:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            max_url_param: <integer>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          method:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          param_length:
-            action: <value in [allow, block]>
-            length: <integer>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          url_param_length:
-            action: <value in [allow, block]>
-            length: <integer>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
-          version:
-            action: <value in [allow, block]>
-            log: <value in [disable, enable]>
-            severity: <value in [low, medium, high]>
-            status: <value in [disable, enable]>
+          # content_length:
+          #   action: <value in [allow, block]>
+          #   length: <integer>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # exception:
+          #   - address: <string>
+          #     content_length: <value in [disable, enable]>
+          #     header_length: <value in [disable, enable]>
+          #     hostname: <value in [disable, enable]>
+          #     id: <integer>
+          #     line_length: <value in [disable, enable]>
+          #     malformed: <value in [disable, enable]>
+          #     max_cookie: <value in [disable, enable]>
+          #     max_header_line: <value in [disable, enable]>
+          #     max_range_segment: <value in [disable, enable]>
+          #     max_url_param: <value in [disable, enable]>
+          #     method: <value in [disable, enable]>
+          #     param_length: <value in [disable, enable]>
+          #     pattern: <string>
+          #     regex: <value in [disable, enable]>
+          #     url_param_length: <value in [disable, enable]>
+          #     version: <value in [disable, enable]>
+          # header_length:
+          #   action: <value in [allow, block]>
+          #   length: <integer>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # hostname:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # line_length:
+          #   action: <value in [allow, block]>
+          #   length: <integer>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # malformed:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # max_cookie:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   max_cookie: <integer>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # max_header_line:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   max_header_line: <integer>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # max_range_segment:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   max_range_segment: <integer>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # max_url_param:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   max_url_param: <integer>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # method:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # param_length:
+          #   action: <value in [allow, block]>
+          #   length: <integer>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # url_param_length:
+          #   action: <value in [allow, block]>
+          #   length: <integer>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
+          # version:
+          #   action: <value in [allow, block]>
+          #   log: <value in [disable, enable]>
+          #   severity: <value in [low, medium, high]>
+          #   status: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -131,8 +131,8 @@ EXAMPLES = '''
         snmp_community: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_snmpcommunity_hosts:
-          id: <integer>
-          ip: <string>
+          id: 0 # Required variable, integer
+          # ip: <string>
 '''
 
 RETURN = '''

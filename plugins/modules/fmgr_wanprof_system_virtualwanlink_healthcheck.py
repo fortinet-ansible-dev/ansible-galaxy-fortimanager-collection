@@ -300,51 +300,50 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_virtualwanlink_healthcheck:
-          _dynamic_server: <string>
-          addr_mode: <value in [ipv4, ipv6]>
-          failtime: <integer>
-          http_agent: <string>
-          http_get: <string>
-          http_match: <string>
-          interval: <integer>
-          members: <list or string>
-          name: <string>
-          packet_size: <integer>
-          password: <list or string>
-          port: <integer>
-          protocol: <value in [ping, tcp-echo, udp-echo, ...]>
-          recoverytime: <integer>
-          security_mode: <value in [none, authentication]>
-          server: <list or string>
-          sla:
-            -
-              id: <integer>
-              jitter_threshold: <integer>
-              latency_threshold: <integer>
-              link_cost_factor:
-                - "latency"
-                - "jitter"
-                - "packet-loss"
-              packetloss_threshold: <integer>
-          threshold_alert_jitter: <integer>
-          threshold_alert_latency: <integer>
-          threshold_alert_packetloss: <integer>
-          threshold_warning_jitter: <integer>
-          threshold_warning_latency: <integer>
-          threshold_warning_packetloss: <integer>
-          update_cascade_interface: <value in [disable, enable]>
-          update_static_route: <value in [disable, enable]>
-          internet_service_id: <string>
-          probe_packets: <value in [disable, enable]>
-          sla_fail_log_period: <integer>
-          sla_pass_log_period: <integer>
-          timeout: <integer>
-          ha_priority: <integer>
-          diffservcode: <string>
-          probe_timeout: <integer>
-          dns_request_domain: <string>
-          probe_count: <integer>
-          system_dns: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # _dynamic_server: <string>
+          # addr_mode: <value in [ipv4, ipv6]>
+          # failtime: <integer>
+          # http_agent: <string>
+          # http_get: <string>
+          # http_match: <string>
+          # interval: <integer>
+          # members: <list or string>
+          # packet_size: <integer>
+          # password: <list or string>
+          # port: <integer>
+          # protocol: <value in [ping, tcp-echo, udp-echo, ...]>
+          # recoverytime: <integer>
+          # security_mode: <value in [none, authentication]>
+          # server: <list or string>
+          # sla:
+          #   - id: <integer>
+          #     jitter_threshold: <integer>
+          #     latency_threshold: <integer>
+          #     link_cost_factor:
+          #       - "latency"
+          #       - "jitter"
+          #       - "packet-loss"
+          #     packetloss_threshold: <integer>
+          # threshold_alert_jitter: <integer>
+          # threshold_alert_latency: <integer>
+          # threshold_alert_packetloss: <integer>
+          # threshold_warning_jitter: <integer>
+          # threshold_warning_latency: <integer>
+          # threshold_warning_packetloss: <integer>
+          # update_cascade_interface: <value in [disable, enable]>
+          # update_static_route: <value in [disable, enable]>
+          # internet_service_id: <string>
+          # probe_packets: <value in [disable, enable]>
+          # sla_fail_log_period: <integer>
+          # sla_pass_log_period: <integer>
+          # timeout: <integer>
+          # ha_priority: <integer>
+          # diffservcode: <string>
+          # probe_timeout: <integer>
+          # dns_request_domain: <string>
+          # probe_count: <integer>
+          # system_dns: <value in [disable, enable]>
 '''
 
 RETURN = '''

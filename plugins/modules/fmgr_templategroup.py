@@ -135,14 +135,14 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         templategroup:
-          description: <string>
-          member: <list or string>
-          modification_time: <string>
-          name: <string>
-          variables: <list or string>
-          option:
-            - "sdwan-overlay"
-            - "sdwan-manager"
+          name: "your value" # Required variable, string
+          # description: <string>
+          # member: <list or string>
+          # modification_time: <string>
+          # variables: <list or string>
+          # option:
+          #   - "sdwan-overlay"
+          #   - "sdwan-manager"
 '''
 
 RETURN = '''

@@ -140,12 +140,12 @@ EXAMPLES = '''
         icon: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_icon_iconlist:
-          file: <string>
-          height: <integer>
-          lang: <string>
-          name: <string>
-          type: <value in [bmp, gif, jpeg, ...]>
-          width: <integer>
+          name: "your value" # Required variable, string
+          # file: <string>
+          # height: <integer>
+          # lang: <string>
+          # type: <value in [bmp, gif, jpeg, ...]>
+          # width: <integer>
 '''
 
 RETURN = '''

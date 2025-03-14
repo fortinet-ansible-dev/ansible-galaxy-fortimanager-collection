@@ -189,10 +189,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_sql_customskipidx:
-          device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
-          id: <integer>
-          index_field: <string>
-          log_type: <value in [app-ctrl, attack, content, ...]>
+          id: 0 # Required variable, integer
+          # device_type: <value in [FortiGate, FortiManager, FortiClient, ...]>
+          # index_field: <string>
+          # log_type: <value in [app-ctrl, attack, content, ...]>
 '''
 
 RETURN = '''

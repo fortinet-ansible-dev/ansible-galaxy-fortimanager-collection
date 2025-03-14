@@ -119,10 +119,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_certificate_ssh:
-          certificate: <list or string>
-          comment: <string>
-          name: <string>
-          private_key: <list or string>
+          name: "your value" # Required variable, string
+          # certificate: <list or string>
+          # comment: <string>
+          # private_key: <list or string>
 '''
 
 RETURN = '''

@@ -238,30 +238,30 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_log_fortianalyzercloud_setting:
-          __change_ip: <integer>
-          access_config: <value in [disable, enable]>
-          certificate: <string>
-          conn_timeout: <integer>
-          enc_algorithm: <value in [high, low, high-medium, ...]>
-          hmac_algorithm: <value in [sha256, sha1]>
-          ips_archive: <value in [disable, enable]>
-          monitor_failure_retry_period: <integer>
-          monitor_keepalive_period: <integer>
-          source_ip: <string>
-          ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
-          status: <value in [disable, enable]>
-          upload_day: <string>
-          upload_interval: <value in [daily, weekly, monthly]>
-          upload_option: <value in [store-and-upload, realtime, 1-minute, ...]>
-          upload_time: <string>
-          max_log_rate: <integer>
-          priority: <value in [low, default]>
-          interface: <string>
-          interface_select_method: <value in [auto, sdwan, specify]>
-          preshared_key: <string>
-          certificate_verification: <value in [disable, enable]>
-          serial: <list or string>
-          vrf_select: <integer>
+          # __change_ip: <integer>
+          # access_config: <value in [disable, enable]>
+          # certificate: <string>
+          # conn_timeout: <integer>
+          # enc_algorithm: <value in [high, low, high-medium, ...]>
+          # hmac_algorithm: <value in [sha256, sha1]>
+          # ips_archive: <value in [disable, enable]>
+          # monitor_failure_retry_period: <integer>
+          # monitor_keepalive_period: <integer>
+          # source_ip: <string>
+          # ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
+          # status: <value in [disable, enable]>
+          # upload_day: <string>
+          # upload_interval: <value in [daily, weekly, monthly]>
+          # upload_option: <value in [store-and-upload, realtime, 1-minute, ...]>
+          # upload_time: <string>
+          # max_log_rate: <integer>
+          # priority: <value in [low, default]>
+          # interface: <string>
+          # interface_select_method: <value in [auto, sdwan, specify]>
+          # preshared_key: <string>
+          # certificate_verification: <value in [disable, enable]>
+          # serial: <list or string>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''

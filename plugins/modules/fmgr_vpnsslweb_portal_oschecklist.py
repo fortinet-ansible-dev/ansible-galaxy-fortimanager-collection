@@ -126,11 +126,11 @@ EXAMPLES = '''
         adom: <your own value>
         portal: <your own value>
         vpnsslweb_portal_oschecklist:
-          action: <value in [allow, check-up-to-date, deny]>
-          latest_patch_level: <string>
-          name: <string>
-          tolerance: <integer>
-          minor_version: <integer>
+          # action: <value in [allow, check-up-to-date, deny]>
+          # latest_patch_level: <string>
+          # name: <string>
+          # tolerance: <integer>
+          # minor_version: <integer>
 '''
 
 RETURN = '''

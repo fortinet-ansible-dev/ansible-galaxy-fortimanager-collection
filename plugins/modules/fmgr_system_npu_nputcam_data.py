@@ -361,60 +361,60 @@ EXAMPLES = '''
         adom: <your own value>
         npu_tcam: <your own value>
         system_npu_nputcam_data:
-          df: <value in [disable, enable]>
-          dstip: <string>
-          dstipv6: <string>
-          dstmac: <string>
-          dstport: <integer>
-          ethertype: <string>
-          ext_tag: <value in [disable, enable]>
-          frag_off: <integer>
-          gen_buf_cnt: <integer>
-          gen_iv: <value in [invalid, valid]>
-          gen_l3_flags: <integer>
-          gen_l4_flags: <integer>
-          gen_pkt_ctrl: <integer>
-          gen_pri: <integer>
-          gen_pri_v: <value in [invalid, valid]>
-          gen_tv: <value in [invalid, valid]>
-          ihl: <integer>
-          ip4_id: <integer>
-          ip6_fl: <integer>
-          ipver: <integer>
-          l4_wd10: <integer>
-          l4_wd11: <integer>
-          l4_wd8: <integer>
-          l4_wd9: <integer>
-          mf: <value in [disable, enable]>
-          protocol: <integer>
-          slink: <integer>
-          smac_change: <value in [disable, enable]>
-          sp: <integer>
-          src_cfi: <value in [disable, enable]>
-          src_prio: <integer>
-          src_updt: <value in [disable, enable]>
-          srcip: <string>
-          srcipv6: <string>
-          srcmac: <string>
-          srcport: <integer>
-          svid: <integer>
-          tcp_ack: <value in [disable, enable]>
-          tcp_cwr: <value in [disable, enable]>
-          tcp_ece: <value in [disable, enable]>
-          tcp_fin: <value in [disable, enable]>
-          tcp_push: <value in [disable, enable]>
-          tcp_rst: <value in [disable, enable]>
-          tcp_syn: <value in [disable, enable]>
-          tcp_urg: <value in [disable, enable]>
-          tgt_cfi: <value in [disable, enable]>
-          tgt_prio: <integer>
-          tgt_updt: <value in [disable, enable]>
-          tgt_v: <value in [invalid, valid]>
-          tos: <integer>
-          tp: <integer>
-          ttl: <integer>
-          tvid: <integer>
-          vdid: <integer>
+          # df: <value in [disable, enable]>
+          # dstip: <string>
+          # dstipv6: <string>
+          # dstmac: <string>
+          # dstport: <integer>
+          # ethertype: <string>
+          # ext_tag: <value in [disable, enable]>
+          # frag_off: <integer>
+          # gen_buf_cnt: <integer>
+          # gen_iv: <value in [invalid, valid]>
+          # gen_l3_flags: <integer>
+          # gen_l4_flags: <integer>
+          # gen_pkt_ctrl: <integer>
+          # gen_pri: <integer>
+          # gen_pri_v: <value in [invalid, valid]>
+          # gen_tv: <value in [invalid, valid]>
+          # ihl: <integer>
+          # ip4_id: <integer>
+          # ip6_fl: <integer>
+          # ipver: <integer>
+          # l4_wd10: <integer>
+          # l4_wd11: <integer>
+          # l4_wd8: <integer>
+          # l4_wd9: <integer>
+          # mf: <value in [disable, enable]>
+          # protocol: <integer>
+          # slink: <integer>
+          # smac_change: <value in [disable, enable]>
+          # sp: <integer>
+          # src_cfi: <value in [disable, enable]>
+          # src_prio: <integer>
+          # src_updt: <value in [disable, enable]>
+          # srcip: <string>
+          # srcipv6: <string>
+          # srcmac: <string>
+          # srcport: <integer>
+          # svid: <integer>
+          # tcp_ack: <value in [disable, enable]>
+          # tcp_cwr: <value in [disable, enable]>
+          # tcp_ece: <value in [disable, enable]>
+          # tcp_fin: <value in [disable, enable]>
+          # tcp_push: <value in [disable, enable]>
+          # tcp_rst: <value in [disable, enable]>
+          # tcp_syn: <value in [disable, enable]>
+          # tcp_urg: <value in [disable, enable]>
+          # tgt_cfi: <value in [disable, enable]>
+          # tgt_prio: <integer>
+          # tgt_updt: <value in [disable, enable]>
+          # tgt_v: <value in [invalid, valid]>
+          # tos: <integer>
+          # tp: <integer>
+          # ttl: <integer>
+          # tvid: <integer>
+          # vdid: <integer>
 '''
 
 RETURN = '''

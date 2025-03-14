@@ -118,10 +118,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_log_devicedisable:
-          TTL: <string>
-          device: <string>
-          id: <integer>
-          expire: <string>
+          id: 0 # Required variable, integer
+          # TTL: <string>
+          # device: <string>
+          # expire: <string>
 '''
 
 RETURN = '''

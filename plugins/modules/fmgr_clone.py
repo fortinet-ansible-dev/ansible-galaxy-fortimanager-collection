@@ -3458,7 +3458,7 @@ def main():
                 '/pm/config/global/obj/wireless-controller/hotspot20/anqp-nai-realm/{anqp-nai-realm}/nai-list/{nai-list}/eap-method/{eap-method}/auth-param/{'
                 'auth-param}'
             ],
-            'mkey': 'id'
+            'mkey': 'index'
         },
         'hotspot20_anqpnetworkauthtype': {
             'params': ['adom', 'anqp-network-auth-type'],

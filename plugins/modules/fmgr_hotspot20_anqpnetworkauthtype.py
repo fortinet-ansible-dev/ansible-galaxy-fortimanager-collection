@@ -126,9 +126,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_anqpnetworkauthtype:
-          auth_type: <value in [acceptance-of-terms, online-enrollment, http-redirection, ...]>
-          name: <string>
-          url: <string>
+          name: "your value" # Required variable, string
+          # auth_type: <value in [acceptance-of-terms, online-enrollment, http-redirection, ...]>
+          # url: <string>
 '''
 
 RETURN = '''

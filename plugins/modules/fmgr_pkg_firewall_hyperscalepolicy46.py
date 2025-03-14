@@ -182,23 +182,23 @@ EXAMPLES = '''
         pkg: <your own value>
         state: present # <value in [present, absent]>
         pkg_firewall_hyperscalepolicy46:
-          action: <value in [deny, accept]>
-          cgn_log_server_grp: <string>
-          comments: <string>
-          dstaddr: <list or string>
-          dstintf: <string>
-          name: <string>
-          policy_offload: <value in [disable, enable]>
-          policyid: <integer>
-          service: <list or string>
-          srcaddr: <list or string>
-          srcintf: <string>
-          status: <value in [disable, enable]>
-          tcp_timeout_pid: <string>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          udp_timeout_pid: <string>
-          uuid: <string>
+          policyid: 0 # Required variable, integer
+          # action: <value in [deny, accept]>
+          # cgn_log_server_grp: <string>
+          # comments: <string>
+          # dstaddr: <list or string>
+          # dstintf: <string>
+          # name: <string>
+          # policy_offload: <value in [disable, enable]>
+          # service: <list or string>
+          # srcaddr: <list or string>
+          # srcintf: <string>
+          # status: <value in [disable, enable]>
+          # tcp_timeout_pid: <string>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # udp_timeout_pid: <string>
+          # uuid: <string>
 '''
 
 RETURN = '''

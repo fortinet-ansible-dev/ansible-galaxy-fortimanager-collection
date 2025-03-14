@@ -121,8 +121,8 @@ EXAMPLES = '''
         pkg_path: <your own value>
         state: present # <value in [present, absent]>
         pm_wanprof_scopemember:
-          name: <string>
-          vdom: <string>
+          # name: <string>
+          # vdom: <string>
 '''
 
 RETURN = '''

@@ -125,8 +125,8 @@ EXAMPLES = '''
         h2qp_osu_provider_nai: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qposuprovidernai_nailist:
-          name: <string>
-          osu_nai: <string>
+          name: "your value" # Required variable, string
+          # osu_nai: <string>
 '''
 
 RETURN = '''

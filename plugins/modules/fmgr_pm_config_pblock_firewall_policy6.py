@@ -588,103 +588,103 @@ EXAMPLES = '''
         pblock: <your own value>
         state: present # <value in [present, absent]>
         pm_config_pblock_firewall_policy6:
-          _policy_block: <integer>
-          action: <value in [deny, accept, ipsec, ...]>
-          anti_replay: <value in [disable, enable]>
-          app_category: <list or string>
-          app_group: <list or string>
-          application: <list or integer>
-          application_list: <string>
-          auto_asic_offload: <value in [disable, enable]>
-          av_profile: <string>
-          cgn_log_server_grp: <string>
-          cifs_profile: <string>
-          comments: <string>
-          custom_log_fields: <list or string>
-          diffserv_forward: <value in [disable, enable]>
-          diffserv_reverse: <value in [disable, enable]>
-          diffservcode_forward: <string>
-          diffservcode_rev: <string>
-          dlp_sensor: <string>
-          dnsfilter_profile: <string>
-          dsri: <value in [disable, enable]>
-          dstaddr: <list or string>
-          dstaddr_negate: <value in [disable, enable]>
-          dstintf: <list or string>
-          emailfilter_profile: <string>
-          firewall_session_dirty: <value in [check-all, check-new]>
-          fixedport: <value in [disable, enable]>
-          fsso_groups: <list or string>
-          global_label: <string>
-          groups: <list or string>
-          http_policy_redirect: <value in [disable, enable]>
-          icap_profile: <string>
-          inbound: <value in [disable, enable]>
-          inspection_mode: <value in [proxy, flow]>
-          ippool: <value in [disable, enable]>
-          ips_sensor: <string>
-          label: <string>
-          logtraffic: <value in [disable, enable, all, ...]>
-          logtraffic_start: <value in [disable, enable]>
-          mms_profile: <string>
-          name: <string>
-          nat: <value in [disable, enable]>
-          natinbound: <value in [disable, enable]>
-          natoutbound: <value in [disable, enable]>
-          np_acceleration: <value in [disable, enable]>
-          outbound: <value in [disable, enable]>
-          per_ip_shaper: <string>
-          policy_offload: <value in [disable, enable]>
-          policyid: <integer>
-          poolname: <list or string>
-          profile_group: <string>
-          profile_protocol_options: <string>
-          profile_type: <value in [single, group]>
-          replacemsg_override_group: <string>
-          rsso: <value in [disable, enable]>
-          schedule: <string>
-          send_deny_packet: <value in [disable, enable]>
-          service: <list or string>
-          service_negate: <value in [disable, enable]>
-          session_ttl: <string>
-          srcaddr: <list or string>
-          srcaddr_negate: <value in [disable, enable]>
-          srcintf: <list or string>
-          ssh_filter_profile: <string>
-          ssh_policy_redirect: <value in [disable, enable]>
-          ssl_mirror: <value in [disable, enable]>
-          ssl_mirror_intf: <list or string>
-          ssl_ssh_profile: <string>
-          status: <value in [disable, enable]>
-          tcp_mss_receiver: <integer>
-          tcp_mss_sender: <integer>
-          tcp_session_without_syn: <value in [all, data-only, disable]>
-          timeout_send_rst: <value in [disable, enable]>
-          tos: <string>
-          tos_mask: <string>
-          tos_negate: <value in [disable, enable]>
-          traffic_shaper: <string>
-          traffic_shaper_reverse: <string>
-          url_category: <list or string>
-          users: <list or string>
-          utm_status: <value in [disable, enable]>
-          uuid: <string>
-          vlan_cos_fwd: <integer>
-          vlan_cos_rev: <integer>
-          vlan_filter: <string>
-          voip_profile: <string>
-          vpntunnel: <string>
-          waf_profile: <string>
-          webcache: <value in [disable, enable]>
-          webcache_https: <value in [disable, enable]>
-          webfilter_profile: <string>
-          webproxy_forward_server: <string>
-          webproxy_profile: <string>
-          dscp_negate: <value in [disable, enable]>
-          devices: <list or string>
-          dscp_value: <string>
-          spamfilter_profile: <string>
-          dscp_match: <value in [disable, enable]>
+          policyid: 0 # Required variable, integer
+          # _policy_block: <integer>
+          # action: <value in [deny, accept, ipsec, ...]>
+          # anti_replay: <value in [disable, enable]>
+          # app_category: <list or string>
+          # app_group: <list or string>
+          # application: <list or integer>
+          # application_list: <string>
+          # auto_asic_offload: <value in [disable, enable]>
+          # av_profile: <string>
+          # cgn_log_server_grp: <string>
+          # cifs_profile: <string>
+          # comments: <string>
+          # custom_log_fields: <list or string>
+          # diffserv_forward: <value in [disable, enable]>
+          # diffserv_reverse: <value in [disable, enable]>
+          # diffservcode_forward: <string>
+          # diffservcode_rev: <string>
+          # dlp_sensor: <string>
+          # dnsfilter_profile: <string>
+          # dsri: <value in [disable, enable]>
+          # dstaddr: <list or string>
+          # dstaddr_negate: <value in [disable, enable]>
+          # dstintf: <list or string>
+          # emailfilter_profile: <string>
+          # firewall_session_dirty: <value in [check-all, check-new]>
+          # fixedport: <value in [disable, enable]>
+          # fsso_groups: <list or string>
+          # global_label: <string>
+          # groups: <list or string>
+          # http_policy_redirect: <value in [disable, enable]>
+          # icap_profile: <string>
+          # inbound: <value in [disable, enable]>
+          # inspection_mode: <value in [proxy, flow]>
+          # ippool: <value in [disable, enable]>
+          # ips_sensor: <string>
+          # label: <string>
+          # logtraffic: <value in [disable, enable, all, ...]>
+          # logtraffic_start: <value in [disable, enable]>
+          # mms_profile: <string>
+          # name: <string>
+          # nat: <value in [disable, enable]>
+          # natinbound: <value in [disable, enable]>
+          # natoutbound: <value in [disable, enable]>
+          # np_acceleration: <value in [disable, enable]>
+          # outbound: <value in [disable, enable]>
+          # per_ip_shaper: <string>
+          # policy_offload: <value in [disable, enable]>
+          # poolname: <list or string>
+          # profile_group: <string>
+          # profile_protocol_options: <string>
+          # profile_type: <value in [single, group]>
+          # replacemsg_override_group: <string>
+          # rsso: <value in [disable, enable]>
+          # schedule: <string>
+          # send_deny_packet: <value in [disable, enable]>
+          # service: <list or string>
+          # service_negate: <value in [disable, enable]>
+          # session_ttl: <string>
+          # srcaddr: <list or string>
+          # srcaddr_negate: <value in [disable, enable]>
+          # srcintf: <list or string>
+          # ssh_filter_profile: <string>
+          # ssh_policy_redirect: <value in [disable, enable]>
+          # ssl_mirror: <value in [disable, enable]>
+          # ssl_mirror_intf: <list or string>
+          # ssl_ssh_profile: <string>
+          # status: <value in [disable, enable]>
+          # tcp_mss_receiver: <integer>
+          # tcp_mss_sender: <integer>
+          # tcp_session_without_syn: <value in [all, data-only, disable]>
+          # timeout_send_rst: <value in [disable, enable]>
+          # tos: <string>
+          # tos_mask: <string>
+          # tos_negate: <value in [disable, enable]>
+          # traffic_shaper: <string>
+          # traffic_shaper_reverse: <string>
+          # url_category: <list or string>
+          # users: <list or string>
+          # utm_status: <value in [disable, enable]>
+          # uuid: <string>
+          # vlan_cos_fwd: <integer>
+          # vlan_cos_rev: <integer>
+          # vlan_filter: <string>
+          # voip_profile: <string>
+          # vpntunnel: <string>
+          # waf_profile: <string>
+          # webcache: <value in [disable, enable]>
+          # webcache_https: <value in [disable, enable]>
+          # webfilter_profile: <string>
+          # webproxy_forward_server: <string>
+          # webproxy_profile: <string>
+          # dscp_negate: <value in [disable, enable]>
+          # devices: <list or string>
+          # dscp_value: <string>
+          # spamfilter_profile: <string>
+          # dscp_match: <value in [disable, enable]>
 '''
 
 RETURN = '''

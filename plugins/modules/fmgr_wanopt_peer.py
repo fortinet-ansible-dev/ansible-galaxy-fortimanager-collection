@@ -118,8 +118,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wanopt_peer:
-          ip: <string>
-          peer_host_id: <string>
+          peer_host_id: "your value" # Required variable, string
+          # ip: <string>
 '''
 
 RETURN = '''

@@ -440,76 +440,71 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         ips_baseline_sensor:
-          block_malicious_url: <value in [disable, enable]>
-          comment: <string>
-          entries:
-            -
-              action: <value in [pass, block, reset, ...]>
-              application: <list or string>
-              cve: <list or string>
-              exempt_ip:
-                -
-                  dst_ip: <string>
-                  id: <integer>
-                  src_ip: <string>
-              id: <integer>
-              location: <list or string>
-              log: <value in [disable, enable]>
-              log_attack_context: <value in [disable, enable]>
-              log_packet: <value in [disable, enable]>
-              os: <list or string>
-              protocol: <list or string>
-              quarantine: <value in [none, attacker, both, ...]>
-              quarantine_expiry: <string>
-              quarantine_log: <value in [disable, enable]>
-              rate_count: <integer>
-              rate_duration: <integer>
-              rate_mode: <value in [periodical, continuous]>
-              rate_track: <value in [none, src-ip, dest-ip, ...]>
-              rule: <string>
-              severity: <list or string>
-              status: <value in [disable, enable, default]>
-              tags: <string>
-          extended_log: <value in [disable, enable]>
-          filter:
-            -
-              action: <value in [pass, block, default, ...]>
-              application: <list or string>
-              application_real: <string>
-              location: <list or string>
-              location_real: <string>
-              log: <value in [disable, enable, default]>
-              log_packet: <value in [disable, enable, default]>
-              name: <string>
-              os: <list or string>
-              os_real: <string>
-              protocol: <list or string>
-              protocol_real: <string>
-              quarantine: <value in [none, attacker, both, ...]>
-              quarantine_expiry: <integer>
-              quarantine_log: <value in [disable, enable]>
-              severity: <list or string>
-              severity_real: <string>
-              status: <value in [disable, enable, default]>
-          log: <value in [disable, enable]>
-          name: <string>
-          override:
-            -
-              action: <value in [pass, block, reset]>
-              exempt_ip:
-                -
-                  dst_ip: <string>
-                  id: <integer>
-                  src_ip: <string>
-              log: <value in [disable, enable]>
-              log_packet: <value in [disable, enable]>
-              quarantine: <value in [none, attacker, both, ...]>
-              quarantine_expiry: <integer>
-              quarantine_log: <value in [disable, enable]>
-              rule_id: <integer>
-              status: <value in [disable, enable]>
-          replacemsg_group: <string>
-          scan_botnet_connections: <value in [disable, block, monitor]>
+          name: "your value" # Required variable, string
+          # block_malicious_url: <value in [disable, enable]>
+          # comment: <string>
+          # entries:
+          #   - action: <value in [pass, block, reset, ...]>
+          #     application: <list or string>
+          #     cve: <list or string>
+          #     exempt_ip:
+          #       - dst_ip: <string>
+          #         id: <integer>
+          #         src_ip: <string>
+          #     id: <integer>
+          #     location: <list or string>
+          #     log: <value in [disable, enable]>
+          #     log_attack_context: <value in [disable, enable]>
+          #     log_packet: <value in [disable, enable]>
+          #     os: <list or string>
+          #     protocol: <list or string>
+          #     quarantine: <value in [none, attacker, both, ...]>
+          #     quarantine_expiry: <string>
+          #     quarantine_log: <value in [disable, enable]>
+          #     rate_count: <integer>
+          #     rate_duration: <integer>
+          #     rate_mode: <value in [periodical, continuous]>
+          #     rate_track: <value in [none, src-ip, dest-ip, ...]>
+          #     rule: <string>
+          #     severity: <list or string>
+          #     status: <value in [disable, enable, default]>
+          #     tags: <string>
+          # extended_log: <value in [disable, enable]>
+          # filter:
+          #   - action: <value in [pass, block, default, ...]>
+          #     application: <list or string>
+          #     application_real: <string>
+          #     location: <list or string>
+          #     location_real: <string>
+          #     log: <value in [disable, enable, default]>
+          #     log_packet: <value in [disable, enable, default]>
+          #     name: <string>
+          #     os: <list or string>
+          #     os_real: <string>
+          #     protocol: <list or string>
+          #     protocol_real: <string>
+          #     quarantine: <value in [none, attacker, both, ...]>
+          #     quarantine_expiry: <integer>
+          #     quarantine_log: <value in [disable, enable]>
+          #     severity: <list or string>
+          #     severity_real: <string>
+          #     status: <value in [disable, enable, default]>
+          # log: <value in [disable, enable]>
+          # override:
+          #   - action: <value in [pass, block, reset]>
+          #     exempt_ip:
+          #       - dst_ip: <string>
+          #         id: <integer>
+          #         src_ip: <string>
+          #     log: <value in [disable, enable]>
+          #     log_packet: <value in [disable, enable]>
+          #     quarantine: <value in [none, attacker, both, ...]>
+          #     quarantine_expiry: <integer>
+          #     quarantine_log: <value in [disable, enable]>
+          #     rule_id: <integer>
+          #     status: <value in [disable, enable]>
+          # replacemsg_group: <string>
+          # scan_botnet_connections: <value in [disable, block, monitor]>
 '''
 
 RETURN = '''

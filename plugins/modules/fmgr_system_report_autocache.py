@@ -131,10 +131,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_report_autocache:
-          aggressive_schedule: <value in [disable, enable]>
-          order: <value in [oldest-first]>
-          status: <value in [disable, enable]>
-          sche_rpt_only: <value in [disable, enable]>
+          # aggressive_schedule: <value in [disable, enable]>
+          # order: <value in [oldest-first]>
+          # status: <value in [disable, enable]>
+          # sche_rpt_only: <value in [disable, enable]>
 '''
 
 RETURN = '''

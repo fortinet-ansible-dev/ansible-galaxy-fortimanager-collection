@@ -144,13 +144,13 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         cifs_profile_filefilter_entries:
-          action: <value in [block, log]>
-          comment: <string>
-          direction: <value in [incoming, outgoing, any]>
-          file_type: <list or string>
-          filter: <string>
-          protocol:
-            - "cifs"
+          # action: <value in [block, log]>
+          # comment: <string>
+          # direction: <value in [incoming, outgoing, any]>
+          # file_type: <list or string>
+          # filter: <string>
+          # protocol:
+          #   - "cifs"
 '''
 
 RETURN = '''

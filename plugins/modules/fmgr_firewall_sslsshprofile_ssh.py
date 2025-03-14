@@ -176,24 +176,24 @@ EXAMPLES = '''
         adom: <your own value>
         ssl_ssh_profile: <your own value>
         firewall_sslsshprofile_ssh:
-          inspect_all: <value in [disable, deep-inspection]>
-          ports: <list or integer>
-          ssh_algorithm: <value in [compatible, high-encryption]>
-          ssh_policy_check: <value in [disable, enable]>
-          ssh_tun_policy_check: <value in [disable, enable]>
-          status: <value in [disable, deep-inspection]>
-          unsupported_version: <value in [block, bypass]>
-          block:
-            - "x11-filter"
-            - "ssh-shell"
-            - "exec"
-            - "port-forward"
-          log:
-            - "x11-filter"
-            - "ssh-shell"
-            - "exec"
-            - "port-forward"
-          proxy_after_tcp_handshake: <value in [disable, enable]>
+          # inspect_all: <value in [disable, deep-inspection]>
+          # ports: <list or integer>
+          # ssh_algorithm: <value in [compatible, high-encryption]>
+          # ssh_policy_check: <value in [disable, enable]>
+          # ssh_tun_policy_check: <value in [disable, enable]>
+          # status: <value in [disable, deep-inspection]>
+          # unsupported_version: <value in [block, bypass]>
+          # block:
+          #   - "x11-filter"
+          #   - "ssh-shell"
+          #   - "exec"
+          #   - "port-forward"
+          # log:
+          #   - "x11-filter"
+          #   - "ssh-shell"
+          #   - "exec"
+          #   - "port-forward"
+          # proxy_after_tcp_handshake: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -146,13 +146,13 @@ EXAMPLES = '''
         vlan: <your own value>
         state: present # <value in [present, absent]>
         fsp_vlan_interface_ipv6_ip6prefixlist:
-          autonomous_flag: <value in [disable, enable]>
-          dnssl: <list or string>
-          onlink_flag: <value in [disable, enable]>
-          preferred_life_time: <integer>
-          prefix: <string>
-          rdnss: <list or string>
-          valid_life_time: <integer>
+          # autonomous_flag: <value in [disable, enable]>
+          # dnssl: <list or string>
+          # onlink_flag: <value in [disable, enable]>
+          # preferred_life_time: <integer>
+          # prefix: <string>
+          # rdnss: <list or string>
+          # valid_life_time: <integer>
 '''
 
 RETURN = '''

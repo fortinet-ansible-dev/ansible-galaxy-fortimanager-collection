@@ -164,19 +164,18 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_hostchecksoftware:
-          check_item_list:
-            -
-              action: <value in [deny, require]>
-              id: <integer>
-              md5s: <list or string>
-              target: <string>
-              type: <value in [file, registry, process]>
-              version: <string>
-          guid: <string>
-          name: <string>
-          os_type: <value in [macos, windows]>
-          type: <value in [av, fw]>
-          version: <string>
+          name: "your value" # Required variable, string
+          # check_item_list:
+          #   - action: <value in [deny, require]>
+          #     id: <integer>
+          #     md5s: <list or string>
+          #     target: <string>
+          #     type: <value in [file, registry, process]>
+          #     version: <string>
+          # guid: <string>
+          # os_type: <value in [macos, windows]>
+          # type: <value in [av, fw]>
+          # version: <string>
 '''
 
 RETURN = '''

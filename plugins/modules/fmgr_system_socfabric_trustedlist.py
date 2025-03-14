@@ -112,8 +112,8 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_socfabric_trustedlist:
-          id: <integer>
-          serial: <string>
+          id: 0 # Required variable, integer
+          # serial: <string>
 '''
 
 RETURN = '''

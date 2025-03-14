@@ -146,13 +146,13 @@ EXAMPLES = '''
         profile_protocol_options: <your own value>
         state: present # <value in [present, absent]>
         firewall_profileprotocoloptions_cifs_filefilter_entries:
-          action: <value in [log, block]>
-          comment: <string>
-          direction: <value in [any, incoming, outgoing]>
-          file_type: <list or string>
-          filter: <string>
-          protocol:
-            - "cifs"
+          # action: <value in [log, block]>
+          # comment: <string>
+          # direction: <value in [any, incoming, outgoing]>
+          # file_type: <list or string>
+          # filter: <string>
+          # protocol:
+          #   - "cifs"
 '''
 
 RETURN = '''

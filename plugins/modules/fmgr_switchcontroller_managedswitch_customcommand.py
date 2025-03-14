@@ -125,8 +125,8 @@ EXAMPLES = '''
         managed_switch: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_customcommand:
-          command_entry: <string>
-          command_name: <string>
+          # command_entry: <string>
+          # command_name: <string>
 '''
 
 RETURN = '''

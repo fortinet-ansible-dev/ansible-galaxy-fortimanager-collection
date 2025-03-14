@@ -167,18 +167,18 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         icap_server:
-          ip_address: <string>
-          ip_version: <value in [4, 6]>
-          ip6_address: <string>
-          max_connections: <integer>
-          name: <string>
-          port: <integer>
-          secure: <value in [disable, enable]>
-          ssl_cert: <string>
-          addr_type: <value in [fqdn, ip4, ip6]>
-          fqdn: <string>
-          healthcheck: <value in [disable, enable]>
-          healthcheck_service: <string>
+          name: "your value" # Required variable, string
+          # ip_address: <string>
+          # ip_version: <value in [4, 6]>
+          # ip6_address: <string>
+          # max_connections: <integer>
+          # port: <integer>
+          # secure: <value in [disable, enable]>
+          # ssl_cert: <string>
+          # addr_type: <value in [fqdn, ip4, ip6]>
+          # fqdn: <string>
+          # healthcheck: <value in [disable, enable]>
+          # healthcheck_service: <string>
 '''
 
 RETURN = '''

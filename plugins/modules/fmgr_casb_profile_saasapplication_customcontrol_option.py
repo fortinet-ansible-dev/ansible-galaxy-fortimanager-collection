@@ -138,8 +138,8 @@ EXAMPLES = '''
         custom_control: <your own value>
         state: present # <value in [present, absent]>
         casb_profile_saasapplication_customcontrol_option:
-          name: <string>
-          user_input: <list or string>
+          name: "your value" # Required variable, string
+          # user_input: <list or string>
 '''
 
 RETURN = '''

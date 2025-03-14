@@ -147,14 +147,13 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webproxy_forwardservergroup:
-          affinity: <value in [disable, enable]>
-          group_down_option: <value in [block, pass]>
-          ldb_method: <value in [weighted, least-session, active-passive]>
-          name: <string>
-          server_list:
-            -
-              name: <string>
-              weight: <integer>
+          name: "your value" # Required variable, string
+          # affinity: <value in [disable, enable]>
+          # group_down_option: <value in [block, pass]>
+          # ldb_method: <value in [weighted, least-session, active-passive]>
+          # server_list:
+          #   - name: <string>
+          #     weight: <integer>
 '''
 
 RETURN = '''

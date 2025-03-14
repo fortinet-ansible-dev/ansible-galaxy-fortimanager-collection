@@ -444,55 +444,55 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         gtp_messagefilterv2:
-          bearer_resource_cmd_fail: <value in [allow, deny]>
-          change_notification: <value in [allow, deny]>
-          create_bearer: <value in [allow, deny]>
-          create_session: <value in [allow, deny]>
-          delete_bearer_cmd_fail: <value in [allow, deny]>
-          delete_bearer_req_resp: <value in [allow, deny]>
-          delete_pdn_connection_set: <value in [allow, deny]>
-          delete_session: <value in [allow, deny]>
-          echo: <value in [allow, deny]>
-          modify_bearer_cmd_fail: <value in [allow, deny]>
-          modify_bearer_req_resp: <value in [allow, deny]>
-          name: <string>
-          resume: <value in [allow, deny]>
-          suspend: <value in [allow, deny]>
-          trace_session: <value in [allow, deny]>
-          unknown_message: <value in [allow, deny]>
-          unknown_message_white_list: <list or integer>
-          update_bearer: <value in [allow, deny]>
-          update_pdn_connection_set: <value in [allow, deny]>
-          version_not_support: <value in [allow, deny]>
-          context_req_res_ack: <value in [allow, deny]>
-          forward_relocation_cmp_notif_ack: <value in [allow, deny]>
-          forward_relocation_req_res: <value in [allow, deny]>
-          alert_mme_notif_ack: <value in [allow, deny]>
-          configuration_transfer_tunnel: <value in [allow, deny]>
-          create_forwarding_tunnel_req_resp: <value in [allow, deny]>
-          create_indirect_forwarding_tunnel_req_resp: <value in [allow, deny]>
-          cs_paging: <value in [allow, deny]>
-          delete_indirect_forwarding_tunnel_req_resp: <value in [allow, deny]>
-          detach_notif_ack: <value in [allow, deny]>
-          dlink_data_notif_ack: <value in [allow, deny]>
-          dlink_notif_failure: <value in [allow, deny]>
-          forward_access_notif_ack: <value in [allow, deny]>
-          identification_req_resp: <value in [allow, deny]>
-          isr_status: <value in [allow, deny]>
-          mbms_session_start_req_resp: <value in [allow, deny]>
-          mbms_session_stop_req_resp: <value in [allow, deny]>
-          mbms_session_update_req_resp: <value in [allow, deny]>
-          modify_access_req_resp: <value in [allow, deny]>
-          pgw_dlink_notif_ack: <value in [allow, deny]>
-          pgw_restart_notif_ack: <value in [allow, deny]>
-          ran_info_relay: <value in [allow, deny]>
-          release_access_bearer_req_resp: <value in [allow, deny]>
-          relocation_cancel_req_resp: <value in [allow, deny]>
-          remote_ue_report_notif_ack: <value in [allow, deny]>
-          reserved_for_earlier_version: <value in [allow, deny]>
-          stop_paging_indication: <value in [allow, deny]>
-          ue_activity_notif_ack: <value in [allow, deny]>
-          ue_registration_query_req_resp: <value in [allow, deny]>
+          name: "your value" # Required variable, string
+          # bearer_resource_cmd_fail: <value in [allow, deny]>
+          # change_notification: <value in [allow, deny]>
+          # create_bearer: <value in [allow, deny]>
+          # create_session: <value in [allow, deny]>
+          # delete_bearer_cmd_fail: <value in [allow, deny]>
+          # delete_bearer_req_resp: <value in [allow, deny]>
+          # delete_pdn_connection_set: <value in [allow, deny]>
+          # delete_session: <value in [allow, deny]>
+          # echo: <value in [allow, deny]>
+          # modify_bearer_cmd_fail: <value in [allow, deny]>
+          # modify_bearer_req_resp: <value in [allow, deny]>
+          # resume: <value in [allow, deny]>
+          # suspend: <value in [allow, deny]>
+          # trace_session: <value in [allow, deny]>
+          # unknown_message: <value in [allow, deny]>
+          # unknown_message_white_list: <list or integer>
+          # update_bearer: <value in [allow, deny]>
+          # update_pdn_connection_set: <value in [allow, deny]>
+          # version_not_support: <value in [allow, deny]>
+          # context_req_res_ack: <value in [allow, deny]>
+          # forward_relocation_cmp_notif_ack: <value in [allow, deny]>
+          # forward_relocation_req_res: <value in [allow, deny]>
+          # alert_mme_notif_ack: <value in [allow, deny]>
+          # configuration_transfer_tunnel: <value in [allow, deny]>
+          # create_forwarding_tunnel_req_resp: <value in [allow, deny]>
+          # create_indirect_forwarding_tunnel_req_resp: <value in [allow, deny]>
+          # cs_paging: <value in [allow, deny]>
+          # delete_indirect_forwarding_tunnel_req_resp: <value in [allow, deny]>
+          # detach_notif_ack: <value in [allow, deny]>
+          # dlink_data_notif_ack: <value in [allow, deny]>
+          # dlink_notif_failure: <value in [allow, deny]>
+          # forward_access_notif_ack: <value in [allow, deny]>
+          # identification_req_resp: <value in [allow, deny]>
+          # isr_status: <value in [allow, deny]>
+          # mbms_session_start_req_resp: <value in [allow, deny]>
+          # mbms_session_stop_req_resp: <value in [allow, deny]>
+          # mbms_session_update_req_resp: <value in [allow, deny]>
+          # modify_access_req_resp: <value in [allow, deny]>
+          # pgw_dlink_notif_ack: <value in [allow, deny]>
+          # pgw_restart_notif_ack: <value in [allow, deny]>
+          # ran_info_relay: <value in [allow, deny]>
+          # release_access_bearer_req_resp: <value in [allow, deny]>
+          # relocation_cancel_req_resp: <value in [allow, deny]>
+          # remote_ue_report_notif_ack: <value in [allow, deny]>
+          # reserved_for_earlier_version: <value in [allow, deny]>
+          # stop_paging_indication: <value in [allow, deny]>
+          # ue_activity_notif_ack: <value in [allow, deny]>
+          # ue_registration_query_req_resp: <value in [allow, deny]>
 '''
 
 RETURN = '''

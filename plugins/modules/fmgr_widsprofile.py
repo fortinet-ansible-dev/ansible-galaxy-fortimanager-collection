@@ -756,127 +756,127 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         widsprofile:
-          ap_auto_suppress: <value in [disable, enable]>
-          ap_bgscan_disable_day:
-            - "sunday"
-            - "monday"
-            - "tuesday"
-            - "wednesday"
-            - "thursday"
-            - "friday"
-            - "saturday"
-          ap_bgscan_disable_end: <string>
-          ap_bgscan_disable_start: <string>
-          ap_bgscan_duration: <integer>
-          ap_bgscan_idle: <integer>
-          ap_bgscan_intv: <integer>
-          ap_bgscan_period: <integer>
-          ap_bgscan_report_intv: <integer>
-          ap_fgscan_report_intv: <integer>
-          ap_scan: <value in [disable, enable]>
-          ap_scan_passive: <value in [disable, enable]>
-          asleap_attack: <value in [disable, enable]>
-          assoc_flood_thresh: <integer>
-          assoc_flood_time: <integer>
-          assoc_frame_flood: <value in [disable, enable]>
-          auth_flood_thresh: <integer>
-          auth_flood_time: <integer>
-          auth_frame_flood: <value in [disable, enable]>
-          comment: <string>
-          deauth_broadcast: <value in [disable, enable]>
-          deauth_unknown_src_thresh: <integer>
-          eapol_fail_flood: <value in [disable, enable]>
-          eapol_fail_intv: <integer>
-          eapol_fail_thresh: <integer>
-          eapol_logoff_flood: <value in [disable, enable]>
-          eapol_logoff_intv: <integer>
-          eapol_logoff_thresh: <integer>
-          eapol_pre_fail_flood: <value in [disable, enable]>
-          eapol_pre_fail_intv: <integer>
-          eapol_pre_fail_thresh: <integer>
-          eapol_pre_succ_flood: <value in [disable, enable]>
-          eapol_pre_succ_intv: <integer>
-          eapol_pre_succ_thresh: <integer>
-          eapol_start_flood: <value in [disable, enable]>
-          eapol_start_intv: <integer>
-          eapol_start_thresh: <integer>
-          eapol_succ_flood: <value in [disable, enable]>
-          eapol_succ_intv: <integer>
-          eapol_succ_thresh: <integer>
-          invalid_mac_oui: <value in [disable, enable]>
-          long_duration_attack: <value in [disable, enable]>
-          long_duration_thresh: <integer>
-          name: <string>
-          null_ssid_probe_resp: <value in [disable, enable]>
-          sensor_mode: <value in [disable, foreign, both]>
-          spoofed_deauth: <value in [disable, enable]>
-          weak_wep_iv: <value in [disable, enable]>
-          wireless_bridge: <value in [disable, enable]>
-          ap_bgscan_disable_schedules: <list or string>
-          rogue_scan: <value in [disable, enable]>
-          ap_scan_threshold: <string>
-          ap_scan_channel_list_2G_5G: <list or string>
-          ap_scan_channel_list_6G: <list or string>
-          adhoc_network: <value in [disable, enable]>
-          adhoc_valid_ssid: <value in [disable, enable]>
-          air_jack: <value in [disable, enable]>
-          ap_impersonation: <value in [disable, enable]>
-          ap_spoofing: <value in [disable, enable]>
-          bcn_flood: <value in [disable, enable]>
-          bcn_flood_thresh: <integer>
-          bcn_flood_time: <integer>
-          beacon_wrong_channel: <value in [disable, enable]>
-          block_ack_flood: <value in [disable, enable]>
-          block_ack_flood_thresh: <integer>
-          block_ack_flood_time: <integer>
-          chan_based_mitm: <value in [disable, enable]>
-          client_flood: <value in [disable, enable]>
-          client_flood_thresh: <integer>
-          client_flood_time: <integer>
-          cts_flood: <value in [disable, enable]>
-          cts_flood_thresh: <integer>
-          cts_flood_time: <integer>
-          disassoc_broadcast: <value in [disable, enable]>
-          disconnect_station: <value in [disable, enable]>
-          eapol_key_overflow: <value in [disable, enable]>
-          fata_jack: <value in [disable, enable]>
-          fuzzed_beacon: <value in [disable, enable]>
-          fuzzed_probe_request: <value in [disable, enable]>
-          fuzzed_probe_response: <value in [disable, enable]>
-          hotspotter_attack: <value in [disable, enable]>
-          ht_40mhz_intolerance: <value in [disable, enable]>
-          ht_greenfield: <value in [disable, enable]>
-          invalid_addr_combination: <value in [disable, enable]>
-          malformed_association: <value in [disable, enable]>
-          malformed_auth: <value in [disable, enable]>
-          malformed_ht_ie: <value in [disable, enable]>
-          netstumbler: <value in [disable, enable]>
-          netstumbler_thresh: <integer>
-          netstumbler_time: <integer>
-          omerta_attack: <value in [disable, enable]>
-          overflow_ie: <value in [disable, enable]>
-          probe_flood: <value in [disable, enable]>
-          probe_flood_thresh: <integer>
-          probe_flood_time: <integer>
-          pspoll_flood: <value in [disable, enable]>
-          pspoll_flood_thresh: <integer>
-          pspoll_flood_time: <integer>
-          pwsave_dos_attack: <value in [disable, enable]>
-          reassoc_flood: <value in [disable, enable]>
-          reassoc_flood_thresh: <integer>
-          reassoc_flood_time: <integer>
-          risky_encryption: <value in [disable, enable]>
-          rts_flood: <value in [disable, enable]>
-          rts_flood_thresh: <integer>
-          rts_flood_time: <integer>
-          unencrypted_valid: <value in [disable, enable]>
-          valid_client_misassociation: <value in [disable, enable]>
-          valid_ssid_misuse: <value in [disable, enable]>
-          wellenreiter: <value in [disable, enable]>
-          wellenreiter_thresh: <integer>
-          wellenreiter_time: <integer>
-          windows_bridge: <value in [disable, enable]>
-          wpa_ft_attack: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # ap_auto_suppress: <value in [disable, enable]>
+          # ap_bgscan_disable_day:
+          #   - "sunday"
+          #   - "monday"
+          #   - "tuesday"
+          #   - "wednesday"
+          #   - "thursday"
+          #   - "friday"
+          #   - "saturday"
+          # ap_bgscan_disable_end: <string>
+          # ap_bgscan_disable_start: <string>
+          # ap_bgscan_duration: <integer>
+          # ap_bgscan_idle: <integer>
+          # ap_bgscan_intv: <integer>
+          # ap_bgscan_period: <integer>
+          # ap_bgscan_report_intv: <integer>
+          # ap_fgscan_report_intv: <integer>
+          # ap_scan: <value in [disable, enable]>
+          # ap_scan_passive: <value in [disable, enable]>
+          # asleap_attack: <value in [disable, enable]>
+          # assoc_flood_thresh: <integer>
+          # assoc_flood_time: <integer>
+          # assoc_frame_flood: <value in [disable, enable]>
+          # auth_flood_thresh: <integer>
+          # auth_flood_time: <integer>
+          # auth_frame_flood: <value in [disable, enable]>
+          # comment: <string>
+          # deauth_broadcast: <value in [disable, enable]>
+          # deauth_unknown_src_thresh: <integer>
+          # eapol_fail_flood: <value in [disable, enable]>
+          # eapol_fail_intv: <integer>
+          # eapol_fail_thresh: <integer>
+          # eapol_logoff_flood: <value in [disable, enable]>
+          # eapol_logoff_intv: <integer>
+          # eapol_logoff_thresh: <integer>
+          # eapol_pre_fail_flood: <value in [disable, enable]>
+          # eapol_pre_fail_intv: <integer>
+          # eapol_pre_fail_thresh: <integer>
+          # eapol_pre_succ_flood: <value in [disable, enable]>
+          # eapol_pre_succ_intv: <integer>
+          # eapol_pre_succ_thresh: <integer>
+          # eapol_start_flood: <value in [disable, enable]>
+          # eapol_start_intv: <integer>
+          # eapol_start_thresh: <integer>
+          # eapol_succ_flood: <value in [disable, enable]>
+          # eapol_succ_intv: <integer>
+          # eapol_succ_thresh: <integer>
+          # invalid_mac_oui: <value in [disable, enable]>
+          # long_duration_attack: <value in [disable, enable]>
+          # long_duration_thresh: <integer>
+          # null_ssid_probe_resp: <value in [disable, enable]>
+          # sensor_mode: <value in [disable, foreign, both]>
+          # spoofed_deauth: <value in [disable, enable]>
+          # weak_wep_iv: <value in [disable, enable]>
+          # wireless_bridge: <value in [disable, enable]>
+          # ap_bgscan_disable_schedules: <list or string>
+          # rogue_scan: <value in [disable, enable]>
+          # ap_scan_threshold: <string>
+          # ap_scan_channel_list_2G_5G: <list or string>
+          # ap_scan_channel_list_6G: <list or string>
+          # adhoc_network: <value in [disable, enable]>
+          # adhoc_valid_ssid: <value in [disable, enable]>
+          # air_jack: <value in [disable, enable]>
+          # ap_impersonation: <value in [disable, enable]>
+          # ap_spoofing: <value in [disable, enable]>
+          # bcn_flood: <value in [disable, enable]>
+          # bcn_flood_thresh: <integer>
+          # bcn_flood_time: <integer>
+          # beacon_wrong_channel: <value in [disable, enable]>
+          # block_ack_flood: <value in [disable, enable]>
+          # block_ack_flood_thresh: <integer>
+          # block_ack_flood_time: <integer>
+          # chan_based_mitm: <value in [disable, enable]>
+          # client_flood: <value in [disable, enable]>
+          # client_flood_thresh: <integer>
+          # client_flood_time: <integer>
+          # cts_flood: <value in [disable, enable]>
+          # cts_flood_thresh: <integer>
+          # cts_flood_time: <integer>
+          # disassoc_broadcast: <value in [disable, enable]>
+          # disconnect_station: <value in [disable, enable]>
+          # eapol_key_overflow: <value in [disable, enable]>
+          # fata_jack: <value in [disable, enable]>
+          # fuzzed_beacon: <value in [disable, enable]>
+          # fuzzed_probe_request: <value in [disable, enable]>
+          # fuzzed_probe_response: <value in [disable, enable]>
+          # hotspotter_attack: <value in [disable, enable]>
+          # ht_40mhz_intolerance: <value in [disable, enable]>
+          # ht_greenfield: <value in [disable, enable]>
+          # invalid_addr_combination: <value in [disable, enable]>
+          # malformed_association: <value in [disable, enable]>
+          # malformed_auth: <value in [disable, enable]>
+          # malformed_ht_ie: <value in [disable, enable]>
+          # netstumbler: <value in [disable, enable]>
+          # netstumbler_thresh: <integer>
+          # netstumbler_time: <integer>
+          # omerta_attack: <value in [disable, enable]>
+          # overflow_ie: <value in [disable, enable]>
+          # probe_flood: <value in [disable, enable]>
+          # probe_flood_thresh: <integer>
+          # probe_flood_time: <integer>
+          # pspoll_flood: <value in [disable, enable]>
+          # pspoll_flood_thresh: <integer>
+          # pspoll_flood_time: <integer>
+          # pwsave_dos_attack: <value in [disable, enable]>
+          # reassoc_flood: <value in [disable, enable]>
+          # reassoc_flood_thresh: <integer>
+          # reassoc_flood_time: <integer>
+          # risky_encryption: <value in [disable, enable]>
+          # rts_flood: <value in [disable, enable]>
+          # rts_flood_thresh: <integer>
+          # rts_flood_time: <integer>
+          # unencrypted_valid: <value in [disable, enable]>
+          # valid_client_misassociation: <value in [disable, enable]>
+          # valid_ssid_misuse: <value in [disable, enable]>
+          # wellenreiter: <value in [disable, enable]>
+          # wellenreiter_thresh: <integer>
+          # wellenreiter_time: <integer>
+          # windows_bridge: <value in [disable, enable]>
+          # wpa_ft_attack: <value in [disable, enable]>
 '''
 
 RETURN = '''

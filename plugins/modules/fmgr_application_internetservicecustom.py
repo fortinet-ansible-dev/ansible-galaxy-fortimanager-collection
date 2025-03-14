@@ -184,29 +184,25 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         application_internetservicecustom:
-          comment: <string>
-          disable_entry:
-            -
-              id: <integer>
-              ip_range:
-                -
-                  end_ip: <string>
-                  id: <integer>
-                  start_ip: <string>
-              port: <list or integer>
-              protocol: <integer>
-          entry:
-            -
-              dst: <string>
-              id: <integer>
-              port_range:
-                -
-                  end_port: <integer>
-                  id: <integer>
-                  start_port: <integer>
-              protocol: <integer>
-          master_service_id: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # disable_entry:
+          #   - id: <integer>
+          #     ip_range:
+          #       - end_ip: <string>
+          #         id: <integer>
+          #         start_ip: <string>
+          #     port: <list or integer>
+          #     protocol: <integer>
+          # entry:
+          #   - dst: <string>
+          #     id: <integer>
+          #     port_range:
+          #       - end_port: <integer>
+          #         id: <integer>
+          #         start_port: <integer>
+          #     protocol: <integer>
+          # master_service_id: <string>
 '''
 
 RETURN = '''

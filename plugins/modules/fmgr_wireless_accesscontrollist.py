@@ -185,28 +185,26 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         wireless_accesscontrollist:
-          comment: <string>
-          layer3_ipv4_rules:
-            -
-              action: <value in [allow, deny]>
-              comment: <string>
-              dstaddr: <string>
-              dstport: <integer>
-              protocol: <integer>
-              rule_id: <integer>
-              srcaddr: <string>
-              srcport: <integer>
-          layer3_ipv6_rules:
-            -
-              action: <value in [allow, deny]>
-              comment: <string>
-              dstaddr: <string>
-              dstport: <integer>
-              protocol: <integer>
-              rule_id: <integer>
-              srcaddr: <string>
-              srcport: <integer>
-          name: <string>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # layer3_ipv4_rules:
+          #   - action: <value in [allow, deny]>
+          #     comment: <string>
+          #     dstaddr: <string>
+          #     dstport: <integer>
+          #     protocol: <integer>
+          #     rule_id: <integer>
+          #     srcaddr: <string>
+          #     srcport: <integer>
+          # layer3_ipv6_rules:
+          #   - action: <value in [allow, deny]>
+          #     comment: <string>
+          #     dstaddr: <string>
+          #     dstport: <integer>
+          #     protocol: <integer>
+          #     rule_id: <integer>
+          #     srcaddr: <string>
+          #     srcport: <integer>
 '''
 
 RETURN = '''

@@ -216,22 +216,22 @@ EXAMPLES = '''
         replacemsg_group: <your own value>
         state: present # <value in [present, absent]>
         system_replacemsggroup_mm1:
-          add_smil: <value in [disable, enable]>
-          charset: <value in [us-ascii, utf-8]>
-          class: <value in [personal, advertisement, information, ...]>
-          format: <value in [none, text, html, ...]>
-          from: <string>
-          from_sender: <value in [disable, enable]>
-          header: <value in [none, http, 8bit]>
-          image: <string>
-          fmgr_message: <string>
-          msg_type: <string>
-          priority: <value in [low, normal, high, ...]>
-          rsp_status: <value in [ok, err-unspecified, err-srv-denied, ...]>
-          rsp_text: <string>
-          sender_visibility: <value in [hide, show, not-specified]>
-          smil_part: <string>
-          subject: <string>
+          msg_type: "your value" # Required variable, string
+          # add_smil: <value in [disable, enable]>
+          # charset: <value in [us-ascii, utf-8]>
+          # class: <value in [personal, advertisement, information, ...]>
+          # format: <value in [none, text, html, ...]>
+          # from: <string>
+          # from_sender: <value in [disable, enable]>
+          # header: <value in [none, http, 8bit]>
+          # image: <string>
+          # fmgr_message: <string>
+          # priority: <value in [low, normal, high, ...]>
+          # rsp_status: <value in [ok, err-unspecified, err-srv-denied, ...]>
+          # rsp_text: <string>
+          # sender_visibility: <value in [hide, show, not-specified]>
+          # smil_part: <string>
+          # subject: <string>
 '''
 
 RETURN = '''

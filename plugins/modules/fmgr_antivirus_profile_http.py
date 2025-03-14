@@ -228,44 +228,44 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         antivirus_profile_http:
-          archive_block:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          archive_log:
-            - "encrypted"
-            - "corrupted"
-            - "multipart"
-            - "nested"
-            - "mailbomb"
-            - "unhandled"
-            - "partiallycorrupted"
-            - "fileslimit"
-            - "timeout"
-          content_disarm: <value in [disable, enable]>
-          emulator: <value in [disable, enable]>
-          options:
-            - "scan"
-            - "file-filter"
-            - "quarantine"
-            - "avquery"
-            - "avmonitor"
-            - "strict-file"
-          outbreak_prevention: <value in [disabled, files, full-archive, ...]>
-          av_optimize: <value in [disable, enable]>
-          av_scan: <value in [disable, monitor, block]>
-          external_blocklist: <value in [disable, monitor, block]>
-          quarantine: <value in [disable, enable]>
-          fortindr: <value in [disable, block, monitor]>
-          fortisandbox: <value in [disable, block, monitor]>
-          fortiai: <value in [disable, monitor, block]>
-          unknown_content_encoding: <value in [block, inspect, bypass]>
+          # archive_block:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # archive_log:
+          #   - "encrypted"
+          #   - "corrupted"
+          #   - "multipart"
+          #   - "nested"
+          #   - "mailbomb"
+          #   - "unhandled"
+          #   - "partiallycorrupted"
+          #   - "fileslimit"
+          #   - "timeout"
+          # content_disarm: <value in [disable, enable]>
+          # emulator: <value in [disable, enable]>
+          # options:
+          #   - "scan"
+          #   - "file-filter"
+          #   - "quarantine"
+          #   - "avquery"
+          #   - "avmonitor"
+          #   - "strict-file"
+          # outbreak_prevention: <value in [disabled, files, full-archive, ...]>
+          # av_optimize: <value in [disable, enable]>
+          # av_scan: <value in [disable, monitor, block]>
+          # external_blocklist: <value in [disable, monitor, block]>
+          # quarantine: <value in [disable, enable]>
+          # fortindr: <value in [disable, block, monitor]>
+          # fortisandbox: <value in [disable, block, monitor]>
+          # fortiai: <value in [disable, monitor, block]>
+          # unknown_content_encoding: <value in [block, inspect, bypass]>
 '''
 
 RETURN = '''

@@ -124,11 +124,11 @@ EXAMPLES = '''
         adom: <your own value>
         ingress: <your own value>
         switchcontroller_acl_ingress_classifier:
-          dst_ip_prefix: <string>
-          dst_mac: <string>
-          src_ip_prefix: <string>
-          src_mac: <string>
-          vlan: <integer>
+          # dst_ip_prefix: <string>
+          # dst_mac: <string>
+          # src_ip_prefix: <string>
+          # src_mac: <string>
+          # vlan: <integer>
 '''
 
 RETURN = '''

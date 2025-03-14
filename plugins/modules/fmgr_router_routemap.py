@@ -360,60 +360,59 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         router_routemap:
-          comments: <string>
-          name: <string>
-          rule:
-            -
-              action: <value in [permit, deny]>
-              id: <integer>
-              match_as_path: <string>
-              match_community: <string>
-              match_community_exact: <value in [disable, enable]>
-              match_flags: <integer>
-              match_interface: <string>
-              match_ip_address: <string>
-              match_ip_nexthop: <string>
-              match_ip6_address: <string>
-              match_ip6_nexthop: <string>
-              match_metric: <string>
-              match_origin: <value in [none, egp, igp, ...]>
-              match_route_type: <value in [1, 2, none, ...]>
-              match_tag: <string>
-              match_vrf: <integer>
-              set_aggregator_as: <integer>
-              set_aggregator_ip: <string>
-              set_aspath: <list or string>
-              set_aspath_action: <value in [prepend, replace]>
-              set_atomic_aggregate: <value in [disable, enable]>
-              set_community: <list or string>
-              set_community_additive: <value in [disable, enable]>
-              set_community_delete: <string>
-              set_dampening_max_suppress: <integer>
-              set_dampening_reachability_half_life: <integer>
-              set_dampening_reuse: <integer>
-              set_dampening_suppress: <integer>
-              set_dampening_unreachability_half_life: <integer>
-              set_extcommunity_rt: <list or string>
-              set_extcommunity_soo: <list or string>
-              set_flags: <integer>
-              set_ip_nexthop: <string>
-              set_ip6_nexthop: <string>
-              set_ip6_nexthop_local: <string>
-              set_local_preference: <string>
-              set_metric: <string>
-              set_metric_type: <value in [1, 2, none, ...]>
-              set_origin: <value in [none, egp, igp, ...]>
-              set_originator_id: <string>
-              set_priority: <integer>
-              set_route_tag: <string>
-              set_tag: <string>
-              set_weight: <string>
-              match_extcommunity: <string>
-              match_extcommunity_exact: <value in [disable, enable]>
-              set_ip_prefsrc: <string>
-              set_vpnv4_nexthop: <string>
-              set_vpnv6_nexthop: <string>
-              set_vpnv6_nexthop_local: <string>
+          name: "your value" # Required variable, string
+          # comments: <string>
+          # rule:
+          #   - action: <value in [permit, deny]>
+          #     id: <integer>
+          #     match_as_path: <string>
+          #     match_community: <string>
+          #     match_community_exact: <value in [disable, enable]>
+          #     match_flags: <integer>
+          #     match_interface: <string>
+          #     match_ip_address: <string>
+          #     match_ip_nexthop: <string>
+          #     match_ip6_address: <string>
+          #     match_ip6_nexthop: <string>
+          #     match_metric: <string>
+          #     match_origin: <value in [none, egp, igp, ...]>
+          #     match_route_type: <value in [1, 2, none, ...]>
+          #     match_tag: <string>
+          #     match_vrf: <integer>
+          #     set_aggregator_as: <integer>
+          #     set_aggregator_ip: <string>
+          #     set_aspath: <list or string>
+          #     set_aspath_action: <value in [prepend, replace]>
+          #     set_atomic_aggregate: <value in [disable, enable]>
+          #     set_community: <list or string>
+          #     set_community_additive: <value in [disable, enable]>
+          #     set_community_delete: <string>
+          #     set_dampening_max_suppress: <integer>
+          #     set_dampening_reachability_half_life: <integer>
+          #     set_dampening_reuse: <integer>
+          #     set_dampening_suppress: <integer>
+          #     set_dampening_unreachability_half_life: <integer>
+          #     set_extcommunity_rt: <list or string>
+          #     set_extcommunity_soo: <list or string>
+          #     set_flags: <integer>
+          #     set_ip_nexthop: <string>
+          #     set_ip6_nexthop: <string>
+          #     set_ip6_nexthop_local: <string>
+          #     set_local_preference: <string>
+          #     set_metric: <string>
+          #     set_metric_type: <value in [1, 2, none, ...]>
+          #     set_origin: <value in [none, egp, igp, ...]>
+          #     set_originator_id: <string>
+          #     set_priority: <integer>
+          #     set_route_tag: <string>
+          #     set_tag: <string>
+          #     set_weight: <string>
+          #     match_extcommunity: <string>
+          #     match_extcommunity_exact: <value in [disable, enable]>
+          #     set_ip_prefsrc: <string>
+          #     set_vpnv4_nexthop: <string>
+          #     set_vpnv6_nexthop: <string>
+          #     set_vpnv6_nexthop_local: <string>
 '''
 
 RETURN = '''

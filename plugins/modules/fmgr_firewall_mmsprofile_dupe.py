@@ -191,40 +191,40 @@ EXAMPLES = '''
         adom: <your own value>
         mms_profile: <your own value>
         firewall_mmsprofile_dupe:
-          action1:
-            - "log"
-            - "archive"
-            - "intercept"
-            - "block"
-            - "archive-first"
-            - "alert-notif"
-          action2:
-            - "log"
-            - "archive"
-            - "intercept"
-            - "block"
-            - "archive-first"
-            - "alert-notif"
-          action3:
-            - "log"
-            - "archive"
-            - "intercept"
-            - "block"
-            - "archive-first"
-            - "alert-notif"
-          block_time1: <integer>
-          block_time2: <integer>
-          block_time3: <integer>
-          limit1: <integer>
-          limit2: <integer>
-          limit3: <integer>
-          protocol: <string>
-          status1: <value in [disable, enable]>
-          status2: <value in [disable, enable]>
-          status3: <value in [disable, enable]>
-          window1: <integer>
-          window2: <integer>
-          window3: <integer>
+          # action1:
+          #   - "log"
+          #   - "archive"
+          #   - "intercept"
+          #   - "block"
+          #   - "archive-first"
+          #   - "alert-notif"
+          # action2:
+          #   - "log"
+          #   - "archive"
+          #   - "intercept"
+          #   - "block"
+          #   - "archive-first"
+          #   - "alert-notif"
+          # action3:
+          #   - "log"
+          #   - "archive"
+          #   - "intercept"
+          #   - "block"
+          #   - "archive-first"
+          #   - "alert-notif"
+          # block_time1: <integer>
+          # block_time2: <integer>
+          # block_time3: <integer>
+          # limit1: <integer>
+          # limit2: <integer>
+          # limit3: <integer>
+          # protocol: <string>
+          # status1: <value in [disable, enable]>
+          # status2: <value in [disable, enable]>
+          # status3: <value in [disable, enable]>
+          # window1: <integer>
+          # window2: <integer>
+          # window3: <integer>
 '''
 
 RETURN = '''

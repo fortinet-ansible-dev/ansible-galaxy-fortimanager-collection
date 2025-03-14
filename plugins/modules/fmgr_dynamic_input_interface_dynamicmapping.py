@@ -130,11 +130,10 @@ EXAMPLES = '''
         interface: <your own value>
         state: present # <value in [present, absent]>
         dynamic_input_interface_dynamicmapping:
-          _scope:
-            -
-              name: <string>
-              vdom: <string>
-          local_intf: <string>
+          # _scope:
+          #   - name: <string>
+          #     vdom: <string>
+          # local_intf: <string>
 '''
 
 RETURN = '''

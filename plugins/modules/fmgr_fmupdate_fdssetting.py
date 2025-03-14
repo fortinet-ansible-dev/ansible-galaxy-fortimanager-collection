@@ -564,114 +564,112 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fdssetting:
-          User_Agent: <string>
-          fds_clt_ssl_protocol: <value in [sslv3, tlsv1.0, tlsv1.1, ...]>
-          fds_ssl_protocol: <value in [sslv3, tlsv1.0, tlsv1.1, ...]>
-          fmtr_log: <value in [emergency, alert, critical, ...]>
-          linkd_log: <value in [emergency, alert, critical, ...]>
-          max_av_ips_version: <integer>
-          max_work: <integer>
-          push_override:
-            ip: <string>
-            port: <integer>
-            status: <value in [disable, enable]>
-          push_override_to_client:
-            announce_ip:
-              -
-                id: <integer>
-                ip: <string>
-                port: <integer>
-            status: <value in [disable, enable]>
-          send_report: <value in [disable, enable]>
-          send_setup: <value in [disable, enable]>
-          server_override:
-            servlist:
-              -
-                id: <integer>
-                ip: <string>
-                ip6: <string>
-                port: <integer>
-                service_type: # <list or string>
-                  - "fds"
-                  - "fct"
-                  - "fai"
-            status: <value in [disable, enable]>
-          system_support_fct:
-            - "4.x"
-            - "5.0"
-            - "5.2"
-            - "5.4"
-            - "5.6"
-            - "6.0"
-            - "6.2"
-            - "6.4"
-            - "7.0"
-            - "7.2"
-            - "7.4"
-          system_support_fgt:
-            - "5.4"
-            - "5.6"
-            - "6.0"
-            - "6.2"
-            - "6.4"
-            - "7.0"
-            - "7.2"
-            - "7.4"
-            - "7.6"
-          system_support_fml:
-            - "4.x"
-            - "5.x"
-            - "6.x"
-            - "6.0"
-            - "6.2"
-            - "6.4"
-            - "7.0"
-            - "7.2"
-            - "7.x"
-          system_support_fsa:
-            - "1.x"
-            - "2.x"
-            - "3.x"
-            - "4.x"
-            - "3.0"
-            - "3.1"
-            - "3.2"
-          system_support_fsw:
-            - "5.4"
-            - "5.6"
-            - "6.0"
-            - "6.2"
-            - "4.x"
-            - "5.0"
-            - "5.2"
-            - "6.4"
-          umsvc_log: <value in [emergency, alert, critical, ...]>
-          unreg_dev_option: <value in [ignore, svc-only, add-service]>
-          update_schedule:
-            day: <value in [Sunday, Monday, Tuesday, ...]>
-            frequency: <value in [every, daily, weekly]>
-            status: <value in [disable, enable]>
-            time: <list or string>
-          wanip_query_mode: <value in [disable, ipify]>
-          fortiguard_anycast: <value in [disable, enable]>
-          fortiguard_anycast_source: <value in [fortinet, aws]>
-          system_support_fdc:
-            - "3.x"
-            - "4.x"
-            - "5.x"
-            - "6.x"
-          system_support_fts:
-            - "3.x"
-            - "4.x"
-            - "7.x"
-          system_support_faz:
-            - "6.x"
-            - "7.x"
-          system_support_fis:
-            - "1.x"
-            - "2.x"
-          system_support_fai:
-            - "7.x"
+          # User_Agent: <string>
+          # fds_clt_ssl_protocol: <value in [sslv3, tlsv1.0, tlsv1.1, ...]>
+          # fds_ssl_protocol: <value in [sslv3, tlsv1.0, tlsv1.1, ...]>
+          # fmtr_log: <value in [emergency, alert, critical, ...]>
+          # linkd_log: <value in [emergency, alert, critical, ...]>
+          # max_av_ips_version: <integer>
+          # max_work: <integer>
+          # push_override:
+          #   ip: <string>
+          #   port: <integer>
+          #   status: <value in [disable, enable]>
+          # push_override_to_client:
+          #   announce_ip:
+          #     - id: <integer>
+          #       ip: <string>
+          #       port: <integer>
+          #   status: <value in [disable, enable]>
+          # send_report: <value in [disable, enable]>
+          # send_setup: <value in [disable, enable]>
+          # server_override:
+          #   servlist:
+          #     - id: <integer>
+          #       ip: <string>
+          #       ip6: <string>
+          #       port: <integer>
+          #       service_type: # <list or string>
+          #         - "fds"
+          #         - "fct"
+          #         - "fai"
+          #   status: <value in [disable, enable]>
+          # system_support_fct:
+          #   - "4.x"
+          #   - "5.0"
+          #   - "5.2"
+          #   - "5.4"
+          #   - "5.6"
+          #   - "6.0"
+          #   - "6.2"
+          #   - "6.4"
+          #   - "7.0"
+          #   - "7.2"
+          #   - "7.4"
+          # system_support_fgt:
+          #   - "5.4"
+          #   - "5.6"
+          #   - "6.0"
+          #   - "6.2"
+          #   - "6.4"
+          #   - "7.0"
+          #   - "7.2"
+          #   - "7.4"
+          #   - "7.6"
+          # system_support_fml:
+          #   - "4.x"
+          #   - "5.x"
+          #   - "6.x"
+          #   - "6.0"
+          #   - "6.2"
+          #   - "6.4"
+          #   - "7.0"
+          #   - "7.2"
+          #   - "7.x"
+          # system_support_fsa:
+          #   - "1.x"
+          #   - "2.x"
+          #   - "3.x"
+          #   - "4.x"
+          #   - "3.0"
+          #   - "3.1"
+          #   - "3.2"
+          # system_support_fsw:
+          #   - "5.4"
+          #   - "5.6"
+          #   - "6.0"
+          #   - "6.2"
+          #   - "4.x"
+          #   - "5.0"
+          #   - "5.2"
+          #   - "6.4"
+          # umsvc_log: <value in [emergency, alert, critical, ...]>
+          # unreg_dev_option: <value in [ignore, svc-only, add-service]>
+          # update_schedule:
+          #   day: <value in [Sunday, Monday, Tuesday, ...]>
+          #   frequency: <value in [every, daily, weekly]>
+          #   status: <value in [disable, enable]>
+          #   time: <list or string>
+          # wanip_query_mode: <value in [disable, ipify]>
+          # fortiguard_anycast: <value in [disable, enable]>
+          # fortiguard_anycast_source: <value in [fortinet, aws]>
+          # system_support_fdc:
+          #   - "3.x"
+          #   - "4.x"
+          #   - "5.x"
+          #   - "6.x"
+          # system_support_fts:
+          #   - "3.x"
+          #   - "4.x"
+          #   - "7.x"
+          # system_support_faz:
+          #   - "6.x"
+          #   - "7.x"
+          # system_support_fis:
+          #   - "1.x"
+          #   - "2.x"
+          # system_support_fai:
+          #   - "7.x"
 '''
 
 RETURN = '''

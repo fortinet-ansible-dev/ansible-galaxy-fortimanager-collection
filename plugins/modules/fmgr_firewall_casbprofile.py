@@ -213,34 +213,30 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_casbprofile:
-          name: <string>
-          saas_application:
-            -
-              access_rule:
-                -
-                  action: <value in [block, monitor, bypass]>
-                  bypass:
-                    - "av"
-                    - "dlp"
-                    - "web-filter"
-                    - "file-filter"
-                    - "video-filter"
-                  name: <string>
-              custom_control:
-                -
-                  name: <string>
-                  option:
-                    -
-                      name: <string>
-                      user_input: <list or string>
-              domain_control: <value in [disable, enable]>
-              domain_control_domains: <list or string>
-              log: <value in [disable, enable]>
-              name: <string>
-              safe_search: <value in [disable, enable]>
-              safe_search_control: <list or string>
-              tenant_control: <value in [disable, enable]>
-              tenant_control_tenants: <list or string>
+          name: "your value" # Required variable, string
+          # saas_application:
+          #   - access_rule:
+          #       - action: <value in [block, monitor, bypass]>
+          #         bypass:
+          #           - "av"
+          #           - "dlp"
+          #           - "web-filter"
+          #           - "file-filter"
+          #           - "video-filter"
+          #         name: <string>
+          #     custom_control:
+          #       - name: <string>
+          #         option:
+          #           - name: <string>
+          #             user_input: <list or string>
+          #     domain_control: <value in [disable, enable]>
+          #     domain_control_domains: <list or string>
+          #     log: <value in [disable, enable]>
+          #     name: <string>
+          #     safe_search: <value in [disable, enable]>
+          #     safe_search_control: <list or string>
+          #     tenant_control: <value in [disable, enable]>
+          #     tenant_control_tenants: <list or string>
 '''
 
 RETURN = '''

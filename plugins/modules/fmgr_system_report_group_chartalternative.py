@@ -119,8 +119,8 @@ EXAMPLES = '''
         group: <your own value>
         state: present # <value in [present, absent]>
         system_report_group_chartalternative:
-          chart_name: <string>
-          chart_replace: <string>
+          chart_name: "your value" # Required variable, string
+          # chart_replace: <string>
 '''
 
 RETURN = '''

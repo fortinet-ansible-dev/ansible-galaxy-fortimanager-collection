@@ -228,26 +228,26 @@ EXAMPLES = '''
         api_gateway6: <your own value>
         state: present # <value in [present, absent]>
         firewall_accessproxy_apigateway6_realservers:
-          addr_type: <value in [fqdn, ip]>
-          address: <string>
-          domain: <string>
-          health_check: <value in [disable, enable]>
-          health_check_proto: <value in [ping, http, tcp-connect]>
-          holddown_interval: <value in [disable, enable]>
-          http_host: <string>
-          id: <integer>
-          ip: <string>
-          mappedport: <list or string>
-          port: <integer>
-          ssh_client_cert: <string>
-          ssh_host_key: <list or string>
-          ssh_host_key_validation: <value in [disable, enable]>
-          status: <value in [active, standby, disable]>
-          type: <value in [tcp-forwarding, ssh]>
-          weight: <integer>
-          translate_host: <value in [disable, enable]>
-          external_auth: <value in [disable, enable]>
-          tunnel_encryption: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # addr_type: <value in [fqdn, ip]>
+          # address: <string>
+          # domain: <string>
+          # health_check: <value in [disable, enable]>
+          # health_check_proto: <value in [ping, http, tcp-connect]>
+          # holddown_interval: <value in [disable, enable]>
+          # http_host: <string>
+          # ip: <string>
+          # mappedport: <list or string>
+          # port: <integer>
+          # ssh_client_cert: <string>
+          # ssh_host_key: <list or string>
+          # ssh_host_key_validation: <value in [disable, enable]>
+          # status: <value in [active, standby, disable]>
+          # type: <value in [tcp-forwarding, ssh]>
+          # weight: <integer>
+          # translate_host: <value in [disable, enable]>
+          # external_auth: <value in [disable, enable]>
+          # tunnel_encryption: <value in [disable, enable]>
 '''
 
 RETURN = '''

@@ -129,11 +129,10 @@ EXAMPLES = '''
         server: <your own value>
         state: present # <value in [present, absent]>
         dynamic_virtualwanlink_server_dynamicmapping:
-          _scope:
-            -
-              name: <string>
+          _scope: # Required variable, list of device
+            - name: <string>
               vdom: <string>
-          server: <list or string>
+          # server: <list or string>
 '''
 
 RETURN = '''

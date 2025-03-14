@@ -110,9 +110,9 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fdssetting_pushoverride:
-          ip: <string>
-          port: <integer>
-          status: <value in [disable, enable]>
+          # ip: <string>
+          # port: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

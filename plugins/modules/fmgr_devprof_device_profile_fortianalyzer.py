@@ -125,10 +125,10 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_device_profile_fortianalyzer:
-          managed_sn: <string>
-          target: <value in [none, this-fmg, managed, ...]>
-          target_ip: <string>
-          target_sn: <list or string>
+          # managed_sn: <string>
+          # target: <value in [none, this-fmg, managed, ...]>
+          # target_ip: <string>
+          # target_sn: <list or string>
 '''
 
 RETURN = '''

@@ -17511,8 +17511,8 @@ SCHEMA_DATA = '''
     "hotspot20_anqpnairealm_nailist_eapmethod_authparam": {
         "stated": true,
         "options": {
-            "id": {"required": true, "choices": ["non-eap-inner-auth", "inner-auth-eap", "credential", "tunneled-credential"], "type": "str"},
-            "index": {"type": "int"},
+            "id": {"choices": ["non-eap-inner-auth", "inner-auth-eap", "credential", "tunneled-credential"], "type": "str"},
+            "index": {"required": true, "type": "int"},
             "val": {
                 "choices": [
                     "eap-identity", "eap-md5", "eap-tls", "eap-ttls", "eap-peap", "eap-sim", "eap-aka", "eap-aka-prime", "non-eap-pap", "non-eap-chap",

@@ -105,12 +105,11 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_sign_certificate_template:
-          adom: <string>
-          scope:
-            -
-              name: <string>
-              vdom: <string>
-          template: <string>
+          # adom: <string>
+          # scope:
+          #   - name: <string>
+          #     vdom: <string>
+          # template: <string>
 '''
 
 RETURN = '''

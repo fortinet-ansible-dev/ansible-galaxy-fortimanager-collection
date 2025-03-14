@@ -147,14 +147,14 @@ EXAMPLES = '''
         health_check: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_virtualwanlink_healthcheck_sla:
-          id: <integer>
-          jitter_threshold: <integer>
-          latency_threshold: <integer>
-          link_cost_factor:
-            - "latency"
-            - "jitter"
-            - "packet-loss"
-          packetloss_threshold: <integer>
+          id: 0 # Required variable, integer
+          # jitter_threshold: <integer>
+          # latency_threshold: <integer>
+          # link_cost_factor:
+          #   - "latency"
+          #   - "jitter"
+          #   - "packet-loss"
+          # packetloss_threshold: <integer>
 '''
 
 RETURN = '''

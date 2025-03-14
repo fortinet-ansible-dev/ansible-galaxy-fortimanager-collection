@@ -152,17 +152,17 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         template:
-          description: <string>
-          modification_time: <string>
-          name: <string>
-          script: <string>
-          provision: <value in [disable, enable]>
-          type: <value in [cli, jinja]>
-          variables: <list or string>
-          position: <value in [post-vdom-copy, prep-vdom-copy]>
-          option:
-            - "sdwan-overlay"
-            - "sdwan-manager"
+          name: "your value" # Required variable, string
+          # description: <string>
+          # modification_time: <string>
+          # script: <string>
+          # provision: <value in [disable, enable]>
+          # type: <value in [cli, jinja]>
+          # variables: <list or string>
+          # position: <value in [post-vdom-copy, prep-vdom-copy]>
+          # option:
+          #   - "sdwan-overlay"
+          #   - "sdwan-manager"
 '''
 
 RETURN = '''

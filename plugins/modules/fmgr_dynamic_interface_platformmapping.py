@@ -138,11 +138,11 @@ EXAMPLES = '''
         interface: <your own value>
         state: present # <value in [present, absent]>
         dynamic_interface_platformmapping:
-          egress_shaping_profile: <list or string>
-          ingress_shaping_profile: <list or string>
-          intf_zone: <string>
-          intrazone_deny: <value in [disable, enable]>
-          name: <string>
+          name: "your value" # Required variable, string
+          # egress_shaping_profile: <list or string>
+          # ingress_shaping_profile: <list or string>
+          # intf_zone: <string>
+          # intrazone_deny: <value in [disable, enable]>
 '''
 
 RETURN = '''

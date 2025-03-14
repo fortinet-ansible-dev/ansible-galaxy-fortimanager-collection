@@ -107,8 +107,8 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fctservices:
-          port: <integer>
-          status: <value in [disable, enable]>
+          # port: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

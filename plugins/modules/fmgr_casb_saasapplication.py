@@ -219,29 +219,27 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         casb_saasapplication:
-          casb_name: <string>
-          description: <string>
-          domains: <list or string>
-          name: <string>
-          type: <value in [built-in, customized]>
-          uuid: <string>
-          status: <value in [disable, enable]>
-          input_attributes:
-            -
-              attr_type: <value in [tenant]>
-              default: <value in [string, string-list]>
-              description: <string>
-              fallback_input: <value in [disable, enable]>
-              name: <string>
-              required: <value in [disable, enable]>
-              type: <value in [string, string-list, integer, ...]>
-          output_attributes:
-            -
-              attr_type: <value in [tenant]>
-              description: <string>
-              name: <string>
-              required: <value in [disable, enable]>
-              type: <value in [string, string-list, integer, ...]>
+          name: "your value" # Required variable, string
+          # casb_name: <string>
+          # description: <string>
+          # domains: <list or string>
+          # type: <value in [built-in, customized]>
+          # uuid: <string>
+          # status: <value in [disable, enable]>
+          # input_attributes:
+          #   - attr_type: <value in [tenant]>
+          #     default: <value in [string, string-list]>
+          #     description: <string>
+          #     fallback_input: <value in [disable, enable]>
+          #     name: <string>
+          #     required: <value in [disable, enable]>
+          #     type: <value in [string, string-list, integer, ...]>
+          # output_attributes:
+          #   - attr_type: <value in [tenant]>
+          #     description: <string>
+          #     name: <string>
+          #     required: <value in [disable, enable]>
+          #     type: <value in [string, string-list, integer, ...]>
 '''
 
 RETURN = '''

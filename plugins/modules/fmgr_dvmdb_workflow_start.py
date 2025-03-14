@@ -104,8 +104,8 @@ EXAMPLES = '''
         adom: <your own value>
         session_id: <your own value>
         dvmdb_workflow_start:
-          desc: <string>
-          name: <string>
+          # desc: <string>
+          # name: <string>
 '''
 
 RETURN = '''

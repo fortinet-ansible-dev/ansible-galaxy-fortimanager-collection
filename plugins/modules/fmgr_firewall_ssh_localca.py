@@ -131,11 +131,11 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         firewall_ssh_localca:
-          name: <string>
-          password: <list or string>
-          private_key: <string>
-          public_key: <string>
-          source: <value in [built-in, user]>
+          name: "your value" # Required variable, string
+          # password: <list or string>
+          # private_key: <string>
+          # public_key: <string>
+          # source: <value in [built-in, user]>
 '''
 
 RETURN = '''

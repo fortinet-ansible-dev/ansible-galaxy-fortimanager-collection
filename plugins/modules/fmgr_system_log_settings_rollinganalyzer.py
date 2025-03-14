@@ -265,43 +265,43 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_settings_rollinganalyzer:
-          days:
-            - "sun"
-            - "mon"
-            - "tue"
-            - "wed"
-            - "thu"
-            - "fri"
-            - "sat"
-          del_files: <value in [disable, enable]>
-          directory: <string>
-          file_size: <integer>
-          gzip_format: <value in [disable, enable]>
-          hour: <integer>
-          ip: <string>
-          ip2: <string>
-          ip3: <string>
-          log_format: <value in [native, text, csv]>
-          min: <integer>
-          password: <list or string>
-          password2: <list or string>
-          password3: <list or string>
-          server_type: <value in [ftp, sftp, scp]>
-          upload: <value in [disable, enable]>
-          upload_hour: <integer>
-          upload_mode: <value in [backup, mirror]>
-          upload_trigger: <value in [on-roll, on-schedule]>
-          username: <string>
-          username2: <string>
-          username3: <string>
-          when: <value in [none, daily, weekly]>
-          port: <integer>
-          port2: <integer>
-          port3: <integer>
-          rolling_upgrade_status: <integer>
-          server: <string>
-          server2: <string>
-          server3: <string>
+          # days:
+          #   - "sun"
+          #   - "mon"
+          #   - "tue"
+          #   - "wed"
+          #   - "thu"
+          #   - "fri"
+          #   - "sat"
+          # del_files: <value in [disable, enable]>
+          # directory: <string>
+          # file_size: <integer>
+          # gzip_format: <value in [disable, enable]>
+          # hour: <integer>
+          # ip: <string>
+          # ip2: <string>
+          # ip3: <string>
+          # log_format: <value in [native, text, csv]>
+          # min: <integer>
+          # password: <list or string>
+          # password2: <list or string>
+          # password3: <list or string>
+          # server_type: <value in [ftp, sftp, scp]>
+          # upload: <value in [disable, enable]>
+          # upload_hour: <integer>
+          # upload_mode: <value in [backup, mirror]>
+          # upload_trigger: <value in [on-roll, on-schedule]>
+          # username: <string>
+          # username2: <string>
+          # username3: <string>
+          # when: <value in [none, daily, weekly]>
+          # port: <integer>
+          # port2: <integer>
+          # port3: <integer>
+          # rolling_upgrade_status: <integer>
+          # server: <string>
+          # server2: <string>
+          # server3: <string>
 '''
 
 RETURN = '''

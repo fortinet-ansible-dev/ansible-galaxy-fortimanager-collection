@@ -145,15 +145,15 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_connector:
-          fsso_refresh_interval: <integer>
-          fsso_sess_timeout: <integer>
-          px_refresh_interval: <integer>
-          px_svr_timeout: <integer>
-          conn_refresh_interval: <integer>
-          cloud_orchest_refresh_interval: <integer>
-          faznotify_msg_queue_max: <integer>
-          faznotify_msg_timeout: <integer>
-          conn_ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
+          # fsso_refresh_interval: <integer>
+          # fsso_sess_timeout: <integer>
+          # px_refresh_interval: <integer>
+          # px_svr_timeout: <integer>
+          # conn_refresh_interval: <integer>
+          # cloud_orchest_refresh_interval: <integer>
+          # faznotify_msg_queue_max: <integer>
+          # faznotify_msg_timeout: <integer>
+          # conn_ssl_protocol: <value in [follow-global-ssl-protocol, sslv3, tlsv1.0, ...]>
 '''
 
 RETURN = '''

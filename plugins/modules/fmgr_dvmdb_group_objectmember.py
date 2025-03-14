@@ -121,8 +121,8 @@ EXAMPLES = '''
         group: <your own value>
         state: present # <value in [present, absent]>
         dvmdb_group_objectmember:
-          name: <string>
-          vdom: <string>
+          # name: <string>
+          # vdom: <string>
 '''
 
 RETURN = '''

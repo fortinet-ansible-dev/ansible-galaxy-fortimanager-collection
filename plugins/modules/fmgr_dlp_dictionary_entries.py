@@ -147,13 +147,13 @@ EXAMPLES = '''
         dictionary: <your own value>
         state: present # <value in [present, absent]>
         dlp_dictionary_entries:
-          comment: <string>
-          id: <integer>
-          ignore_case: <value in [disable, enable]>
-          pattern: <string>
-          repeat: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          type: <string>
+          id: 0 # Required variable, integer
+          # comment: <string>
+          # ignore_case: <value in [disable, enable]>
+          # pattern: <string>
+          # repeat: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # type: <string>
 '''
 
 RETURN = '''

@@ -169,21 +169,21 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_virtualwanlink_members:
-          _dynamic_member: <string>
-          comment: <string>
-          gateway: <string>
-          gateway6: <string>
-          ingress_spillover_threshold: <integer>
-          interface: <string>
-          priority: <integer>
-          seq_num: <integer>
-          source: <string>
-          source6: <string>
-          spillover_threshold: <integer>
-          status: <value in [disable, enable]>
-          volume_ratio: <integer>
-          weight: <integer>
-          cost: <integer>
+          seq_num: 0 # Required variable, integer
+          # _dynamic_member: <string>
+          # comment: <string>
+          # gateway: <string>
+          # gateway6: <string>
+          # ingress_spillover_threshold: <integer>
+          # interface: <string>
+          # priority: <integer>
+          # source: <string>
+          # source6: <string>
+          # spillover_threshold: <integer>
+          # status: <value in [disable, enable]>
+          # volume_ratio: <integer>
+          # weight: <integer>
+          # cost: <integer>
 '''
 
 RETURN = '''

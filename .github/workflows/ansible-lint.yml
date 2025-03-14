@@ -1,7 +1,10 @@
 name: ansible-lint
 on:
-  pull_request:
-    branches: ["stable", "release/v*"]
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 1,15 * *'
 jobs:
   build:
     name: Ansible Lint # Naming the build is important to use it as a status check

@@ -123,9 +123,9 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         webfilter_ftgdlocalcat:
-          desc: <string>
-          id: <integer>
-          status: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # desc: <string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

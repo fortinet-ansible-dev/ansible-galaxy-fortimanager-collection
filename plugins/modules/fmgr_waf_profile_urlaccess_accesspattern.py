@@ -144,11 +144,11 @@ EXAMPLES = '''
         url_access: <your own value>
         state: present # <value in [present, absent]>
         waf_profile_urlaccess_accesspattern:
-          id: <integer>
-          negate: <value in [disable, enable]>
-          pattern: <string>
-          regex: <value in [disable, enable]>
-          srcaddr: <string>
+          id: 0 # Required variable, integer
+          # negate: <value in [disable, enable]>
+          # pattern: <string>
+          # regex: <value in [disable, enable]>
+          # srcaddr: <string>
 '''
 
 RETURN = '''

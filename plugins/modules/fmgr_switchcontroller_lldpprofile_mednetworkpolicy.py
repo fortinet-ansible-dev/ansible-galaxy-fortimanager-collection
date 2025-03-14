@@ -147,13 +147,13 @@ EXAMPLES = '''
         lldp_profile: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_lldpprofile_mednetworkpolicy:
-          dscp: <integer>
-          name: <string>
-          priority: <integer>
-          status: <value in [disable, enable]>
-          vlan: <integer>
-          vlan_intf: <string>
-          assign_vlan: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # dscp: <integer>
+          # priority: <integer>
+          # status: <value in [disable, enable]>
+          # vlan: <integer>
+          # vlan_intf: <string>
+          # assign_vlan: <value in [disable, enable]>
 '''
 
 RETURN = '''

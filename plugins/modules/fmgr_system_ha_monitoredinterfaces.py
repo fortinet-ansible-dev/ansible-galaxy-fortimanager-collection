@@ -109,7 +109,7 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         state: present # <value in [present, absent]>
         system_ha_monitoredinterfaces:
-          interface_name: <string>
+          # interface_name: <string>
 '''
 
 RETURN = '''

@@ -109,7 +109,7 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         dnsfilter_profile_urlfilter:
-          urlfilter_table: <integer>
+          # urlfilter_table: <integer>
 '''
 
 RETURN = '''

@@ -143,17 +143,17 @@ EXAMPLES = '''
         extender_profile: <your own value>
         state: present # <value in [present, absent]>
         extensioncontroller_extenderprofile_cellular_smsnotification_receiver:
-          alert:
-            - "system-reboot"
-            - "data-exhausted"
-            - "session-disconnect"
-            - "low-signal-strength"
-            - "mode-switch"
-            - "os-image-fallback"
-            - "fgt-backup-mode-switch"
-          name: <string>
-          phone_number: <string>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # alert:
+          #   - "system-reboot"
+          #   - "data-exhausted"
+          #   - "session-disconnect"
+          #   - "low-signal-strength"
+          #   - "mode-switch"
+          #   - "os-image-fallback"
+          #   - "fgt-backup-mode-switch"
+          # phone_number: <string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

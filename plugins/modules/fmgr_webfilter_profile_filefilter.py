@@ -172,21 +172,20 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         webfilter_profile_filefilter:
-          entries:
-            -
-              action: <value in [log, block]>
-              comment: <string>
-              direction: <value in [any, incoming, outgoing]>
-              encryption: <value in [any, yes]>
-              file_type: <list or string>
-              filter: <string>
-              password_protected: <value in [any, yes]>
-              protocol:
-                - "http"
-                - "ftp"
-          log: <value in [disable, enable]>
-          scan_archive_contents: <value in [disable, enable]>
-          status: <value in [disable, enable]>
+          # entries:
+          #   - action: <value in [log, block]>
+          #     comment: <string>
+          #     direction: <value in [any, incoming, outgoing]>
+          #     encryption: <value in [any, yes]>
+          #     file_type: <list or string>
+          #     filter: <string>
+          #     password_protected: <value in [any, yes]>
+          #     protocol:
+          #       - "http"
+          #       - "ftp"
+          # log: <value in [disable, enable]>
+          # scan_archive_contents: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

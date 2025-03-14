@@ -748,143 +748,143 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_settings:
-          FAC_custom_field1: <string>
-          FAZ_custom_field1: <string>
-          FCH_custom_field1: <string>
-          FCT_custom_field1: <string>
-          FDD_custom_field1: <string>
-          FGT_custom_field1: <string>
-          FMG_custom_field1: <string>
-          FML_custom_field1: <string>
-          FPX_custom_field1: <string>
-          FSA_custom_field1: <string>
-          FWB_custom_field1: <string>
-          browse_max_logfiles: <integer>
-          dns_resolve_dstip: <value in [disable, enable]>
-          download_max_logs: <integer>
-          ha_auto_migrate: <value in [disable, enable]>
-          import_max_logfiles: <integer>
-          log_file_archive_name: <value in [basic, extended]>
-          rolling_analyzer:
-            days:
-              - "sun"
-              - "mon"
-              - "tue"
-              - "wed"
-              - "thu"
-              - "fri"
-              - "sat"
-            del_files: <value in [disable, enable]>
-            directory: <string>
-            file_size: <integer>
-            gzip_format: <value in [disable, enable]>
-            hour: <integer>
-            ip: <string>
-            ip2: <string>
-            ip3: <string>
-            log_format: <value in [native, text, csv]>
-            min: <integer>
-            password: <list or string>
-            password2: <list or string>
-            password3: <list or string>
-            server_type: <value in [ftp, sftp, scp]>
-            upload: <value in [disable, enable]>
-            upload_hour: <integer>
-            upload_mode: <value in [backup, mirror]>
-            upload_trigger: <value in [on-roll, on-schedule]>
-            username: <string>
-            username2: <string>
-            username3: <string>
-            when: <value in [none, daily, weekly]>
-            port: <integer>
-            port2: <integer>
-            port3: <integer>
-            rolling_upgrade_status: <integer>
-            server: <string>
-            server2: <string>
-            server3: <string>
-          rolling_local:
-            days:
-              - "sun"
-              - "mon"
-              - "tue"
-              - "wed"
-              - "thu"
-              - "fri"
-              - "sat"
-            del_files: <value in [disable, enable]>
-            directory: <string>
-            file_size: <integer>
-            gzip_format: <value in [disable, enable]>
-            hour: <integer>
-            ip: <string>
-            ip2: <string>
-            ip3: <string>
-            log_format: <value in [native, text, csv]>
-            min: <integer>
-            password: <list or string>
-            password2: <list or string>
-            password3: <list or string>
-            server_type: <value in [ftp, sftp, scp]>
-            upload: <value in [disable, enable]>
-            upload_hour: <integer>
-            upload_mode: <value in [backup, mirror]>
-            upload_trigger: <value in [on-roll, on-schedule]>
-            username: <string>
-            username2: <string>
-            username3: <string>
-            when: <value in [none, daily, weekly]>
-            port: <integer>
-            port2: <integer>
-            port3: <integer>
-            rolling_upgrade_status: <integer>
-            server: <string>
-            server2: <string>
-            server3: <string>
-          rolling_regular:
-            days:
-              - "sun"
-              - "mon"
-              - "tue"
-              - "wed"
-              - "thu"
-              - "fri"
-              - "sat"
-            del_files: <value in [disable, enable]>
-            directory: <string>
-            file_size: <integer>
-            gzip_format: <value in [disable, enable]>
-            hour: <integer>
-            ip: <string>
-            ip2: <string>
-            ip3: <string>
-            log_format: <value in [native, text, csv]>
-            min: <integer>
-            password: <list or string>
-            password2: <list or string>
-            password3: <list or string>
-            server_type: <value in [ftp, sftp, scp]>
-            upload: <value in [disable, enable]>
-            upload_hour: <integer>
-            upload_mode: <value in [backup, mirror]>
-            upload_trigger: <value in [on-roll, on-schedule]>
-            username: <string>
-            username2: <string>
-            username3: <string>
-            when: <value in [none, daily, weekly]>
-            port: <integer>
-            port2: <integer>
-            port3: <integer>
-            rolling_upgrade_status: <integer>
-            server: <string>
-            server2: <string>
-            server3: <string>
-          sync_search_timeout: <integer>
-          keep_dev_logs: <value in [disable, enable]>
-          device_auto_detect: <value in [disable, enable]>
-          unencrypted_logging: <value in [disable, enable]>
-          log_interval_dev_no_logging: <integer>
-          log_upload_interval_dev_no_logging: <integer>
+          # FAC_custom_field1: <string>
+          # FAZ_custom_field1: <string>
+          # FCH_custom_field1: <string>
+          # FCT_custom_field1: <string>
+          # FDD_custom_field1: <string>
+          # FGT_custom_field1: <string>
+          # FMG_custom_field1: <string>
+          # FML_custom_field1: <string>
+          # FPX_custom_field1: <string>
+          # FSA_custom_field1: <string>
+          # FWB_custom_field1: <string>
+          # browse_max_logfiles: <integer>
+          # dns_resolve_dstip: <value in [disable, enable]>
+          # download_max_logs: <integer>
+          # ha_auto_migrate: <value in [disable, enable]>
+          # import_max_logfiles: <integer>
+          # log_file_archive_name: <value in [basic, extended]>
+          # rolling_analyzer:
+          #   days:
+          #     - "sun"
+          #     - "mon"
+          #     - "tue"
+          #     - "wed"
+          #     - "thu"
+          #     - "fri"
+          #     - "sat"
+          #   del_files: <value in [disable, enable]>
+          #   directory: <string>
+          #   file_size: <integer>
+          #   gzip_format: <value in [disable, enable]>
+          #   hour: <integer>
+          #   ip: <string>
+          #   ip2: <string>
+          #   ip3: <string>
+          #   log_format: <value in [native, text, csv]>
+          #   min: <integer>
+          #   password: <list or string>
+          #   password2: <list or string>
+          #   password3: <list or string>
+          #   server_type: <value in [ftp, sftp, scp]>
+          #   upload: <value in [disable, enable]>
+          #   upload_hour: <integer>
+          #   upload_mode: <value in [backup, mirror]>
+          #   upload_trigger: <value in [on-roll, on-schedule]>
+          #   username: <string>
+          #   username2: <string>
+          #   username3: <string>
+          #   when: <value in [none, daily, weekly]>
+          #   port: <integer>
+          #   port2: <integer>
+          #   port3: <integer>
+          #   rolling_upgrade_status: <integer>
+          #   server: <string>
+          #   server2: <string>
+          #   server3: <string>
+          # rolling_local:
+          #   days:
+          #     - "sun"
+          #     - "mon"
+          #     - "tue"
+          #     - "wed"
+          #     - "thu"
+          #     - "fri"
+          #     - "sat"
+          #   del_files: <value in [disable, enable]>
+          #   directory: <string>
+          #   file_size: <integer>
+          #   gzip_format: <value in [disable, enable]>
+          #   hour: <integer>
+          #   ip: <string>
+          #   ip2: <string>
+          #   ip3: <string>
+          #   log_format: <value in [native, text, csv]>
+          #   min: <integer>
+          #   password: <list or string>
+          #   password2: <list or string>
+          #   password3: <list or string>
+          #   server_type: <value in [ftp, sftp, scp]>
+          #   upload: <value in [disable, enable]>
+          #   upload_hour: <integer>
+          #   upload_mode: <value in [backup, mirror]>
+          #   upload_trigger: <value in [on-roll, on-schedule]>
+          #   username: <string>
+          #   username2: <string>
+          #   username3: <string>
+          #   when: <value in [none, daily, weekly]>
+          #   port: <integer>
+          #   port2: <integer>
+          #   port3: <integer>
+          #   rolling_upgrade_status: <integer>
+          #   server: <string>
+          #   server2: <string>
+          #   server3: <string>
+          # rolling_regular:
+          #   days:
+          #     - "sun"
+          #     - "mon"
+          #     - "tue"
+          #     - "wed"
+          #     - "thu"
+          #     - "fri"
+          #     - "sat"
+          #   del_files: <value in [disable, enable]>
+          #   directory: <string>
+          #   file_size: <integer>
+          #   gzip_format: <value in [disable, enable]>
+          #   hour: <integer>
+          #   ip: <string>
+          #   ip2: <string>
+          #   ip3: <string>
+          #   log_format: <value in [native, text, csv]>
+          #   min: <integer>
+          #   password: <list or string>
+          #   password2: <list or string>
+          #   password3: <list or string>
+          #   server_type: <value in [ftp, sftp, scp]>
+          #   upload: <value in [disable, enable]>
+          #   upload_hour: <integer>
+          #   upload_mode: <value in [backup, mirror]>
+          #   upload_trigger: <value in [on-roll, on-schedule]>
+          #   username: <string>
+          #   username2: <string>
+          #   username3: <string>
+          #   when: <value in [none, daily, weekly]>
+          #   port: <integer>
+          #   port2: <integer>
+          #   port3: <integer>
+          #   rolling_upgrade_status: <integer>
+          #   server: <string>
+          #   server2: <string>
+          #   server3: <string>
+          # sync_search_timeout: <integer>
+          # keep_dev_logs: <value in [disable, enable]>
+          # device_auto_detect: <value in [disable, enable]>
+          # unencrypted_logging: <value in [disable, enable]>
+          # log_interval_dev_no_logging: <integer>
+          # log_upload_interval_dev_no_logging: <integer>
 '''
 
 RETURN = '''

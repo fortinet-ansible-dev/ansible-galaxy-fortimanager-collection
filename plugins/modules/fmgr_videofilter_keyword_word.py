@@ -135,10 +135,10 @@ EXAMPLES = '''
         keyword: <your own value>
         state: present # <value in [present, absent]>
         videofilter_keyword_word:
-          comment: <string>
-          name: <string>
-          pattern_type: <value in [wildcard, regex]>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # comment: <string>
+          # pattern_type: <value in [wildcard, regex]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

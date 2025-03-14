@@ -142,11 +142,11 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_sdwan_zone:
-          name: <string>
-          service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device]>
-          minimum_sla_meet_members: <integer>
-          advpn_health_check: <string>
-          advpn_select: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device]>
+          # minimum_sla_meet_members: <integer>
+          # advpn_health_check: <string>
+          # advpn_select: <value in [disable, enable]>
 '''
 
 RETURN = '''

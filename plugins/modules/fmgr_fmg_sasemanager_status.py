@@ -120,10 +120,10 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         fmg_sasemanager_status:
-          forticlient_ver: <string>
-          forticloud_id: <integer>
-          license_type: <value in [standard_license, advanced_license, comprehensive_license]>
-          spa_hubs: <integer>
+          # forticlient_ver: <string>
+          # forticloud_id: <integer>
+          # license_type: <value in [standard_license, advanced_license, comprehensive_license]>
+          # spa_hubs: <integer>
 '''
 
 RETURN = '''

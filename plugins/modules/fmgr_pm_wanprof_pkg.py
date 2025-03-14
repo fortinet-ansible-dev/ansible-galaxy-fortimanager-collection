@@ -142,14 +142,13 @@ EXAMPLES = '''
         pkg_path: <your own value>
         state: present # <value in [present, absent]>
         pm_wanprof_pkg:
-          description: <string>
-          name: <string>
-          oid: <integer>
-          scope_member:
-            -
-              name: <string>
-              vdom: <string>
-          type: <value in [wanprof]>
+          name: "your value" # Required variable, string
+          # description: <string>
+          # oid: <integer>
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
+          # type: <value in [wanprof]>
 '''
 
 RETURN = '''

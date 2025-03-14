@@ -236,32 +236,32 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         extendercontroller_simprofile:
-          auto_switch_profile:
-            dataplan: <value in [disable, enable]>
-            disconnect: <value in [disable, enable]>
-            disconnect_period: <integer>
-            disconnect_threshold: <integer>
-            signal: <value in [disable, enable]>
-            status: <value in [disable, enable]>
-            switch_back:
-              - "time"
-              - "timer"
-            switch_back_time: <string>
-            switch_back_timer: <integer>
-          conn_status: <integer>
-          default_sim: <value in [sim1, sim2, carrier, ...]>
-          description: <string>
-          gps: <value in [disable, enable]>
-          modem_id: <integer>
-          name: <string>
-          preferred_carrier: <string>
-          redundant_intf: <string>
-          redundant_mode: <value in [disable, enable]>
-          sim1_pin: <value in [disable, enable]>
-          sim1_pin_code: <list or string>
-          sim2_pin: <value in [disable, enable]>
-          sim2_pin_code: <list or string>
-          status: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # auto_switch_profile:
+          #   dataplan: <value in [disable, enable]>
+          #   disconnect: <value in [disable, enable]>
+          #   disconnect_period: <integer>
+          #   disconnect_threshold: <integer>
+          #   signal: <value in [disable, enable]>
+          #   status: <value in [disable, enable]>
+          #   switch_back:
+          #     - "time"
+          #     - "timer"
+          #   switch_back_time: <string>
+          #   switch_back_timer: <integer>
+          # conn_status: <integer>
+          # default_sim: <value in [sim1, sim2, carrier, ...]>
+          # description: <string>
+          # gps: <value in [disable, enable]>
+          # modem_id: <integer>
+          # preferred_carrier: <string>
+          # redundant_intf: <string>
+          # redundant_mode: <value in [disable, enable]>
+          # sim1_pin: <value in [disable, enable]>
+          # sim1_pin_code: <list or string>
+          # sim2_pin: <value in [disable, enable]>
+          # sim2_pin_code: <list or string>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

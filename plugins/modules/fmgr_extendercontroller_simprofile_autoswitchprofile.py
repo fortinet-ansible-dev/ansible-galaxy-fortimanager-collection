@@ -153,17 +153,17 @@ EXAMPLES = '''
         adom: <your own value>
         sim_profile: <your own value>
         extendercontroller_simprofile_autoswitchprofile:
-          dataplan: <value in [disable, enable]>
-          disconnect: <value in [disable, enable]>
-          disconnect_period: <integer>
-          disconnect_threshold: <integer>
-          signal: <value in [disable, enable]>
-          status: <value in [disable, enable]>
-          switch_back:
-            - "time"
-            - "timer"
-          switch_back_time: <string>
-          switch_back_timer: <integer>
+          # dataplan: <value in [disable, enable]>
+          # disconnect: <value in [disable, enable]>
+          # disconnect_period: <integer>
+          # disconnect_threshold: <integer>
+          # signal: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
+          # switch_back:
+          #   - "time"
+          #   - "timer"
+          # switch_back_time: <string>
+          # switch_back_timer: <integer>
 '''
 
 RETURN = '''

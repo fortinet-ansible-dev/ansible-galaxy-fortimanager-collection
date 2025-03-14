@@ -161,14 +161,14 @@ EXAMPLES = '''
         managed_switch: <your own value>
         state: present # <value in [present, absent]>
         switchcontroller_managedswitch_snmpuser:
-          auth_proto: <value in [md5, sha]>
-          auth_pwd: <list or string>
-          name: <string>
-          priv_proto: <value in [des, aes]>
-          priv_pwd: <list or string>
-          queries: <value in [disable, enable]>
-          query_port: <integer>
-          security_level: <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
+          name: "your value" # Required variable, string
+          # auth_proto: <value in [md5, sha]>
+          # auth_pwd: <list or string>
+          # priv_proto: <value in [des, aes]>
+          # priv_pwd: <list or string>
+          # queries: <value in [disable, enable]>
+          # query_port: <integer>
+          # security_level: <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
 '''
 
 RETURN = '''

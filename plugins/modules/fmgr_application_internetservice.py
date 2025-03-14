@@ -134,17 +134,16 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         application_internetservice:
-          entry:
-            -
-              id: <integer>
-              ip_number: <integer>
-              ip_range_number: <integer>
-              port: <list or integer>
-              protocol: <integer>
-          id: <integer>
-          name: <string>
-          offset: <integer>
-          reputation: <integer>
+          # entry:
+          #   - id: <integer>
+          #     ip_number: <integer>
+          #     ip_range_number: <integer>
+          #     port: <list or integer>
+          #     protocol: <integer>
+          # id: <integer>
+          # name: <string>
+          # offset: <integer>
+          # reputation: <integer>
 '''
 
 RETURN = '''

@@ -246,48 +246,48 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extensioncontroller_extenderprofile_wifi_radio2:
-          d80211d: <value in [disable, enable]>
-          band: <value in [5GHz]>
-          bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
-          beacon_interval: <integer>
-          bss_color: <integer>
-          bss_color_mode: <value in [auto, static]>
-          channel:
-            - "CH36"
-            - "CH40"
-            - "CH44"
-            - "CH48"
-            - "CH52"
-            - "CH56"
-            - "CH60"
-            - "CH64"
-            - "CH100"
-            - "CH104"
-            - "CH108"
-            - "CH112"
-            - "CH116"
-            - "CH120"
-            - "CH124"
-            - "CH128"
-            - "CH132"
-            - "CH136"
-            - "CH140"
-            - "CH144"
-            - "CH149"
-            - "CH153"
-            - "CH157"
-            - "CH161"
-            - "CH165"
-          extension_channel: <value in [auto, higher, lower]>
-          guard_interval: <value in [auto, 400ns, 800ns]>
-          lan_ext_vap: <list or string>
-          local_vaps: <list or string>
-          max_clients: <integer>
-          mode: <value in [AP, Client]>
-          operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
-          power_level: <integer>
-          radio_id: <integer>
-          status: <value in [disable, enable]>
+          # d80211d: <value in [disable, enable]>
+          # band: <value in [5GHz]>
+          # bandwidth: <value in [auto, 20MHz, 40MHz, ...]>
+          # beacon_interval: <integer>
+          # bss_color: <integer>
+          # bss_color_mode: <value in [auto, static]>
+          # channel:
+          #   - "CH36"
+          #   - "CH40"
+          #   - "CH44"
+          #   - "CH48"
+          #   - "CH52"
+          #   - "CH56"
+          #   - "CH60"
+          #   - "CH64"
+          #   - "CH100"
+          #   - "CH104"
+          #   - "CH108"
+          #   - "CH112"
+          #   - "CH116"
+          #   - "CH120"
+          #   - "CH124"
+          #   - "CH128"
+          #   - "CH132"
+          #   - "CH136"
+          #   - "CH140"
+          #   - "CH144"
+          #   - "CH149"
+          #   - "CH153"
+          #   - "CH157"
+          #   - "CH161"
+          #   - "CH165"
+          # extension_channel: <value in [auto, higher, lower]>
+          # guard_interval: <value in [auto, 400ns, 800ns]>
+          # lan_ext_vap: <list or string>
+          # local_vaps: <list or string>
+          # max_clients: <integer>
+          # mode: <value in [AP, Client]>
+          # operating_standard: <value in [auto, 11A-N-AC-AX, 11A-N-AC, ...]>
+          # power_level: <integer>
+          # radio_id: <integer>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

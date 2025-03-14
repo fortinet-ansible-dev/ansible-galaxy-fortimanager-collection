@@ -157,15 +157,15 @@ EXAMPLES = '''
         wanprof: <your own value>
         state: present # <value in [present, absent]>
         wanprof_system_sdwan_neighbor:
-          health_check: <string>
-          ip: <string>
-          member: <list or string>
-          role: <value in [primary, secondary, standalone]>
-          sla_id: <integer>
-          minimum_sla_meet_members: <integer>
-          mode: <value in [sla, speedtest]>
-          service_id: <string>
-          route_metric: <value in [preferable, priority]>
+          # health_check: <string>
+          # ip: <string>
+          # member: <list or string>
+          # role: <value in [primary, secondary, standalone]>
+          # sla_id: <integer>
+          # minimum_sla_meet_members: <integer>
+          # mode: <value in [sla, speedtest]>
+          # service_id: <string>
+          # route_metric: <value in [preferable, priority]>
 '''
 
 RETURN = '''

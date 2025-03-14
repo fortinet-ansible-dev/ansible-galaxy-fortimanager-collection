@@ -136,12 +136,12 @@ EXAMPLES = '''
         adom: <your own value>
         devprof: <your own value>
         devprof_system_replacemsg_mms:
-          buffer: <string>
-          charset: <value in [us-ascii, utf-8]>
-          format: <value in [none, text, html, ...]>
-          header: <value in [none, http, 8bit]>
-          image: <string>
-          msg_type: <string>
+          # buffer: <string>
+          # charset: <value in [us-ascii, utf-8]>
+          # format: <value in [none, text, html, ...]>
+          # header: <value in [none, http, 8bit]>
+          # image: <string>
+          # msg_type: <string>
 '''
 
 RETURN = '''

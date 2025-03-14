@@ -117,8 +117,8 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         dynamic_ippool:
-          description: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # description: <string>
 '''
 
 RETURN = '''

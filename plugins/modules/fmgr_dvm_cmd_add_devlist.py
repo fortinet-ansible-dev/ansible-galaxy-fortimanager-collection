@@ -200,31 +200,30 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         dvm_cmd_add_devlist:
-          add_dev_list:
-            -
-              adm_pass: <list or string>
-              adm_usr: <string>
-              desc: <string>
-              device_action: <string>
-              faz_quota: <integer>
-              ip: <string>
-              meta_fields: <dict or string>
-              mgmt_mode: <value in [unreg, fmg, faz, ...]>
-              mr: <integer>
-              name: <string>
-              os_type: <value in [unknown, fos, fsw, ...]>
-              os_ver: <value in [unknown, 0.0, 1.0, ...]>
-              patch: <integer>
-              platform_str: <string>
-              sn: <string>
-              device_blueprint: <string>
-              authorization_template: <string>
-          adom: <string>
-          flags:
-            - "none"
-            - "create_task"
-            - "nonblocking"
-            - "log_dev"
+          # add_dev_list:
+          #   - adm_pass: <list or string>
+          #     adm_usr: <string>
+          #     desc: <string>
+          #     device_action: <string>
+          #     faz_quota: <integer>
+          #     ip: <string>
+          #     meta_fields: <dict or string>
+          #     mgmt_mode: <value in [unreg, fmg, faz, ...]>
+          #     mr: <integer>
+          #     name: <string>
+          #     os_type: <value in [unknown, fos, fsw, ...]>
+          #     os_ver: <value in [unknown, 0.0, 1.0, ...]>
+          #     patch: <integer>
+          #     platform_str: <string>
+          #     sn: <string>
+          #     device_blueprint: <string>
+          #     authorization_template: <string>
+          # adom: <string>
+          # flags:
+          #   - "none"
+          #   - "create_task"
+          #   - "nonblocking"
+          #   - "log_dev"
 '''
 
 RETURN = '''

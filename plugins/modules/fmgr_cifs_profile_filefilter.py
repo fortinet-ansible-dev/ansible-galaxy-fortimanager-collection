@@ -151,17 +151,16 @@ EXAMPLES = '''
         adom: <your own value>
         profile: <your own value>
         cifs_profile_filefilter:
-          entries:
-            -
-              action: <value in [block, log]>
-              comment: <string>
-              direction: <value in [incoming, outgoing, any]>
-              file_type: <list or string>
-              filter: <string>
-              protocol:
-                - "cifs"
-          log: <value in [disable, enable]>
-          status: <value in [disable, enable]>
+          # entries:
+          #   - action: <value in [block, log]>
+          #     comment: <string>
+          #     direction: <value in [incoming, outgoing, any]>
+          #     file_type: <list or string>
+          #     filter: <string>
+          #     protocol:
+          #       - "cifs"
+          # log: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

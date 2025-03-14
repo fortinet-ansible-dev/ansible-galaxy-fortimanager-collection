@@ -223,40 +223,40 @@ EXAMPLES = '''
         sensor: <your own value>
         state: present # <value in [present, absent]>
         dlp_sensor_filter:
-          action: <value in [log-only, block, exempt, ...]>
-          archive: <value in [disable, enable, summary-only]>
-          company_identifier: <string>
-          expiry: <string>
-          file_size: <integer>
-          file_type: <string>
-          filter_by: <value in [credit-card, ssn, regexp, ...]>
-          fp_sensitivity: <list or string>
-          id: <integer>
-          match_percentage: <integer>
-          name: <string>
-          proto:
-            - "imap"
-            - "smtp"
-            - "pop3"
-            - "ftp"
-            - "nntp"
-            - "mm1"
-            - "mm3"
-            - "mm4"
-            - "mm7"
-            - "mapi"
-            - "aim"
-            - "icq"
-            - "msn"
-            - "yahoo"
-            - "http-get"
-            - "http-post"
-            - "ssh"
-            - "cifs"
-          regexp: <string>
-          severity: <value in [info, low, medium, ...]>
-          type: <value in [file, message]>
-          sensitivity: <list or string>
+          id: 0 # Required variable, integer
+          # action: <value in [log-only, block, exempt, ...]>
+          # archive: <value in [disable, enable, summary-only]>
+          # company_identifier: <string>
+          # expiry: <string>
+          # file_size: <integer>
+          # file_type: <string>
+          # filter_by: <value in [credit-card, ssn, regexp, ...]>
+          # fp_sensitivity: <list or string>
+          # match_percentage: <integer>
+          # name: <string>
+          # proto:
+          #   - "imap"
+          #   - "smtp"
+          #   - "pop3"
+          #   - "ftp"
+          #   - "nntp"
+          #   - "mm1"
+          #   - "mm3"
+          #   - "mm4"
+          #   - "mm7"
+          #   - "mapi"
+          #   - "aim"
+          #   - "icq"
+          #   - "msn"
+          #   - "yahoo"
+          #   - "http-get"
+          #   - "http-post"
+          #   - "ssh"
+          #   - "cifs"
+          # regexp: <string>
+          # severity: <value in [info, low, medium, ...]>
+          # type: <value in [file, message]>
+          # sensitivity: <list or string>
 '''
 
 RETURN = '''

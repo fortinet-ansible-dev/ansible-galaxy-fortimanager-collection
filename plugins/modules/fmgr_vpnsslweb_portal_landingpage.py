@@ -146,16 +146,15 @@ EXAMPLES = '''
         adom: <your own value>
         portal: <your own value>
         vpnsslweb_portal_landingpage:
-          form_data:
-            -
-              name: <string>
-              value: <string>
-          logout_url: <string>
-          sso: <value in [disable, static, auto]>
-          sso_credential: <value in [sslvpn-login, alternative]>
-          sso_password: <list or string>
-          sso_username: <string>
-          url: <string>
+          # form_data:
+          #   - name: <string>
+          #     value: <string>
+          # logout_url: <string>
+          # sso: <value in [disable, static, auto]>
+          # sso_credential: <value in [sslvpn-login, alternative]>
+          # sso_password: <list or string>
+          # sso_username: <string>
+          # url: <string>
 '''
 
 RETURN = '''

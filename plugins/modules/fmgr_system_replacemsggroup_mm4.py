@@ -206,21 +206,21 @@ EXAMPLES = '''
         replacemsg_group: <your own value>
         state: present # <value in [present, absent]>
         system_replacemsggroup_mm4:
-          add_smil: <value in [disable, enable]>
-          charset: <value in [us-ascii, utf-8]>
-          class: <value in [personal, advertisement, informational, ...]>
-          domain: <string>
-          format: <value in [none, text, html, ...]>
-          from: <string>
-          from_sender: <value in [disable, enable]>
-          header: <value in [none, http, 8bit]>
-          image: <string>
-          fmgr_message: <string>
-          msg_type: <string>
-          priority: <value in [low, normal, high, ...]>
-          rsp_status: <value in [ok, err-unspecified, err-srv-denied, ...]>
-          smil_part: <string>
-          subject: <string>
+          msg_type: "your value" # Required variable, string
+          # add_smil: <value in [disable, enable]>
+          # charset: <value in [us-ascii, utf-8]>
+          # class: <value in [personal, advertisement, informational, ...]>
+          # domain: <string>
+          # format: <value in [none, text, html, ...]>
+          # from: <string>
+          # from_sender: <value in [disable, enable]>
+          # header: <value in [none, http, 8bit]>
+          # image: <string>
+          # fmgr_message: <string>
+          # priority: <value in [low, normal, high, ...]>
+          # rsp_status: <value in [ok, err-unspecified, err-srv-denied, ...]>
+          # smil_part: <string>
+          # subject: <string>
 '''
 
 RETURN = '''

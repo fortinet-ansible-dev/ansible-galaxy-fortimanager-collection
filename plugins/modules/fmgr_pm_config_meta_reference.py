@@ -105,10 +105,9 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
         pm_config_meta_reference:
-          package_list:
-            -
-              name: <string>
-              vdom: <string>
+          # package_list:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''

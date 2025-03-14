@@ -143,15 +143,14 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_serveraccesspriorities:
-          access_public: <value in [disable, enable]>
-          av_ips: <value in [disable, enable]>
-          private_server:
-            -
-              id: <integer>
-              ip: <string>
-              ip6: <string>
-              time_zone: <integer>
-          web_spam: <value in [disable, enable]>
+          # access_public: <value in [disable, enable]>
+          # av_ips: <value in [disable, enable]>
+          # private_server:
+          #   - id: <integer>
+          #     ip: <string>
+          #     ip6: <string>
+          #     time_zone: <integer>
+          # web_spam: <value in [disable, enable]>
 '''
 
 RETURN = '''

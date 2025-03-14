@@ -138,10 +138,10 @@ EXAMPLES = '''
         aoc_list: <your own value>
         state: present # <value in [present, absent]>
         hotspot20_h2qpadviceofcharge_aoclist_planinfo:
-          currency: <string>
-          info_file: <string>
-          lang: <string>
-          name: <string>
+          name: "your value" # Required variable, string
+          # currency: <string>
+          # info_file: <string>
+          # lang: <string>
 '''
 
 RETURN = '''

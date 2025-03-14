@@ -175,28 +175,27 @@ EXAMPLES = '''
         adom: <your own value>
         extender_profile: <your own value>
         extendercontroller_extenderprofile_cellular_smsnotification:
-          alert:
-            data_exhausted: <string>
-            fgt_backup_mode_switch: <string>
-            low_signal_strength: <string>
-            mode_switch: <string>
-            os_image_fallback: <string>
-            session_disconnect: <string>
-            system_reboot: <string>
-          receiver:
-            -
-              alert:
-                - "system-reboot"
-                - "data-exhausted"
-                - "session-disconnect"
-                - "low-signal-strength"
-                - "mode-switch"
-                - "os-image-fallback"
-                - "fgt-backup-mode-switch"
-              name: <string>
-              phone_number: <string>
-              status: <value in [disable, enable]>
-          status: <value in [disable, enable]>
+          # alert:
+          #   data_exhausted: <string>
+          #   fgt_backup_mode_switch: <string>
+          #   low_signal_strength: <string>
+          #   mode_switch: <string>
+          #   os_image_fallback: <string>
+          #   session_disconnect: <string>
+          #   system_reboot: <string>
+          # receiver:
+          #   - alert:
+          #       - "system-reboot"
+          #       - "data-exhausted"
+          #       - "session-disconnect"
+          #       - "low-signal-strength"
+          #       - "mode-switch"
+          #       - "os-image-fallback"
+          #       - "fgt-backup-mode-switch"
+          #     name: <string>
+          #     phone_number: <string>
+          #     status: <value in [disable, enable]>
+          # status: <value in [disable, enable]>
 '''
 
 RETURN = '''

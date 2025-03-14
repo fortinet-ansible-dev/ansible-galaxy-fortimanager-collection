@@ -151,14 +151,14 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         sshfilter_profile_filefilter_entries:
-          action: <value in [log, block]>
-          comment: <string>
-          direction: <value in [any, incoming, outgoing]>
-          file_type: <list or string>
-          filter: <string>
-          password_protected: <value in [any, yes]>
-          protocol:
-            - "ssh"
+          # action: <value in [log, block]>
+          # comment: <string>
+          # direction: <value in [any, incoming, outgoing]>
+          # file_type: <list or string>
+          # filter: <string>
+          # password_protected: <value in [any, yes]>
+          # protocol:
+          #   - "ssh"
 '''
 
 RETURN = '''

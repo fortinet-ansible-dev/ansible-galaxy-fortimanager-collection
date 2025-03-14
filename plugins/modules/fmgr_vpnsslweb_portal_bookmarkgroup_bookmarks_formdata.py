@@ -134,8 +134,8 @@ EXAMPLES = '''
         bookmarks: <your own value>
         state: present # <value in [present, absent]>
         vpnsslweb_portal_bookmarkgroup_bookmarks_formdata:
-          name: <string>
-          value: <string>
+          name: "your value" # Required variable, string
+          # value: <string>
 '''
 
 RETURN = '''

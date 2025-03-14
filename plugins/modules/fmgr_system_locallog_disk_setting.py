@@ -263,36 +263,36 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_disk_setting:
-          diskfull: <value in [overwrite, nolog]>
-          log_disk_full_percentage: <integer>
-          max_log_file_size: <integer>
-          roll_day:
-            - "sunday"
-            - "monday"
-            - "tuesday"
-            - "wednesday"
-            - "thursday"
-            - "friday"
-            - "saturday"
-          roll_schedule: <value in [none, daily, weekly]>
-          roll_time: <list or string>
-          server_type: <value in [FTP, SFTP, SCP]>
-          severity: <value in [emergency, alert, critical, ...]>
-          status: <value in [disable, enable]>
-          upload: <value in [disable, enable]>
-          upload_delete_files: <value in [disable, enable]>
-          upload_time: <list or string>
-          uploaddir: <string>
-          uploadip: <string>
-          uploadpass: <list or string>
-          uploadport: <integer>
-          uploadsched: <value in [disable, enable]>
-          uploadtype:
-            - "event"
-          uploaduser: <string>
-          uploadzip: <value in [disable, enable]>
-          log_disk_quota: <integer>
-          max_log_file_num: <integer>
+          # diskfull: <value in [overwrite, nolog]>
+          # log_disk_full_percentage: <integer>
+          # max_log_file_size: <integer>
+          # roll_day:
+          #   - "sunday"
+          #   - "monday"
+          #   - "tuesday"
+          #   - "wednesday"
+          #   - "thursday"
+          #   - "friday"
+          #   - "saturday"
+          # roll_schedule: <value in [none, daily, weekly]>
+          # roll_time: <list or string>
+          # server_type: <value in [FTP, SFTP, SCP]>
+          # severity: <value in [emergency, alert, critical, ...]>
+          # status: <value in [disable, enable]>
+          # upload: <value in [disable, enable]>
+          # upload_delete_files: <value in [disable, enable]>
+          # upload_time: <list or string>
+          # uploaddir: <string>
+          # uploadip: <string>
+          # uploadpass: <list or string>
+          # uploadport: <integer>
+          # uploadsched: <value in [disable, enable]>
+          # uploadtype:
+          #   - "event"
+          # uploaduser: <string>
+          # uploadzip: <value in [disable, enable]>
+          # log_disk_quota: <integer>
+          # max_log_file_num: <integer>
 '''
 
 RETURN = '''

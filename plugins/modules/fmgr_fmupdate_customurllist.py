@@ -107,10 +107,10 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_customurllist:
-          db_selection:
-            - "both"
-            - "custom-url"
-            - "fortiguard-db"
+          # db_selection:
+          #   - "both"
+          #   - "custom-url"
+          #   - "fortiguard-db"
 '''
 
 RETURN = '''

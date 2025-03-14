@@ -136,10 +136,10 @@ EXAMPLES = '''
         youtube_channel_filter: <your own value>
         state: present # <value in [present, absent]>
         videofilter_youtubechannelfilter_entries:
-          action: <value in [block, bypass, monitor, ...]>
-          channel_id: <string>
-          comment: <string>
-          id: <integer>
+          id: 0 # Required variable, integer
+          # action: <value in [block, bypass, monitor, ...]>
+          # channel_id: <string>
+          # comment: <string>
 '''
 
 RETURN = '''

@@ -223,27 +223,27 @@ EXAMPLES = '''
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_autodelete:
-          dlp_files_auto_deletion:
-            retention: <value in [days, weeks, months]>
-            runat: <integer>
-            status: <value in [disable, enable]>
-            value: <integer>
-          log_auto_deletion:
-            retention: <value in [days, weeks, months]>
-            runat: <integer>
-            status: <value in [disable, enable]>
-            value: <integer>
-          quarantine_files_auto_deletion:
-            retention: <value in [days, weeks, months]>
-            runat: <integer>
-            status: <value in [disable, enable]>
-            value: <integer>
-          report_auto_deletion:
-            retention: <value in [days, weeks, months]>
-            runat: <integer>
-            status: <value in [disable, enable]>
-            value: <integer>
-          status_fake: <integer>
+          # dlp_files_auto_deletion:
+          #   retention: <value in [days, weeks, months]>
+          #   runat: <integer>
+          #   status: <value in [disable, enable]>
+          #   value: <integer>
+          # log_auto_deletion:
+          #   retention: <value in [days, weeks, months]>
+          #   runat: <integer>
+          #   status: <value in [disable, enable]>
+          #   value: <integer>
+          # quarantine_files_auto_deletion:
+          #   retention: <value in [days, weeks, months]>
+          #   runat: <integer>
+          #   status: <value in [disable, enable]>
+          #   value: <integer>
+          # report_auto_deletion:
+          #   retention: <value in [days, weeks, months]>
+          #   runat: <integer>
+          #   status: <value in [disable, enable]>
+          #   value: <integer>
+          # status_fake: <integer>
 '''
 
 RETURN = '''

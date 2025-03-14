@@ -218,23 +218,23 @@ EXAMPLES = '''
         profile: <your own value>
         state: present # <value in [present, absent]>
         waf_profile_constraint_exception:
-          address: <string>
-          content_length: <value in [disable, enable]>
-          header_length: <value in [disable, enable]>
-          hostname: <value in [disable, enable]>
-          id: <integer>
-          line_length: <value in [disable, enable]>
-          malformed: <value in [disable, enable]>
-          max_cookie: <value in [disable, enable]>
-          max_header_line: <value in [disable, enable]>
-          max_range_segment: <value in [disable, enable]>
-          max_url_param: <value in [disable, enable]>
-          method: <value in [disable, enable]>
-          param_length: <value in [disable, enable]>
-          pattern: <string>
-          regex: <value in [disable, enable]>
-          url_param_length: <value in [disable, enable]>
-          version: <value in [disable, enable]>
+          id: 0 # Required variable, integer
+          # address: <string>
+          # content_length: <value in [disable, enable]>
+          # header_length: <value in [disable, enable]>
+          # hostname: <value in [disable, enable]>
+          # line_length: <value in [disable, enable]>
+          # malformed: <value in [disable, enable]>
+          # max_cookie: <value in [disable, enable]>
+          # max_header_line: <value in [disable, enable]>
+          # max_range_segment: <value in [disable, enable]>
+          # max_url_param: <value in [disable, enable]>
+          # method: <value in [disable, enable]>
+          # param_length: <value in [disable, enable]>
+          # pattern: <string>
+          # regex: <value in [disable, enable]>
+          # url_param_length: <value in [disable, enable]>
+          # version: <value in [disable, enable]>
 '''
 
 RETURN = '''

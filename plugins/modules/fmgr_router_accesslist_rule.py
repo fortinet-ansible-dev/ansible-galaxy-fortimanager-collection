@@ -143,12 +143,12 @@ EXAMPLES = '''
         access_list: <your own value>
         state: present # <value in [present, absent]>
         router_accesslist_rule:
-          action: <value in [permit, deny]>
-          exact_match: <value in [disable, enable]>
-          flags: <integer>
-          id: <integer>
-          prefix: <string>
-          wildcard: <string>
+          id: 0 # Required variable, integer
+          # action: <value in [permit, deny]>
+          # exact_match: <value in [disable, enable]>
+          # flags: <integer>
+          # prefix: <string>
+          # wildcard: <string>
 '''
 
 RETURN = '''

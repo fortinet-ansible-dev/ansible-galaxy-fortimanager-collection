@@ -190,17 +190,17 @@ EXAMPLES = '''
         adom: <your own value>
         wtp_profile: <your own value>
         wtpprofile_eslsesdongle:
-          apc_addr_type: <value in [fqdn, ip]>
-          apc_fqdn: <string>
-          apc_ip: <string>
-          apc_port: <integer>
-          coex_level: <value in [none]>
-          compliance_level: <value in [compliance-level-2]>
-          esl_channel: <value in [0, 1, 2, ...]>
-          output_power: <value in [a, b, c, ...]>
-          scd_enable: <value in [disable, enable]>
-          tls_cert_verification: <value in [disable, enable]>
-          tls_fqdn_verification: <value in [disable, enable]>
+          # apc_addr_type: <value in [fqdn, ip]>
+          # apc_fqdn: <string>
+          # apc_ip: <string>
+          # apc_port: <integer>
+          # coex_level: <value in [none]>
+          # compliance_level: <value in [compliance-level-2]>
+          # esl_channel: <value in [0, 1, 2, ...]>
+          # output_power: <value in [a, b, c, ...]>
+          # scd_enable: <value in [disable, enable]>
+          # tls_cert_verification: <value in [disable, enable]>
+          # tls_fqdn_verification: <value in [disable, enable]>
 '''
 
 RETURN = '''

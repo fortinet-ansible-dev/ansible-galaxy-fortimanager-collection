@@ -218,29 +218,29 @@ EXAMPLES = '''
         adom: <your own value>
         state: present # <value in [present, absent]>
         fmg_device_blueprint:
-          cliprofs: <list or string>
-          description: <string>
-          dev_group: <list or string>
-          folder: <string>
-          name: <string>
-          pkg: <string>
-          platform: <string>
-          prefer_img_ver: <string>
-          prerun_cliprof: <list or string>
-          prov_type: <value in [none, templates, template-group]>
-          template_group: <string>
-          templates: <list or string>
-          enforce_device_config: <value in [disable, enable]>
-          auth_template: <list or string>
-          ha_config: <value in [disable, enable]>
-          ha_hbdev: <any type>
-          ha_monitor: <list or string>
-          ha_password: <list or string>
-          linked_to_model: <value in [disable, enable]>
-          port_provisioning: <integer>
-          sdwan_management: <value in [disable, enable]>
-          split_switch_port: <value in [disable, enable]>
-          vm_log_disk: <value in [disable, enable]>
+          name: "your value" # Required variable, string
+          # cliprofs: <list or string>
+          # description: <string>
+          # dev_group: <list or string>
+          # folder: <string>
+          # pkg: <string>
+          # platform: <string>
+          # prefer_img_ver: <string>
+          # prerun_cliprof: <list or string>
+          # prov_type: <value in [none, templates, template-group]>
+          # template_group: <string>
+          # templates: <list or string>
+          # enforce_device_config: <value in [disable, enable]>
+          # auth_template: <list or string>
+          # ha_config: <value in [disable, enable]>
+          # ha_hbdev: <any type>
+          # ha_monitor: <list or string>
+          # ha_password: <list or string>
+          # linked_to_model: <value in [disable, enable]>
+          # port_provisioning: <integer>
+          # sdwan_management: <value in [disable, enable]>
+          # split_switch_port: <value in [disable, enable]>
+          # vm_log_disk: <value in [disable, enable]>
 '''
 
 RETURN = '''
