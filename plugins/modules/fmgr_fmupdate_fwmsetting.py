@@ -267,6 +267,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -406,7 +407,7 @@ def main():
                 'max-profile-history': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'retrieve': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'revision-diff': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'send-image-retry': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'}
+                'send-image-retry': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

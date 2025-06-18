@@ -241,6 +241,7 @@ options:
                 choices:
                     - 'drop'
                     - 'trap-to-host'
+                    - 'allow'
             unknproto_minlen_err:
                 aliases: ['unknproto-minlen-err']
                 type: str
@@ -524,6 +525,7 @@ options:
                 choices:
                     - 'drop'
                     - 'trap-to-host'
+                    - 'allow'
             nvgre_minlen_err:
                 aliases: ['nvgre-minlen-err']
                 type: str
@@ -580,6 +582,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -616,7 +619,7 @@ EXAMPLES = '''
           # udp_len_err: <value in [drop, trap-to-host]>
           # udp_plen_err: <value in [drop, trap-to-host]>
           # udplite_cover_err: <value in [drop, trap-to-host]>
-          # udplite_csum_err: <value in [drop, trap-to-host]>
+          # udplite_csum_err: <value in [drop, trap-to-host, allow]>
           # unknproto_minlen_err: <value in [drop, trap-to-host]>
           # tcp_fin_only: <value in [allow, drop, trap-to-host]>
           # ipv4_optsecurity: <value in [allow, drop, trap-to-host]>
@@ -652,7 +655,7 @@ EXAMPLES = '''
           # gtpu_plen_err: <value in [drop, trap-to-host]>
           # vxlan_minlen_err: <value in [drop, trap-to-host]>
           # capwap_minlen_err: <value in [drop, trap-to-host]>
-          # gre_csum_err: <value in [drop, trap-to-host]>
+          # gre_csum_err: <value in [drop, trap-to-host, allow]>
           # nvgre_minlen_err: <value in [drop, trap-to-host]>
           # sctp_l4len_err: <value in [drop, trap-to-host]>
           # tcp_hlenvsl4len_err: <value in [drop, trap-to-host]>
@@ -742,7 +745,7 @@ def main():
                 'udp-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'udp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'udplite-cover-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
                 'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'tcp-fin-only': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                 'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
@@ -775,16 +778,16 @@ def main():
                 'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                 'tcp-syn-data': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                 'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
+                'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'sctp-csum-err': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
             }
         }

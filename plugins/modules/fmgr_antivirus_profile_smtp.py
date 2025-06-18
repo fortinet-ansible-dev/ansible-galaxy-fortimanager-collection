@@ -197,12 +197,21 @@ options:
                     - 'disable'
                     - 'monitor'
                     - 'block'
+            malware_stream:
+                aliases: ['malware-stream']
+                type: str
+                description: Enable 0-day malware-stream scanning.
+                choices:
+                    - 'disable'
+                    - 'monitor'
+                    - 'block'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -254,6 +263,7 @@ EXAMPLES = '''
           # fortindr: <value in [disable, block, monitor]>
           # fortisandbox: <value in [disable, block, monitor]>
           # fortiai: <value in [disable, monitor, block]>
+          # malware_stream: <value in [disable, monitor, block]>
 '''
 
 RETURN = '''
@@ -335,7 +345,8 @@ def main():
                 'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
             }
         }
     }

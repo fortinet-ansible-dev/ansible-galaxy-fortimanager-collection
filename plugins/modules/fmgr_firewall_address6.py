@@ -442,6 +442,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -579,8 +580,8 @@ def main():
                         'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                        'filter': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
+                        'filter': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'sdn-addr-type': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -615,7 +616,7 @@ def main():
                 'template': {'type': 'str'},
                 'type': {'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag'], 'type': 'str'},
                 'uuid': {'type': 'str'},
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'profile-list': {
                     'v_range': [['6.2.0', '6.2.13']],
@@ -634,8 +635,8 @@ def main():
                 'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'filter': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
+                'filter': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
             }
         }
     }

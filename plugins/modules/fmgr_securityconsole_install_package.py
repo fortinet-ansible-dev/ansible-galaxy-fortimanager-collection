@@ -127,6 +127,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -160,7 +161,8 @@ EXAMPLES = '''
               vdom: root
 
 - name: INSTALL PREVIEW - POLICY PACKAGE
-  hosts: fmg
+  hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     adom: demo

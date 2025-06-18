@@ -496,12 +496,17 @@ options:
                 aliases: ['virtual-patch-profile']
                 type: str
                 description: Name of an existing virtual-patch profile.
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -606,6 +611,7 @@ EXAMPLES = '''
           # ips_voip_filter: <string>
           # srcaddr6_negate: <value in [disable, enable]>
           # virtual_patch_profile: <string>
+          # telemetry_profile: <list or string>
 '''
 
 RETURN = '''
@@ -750,12 +756,12 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'dlp-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'internet-service-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'logtraffic-start': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr4': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'dstaddr4': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'internet-service-src-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'internet-service-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'logtraffic-start': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'srcaddr4': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'dstaddr4': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'internet-service6': {
                     'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
@@ -792,7 +798,8 @@ def main():
                 'dstaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-voip-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'srcaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

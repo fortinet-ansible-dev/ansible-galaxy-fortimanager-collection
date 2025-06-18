@@ -178,12 +178,28 @@ options:
                 aliases: ['external-idp']
                 type: raw
                 description: (list) External identity provider configuration.
+            digest_algo:
+                aliases: ['digest-algo']
+                type: list
+                elements: str
+                description: Digest Authentication Algorithms.
+                choices:
+                    - 'md5'
+                    - 'sha-256'
+            group_attr_type:
+                aliases: ['group-attr-type']
+                type: str
+                description: Group attribute type used to match SCIM groups
+                choices:
+                    - 'display-name'
+                    - 'external-id'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -227,6 +243,10 @@ EXAMPLES = '''
           # saml_timeout: <integer>
           # user_cert: <value in [disable, enable]>
           # external_idp: <list or string>
+          # digest_algo:
+          #   - "md5"
+          #   - "sha-256"
+          # group_attr_type: <value in [display-name, external-id]>
 '''
 
 RETURN = '''
@@ -309,7 +329,9 @@ def main():
                 'saml-server': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'saml-timeout': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'user-cert': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'digest-algo': {'v_range': [['7.6.3', '']], 'type': 'list', 'choices': ['md5', 'sha-256'], 'elements': 'str'},
+                'group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'}
             }
         }
     }

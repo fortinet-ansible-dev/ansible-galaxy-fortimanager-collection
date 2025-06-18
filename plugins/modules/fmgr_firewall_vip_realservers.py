@@ -158,11 +158,19 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            verify_cert:
+                aliases: ['verify-cert']
+                type: str
+                description: Enable/disable certificate verification of the real server.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -268,13 +276,14 @@ def main():
                 'max-connections': {'type': 'int'},
                 'monitor': {'type': 'raw'},
                 'port': {'type': 'int'},
-                'seq': {'required': True, 'type': 'int'},
+                'seq': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
                 'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                 'weight': {'type': 'int'},
                 'address': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
-                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'verify-cert': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -90,7 +90,9 @@ options:
                     - 'casb_useractivity'
                     - 'cifs_profile_filefilter_entries'
                     - 'dlp_dictionary_entries'
+                    - 'dlp_exactdatamatch_columns'
                     - 'dlp_filepattern_entries'
+                    - 'dlp_label_entries'
                     - 'dlp_profile_rule'
                     - 'dlp_sensor_entries'
                     - 'dlp_sensor_filter'
@@ -349,7 +351,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/cifs/profile/{profile}/file-filter/entries/{entries}',
                 '/pm/config/global/obj/cifs/profile/{profile}/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.2']]
         },
         'dlp_dictionary_entries': {
             'params': ['adom', 'dictionary', 'entries'],
@@ -359,12 +361,28 @@ def main():
             ],
             'v_range': [['7.2.0', '']]
         },
+        'dlp_exactdatamatch_columns': {
+            'params': ['adom', 'columns', 'exact-data-match'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}',
+                '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}'
+            ],
+            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']]
+        },
         'dlp_filepattern_entries': {
             'params': ['adom', 'entries', 'filepattern'],
             'urls': [
                 '/pm/config/adom/{adom}/obj/dlp/filepattern/{filepattern}/entries/{entries}',
                 '/pm/config/global/obj/dlp/filepattern/{filepattern}/entries/{entries}'
             ]
+        },
+        'dlp_label_entries': {
+            'params': ['adom', 'entries', 'label'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/dlp/label/{label}/entries/{entries}',
+                '/pm/config/global/obj/dlp/label/{label}/entries/{entries}'
+            ],
+            'v_range': [['7.6.3', '']]
         },
         'dlp_profile_rule': {
             'params': ['adom', 'profile', 'rule'],
@@ -434,7 +452,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}',
                 '/pm/config/global/obj/emailfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.2']]
         },
         'endpointcontrol_fctems': {
             'params': ['adom', 'fctems'],
@@ -521,7 +539,8 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}',
                 '/pm/config/global/obj/firewall/carrier-endpoint-bwl/{carrier-endpoint-bwl}/entries/{entries}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.2']]
         },
         'firewall_casbprofile': {
             'params': ['adom', 'casb-profile'],
@@ -657,7 +676,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/consolidated/policy/{policy}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.2']]
         },
         'pkg_firewall_dospolicy': {
             'params': ['DoS-policy', 'adom', 'pkg'],
@@ -704,7 +723,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
@@ -767,7 +786,8 @@ def main():
             'params': ['adom', 'pkg', 'policy6'],
             'urls': [
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/policy6/{policy6}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.2']]
         },
         'pkg_firewall_policy64': {
             'params': ['adom', 'pkg', 'policy64'],
@@ -806,7 +826,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/consolidated/policy/{policy}'
             ],
-            'v_range': [['7.0.3', '']]
+            'v_range': [['7.0.3', '7.6.2']]
         },
         'pm_config_pblock_firewall_policy': {
             'params': ['adom', 'pblock', 'policy'],
@@ -820,7 +840,7 @@ def main():
             'urls': [
                 '/pm/config/adom/{adom}/pblock/{pblock}/firewall/policy6/{policy6}'
             ],
-            'v_range': [['7.0.3', '']]
+            'v_range': [['7.0.3', '7.6.2']]
         },
         'pm_config_pblock_firewall_proxypolicy': {
             'params': ['adom', 'pblock', 'proxy-policy'],
@@ -858,7 +878,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}',
                 '/pm/config/global/obj/ssh-filter/profile/{profile}/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.2.2', '']]
+            'v_range': [['6.2.2', '7.6.2']]
         },
         'sshfilter_profile_shellcommands': {
             'params': ['adom', 'profile', 'shell-commands'],
@@ -1079,19 +1099,22 @@ def main():
             'params': ['adom', 'members', 'wanprof'],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/members/{members}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.2']]
         },
         'wanprof_system_virtualwanlink_service': {
             'params': ['adom', 'service', 'wanprof'],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.2']]
         },
         'wanprof_system_virtualwanlink_service_sla': {
             'params': ['adom', 'service', 'sla', 'wanprof'],
             'urls': [
                 '/pm/config/adom/{adom}/wanprof/{wanprof}/system/virtual-wan-link/service/{service}/sla/{sla}'
-            ]
+            ],
+            'v_range': [['6.0.0', '7.6.2']]
         },
         'webfilter_contentheader_entries': {
             'params': ['adom', 'content-header', 'entries'],
@@ -1106,7 +1129,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/webfilter/profile/{profile}/file-filter/entries/{entries}',
                 '/pm/config/global/obj/webfilter/profile/{profile}/file-filter/entries/{entries}'
             ],
-            'v_range': [['6.2.0', '']]
+            'v_range': [['6.2.0', '7.6.2']]
         },
         'webfilter_urlfilter_entries': {
             'params': ['adom', 'entries', 'urlfilter'],

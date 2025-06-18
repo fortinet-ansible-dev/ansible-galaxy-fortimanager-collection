@@ -113,6 +113,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -206,11 +207,11 @@ def main():
         'mms_checksum': {'type': 'str'},
         'antivirus_mmschecksum_entries': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'checksum': {'type': 'str'},
-                'name': {'required': True, 'type': 'str'},
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'}
+                'checksum': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'name': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -112,6 +112,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -190,8 +191,11 @@ def main():
         'policy6': {'required': True, 'type': 'str'},
         'pkg_firewall_policy6_sectionvalue': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
-            'options': {'attr': {'choices': ['label', 'global-label'], 'type': 'str'}, 'name': {'type': 'str'}}
+            'v_range': [['6.0.0', '7.6.2']],
+            'options': {
+                'attr': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['label', 'global-label'], 'type': 'str'},
+                'name': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
+            }
         }
     }
 

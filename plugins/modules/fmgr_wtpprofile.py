@@ -305,6 +305,7 @@ options:
                     - 'SZ'
                     - 'LR'
                     - 'DJ'
+                    - 'TL'
             ble_profile:
                 aliases: ['ble-profile']
                 type: str
@@ -3386,6 +3387,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -4044,7 +4046,7 @@ def main():
                         'MM', 'ZB', 'CF', 'BS', 'VC', 'MV', 'SN', 'CI', 'GH', 'MW', 'UG', 'BF', 'KY', 'TC', 'TM', 'VU', 'FM', 'GY', 'KN', 'LC', 'CX',
                         'AF', 'CM', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'LS', 'MU', 'SL', 'NE', 'TG', 'RE', 'MD', 'BM', 'VI', 'PM', 'MF', 'IM', 'FO',
                         'GI', 'LA', 'WF', 'MH', 'BT', 'PF', 'NI', 'GF', 'AS', 'MP', 'PW', 'GP', 'ET', 'SR', 'DM', 'MQ', 'YT', 'BL', 'ZM', 'CG', 'CD',
-                        'MR', 'IQ', 'FJ', '--', 'MN', 'NG', 'GA', 'GM', 'SO', 'SZ', 'LR', 'DJ'
+                        'MR', 'IQ', 'FJ', '--', 'MN', 'NG', 'GA', 'GM', 'SO', 'SZ', 'LR', 'DJ', 'TL'
                     ],
                     'type': 'str'
                 },
@@ -4195,19 +4197,19 @@ def main():
                         'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                        'ble-rtls': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'raw'},
-                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
-                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
+                        'ble-rtls': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'raw'},
+                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
                     }
                 },
                 'platform': {
@@ -4325,8 +4327,8 @@ def main():
                         'vaps': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'wids-profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'zero-wait-dfs': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'iperf-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
                         'iperf-server-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'power-mode': {'v_range': [['7.0.0', '']], 'choices': ['dBm', 'percentage'], 'type': 'str'},
@@ -4473,8 +4475,8 @@ def main():
                         'vaps': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'wids-profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'zero-wait-dfs': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'iperf-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
                         'iperf-server-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'power-mode': {'v_range': [['7.0.0', '']], 'choices': ['dBm', 'percentage'], 'type': 'str'},
@@ -4621,8 +4623,8 @@ def main():
                         'vaps': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'wids-profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'zero-wait-dfs': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'iperf-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
                         'iperf-server-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'power-mode': {'v_range': [['7.0.0', '']], 'choices': ['dBm', 'percentage'], 'type': 'str'},
@@ -4769,8 +4771,8 @@ def main():
                         'vaps': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'wids-profile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'zero-wait-dfs': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'frequency-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ap-handoff': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'iperf-protocol': {'v_range': [['7.0.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
                         'iperf-server-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'power-mode': {'v_range': [['7.0.0', '']], 'choices': ['dBm', 'percentage'], 'type': 'str'},

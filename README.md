@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.9.1 - configuring FortiManager
+# fortinet.fortimanager:2.10.0 - configuring FortiManager
 
 ## Description
 
@@ -186,9 +186,13 @@ The collection provides the following modules:
 * `fmgr_dlp_datatype`  Configure predefined data type used by DLP blocking.
 * `fmgr_dlp_dictionary`  Configure dictionaries used by DLP blocking.
 * `fmgr_dlp_dictionary_entries`  DLP dictionary entries.
+* `fmgr_dlp_exactdatamatch`  Configure exact-data-match template used by DLP scan.
+* `fmgr_dlp_exactdatamatch_columns`  DLP exact-data-match column types.
 * `fmgr_dlp_filepattern`  Configure file patterns used by DLP blocking.
 * `fmgr_dlp_filepattern_entries`  Configure file patterns used by DLP blocking.
 * `fmgr_dlp_fpsensitivity`  Create self-explanatory DLP sensitivity levels to be used when setting sensitivity under config fp-doc-source.
+* `fmgr_dlp_label`  Configure labels used by DLP blocking.
+* `fmgr_dlp_label_entries`  DLP label entries.
 * `fmgr_dlp_profile`  Configure DLP profiles.
 * `fmgr_dlp_profile_rule`  Set up DLP rules for this profile.
 * `fmgr_dlp_sensitivity`  Create self-explanatory DLP sensitivity levels to be used when setting sensitivity under config fp-doc-source.
@@ -334,6 +338,7 @@ The collection provides the following modules:
 * `fmgr_extensioncontroller_extenderprofile_wifi`  FortiExtender wifi configuration.
 * `fmgr_extensioncontroller_extenderprofile_wifi_radio1`  Radio-1 config for Wi-Fi 2.
 * `fmgr_extensioncontroller_extenderprofile_wifi_radio2`  Radio-2 config for Wi-Fi 5GHz.
+* `fmgr_extensioncontroller_extendervap`  FortiExtender wifi vap configuration.
 * `fmgr_filefilter_profile`  Configure file-filter profiles.
 * `fmgr_filefilter_profile_rules`  File filter rules.
 * `fmgr_firewall_accessproxy`  Configure Access Proxy.
@@ -420,6 +425,13 @@ The collection provides the following modules:
 * `fmgr_firewall_internetservicecustom_entry`  Entries added to the Internet Service database and custom database.
 * `fmgr_firewall_internetservicecustom_entry_portrange`  Port ranges in the custom entry.
 * `fmgr_firewall_internetservicecustomgroup`  Configure custom Internet Service group.
+* `fmgr_firewall_internetserviceextension`  Configure Internet Services Extension.
+* `fmgr_firewall_internetserviceextension_disableentry`  Disable entries in the Internet Service database.
+* `fmgr_firewall_internetserviceextension_disableentry_ip6range`  IPv6 ranges in the disable entry.
+* `fmgr_firewall_internetserviceextension_disableentry_iprange`  IPv4 ranges in the disable entry.
+* `fmgr_firewall_internetserviceextension_disableentry_portrange`  Port ranges in the disable entry.
+* `fmgr_firewall_internetserviceextension_entry`  Entries added to the Internet Service extension database.
+* `fmgr_firewall_internetserviceextension_entry_portrange`  Port ranges in the custom entry.
 * `fmgr_firewall_internetservicegroup`  Configure group of Internet Service.
 * `fmgr_firewall_internetservicename`  Define internet service names.
 * `fmgr_firewall_ippool`  Configure IPv4 IP pools.
@@ -535,6 +547,8 @@ The collection provides the following modules:
 * `fmgr_fmupdate_fdssetting_serveroverride`  Server override configure.
 * `fmgr_fmupdate_fdssetting_serveroverride_servlist`  Override server.
 * `fmgr_fmupdate_fdssetting_updateschedule`  Configure the schedule when built-in FortiGuard retrieves antivirus and IPS updates.
+* `fmgr_fmupdate_fgdsetting`  Cli fmupdate fgd setting.
+* `fmgr_fmupdate_fgdsetting_serveroverride`  Cli fmupdate fgd setting server override.
 * `fmgr_fmupdate_fwmsetting`  Configure firmware management settings.
 * `fmgr_fmupdate_fwmsetting_upgradetimeout`  Configure the timeout value of image upgrade process.
 * `fmgr_fmupdate_multilayer`  Configure multilayer mode.
@@ -585,6 +599,7 @@ The collection provides the following modules:
 * `fmgr_gtp_iewhitelist_entries`  Entries of white list.
 * `fmgr_gtp_messagefilterv0v1`  Message filter for GTPv0/v1 messages.
 * `fmgr_gtp_messagefilterv2`  Message filter for GTPv2 messages.
+* `fmgr_gtp_rattimeoutprofile`  RAT timeout profile.
 * `fmgr_gtp_tunnellimit`  GTP tunnel limiter.
 * `fmgr_hotspot20_anqp3gppcellular`  Configure 3GPP public land mobile network.
 * `fmgr_hotspot20_anqp3gppcellular_mccmnclist`  Mobile Country Code and Mobile Network Code configuration.
@@ -624,6 +639,8 @@ The collection provides the following modules:
 * `fmgr_icap_profile_respmodforwardrules`  ICAP response mode forward rules.
 * `fmgr_icap_profile_respmodforwardrules_headergroup`  HTTP header group.
 * `fmgr_icap_server`  Configure ICAP servers.
+* `fmgr_icap_servergroup`  Configure an ICAP server group consisting of multiple forward servers.
+* `fmgr_icap_servergroup_serverlist`  Add ICAP servers to a list to form a server group.
 * `fmgr_ips_baseline_sensor`  Configure IPS sensor.
 * `fmgr_ips_baseline_sensor_entries`  IPS sensor filter.
 * `fmgr_ips_baseline_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
@@ -929,6 +946,7 @@ The collection provides the following modules:
 * `fmgr_system_locallog_syslogd_setting`  Settings for remote syslog server.
 * `fmgr_system_log_alert`  Log based alert settings.
 * `fmgr_system_log_devicedisable`  Disable client device logging.
+* `fmgr_system_log_deviceselector`  Accept/reject devices matching specified filter types.
 * `fmgr_system_log_fospolicystats`  FortiOS policy statistics settings.
 * `fmgr_system_log_interfacestats`  Interface statistics settings.
 * `fmgr_system_log_ioc`  IoC settings.
@@ -1056,8 +1074,13 @@ The collection provides the following modules:
 * `fmgr_system_webproxy`  Configure system web proxy.
 * `fmgr_system_workflow_approvalmatrix`  workflow approval matrix.
 * `fmgr_system_workflow_approvalmatrix_approver`  Approver.
-* `fmgr_template`  Cli template.
-* `fmgr_templategroup`  Cli template group.
+* `fmgr_telemetrycontroller_agentprofile`  Configure FortiTelemetry agent profiles.
+* `fmgr_telemetrycontroller_application_predefine`  Configure FortiTelemetry predefined applications.
+* `fmgr_telemetrycontroller_profile`  Configure FortiTelemetry profiles.
+* `fmgr_telemetrycontroller_profile_application`  Configure applications.
+* `fmgr_telemetrycontroller_profile_application_sla`  Service level agreement.
+* `fmgr_template`  Require device/vdom scope member.
+* `fmgr_templategroup`  Require device/vdom scope member.
 * `fmgr_um_image_upgrade`  The older API for updating the firmware of specific device.
 * `fmgr_um_image_upgrade_ext`  Update the firmware of specific device.
 * `fmgr_ums_setting`  Ums setting.
@@ -1109,6 +1132,7 @@ The collection provides the following modules:
 * `fmgr_user_radius_dynamicmapping_accountingserver`  Additional accounting servers.
 * `fmgr_user_saml`  SAML server entry configuration.
 * `fmgr_user_saml_dynamicmapping`  SAML server entry configuration.
+* `fmgr_user_scim`  Configure SCIM client entries.
 * `fmgr_user_securityexemptlist`  Configure security exemption list.
 * `fmgr_user_securityexemptlist_rule`  Configure rules for exempting users from captive portal authentication.
 * `fmgr_user_tacacs`  Configure TACACS+ server entries.
@@ -1254,6 +1278,7 @@ The collection provides the following modules:
 * `fmgr_wireless_addrgrp`  Configure the MAC address group.
 * `fmgr_wireless_ssidpolicy`  Configure WiFi SSID policies.
 * `fmgr_wireless_syslogprofile`  Configure Wireless Termination Points.
+* `fmgr_wireless_vap_ip6prefixlist`  Wireless controller vap ip6 prefix list.
 * `fmgr_wtpprofile`  Configure WTP profiles or FortiAP profiles that define radio settings for manageable FortiAP platforms.
 * `fmgr_wtpprofile_denymaclist`  List of MAC addresses that are denied access to this WTP, FortiAP, or AP.
 * `fmgr_wtpprofile_eslsesdongle`  ESL SES-imagotag dongle configuration.

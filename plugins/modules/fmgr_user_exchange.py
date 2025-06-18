@@ -179,12 +179,20 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            validate_server_certificate:
+                aliases: ['validate-server-certificate']
+                type: str
+                description: Enable/disable exchange server certificate validation.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -215,6 +223,7 @@ EXAMPLES = '''
           # ssl_min_proto_version: <value in [default, TLSv1-1, TLSv1-2, ...]>
           # username: <string>
           # auto_discover_kdc: <value in [disable, enable]>
+          # validate_server_certificate: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -297,7 +306,8 @@ def main():
                     'type': 'str'
                 },
                 'username': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'auto-discover-kdc': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'auto-discover-kdc': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'validate-server-certificate': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

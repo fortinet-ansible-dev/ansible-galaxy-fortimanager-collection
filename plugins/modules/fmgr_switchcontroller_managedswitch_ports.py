@@ -759,6 +759,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -964,7 +965,7 @@ def main():
                 'dhcp-snooping': {'choices': ['trusted', 'untrusted'], 'type': 'str'},
                 'discard-mode': {'choices': ['none', 'all-untagged', 'all-tagged'], 'type': 'str'},
                 'edge-port': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'igmp-snooping': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'igmp-snooping': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'igmps-flood-reports': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'igmps-flood-traffic': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'lacp-speed': {'choices': ['slow', 'fast'], 'type': 'str'},

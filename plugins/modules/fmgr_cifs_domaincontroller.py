@@ -118,6 +118,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -198,15 +199,15 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'cifs_domaincontroller': {
             'type': 'dict',
-            'v_range': [['6.2.0', '']],
+            'v_range': [['6.2.0', '7.6.2']],
             'options': {
-                'domain-name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'ip': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'ip6': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'password': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'raw'},
-                'port': {'v_range': [['6.2.0', '']], 'type': 'int'},
-                'server-name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'username': {'v_range': [['6.2.0', '']], 'type': 'str'}
+                'domain-name': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                'ip': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                'ip6': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                'password': {'v_range': [['6.2.0', '7.6.2']], 'no_log': True, 'type': 'raw'},
+                'port': {'v_range': [['6.2.0', '7.6.2']], 'type': 'int'},
+                'server-name': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                'username': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'}
             }
         }
     }

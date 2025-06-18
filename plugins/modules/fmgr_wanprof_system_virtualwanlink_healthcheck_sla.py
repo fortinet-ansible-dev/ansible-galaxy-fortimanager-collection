@@ -130,6 +130,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -215,13 +216,13 @@ def main():
         'health_check': {'type': 'str'},
         'wanprof_system_virtualwanlink_healthcheck_sla': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'id': {'required': True, 'type': 'int'},
-                'jitter-threshold': {'type': 'int'},
-                'latency-threshold': {'type': 'int'},
-                'link-cost-factor': {'type': 'list', 'choices': ['latency', 'jitter', 'packet-loss'], 'elements': 'str'},
-                'packetloss-threshold': {'type': 'int'}
+                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'jitter-threshold': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'latency-threshold': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'link-cost-factor': {'v_range': [['6.0.0', '7.6.2']], 'type': 'list', 'choices': ['latency', 'jitter', 'packet-loss'], 'elements': 'str'},
+                'packetloss-threshold': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'}
             }
         }
     }

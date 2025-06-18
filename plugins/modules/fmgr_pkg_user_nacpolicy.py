@@ -216,12 +216,20 @@ options:
                     - 'disable'
                     - 'enable'
                     - 'global'
+            match_remove:
+                aliases: ['match-remove']
+                type: str
+                description: Options to remove the matched override devices.
+                choices:
+                    - 'link-down'
+                    - 'default'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -266,6 +274,7 @@ EXAMPLES = '''
           # switch_scope: <list or string>
           # switch_port_policy: <list or string>
           # switch_auto_auth: <value in [disable, enable, global]>
+          # match_remove: <value in [link-down, default]>
 '''
 
 RETURN = '''
@@ -357,7 +366,8 @@ def main():
                 'switch-mac-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
                 'switch-scope': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
                 'switch-port-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'}
+                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
+                'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'}
             }
         }
     }

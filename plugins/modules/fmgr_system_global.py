@@ -1299,11 +1299,43 @@ options:
                 aliases: ['storage-age-limit']
                 type: int
                 description: Storage age limit.
+            fgfm_allow_vm:
+                aliases: ['fgfm-allow-vm']
+                type: str
+                description:
+                    - Enable/disable VM platform FGFM connect restriction.
+                    - disable - Don&apos;t allow VM platform connection in FGFM.
+                    - enable - Allow VM platform connection in FGFM.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            hitcount_response_timeout:
+                aliases: ['hitcount-response-timeout']
+                type: int
+                description: Timeout of waiting for hitcount response
+            rpc_log:
+                aliases: ['rpc-log']
+                type: str
+                description:
+                    - Enable/Disable incoming/outgoing rpc log.
+                    - disable - Disable rpc log.
+                    - enable - Enable rpc log
+                choices:
+                    - 'disable'
+                    - 'enable'
+            auth_dev_restapi_allowlist:
+                aliases: ['auth-dev-restapi-allowlist']
+                type: str
+                description: Auth dev restapi allowlist.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1519,7 +1551,7 @@ def main():
                     'type': 'str'
                 },
                 'fgfm-peercert-withoutsn': {
-                    'v_range': [['6.4.15', '6.4.15'], ['7.0.12', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.3', '7.6.1']],
+                    'v_range': [['6.4.15', '6.4.15'], ['7.0.12', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.3', '7.4.5'], ['7.6.0', '7.6.1']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -1586,25 +1618,29 @@ def main():
                 'fcp-cfg-service': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'jsonapi-log': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'request', 'response', 'all'], 'type': 'str'},
                 'global-ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                     'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 },
                 'httpd-ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                     'type': 'list',
                     'choices': ['sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'elements': 'str'
                 },
                 'mapclient-ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 },
-                'apache-wsgi-processes': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'apache-wsgi-processes': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
                 'fmg-fabric-port': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'gui-feature-visibility-mode': {'v_range': [['7.6.2', '']], 'choices': ['per-adom', 'per-admin'], 'type': 'str'},
-                'storage-age-limit': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'gui-feature-visibility-mode': {'v_range': [['7.4.7', '7.4.7'], ['7.6.2', '']], 'choices': ['per-adom', 'per-admin'], 'type': 'str'},
+                'storage-age-limit': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'fgfm-allow-vm': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'hitcount-response-timeout': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
+                'rpc-log': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auth-dev-restapi-allowlist': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

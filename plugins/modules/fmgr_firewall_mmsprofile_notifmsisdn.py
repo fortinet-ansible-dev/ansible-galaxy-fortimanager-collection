@@ -115,6 +115,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -214,10 +215,11 @@ def main():
         'mms_profile': {'type': 'str'},
         'firewall_mmsprofile_notifmsisdn': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'msisdn': {'required': True, 'type': 'str'},
+                'msisdn': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'},
                 'threshold': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'choices': ['flood-thresh-1', 'flood-thresh-2', 'flood-thresh-3', 'dupe-thresh-1', 'dupe-thresh-2', 'dupe-thresh-3'],
                     'elements': 'str'

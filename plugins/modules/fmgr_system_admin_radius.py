@@ -150,6 +150,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -247,10 +248,10 @@ def main():
                 'secondary-server': {'type': 'str'},
                 'secret': {'no_log': True, 'type': 'raw'},
                 'server': {'type': 'str'},
-                'ca-cert': {'v_range': [['7.6.2', '']], 'type': 'str'},
-                'client-cert': {'v_range': [['7.6.2', '']], 'type': 'str'},
-                'message-authenticator': {'v_range': [['7.6.2', '']], 'choices': ['optional', 'require'], 'type': 'str'},
-                'protocol': {'v_range': [['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
+                'ca-cert': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                'message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['optional', 'require'], 'type': 'str'},
+                'protocol': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
             }
         }
     }

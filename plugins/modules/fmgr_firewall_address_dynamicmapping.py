@@ -278,6 +278,7 @@ options:
                     - 'device-identification'
                     - 'rsso'
                     - 'external-resource'
+                    - 'obsolete'
             global_object:
                 aliases: ['global-object']
                 type: int
@@ -360,6 +361,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -511,7 +513,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification', 'rsso', 'external-resource'
+                        'device-identification', 'rsso', 'external-resource', 'obsolete'
                     ],
                     'type': 'str'
                 },

@@ -1794,6 +1794,53 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    _intf_ip6_send_adv:
+                        aliases: ['_intf_ip6-send-adv']
+                        type: str
+                        description: Intf ip6 send adv.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ip6_prefix_list:
+                        aliases: ['ip6-prefix-list']
+                        type: list
+                        elements: dict
+                        description: Ip6 prefix list.
+                        suboptions:
+                            autonomous_flag:
+                                aliases: ['autonomous-flag']
+                                type: str
+                                description: Autonomous flag.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            dnssl:
+                                type: raw
+                                description: (list) Dnssl.
+                            onlink_flag:
+                                aliases: ['onlink-flag']
+                                type: str
+                                description: Onlink flag.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
+                            preferred_life_time:
+                                aliases: ['preferred-life-time']
+                                type: int
+                                description: Preferred life time.
+                            prefix:
+                                type: str
+                                description: Prefix.
+                            rdnss:
+                                type: raw
+                                description: (list) Rdnss.
+                            valid_life_time:
+                                aliases: ['valid-life-time']
+                                type: int
+                                description: Valid life time.
+                    _intf_vrf:
+                        type: int
+                        description: Intf vrf.
             eap_reauth:
                 aliases: ['eap-reauth']
                 type: str
@@ -3144,12 +3191,60 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            _intf_ip6_send_adv:
+                aliases: ['_intf_ip6-send-adv']
+                type: str
+                description: Intf ip6 send adv.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ip6_prefix_list:
+                aliases: ['ip6-prefix-list']
+                type: list
+                elements: dict
+                description: Ip6 prefix list.
+                suboptions:
+                    autonomous_flag:
+                        aliases: ['autonomous-flag']
+                        type: str
+                        description: Autonomous flag.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    dnssl:
+                        type: raw
+                        description: (list) Dnssl.
+                    onlink_flag:
+                        aliases: ['onlink-flag']
+                        type: str
+                        description: Onlink flag.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    preferred_life_time:
+                        aliases: ['preferred-life-time']
+                        type: int
+                        description: Preferred life time.
+                    prefix:
+                        type: str
+                        description: Prefix.
+                    rdnss:
+                        type: raw
+                        description: (list) Rdnss.
+                    valid_life_time:
+                        aliases: ['valid-life-time']
+                        type: int
+                        description: Valid life time.
+            _intf_vrf:
+                type: int
+                description: Intf vrf.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -3704,6 +3799,16 @@ EXAMPLES = '''
           #     called_station_id_type: <value in [mac, ip, apname]>
           #     external_pre_auth: <value in [disable, enable]>
           #     pre_auth: <value in [disable, enable]>
+          #     _intf_ip6_send_adv: <value in [disable, enable]>
+          #     ip6_prefix_list:
+          #       - autonomous_flag: <value in [disable, enable]>
+          #         dnssl: <list or string>
+          #         onlink_flag: <value in [disable, enable]>
+          #         preferred_life_time: <integer>
+          #         prefix: <string>
+          #         rdnss: <list or string>
+          #         valid_life_time: <integer>
+          #     _intf_vrf: <integer>
           # eap_reauth: <value in [disable, enable]>
           # eap_reauth_intv: <integer>
           # eapol_key_retries: <value in [disable, enable]>
@@ -4110,6 +4215,16 @@ EXAMPLES = '''
           # called_station_id_type: <value in [mac, ip, apname]>
           # external_pre_auth: <value in [disable, enable]>
           # pre_auth: <value in [disable, enable]>
+          # _intf_ip6_send_adv: <value in [disable, enable]>
+          # ip6_prefix_list:
+          #   - autonomous_flag: <value in [disable, enable]>
+          #     dnssl: <list or string>
+          #     onlink_flag: <value in [disable, enable]>
+          #     preferred_life_time: <integer>
+          #     prefix: <string>
+          #     rdnss: <list or string>
+          #     valid_life_time: <integer>
+          # _intf_vrf: <integer>
 '''
 
 RETURN = '''
@@ -4196,7 +4311,7 @@ def main():
                     'elements': 'str'
                 },
                 '_intf_listen-forticlient-connection': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'acct-interim-interval': {'type': 'int'},
+                'acct-interim-interval': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'alias': {'type': 'str'},
                 'auth': {'choices': ['PSK', 'psk', 'RADIUS', 'radius', 'usergroup'], 'type': 'str'},
                 'broadcast-ssid': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4209,11 +4324,11 @@ def main():
                     'elements': 'str'
                 },
                 'captive-portal-ac-name': {'type': 'str'},
-                'captive-portal-macauth-radius-secret': {'no_log': True, 'type': 'raw'},
-                'captive-portal-macauth-radius-server': {'type': 'str'},
-                'captive-portal-radius-secret': {'no_log': True, 'type': 'raw'},
-                'captive-portal-radius-server': {'type': 'str'},
-                'captive-portal-session-timeout-interval': {'type': 'int'},
+                'captive-portal-macauth-radius-secret': {'v_range': [['6.0.0', '7.6.2']], 'no_log': True, 'type': 'raw'},
+                'captive-portal-macauth-radius-server': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'captive-portal-radius-secret': {'v_range': [['6.0.0', '7.6.2']], 'no_log': True, 'type': 'raw'},
+                'captive-portal-radius-server': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'captive-portal-session-timeout-interval': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'dhcp-lease-time': {'type': 'int'},
                 'dhcp-option82-circuit-id-insertion': {'choices': ['disable', 'style-1', 'style-2', 'style-3'], 'type': 'str'},
                 'dhcp-option82-insertion': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4557,10 +4672,26 @@ def main():
                         },
                         'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        '_intf_role': {'v_range': [['7.6.2', '']], 'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
+                        '_intf_role': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
                         'called-station-id-type': {'v_range': [['7.6.2', '']], 'choices': ['mac', 'ip', 'apname'], 'type': 'str'},
                         'external-pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        '_intf_ip6-send-adv': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ip6-prefix-list': {
+                            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                            'type': 'list',
+                            'options': {
+                                'autonomous-flag': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'dnssl': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'raw'},
+                                'onlink-flag': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'preferred-life-time': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
+                                'prefix': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
+                                'rdnss': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'raw'},
+                                'valid-life-time': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'}
+                            },
+                            'elements': 'dict'
+                        },
+                        '_intf_vrf': {'v_range': [['7.6.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -4868,10 +4999,26 @@ def main():
                 },
                 'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                '_intf_role': {'v_range': [['7.6.2', '']], 'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
+                '_intf_role': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['lan', 'wan', 'dmz', 'undefined'], 'type': 'str'},
                 'called-station-id-type': {'v_range': [['7.6.2', '']], 'choices': ['mac', 'ip', 'apname'], 'type': 'str'},
                 'external-pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                '_intf_ip6-send-adv': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip6-prefix-list': {
+                    'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'type': 'list',
+                    'options': {
+                        'autonomous-flag': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'dnssl': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'raw'},
+                        'onlink-flag': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'preferred-life-time': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
+                        'prefix': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
+                        'rdnss': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'raw'},
+                        'valid-life-time': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'}
+                    },
+                    'elements': 'dict'
+                },
+                '_intf_vrf': {'v_range': [['7.6.3', '']], 'type': 'int'}
             }
         }
     }

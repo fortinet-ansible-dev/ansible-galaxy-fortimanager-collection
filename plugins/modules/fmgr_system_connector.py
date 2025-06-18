@@ -132,6 +132,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -221,7 +222,7 @@ def main():
                 'faznotify-msg-queue-max': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'faznotify-msg-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'conn-ssl-protocol': {
-                    'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+                    'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],
                     'type': 'str'
                 }

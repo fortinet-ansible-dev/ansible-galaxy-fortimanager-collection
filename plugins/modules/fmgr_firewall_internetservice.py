@@ -197,6 +197,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -319,8 +320,8 @@ def main():
                 'id': {'type': 'int'},
                 'name': {'type': 'str'},
                 'offset': {'v_range': [['6.0.0', '7.2.1']], 'type': 'int'},
-                'reputation': {'type': 'int'},
-                'sld-id': {'type': 'int'},
+                'reputation': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'sld-id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'extra-ip-range-number': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'ip-number': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'ip-range-number': {'v_range': [['6.2.0', '']], 'type': 'int'},

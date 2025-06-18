@@ -193,6 +193,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -299,7 +300,7 @@ def main():
                 'captive-portal-ssl-port': {'v_range': [['6.2.1', '']], 'type': 'int'},
                 'captive-portal-type': {'v_range': [['6.2.1', '']], 'choices': ['fqdn', 'ip'], 'type': 'str'},
                 'captive-portal6': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'rewrite-https-port': {'v_range': [['6.2.1', '']], 'type': 'int'},
+                'rewrite-https-port': {'v_range': [['6.2.1', '7.6.2']], 'type': 'int'},
                 'sso-auth-scheme': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'dev-range': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'user-cert-ca': {'v_range': [['7.0.0', '']], 'type': 'raw'},

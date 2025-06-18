@@ -303,6 +303,7 @@ options:
                             - 'device-identification'
                             - 'rsso'
                             - 'external-resource'
+                            - 'obsolete'
                     global_object:
                         aliases: ['global-object']
                         type: int
@@ -571,6 +572,7 @@ options:
                     - 'device-identification'
                     - 'rsso'
                     - 'external-resource'
+                    - 'obsolete'
             global_object:
                 aliases: ['global-object']
                 type: int
@@ -645,6 +647,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -681,6 +684,7 @@ EXAMPLES = '''
 
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -715,6 +719,7 @@ EXAMPLES = '''
 
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -866,7 +871,7 @@ def main():
                             'v_range': [['6.2.2', '']],
                             'choices': [
                                 'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                                'device-identification', 'rsso', 'external-resource'
+                                'device-identification', 'rsso', 'external-resource', 'obsolete'
                             ],
                             'type': 'str'
                         },
@@ -926,7 +931,7 @@ def main():
                     'type': 'str'
                 },
                 'uuid': {'type': 'str'},
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wildcard': {'type': 'str'},
                 'wildcard-fqdn': {'type': 'str'},
                 'end-mac': {'v_range': [['6.2.0', '']], 'type': 'str'},
@@ -951,7 +956,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification', 'rsso', 'external-resource'
+                        'device-identification', 'rsso', 'external-resource', 'obsolete'
                     ],
                     'type': 'str'
                 },

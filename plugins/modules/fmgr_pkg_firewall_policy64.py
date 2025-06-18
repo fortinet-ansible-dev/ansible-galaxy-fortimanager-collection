@@ -232,6 +232,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -357,12 +358,12 @@ def main():
                 'uuid': {'type': 'str'},
                 'logtraffic-start': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'v_range': [['6.4.2', '']], 'type': 'str'},
-                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-session-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
-                'cgn-eif': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
-                'cgn-resource-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'int'},
-                'cgn-eim': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'policy-offload': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-session-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'type': 'int'},
+                'cgn-eif': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'type': 'str'},
+                'cgn-resource-quota': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'type': 'int'},
+                'cgn-eim': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

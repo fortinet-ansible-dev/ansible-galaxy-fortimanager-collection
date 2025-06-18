@@ -383,6 +383,13 @@ options:
                         aliases: ['vrf-select']
                         type: int
                         description: VRF ID used for connection to server.
+                    validate_server_certificate:
+                        aliases: ['validate-server-certificate']
+                        type: str
+                        description: Validate server certificate.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             group_filter:
                 aliases: ['group-filter']
                 type: str
@@ -604,6 +611,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -759,11 +767,12 @@ def main():
                         'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                         'ssl-max-proto-version': {
-                            'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+                            'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                             'choices': ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3'],
                             'type': 'str'
                         },
-                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                        'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                        'validate-server-certificate': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

@@ -729,12 +729,51 @@ options:
                 aliases: ['log-upload-interval-dev-no-logging']
                 type: int
                 description: Interval in minute of no log uploaded from a device when considering the device down.
+            legacy_auth_mode:
+                aliases: ['legacy-auth-mode']
+                type: str
+                description:
+                    - Enable/Disable legacy mode of device authentication by username/password.
+                    - disable - Disable legacy authentication mode support.
+                    - enable - Enable legacy authentication mode support.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            log_process_fast_mode:
+                aliases: ['log-process-fast-mode']
+                type: str
+                description:
+                    - Enable/Disable log process fast mode.
+                    - disable - Disable log process fast mode.
+                    - enable - Enable log process fast mode.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            FFW_custom_field1:
+                aliases: ['FFW-custom-field1']
+                type: str
+                description: FFW custom field1.
+            unencrypted_logging_tcp:
+                aliases: ['unencrypted-logging-tcp']
+                type: str
+                description: Unencrypted logging tcp.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            unencrypted_logging_udp:
+                aliases: ['unencrypted-logging-udp']
+                type: str
+                description: Unencrypted logging udp.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -885,6 +924,11 @@ EXAMPLES = '''
           # unencrypted_logging: <value in [disable, enable]>
           # log_interval_dev_no_logging: <integer>
           # log_upload_interval_dev_no_logging: <integer>
+          # legacy_auth_mode: <value in [disable, enable]>
+          # log_process_fast_mode: <value in [disable, enable]>
+          # FFW_custom_field1: <string>
+          # unencrypted_logging_tcp: <value in [disable, enable]>
+          # unencrypted_logging_udp: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1073,12 +1117,17 @@ def main():
                     'type': 'str'
                 },
                 'unencrypted-logging': {
-                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
-                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'}
+                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                'legacy-auth-mode': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'FFW-custom-field1': {'v_range': [['7.6.3', '']], 'type': 'str'},
+                'unencrypted-logging-tcp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'unencrypted-logging-udp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

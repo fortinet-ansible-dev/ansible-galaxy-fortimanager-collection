@@ -2164,12 +2164,58 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            fortitoken_cloud_region:
+                aliases: ['fortitoken-cloud-region']
+                type: str
+                description: Region domain of FortiToken Cloud
+            black_box_interval:
+                aliases: ['black-box-interval']
+                type: int
+                description: Black box recording interval
+            black_box:
+                aliases: ['black-box']
+                type: str
+                description: Enable/disable the black box.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            tls_session_cache:
+                aliases: ['tls-session-cache']
+                type: str
+                description: Enable/disable TLS session cache.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            wad_p2s_max_body_size:
+                aliases: ['wad-p2s-max-body-size']
+                type: int
+                description: Maximum size of the body of the local out HTTP request
+            telemetry_controller:
+                aliases: ['telemetry-controller']
+                type: str
+                description: Enable/disable FortiTelemetry controller to manage FortiTelemetry agents.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            telemetry_data_port:
+                aliases: ['telemetry-data-port']
+                type: int
+                description: FortiTelemetry data channel port
+            user_device_store_max_device_mem:
+                aliases: ['user-device-store-max-device-mem']
+                type: int
+                description: Maximum percentage of total system memory allowed to be used for devices in the user device store.
+            sslvpn_affinity:
+                aliases: ['sslvpn-affinity']
+                type: str
+                description: Agentless VPN CPU affinity.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -2686,6 +2732,15 @@ EXAMPLES = '''
           # slbc_fragment_mem_thresholds: <integer>
           # upgrade_report: <value in [disable, enable]>
           # application_bandwidth_tracking: <value in [disable, enable]>
+          # fortitoken_cloud_region: <string>
+          # black_box_interval: <integer>
+          # black_box: <value in [disable, enable]>
+          # tls_session_cache: <value in [disable, enable]>
+          # wad_p2s_max_body_size: <integer>
+          # telemetry_controller: <value in [disable, enable]>
+          # telemetry_data_port: <integer>
+          # user_device_store_max_device_mem: <integer>
+          # sslvpn_affinity: <string>
 '''
 
 RETURN = '''
@@ -3198,18 +3253,26 @@ def main():
                 'log-uuid-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'per-user-bwl': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'gui-fortisandbox-cloud': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortitoken-cloud-service': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'hw-switch-ether-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-server-count': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'endpoint-control-fds-access': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'proxy-cipher-hardware-acceleration': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'proxy-kxp-hardware-acceleration': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-server-hardware-acceleration': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortitoken-cloud-service': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'hw-switch-ether-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-server-count': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'int'},
+                'endpoint-control-fds-access': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'proxy-cipher-hardware-acceleration': {
+                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'proxy-kxp-hardware-acceleration': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'virtual-server-hardware-acceleration': {
+                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'user-history-password-threshold': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
                 'delay-tcp-npu-session': {'v_range': [['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-session-auto-backup-interval': {'v_range': [['7.6.0', '']], 'choices': ['1min', '5min', '15min', '30min', '1hr'], 'type': 'str'},
-                'ip-conflict-detection': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'gtpu-dynamic-source-port': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ip-conflict-detection': {'v_range': [['7.4.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gtpu-dynamic-source-port': {'v_range': [['7.4.6', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip-fragment-timeout': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'ipv6-fragment-timeout': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'scim-server-cert': {'v_range': [['7.6.0', '']], 'type': 'raw'},
@@ -3217,11 +3280,20 @@ def main():
                 'auth-session-auto-backup': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-https-port': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'httpd-max-worker-count': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'rest-api-key-url-query': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'rest-api-key-url-query': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'single-vdom-npuvlink': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'slbc-fragment-mem-thresholds': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'upgrade-report': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'application-bandwidth-tracking': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'application-bandwidth-tracking': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortitoken-cloud-region': {'v_range': [['7.4.7', '7.4.7']], 'no_log': True, 'type': 'str'},
+                'black-box-interval': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
+                'black-box': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tls-session-cache': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wad-p2s-max-body-size': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                'telemetry-controller': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'telemetry-data-port': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                'user-device-store-max-device-mem': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                'sslvpn-affinity': {'v_range': [['7.6.3', '']], 'type': 'str'}
             }
         }
     }

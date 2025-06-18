@@ -1,6 +1,6 @@
 namespace: "fortinet"
 name: "fortimanager"
-version: "2.9.1"
+version: "2.10.0"
 readme: "README.md"
 authors:
     - "Xinwei Du (@dux-fortinet)"

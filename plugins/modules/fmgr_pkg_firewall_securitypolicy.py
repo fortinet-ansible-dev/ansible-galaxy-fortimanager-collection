@@ -496,12 +496,17 @@ options:
                 aliases: ['virtual-patch-profile']
                 type: str
                 description: Name of an existing virtual-patch profile.
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -606,6 +611,7 @@ EXAMPLES = '''
           # ips_voip_filter: <string>
           # srcaddr6_negate: <value in [disable, enable]>
           # virtual_patch_profile: <string>
+          # telemetry_profile: <list or string>
 '''
 
 RETURN = '''
@@ -676,7 +682,7 @@ def main():
                 'comments': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'dlp-sensor': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'dnsfilter-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'dstaddr4': {'v_range': [['6.2.1', '']], 'type': 'raw'},
+                'dstaddr4': {'v_range': [['6.2.1', '7.6.2']], 'type': 'raw'},
                 'dstaddr6': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'dstintf': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'emailfilter-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
@@ -687,18 +693,18 @@ def main():
                 'internet-service-custom': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'internet-service-custom-group': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'internet-service-group': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'internet-service-id': {'v_range': [['6.2.1', '']], 'type': 'raw'},
+                'internet-service-id': {'v_range': [['6.2.1', '7.6.2']], 'type': 'raw'},
                 'internet-service-negate': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src-custom': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'internet-service-src-custom-group': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'internet-service-src-group': {'v_range': [['6.2.1', '']], 'type': 'raw'},
-                'internet-service-src-id': {'v_range': [['6.2.1', '']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['6.2.1', '7.6.2']], 'type': 'raw'},
                 'internet-service-src-negate': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-sensor': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'logtraffic': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                'logtraffic-start': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'logtraffic-start': {'v_range': [['6.2.1', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'name': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'policyid': {'v_range': [['6.2.1', '']], 'required': True, 'type': 'int'},
                 'profile-group': {'v_range': [['6.2.1', '']], 'type': 'str'},
@@ -707,7 +713,7 @@ def main():
                 'schedule': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'service': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'service-negate': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr4': {'v_range': [['6.2.1', '']], 'type': 'raw'},
+                'srcaddr4': {'v_range': [['6.2.1', '7.6.2']], 'type': 'raw'},
                 'srcaddr6': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'srcintf': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'ssh-filter-profile': {'v_range': [['6.2.1', '']], 'type': 'str'},
@@ -792,7 +798,8 @@ def main():
                 'dstaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-voip-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
                 'srcaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

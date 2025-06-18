@@ -769,6 +769,7 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'legacy'
             inspection_mode:
                 aliases: ['inspection-mode']
                 type: str
@@ -1301,6 +1302,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
             object_position:
                 aliases: ['object position']
                 type: list
@@ -1311,6 +1316,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1415,8 +1421,8 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn', 'redirect', 'isolate'], 'type': 'str'},
-                'app-category': {'type': 'raw'},
-                'application': {'type': 'raw'},
+                'app-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
+                'application': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'application-list': {'type': 'str'},
                 'auth-cert': {'type': 'str'},
                 'auth-path': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1446,7 +1452,7 @@ def main():
                 'dstintf': {'type': 'raw'},
                 'firewall-session-dirty': {'choices': ['check-all', 'check-new'], 'type': 'str'},
                 'fixedport': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsso': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsso': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fsso-agent-for-ntlm': {'type': 'str'},
                 'global-label': {'type': 'str'},
                 'groups': {'type': 'raw'},
@@ -1456,7 +1462,7 @@ def main():
                 'inbound': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-custom': {'type': 'raw'},
-                'internet-service-id': {'type': 'raw'},
+                'internet-service-id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'internet-service-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ippool': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-sensor': {'type': 'str'},
@@ -1465,7 +1471,7 @@ def main():
                 'logtraffic': {'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'match-vip': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'name': {'type': 'str'},
                 'nat': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1486,7 +1492,7 @@ def main():
                 'radius-mac-auth-bypass': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'redirect-url': {'type': 'str'},
                 'replacemsg-override-group': {'type': 'str'},
-                'rsso': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'rsso': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rtp-addr': {'type': 'raw'},
                 'rtp-nat': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'scan-botnet-connections': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
@@ -1500,8 +1506,8 @@ def main():
                 'srcaddr': {'type': 'raw'},
                 'srcaddr-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcintf': {'type': 'raw'},
-                'ssl-mirror': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-mirror-intf': {'type': 'raw'},
+                'ssl-mirror': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-mirror-intf': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'ssl-ssh-profile': {'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'tags': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
@@ -1511,7 +1517,7 @@ def main():
                 'timeout-send-rst': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'traffic-shaper': {'type': 'str'},
                 'traffic-shaper-reverse': {'type': 'str'},
-                'url-category': {'type': 'raw'},
+                'url-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'users': {'type': 'raw'},
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'type': 'str'},
@@ -1561,15 +1567,15 @@ def main():
                     'type': 'str'
                 },
                 'webfilter-profile': {'type': 'str'},
-                'wsso': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'wsso': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'anti-replay': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'app-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'app-group': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'cifs-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'email-collect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'emailfilter-profile': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'fsso-groups': {'v_range': [['6.2.1', '']], 'type': 'raw'},
                 'geoip-anycast': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-policy-redirect': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable', 'legacy'], 'type': 'str'},
                 'inspection-mode': {'v_range': [['6.2.0', '']], 'choices': ['proxy', 'flow'], 'type': 'str'},
                 'internet-service-custom-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
@@ -1577,7 +1583,7 @@ def main():
                 'internet-service-src-custom': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-src-custom-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-src-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'internet-service-src-id': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'internet-service-src-negate': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'match-vip-only': {'v_range': [['6.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'np-acceleration': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1594,7 +1600,7 @@ def main():
                 'np-accelation': {'v_range': [['6.2.1', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'delay-tcp-npu-sessoin': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
-                'best-route': {'v_range': [['6.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'best-route': {'v_range': [['6.2.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'decrypted-traffic-mirror': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'dstaddr6': {'v_range': [['6.4.0', '']], 'type': 'raw'},
                 'geoip-match': {'v_range': [['6.4.0', '']], 'choices': ['physical-location', 'registered-location'], 'type': 'str'},
@@ -1671,6 +1677,7 @@ def main():
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
                 'object position': {'type': 'list', 'elements': 'str'}
             }
         }

@@ -1057,6 +1057,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1263,95 +1264,114 @@ def main():
                     'elements': 'dict'
                 },
                 'mm1': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'add-smil': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                        'class': {'choices': ['personal', 'advertisement', 'information', 'automatic', 'not-included'], 'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'from': {'type': 'str'},
-                        'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'image': {'type': 'str'},
-                        'fmgr_message': {'type': 'str'},
-                        'msg-type': {'type': 'str'},
-                        'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                        'add-smil': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                        'class': {
+                            'v_range': [['6.0.0', '7.6.2']],
+                            'choices': ['personal', 'advertisement', 'information', 'automatic', 'not-included'],
+                            'type': 'str'
+                        },
+                        'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
+                            'v_range': [['6.0.0', '7.6.2']],
                             'choices': [
                                 'ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt', 'err-snd-addr-unresolv', 'err-msg-not-found',
                                 'err-net-prob', 'err-content-not-accept', 'err-unsupp-msg'
                             ],
                             'type': 'str'
                         },
-                        'rsp-text': {'type': 'str'},
-                        'sender-visibility': {'choices': ['hide', 'show', 'not-specified'], 'type': 'str'},
-                        'smil-part': {'type': 'str'},
-                        'subject': {'type': 'str'}
+                        'rsp-text': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'sender-visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['hide', 'show', 'not-specified'], 'type': 'str'},
+                        'smil-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'mm3': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'add-html': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'from': {'type': 'str'},
-                        'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'html-part': {'type': 'str'},
-                        'image': {'type': 'str'},
-                        'fmgr_message': {'type': 'str'},
-                        'msg-type': {'type': 'str'},
-                        'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
-                        'subject': {'type': 'str'}
+                        'add-html': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'html-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                        'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'mm4': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'add-smil': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                        'class': {'choices': ['personal', 'advertisement', 'informational', 'auto', 'not-included'], 'type': 'str'},
-                        'domain': {'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'from': {'type': 'str'},
-                        'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'image': {'type': 'str'},
-                        'fmgr_message': {'type': 'str'},
-                        'msg-type': {'type': 'str'},
-                        'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                        'add-smil': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                        'class': {
+                            'v_range': [['6.0.0', '7.6.2']],
+                            'choices': ['personal', 'advertisement', 'informational', 'auto', 'not-included'],
+                            'type': 'str'
+                        },
+                        'domain': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
+                            'v_range': [['6.0.0', '7.6.2']],
                             'choices': [
                                 'ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt', 'err-snd-addr-unresolv', 'err-net-prob',
                                 'err-content-not-accept', 'err-unsupp-msg'
                             ],
                             'type': 'str'
                         },
-                        'smil-part': {'type': 'str'},
-                        'subject': {'type': 'str'}
+                        'smil-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'mm7': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'add-smil': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'addr-type': {'choices': ['rfc2822-addr', 'number', 'short-code'], 'type': 'str'},
-                        'allow-content-adaptation': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                        'class': {'choices': ['personal', 'advertisement', 'informational', 'auto', 'not-included'], 'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'from': {'type': 'str'},
-                        'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'image': {'type': 'str'},
-                        'fmgr_message': {'type': 'str'},
-                        'msg-type': {'type': 'str'},
-                        'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                        'add-smil': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'addr-type': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['rfc2822-addr', 'number', 'short-code'], 'type': 'str'},
+                        'allow-content-adaptation': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                        'class': {
+                            'v_range': [['6.0.0', '7.6.2']],
+                            'choices': ['personal', 'advertisement', 'informational', 'auto', 'not-included'],
+                            'type': 'str'
+                        },
+                        'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                         'rsp-status': {
+                            'v_range': [['6.0.0', '7.6.2']],
                             'choices': [
                                 'success', 'partial-success', 'client-err', 'oper-restrict', 'addr-err', 'addr-not-found', 'content-refused',
                                 'msg-id-not-found', 'link-id-not-found', 'msg-fmt-corrupt', 'app-id-not-found', 'repl-app-id-not-found', 'srv-err',
@@ -1360,20 +1380,21 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'smil-part': {'type': 'str'},
-                        'subject': {'type': 'str'}
+                        'smil-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'mms': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'buffer': {'type': 'str'},
-                        'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                        'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'image': {'type': 'str'},
-                        'msg-type': {'type': 'str'}
+                        'buffer': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

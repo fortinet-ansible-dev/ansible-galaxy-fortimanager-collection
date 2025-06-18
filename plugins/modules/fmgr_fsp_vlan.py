@@ -1275,6 +1275,33 @@ options:
                                     vrip:
                                         type: str
                                         description: IP address of the virtual router.
+                            allowaccess:
+                                type: list
+                                elements: str
+                                description: Allowaccess.
+                                choices:
+                                    - 'https'
+                                    - 'ping'
+                                    - 'ssh'
+                                    - 'snmp'
+                                    - 'http'
+                                    - 'telnet'
+                                    - 'fgfm'
+                                    - 'radius-acct'
+                                    - 'probe-response'
+                                    - 'dnp'
+                                    - 'ftm'
+                                    - 'fabric'
+                                    - 'speed-test'
+                                    - 'icond'
+                                    - 'scim'
+                            dhcp_relay_request_all_server:
+                                aliases: ['dhcp-relay-request-all-server']
+                                type: str
+                                description: Dhcp relay request all server.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
             name:
                 type: str
                 description: Name.
@@ -2343,6 +2370,7 @@ options:
                             - 'cl91-rs-fec'
                             - 'cl74-fc-fec'
                             - 'auto'
+                            - 'rs-fec544'
                     fp_anomaly:
                         aliases: ['fp-anomaly']
                         type: list
@@ -3034,6 +3062,17 @@ options:
                             - '32'
                             - '64'
                             - '128'
+                            - '4'
+                            - '8'
+                            - '16'
+                            - '131072'
+                            - '262144'
+                            - '524288'
+                            - '1048576'
+                            - '2097152'
+                            - '4194304'
+                            - '8388608'
+                            - '16777216'
                     management_ip:
                         aliases: ['management-ip']
                         type: str
@@ -4168,6 +4207,8 @@ options:
                         choices:
                             - '30A'
                             - '35B'
+                            - '30a'
+                            - '35b'
                     sfp_dsl:
                         aliases: ['sfp-dsl']
                         type: str
@@ -4442,12 +4483,34 @@ options:
                         choices:
                             - 'iot'
                             - 'ot'
+                    profiles:
+                        type: list
+                        elements: str
+                        description: Set allowed VDSL profiles.
+                        choices:
+                            - '8a'
+                            - '8b'
+                            - '8c'
+                            - '8d'
+                            - '12a'
+                            - '12b'
+                            - '17a'
+                            - '30a'
+                            - '35b'
+                    telemetry_discover:
+                        aliases: ['telemetry-discover']
+                        type: str
+                        description: Enable/disable automatic registration of unknown FortiTelemetry agents.
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -4717,6 +4780,23 @@ EXAMPLES = '''
           #           vrgrp: <integer>
           #           vrid: <integer>
           #           vrip: <string>
+          #       allowaccess:
+          #         - "https"
+          #         - "ping"
+          #         - "ssh"
+          #         - "snmp"
+          #         - "http"
+          #         - "telnet"
+          #         - "fgfm"
+          #         - "radius-acct"
+          #         - "probe-response"
+          #         - "dnp"
+          #         - "ftm"
+          #         - "fabric"
+          #         - "speed-test"
+          #         - "icond"
+          #         - "scim"
+          #       dhcp_relay_request_all_server: <value in [disable, enable]>
           # portal_message_override_group: <string>
           # radius_server: <string>
           # security: <value in [open, captive-portal, 8021x]>
@@ -5304,7 +5384,7 @@ EXAMPLES = '''
           #   pvc_vlan_tx_id: <integer>
           #   pvc_vlan_tx_op: <value in [pass-through, replace, remove]>
           #   reachable_time: <integer>
-          #   select_profile_30a_35b: <value in [30A, 35B]>
+          #   select_profile_30a_35b: <value in [30A, 35B, 30a, ...]>
           #   sfp_dsl: <value in [disable, enable]>
           #   sfp_dsl_adsl_fallback: <value in [disable, enable]>
           #   sfp_dsl_autodetect: <value in [disable, enable]>
@@ -5349,6 +5429,17 @@ EXAMPLES = '''
           #   exclude_signatures:
           #     - "iot"
           #     - "ot"
+          #   profiles:
+          #     - "8a"
+          #     - "8b"
+          #     - "8c"
+          #     - "8d"
+          #     - "12a"
+          #     - "12b"
+          #     - "17a"
+          #     - "30a"
+          #     - "35b"
+          #   telemetry_discover: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -5841,6 +5932,20 @@ def main():
                                         'vrip': {'v_range': [['7.4.0', '']], 'type': 'str'}
                                     },
                                     'elements': 'dict'
+                                },
+                                'allowaccess': {
+                                    'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                                    'type': 'list',
+                                    'choices': [
+                                        'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm',
+                                        'fabric', 'speed-test', 'icond', 'scim'
+                                    ],
+                                    'elements': 'str'
+                                },
+                                'dhcp-relay-request-all-server': {
+                                    'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                                    'choices': ['disable', 'enable'],
+                                    'type': 'str'
                                 }
                             }
                         }
@@ -6134,7 +6239,7 @@ def main():
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                             'choices': [
                                 'disable', 'enable', 'rs-fec', 'base-r-fec', 'fec-cl91', 'fec-cl74', 'rs-544', 'none', 'cl91-rs-fec', 'cl74-fc-fec',
-                                'auto'
+                                'auto', 'rs-fec544'
                             ],
                             'type': 'str'
                         },
@@ -6348,7 +6453,10 @@ def main():
                         'macaddr': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'managed-subnetwork-size': {
                             'v_range': [['6.4.5', '']],
-                            'choices': ['256', '512', '1024', '2048', '4096', '8192', '16384', '32768', '65536', '32', '64', '128'],
+                            'choices': [
+                                '256', '512', '1024', '2048', '4096', '8192', '16384', '32768', '65536', '32', '64', '128', '4', '8', '16', '131072',
+                                '262144', '524288', '1048576', '2097152', '4194304', '8388608', '16777216'
+                            ],
                             'type': 'str'
                         },
                         'management-ip': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
@@ -6687,7 +6795,7 @@ def main():
                         'reachable-time': {'v_range': [['7.0.3', '']], 'type': 'int'},
                         'select-profile-30a-35b': {
                             'v_range': [['6.2.9', '6.2.13'], ['6.4.8', '6.4.15'], ['7.0.3', '']],
-                            'choices': ['30A', '35B'],
+                            'choices': ['30A', '35B', '30a', '35b'],
                             'type': 'str'
                         },
                         'sfp-dsl': {'v_range': [['6.4.8', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -6751,7 +6859,14 @@ def main():
                         'security-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'virtual-mac': {'v_range': [['7.6.0', '']], 'type': 'str'},
                         'dhcp-relay-vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                        'exclude-signatures': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['iot', 'ot'], 'elements': 'str'}
+                        'exclude-signatures': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['iot', 'ot'], 'elements': 'str'},
+                        'profiles': {
+                            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                            'type': 'list',
+                            'choices': ['8a', '8b', '8c', '8d', '12a', '12b', '17a', '30a', '35b'],
+                            'elements': 'str'
+                        },
+                        'telemetry-discover': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

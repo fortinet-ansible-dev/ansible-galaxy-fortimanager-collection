@@ -4,6 +4,54 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+v2.10.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.10.0
+
+Minor Changes
+-------------
+
+- Supported new modules in FortiManager 7.4.6, 7.4.7, 7.6.3.
+
+Bugfixes
+--------
+
+- Added "gather_facts" to all example playbooks.
+- Fixed a BUG that occurred when username/password and access token were used at the same time.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_dlp_exactdatamatch - Configure exact-data-match template used by DLP scan.
+- fortinet.fortimanager.fmgr_dlp_exactdatamatch_columns - DLP exact-data-match column types.
+- fortinet.fortimanager.fmgr_dlp_label - Configure labels used by DLP blocking.
+- fortinet.fortimanager.fmgr_dlp_label_entries - DLP label entries.
+- fortinet.fortimanager.fmgr_extensioncontroller_extendervap - FortiExtender wifi vap configuration.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension - Configure Internet Services Extension.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_disableentry - Disable entries in the Internet Service database.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_disableentry_ip6range - IPv6 ranges in the disable entry.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_disableentry_iprange - IPv4 ranges in the disable entry.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_disableentry_portrange - Port ranges in the disable entry.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_entry - Entries added to the Internet Service extension database.
+- fortinet.fortimanager.fmgr_firewall_internetserviceextension_entry_portrange - Port ranges in the custom entry.
+- fortinet.fortimanager.fmgr_fmupdate_fgdsetting - Cli fmupdate fgd setting
+- fortinet.fortimanager.fmgr_fmupdate_fgdsetting_serveroverride - Cli fmupdate fgd setting server override
+- fortinet.fortimanager.fmgr_gtp_rattimeoutprofile - RAT timeout profile
+- fortinet.fortimanager.fmgr_icap_servergroup - Configure an ICAP server group consisting of multiple forward servers.
+- fortinet.fortimanager.fmgr_icap_servergroup_serverlist - Add ICAP servers to a list to form a server group.
+- fortinet.fortimanager.fmgr_system_log_deviceselector - Accept/reject devices matching specified filter types.
+- fortinet.fortimanager.fmgr_telemetrycontroller_agentprofile - Configure FortiTelemetry agent profiles.
+- fortinet.fortimanager.fmgr_telemetrycontroller_application_predefine - Configure FortiTelemetry predefined applications.
+- fortinet.fortimanager.fmgr_telemetrycontroller_profile - Configure FortiTelemetry profiles.
+- fortinet.fortimanager.fmgr_telemetrycontroller_profile_application - Configure applications.
+- fortinet.fortimanager.fmgr_telemetrycontroller_profile_application_sla - Service level agreement
+- fortinet.fortimanager.fmgr_user_scim - Configure SCIM client entries.
+- fortinet.fortimanager.fmgr_wireless_vap_ip6prefixlist - Wireless controller vap ip6 prefix list
+
 
 v2.9.1
 ======

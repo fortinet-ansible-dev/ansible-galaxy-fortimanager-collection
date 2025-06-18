@@ -109,6 +109,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -185,7 +186,7 @@ def main():
             'options': {
                 'ip-only-ep': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip-unique-scope': {'v_range': [['7.4.3', '']], 'choices': ['adom', 'vdom'], 'type': 'str'},
-                'hostname-ep-unifier': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'hostname-ep-unifier': {'v_range': [['7.4.7', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

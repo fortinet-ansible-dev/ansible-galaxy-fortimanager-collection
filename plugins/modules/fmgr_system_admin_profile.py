@@ -957,11 +957,24 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            device_fwm_profile:
+                aliases: ['device-fwm-profile']
+                type: str
+                description:
+                    - Device firmware profile permission.
+                    - none - No permission.
+                    - read - Read permission.
+                    - read-write - Read-write permission.
+                choices:
+                    - 'none'
+                    - 'read'
+                    - 'read-write'
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1164,7 +1177,8 @@ def main():
                     'options': {'userid': {'v_range': [['7.4.2', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-fwm-profile': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'}
             }
         }
     }

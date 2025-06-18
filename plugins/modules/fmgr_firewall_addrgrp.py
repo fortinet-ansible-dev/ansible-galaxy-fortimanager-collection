@@ -264,6 +264,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -390,7 +391,7 @@ def main():
                     'elements': 'dict'
                 },
                 'uuid': {'type': 'str'},
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-member': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},

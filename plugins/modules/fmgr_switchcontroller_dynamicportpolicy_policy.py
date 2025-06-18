@@ -179,12 +179,20 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            match_remove:
+                aliases: ['match-remove']
+                type: str
+                description: Options to remove the matched override devices.
+                choices:
+                    - 'link-down'
+                    - 'default'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -220,6 +228,7 @@ EXAMPLES = '''
           # match_type: <value in [dynamic, override]>
           # bounce_port_duration: <integer>
           # poe_reset: <value in [disable, enable]>
+          # match_remove: <value in [link-down, default]>
 '''
 
 RETURN = '''
@@ -300,7 +309,8 @@ def main():
                 'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
                 'bounce-port-duration': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'poe-reset': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'poe-reset': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'}
             }
         }
     }

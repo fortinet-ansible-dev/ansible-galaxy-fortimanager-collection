@@ -176,6 +176,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -285,24 +286,39 @@ def main():
         'mms_profile': {'type': 'str'},
         'firewall_mmsprofile_dupe': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'action1': {'type': 'list', 'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'], 'elements': 'str'},
-                'action2': {'type': 'list', 'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'], 'elements': 'str'},
-                'action3': {'type': 'list', 'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'], 'elements': 'str'},
-                'block-time1': {'type': 'int'},
-                'block-time2': {'type': 'int'},
-                'block-time3': {'type': 'int'},
-                'limit1': {'type': 'int'},
-                'limit2': {'type': 'int'},
-                'limit3': {'type': 'int'},
-                'protocol': {'type': 'str'},
-                'status1': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'status2': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'status3': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'window1': {'type': 'int'},
-                'window2': {'type': 'int'},
-                'window3': {'type': 'int'}
+                'action1': {
+                    'v_range': [['6.0.0', '7.6.2']],
+                    'type': 'list',
+                    'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
+                    'elements': 'str'
+                },
+                'action2': {
+                    'v_range': [['6.0.0', '7.6.2']],
+                    'type': 'list',
+                    'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
+                    'elements': 'str'
+                },
+                'action3': {
+                    'v_range': [['6.0.0', '7.6.2']],
+                    'type': 'list',
+                    'choices': ['log', 'archive', 'intercept', 'block', 'archive-first', 'alert-notif'],
+                    'elements': 'str'
+                },
+                'block-time1': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'block-time2': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'block-time3': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'limit1': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'limit2': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'limit3': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'protocol': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'status1': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status2': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status3': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'window1': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'window2': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'window3': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'}
             }
         }
     }

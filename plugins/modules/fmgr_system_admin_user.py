@@ -757,11 +757,16 @@ options:
                         aliases: ['policy-block-name']
                         type: str
                         description: Policy block names.
+            old_password:
+                aliases: ['old-password']
+                type: str
+                description: Old password.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -974,7 +979,8 @@ def main():
                     'type': 'list',
                     'options': {'policy-block-name': {'v_range': [['7.6.0', '']], 'type': 'str'}},
                     'elements': 'dict'
-                }
+                },
+                'old-password': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'str'}
             }
         }
     }

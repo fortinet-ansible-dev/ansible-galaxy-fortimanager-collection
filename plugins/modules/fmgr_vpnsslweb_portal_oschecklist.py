@@ -111,6 +111,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -196,7 +197,7 @@ def main():
                 'latest-patch-level': {'type': 'str'},
                 'name': {'type': 'str'},
                 'tolerance': {'type': 'int'},
-                'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                'minor-version': {'v_range': [['7.4.7', '']], 'type': 'int'}
             }
         }
     }

@@ -95,6 +95,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -174,7 +175,7 @@ def main():
             'options': {
                 'adom': {'type': 'str'},
                 'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'flags': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
+                'flags': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
             }
         }
     }

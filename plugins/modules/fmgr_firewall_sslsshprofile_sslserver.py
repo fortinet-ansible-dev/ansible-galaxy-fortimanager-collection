@@ -203,6 +203,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -300,14 +301,14 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'ftps-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                'https-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'ftps-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'https-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'id': {'required': True, 'type': 'int'},
-                'imaps-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'imaps-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'ip': {'type': 'str'},
-                'pop3s-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                'smtps-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                'ssl-other-client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'pop3s-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'smtps-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'ssl-other-client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'ftps-client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'https-client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'imaps-client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},

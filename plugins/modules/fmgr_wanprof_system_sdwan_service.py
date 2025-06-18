@@ -443,12 +443,20 @@ options:
             comment:
                 type: str
                 description: Comments.
+            fib_best_match_force:
+                aliases: ['fib-best-match-force']
+                type: str
+                description: Enable/disable force using fib-best-match oif as outgoing interface.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -533,6 +541,7 @@ EXAMPLES = '''
           # zone_mode: <value in [disable, enable]>
           # shortcut_priority: <value in [disable, enable, auto]>
           # comment: <string>
+          # fib_best_match_force: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -671,7 +680,8 @@ def main():
                 'start-src-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
-                'comment': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

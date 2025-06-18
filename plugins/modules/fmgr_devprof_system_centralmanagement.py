@@ -292,12 +292,20 @@ options:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+            fmg_update_http_header:
+                aliases: ['fmg-update-http-header']
+                type: str
+                description: Enable/disable inclusion of HTTP header in update request.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -354,6 +362,7 @@ EXAMPLES = '''
           # modem_upgrade_frequency: <value in [everyHour, every12hour, everyDay, ...]>
           # modem_upgrade_time: <string>
           # vrf_select: <integer>
+          # fmg_update_http_header: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -476,7 +485,8 @@ def main():
                     'type': 'str'
                 },
                 'modem-upgrade-time': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'fmg-update-http-header': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

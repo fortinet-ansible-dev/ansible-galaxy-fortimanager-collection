@@ -557,6 +557,9 @@ options:
             vm_payg_status:
                 type: int
                 description: Vm payg status.
+            sov_sase_license:
+                type: str
+                description: Sov sase license.
 '''
 
 EXAMPLES = '''
@@ -799,7 +802,8 @@ def main():
                 'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
                 'ha.vsn': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'type': 'str'},
                 'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                'vm_payg_status': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'}
+                'vm_payg_status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                'sov_sase_license': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
             }
         }
     }

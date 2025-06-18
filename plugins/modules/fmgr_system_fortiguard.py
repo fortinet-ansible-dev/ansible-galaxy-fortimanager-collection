@@ -451,12 +451,20 @@ options:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+            subscribe_update_notification:
+                aliases: ['subscribe-update-notification']
+                type: str
+                description: Enable/disable subscription to receive update notification from FortiGuard.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -550,6 +558,7 @@ EXAMPLES = '''
           # outbreak_prevention_cache_mpermille: <integer>
           # update_dldb: <value in [disable, enable]>
           # vrf_select: <integer>
+          # subscribe_update_notification: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -685,7 +694,8 @@ def main():
                 'antispam-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'outbreak-prevention-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'update-dldb': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'subscribe-update-notification': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

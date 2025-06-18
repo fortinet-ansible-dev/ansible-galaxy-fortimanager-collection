@@ -465,6 +465,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -632,7 +633,7 @@ def main():
                 },
                 'ike1dpd': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ike1keylifesec': {'no_log': True, 'type': 'int'},
-                'ike1localid': {'type': 'str'},
+                'ike1localid': {'v_range': [['6.0.0', '7.4.6'], ['7.6.0', '']], 'type': 'str'},
                 'ike1mode': {'choices': ['main', 'aggressive'], 'type': 'str'},
                 'ike1natkeepalive': {'type': 'int'},
                 'ike1nattraversal': {'choices': ['disable', 'enable', 'forced'], 'type': 'str'},

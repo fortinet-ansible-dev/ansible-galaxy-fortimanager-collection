@@ -342,6 +342,13 @@ options:
                         choices:
                             - 'ping'
                             - 'http'
+                    verify_cert:
+                        aliases: ['verify-cert']
+                        type: str
+                        description: Verify cert.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             server_type:
                 aliases: ['server-type']
                 type: str
@@ -842,6 +849,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -992,7 +1000,8 @@ def main():
                         'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                         'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                         'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'health-check-proto': {'v_range': [['7.2.3', '']], 'choices': ['ping', 'http'], 'type': 'str'}
+                        'health-check-proto': {'v_range': [['7.2.3', '']], 'choices': ['ping', 'http'], 'type': 'str'},
+                        'verify-cert': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

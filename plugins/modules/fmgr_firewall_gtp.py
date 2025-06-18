@@ -1447,11 +1447,19 @@ options:
                 choices:
                     - 'allow'
                     - 'deny'
+            echo_requires_path_in_use:
+                aliases: ['echo-requires-path-in-use']
+                type: str
+                description: Block GTP Echo Request if no active tunnel over the associated GTP path.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1885,7 +1893,8 @@ def main():
                         'version-not-support': {'v_range': [['6.2.8', '6.2.13']], 'choices': ['allow', 'deny'], 'type': 'str'}
                     }
                 },
-                'gtpv0': {'v_range': [['7.6.0', '']], 'choices': ['allow', 'deny'], 'type': 'str'}
+                'gtpv0': {'v_range': [['7.6.0', '']], 'choices': ['allow', 'deny'], 'type': 'str'},
+                'echo-requires-path-in-use': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

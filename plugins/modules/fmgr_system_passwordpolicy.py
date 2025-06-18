@@ -121,12 +121,23 @@ options:
                 aliases: ['password-history']
                 type: int
                 description: Number of unique new passwords that must be used before old password can be reused
+            login_lockout_upon_downgrade:
+                aliases: ['login-lockout-upon-downgrade']
+                type: str
+                description:
+                    - Enable/disable administrative user login lockout upon downgrade
+                    - disable - Disable administrative user login lockout upon downgrade.
+                    - enable - Enable administrative user login lockout upon downgrade.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -150,6 +161,7 @@ EXAMPLES = '''
           #   - "non-alphanumeric"
           # status: <value in [disable, enable]>
           # password_history: <integer>
+          # login_lockout_upon_downgrade: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -214,7 +226,8 @@ def main():
                 'minimum-length': {'type': 'int'},
                 'must-contain': {'type': 'list', 'choices': ['upper-case-letter', 'lower-case-letter', 'number', 'non-alphanumeric'], 'elements': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'}
+                'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
+                'login-lockout-upon-downgrade': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -522,12 +522,24 @@ options:
                 aliases: ['object-threshold-limit-value']
                 type: int
                 description: Object threshold limit value.
+            rtm_max_monitor_by_size:
+                aliases: ['rtm-max-monitor-by-size']
+                type: int
+                description: Maximum rtm monitor
+            show_sdwan_manager:
+                aliases: ['show-sdwan-manager']
+                type: str
+                description: Show sdwan manager.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -593,6 +605,8 @@ EXAMPLES = '''
           # fgt_gui_proxy_port: <integer>
           # object_threshold_limit: <value in [disable, enable]>
           # object_threshold_limit_value: <integer>
+          # rtm_max_monitor_by_size: <integer>
+          # show_sdwan_manager: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -713,7 +727,9 @@ def main():
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fgt-gui-proxy-port': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'object-threshold-limit': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'object-threshold-limit-value': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'object-threshold-limit-value': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'rtm-max-monitor-by-size': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
+                'show-sdwan-manager': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

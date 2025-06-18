@@ -328,6 +328,7 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'legacy'
             icap_profile:
                 aliases: ['icap-profile']
                 type: str
@@ -1252,12 +1253,17 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1318,7 +1324,7 @@ EXAMPLES = '''
           # global_label: <string>
           # groups: <list or string>
           # gtp_profile: <string>
-          # http_policy_redirect: <value in [disable, enable]>
+          # http_policy_redirect: <value in [disable, enable, legacy]>
           # icap_profile: <string>
           # identity_based_route: <string>
           # inbound: <value in [disable, enable]>
@@ -1495,6 +1501,7 @@ EXAMPLES = '''
           # app_monitor: <value in [disable, enable]>
           # port_random: <value in [disable, enable]>
           # ztna_ems_tag_negate: <value in [disable, enable]>
+          # telemetry_profile: <list or string>
 '''
 
 RETURN = '''
@@ -1598,7 +1605,7 @@ def main():
                 'global-label': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'gtp-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'http-policy-redirect': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-policy-redirect': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable', 'legacy'], 'type': 'str'},
                 'icap-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'identity-based-route': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'inbound': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1726,19 +1733,19 @@ def main():
                 'cgn-log-server-grp': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cgn-resource-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'cgn-eim': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'app-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'internet-service-src-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'rsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'internet-service-id': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'best-route': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'app-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'ssl-mirror-intf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'wsso': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-mirror': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'application': {'v_range': [['7.0.3', '']], 'type': 'raw'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'app-category': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'rsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'best-route': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'url-category': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'app-group': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'ssl-mirror-intf': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'wsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl-mirror': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'application': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'dscp-negate': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'learning-mode': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'devices': {'v_range': [['7.0.3', '7.2.1']], 'type': 'raw'},
@@ -1787,7 +1794,8 @@ def main():
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

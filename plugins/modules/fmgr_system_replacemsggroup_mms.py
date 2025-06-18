@@ -133,6 +133,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -215,14 +216,14 @@ def main():
         'replacemsg_group': {'type': 'str'},
         'system_replacemsggroup_mms': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'buffer': {'type': 'str'},
-                'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                'image': {'type': 'str'},
-                'msg-type': {'required': True, 'type': 'str'}
+                'buffer': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'}
             }
         }
     }

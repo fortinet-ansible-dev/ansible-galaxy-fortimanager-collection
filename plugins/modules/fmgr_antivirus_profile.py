@@ -280,6 +280,14 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             content_disarm:
                 aliases: ['content-disarm']
                 type: dict
@@ -531,6 +539,14 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             http:
                 type: dict
                 description: Http.
@@ -658,6 +674,14 @@ options:
                             - 'block'
                             - 'inspect'
                             - 'bypass'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             imap:
                 type: dict
                 description: Imap.
@@ -775,6 +799,14 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             mapi:
                 type: dict
                 description: Mapi.
@@ -880,6 +912,14 @@ options:
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1005,6 +1045,14 @@ options:
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1145,6 +1193,14 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             smtp:
                 type: dict
                 description: Smtp.
@@ -1262,6 +1318,14 @@ options:
                             - 'disable'
                             - 'monitor'
                             - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
             ssh:
                 type: dict
                 description: Ssh.
@@ -1360,6 +1424,14 @@ options:
                     fortiai:
                         type: str
                         description: Enable/disable scanning of files by FortiAI.
+                        choices:
+                            - 'disable'
+                            - 'monitor'
+                            - 'block'
+                    malware_stream:
+                        aliases: ['malware-stream']
+                        type: str
+                        description: Enable 0-day malware-stream scanning.
                         choices:
                             - 'disable'
                             - 'monitor'
@@ -1526,6 +1598,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1677,7 +1750,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'content-disarm': {
@@ -1707,7 +1781,7 @@ def main():
                         'pdf-embedfile': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'pdf-hyperlink': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'pdf-javacode': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'analytics-suspicious': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'analytics-suspicious': {'v_range': [['7.4.7', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'ftp': {
@@ -1747,7 +1821,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'http': {
@@ -1783,7 +1858,7 @@ def main():
                             'choices': ['disabled', 'files', 'full-archive', 'disable', 'block', 'monitor'],
                             'type': 'str'
                         },
-                        'av-optimize': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'av-optimize': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'av-scan': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'external-blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1794,7 +1869,8 @@ def main():
                             'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
                             'choices': ['block', 'inspect', 'bypass'],
                             'type': 'str'
-                        }
+                        },
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'imap': {
@@ -1836,7 +1912,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'mapi': {
@@ -1877,7 +1954,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'nac-quar': {
@@ -1926,7 +2004,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'outbreak-prevention': {
@@ -1976,7 +2055,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'smtp': {
@@ -2018,7 +2098,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'ssh': {
@@ -2058,7 +2139,8 @@ def main():
                         'quarantine': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
+                        'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
+                        'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
                     }
                 },
                 'smb': {

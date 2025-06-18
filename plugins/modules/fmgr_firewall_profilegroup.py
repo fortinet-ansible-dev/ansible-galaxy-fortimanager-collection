@@ -193,11 +193,16 @@ options:
                 aliases: ['diameter-filter-profile']
                 type: str
                 description: Name of an existing Diameter filter profile.
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -295,7 +300,7 @@ def main():
                 'dnsfilter-profile': {'type': 'str'},
                 'icap-profile': {'type': 'str'},
                 'ips-sensor': {'type': 'str'},
-                'mms-profile': {'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'profile-protocol-options': {'type': 'str'},
                 'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
@@ -314,7 +319,8 @@ def main():
                 'ips-voip-filter': {'v_range': [['7.2.3', '']], 'type': 'str'},
                 'casb-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
-                'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

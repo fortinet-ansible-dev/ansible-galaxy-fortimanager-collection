@@ -569,12 +569,25 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            https_sub_category:
+                aliases: ['https-sub-category']
+                type: str
+                description: Enable/disable HTTPS sub-category policy matching.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: list
+                elements: str
+                description: Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -680,6 +693,8 @@ EXAMPLES = '''
           # isolator_server: <list or string>
           # url_risk: <list or string>
           # ztna_ems_tag_negate: <value in [disable, enable]>
+          # https_sub_category: <value in [disable, enable]>
+          # telemetry_profile: <list or string>
 '''
 
 RETURN = '''
@@ -828,11 +843,13 @@ def main():
                 'voip-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'dlp-sensor': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
                 'cifs-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'internet-service-id': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
-                'mms-profile': {'v_range': [['7.6.0', '']], 'type': 'list', 'elements': 'str'},
+                'internet-service-id': {'v_range': [['7.6.0', '7.6.2']], 'type': 'list', 'elements': 'str'},
+                'mms-profile': {'v_range': [['7.6.0', '7.6.2']], 'type': 'list', 'elements': 'str'},
                 'isolator-server': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
                 'url-risk': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
-                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

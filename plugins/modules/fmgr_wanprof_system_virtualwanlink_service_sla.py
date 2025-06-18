@@ -111,6 +111,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -189,8 +190,11 @@ def main():
         'service': {'required': True, 'type': 'str'},
         'wanprof_system_virtualwanlink_service_sla': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
-            'options': {'health-check': {'type': 'str'}, 'id': {'required': True, 'type': 'int'}}
+            'v_range': [['6.0.0', '7.6.2']],
+            'options': {
+                'health-check': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'}
+            }
         }
     }
 

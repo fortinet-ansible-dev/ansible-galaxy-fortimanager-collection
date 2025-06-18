@@ -130,6 +130,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -233,7 +234,7 @@ def main():
                     'options': {'category': {'type': 'str'}, 'name': {'type': 'str'}, 'tags': {'type': 'raw'}},
                     'elements': 'dict'
                 },
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'}
             }
         }

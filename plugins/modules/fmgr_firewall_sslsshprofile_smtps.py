@@ -234,6 +234,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -331,12 +332,12 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'allow-invalid-server-cert': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'client-cert-request': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'ports': {'type': 'raw'},
                 'status': {'choices': ['disable', 'deep-inspection'], 'type': 'str'},
-                'unsupported-ssl': {'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'unsupported-ssl': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'untrusted-cert': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                'invalid-server-cert': {'v_range': [['6.2.0', '']], 'choices': ['allow', 'block'], 'type': 'str'},
+                'invalid-server-cert': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                 'sni-server-cert-check': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable', 'strict'], 'type': 'str'},
                 'untrusted-server-cert': {'v_range': [['6.2.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                 'cert-validation-failure': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},

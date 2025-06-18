@@ -106,6 +106,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -183,10 +184,10 @@ def main():
         'mms_profile': {'type': 'str'},
         'firewall_mmsprofile_outbreakprevention': {
             'type': 'dict',
-            'v_range': [['6.2.0', '']],
+            'v_range': [['6.2.0', '7.6.2']],
             'options': {
-                'external-blocklist': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ftgd-service': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'external-blocklist': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ftgd-service': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

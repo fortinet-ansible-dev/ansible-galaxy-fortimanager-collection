@@ -124,6 +124,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -216,20 +217,21 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'antivirus_notification': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'comment': {'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'entries': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'name': {'type': 'str'},
-                        'prefix': {'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'choices': ['disable', 'enable'], 'type': 'str'}
+                        'name': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'prefix': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'required': True, 'type': 'int'},
-                'name': {'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
             }
         }
     }

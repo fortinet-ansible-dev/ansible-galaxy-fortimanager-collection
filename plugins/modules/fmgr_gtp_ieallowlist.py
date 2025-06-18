@@ -113,6 +113,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -191,19 +192,19 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'gtp_ieallowlist': {
             'type': 'dict',
-            'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']],
+            'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']],
             'options': {
                 'entries': {
-                    'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']],
+                    'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'},
-                        'ie': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'},
-                        'fmgr_message': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'type': 'int'}
+                        'id': {'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'ie': {'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'fmgr_message': {'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'name': {'v_range': [['7.2.9', '7.2.9'], ['7.6.2', '']], 'required': True, 'type': 'str'}
+                'name': {'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'required': True, 'type': 'str'}
             }
         }
     }

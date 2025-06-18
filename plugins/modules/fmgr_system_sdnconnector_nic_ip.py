@@ -120,6 +120,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -221,7 +222,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'public-ip': {'type': 'str'},
                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                'private-ip': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
+                'private-ip': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
             }
         }
     }

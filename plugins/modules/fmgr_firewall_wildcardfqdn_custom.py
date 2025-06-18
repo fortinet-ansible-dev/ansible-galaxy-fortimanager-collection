@@ -117,6 +117,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -213,7 +214,7 @@ def main():
                 'comment': {'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'uuid': {'type': 'str'},
-                'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wildcard-fqdn': {'type': 'str'}
             }
         }

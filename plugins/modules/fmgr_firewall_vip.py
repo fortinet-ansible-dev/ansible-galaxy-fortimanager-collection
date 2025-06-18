@@ -360,6 +360,13 @@ options:
                                 choices:
                                     - 'ping'
                                     - 'http'
+                            verify_cert:
+                                aliases: ['verify-cert']
+                                type: str
+                                description: Verify cert.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
                     server_type:
                         aliases: ['server-type']
                         type: str
@@ -1073,6 +1080,13 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    verify_cert:
+                        aliases: ['verify-cert']
+                        type: str
+                        description: Enable/disable certificate verification of the real server.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             server_type:
                 aliases: ['server-type']
                 type: str
@@ -1721,6 +1735,7 @@ options:
 EXAMPLES = '''
 - name: Demo of cloning objects in FortiManager
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1758,6 +1773,7 @@ EXAMPLES = '''
 
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1915,7 +1931,8 @@ def main():
                                 'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                                 'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'health-check-proto': {'v_range': [['7.2.3', '']], 'choices': ['ping', 'http'], 'type': 'str'}
+                                'health-check-proto': {'v_range': [['7.2.3', '']], 'choices': ['ping', 'http'], 'type': 'str'},
+                                'verify-cert': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
@@ -2069,13 +2086,14 @@ def main():
                         'max-connections': {'type': 'int'},
                         'monitor': {'type': 'raw'},
                         'port': {'type': 'int'},
-                        'seq': {'type': 'int'},
+                        'seq': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                         'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                         'weight': {'type': 'int'},
                         'address': {'v_range': [['6.4.0', '']], 'type': 'str'},
                         'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                         'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
-                        'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'verify-cert': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -2119,7 +2137,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'id': {'type': 'int'},
+                        'id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                         'versions': {'type': 'list', 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'elements': 'str'},
                         'priority': {'v_range': [['6.4.0', '']], 'type': 'int'}
                     },

@@ -123,6 +123,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -220,7 +221,7 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'id': {'required': True, 'type': 'int'},
-                'value': {'type': 'str'},
+                'value': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'members': {
                     'v_range': [['6.4.0', '']],
                     'type': 'list',

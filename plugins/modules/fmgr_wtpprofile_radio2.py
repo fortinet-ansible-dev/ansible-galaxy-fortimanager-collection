@@ -638,6 +638,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -818,7 +819,7 @@ def main():
             'v_range': [['6.0.0', '']],
             'options': {
                 'amsdu': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'ap-handoff': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'ap-handoff': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-sniffer-addr': {'type': 'str'},
                 'ap-sniffer-bufsize': {'type': 'int'},
                 'ap-sniffer-chan': {'type': 'int'},
@@ -851,7 +852,7 @@ def main():
                 'darrp': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'dtim': {'type': 'int'},
                 'frag-threshold': {'type': 'int'},
-                'frequency-handoff': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'frequency-handoff': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-clients': {'type': 'int'},
                 'max-distance': {'type': 'int'},
                 'mode': {'choices': ['disabled', 'ap', 'monitor', 'sniffer', 'sam'], 'type': 'str'},

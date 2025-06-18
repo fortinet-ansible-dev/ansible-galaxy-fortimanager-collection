@@ -135,6 +135,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -218,15 +219,15 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'sshfilter_profile_filefilter_entries': {
             'type': 'dict',
-            'v_range': [['6.2.2', '']],
+            'v_range': [['6.2.2', '7.6.2']],
             'options': {
-                'action': {'v_range': [['6.2.2', '']], 'choices': ['log', 'block'], 'type': 'str'},
-                'comment': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                'direction': {'v_range': [['6.2.2', '']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
-                'file-type': {'v_range': [['6.2.2', '']], 'type': 'raw'},
-                'filter': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                'password-protected': {'v_range': [['6.2.2', '']], 'choices': ['any', 'yes'], 'type': 'str'},
-                'protocol': {'v_range': [['6.2.2', '']], 'type': 'list', 'choices': ['ssh'], 'elements': 'str'}
+                'action': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['log', 'block'], 'type': 'str'},
+                'comment': {'v_range': [['6.2.2', '7.6.2']], 'type': 'str'},
+                'direction': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['any', 'incoming', 'outgoing'], 'type': 'str'},
+                'file-type': {'v_range': [['6.2.2', '7.6.2']], 'type': 'raw'},
+                'filter': {'v_range': [['6.2.2', '7.6.2']], 'type': 'str'},
+                'password-protected': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['any', 'yes'], 'type': 'str'},
+                'protocol': {'v_range': [['6.2.2', '7.6.2']], 'type': 'list', 'choices': ['ssh'], 'elements': 'str'}
             }
         }
     }

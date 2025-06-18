@@ -153,6 +153,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -242,23 +243,23 @@ def main():
         'wanprof': {'required': True, 'type': 'str'},
         'wanprof_system_virtualwanlink_members': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
                 '_dynamic-member': {'v_range': [['6.0.0', '6.4.15']], 'type': 'str'},
-                'comment': {'type': 'str'},
-                'gateway': {'type': 'str'},
-                'gateway6': {'type': 'str'},
-                'ingress-spillover-threshold': {'type': 'int'},
-                'interface': {'type': 'str'},
-                'priority': {'type': 'int'},
-                'seq-num': {'required': True, 'type': 'int'},
-                'source': {'type': 'str'},
-                'source6': {'type': 'str'},
-                'spillover-threshold': {'type': 'int'},
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'volume-ratio': {'type': 'int'},
-                'weight': {'type': 'int'},
-                'cost': {'v_range': [['6.2.0', '']], 'type': 'int'}
+                'comment': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'gateway': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'gateway6': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'ingress-spillover-threshold': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'interface': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'priority': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'seq-num': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'source': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'source6': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'spillover-threshold': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'volume-ratio': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'weight': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                'cost': {'v_range': [['6.2.0', '7.6.2']], 'type': 'int'}
             }
         }
     }

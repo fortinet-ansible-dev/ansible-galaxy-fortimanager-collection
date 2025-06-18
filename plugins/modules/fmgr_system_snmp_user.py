@@ -195,6 +195,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -316,7 +317,7 @@ def main():
                 'queries': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-port': {'type': 'int'},
                 'security-level': {'choices': ['no-auth-no-priv', 'auth-no-priv', 'auth-priv'], 'type': 'str'},
-                'notify-port': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'notify-port': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

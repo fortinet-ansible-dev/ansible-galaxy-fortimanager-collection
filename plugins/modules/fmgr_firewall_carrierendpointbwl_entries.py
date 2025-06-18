@@ -135,6 +135,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -236,13 +237,13 @@ def main():
         'carrier_endpoint_bwl': {'type': 'str'},
         'firewall_carrierendpointbwl_entries': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'action': {'type': 'list', 'choices': ['block', 'exempt', 'exempt-mass-mms'], 'elements': 'str'},
-                'carrier-endpoint': {'required': True, 'type': 'str'},
-                'log-action': {'type': 'list', 'choices': ['archive', 'intercept'], 'elements': 'str'},
-                'pattern-type': {'choices': ['wildcard', 'regexp', 'simple'], 'type': 'str'},
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'}
+                'action': {'v_range': [['6.0.0', '7.6.2']], 'type': 'list', 'choices': ['block', 'exempt', 'exempt-mass-mms'], 'elements': 'str'},
+                'carrier-endpoint': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'},
+                'log-action': {'v_range': [['6.0.0', '7.6.2']], 'type': 'list', 'choices': ['archive', 'intercept'], 'elements': 'str'},
+                'pattern-type': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['wildcard', 'regexp', 'simple'], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

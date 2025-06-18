@@ -128,6 +128,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -212,7 +213,7 @@ def main():
             'options': {
                 'byte-caching': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-traffic': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'port': {'type': 'raw'},
+                'port': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'secure-tunnel': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-sharing': {'choices': ['private', 'shared', 'express-shared'], 'type': 'str'}

@@ -151,6 +151,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -239,25 +240,25 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'emailfilter_profile_filefilter': {
             'type': 'dict',
-            'v_range': [['6.2.0', '']],
+            'v_range': [['6.2.0', '7.6.2']],
             'options': {
                 'entries': {
-                    'v_range': [['6.2.0', '']],
+                    'v_range': [['6.2.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['6.2.0', '']], 'choices': ['log', 'block'], 'type': 'str'},
-                        'comment': {'v_range': [['6.2.0', '']], 'type': 'str'},
+                        'action': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['log', 'block'], 'type': 'str'},
+                        'comment': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                         'encryption': {'v_range': [['6.2.0', '7.2.0']], 'choices': ['any', 'yes'], 'type': 'str'},
-                        'file-type': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                        'filter': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'password-protected': {'v_range': [['6.2.1', '']], 'choices': ['any', 'yes'], 'type': 'str'},
-                        'protocol': {'v_range': [['6.2.0', '']], 'type': 'list', 'choices': ['smtp', 'imap', 'pop3'], 'elements': 'str'}
+                        'file-type': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
+                        'filter': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                        'password-protected': {'v_range': [['6.2.1', '7.6.2']], 'choices': ['any', 'yes'], 'type': 'str'},
+                        'protocol': {'v_range': [['6.2.0', '7.6.2']], 'type': 'list', 'choices': ['smtp', 'imap', 'pop3'], 'elements': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'log': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-archive-contents': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'status': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-archive-contents': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -637,6 +637,7 @@ options:
                     - 'FXN51G'
                     - 'FXW51G'
                     - 'FVG51G'
+                    - 'FXE11G'
             name:
                 type: str
                 description: FortiExtender profile name.
@@ -857,6 +858,7 @@ options:
                             - 'YT'
                             - 'BL'
                             - '--'
+                            - 'TL'
                     radio_1:
                         aliases: ['radio-1']
                         type: dict
@@ -1133,6 +1135,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1600,7 +1603,7 @@ def main():
                     'choices': [
                         'FX201E', 'FX211E', 'FX200F', 'FXA11F', 'FXE11F', 'FXA21F', 'FXE21F', 'FXA22F', 'FXE22F', 'FX212F', 'FX311F', 'FX312F', 'FX511F',
                         'FVG21F', 'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI', 'FXR51G', 'FG', 'BS10FW', 'BS20GW', 'BS20GN', 'FXN51G',
-                        'FXW51G', 'FVG51G'
+                        'FXW51G', 'FVG51G', 'FXE11G'
                     ],
                     'type': 'str'
                 },
@@ -1623,7 +1626,7 @@ def main():
                                 'MW', 'AO', 'GA', 'ML', 'BJ', 'MG', 'TD', 'BW', 'LY', 'RW', 'MZ', 'GM', 'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD',
                                 'NE', 'CF', 'SZ', 'TG', 'LR', 'MR', 'DJ', 'RE', 'RS', 'ME', 'IQ', 'MD', 'KY', 'BB', 'BM', 'TC', 'VI', 'PM', 'MF', 'GD',
                                 'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ', 'LA', 'GU', 'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW',
-                                'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR', 'CX', 'DM', 'MQ', 'YT', 'BL', '--'
+                                'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET', 'SR', 'CX', 'DM', 'MQ', 'YT', 'BL', '--', 'TL'
                             ],
                             'type': 'str'
                         },

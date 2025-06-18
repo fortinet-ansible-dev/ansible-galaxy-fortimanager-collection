@@ -165,6 +165,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -253,20 +254,20 @@ def main():
         'replacemsg_group': {'type': 'str'},
         'system_replacemsggroup_mm3': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'add-html': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                'from': {'type': 'str'},
-                'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                'html-part': {'type': 'str'},
-                'image': {'type': 'str'},
-                'fmgr_message': {'type': 'str'},
-                'msg-type': {'required': True, 'type': 'str'},
-                'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
-                'subject': {'type': 'str'}
+                'add-html': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                'html-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'},
+                'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
             }
         }
     }

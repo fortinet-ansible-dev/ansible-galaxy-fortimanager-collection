@@ -636,6 +636,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -817,7 +818,7 @@ def main():
             'options': {
                 'airtime-fairness': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'amsdu': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ap-handoff': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ap-handoff': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ap-sniffer-addr': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'ap-sniffer-bufsize': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'ap-sniffer-chan': {'v_range': [['6.2.2', '']], 'type': 'int'},
@@ -851,7 +852,7 @@ def main():
                 'darrp': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dtim': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'frag-threshold': {'v_range': [['6.2.2', '']], 'type': 'int'},
-                'frequency-handoff': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'frequency-handoff': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-clients': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'max-distance': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'mode': {'v_range': [['6.2.2', '']], 'choices': ['disabled', 'ap', 'monitor', 'sniffer', 'sam'], 'type': 'str'},

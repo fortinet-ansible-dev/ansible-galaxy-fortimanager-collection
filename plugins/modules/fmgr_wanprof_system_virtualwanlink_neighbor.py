@@ -120,6 +120,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -199,13 +200,13 @@ def main():
         'wanprof': {'required': True, 'type': 'str'},
         'wanprof_system_virtualwanlink_neighbor': {
             'type': 'dict',
-            'v_range': [['6.2.1', '']],
+            'v_range': [['6.2.1', '7.6.2']],
             'options': {
-                'health-check': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'ip': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'member': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'role': {'v_range': [['6.2.1', '']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'},
-                'sla-id': {'v_range': [['6.2.1', '']], 'type': 'int'}
+                'health-check': {'v_range': [['6.2.1', '7.6.2']], 'type': 'str'},
+                'ip': {'v_range': [['6.2.1', '7.6.2']], 'type': 'str'},
+                'member': {'v_range': [['6.2.1', '7.6.2']], 'type': 'str'},
+                'role': {'v_range': [['6.2.1', '7.6.2']], 'choices': ['primary', 'secondary', 'standalone'], 'type': 'str'},
+                'sla-id': {'v_range': [['6.2.1', '7.6.2']], 'type': 'int'}
             }
         }
     }

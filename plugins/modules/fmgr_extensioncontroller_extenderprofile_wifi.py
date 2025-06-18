@@ -292,6 +292,7 @@ options:
                     - 'YT'
                     - 'BL'
                     - '--'
+                    - 'TL'
             radio_1:
                 aliases: ['radio-1']
                 type: dict
@@ -572,6 +573,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -736,7 +738,7 @@ def main():
                         'TD', 'BW', 'LY', 'RW', 'MZ', 'GM', 'LS', 'MU', 'CG', 'UG', 'BF', 'SL', 'SO', 'CD', 'NE', 'CF', 'SZ', 'TG', 'LR', 'MR', 'DJ',
                         'RE', 'RS', 'ME', 'IQ', 'MD', 'KY', 'BB', 'BM', 'TC', 'VI', 'PM', 'MF', 'GD', 'IM', 'FO', 'GI', 'GL', 'TM', 'MN', 'VU', 'FJ',
                         'LA', 'GU', 'WF', 'MH', 'BT', 'FM', 'PF', 'NI', 'PY', 'HT', 'GY', 'AW', 'KN', 'GF', 'AS', 'MP', 'PW', 'MM', 'LC', 'GP', 'ET',
-                        'SR', 'CX', 'DM', 'MQ', 'YT', 'BL', '--'
+                        'SR', 'CX', 'DM', 'MQ', 'YT', 'BL', '--', 'TL'
                     ],
                     'type': 'str'
                 },

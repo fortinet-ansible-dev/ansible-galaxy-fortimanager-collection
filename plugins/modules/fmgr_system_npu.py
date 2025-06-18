@@ -270,6 +270,7 @@ options:
                         choices:
                             - 'drop'
                             - 'trap-to-host'
+                            - 'allow'
                     unknproto_minlen_err:
                         aliases: ['unknproto-minlen-err']
                         type: str
@@ -553,6 +554,7 @@ options:
                         choices:
                             - 'drop'
                             - 'trap-to-host'
+                            - 'allow'
                     nvgre_minlen_err:
                         aliases: ['nvgre-minlen-err']
                         type: str
@@ -1902,6 +1904,13 @@ options:
                             name:
                                 type: str
                                 description: Scheduler name.
+                    custom_etype_lookup:
+                        aliases: ['custom-etype-lookup']
+                        type: str
+                        description: Enable/Disable np-queue lookup for custom Ethernet Types.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             udp_timeout_profile:
                 aliases: ['udp-timeout-profile']
                 type: list
@@ -3913,12 +3922,38 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            ipsec_ordering:
+                aliases: ['ipsec-ordering']
+                type: str
+                description: Enable/disable IPsec ordering.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sw_np_pause:
+                aliases: ['sw-np-pause']
+                type: str
+                description: Enable SP5 tx pause and marvell rx receive pause, for sw uplink only.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            sw_np_rate:
+                aliases: ['sw-np-rate']
+                type: int
+                description: Bandwidth from switch to NP, for sw uplink port.
+            sw_np_rate_unit:
+                aliases: ['sw-np-rate-unit']
+                type: str
+                description: Unit for bandwidth from switch to NP, for sw uplink port.
+                choices:
+                    - 'mbps'
+                    - 'pps'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -3960,7 +3995,7 @@ EXAMPLES = '''
           #   udp_len_err: <value in [drop, trap-to-host]>
           #   udp_plen_err: <value in [drop, trap-to-host]>
           #   udplite_cover_err: <value in [drop, trap-to-host]>
-          #   udplite_csum_err: <value in [drop, trap-to-host]>
+          #   udplite_csum_err: <value in [drop, trap-to-host, allow]>
           #   unknproto_minlen_err: <value in [drop, trap-to-host]>
           #   tcp_fin_only: <value in [allow, drop, trap-to-host]>
           #   ipv4_optsecurity: <value in [allow, drop, trap-to-host]>
@@ -3996,7 +4031,7 @@ EXAMPLES = '''
           #   gtpu_plen_err: <value in [drop, trap-to-host]>
           #   vxlan_minlen_err: <value in [drop, trap-to-host]>
           #   capwap_minlen_err: <value in [drop, trap-to-host]>
-          #   gre_csum_err: <value in [drop, trap-to-host]>
+          #   gre_csum_err: <value in [drop, trap-to-host, allow]>
           #   nvgre_minlen_err: <value in [drop, trap-to-host]>
           #   sctp_l4len_err: <value in [drop, trap-to-host]>
           #   tcp_hlenvsl4len_err: <value in [drop, trap-to-host]>
@@ -4155,6 +4190,7 @@ EXAMPLES = '''
           #   scheduler:
           #     - mode: <value in [none, priority, round-robin]>
           #       name: <string>
+          #   custom_etype_lookup: <value in [disable, enable]>
           # udp_timeout_profile:
           #   - id: <integer>
           #     udp_idle: <integer>
@@ -4515,6 +4551,10 @@ EXAMPLES = '''
           # ipv6_prefix_session_quota_high: <integer>
           # ipv6_prefix_session_quota_low: <integer>
           # dedicated_lacp_queue: <value in [disable, enable]>
+          # ipsec_ordering: <value in [disable, enable]>
+          # sw_np_pause: <value in [disable, enable]>
+          # sw_np_rate: <integer>
+          # sw_np_rate_unit: <value in [mbps, pps]>
 '''
 
 RETURN = '''
@@ -4605,7 +4645,7 @@ def main():
                         'udp-len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'udp-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'udplite-cover-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'udplite-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
                         'unknproto-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'tcp-fin-only': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                         'ipv4-optsecurity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
@@ -4642,16 +4682,16 @@ def main():
                         'ipv6-unknopt': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                         'tcp-syn-data': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
                         'ipv6-optendpid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'},
-                        'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                        'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'gtpu-plen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'vxlan-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'capwap-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'gre-csum-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['drop', 'trap-to-host', 'allow'], 'type': 'str'},
+                        'nvgre-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-l4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'tcp-hlenvsl4len-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
+                        'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                         'sctp-csum-err': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
                     }
                 },
@@ -5172,7 +5212,8 @@ def main():
                                 'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
-                        }
+                        },
+                        'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'udp-timeout-profile': {
@@ -5365,11 +5406,11 @@ def main():
                 'rps-mode': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'per-policy-accounting': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mcast-session-counting': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']],
                     'choices': ['disable', 'enable', 'session-based', 'tpe-based'],
                     'type': 'str'
                 },
-                'inbound-dscp-copy': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'inbound-dscp-copy': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipsec-host-dfclr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'process-icmp-by-host': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dedicated-tx-npu': {'v_range': [['6.4.7', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -5722,7 +5763,11 @@ def main():
                 'ipv6-prefix-session-quota': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipv6-prefix-session-quota-high': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'ipv6-prefix-session-quota-low': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'dedicated-lacp-queue': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'dedicated-lacp-queue': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ipsec-ordering': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sw-np-pause': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sw-np-rate': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
+                'sw-np-rate-unit': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['mbps', 'pps'], 'type': 'str'}
             }
         }
     }

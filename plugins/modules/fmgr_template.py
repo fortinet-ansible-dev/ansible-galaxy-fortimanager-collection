@@ -12,7 +12,7 @@ ANSIBLE_METADATA = {'status': ['preview'],
 DOCUMENTATION = '''
 ---
 module: fmgr_template
-short_description: Cli template
+short_description: Require device/vdom scope member
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
@@ -131,18 +131,31 @@ options:
                 choices:
                     - 'sdwan-overlay'
                     - 'sdwan-manager'
+            scope_member:
+                aliases: ['scope member']
+                type: list
+                elements: dict
+                description: Scope member.
+                suboptions:
+                    name:
+                        type: str
+                        description: Name.
+                    vdom:
+                        type: str
+                        description: Vdom.
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
     ansible_httpapi_port: 443
   tasks:
-    - name: Cli template
+    - name: Require device/vdom scope member
       fortinet.fortimanager.fmgr_template:
         # bypass_validation: false
         workspace_locking_adom: <value in [global, custom adom including root]>
@@ -163,6 +176,9 @@ EXAMPLES = '''
           # option:
           #   - "sdwan-overlay"
           #   - "sdwan-manager"
+          # scope_member:
+          #   - name: <string>
+          #     vdom: <string>
 '''
 
 RETURN = '''
@@ -231,7 +247,13 @@ def main():
                 'type': {'v_range': [['7.0.1', '']], 'choices': ['cli', 'jinja'], 'type': 'str'},
                 'variables': {'v_range': [['7.0.1', '']], 'type': 'raw'},
                 'position': {'v_range': [['7.4.2', '']], 'choices': ['post-vdom-copy', 'prep-vdom-copy'], 'type': 'str'},
-                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'}
+                'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
+                'scope member': {
+                    'v_range': [['7.4.7', '7.4.7']],
+                    'type': 'list',
+                    'options': {'name': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}},
+                    'elements': 'dict'
+                }
             }
         }
     }

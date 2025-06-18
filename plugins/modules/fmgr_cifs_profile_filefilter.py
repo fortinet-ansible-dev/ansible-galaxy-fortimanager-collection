@@ -136,6 +136,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -220,23 +221,23 @@ def main():
         'profile': {'required': True, 'type': 'str'},
         'cifs_profile_filefilter': {
             'type': 'dict',
-            'v_range': [['6.2.0', '']],
+            'v_range': [['6.2.0', '7.6.2']],
             'options': {
                 'entries': {
-                    'v_range': [['6.2.0', '']],
+                    'v_range': [['6.2.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['6.2.0', '']], 'choices': ['block', 'log'], 'type': 'str'},
-                        'comment': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'direction': {'v_range': [['6.2.0', '']], 'choices': ['incoming', 'outgoing', 'any'], 'type': 'str'},
-                        'file-type': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                        'filter': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'protocol': {'v_range': [['6.2.0', '']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
+                        'action': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['block', 'log'], 'type': 'str'},
+                        'comment': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                        'direction': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['incoming', 'outgoing', 'any'], 'type': 'str'},
+                        'file-type': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
+                        'filter': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
+                        'protocol': {'v_range': [['6.2.0', '7.6.2']], 'type': 'list', 'choices': ['cifs'], 'elements': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'log': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'status': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

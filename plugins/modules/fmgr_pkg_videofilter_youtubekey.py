@@ -112,6 +112,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -190,11 +191,11 @@ def main():
         'pkg_videofilter_youtubekey': {
             'type': 'dict',
             'no_log': False,
-            'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']],
+            'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
             'options': {
-                'id': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'required': True, 'type': 'int'},
-                'key': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'id': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'required': True, 'type': 'int'},
+                'key': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

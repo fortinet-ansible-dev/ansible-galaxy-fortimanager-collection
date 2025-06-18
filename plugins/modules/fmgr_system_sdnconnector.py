@@ -556,11 +556,22 @@ options:
                 aliases: ['message-server-port']
                 type: int
                 description: HTTP port number of the SAP message server.
+            microsoft_365:
+                aliases: ['microsoft-365']
+                type: str
+                description: Enable to use as Microsoft 365 connector.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            vdom:
+                type: raw
+                description: (list) Virtual domain name of the remote SDN connector.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -677,12 +688,12 @@ def main():
                                 'name': {'type': 'str'},
                                 'public-ip': {'type': 'str'},
                                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                                'private-ip': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
+                                'private-ip': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'name': {'type': 'str'},
-                        'peer-nic': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'str'}
+                        'peer-nic': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -803,7 +814,9 @@ def main():
                     'elements': 'dict'
                 },
                 'proxy': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'message-server-port': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'message-server-port': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'microsoft-365': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vdom': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

@@ -198,12 +198,19 @@ options:
                             - 'integer'
                             - 'integer-list'
                             - 'boolean'
+                    optional:
+                        type: str
+                        description: CASB output attribute optional.
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -240,6 +247,7 @@ EXAMPLES = '''
           #     name: <string>
           #     required: <value in [disable, enable]>
           #     type: <value in [string, string-list, integer, ...]>
+          #     optional: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -329,7 +337,8 @@ def main():
                         'description': {'v_range': [['7.6.2', '']], 'type': 'str'},
                         'name': {'v_range': [['7.6.2', '']], 'type': 'str'},
                         'required': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'type': {'v_range': [['7.6.2', '']], 'choices': ['string', 'string-list', 'integer', 'integer-list', 'boolean'], 'type': 'str'}
+                        'type': {'v_range': [['7.6.2', '']], 'choices': ['string', 'string-list', 'integer', 'integer-list', 'boolean'], 'type': 'str'},
+                        'optional': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

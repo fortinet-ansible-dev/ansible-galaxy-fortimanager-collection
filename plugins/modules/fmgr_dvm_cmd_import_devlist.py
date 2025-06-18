@@ -756,6 +756,9 @@ options:
                     vm_payg_status:
                         type: int
                         description: Vm payg status.
+                    sov_sase_license:
+                        type: str
+                        description: Sov sase license.
             import_group_members:
                 aliases: ['import-group-members']
                 type: list
@@ -780,6 +783,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1012,6 +1016,7 @@ EXAMPLES = '''
           #     ha_vsn: <string>
           #     ha_upgrade_mode: <integer>
           #     vm_payg_status: <integer>
+          #     sov_sase_license: <string>
           # import_group_members:
           #   - adom: <string>
           #     dev: <string>
@@ -1270,7 +1275,8 @@ def main():
                         'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
                         'ha.vsn': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'type': 'str'},
                         'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'int'}
+                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
+                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

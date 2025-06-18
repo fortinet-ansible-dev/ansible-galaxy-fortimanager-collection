@@ -1255,12 +1255,40 @@ options:
                             vrip:
                                 type: str
                                 description: IP address of the virtual router.
+                    allowaccess:
+                        type: list
+                        elements: str
+                        description: Allowaccess.
+                        choices:
+                            - 'https'
+                            - 'ping'
+                            - 'ssh'
+                            - 'snmp'
+                            - 'http'
+                            - 'telnet'
+                            - 'fgfm'
+                            - 'radius-acct'
+                            - 'probe-response'
+                            - 'dnp'
+                            - 'ftm'
+                            - 'fabric'
+                            - 'speed-test'
+                            - 'icond'
+                            - 'scim'
+                    dhcp_relay_request_all_server:
+                        aliases: ['dhcp-relay-request-all-server']
+                        type: str
+                        description: Dhcp relay request all server.
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1525,6 +1553,23 @@ EXAMPLES = '''
           #       vrgrp: <integer>
           #       vrid: <integer>
           #       vrip: <string>
+          #   allowaccess:
+          #     - "https"
+          #     - "ping"
+          #     - "ssh"
+          #     - "snmp"
+          #     - "http"
+          #     - "telnet"
+          #     - "fgfm"
+          #     - "radius-acct"
+          #     - "probe-response"
+          #     - "dnp"
+          #     - "ftm"
+          #     - "fabric"
+          #     - "speed-test"
+          #     - "icond"
+          #     - "scim"
+          #   dhcp_relay_request_all_server: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1936,7 +1981,17 @@ def main():
                                 'vrip': {'v_range': [['7.4.0', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
-                        }
+                        },
+                        'allowaccess': {
+                            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                            'type': 'list',
+                            'choices': [
+                                'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm', 'fabric',
+                                'speed-test', 'icond', 'scim'
+                            ],
+                            'elements': 'str'
+                        },
+                        'dhcp-relay-request-all-server': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

@@ -1036,12 +1036,20 @@ options:
                     name:
                         type: str
                         description: Scheduler name.
+            custom_etype_lookup:
+                aliases: ['custom-etype-lookup']
+                type: str
+                description: Enable/Disable np-queue lookup for custom Ethernet Types.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1152,6 +1160,7 @@ EXAMPLES = '''
           # scheduler:
           #   - mode: <value in [none, priority, round-robin]>
           #     name: <string>
+          # custom_etype_lookup: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -1625,7 +1634,8 @@ def main():
                         'name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

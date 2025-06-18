@@ -116,6 +116,7 @@ options:
                     - 'icap'
                     - 'ztna'
                     - 'virtual-patch'
+                    - 'debug'
             filter:
                 type: str
                 description: Free style filter string.
@@ -136,6 +137,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -220,7 +222,7 @@ def main():
                     'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
                     'choices': [
                         'traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns', 'ssh',
-                        'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch'
+                        'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug'
                     ],
                     'type': 'str'
                 },

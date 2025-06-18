@@ -855,3 +855,91 @@ releases:
     fragments:
       - 2.9.1.yml
     release_date: "2025-03-14"
+  2.10.0:
+    changes:
+      bugfixes:
+        - Added "gather_facts" to all example playbooks.
+        - Fixed a BUG that occurred when username/password and access token were used
+          at the same time.
+      minor_changes:
+        - Supported new modules in FortiManager 7.4.6, 7.4.7, 7.6.3.
+      release_summary: Release fortinet.fortimanager 2.10.0
+    fragments:
+      - 2.10.0.yml
+    modules:
+      - description: Configure exact-data-match template used by DLP scan.
+        name: fmgr_dlp_exactdatamatch
+        namespace: ""
+      - description: DLP exact-data-match column types.
+        name: fmgr_dlp_exactdatamatch_columns
+        namespace: ""
+      - description: Configure labels used by DLP blocking.
+        name: fmgr_dlp_label
+        namespace: ""
+      - description: DLP label entries.
+        name: fmgr_dlp_label_entries
+        namespace: ""
+      - description: FortiExtender wifi vap configuration.
+        name: fmgr_extensioncontroller_extendervap
+        namespace: ""
+      - description: Configure Internet Services Extension.
+        name: fmgr_firewall_internetserviceextension
+        namespace: ""
+      - description: Disable entries in the Internet Service database.
+        name: fmgr_firewall_internetserviceextension_disableentry
+        namespace: ""
+      - description: IPv6 ranges in the disable entry.
+        name: fmgr_firewall_internetserviceextension_disableentry_ip6range
+        namespace: ""
+      - description: IPv4 ranges in the disable entry.
+        name: fmgr_firewall_internetserviceextension_disableentry_iprange
+        namespace: ""
+      - description: Port ranges in the disable entry.
+        name: fmgr_firewall_internetserviceextension_disableentry_portrange
+        namespace: ""
+      - description: Entries added to the Internet Service extension database.
+        name: fmgr_firewall_internetserviceextension_entry
+        namespace: ""
+      - description: Port ranges in the custom entry.
+        name: fmgr_firewall_internetserviceextension_entry_portrange
+        namespace: ""
+      - description: Cli fmupdate fgd setting
+        name: fmgr_fmupdate_fgdsetting
+        namespace: ""
+      - description: Cli fmupdate fgd setting server override
+        name: fmgr_fmupdate_fgdsetting_serveroverride
+        namespace: ""
+      - description: RAT timeout profile
+        name: fmgr_gtp_rattimeoutprofile
+        namespace: ""
+      - description: Configure an ICAP server group consisting of multiple forward servers.
+        name: fmgr_icap_servergroup
+        namespace: ""
+      - description: Add ICAP servers to a list to form a server group.
+        name: fmgr_icap_servergroup_serverlist
+        namespace: ""
+      - description: Accept/reject devices matching specified filter types.
+        name: fmgr_system_log_deviceselector
+        namespace: ""
+      - description: Configure FortiTelemetry agent profiles.
+        name: fmgr_telemetrycontroller_agentprofile
+        namespace: ""
+      - description: Configure FortiTelemetry predefined applications.
+        name: fmgr_telemetrycontroller_application_predefine
+        namespace: ""
+      - description: Configure FortiTelemetry profiles.
+        name: fmgr_telemetrycontroller_profile
+        namespace: ""
+      - description: Configure applications.
+        name: fmgr_telemetrycontroller_profile_application
+        namespace: ""
+      - description: Service level agreement
+        name: fmgr_telemetrycontroller_profile_application_sla
+        namespace: ""
+      - description: Configure SCIM client entries.
+        name: fmgr_user_scim
+        namespace: ""
+      - description: Wireless controller vap ip6 prefix list
+        name: fmgr_wireless_vap_ip6prefixlist
+        namespace: ""
+    release_date: "2025-06-18"

@@ -290,6 +290,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -418,12 +419,12 @@ def main():
                 'internet-service-custom': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-custom-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'internet-service-id': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'internet-service-id': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'internet-service-src': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src-custom': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-src-custom-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'internet-service-src-group': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'internet-service-src-id': {'v_range': [['6.2.0', '']], 'type': 'raw'},
+                'internet-service-src-id': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'srcintf': {'v_range': [['6.2.0', '']], 'type': 'raw'},
                 'tos': {'v_range': [['6.2.0', '']], 'type': 'str'},

@@ -183,6 +183,7 @@ options:
                     - 'radius'
                     - 'tacacs+'
                     - 'ldap'
+                    - 'saml'
             workstation:
                 type: str
                 description: Name of the remote user workstation, if you want to limit the user to authenticate only from a particular workstation.
@@ -232,11 +233,16 @@ options:
                 aliases: ['qkd-profile']
                 type: str
                 description: Quantum Key Distribution
+            saml_server:
+                aliases: ['saml-server']
+                type: raw
+                description: (list) Name of SAML server with which the user must authenticate.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -349,7 +355,7 @@ def main():
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'tacacs+-server': {'type': 'str'},
                 'two-factor': {'choices': ['disable', 'fortitoken', 'email', 'sms', 'fortitoken-cloud'], 'type': 'str'},
-                'type': {'choices': ['password', 'radius', 'tacacs+', 'ldap'], 'type': 'str'},
+                'type': {'choices': ['password', 'radius', 'tacacs+', 'ldap', 'saml'], 'type': 'str'},
                 'workstation': {'type': 'str'},
                 'two-factor-authentication': {'v_range': [['6.2.5', '']], 'choices': ['fortitoken', 'email', 'sms'], 'type': 'str'},
                 'two-factor-notification': {'v_range': [['6.2.5', '']], 'choices': ['email', 'sms'], 'type': 'str'},
@@ -362,7 +368,8 @@ def main():
                 },
                 'history0': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'history1': {'v_range': [['7.4.1', '']], 'type': 'raw'},
-                'qkd-profile': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'qkd-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'saml-server': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

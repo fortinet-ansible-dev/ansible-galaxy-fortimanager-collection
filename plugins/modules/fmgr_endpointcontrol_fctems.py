@@ -283,6 +283,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -430,9 +431,9 @@ def main():
                 'websocket-override': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'status-check-interval': {'v_range': [['7.0.2', '']], 'type': 'int'},
                 'certificate': {'v_range': [['7.0.2', '']], 'type': 'str'},
-                'admin-username': {'v_range': [['7.0.2', '']], 'type': 'str'},
+                'admin-username': {'v_range': [['7.0.2', '7.6.2']], 'type': 'str'},
                 'serial-number': {'v_range': [['7.0.2', '']], 'type': 'str'},
-                'admin-password': {'v_range': [['7.0.2', '']], 'no_log': True, 'type': 'raw'},
+                'admin-password': {'v_range': [['7.0.2', '7.6.2']], 'no_log': True, 'type': 'raw'},
                 'interface': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'dirty-reason': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['none', 'mismatched-ems-sn'], 'type': 'str'},

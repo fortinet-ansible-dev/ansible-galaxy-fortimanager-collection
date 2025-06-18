@@ -365,12 +365,21 @@ options:
                 aliases: ['fortiguard-name']
                 type: raw
                 description: (list) Predefined health-check target name.
+            agent_probe_timeout:
+                aliases: ['agent-probe-timeout']
+                type: int
+                description: Time to wait before a probe packet is considered lost when detect-mode is agent
+            remote_probe_timeout:
+                aliases: ['remote-probe-timeout']
+                type: int
+                description: Time to wait before a probe packet is considered lost when detect-mode is remote
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -449,6 +458,8 @@ EXAMPLES = '''
           # source6: <string>
           # fortiguard: <value in [disable, enable]>
           # fortiguard_name: <list or string>
+          # agent_probe_timeout: <integer>
+          # remote_probe_timeout: <integer>
 '''
 
 RETURN = '''
@@ -580,7 +591,9 @@ def main():
                 'class-id': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'source6': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'agent-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'}
             }
         }
     }

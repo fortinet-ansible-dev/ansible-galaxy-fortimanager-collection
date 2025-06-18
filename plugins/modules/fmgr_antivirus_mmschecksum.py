@@ -121,6 +121,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -214,16 +215,21 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'antivirus_mmschecksum': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'comment': {'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'entries': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
-                    'options': {'checksum': {'type': 'str'}, 'name': {'type': 'str'}, 'status': {'choices': ['disable', 'enable'], 'type': 'str'}},
+                    'options': {
+                        'checksum': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'name': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                    },
                     'elements': 'dict'
                 },
-                'id': {'required': True, 'type': 'int'},
-                'name': {'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
             }
         }
     }

@@ -205,12 +205,20 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            verify_cert:
+                aliases: ['verify-cert']
+                type: str
+                description: Enable/disable certificate verification of the real server.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -248,6 +256,7 @@ EXAMPLES = '''
           # translate_host: <value in [disable, enable]>
           # external_auth: <value in [disable, enable]>
           # tunnel_encryption: <value in [disable, enable]>
+          # verify_cert: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -331,7 +340,8 @@ def main():
                 'weight': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'external-auth': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tunnel-encryption': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'tunnel-encryption': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'verify-cert': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

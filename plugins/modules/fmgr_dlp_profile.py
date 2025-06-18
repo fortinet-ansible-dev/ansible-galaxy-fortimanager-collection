@@ -184,6 +184,7 @@ options:
                             - 'encrypted'
                             - 'none'
                             - 'mip'
+                            - 'label'
                     id:
                         type: int
                         description: ID.
@@ -255,6 +256,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -407,7 +409,11 @@ def main():
                         'expiry': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'file-size': {'v_range': [['7.2.0', '']], 'type': 'int'},
                         'file-type': {'v_range': [['7.2.0', '']], 'type': 'str'},
-                        'filter-by': {'v_range': [['7.2.0', '']], 'choices': ['fingerprint', 'sensor', 'encrypted', 'none', 'mip'], 'type': 'str'},
+                        'filter-by': {
+                            'v_range': [['7.2.0', '']],
+                            'choices': ['fingerprint', 'sensor', 'encrypted', 'none', 'mip', 'label'],
+                            'type': 'str'
+                        },
                         'id': {'v_range': [['7.2.0', '']], 'type': 'int'},
                         'label': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'match-percentage': {'v_range': [['7.2.0', '']], 'type': 'int'},

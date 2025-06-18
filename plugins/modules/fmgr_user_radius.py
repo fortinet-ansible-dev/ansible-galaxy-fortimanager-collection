@@ -1597,6 +1597,7 @@ options:
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1940,7 +1941,7 @@ def main():
                             'type': 'str'
                         },
                         'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                        'require-message-authenticator': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'require-message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
@@ -2057,7 +2058,7 @@ def main():
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
                 'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                'require-message-authenticator': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'require-message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }

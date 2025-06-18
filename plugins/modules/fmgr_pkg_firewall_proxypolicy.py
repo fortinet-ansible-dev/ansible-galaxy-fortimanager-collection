@@ -530,11 +530,23 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            https_sub_category:
+                aliases: ['https-sub-category']
+                type: str
+                description: Enable/disable HTTPS sub-category policy matching.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -652,13 +664,13 @@ def main():
                 'icap-profile': {'type': 'str'},
                 'internet-service': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-custom': {'type': 'raw'},
-                'internet-service-id': {'type': 'raw'},
+                'internet-service-id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'internet-service-negate': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-sensor': {'type': 'str'},
                 'label': {'type': 'str'},
                 'logtraffic': {'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'policyid': {'required': True, 'type': 'int'},
                 'poolname': {'type': 'raw'},
                 'profile-group': {'type': 'str'},
@@ -742,7 +754,9 @@ def main():
                 'ztna-proxy': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'isolator-server': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'url-risk': {'v_range': [['7.6.2', '']], 'type': 'raw'},
-                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

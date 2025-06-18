@@ -200,6 +200,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -292,30 +293,35 @@ def main():
         'replacemsg_group': {'type': 'str'},
         'system_replacemsggroup_mm1': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
-                'add-smil': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'charset': {'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
-                'class': {'choices': ['personal', 'advertisement', 'information', 'automatic', 'not-included'], 'type': 'str'},
-                'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                'from': {'type': 'str'},
-                'from-sender': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                'image': {'type': 'str'},
-                'fmgr_message': {'type': 'str'},
-                'msg-type': {'required': True, 'type': 'str'},
-                'priority': {'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
+                'add-smil': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'charset': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['us-ascii', 'utf-8'], 'type': 'str'},
+                'class': {
+                    'v_range': [['6.0.0', '7.6.2']],
+                    'choices': ['personal', 'advertisement', 'information', 'automatic', 'not-included'],
+                    'type': 'str'
+                },
+                'format': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                'from': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'from-sender': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'header': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                'image': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'fmgr_message': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'msg-type': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'str'},
+                'priority': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['low', 'normal', 'high', 'not-included'], 'type': 'str'},
                 'rsp-status': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'choices': [
                         'ok', 'err-unspecified', 'err-srv-denied', 'err-msg-fmt-corrupt', 'err-snd-addr-unresolv', 'err-msg-not-found', 'err-net-prob',
                         'err-content-not-accept', 'err-unsupp-msg'
                     ],
                     'type': 'str'
                 },
-                'rsp-text': {'type': 'str'},
-                'sender-visibility': {'choices': ['hide', 'show', 'not-specified'], 'type': 'str'},
-                'smil-part': {'type': 'str'},
-                'subject': {'type': 'str'}
+                'rsp-text': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'sender-visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['hide', 'show', 'not-specified'], 'type': 'str'},
+                'smil-part': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                'subject': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'}
             }
         }
     }

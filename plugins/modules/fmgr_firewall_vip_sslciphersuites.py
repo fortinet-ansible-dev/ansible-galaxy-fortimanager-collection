@@ -191,6 +191,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -306,7 +307,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'id': {'required': True, 'type': 'int'},
+                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
                 'versions': {'type': 'list', 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'elements': 'str'},
                 'priority': {'v_range': [['6.4.0', '']], 'type': 'int'}
             }

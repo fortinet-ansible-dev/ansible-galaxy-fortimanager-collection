@@ -180,6 +180,7 @@ options:
                             - 'icap'
                             - 'ztna'
                             - 'virtual-patch'
+                            - 'debug'
                     filter:
                         type: str
                         description: Free style filter string.
@@ -295,12 +296,19 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            debug:
+                type: str
+                description: Enable/disable debug logging.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -347,6 +355,7 @@ EXAMPLES = '''
           # netscan_vulnerability: <value in [disable, enable]>
           # forti_switch: <value in [disable, enable]>
           # http_transaction: <value in [disable, enable]>
+          # debug: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -447,7 +456,7 @@ def main():
                             'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
                             'choices': [
                                 'traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns',
-                                'ssh', 'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch'
+                                'ssh', 'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug'
                             ],
                             'type': 'str'
                         },
@@ -472,7 +481,8 @@ def main():
                 'netscan-discovery': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'debug': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

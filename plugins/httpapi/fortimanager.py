@@ -131,16 +131,18 @@ class HttpApi(HttpApiBase):
         self._logged_in_user = username
         forticloud_access_token = self.customer_options.get("forticloud_access_token", None)
         self._access_token = self.customer_options.get("access_token", None)
-        if self._access_token:
+        if username is not None and password is not None:
+            self._login_method = 'username_password'
+            self.send_request("exec", self._tools.format_request("exec", "sys/login/user", passwd=password, user=username))
+        elif self._access_token:
             self._login_method = 'access_token'
         elif forticloud_access_token:
             self._login_method = 'forticloud'
             self.forticloud_login()
         else:
-            self._login_method = 'username_password'
-            self.send_request("exec", self._tools.format_request("exec", "sys/login/user", passwd=password, user=username))
+            err_msg = "Please check whether you provide the correct information."
+            raise AssertionError(err_msg)
         self.log('login method: ' + self._login_method)
-        self.log(self)
         if (self.sid or self._access_token) and self.connection._url is not None:
             # If Login worked, then inspect the FortiManager for Workspace Mode, and it's system information.
             self.inspect_fmgr()

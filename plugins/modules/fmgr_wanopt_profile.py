@@ -412,6 +412,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -559,7 +560,7 @@ def main():
                             'choices': ['private', 'shared', 'express-shared'],
                             'type': 'str'
                         },
-                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'}
+                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'type': 'raw'}
                     }
                 },
                 'ftp': {
@@ -578,7 +579,7 @@ def main():
                             'choices': ['private', 'shared', 'express-shared'],
                             'type': 'str'
                         },
-                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'}
+                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'type': 'raw'}
                     }
                 },
                 'http': {
@@ -597,14 +598,14 @@ def main():
                             'choices': ['private', 'shared', 'express-shared'],
                             'type': 'str'
                         },
-                        'tunnel-non-http': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'tunnel-non-http': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'unknown-http-version': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']],
                             'choices': ['best-effort', 'reject', 'tunnel'],
                             'type': 'str'
                         },
-                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
-                        'ssl-port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'}
+                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'type': 'raw'},
+                        'ssl-port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'type': 'raw'}
                     }
                 },
                 'mapi': {
@@ -620,7 +621,7 @@ def main():
                             'choices': ['private', 'shared', 'express-shared'],
                             'type': 'str'
                         },
-                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'}
+                        'port': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'type': 'raw'}
                     }
                 },
                 'tcp': {

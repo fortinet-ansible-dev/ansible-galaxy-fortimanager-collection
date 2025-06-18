@@ -533,6 +533,7 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+                    - 'legacy'
             icap_profile:
                 aliases: ['icap-profile']
                 type: str
@@ -1599,6 +1600,7 @@ options:
                     - 'ssh'
                     - 'wanopt'
                     - 'access-proxy'
+                    - 'ztna-proxy'
             udp_timeout_pid:
                 aliases: ['udp-timeout-pid']
                 type: raw
@@ -1884,11 +1886,31 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            https_sub_category:
+                aliases: ['https-sub-category']
+                type: str
+                description: Https sub category.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            service_connector:
+                aliases: ['service-connector']
+                type: raw
+                description: (list) Service connector.
+            telemetry_profile:
+                aliases: ['telemetry-profile']
+                type: raw
+                description: (list) Name of an existing telemetry profile.
+            ztna_proxy:
+                aliases: ['ztna-proxy']
+                type: raw
+                description: (list) Ztna proxy.
 '''
 
 EXAMPLES = '''
 - name: Example playbook
   hosts: fortimanagers
+  gather_facts: false
   connection: httpapi
   vars:
     ansible_httpapi_use_ssl: true
@@ -1990,9 +2012,9 @@ def main():
                 'action': {'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn', 'redirect', 'isolate'], 'type': 'str'},
                 'active-auth-method': {'choices': ['ntlm', 'basic', 'digest', 'form'], 'type': 'str'},
                 'anti-replay': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'app-category': {'type': 'raw'},
-                'app-group': {'type': 'raw'},
-                'application': {'type': 'raw'},
+                'app-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
+                'app-group': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
+                'application': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'application-charts': {'type': 'list', 'choices': ['top10-app', 'top10-p2p-user', 'top10-media-user'], 'elements': 'str'},
                 'application-list': {'type': 'str'},
                 'auth-cert': {'type': 'str'},
@@ -2064,7 +2086,7 @@ def main():
                 'global-label': {'type': 'str'},
                 'groups': {'type': 'raw'},
                 'gtp-profile': {'type': 'str'},
-                'http-policy-redirect': {'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-policy-redirect': {'choices': ['disable', 'enable', 'legacy'], 'type': 'str'},
                 'icap-profile': {'type': 'str'},
                 'identity-based': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'identity-based-policy': {
@@ -2206,7 +2228,7 @@ def main():
                 'traffic-shaper': {'type': 'str'},
                 'traffic-shaper-reverse': {'type': 'str'},
                 'transaction-based': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-category': {'type': 'raw'},
+                'url-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
                 'users': {'type': 'raw'},
                 'utm-inspection-mode': {'choices': ['proxy', 'flow'], 'type': 'str'},
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2278,7 +2300,7 @@ def main():
                 'transparent': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {
                     'v_range': [['7.0.3', '']],
-                    'choices': ['explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh', 'wanopt', 'access-proxy'],
+                    'choices': ['explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh', 'wanopt', 'access-proxy', 'ztna-proxy'],
                     'type': 'str'
                 },
                 'udp-timeout-pid': {'v_range': [['7.0.3', '']], 'type': 'raw'},
@@ -2329,10 +2351,14 @@ def main():
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-risk': {'v_range': [['7.4.4', '7.4.5'], ['7.6.2', '']], 'type': 'raw'},
+                'url-risk': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'raw'},
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'service-connector': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'ztna-proxy': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }
         }
     }

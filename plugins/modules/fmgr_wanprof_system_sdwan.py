@@ -427,6 +427,14 @@ options:
                         aliases: ['fortiguard-name']
                         type: raw
                         description: (list) Predefined health-check target name.
+                    agent_probe_timeout:
+                        aliases: ['agent-probe-timeout']
+                        type: int
+                        description: Time to wait before a probe packet is considered lost when detect-mode is agent
+                    remote_probe_timeout:
+                        aliases: ['remote-probe-timeout']
+                        type: int
+                        description: Time to wait before a probe packet is considered lost when detect-mode is remote
             load_balance_mode:
                 aliases: ['load-balance-mode']
                 type: str
@@ -933,6 +941,13 @@ options:
                     comment:
                         type: str
                         description: Comments.
+                    fib_best_match_force:
+                        aliases: ['fib-best-match-force']
+                        type: str
+                        description: Enable/disable force using fib-best-match oif as outgoing interface.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             status:
                 type: str
                 description: Enable/disable SD-WAN.
@@ -1265,6 +1280,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1358,6 +1374,8 @@ EXAMPLES = '''
           #     source6: <string>
           #     fortiguard: <value in [disable, enable]>
           #     fortiguard_name: <list or string>
+          #     agent_probe_timeout: <integer>
+          #     remote_probe_timeout: <integer>
           # load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
           # members:
           #   - _dynamic_member: <string>
@@ -1463,6 +1481,7 @@ EXAMPLES = '''
           #     zone_mode: <value in [disable, enable]>
           #     shortcut_priority: <value in [disable, enable, auto]>
           #     comment: <string>
+          #     fib_best_match_force: <value in [disable, enable]>
           # status: <value in [disable, enable]>
           # zone:
           #   - name: <string>
@@ -1697,7 +1716,9 @@ def main():
                         'class-id': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'source6': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                        'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                        'agent-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                        'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1835,7 +1856,8 @@ def main():
                         'start-src-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
-                        'comment': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                        'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                        'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

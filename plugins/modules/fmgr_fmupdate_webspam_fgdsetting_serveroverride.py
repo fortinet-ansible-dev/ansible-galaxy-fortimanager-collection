@@ -124,6 +124,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -206,20 +207,21 @@ def main():
     module_arg_spec = {
         'fmupdate_webspam_fgdsetting_serveroverride': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.2']],
             'options': {
                 'servlist': {
+                    'v_range': [['6.0.0', '7.6.2']],
                     'type': 'list',
                     'options': {
-                        'id': {'type': 'int'},
-                        'ip': {'type': 'str'},
-                        'ip6': {'type': 'str'},
-                        'port': {'type': 'int'},
-                        'service-type': {'type': 'raw', 'choices': ['fgd', 'fgc', 'fsa', 'fgfq', 'geoip', 'iot-collect']}
+                        'id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                        'ip': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'ip6': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
+                        'port': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                        'service-type': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw', 'choices': ['fgd', 'fgc', 'fsa', 'fgfq', 'geoip', 'iot-collect']}
                     },
                     'elements': 'dict'
                 },
-                'status': {'choices': ['disable', 'enable'], 'type': 'str'}
+                'status': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -1034,6 +1034,7 @@ EXAMPLES = '''
 - name: Example playbook (generated based on argument schema)
   hosts: fortimanagers
   connection: httpapi
+  gather_facts: false
   vars:
     ansible_httpapi_use_ssl: true
     ansible_httpapi_validate_certs: false
@@ -1436,7 +1437,7 @@ def main():
                 'virtual-desktop-printing': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'virtual-desktop-app-list': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'virtual-desktop-removable-media-access': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'transform-backward-slashes': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'transform-backward-slashes': {'v_range': [['6.2.2', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ipv6-split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'split-tunneling-routing-negate': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'os-check-list': {
@@ -1447,7 +1448,7 @@ def main():
                         'latest-patch-level': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'tolerance': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'minor-version': {'v_range': [['7.6.0', '']], 'type': 'int'}
+                        'minor-version': {'v_range': [['7.4.7', '']], 'type': 'int'}
                     }
                 },
                 'use-sdwan': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
