@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -125,12 +128,12 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_system_sdnconnector_routetable_route:
         bypass_validation: false
         adom: ansible
-        sdn-connector: ansible-test-sdn # name
-        route-table: ansible-test-routetable # name
+        sdn_connector: ansible-test-sdn # name
+        route_table: ansible-test-routetable # name
         state: present
         system_sdnconnector_routetable_route:
           name: ansible-routetable-route
-          next-hop: ansible-test
+          next_hop: ansible-test
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -147,8 +150,8 @@ EXAMPLES = '''
           selector: "system_sdnconnector_routetable_route"
           params:
             adom: "ansible"
-            sdn-connector: "ansible-test-sdn" # name
-            route-table: "ansible-test-routetable" # name
+            sdn_connector: "ansible-test-sdn" # name
+            route_table: "ansible-test-routetable" # name
             route: "your_value"
 '''
 
@@ -210,6 +213,7 @@ def main():
         'sdn_connector': {'type': 'str'},
         'route-table': {'type': 'str', 'api_name': 'route_table'},
         'route_table': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_sdnconnector_routetable_route': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

@@ -261,8 +261,8 @@ EXAMPLES = '''
     - name: Log rolling policy for local logs.
       fortinet.fortimanager.fmgr_system_log_settings_rollinglocal:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_settings_rollinglocal:
@@ -367,9 +367,9 @@ def main():
                 'file-size': {'type': 'int'},
                 'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'hour': {'type': 'int'},
-                'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
                 'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                 'min': {'type': 'int'},
                 'password': {'no_log': True, 'type': 'raw'},

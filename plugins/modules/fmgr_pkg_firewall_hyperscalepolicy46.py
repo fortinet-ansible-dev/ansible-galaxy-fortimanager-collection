@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -175,8 +178,8 @@ EXAMPLES = '''
     - name: Configure IPv4 to IPv6 policies.
       fortinet.fortimanager.fmgr_pkg_firewall_hyperscalepolicy46:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -256,39 +259,40 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_firewall_hyperscalepolicy46': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
             'options': {
                 'action': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['deny', 'accept'],
                     'type': 'str'
                 },
-                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'cgn-log-server-grp': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'comments': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'dstintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'policy-offload': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'policyid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'required': True, 'type': 'int'},
-                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'policyid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'service': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'srcintf': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'status': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'}
+                'tcp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'udp-timeout-pid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'uuid': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'}
             }
         }
     }

@@ -478,8 +478,8 @@ EXAMPLES = '''
     - name: Filter for syslog logging.
       fortinet.fortimanager.fmgr_system_locallog_syslogd3_filter:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_syslogd3_filter:
@@ -624,9 +624,9 @@ def main():
                 'system': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'webport': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'incident': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'aid': {'v_range': [['6.4.1', '7.2.9']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'docker': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'controller': {'v_range': [['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'aid': {'v_range': [['6.4.1', '7.2.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'docker': {'v_range': [['6.4.3', '7.2.10'], ['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'controller': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

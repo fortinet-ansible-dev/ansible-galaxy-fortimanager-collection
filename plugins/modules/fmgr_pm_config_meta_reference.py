@@ -100,8 +100,8 @@ EXAMPLES = '''
     - name: Meta reference
       fortinet.fortimanager.fmgr_pm_config_meta_reference:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -167,14 +167,14 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'pm_config_meta_reference': {
             'type': 'dict',
-            'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']],
+            'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']],
             'options': {
                 'package list': {
-                    'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']],
+                    'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

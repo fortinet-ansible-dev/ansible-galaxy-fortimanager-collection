@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -1088,7 +1091,7 @@ EXAMPLES = '''
           selector: "system_replacemsggroup"
           params:
             adom: "ansible"
-            replacemsg-group: "your_value"
+            replacemsg_group: "your_value"
 '''
 
 RETURN = '''
@@ -1145,6 +1148,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_replacemsggroup': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -1166,7 +1170,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.13'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.14'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1405,7 +1409,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.13'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.14'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

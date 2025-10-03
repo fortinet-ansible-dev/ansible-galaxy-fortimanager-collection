@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -292,8 +295,8 @@ EXAMPLES = '''
     - name: Configure FortiClient Enterprise Management Server
       fortinet.fortimanager.fmgr_endpointcontrol_fctems:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -400,6 +403,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'endpointcontrol_fctems': {
             'type': 'dict',
             'v_range': [['7.0.2', '']],
@@ -434,13 +438,13 @@ def main():
                 'admin-username': {'v_range': [['7.0.2', '7.6.2']], 'type': 'str'},
                 'serial-number': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'admin-password': {'v_range': [['7.0.2', '7.6.2']], 'no_log': True, 'type': 'raw'},
-                'interface': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'dirty-reason': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['none', 'mismatched-ems-sn'], 'type': 'str'},
-                'ems-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
-                'status': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ca-cn-info': {'v_range': [['7.0.6', '7.0.13'], ['7.2.2', '']], 'type': 'str'},
-                'trust-ca-cn': {'v_range': [['7.0.6', '7.0.13'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'dirty-reason': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['none', 'mismatched-ems-sn'], 'type': 'str'},
+                'ems-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
+                'status': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ca-cn-info': {'v_range': [['7.0.6', '7.0.14'], ['7.2.2', '']], 'type': 'str'},
+                'trust-ca-cn': {'v_range': [['7.0.6', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tenant-id': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'send-tags-to-all-vdoms': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'verified-cn': {'v_range': [['7.4.2', '']], 'type': 'str'},

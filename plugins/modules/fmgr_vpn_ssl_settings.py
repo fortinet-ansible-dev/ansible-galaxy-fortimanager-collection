@@ -639,8 +639,8 @@ EXAMPLES = '''
     - name: Configure SSL VPN.
       fortinet.fortimanager.fmgr_vpn_ssl_settings:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         device: <your own value>
@@ -823,7 +823,7 @@ def main():
             'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
             'options': {
                 'algorithm': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['default', 'high', 'low', 'medium'],
                     'type': 'str'
                 },

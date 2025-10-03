@@ -282,22 +282,22 @@ EXAMPLES = '''
         state: present
         system_admin_user_dashboard:
           column: 1
-          diskio-content-type: util # <value in [util, iops, blks]>
-          diskio-period: 1hour # <value in [1hour, 8hour, 24hour]>
-          log-rate-period: 1hour # <value in [2min , 1hour, 6hours]>
-          log-rate-topn: 5 # <value in [1, 2, 3, ...]>
-          log-rate-type: device # <value in [log, device]>
+          diskio_content_type: util # <value in [util, iops, blks]>
+          diskio_period: 1hour # <value in [1hour, 8hour, 24hour]>
+          log_rate_period: 1hour # <value in [2min , 1hour, 6hours]>
+          log_rate_topn: 5 # <value in [1, 2, 3, ...]>
+          log_rate_type: device # <value in [log, device]>
           moduleid: 10
           name: ansible-test-dashboard
-          num-entries: 10
-          refresh-interval: 0
-          res-cpu-display: "each" # <value in [average , each]>
-          res-period: 10min # <value in [10min , hour, day]>
-          res-view-type: history # <value in [real-time , history]>
+          num_entries: 10
+          refresh_interval: 0
+          res_cpu_display: "each" # <value in [average , each]>
+          res_period: 10min # <value in [10min , hour, day]>
+          res_view_type: history # <value in [real-time , history]>
           status: open # <value in [close, open]>
           tabid: 1
-          time-period: 1hour # <value in [1hour, 8hour, 24hour]>
-          widget-type: sysres # <value in [top-lograte, sysres, sysinfo, ...]>
+          time_period: 1hour # <value in [1hour, 8hour, 24hour]>
+          widget_type: sysres # <value in [top-lograte, sysres, sysinfo, ...]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers

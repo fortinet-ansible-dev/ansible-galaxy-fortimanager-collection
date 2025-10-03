@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -126,7 +129,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_mmsprofile_notifmsisdn:
         bypass_validation: false
         adom: FortiCarrier # This is FOC-only object, need a FortiCarrier adom
-        mms-profile: "ansible-test" # name
+        mms_profile: "ansible-test" # name
         state: present
         firewall_mmsprofile_notifmsisdn:
           msisdn: "ansible"
@@ -153,8 +156,8 @@ EXAMPLES = '''
           selector: "firewall_mmsprofile_notifmsisdn"
           params:
             adom: "FortiCarrier" # This is FOC-only object, need a FortiCarrier adom
-            mms-profile: "ansible-test" # name
-            notif-msisdn: "your_value"
+            mms_profile: "ansible-test" # name
+            notif_msisdn: "your_value"
 '''
 
 RETURN = '''
@@ -213,6 +216,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'mms-profile': {'type': 'str', 'api_name': 'mms_profile'},
         'mms_profile': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_mmsprofile_notifmsisdn': {
             'type': 'dict',
             'v_range': [['6.0.0', '7.6.2']],

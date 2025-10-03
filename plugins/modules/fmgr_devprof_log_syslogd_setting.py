@@ -242,8 +242,8 @@ EXAMPLES = '''
     - name: Global settings for remote syslog server.
       fortinet.fortimanager.fmgr_devprof_log_syslogd_setting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -368,16 +368,16 @@ def main():
                 'format': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
                 'syslog-type': {'v_range': [['6.2.0', '6.2.0']], 'type': 'int'},
                 'custom-field-name': {
-                    'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'custom': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
+                        'custom': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'source-ip': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }

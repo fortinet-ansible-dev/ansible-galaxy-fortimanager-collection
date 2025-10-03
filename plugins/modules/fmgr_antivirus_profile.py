@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -1610,17 +1613,17 @@ EXAMPLES = '''
         adom: ansible
         state: present
         antivirus_profile:
-          analytics-db: disable
-          analytics-max-upload: 20
-          av-block-log: disable
-          av-virus-log: disable
+          analytics_db: disable
+          analytics_max_upload: 20
+          av_block_log: disable
+          av_virus_log: disable
           comment: "test comment"
-          extended-log: disable
-          ftgd-analytics: disable
-          inspection-mode: proxy
-          mobile-malware-db: disable
+          extended_log: disable
+          ftgd_analytics: disable
+          inspection_mode: proxy
+          mobile_malware_db: disable
           name: "antivirus-profile"
-          scan-mode: quick
+          scan_mode: quick
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -1694,6 +1697,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'antivirus_profile': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -1866,7 +1870,7 @@ def main():
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'unknown-content-encoding': {
-                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
                             'choices': ['block', 'inspect', 'bypass'],
                             'type': 'str'
                         },

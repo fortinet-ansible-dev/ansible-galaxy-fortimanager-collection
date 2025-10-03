@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -224,7 +227,7 @@ EXAMPLES = '''
           params:
             adom: "ansible"
             vip: "ansible-test-vip" # name
-            ssl-server-cipher-suites: "your_value"
+            ssl_server_cipher_suites: "your_value"
 '''
 
 RETURN = '''
@@ -282,6 +285,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vip': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_vip_sslserverciphersuites': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

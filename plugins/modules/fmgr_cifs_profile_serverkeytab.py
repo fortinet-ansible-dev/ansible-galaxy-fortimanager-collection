@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -117,8 +120,8 @@ EXAMPLES = '''
     - name: Server keytab.
       fortinet.fortimanager.fmgr_cifs_profile_serverkeytab:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -185,6 +188,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'profile': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'cifs_profile_serverkeytab': {
             'type': 'dict',
             'no_log': False,

@@ -121,8 +121,8 @@ EXAMPLES = '''
     - name: Settings for locallog logging.
       fortinet.fortimanager.fmgr_system_locallog_setting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_locallog_setting:
@@ -194,7 +194,7 @@ def main():
                 'log-interval-disk-full': {'type': 'int'},
                 'log-interval-gbday-exceeded': {'type': 'int'},
                 'log-daemon-crash': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                'no-log-detection-threshold': {'v_range': [['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
                 'log-interval-adom-perf-stats': {'v_range': [['7.4.0', '']], 'type': 'int'}
             }
         }

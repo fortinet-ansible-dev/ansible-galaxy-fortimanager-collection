@@ -158,8 +158,8 @@ EXAMPLES = '''
         community: "1" # id
         state: present
         devprof_system_snmp_community_hosts6:
-          ha-direct: enable
-          host-type: any
+          ha_direct: enable
+          host_type: any
           id: 1
 
 - name: Gathering fortimanager facts

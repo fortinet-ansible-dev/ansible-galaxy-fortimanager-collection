@@ -548,8 +548,8 @@ EXAMPLES = '''
     - name: Admin setting.
       fortinet.fortimanager.fmgr_system_admin_setting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_admin_setting:
@@ -720,7 +720,7 @@ def main():
                 'idle_timeout_sso': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'preferred-fgfm-intf': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'traffic-shaping-history': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.14'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rtm-max-monitor-by-days': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'rtm-temp-file-limit': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'firmware-upgrade-check': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

@@ -388,8 +388,8 @@ EXAMPLES = '''
     - name: SD-WAN status checking or health checking.
       fortinet.fortimanager.fmgr_wanprof_system_sdwan_healthcheck:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>

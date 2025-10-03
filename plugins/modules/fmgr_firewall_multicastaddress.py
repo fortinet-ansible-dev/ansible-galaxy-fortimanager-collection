@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -183,7 +186,7 @@ EXAMPLES = '''
           selector: "firewall_multicastaddress"
           params:
             adom: "ansible"
-            multicast-address: "your_value"
+            multicast_address: "your_value"
 '''
 
 RETURN = '''
@@ -240,6 +243,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_multicastaddress': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

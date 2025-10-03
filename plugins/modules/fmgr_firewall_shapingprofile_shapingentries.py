@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -157,12 +160,12 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_shapingprofile_shapingentries:
         bypass_validation: false
         adom: ansible
-        shaping-profile: "ansible-test" # profile-name
+        shaping_profile: "ansible-test" # profile-name
         state: present
         firewall_shapingprofile_shapingentries:
-          guaranteed-bandwidth-percentage: 50
+          guaranteed_bandwidth_percentage: 50
           id: 1
-          maximum-bandwidth-percentage: 70
+          maximum_bandwidth_percentage: 70
           priority: medium # <value in [low, medium, high]>
 
 - name: Gathering fortimanager facts
@@ -180,8 +183,8 @@ EXAMPLES = '''
           selector: "firewall_shapingprofile_shapingentries"
           params:
             adom: "ansible"
-            shaping-profile: "ansible-test" # profile-name
-            shaping-entries: "your_value"
+            shaping_profile: "ansible-test" # profile-name
+            shaping_entries: "your_value"
 '''
 
 RETURN = '''
@@ -240,6 +243,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'shaping-profile': {'type': 'str', 'api_name': 'shaping_profile'},
         'shaping_profile': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_shapingprofile_shapingentries': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

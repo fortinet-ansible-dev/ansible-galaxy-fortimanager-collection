@@ -317,8 +317,8 @@ EXAMPLES = '''
     - name: Filters for remote system server.
       fortinet.fortimanager.fmgr_devprof_log_syslogd_filter:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -421,65 +421,65 @@ def main():
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warning', 'notification', 'information', 'debug'],
                     'type': 'str'
                 },
-                'anomaly': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'anomaly': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-list': {
-                    'v_range': [['7.0.4', '7.0.13']],
+                    'v_range': [['7.0.4', '7.0.14']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.0.4', '7.0.13']],
+                            'v_range': [['7.0.4', '7.0.14']],
                             'choices': [
                                 'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'netscan', 'spam', 'anomaly', 'waf'
                             ],
                             'type': 'str'
                         },
                         'fields': {
-                            'v_range': [['7.0.4', '7.0.13']],
+                            'v_range': [['7.0.4', '7.0.14']],
                             'type': 'list',
                             'options': {
-                                'args': {'v_range': [['7.0.4', '7.0.13']], 'type': 'raw'},
-                                'field': {'v_range': [['7.0.4', '7.0.13']], 'type': 'str'},
-                                'negate': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'args': {'v_range': [['7.0.4', '7.0.14']], 'type': 'raw'},
+                                'field': {'v_range': [['7.0.4', '7.0.14']], 'type': 'str'},
+                                'negate': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'id': {'v_range': [['7.0.4', '7.0.13']], 'type': 'int'}
+                        'id': {'v_range': [['7.0.4', '7.0.14']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'forward-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'forward-traffic': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'free-style': {
-                    'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']],
+                            'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']],
                             'choices': [
                                 'traffic', 'event', 'virus', 'webfilter', 'attack', 'spam', 'voip', 'dlp', 'app-ctrl', 'anomaly', 'waf', 'gtp', 'dns',
                                 'ssh', 'ssl', 'file-filter', 'icap', 'ztna', 'virtual-patch', 'debug'
                             ],
                             'type': 'str'
                         },
-                        'filter': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                        'filter-type': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'}
+                        'filter': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'filter-type': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'gtp': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'multicast-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sniffer-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'voip': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ztna-traffic': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'filter-type': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                'filter': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'cifs': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dns': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'netscan-discovery': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gtp': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-traffic': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'multicast-traffic': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sniffer-traffic': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'voip': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ztna-traffic': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'filter-type': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                'filter': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'cifs': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssl': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dns': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netscan-discovery': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'netscan-vulnerability': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'forti-switch': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'debug': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -584,8 +587,8 @@ EXAMPLES = '''
         adom: ansible
         state: present
         system_sdnconnector:
-          azure-region: global # <value in [global, china, germany, ...]>
-          # compartment-id: 1
+          azure_region: global # <value in [global, china, germany, ...]>
+          # compartment_id: 1
           name: ansible-test-sdn
           password: fortinet
           server: ALL
@@ -607,7 +610,7 @@ EXAMPLES = '''
           selector: "system_sdnconnector"
           params:
             adom: "ansible"
-            sdn-connector: "your_value"
+            sdn_connector: "your_value"
 '''
 
 RETURN = '''
@@ -664,6 +667,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_sdnconnector': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -778,7 +782,7 @@ def main():
                     'options': {
                         'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'external-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
+                        'external-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

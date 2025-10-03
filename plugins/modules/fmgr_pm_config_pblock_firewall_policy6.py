@@ -581,8 +581,8 @@ EXAMPLES = '''
     - name: Configure IPv6 policies.
       fortinet.fortimanager.fmgr_pm_config_pblock_firewall_policy6:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -754,7 +754,7 @@ def main():
                 'application': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'application-list': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'auto-asic-offload': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -788,13 +788,13 @@ def main():
                 'label': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'logtraffic': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'name': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'nat': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natinbound': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'natoutbound': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'np-acceleration': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -804,7 +804,7 @@ def main():
                 'policyid': {'v_range': [['7.0.3', '7.6.2']], 'required': True, 'type': 'int'},
                 'poolname': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'profile-group': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'profile-type': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['single', 'group'], 'type': 'str'},
                 'replacemsg-override-group': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'rsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -816,11 +816,11 @@ def main():
                 'srcaddr': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'srcaddr-negate': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcintf': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror-intf': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
-                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'status': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-mss-receiver': {'v_range': [['7.0.3', '7.6.2']], 'type': 'int'},
                 'tcp-mss-sender': {'v_range': [['7.0.3', '7.6.2']], 'type': 'int'},
@@ -841,9 +841,9 @@ def main():
                 'voip-profile': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
                 'waf-profile': {'v_range': [['7.0.3', '7.6.2']], 'type': 'str'},
-                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webcache': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webcache-https': {
-                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']],
+                    'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

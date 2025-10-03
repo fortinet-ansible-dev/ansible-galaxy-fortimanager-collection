@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -187,7 +190,7 @@ EXAMPLES = '''
         state: present
         pkg_firewall_multicastpolicy6:
           action: accept # <value in [deny, accept]>
-          auto-asic-offload: enable
+          auto_asic_offload: enable
           dstaddr: all
           dstintf: any
           id: 1
@@ -212,7 +215,7 @@ EXAMPLES = '''
           params:
             adom: "ansible"
             pkg: "ansible" # package name
-            multicast-policy6: "your_value"
+            multicast_policy6: "your_value"
 '''
 
 RETURN = '''
@@ -269,12 +272,17 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_firewall_multicastpolicy6': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
-                'auto-asic-offload': {'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-asic-offload': {
+                    'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'dstaddr': {'type': 'raw'},
                 'dstintf': {'type': 'str'},
                 'end-port': {'type': 'int'},

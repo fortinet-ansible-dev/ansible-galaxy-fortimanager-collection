@@ -276,8 +276,8 @@ EXAMPLES = '''
     - name: Configure firmware management settings.
       fortinet.fortimanager.fmgr_fmupdate_fwmsetting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fwmsetting:
@@ -381,33 +381,33 @@ def main():
                 'immx-source': {'v_range': [['6.4.2', '']], 'choices': ['fmg', 'fgt', 'cloud'], 'type': 'str'},
                 'log': {'v_range': [['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['fwm', 'fwm_dm', 'fwm_dm_json'], 'type': 'str'},
                 'upgrade-timeout': {
-                    'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']],
+                    'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']],
                     'type': 'dict',
                     'options': {
-                        'check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'license-check-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'put-image-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'retrieve-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'rpc-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
-                        'total-timeout': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'type': 'int'},
+                        'check-status-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'license-check-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'put-image-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'retrieve-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'rpc-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                        'total-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
                         'health-check-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'}
                     }
                 },
-                'retry-interval': {'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
-                'retry-max': {'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
+                'retry-interval': {'v_range': [['7.0.10', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'retry-max': {'v_range': [['7.0.10', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
                 'health-check': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-device-history': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'max-profile-history': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'retrieve': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'revision-diff': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'send-image-retry': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
+                'send-image-retry': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

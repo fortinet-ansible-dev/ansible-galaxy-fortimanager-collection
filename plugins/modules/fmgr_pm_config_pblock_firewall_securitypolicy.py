@@ -515,8 +515,8 @@ EXAMPLES = '''
     - name: Configure NGFW IPv4/IPv6 application policies.
       fortinet.fortimanager.fmgr_pm_config_pblock_firewall_securitypolicy:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -681,11 +681,11 @@ def main():
                 'av-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'cifs-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'comments': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'dnsfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'dstaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'dstaddr-negate': {
-                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -693,7 +693,7 @@ def main():
                 'dstintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'emailfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'enforce-default-app-port': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'file-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'file-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'fsso-groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'global-label': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'groups': {'v_range': [['7.0.3', '']], 'type': 'raw'},
@@ -702,102 +702,102 @@ def main():
                 'internet-service-custom': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'internet-service-custom-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'internet-service-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'internet-service-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-src-custom': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'internet-service-src-custom-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'internet-service-src-group': {'v_range': [['7.0.3', '']], 'type': 'raw'},
-                'internet-service-src-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service-src-name': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service-src-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ips-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'learning-mode': {
-                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'logtraffic': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'name': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'nat46': {
-                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'nat64': {
-                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'policyid': {'v_range': [['7.0.3', '']], 'required': True, 'type': 'int'},
                 'profile-group': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'profile-type': {'v_range': [['7.0.3', '']], 'choices': ['single', 'group'], 'type': 'str'},
                 'schedule': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'sctp-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'sctp-filter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'send-deny-packet': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'service-negate': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'srcaddr': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'srcaddr-negate': {
-                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'srcaddr6': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'srcintf': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ssh-filter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'url-category': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'users': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'utm-status': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'videofilter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
+                'videofilter-profile': {'v_range': [['7.0.3', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'voip-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'dlp-sensor': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'internet-service-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'logtraffic-start': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'srcaddr4': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'dstaddr4': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'internet-service-src-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'internet-service6': {
-                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'internet-service6-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-custom-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-custom-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-negate': {
-                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'internet-service6-src': {
-                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'internet-service6-src-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-custom': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-src-custom-group': {
-                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'type': 'raw'
                 },
-                'internet-service6-src-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
-                'internet-service6-src-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-group': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
+                'internet-service6-src-name': {'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'raw'},
                 'internet-service6-src-negate': {
-                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['7.2.1', '7.2.1'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'casb-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'dstaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ips-voip-filter': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'},
-                'srcaddr6-negate': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr6-negate': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ips-voip-filter': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
+                'srcaddr6-negate': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
             }

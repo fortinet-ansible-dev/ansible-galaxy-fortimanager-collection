@@ -125,7 +125,7 @@ EXAMPLES = '''
         facts:
           selector: "system_sql_tsindexfield"
           params:
-            ts-index-field: "your_value"
+            ts_index_field: "your_value"
 '''
 
 RETURN = '''

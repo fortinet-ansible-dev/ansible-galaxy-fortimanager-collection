@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -702,6 +705,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_ldap': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -760,14 +764,14 @@ def main():
                         'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'client-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'max-connections': {'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'max-connections': {'v_range': [['7.0.11', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
                         'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
                         'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                         'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
                         'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                         'ssl-max-proto-version': {
-                            'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
+                            'v_range': [['7.2.10', '7.2.11'], ['7.4.4', '7.4.7'], ['7.6.2', '']],
                             'choices': ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3'],
                             'type': 'str'
                         },

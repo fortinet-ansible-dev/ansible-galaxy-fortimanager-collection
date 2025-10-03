@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -2005,6 +2008,7 @@ def main():
     module_primary_key = 'policyid'
     module_arg_spec = {
         'pkg': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_footer_policy': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -2306,9 +2310,9 @@ def main():
                 'udp-timeout-pid': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ztna-tags-match-logic': {'v_range': [['7.0.3', '']], 'choices': ['or', 'and'], 'type': 'str'},
                 'uuid-idx': {'v_range': [['7.0.1', '']], 'type': 'int'},
-                'device-ownership': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'extended-log': {'v_range': [['7.0.11', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-ownership': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'v_range': [['7.0.11', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

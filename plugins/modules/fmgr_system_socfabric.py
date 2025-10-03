@@ -143,8 +143,8 @@ EXAMPLES = '''
     - name: SOC Fabric.
       fortinet.fortimanager.fmgr_system_socfabric:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_socfabric:
@@ -218,7 +218,7 @@ def main():
             'options': {
                 'name': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'port': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                'psk': {'v_range': [['7.0.0', '7.2.9']], 'type': 'raw'},
+                'psk': {'v_range': [['7.0.0', '7.2.11']], 'type': 'raw'},
                 'role': {'v_range': [['7.0.0', '']], 'choices': ['member', 'supervisor'], 'type': 'str'},
                 'secure-connection': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

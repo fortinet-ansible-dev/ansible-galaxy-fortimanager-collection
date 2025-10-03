@@ -64,6 +64,9 @@ options:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
         elements: int
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -591,8 +594,8 @@ EXAMPLES = '''
     - name: NP6Lite anomaly protection
       fortinet.fortimanager.fmgr_system_npu_fpanomaly:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -719,6 +722,7 @@ def main():
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_npu_fpanomaly': {
             'type': 'dict',
             'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
@@ -788,7 +792,7 @@ def main():
                 'sctp-crc-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'sctp-clen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
                 'uesp-minlen-err': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['drop', 'trap-to-host'], 'type': 'str'},
-                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
+                'sctp-csum-err': {'v_range': [['7.2.5', '7.2.11'], ['7.4.3', '']], 'choices': ['allow', 'drop', 'trap-to-host'], 'type': 'str'}
             }
         }
     }

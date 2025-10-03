@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -768,8 +771,8 @@ EXAMPLES = '''
     - name: Managed-switch port list.
       fortinet.fortimanager.fmgr_switchcontroller_managedswitch_ports:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -952,6 +955,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'managed-switch': {'type': 'str', 'api_name': 'managed_switch'},
         'managed_switch': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'switchcontroller_managedswitch_ports': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -998,12 +1002,12 @@ def main():
                 'type': {'choices': ['physical', 'trunk'], 'type': 'str'},
                 'untagged-vlans': {'type': 'raw'},
                 'vlan': {'type': 'str'},
-                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'export-to-pool-flag': {'v_range': [['6.2.1', '6.2.3'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'mac-addr': {'v_range': [['6.2.1', '6.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'packet-sample-rate': {'v_range': [['6.2.0', '']], 'type': 'int'},
                 'packet-sampler': {'v_range': [['6.2.0', '']], 'choices': ['disabled', 'enabled'], 'type': 'str'},
                 'sticky-mac': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'storm-control-policy': {'v_range': [['6.2.0', '6.2.3'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'dot1x-enable': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-miss-heartbeats': {'v_range': [['6.2.0', '6.2.13']], 'type': 'int'},
                 'access-mode': {'v_range': [['6.4.0', '']], 'choices': ['normal', 'nac', 'dynamic', 'static'], 'type': 'str'},
@@ -1060,23 +1064,23 @@ def main():
                 'ptp-status': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'restricted-auth-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'allow-arp-monitor': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'export-to': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'export-to-pool': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'export-to': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'export-to-pool': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'fallback-port': {'v_range': [['7.4.3', '']], 'type': 'str'},
-                'fgt-peer-device-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'fgt-peer-port-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'fiber-port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'flags': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'fortilink-port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'isl-local-trunk-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'isl-peer-device-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'isl-peer-port-name': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'poe-capable': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'port-number': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'port-prefix-type': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'ptp-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'fgt-peer-device-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'fgt-peer-port-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'fiber-port': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'flags': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'fortilink-port': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'isl-local-trunk-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'isl-peer-device-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'isl-peer-port-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'poe-capable': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'port-number': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'port-prefix-type': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'ptp-policy': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'speed': {
-                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': [
                         'auto', '10full', '10half', '100full', '100half', '1000full', '10000full', '1000auto', '40000full', '1000fiber', '10000',
                         '40000', 'auto-module', '100FX-half', '100FX-full', '100000full', '2500full', '25000full', '50000full', '40000auto', '10000cr',
@@ -1085,11 +1089,11 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'speed-mask': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'stacking-port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'switch-id': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'virtual-port': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'int'},
-                'export-tags': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'speed-mask': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'stacking-port': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'switch-id': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'virtual-port': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
+                'export-tags': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'log-mac-event': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'pd-capable': {'v_range': [['7.4.4', '']], 'type': 'int'},
                 'qnq': {'v_range': [['7.6.0', '']], 'type': 'raw'}

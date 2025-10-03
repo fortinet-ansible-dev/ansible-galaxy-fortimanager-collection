@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.10.0 - configuring FortiManager
+# fortinet.fortimanager:2.11.0 - configuring FortiManager
 
 ## Description
 
@@ -10,12 +10,10 @@ FortiManager Ansible Collection includes the modules that are able to configure 
 
 ## Requirements
 
-- Ansible 2.15.0 or above
+- Ansible Core 2.15.0 or above
 - Python 3.9 or above
 
 ## Installation
-
-This collection is distributed via [ansible-galaxy](https://galaxy.ansible.com/fortinet/fortimanager).
 
 Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
 
@@ -31,7 +29,6 @@ collections:
   - name: fortinet.fortimanager
 ```
 
-Note that if you install any collections from Ansible Galaxy, they will not be upgraded automatically when you upgrade the Ansible package.
 To upgrade the collection to the latest available version, run the following command:
 
 ```

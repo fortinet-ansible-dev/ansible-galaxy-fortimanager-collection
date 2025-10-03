@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -139,7 +142,7 @@ EXAMPLES = '''
           # port: 8000
           # secure: none # <value in [none, starttls, pop3s]>
           # server: ansible
-          # ssl-min-proto-version: default # <value in [default, TLSv1, TLSv1-1, ...]>
+          # ssl_min_proto_version: default # <value in [default, TLSv1, TLSv1-1, ...]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -213,6 +216,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_pop3': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

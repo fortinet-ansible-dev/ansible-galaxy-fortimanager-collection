@@ -156,7 +156,7 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_admin_tacacs:
-          authen-type: auto # <value in [auto, ascii, pap, ...]>
+          authen_type: auto # <value in [auto, ascii, pap, ...]>
           authorization: disable
           key: fortinet
           name: ansible-test-tacacs

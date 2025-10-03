@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -191,12 +194,12 @@ EXAMPLES = '''
         adom: ansible
         state: present
         certificate_template:
-          # digest-type: sha1
-          id-type: host-ip
-          key-size: 512
-          key-type: rsa
+          # digest_type: sha1
+          id_type: host-ip
+          key_size: 512
+          key_type: rsa
           name: "ansible-test"
-          scep-password: "fortinet1"
+          scep_password: "fortinet1"
           type: external
 
 - name: Gathering fortimanager facts
@@ -271,6 +274,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'certificate_template': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

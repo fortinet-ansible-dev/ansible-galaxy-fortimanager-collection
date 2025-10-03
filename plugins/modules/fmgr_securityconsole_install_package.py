@@ -180,7 +180,7 @@ EXAMPLES = '''
             - name: "{{ device }}"
               vdom: root
       register: r
-    - name: Poll the task
+    - name: Poll the task of installing policy package
       fortinet.fortimanager.fmgr_fact:
         facts:
           selector: "task_task"
@@ -199,7 +199,7 @@ EXAMPLES = '''
             - json
           vdoms: root
       register: r
-    - name: Poll the task
+    - name: Poll the task of generating preview report
       fortinet.fortimanager.fmgr_fact:
         facts:
           selector: "task_task"

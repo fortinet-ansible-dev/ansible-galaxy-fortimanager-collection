@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -238,8 +241,8 @@ EXAMPLES = '''
     - name: Configure NAC policy matching pattern to identify matching NAC devices.
       fortinet.fortimanager.fmgr_pkg_user_nacpolicy:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -331,6 +334,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_user_nacpolicy': {
             'type': 'dict',
             'v_range': [['7.2.1', '']],
@@ -357,16 +361,16 @@ def main():
                 'user': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'user-group': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'severity': {'v_range': [['7.4.0', '']], 'type': 'raw'},
-                'firewall-address': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'firewall-address': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'fortivoice-tag': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'match-period': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'match-type': {'v_range': [['7.4.3', '']], 'choices': ['dynamic', 'override'], 'type': 'str'},
-                'switch-fortilink': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-group': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-mac-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-scope': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-port-policy': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
+                'switch-fortilink': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-group': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-mac-policy': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-scope': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-port-policy': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'switch-auto-auth': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'enable', 'global'], 'type': 'str'},
                 'match-remove': {'v_range': [['7.6.3', '']], 'choices': ['link-down', 'default'], 'type': 'str'}
             }
         }

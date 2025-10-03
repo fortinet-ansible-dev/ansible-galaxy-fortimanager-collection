@@ -64,6 +64,9 @@ options:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
         elements: int
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -230,8 +233,8 @@ EXAMPLES = '''
     - name: Configure HTTP AntiVirus options.
       fortinet.fortimanager.fmgr_antivirus_profile_http:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -333,6 +336,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'profile': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'antivirus_profile_http': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -358,7 +362,7 @@ def main():
                 'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
-                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
+                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
                 'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
             }
         }

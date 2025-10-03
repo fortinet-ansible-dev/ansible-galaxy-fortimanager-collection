@@ -123,8 +123,8 @@ EXAMPLES = '''
     - name: FortiView auto-cache settings.
       fortinet.fortimanager.fmgr_system_fortiview_autocache:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_fortiview_autocache:
@@ -193,7 +193,7 @@ def main():
                 'aggressive-fortiview': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'interval': {'type': 'int'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'incr-fortiview': {'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'incr-fortiview': {'v_range': [['7.2.5', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

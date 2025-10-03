@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -129,12 +132,12 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_proxyaddress_headergroup:
         bypass_validation: false
         adom: ansible
-        proxy-address: "ansible-test" # name
+        proxy_address: "ansible-test" # name
         state: present
         firewall_proxyaddress_headergroup: # available only when type is set to "Advanced(Source)" in prox-address
-          case-sensitivity: disable
+          case_sensitivity: disable
           header: ansible-test-header
-          header-name: ansible-test-header
+          header_name: ansible-test-header
           id: 1
 
 - name: Gathering fortimanager facts
@@ -152,8 +155,8 @@ EXAMPLES = '''
           selector: "firewall_proxyaddress_headergroup" # available only when type is set to "Advanced(Source)" in prox-address
           params:
             adom: "ansible"
-            proxy-address: "ansible-test" # name
-            header-group: "your_value"
+            proxy_address: "ansible-test" # name
+            header_group: "your_value"
 '''
 
 RETURN = '''
@@ -212,6 +215,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'proxy-address': {'type': 'str', 'api_name': 'proxy_address'},
         'proxy_address': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_proxyaddress_headergroup': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

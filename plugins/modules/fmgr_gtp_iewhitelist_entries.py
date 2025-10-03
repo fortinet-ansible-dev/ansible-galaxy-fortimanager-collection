@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -120,8 +123,8 @@ EXAMPLES = '''
     - name: Entries of white list
       fortinet.fortimanager.fmgr_gtp_iewhitelist_entries:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -189,6 +192,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'ie-white-list': {'type': 'str', 'api_name': 'ie_white_list'},
         'ie_white_list': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'gtp_iewhitelist_entries': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

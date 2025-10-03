@@ -782,8 +782,8 @@ EXAMPLES = '''
     - name: Log settings.
       fortinet.fortimanager.fmgr_system_log_settings:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_log_settings:
@@ -1013,9 +1013,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1048,9 +1048,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1083,9 +1083,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.13']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1112,18 +1112,22 @@ def main():
                 'sync-search-timeout': {'type': 'int'},
                 'keep-dev-logs': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'device-auto-detect': {
-                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'unencrypted-logging': {
-                    'v_range': [['7.0.10', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '7.6.2']],
+                    'v_range': [['7.0.10', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
-                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']], 'type': 'int'},
-                'legacy-auth-mode': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'legacy-auth-mode': {
+                    'v_range': [['7.0.14', '7.0.14'], ['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'FFW-custom-field1': {'v_range': [['7.6.3', '']], 'type': 'str'},
                 'unencrypted-logging-tcp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

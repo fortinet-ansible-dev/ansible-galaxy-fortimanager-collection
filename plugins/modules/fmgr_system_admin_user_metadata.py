@@ -156,7 +156,7 @@ EXAMPLES = '''
           selector: "system_admin_user_metadata"
           params:
             user: "ansible-test" # userid
-            meta-data: "your_value"
+            meta_data: "your_value"
 '''
 
 RETURN = '''

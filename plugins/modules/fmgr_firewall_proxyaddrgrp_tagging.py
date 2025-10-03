@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -121,7 +124,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_proxyaddrgrp_tagging:
         bypass_validation: false
         adom: ansible
-        proxy-addrgrp: "ansible-name" # name
+        proxy_addrgrp: "ansible-name" # name
         state: present
         firewall_proxyaddrgrp_tagging:
           category: "ansible-category" # need a valid category name
@@ -143,7 +146,7 @@ EXAMPLES = '''
           selector: "firewall_proxyaddrgrp_tagging"
           params:
             adom: "ansible"
-            proxy-addrgrp: "ansible-test2" # name
+            proxy_addrgrp: "ansible-test2" # name
             tagging: "your_value"
 '''
 
@@ -203,6 +206,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'proxy-addrgrp': {'type': 'str', 'api_name': 'proxy_addrgrp'},
         'proxy_addrgrp': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_proxyaddrgrp_tagging': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

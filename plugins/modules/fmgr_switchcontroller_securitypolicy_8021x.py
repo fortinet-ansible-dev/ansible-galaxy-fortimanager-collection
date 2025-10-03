@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -250,8 +253,8 @@ EXAMPLES = '''
     - name: Configure 802.
       fortinet.fortimanager.fmgr_switchcontroller_securitypolicy_8021x:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -338,6 +341,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'switchcontroller_securitypolicy_8021x': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -363,11 +367,11 @@ def main():
                 'authserver-timeout-vlan': {'v_range': [['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'authserver-timeout-vlanid': {'v_range': [['6.4.3', '']], 'type': 'str'},
                 'authserver-timeout-tagged': {
-                    'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['static', 'disable', 'lldp-voice'],
                     'type': 'str'
                 },
-                'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'authserver-timeout-tagged-vlanid': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'dacl': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-order': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'mab'], 'type': 'str'},
                 'auth-priority': {'v_range': [['7.6.0', '']], 'choices': ['dot1x-mab', 'mab-dot1x', 'legacy'], 'type': 'str'}

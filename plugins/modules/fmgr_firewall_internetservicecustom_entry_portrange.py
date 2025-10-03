@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -127,13 +130,13 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_internetservicecustom_entry_portrange:
         bypass_validation: false
         adom: ansible
-        internet-service-custom: "ansible-test" # name
+        internet_service_custom: "ansible-test" # name
         entry: "1" # id
         state: present
         firewall_internetservicecustom_entry_portrange:
-          end-port: 6
+          end_port: 6
           id: 1
-          start-port: 1
+          start_port: 1
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -150,9 +153,9 @@ EXAMPLES = '''
           selector: "firewall_internetservicecustom_entry_portrange"
           params:
             adom: "ansible"
-            internet-service-custom: "ansible-test" # name
+            internet_service_custom: "ansible-test" # name
             entry: "1" # id
-            port-range: "your_value"
+            port_range: "your_value"
 '''
 
 RETURN = '''
@@ -212,6 +215,7 @@ def main():
         'internet-service-custom': {'type': 'str', 'api_name': 'internet_service_custom'},
         'internet_service_custom': {'type': 'str'},
         'entry': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_internetservicecustom_entry_portrange': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

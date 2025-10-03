@@ -159,7 +159,7 @@ class HttpApi(HttpApiBase):
         if rc == -11:
             # THE CONNECTION GOT LOST SOMEHOW, REMOVE THE SID AND REPORT BAD LOGIN
             self.logout()
-            raise FMGBaseException(msg="Error -11 -- the Session ID was likely malformed somehow. Exiting")
+            raise FMGBaseException(msg="Error -11 -- Failed to get the FMG system status. Exiting")
         elif rc == 0:
             try:
                 self.check_mode()
@@ -276,7 +276,9 @@ class HttpApi(HttpApiBase):
             self.connection._connect()
         if self._status:
             return 0, self._status
-        rc, self._status = self.send_request("get", self._tools.format_request("get", "/cli/global/system/status"))
+        rc, self._status = self.send_request("get", self._tools.format_request("get", "/sys/status"))
+        if rc == -11:
+            rc, self._status = self.send_request("get", self._tools.format_request("get", "/cli/global/system/status"))
         return rc, self._status
 
     def process_workspace_locking_internal(self, param):
@@ -376,6 +378,9 @@ class HttpApi(HttpApiBase):
         """
         url = "/cli/global/system/global"
         rc, resp_obj = self.send_request("get", self._tools.format_request("get", url, fields=["workspace-mode", "adom-status"]))
+        # Skip this step if user is not permitted to access this resource
+        if rc == -11:
+            self.log("Skip workspace-mode check due to no permission to access /cli/global/system/global")
         if "data" in resp_obj and isinstance(resp_obj["data"], dict):
             if resp_obj["data"].get("adom-status", "") in [1, "enable"]:
                 self._uses_adoms = True

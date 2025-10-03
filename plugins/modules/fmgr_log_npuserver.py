@@ -64,6 +64,9 @@ options:
         description: The rc codes list with which the conditions to fail will be overriden.
         type: list
         elements: int
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -205,6 +208,9 @@ options:
                         choices:
                             - 'udp'
                             - 'tcp'
+                    vdom_:
+                        type: str
+                        description: Vdom.
             fmgr_syslog_facility:
                 aliases: ['syslog-facility']
                 type: int
@@ -235,8 +241,8 @@ EXAMPLES = '''
     - name: Configure all the log servers and create the server groups.
       fortinet.fortimanager.fmgr_log_npuserver:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -264,6 +270,7 @@ EXAMPLES = '''
           #     template_tx_timeout: <integer>
           #     vdom: <string>
           #     log_transport: <value in [udp, tcp]>
+          #     vdom_: <string>
           # fmgr_syslog_facility: <integer>
           # syslog_severity: <integer>
           # enforce_seq_order: <value in [disable, enable]>
@@ -323,6 +330,7 @@ def main():
     module_primary_key = None
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'log_npuserver': {
             'type': 'dict',
             'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
@@ -345,8 +353,8 @@ def main():
                         'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'raw'},
-                        'log-gen-event': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log-user-info': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log-gen-event': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'log-user-info': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -361,8 +369,9 @@ def main():
                         'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
                         'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                         'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                        'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'}
+                        'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.10'], ['7.4.0', '']], 'type': 'str'},
+                        'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
+                        'vdom_': {'v_range': [['7.2.11', '7.2.11']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -281,7 +284,7 @@ EXAMPLES = '''
         pkg: ansible # package name
         state: present
         pkg_firewall_interfacepolicy:
-          address-type: ipv4 # <value in [ipv4, ipv6]>
+          address_type: ipv4 # <value in [ipv4, ipv6]>
           comments: "ansible-comment"
           interface: sslvpn_tun_intf
           policyid: 1
@@ -303,7 +306,7 @@ EXAMPLES = '''
           params:
             adom: "ansible"
             pkg: "ansible" # package name
-            interface-policy: "your_value"
+            interface_policy: "your_value"
 '''
 
 RETURN = '''
@@ -360,54 +363,67 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'pkg': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_firewall_interfacepolicy': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
             'options': {
-                'address-type': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'application-list': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'address-type': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'application-list': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'application-list-status': {
-                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'av-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'av-profile-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'comments': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'dlp-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dsri': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dstaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'interface': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'ips-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'ips-sensor-status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'label': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
-                'logtraffic': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
-                'policyid': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'required': True, 'type': 'int'},
+                'av-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'av-profile-status': {
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'comments': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-sensor-status': {
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'dsri': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dstaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'interface': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'ips-sensor-status': {
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'label': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'logtraffic': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
+                'policyid': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'required': True, 'type': 'int'},
                 'scan-botnet-connections': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
-                'service': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
+                'service': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
                 'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
                 'spamfilter-profile-status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'srcaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'raw'},
-                'status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'srcaddr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'status': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'webfilter-profile': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'webfilter-profile-status': {
-                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'emailfilter-profile': {'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'emailfilter-profile-status': {
-                    'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'uuid': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'uuid': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'casi-profile': {'v_range': [['6.2.0', '6.2.13']], 'type': 'str'},
                 'casi-profile-status': {'v_range': [['6.2.0', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'dlp-profile': {'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'dlp-profile-status': {
-                    'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['7.2.0', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

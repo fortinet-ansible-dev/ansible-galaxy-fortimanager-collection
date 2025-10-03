@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -774,7 +777,7 @@ EXAMPLES = '''
           _scope:
             - name: FGT_AWS # need a valid device name
               vdom: root # need a valid vdom name under the device
-          arp-reply: disable
+          arp_reply: disable
           color: 1
           comment: "ansible-comment"
           id: 1
@@ -853,6 +856,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'vip6': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_vip6_dynamicmapping': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -994,7 +998,7 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'ndp-reply': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ndp-reply': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

@@ -778,7 +778,7 @@ EXAMPLES = '''
         state: present
         system_admin_user:
           adom:
-            - adom-name: ansible
+            - adom_name: ansible
           userid: "ansible-test"
     - name: Admin domain.
       fortinet.fortimanager.fmgr_system_admin_user_adom:
@@ -786,7 +786,7 @@ EXAMPLES = '''
         user: ansible-test # userid
         state: present
         system_admin_user_adom:
-          adom-name: "ALL ADOMS"
+          adom_name: "ALL ADOMS"
 '''
 
 RETURN = '''
@@ -980,7 +980,7 @@ def main():
                     'options': {'policy-block-name': {'v_range': [['7.6.0', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'old-password': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'str'}
+                'old-password': {'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'str'}
             }
         }
     }

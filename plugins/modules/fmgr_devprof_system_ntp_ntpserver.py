@@ -165,8 +165,8 @@ EXAMPLES = '''
     - name: Configure the FortiGate to connect to any available third-party NTP server.
       fortinet.fortimanager.fmgr_devprof_system_ntp_ntpserver:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -250,9 +250,9 @@ def main():
                 'key-id': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'no_log': True, 'type': 'int'},
                 'ntpv3': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'server': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'str'},
-                'interface': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.0.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']], 'type': 'str'},
+                'interface': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.0.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'interface-select-method': {
-                    'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.0.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '7.0.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['auto', 'sdwan', 'specify'],
                     'type': 'str'
                 },

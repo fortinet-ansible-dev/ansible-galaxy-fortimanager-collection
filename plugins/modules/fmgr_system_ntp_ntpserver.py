@@ -143,7 +143,7 @@ EXAMPLES = '''
           authentication: disable
           id: 1
           key: fortinet
-          key-id: 1
+          key_id: 1
           ntpv3: enable
           server: ntp1.fortinet.net
 

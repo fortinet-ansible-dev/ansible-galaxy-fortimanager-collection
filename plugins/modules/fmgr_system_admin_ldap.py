@@ -221,7 +221,7 @@ EXAMPLES = '''
         state: present
         system_admin_ldap:
           adom:
-            - adom-name: ansible
+            - adom_name: ansible
           name: ansible-test-ldap
           password: Fortinet
           port: 390
@@ -307,7 +307,7 @@ def main():
                 'attributes': {'type': 'str'},
                 'ca-cert': {'type': 'str'},
                 'cnid': {'type': 'str'},
-                'connect-timeout': {'v_range': [['6.0.0', '7.4.2']], 'type': 'int'},
+                'connect-timeout': {'v_range': [['6.0.0', '7.2.9'], ['7.4.0', '7.4.2']], 'type': 'int'},
                 'dn': {'type': 'str'},
                 'filter': {'type': 'str'},
                 'group': {'type': 'str'},

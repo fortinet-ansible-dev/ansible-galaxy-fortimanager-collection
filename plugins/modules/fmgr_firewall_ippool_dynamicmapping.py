@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -383,6 +386,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'ippool': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_ippool_dynamicmapping': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -417,7 +421,7 @@ def main():
                 'add-nat64-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.13'], ['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
                 'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'client-prefix-length': {'v_range': [['7.6.0', '']], 'type': 'int'},

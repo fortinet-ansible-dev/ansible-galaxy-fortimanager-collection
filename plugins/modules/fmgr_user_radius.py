@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -1686,6 +1689,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_radius': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -1936,12 +1940,16 @@ def main():
                         'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                         'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
                         'switch-controller-nas-ip-dynamic': {
-                            'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']],
+                            'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                        'require-message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'require-message-authenticator': {
+                            'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        },
                         'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
@@ -2056,9 +2064,13 @@ def main():
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
-                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.9'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                'require-message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'require-message-authenticator': {
+                    'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }

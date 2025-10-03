@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -149,8 +152,8 @@ EXAMPLES = '''
     - name: AOC list.
       fortinet.fortimanager.fmgr_hotspot20_h2qpadviceofcharge_aoclist:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -224,6 +227,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'h2qp-advice-of-charge': {'type': 'str', 'api_name': 'h2qp_advice_of_charge'},
         'h2qp_advice_of_charge': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'hotspot20_h2qpadviceofcharge_aoclist': {
             'type': 'dict',
             'v_range': [['7.0.3', '']],

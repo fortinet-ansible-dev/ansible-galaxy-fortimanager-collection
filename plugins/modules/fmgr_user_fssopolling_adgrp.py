@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -115,7 +118,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_user_fssopolling_adgrp:
         bypass_validation: false
         adom: ansible
-        fsso-polling: 1 # id
+        fsso_polling: 1 # id
         state: present
         user_fssopolling_adgrp:
           name: ansible-test
@@ -135,7 +138,7 @@ EXAMPLES = '''
           selector: "user_fssopolling_adgrp"
           params:
             adom: "ansible"
-            fsso-polling: 1 # id
+            fsso_polling: 1 # id
             adgrp: "your_value"
 '''
 
@@ -195,6 +198,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'fsso-polling': {'type': 'str', 'api_name': 'fsso_polling'},
         'fsso_polling': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_fssopolling_adgrp': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

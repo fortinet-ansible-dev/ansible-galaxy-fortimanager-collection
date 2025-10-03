@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -135,7 +138,7 @@ EXAMPLES = '''
           selector: "user_devicecategory"
           params:
             adom: "ansible"
-            device-category: "your_value"
+            device_category: "your_value"
 '''
 
 RETURN = '''
@@ -192,6 +195,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_devicecategory': {
             'type': 'dict',
             'v_range': [['6.0.0', '7.2.1']],

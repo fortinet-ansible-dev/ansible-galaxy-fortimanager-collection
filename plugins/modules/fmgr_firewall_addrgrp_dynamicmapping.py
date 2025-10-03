@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -193,7 +196,7 @@ EXAMPLES = '''
           _scope:
             - name: FGT_AWS # need a valid device name
               vdom: root # need a valid vdom name under the device
-          allow-routing: disable
+          allow_routing: disable
           color: 1
           member: "ansible-test1"
           visibility: enable
@@ -272,6 +275,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'addrgrp': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_addrgrp_dynamicmapping': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

@@ -180,7 +180,7 @@ EXAMPLES = '''
           id: 1
           passwd: fortinet
           port: 1
-          secure-option: none # <value in [default, none, smtps, ...]>
+          secure_option: none # <value in [default, none, smtps, ...]>
           server: ALL
           user: ansible
 
@@ -266,7 +266,7 @@ def main():
                 'user': {'type': 'str'},
                 'auth-type': {'v_range': [['6.4.6', '']], 'choices': ['psk', 'certificate'], 'type': 'str'},
                 'local-cert': {'v_range': [['6.4.6', '']], 'type': 'str'},
-                'from': {'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'str'},
+                'from': {'v_range': [['7.0.7', '7.0.14'], ['7.2.2', '']], 'type': 'str'},
                 'ssl-protocol': {
                     'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
                     'choices': ['follow-global-ssl-protocol', 'sslv3', 'tlsv1.0', 'tlsv1.1', 'tlsv1.2', 'tlsv1.3'],

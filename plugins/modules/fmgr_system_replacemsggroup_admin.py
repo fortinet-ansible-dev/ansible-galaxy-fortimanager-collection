@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -134,13 +137,13 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_system_replacemsggroup_admin:
         bypass_validation: false
         adom: ansible
-        replacemsg-group: ansible-test # name
+        replacemsg_group: ansible-test # name
         state: present
         system_replacemsggroup_admin:
           buffer: ansible-buffer
           format: none # <value in [none, text, html, ...]>
           header: http # <value in [none, http, 8bit]>
-          msg-type: ansible # required
+          msg_type: ansible # required
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -157,7 +160,7 @@ EXAMPLES = '''
           selector: "system_replacemsggroup_admin"
           params:
             adom: "ansible"
-            replacemsg-group: "ansible-test" # name
+            replacemsg_group: "ansible-test" # name
             admin: "your_value"
 '''
 
@@ -217,6 +220,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'replacemsg-group': {'type': 'str', 'api_name': 'replacemsg_group'},
         'replacemsg_group': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_replacemsggroup_admin': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

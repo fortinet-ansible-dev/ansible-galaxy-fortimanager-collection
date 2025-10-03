@@ -257,8 +257,8 @@ EXAMPLES = '''
     - name: Configure dm.
       fortinet.fortimanager.fmgr_system_dm:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_dm:
@@ -373,13 +373,17 @@ def main():
                 'fgfm-install-refresh-count': {'v_range': [['6.2.5', '']], 'type': 'int'},
                 'conf-merge-after-script': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-autoupdate': {
-                    'v_range': [['6.4.12', '6.4.15'], ['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']],
+                    'v_range': [['6.4.12', '6.4.15'], ['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.15'], ['7.0.9', '7.0.13'], ['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
-                'install-fds-timeout': {'v_range': [['7.2.6', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
-                'handle-nonhasync-config': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.15'], ['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
+                'install-fds-timeout': {'v_range': [['7.2.6', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
+                'handle-nonhasync-config': {
+                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                }
             }
         }
     }

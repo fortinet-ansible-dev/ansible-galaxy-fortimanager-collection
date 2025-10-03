@@ -202,11 +202,11 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_sql_customindex:
-          case-sensitive: disable
-          device-type: FortiGate # <value in [FortiGate, FortiManager, FortiClient, ...]>
+          case_sensitive: disable
+          device_type: FortiGate # <value in [FortiGate, FortiManager, FortiClient, ...]>
           id: 1
-          index-field: srcip
-          log-type: attack # <value in [none, app-ctrl, attack, ...]>
+          index_field: srcip
+          log_type: attack # <value in [none, app-ctrl, attack, ...]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -222,7 +222,7 @@ EXAMPLES = '''
         facts:
           selector: "system_sql_customindex"
           params:
-            custom-index: "your_value"
+            custom_index: "your_value"
 '''
 
 RETURN = '''

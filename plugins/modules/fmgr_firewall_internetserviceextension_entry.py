@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -149,8 +152,8 @@ EXAMPLES = '''
     - name: Entries added to the Internet Service extension database.
       fortinet.fortimanager.fmgr_firewall_internetserviceextension_entry:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -224,6 +227,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'internet-service-extension': {'type': 'str', 'api_name': 'internet_service_extension'},
         'internet_service_extension': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_entry': {
             'type': 'dict',
             'v_range': [['7.4.7', '7.4.7']],

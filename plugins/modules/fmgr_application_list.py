@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -402,15 +405,15 @@ EXAMPLES = '''
         adom: ansible
         state: present
         application_list:
-          app-replacemsg: enable
+          app_replacemsg: enable
           comment: "ansible-test-comment"
-          deep-app-inspection: enable
-          extended-log: disable
+          deep_app_inspection: enable
+          extended_log: disable
           name: "ansible-test"
-          other-application-action: pass
-          other-application-log: disable
-          unknown-application-action: pass
-          unknown-application-log: disable
+          other_application_action: pass
+          other_application_log: disable
+          unknown_application_action: pass
+          unknown_application_log: disable
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -484,6 +487,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'application_list': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

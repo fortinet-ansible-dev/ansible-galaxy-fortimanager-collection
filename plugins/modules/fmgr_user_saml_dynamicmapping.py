@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -254,8 +257,8 @@ EXAMPLES = '''
     - name: SAML server entry configuration.
       fortinet.fortimanager.fmgr_user_saml_dynamicmapping:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -342,26 +345,27 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'saml': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_saml_dynamicmapping': {
             'type': 'dict',
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
             'options': {
                 '_scope': {
-                    'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'adfs-claim': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cert': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'clock-tolerance': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
-                'digest-method': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
-                'entity-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'adfs-claim': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'cert': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'clock-tolerance': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
+                'digest-method': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
+                'entity-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
                 'group-claim-type': {
-                    'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
                     'choices': [
                         'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                         'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid', 'deny-only-primary-group-sid',
@@ -369,16 +373,16 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'group-name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'idp-cert': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'idp-entity-id': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'limit-relaystate': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'single-logout-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
-                'single-sign-on-url': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'group-name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'idp-cert': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'idp-entity-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'limit-relaystate': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'single-logout-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'single-sign-on-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
                 'user-claim-type': {
-                    'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
                     'choices': [
                         'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                         'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid', 'deny-only-primary-group-sid',
@@ -386,7 +390,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'user-name': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'user-name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
                 'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'},

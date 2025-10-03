@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -124,7 +127,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_identitybasedroute_rule:
         bypass_validation: false
         adom: ansible
-        identity-based-route: "ansible-test" # name
+        identity_based_route: "ansible-test" # name
         state: present
         firewall_identitybasedroute_rule:
           id: 1
@@ -144,7 +147,7 @@ EXAMPLES = '''
           selector: "firewall_identitybasedroute_rule"
           params:
             adom: "ansible"
-            identity-based-route: "your_value" # name
+            identity_based_route: "your_value" # name
 '''
 
 RETURN = '''
@@ -203,6 +206,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'identity-based-route': {'type': 'str', 'api_name': 'identity_based_route'},
         'identity_based_route': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_identitybasedroute_rule': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

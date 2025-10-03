@@ -2105,7 +2105,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}'
             ],
-            'v_range': [['7.0.4', '7.0.13']]
+            'v_range': [['7.0.4', '7.0.14']]
         },
         'devprof_log_syslogd_filter_excludelist_fields': {
             'params': ['adom', 'devprof', 'exclude-list', 'fields'],
@@ -2113,7 +2113,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/exclude-list/{exclude-list}/fields/{fields}'
             ],
-            'v_range': [['7.0.4', '7.0.13']]
+            'v_range': [['7.0.4', '7.0.14']]
         },
         'devprof_log_syslogd_filter_freestyle': {
             'params': ['adom', 'devprof', 'free-style'],
@@ -2121,7 +2121,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/filter/free-style/{free-style}'
             ],
-            'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']]
+            'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']]
         },
         'devprof_log_syslogd_setting': {
             'params': ['adom', 'devprof'],
@@ -2136,7 +2136,7 @@ def main():
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name',
                 '/pm/config/adom/{adom}/devprof/{devprof}/log/syslogd/setting/custom-field-name/{custom-field-name}'
             ],
-            'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']]
+            'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']]
         },
         'devprof_system_centralmanagement': {
             'params': ['adom', 'devprof'],
@@ -5118,7 +5118,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/firewall/vendor-mac',
                 '/pm/config/global/obj/firewall/vendor-mac'
             ],
-            'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']]
+            'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']]
         },
         'firewall_vip': {
             'params': ['adom', 'vip'],
@@ -5609,7 +5609,7 @@ def main():
             'urls': [
                 '/cli/global/fmupdate/fwm-setting/upgrade-timeout'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'fmupdate_multilayer': {
             'params': [],
@@ -6048,7 +6048,7 @@ def main():
                 '/pm/config/global/obj/gtp/ie-allow-list',
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}'
             ],
-            'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']]
+            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']]
         },
         'gtp_ieallowlist_entries': {
             'params': ['adom', 'entries', 'ie-allow-list'],
@@ -6058,7 +6058,7 @@ def main():
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries',
                 '/pm/config/global/obj/gtp/ie-allow-list/{ie-allow-list}/entries/{entries}'
             ],
-            'v_range': [['7.2.9', '7.2.9'], ['7.4.7', '7.4.7'], ['7.6.2', '']]
+            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']]
         },
         'gtp_iewhitelist': {
             'params': ['adom', 'ie-white-list'],
@@ -6848,7 +6848,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl/{acl}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_acl6': {
             'params': ['acl6', 'adom', 'pkg'],
@@ -6856,7 +6856,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/acl6/{acl6}'
             ],
-            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['7.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_centralsnatmap': {
             'params': ['adom', 'central-snat-map', 'pkg'],
@@ -6928,7 +6928,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy/{hyperscale-policy}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy46': {
             'params': ['adom', 'hyperscale-policy46', 'pkg'],
@@ -6936,7 +6936,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy46/{hyperscale-policy46}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_hyperscalepolicy6': {
             'params': ['adom', 'hyperscale-policy6', 'pkg'],
@@ -6944,7 +6944,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy6/{hyperscale-policy6}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '7.6.2']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']]
         },
         'pkg_firewall_hyperscalepolicy64': {
             'params': ['adom', 'hyperscale-policy64', 'pkg'],
@@ -6952,7 +6952,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/hyperscale-policy64/{hyperscale-policy64}'
             ],
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy': {
             'params': ['adom', 'interface-policy', 'pkg'],
@@ -6960,7 +6960,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy/{interface-policy}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_interfacepolicy6': {
             'params': ['adom', 'interface-policy6', 'pkg'],
@@ -6968,7 +6968,7 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6',
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/interface-policy6/{interface-policy6}'
             ],
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'pkg_firewall_localinpolicy': {
             'params': ['adom', 'local-in-policy', 'pkg'],
@@ -7081,7 +7081,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/footer/consolidated/policy',
                 '/pm/config/global/pkg/{pkg}/global/footer/consolidated/policy/{policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '7.6.2']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '7.6.2']]
         },
         'pkg_footer_policy': {
             'params': ['adom', 'pkg', 'policy'],
@@ -7090,7 +7090,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/footer/policy',
                 '/pm/config/global/pkg/{pkg}/global/footer/policy/{policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_footer_policy6': {
             'params': ['adom', 'pkg', 'policy6'],
@@ -7099,7 +7099,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6',
                 '/pm/config/global/pkg/{pkg}/global/footer/policy6/{policy6}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_footer_policy6_identitybasedpolicy6': {
             'params': ['identity-based-policy6', 'pkg', 'policy6'],
@@ -7124,7 +7124,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy',
                 '/pm/config/global/pkg/{pkg}/global/footer/shaping-policy/{shaping-policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_header_consolidated_policy': {
             'params': ['adom', 'pkg', 'policy'],
@@ -7133,7 +7133,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/header/consolidated/policy',
                 '/pm/config/global/pkg/{pkg}/global/header/consolidated/policy/{policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '7.6.2']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '7.6.2']]
         },
         'pkg_header_policy': {
             'params': ['adom', 'pkg', 'policy'],
@@ -7142,7 +7142,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/header/policy',
                 '/pm/config/global/pkg/{pkg}/global/header/policy/{policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_header_policy6': {
             'params': ['adom', 'pkg', 'policy6'],
@@ -7151,7 +7151,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/header/policy6',
                 '/pm/config/global/pkg/{pkg}/global/header/policy6/{policy6}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_header_policy6_identitybasedpolicy6': {
             'params': ['identity-based-policy6', 'pkg', 'policy6'],
@@ -7176,7 +7176,7 @@ def main():
                 '/pm/config/global/pkg/{pkg}/global/header/shaping-policy',
                 '/pm/config/global/pkg/{pkg}/global/header/shaping-policy/{shaping-policy}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']]
         },
         'pkg_user_nacpolicy': {
             'params': ['adom', 'nac-policy', 'pkg'],
@@ -7223,7 +7223,7 @@ def main():
                 '/pm/config/adom/{adom}/_data/default_sslvpn_os_check_list',
                 '/pm/config/global/_data/default_sslvpn_os_check_list'
             ],
-            'v_range': [['7.2.5', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['7.2.5', '7.2.11'], ['7.4.3', '']]
         },
         'pm_config_data_tablesize': {
             'params': ['adom', 'tablesize'],
@@ -7331,7 +7331,7 @@ def main():
                 '/pm/config/adom/{adom}/_package/status/{device_name}/{vdom_name}',
                 '/pm/config/global/_package/status'
             ],
-            'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']]
+            'v_range': [['7.0.7', '7.0.14'], ['7.2.2', '']]
         },
         'pm_config_pblock_firewall_consolidated_policy': {
             'params': ['adom', 'pblock', 'policy'],
@@ -7621,7 +7621,7 @@ def main():
                 '/pm/config/global/obj/sctp-filter/profile',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}'
             ],
-            'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']]
         },
         'sctpfilter_profile_ppidfilters': {
             'params': ['adom', 'ppid-filters', 'profile'],
@@ -7631,7 +7631,7 @@ def main():
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters',
                 '/pm/config/global/obj/sctp-filter/profile/{profile}/ppid-filters/{ppid-filters}'
             ],
-            'v_range': [['7.2.5', '7.2.9'], ['7.4.2', '']]
+            'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']]
         },
         'spamfilter_bwl': {
             'params': ['adom', 'bwl'],
@@ -8674,7 +8674,7 @@ def main():
             'urls': [
                 '/cli/global/system/docker'
             ],
-            'v_range': [['6.4.0', '']]
+            'v_range': [['6.4.0', '7.0.13'], ['7.2.0', '7.2.10'], ['7.4.0', '']]
         },
         'system_externalresource': {
             'params': ['adom', 'external-resource'],
@@ -9422,7 +9422,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/system/npu/sse-ha-scan',
                 '/pm/config/global/obj/system/npu/sse-ha-scan'
             ],
-            'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.13'], ['7.2.1', '']]
+            'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.14'], ['7.2.1', '']]
         },
         'system_npu_swehhash': {
             'params': ['adom'],
@@ -10270,7 +10270,7 @@ def main():
                 '/pm/config/global/obj/user/certificate',
                 '/pm/config/global/obj/user/certificate/{certificate}'
             ],
-            'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']]
+            'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']]
         },
         'user_clearpass': {
             'params': ['adom', 'clearpass'],
@@ -10420,7 +10420,7 @@ def main():
                 '/pm/config/global/obj/user/external-identity-provider',
                 '/pm/config/global/obj/user/external-identity-provider/{external-identity-provider}'
             ],
-            'v_range': [['7.2.6', '7.2.9'], ['7.4.3', '']]
+            'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']]
         },
         'user_flexvm': {
             'params': ['adom', 'flexvm'],
@@ -10728,7 +10728,7 @@ def main():
                 '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping',
                 '/pm/config/global/obj/user/saml/{saml}/dynamic_mapping/{dynamic_mapping}'
             ],
-            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']]
+            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']]
         },
         'user_scim': {
             'params': ['adom', 'scim'],
@@ -12105,7 +12105,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/ip6-prefix-list',
                 '/pm/config/adom/{adom}/obj/wireless-controller/vap/{vap}/ip6-prefix-list/{ip6-prefix-list}'
             ],
-            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']]
+            'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']]
         },
         'wtpprofile': {
             'params': ['adom', 'wtp-profile'],

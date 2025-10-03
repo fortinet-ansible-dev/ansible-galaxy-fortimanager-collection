@@ -111,7 +111,7 @@ EXAMPLES = '''
         state: present
         system_admin_user:
           adom:
-            - adom-name: ansible
+            - adom_name: ansible
           userid: "ansible-test"
     - name: Admin domain.
       fortinet.fortimanager.fmgr_system_admin_user_adom:
@@ -119,7 +119,7 @@ EXAMPLES = '''
         user: ansible-test # userid
         state: present
         system_admin_user_adom:
-          adom-name: "ALL ADOMS"
+          adom_name: "ALL ADOMS"
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers

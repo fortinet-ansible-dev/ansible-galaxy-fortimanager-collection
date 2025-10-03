@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -139,7 +142,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_system_sdnconnector_nic:
         bypass_validation: false
         adom: ansible
-        sdn-connector: ansible-test-sdn # name
+        sdn_connector: ansible-test-sdn # name
         state: present
         system_sdnconnector_nic: # available only when type is set to 'azure' in sdn-connector
           name: ansible-test-nic
@@ -159,7 +162,7 @@ EXAMPLES = '''
           selector: "system_sdnconnector_nic" # available only when type is set to 'azure' in sdn-connector
           params:
             adom: "ansible"
-            sdn-connector: "ansible-test-sdn" # name
+            sdn_connector: "ansible-test-sdn" # name
             nic: "your_value"
 '''
 
@@ -219,6 +222,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'sdn-connector': {'type': 'str', 'api_name': 'sdn_connector'},
         'sdn_connector': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_sdnconnector_nic': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

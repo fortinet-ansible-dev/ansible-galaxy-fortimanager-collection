@@ -119,7 +119,7 @@ EXAMPLES = '''
     - name: List of device filter.
       fortinet.fortimanager.fmgr_system_logfetch_clientprofile_devicefilter:
         bypass_validation: false
-        client-profile: 1 # id
+        client_profile: 1 # id
         state: present
         system_logfetch_clientprofile_devicefilter:
           adom: root
@@ -141,8 +141,8 @@ EXAMPLES = '''
         facts:
           selector: "system_logfetch_clientprofile_devicefilter"
           params:
-            client-profile: "1" # id
-            device-filter: "your_value"
+            client_profile: "1" # id
+            device_filter: "your_value"
 '''
 
 RETURN = '''

@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -242,7 +245,7 @@ EXAMPLES = '''
           category: 0
           comments: string
           name: string
-          refresh-rate: 1
+          refresh_rate: 1
           resource: string
           status: disable
           type: category # <value in [category, address, domain, ...]>
@@ -262,7 +265,7 @@ EXAMPLES = '''
           selector: "system_externalresource"
           params:
             adom: "ansible"
-            external-resource: "your_value"
+            external_resource: "your_value"
 '''
 
 RETURN = '''
@@ -319,6 +322,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_externalresource': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -337,7 +341,7 @@ def main():
                 'interface-select-method': {'v_range': [['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'user-agent': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
-                'server-identity-check': {'v_range': [['7.0.5', '7.0.13'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
+                'server-identity-check': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
                 'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'},
                 'address-comment-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'address-data-field': {'v_range': [['7.6.2', '']], 'type': 'str'},

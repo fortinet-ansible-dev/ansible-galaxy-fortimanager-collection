@@ -560,8 +560,8 @@ EXAMPLES = '''
     - name: Configure FortiGuard settings.
       fortinet.fortimanager.fmgr_fmupdate_fdssetting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_fdssetting:
@@ -810,7 +810,7 @@ def main():
                     'choices': ['3.x', '4.x', '7.x'],
                     'elements': 'str'
                 },
-                'system-support-faz': {'v_range': [['7.0.7', '7.0.13'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
+                'system-support-faz': {'v_range': [['7.0.7', '7.0.14'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
                 'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'},
                 'system-support-fai': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['7.x'], 'elements': 'str'}
             }

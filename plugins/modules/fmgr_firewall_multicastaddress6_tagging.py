@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -121,7 +124,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_firewall_multicastaddress6_tagging:
         bypass_validation: false
         adom: ansible
-        multicast-address6: "ansible-test" # name
+        multicast_address6: "ansible-test" # name
         state: present
         firewall_multicastaddress6_tagging:
           category: "ansible-category"
@@ -143,7 +146,7 @@ EXAMPLES = '''
           selector: "firewall_multicastaddress6_tagging"
           params:
             adom: "ansible"
-            multicast-address6: "ansible-test" # name
+            multicast_address6: "ansible-test" # name
             tagging: "your_value"
 '''
 
@@ -203,6 +206,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'multicast-address6': {'type': 'str', 'api_name': 'multicast_address6'},
         'multicast_address6': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_multicastaddress6_tagging': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

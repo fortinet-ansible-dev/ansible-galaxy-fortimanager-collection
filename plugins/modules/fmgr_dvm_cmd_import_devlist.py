@@ -792,8 +792,8 @@ EXAMPLES = '''
     - name: Import a list of ADOMs and devices.
       fortinet.fortimanager.fmgr_dvm_cmd_import_devlist:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         dvm_cmd_import_devlist:
@@ -1198,7 +1198,7 @@ def main():
                                 'role': {'choices': ['slave', 'master'], 'type': 'str'},
                                 'sn': {'type': 'str'},
                                 'status': {'type': 'int'},
-                                'conf_status': {'v_range': [['7.0.10', '7.0.13'], ['7.2.1', '']], 'type': 'int'}
+                                'conf_status': {'v_range': [['7.0.10', '7.0.14'], ['7.2.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
@@ -1266,14 +1266,14 @@ def main():
                         'nsxt_service_name': {'v_range': [['6.4.4', '']], 'type': 'str'},
                         'private_key': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
                         'private_key_status': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
-                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.13'], ['7.2.3', '']], 'type': 'int'},
-                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'type': 'int'},
+                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.14'], ['7.2.3', '']], 'type': 'int'},
+                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
                         'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'hw_generation': {'v_range': [['7.2.4', '7.2.9'], ['7.4.1', '']], 'type': 'int'},
+                        'hw_generation': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
                         'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'},
                         'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                        'ha.vsn': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'type': 'str'},
+                        'ha.vsn': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'type': 'str'},
                         'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
                         'vm_payg_status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
                         'sov_sase_license': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}

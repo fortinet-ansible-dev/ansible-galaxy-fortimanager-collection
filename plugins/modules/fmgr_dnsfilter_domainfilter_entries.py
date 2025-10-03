@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -138,7 +141,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_dnsfilter_domainfilter_entries:
         bypass_validation: false
         adom: ansible
-        domain-filter: "1" # id
+        domain_filter: "1" # id
         state: present
         dnsfilter_domainfilter_entries:
           action: allow
@@ -161,7 +164,7 @@ EXAMPLES = '''
           selector: "dnsfilter_domainfilter_entries"
           params:
             adom: "ansible"
-            domain-filter: "1" # id
+            domain_filter: "1" # id
             entries: "your_value"
 '''
 
@@ -221,6 +224,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'domain-filter': {'type': 'str', 'api_name': 'domain_filter'},
         'domain_filter': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'dnsfilter_domainfilter_entries': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

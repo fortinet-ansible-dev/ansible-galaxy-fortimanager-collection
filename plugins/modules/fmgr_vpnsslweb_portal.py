@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -1043,8 +1046,8 @@ EXAMPLES = '''
     - name: Portal.
       fortinet.fortimanager.fmgr_vpnsslweb_portal:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -1264,6 +1267,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'vpnsslweb_portal': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -1448,7 +1452,7 @@ def main():
                         'latest-patch-level': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'tolerance': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'minor-version': {'v_range': [['7.4.7', '']], 'type': 'int'}
+                        'minor-version': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '']], 'type': 'int'}
                     }
                 },
                 'use-sdwan': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1457,7 +1461,7 @@ def main():
                 'clipboard': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-window-height': {'v_range': [['7.0.4', '']], 'type': 'int'},
                 'default-window-width': {'v_range': [['7.0.4', '']], 'type': 'int'},
-                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.13'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
+                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
                 'client-src-range': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},

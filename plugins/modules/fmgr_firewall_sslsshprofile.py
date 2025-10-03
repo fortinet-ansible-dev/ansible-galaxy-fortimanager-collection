@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -1511,9 +1514,9 @@ EXAMPLES = '''
         state: present
         firewall_sslsshprofile:
           comment: "ansible-comment1"
-          mapi-over-https: disable # <value in [disable, enable]>
+          mapi_over_https: disable # <value in [disable, enable]>
           name: "ansible-test"
-          use-ssl-server: disable # <value in [disable, enable]>
+          use_ssl_server: disable # <value in [disable, enable]>
           whitelist: enable # <value in [disable, enable]>
 
 - name: Gathering fortimanager facts
@@ -1531,7 +1534,7 @@ EXAMPLES = '''
           selector: "firewall_sslsshprofile"
           params:
             adom: "ansible"
-            ssl-ssh-profile: "your_value"
+            ssl_ssh_profile: "your_value"
 '''
 
 RETURN = '''
@@ -1588,6 +1591,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_sslsshprofile': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

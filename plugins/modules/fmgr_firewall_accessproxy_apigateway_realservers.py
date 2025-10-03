@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -227,8 +230,8 @@ EXAMPLES = '''
     - name: Select the real servers that this Access Proxy will distribute traffic to.
       fortinet.fortimanager.fmgr_firewall_accessproxy_apigateway_realservers:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -317,6 +320,7 @@ def main():
         'access_proxy': {'type': 'str'},
         'api-gateway': {'type': 'str', 'api_name': 'api_gateway'},
         'api_gateway': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_accessproxy_apigateway_realservers': {
             'type': 'dict',
             'v_range': [['7.0.0', '']],

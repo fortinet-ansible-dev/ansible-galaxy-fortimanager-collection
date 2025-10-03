@@ -212,12 +212,19 @@ class NAPIManager(object):
         self.task_type = task_type
         self.diff_data = {"before": {}, "after": {}}
         self.allow_diff = False
-
+        self.extra_params = self._init_extra_params()
         if YAML_IMPORT_ERROR:
             raise_from(
                 Exception("YAML must be installed to use this plugin"),
                 YAML_IMPORT_ERROR,
             )
+
+    def _init_extra_params(self):
+        extra_params = {}
+        params = self.module.params
+        if params.get("revision_note", ""):
+            extra_params["revision_note"] = params["revision_note"]
+        return extra_params
 
     def _set_connection_options(self):
         for key in ['access_token', 'enable_log', 'forticloud_access_token']:
@@ -436,7 +443,6 @@ class NAPIManager(object):
         if version_check and not bypass_valid:
             track = [module_name]
             self.check_versioning_mismatch(track, argument_specs.get(module_name, None), params.get(module_name, None))
-        adom_value = params.get("adom", None)
         target_url = self.get_target_url()
         api_params = {"url": target_url}
         # Try to get and compare, and skip update if same.
@@ -451,13 +457,7 @@ class NAPIManager(object):
                     self.do_final_exit(changed=False, message=return_msg)
         except Exception as e:
             pass
-        if module_name in params:
-            params = remove_aliases(params, argument_specs, bypass_valid)
-            api_params[self.top_level_schema_name] = params[module_name]
-        if self.module.check_mode:
-            self.diff_save_after_based_on_playbook()
-            self.do_final_exit(changed=True)
-        response = self.conn.send_request(self.get_propose_method("set"), [api_params])
+        response = self.update_object(mvalue="", method="set")
         self.diff_get_and_save_data("after")
         self.do_exit(response)
 
@@ -651,7 +651,7 @@ class NAPIManager(object):
         response = self.conn.send_request("get", params)
         return response
 
-    def update_object(self, mvalue):
+    def update_object(self, mvalue, method="update"):
         target_url = self.get_target_url(mvalue)
         bypass_valid = self.module.params.get("bypass_validation", False) is True
         raw_attributes = remove_aliases(self.module.params, self.metadata, bypass_valid)
@@ -660,7 +660,9 @@ class NAPIManager(object):
         if self.module.check_mode:
             self.diff_save_after_based_on_playbook()
             self.do_final_exit(changed=True)
-        response = self.conn.send_request(self.get_propose_method("update"), params)
+        if "revision_note" in self.extra_params:
+            params[0]["revision note"] = self.extra_params["revision_note"]
+        response = self.conn.send_request(self.get_propose_method(method), params)
         return response
 
     def create_object(self):
@@ -672,6 +674,8 @@ class NAPIManager(object):
         if self.module.check_mode:
             self.diff_save_after_based_on_playbook()
             self.do_final_exit(changed=True)
+        if "revision_note" in self.extra_params:
+            params[0]["revision note"] = self.extra_params["revision_note"]
         response = self.conn.send_request(self.get_propose_method("set"), params)
         return response
 

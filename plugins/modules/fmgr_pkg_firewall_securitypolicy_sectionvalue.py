@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -123,8 +126,8 @@ EXAMPLES = '''
     - name: Configure NGFW IPv4/IPv6 application policies.
       fortinet.fortimanager.fmgr_pkg_firewall_securitypolicy_sectionvalue:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -192,16 +195,17 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'security-policy': {'type': 'str', 'api_name': 'security_policy'},
         'security_policy': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_firewall_securitypolicy_sectionvalue': {
             'type': 'dict',
-            'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+            'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
             'options': {
                 'attr': {
-                    'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']],
+                    'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']],
                     'choices': ['label', 'global-label'],
                     'type': 'str'
                 },
-                'name': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.9'], ['7.4.2', '']], 'type': 'str'}
+                'name': {'v_range': [['6.4.0', '7.2.2'], ['7.2.4', '7.2.4'], ['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'}
             }
         }
     }

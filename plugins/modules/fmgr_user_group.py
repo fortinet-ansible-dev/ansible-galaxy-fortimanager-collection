@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -653,7 +656,7 @@ EXAMPLES = '''
           id: 1
           name: ansible-test-group
           password: specify # <value in [auto-generate, specify, disable]>
-          user-id: email # <value in [email, auto-generate, specify]>
+          user_id: email # <value in [email, auto-generate, specify]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -727,6 +730,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_group': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

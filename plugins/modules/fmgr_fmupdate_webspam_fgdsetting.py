@@ -441,8 +441,8 @@ EXAMPLES = '''
     - name: Configure the FortiGuard run parameters.
       fortinet.fortimanager.fmgr_fmupdate_webspam_fgdsetting:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         fmupdate_webspam_fgdsetting:
@@ -624,7 +624,7 @@ def main():
                 'iot-preload': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'restrict-iots-dbver': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '7.6.2']], 'type': 'str'},
                 'stat-log': {
-                    'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '7.6.2']],
+                    'v_range': [['7.0.10', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.2', '7.6.2']],
                     'choices': ['emergency', 'alert', 'critical', 'error', 'warn', 'notice', 'info', 'debug', 'disable'],
                     'type': 'str'
                 },

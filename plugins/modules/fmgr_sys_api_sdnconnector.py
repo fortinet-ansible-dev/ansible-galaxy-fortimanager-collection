@@ -93,8 +93,8 @@ EXAMPLES = '''
     - name: Query SDN connector data.
       fortinet.fortimanager.fmgr_sys_api_sdnconnector:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         sys_api_sdnconnector:

@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -137,13 +140,13 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_system_replacemsggroup_nacquar:
         bypass_validation: false
         adom: ansible
-        replacemsg-group: ansible-test # name
+        replacemsg_group: ansible-test # name
         state: present
         system_replacemsggroup_nacquar:
           buffer: ansible-buffer
           format: text # <value in [none, text, html, ...]>
           header: none # <value in [none, http, 8bit]>
-          msg-type: ansible-msgtype # required
+          msg_type: ansible-msgtype # required
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -160,8 +163,8 @@ EXAMPLES = '''
           selector: "system_replacemsggroup_nacquar"
           params:
             adom: "ansible"
-            replacemsg-group: "ansible-test" # name
-            nac-quar: "your_value"
+            replacemsg_group: "ansible-test" # name
+            nac_quar: "your_value"
 '''
 
 RETURN = '''
@@ -220,6 +223,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'replacemsg-group': {'type': 'str', 'api_name': 'replacemsg_group'},
         'replacemsg_group': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'system_replacemsggroup_nacquar': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -228,7 +232,7 @@ def main():
                 'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                 'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                 'msg-type': {'required': True, 'type': 'str'},
-                'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.13'], ['7.2.3', '']], 'type': 'int'}
+                'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.14'], ['7.2.3', '']], 'type': 'int'}
             }
         }
     }

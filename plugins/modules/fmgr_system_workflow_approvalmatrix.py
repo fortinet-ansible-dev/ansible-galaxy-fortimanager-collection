@@ -125,7 +125,7 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_workflow_approvalmatrix:
-          adom-name: ansible
+          adom_name: ansible
           notify: ansible-notify
 
 - name: Gathering fortimanager facts
@@ -142,7 +142,7 @@ EXAMPLES = '''
         facts:
           selector: "system_workflow_approvalmatrix"
           params:
-            approval-matrix: "your_value"
+            approval_matrix: "your_value"
 '''
 
 RETURN = '''

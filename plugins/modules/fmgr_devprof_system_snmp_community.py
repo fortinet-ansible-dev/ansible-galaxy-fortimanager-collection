@@ -387,8 +387,8 @@ EXAMPLES = '''
             - power-blade-down
             - confsync_failure
           hosts:
-            - ha-direct: enable
-              host-type: any
+            - ha_direct: enable
+              host_type: any
               id: 1
           id: 1
           name: "ansible-test"

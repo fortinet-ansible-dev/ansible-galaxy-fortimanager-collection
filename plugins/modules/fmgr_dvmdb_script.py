@@ -290,8 +290,8 @@ EXAMPLES = '''
     - name: Enable workspace mode
       fortinet.fortimanager.fmgr_system_global:
         system_global:
-          adom-status: enable
-          workspace-mode: normal
+          adom_status: enable
+          workspace_mode: normal
 
     - name: Script table.
       fortinet.fortimanager.fmgr_dvmdb_script:
@@ -318,8 +318,8 @@ EXAMPLES = '''
     - name: Restore workspace mode
       fortinet.fortimanager.fmgr_system_global:
         system_global:
-          adom-status: enable
-          workspace-mode: disabled
+          adom_status: enable
+          workspace_mode: disabled
 '''
 
 RETURN = '''

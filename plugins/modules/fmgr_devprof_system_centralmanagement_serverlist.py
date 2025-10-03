@@ -145,10 +145,10 @@ EXAMPLES = '''
         devprof: "ansible-test" # system template name, could find it in FortiManager UI: Device Manager --> Provisioning Templates --> System Templates
         state: present
         devprof_system_centralmanagement_serverlist:
-          addr-type: ipv4
+          addr_type: ipv4
           id: 1
-          server-address: "222.222.211.111"
-          server-type:
+          server_address: "222.222.211.111"
+          server_type:
             - update
             - rating
 
@@ -168,7 +168,7 @@ EXAMPLES = '''
           params:
             adom: "ansible"
             devprof: "ansible-test" # system template name, could find it in FortiManager UI: Device Manager --> Provisioning Templates --> System Templates
-            server-list: "your_value"
+            server_list: "your_value"
 '''
 
 RETURN = '''

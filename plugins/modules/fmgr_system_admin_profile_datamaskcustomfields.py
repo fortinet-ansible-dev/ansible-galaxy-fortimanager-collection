@@ -155,15 +155,15 @@ EXAMPLES = '''
         profile: ansible-test-profile # profileid
         state: present
         system_admin_profile_datamaskcustomfields:
-          field-category:
+          field_category:
             - log
             - fortiview
             - alert
             - ueba
             - all
-          field-name: ansible-test-mask
-          field-status: disable
-          field-type: string # <value in [string, ip, mac, ...]>
+          field_name: ansible-test-mask
+          field_status: disable
+          field_type: string # <value in [string, ip, mac, ...]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -180,7 +180,7 @@ EXAMPLES = '''
           selector: "system_admin_profile_datamaskcustomfields"
           params:
             profile: "ansible-test-profile" # profileid
-            datamask-custom-fields: "your_value"
+            datamask_custom_fields: "your_value"
 '''
 
 RETURN = '''

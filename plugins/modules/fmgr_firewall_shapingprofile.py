@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -184,7 +187,7 @@ EXAMPLES = '''
         state: present
         firewall_shapingprofile:
           comment: "ansible-comment"
-          profile-name: "ansible-test"
+          profile_name: "ansible-test"
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -201,7 +204,7 @@ EXAMPLES = '''
           selector: "firewall_shapingprofile"
           params:
             adom: "ansible"
-            shaping-profile: "your_value"
+            shaping_profile: "your_value"
 '''
 
 RETURN = '''
@@ -258,6 +261,7 @@ def main():
     module_primary_key = 'profile-name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_shapingprofile': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -283,7 +287,7 @@ def main():
                     'elements': 'dict'
                 },
                 'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'},
-                'npu-offloading': {'v_range': [['7.2.6', '7.2.9'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'npu-offloading': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

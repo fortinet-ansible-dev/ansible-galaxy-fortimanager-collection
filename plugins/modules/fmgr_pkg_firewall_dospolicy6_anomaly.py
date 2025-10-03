@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -323,7 +326,7 @@ EXAMPLES = '''
         bypass_validation: false
         adom: ansible
         pkg: ansible # package name
-        DoS-policy6: 1 # policyid
+        DoS_policy6: 1 # policyid
         state: present
         pkg_firewall_dospolicy6_anomaly:
           action: pass # <value in [pass, block, proxy]>
@@ -348,7 +351,7 @@ EXAMPLES = '''
           params:
             adom: "ansible"
             pkg: "ansible" # package name
-            DoS-policy6: "1" # policyid
+            DoS_policy6: "1" # policyid
             anomaly: "your_value"
 '''
 
@@ -408,6 +411,7 @@ def main():
         'pkg': {'required': True, 'type': 'str'},
         'DoS-policy6': {'type': 'str', 'api_name': 'DoS_policy6'},
         'DoS_policy6': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'pkg_firewall_dospolicy6_anomaly': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -441,37 +445,37 @@ def main():
                     'type': 'str'
                 },
                 'synproxy-tos': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['0', '10', '12', '14', '18', '20', '22', '26', '28', '30', '34', '36', '38', '40', '46', '255'],
                     'type': 'str'
                 },
                 'synproxy-tcp-window': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['4096', '8192', '16384', '32768'],
                     'type': 'str'
                 },
                 'synproxy-tcp-windowscale': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'],
                     'type': 'str'
                 },
                 'synproxy-tcp-timestamp': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'synproxy-ttl': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['32', '64', '128', '255'],
                     'type': 'str'
                 },
                 'synproxy-tcp-mss': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['0', '256', '512', '1024', '1300', '1360', '1460', '1500'],
                     'type': 'str'
                 },
                 'synproxy-tcp-sack': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.9'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 }

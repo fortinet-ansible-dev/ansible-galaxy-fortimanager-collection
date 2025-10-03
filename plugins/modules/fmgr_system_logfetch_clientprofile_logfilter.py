@@ -135,7 +135,7 @@ EXAMPLES = '''
     - name: Log content filters.
       fortinet.fortimanager.fmgr_system_logfetch_clientprofile_logfilter:
         bypass_validation: false
-        client-profile: 1 # id
+        client_profile: 1 # id
         state: present
         system_logfetch_clientprofile_logfilter:
           field: 0
@@ -157,8 +157,8 @@ EXAMPLES = '''
         facts:
           selector: "system_logfetch_clientprofile_logfilter"
           params:
-            client-profile: "1" # id
-            log-filter: "your_value"
+            client_profile: "1" # id
+            log_filter: "your_value"
 '''
 
 RETURN = '''

@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -127,7 +130,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_user_securityexemptlist_rule:
         bypass_validation: false
         adom: ansible
-        security-exempt-list: ansible-test-security # name
+        security_exempt_list: ansible-test-security # name
         state: present
         user_securityexemptlist_rule:
           id: 1
@@ -149,7 +152,7 @@ EXAMPLES = '''
           selector: "user_securityexemptlist_rule"
           params:
             adom: "ansible"
-            security-exempt-list: "ansible-test-security" # name
+            security_exempt_list: "ansible-test-security" # name
             rule: "your_value"
 '''
 
@@ -209,6 +212,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'security-exempt-list': {'type': 'str', 'api_name': 'security_exempt_list'},
         'security_exempt_list': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_securityexemptlist_rule': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

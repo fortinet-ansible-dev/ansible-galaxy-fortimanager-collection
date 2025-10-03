@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -148,8 +151,8 @@ EXAMPLES = '''
     - name: Configure Access Proxy virtual hosts.
       fortinet.fortimanager.fmgr_firewall_accessproxyvirtualhost:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -219,6 +222,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_accessproxyvirtualhost': {
             'type': 'dict',
             'v_range': [['7.0.1', '']],
@@ -227,7 +231,7 @@ def main():
                 'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard'], 'type': 'str'},
                 'name': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'},
                 'ssl-certificate': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'replacemsg-group': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'type': 'str'},
+                'replacemsg-group': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
                 'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['block', 'accept', 'accept-unmanageable'], 'type': 'str'},
                 'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

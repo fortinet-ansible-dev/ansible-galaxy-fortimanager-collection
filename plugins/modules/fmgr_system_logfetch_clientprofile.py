@@ -253,13 +253,13 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_logfetch_clientprofile:
-          client-adom: ansible
-          data-range: custom # <value in [custom]>
+          client_adom: ansible
+          data_range: custom # <value in [custom]>
           id: 1
-          index-fetch-logs: enable
+          index_fetch_logs: enable
           name: ansible-test-clientprofile
           password: fortinet
-          server-ip: "222.222.22.25"
+          server_ip: "222.222.22.25"
           user: ansible
 
 - name: Gathering fortimanager facts
@@ -276,7 +276,7 @@ EXAMPLES = '''
         facts:
           selector: "system_logfetch_clientprofile"
           params:
-            client-profile: "your_value"
+            client_profile: "your_value"
 '''
 
 RETURN = '''

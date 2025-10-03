@@ -207,8 +207,8 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_snmp_user:
-          auth-proto: md5 # <value in [md5, sha]>
-          auth-pwd: fortinet
+          auth_proto: md5 # <value in [md5, sha]>
+          auth_pwd: fortinet
           events:
             - disk_low
             - ha_switch
@@ -224,7 +224,7 @@ EXAMPLES = '''
             - cpu-high-exclude-nice
           name: ansible-test-snmpuser
           queries: disable
-          security-level: no-auth-no-priv # <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
+          security_level: no-auth-no-priv # <value in [no-auth-no-priv, auth-no-priv, auth-priv]>
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -317,7 +317,7 @@ def main():
                 'queries': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-port': {'type': 'int'},
                 'security-level': {'choices': ['no-auth-no-priv', 'auth-no-priv', 'auth-priv'], 'type': 'str'},
-                'notify-port': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
+                'notify-port': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

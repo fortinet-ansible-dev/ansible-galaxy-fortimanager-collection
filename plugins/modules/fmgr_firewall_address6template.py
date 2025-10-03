@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -166,7 +169,7 @@ EXAMPLES = '''
         firewall_address6template:
           ip6: "::33/128"
           name: "ansible-name"
-          subnet-segment:
+          subnet_segment:
             - bits: 1
               exclusive: enable
               id: 1
@@ -174,7 +177,7 @@ EXAMPLES = '''
               values:
                 - name: "ansible-name-val"
                   value: "ansible"
-          subnet-segment-count: 2
+          subnet_segment_count: 2
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -191,7 +194,7 @@ EXAMPLES = '''
           selector: "firewall_address6template"
           params:
             adom: "ansible"
-            address6-template: "your_value"
+            address6_template: "your_value"
 '''
 
 RETURN = '''
@@ -248,6 +251,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_address6template': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

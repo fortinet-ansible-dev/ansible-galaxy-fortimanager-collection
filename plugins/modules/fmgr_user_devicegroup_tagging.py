@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -121,7 +124,7 @@ EXAMPLES = '''
       fortinet.fortimanager.fmgr_user_devicegroup_tagging:
         bypass_validation: false
         adom: ansible
-        device-group: ansible-test # name
+        device_group: ansible-test # name
         state: present
         user_devicegroup_tagging:
           category: ansible-category
@@ -143,7 +146,7 @@ EXAMPLES = '''
           selector: "user_devicegroup_tagging"
           params:
             adom: "ansible"
-            device-group: "ansible-test" # name
+            device_group: "ansible-test" # name
             tagging: "your_value"
 '''
 
@@ -203,6 +206,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'device-group': {'type': 'str', 'api_name': 'device_group'},
         'device_group': {'type': 'str'},
+        'revision_note': {'type': 'str'},
         'user_devicegroup_tagging': {
             'type': 'dict',
             'v_range': [['6.0.0', '7.2.1']],

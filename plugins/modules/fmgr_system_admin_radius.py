@@ -162,7 +162,7 @@ EXAMPLES = '''
         bypass_validation: false
         state: present
         system_admin_radius:
-          auth-type: pap # <value in [any, pap, chap, ...]>
+          auth_type: pap # <value in [any, pap, chap, ...]>
           name: ansible-test-radius
           port: 1812
           server: "ALL"
@@ -248,10 +248,14 @@ def main():
                 'secondary-server': {'type': 'str'},
                 'secret': {'no_log': True, 'type': 'raw'},
                 'server': {'type': 'str'},
-                'ca-cert': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                'client-cert': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                'message-authenticator': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['optional', 'require'], 'type': 'str'},
-                'protocol': {'v_range': [['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
+                'ca-cert': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
+                'message-authenticator': {
+                    'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']],
+                    'choices': ['optional', 'require'],
+                    'type': 'str'
+                },
+                'protocol': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.7'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
             }
         }
     }

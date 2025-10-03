@@ -127,8 +127,8 @@ EXAMPLES = '''
     - name: Report auto-cache settings.
       fortinet.fortimanager.fmgr_system_report_autocache:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_report_autocache:
@@ -197,7 +197,7 @@ def main():
                 'aggressive-schedule': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'order': {'choices': ['oldest-first'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.13'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

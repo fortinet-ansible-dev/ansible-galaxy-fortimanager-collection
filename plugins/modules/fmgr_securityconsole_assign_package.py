@@ -118,8 +118,8 @@ EXAMPLES = '''
     - name: Assign or unassign global policy package to ADOM packages.
       fortinet.fortimanager.fmgr_securityconsole_assign_package:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         securityconsole_assign_package:

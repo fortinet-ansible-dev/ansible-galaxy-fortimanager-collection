@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -657,13 +660,12 @@ EXAMPLES = '''
     - name: Configure IPv4 addresses.
       fortinet.fortimanager.fmgr_firewall_address:
         bypass_validation: false
-        adom: ansible
+        adom: root
         state: present
         firewall_address:
-          allow-routing: disable
-          associated-interface: any
           name: "ansible-test1"
-          visibility: disable
+          allow_routing: disable
+          associated_interface: any
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers
@@ -697,8 +699,8 @@ EXAMPLES = '''
         adom: root
         state: present
         firewall_address:
-          allow-routing: disable
-          associated-interface: any
+          allow_routing: disable
+          associated_interface: any
           name: "address-orignal"
           # visibility: enable
     - name: Rename the firewall addressobject
@@ -716,44 +718,6 @@ EXAMPLES = '''
         state: absent
         firewall_address:
           name: "address-new"
-
-- name: Example playbook
-  hosts: fortimanagers
-  gather_facts: false
-  connection: httpapi
-  vars:
-    ansible_httpapi_use_ssl: true
-    ansible_httpapi_validate_certs: false
-    ansible_httpapi_port: 443
-  tasks:
-    - name: Create IPv4 addresses.
-      fortinet.fortimanager.fmgr_firewall_address:
-        adom: root
-        state: present
-        firewall_address:
-          allow-routing: disable
-          associated-interface: any
-          name: "fooaddress"
-          visibility: disable
-      register: info
-      failed_when: info.rc != 0
-    - name: Create IPv4 addresses.
-      fortinet.fortimanager.fmgr_firewall_address:
-        adom: root
-        state: present
-        firewall_address:
-          allow-routing: disable
-          associated-interface: any
-          name: "fooaddress"
-          visibility: disable
-      register: info
-      failed_when: info.message != 'Object update skipped!'
-    - name: Delete created address
-      fortinet.fortimanager.fmgr_firewall_address:
-        adom: root
-        state: absent
-        firewall_address:
-          name: "fooaddress"
 '''
 
 RETURN = '''
@@ -810,6 +774,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_address': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],

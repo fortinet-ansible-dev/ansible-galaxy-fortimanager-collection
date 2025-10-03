@@ -118,7 +118,7 @@ EXAMPLES = '''
         system_ha_peer:
           id: 3
           ip: "11.11.11.5" # Required, could not be 0.0.0.0
-          serial-number: FMG-VM0000000003 # need a valid serial number
+          serial_number: FMG-VM0000000003 # need a valid serial number
 
 - name: Gathering fortimanager facts
   hosts: fortimanagers

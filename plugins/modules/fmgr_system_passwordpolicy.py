@@ -146,8 +146,8 @@ EXAMPLES = '''
     - name: Password policy.
       fortinet.fortimanager.fmgr_system_passwordpolicy:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         system_passwordpolicy:
@@ -227,7 +227,11 @@ def main():
                 'must-contain': {'type': 'list', 'choices': ['upper-case-letter', 'lower-case-letter', 'number', 'non-alphanumeric'], 'elements': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
-                'login-lockout-upon-downgrade': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'login-lockout-upon-downgrade': {
+                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                }
             }
         }
     }

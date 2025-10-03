@@ -4,6 +4,26 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+
+v2.11.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.11.0
+
+Minor Changes
+-------------
+
+- Supported new schemas in FortiManager 7.0.14, 7.2.10, 7.2.11.
+
+Bugfixes
+--------
+
+- Changed the logic of getting FortiManager system information to prevent permission denied error.
+- Supported module_defaults. General variables can be specified in one place by using module_defaults.
+
 v2.10.0
 =======
 
@@ -51,7 +71,6 @@ New Modules
 - fortinet.fortimanager.fmgr_telemetrycontroller_profile_application_sla - Service level agreement
 - fortinet.fortimanager.fmgr_user_scim - Configure SCIM client entries.
 - fortinet.fortimanager.fmgr_wireless_vap_ip6prefixlist - Wireless controller vap ip6 prefix list
-
 
 v2.9.1
 ======

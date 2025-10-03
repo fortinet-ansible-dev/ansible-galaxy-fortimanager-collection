@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -4519,8 +4522,8 @@ EXAMPLES = '''
     - name: FortiSwitch VLAN template.
       fortinet.fortimanager.fmgr_fsp_vlan:
         # bypass_validation: false
-        workspace_locking_adom: <value in [global, custom adom including root]>
-        workspace_locking_timeout: 300
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
         # rc_succeeded: [0, -2, -3, ...]
         # rc_failed: [-2, -3, ...]
         adom: <your own value>
@@ -5496,6 +5499,7 @@ def main():
     module_primary_key = 'name'
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'fsp_vlan': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
@@ -6811,15 +6815,15 @@ def main():
                             'choices': ['tag', 'untag', 'passthrough'],
                             'type': 'str'
                         },
-                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'interconnect-profile': {
-                            'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
                             'choices': ['default', 'profile1', 'profile2'],
                             'type': 'str'
                         },
-                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.13'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'annex': {
-                            'v_range': [['7.0.10', '7.0.13'], ['7.2.5', '7.2.9'], ['7.4.2', '']],
+                            'v_range': [['7.0.10', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.2', '']],
                             'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj'],
                             'type': 'str'
                         },
@@ -6861,7 +6865,7 @@ def main():
                         'dhcp-relay-vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
                         'exclude-signatures': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['iot', 'ot'], 'elements': 'str'},
                         'profiles': {
-                            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                            'v_range': [['7.0.14', '7.0.14'], ['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
                             'type': 'list',
                             'choices': ['8a', '8b', '8c', '8d', '12a', '12b', '17a', '30a', '35b'],
                             'elements': 'str'

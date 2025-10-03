@@ -73,6 +73,9 @@ options:
         choices:
           - present
           - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
     workspace_locking_adom:
         description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
         type: str
@@ -270,14 +273,14 @@ EXAMPLES = '''
           _scope:
             - name: FGT_AWS # need a valid device name
               vdom: root # need a valid vdom name under the device
-          cache-ttl: 0
+          cache_ttl: 0
           color: 22
           comment: "ansible-test-comment"
-          end-ip: "::100"
+          end_ip: "::100"
           host: "::"
-          host-type: any # <value in [any, specific]>
+          host_type: any # <value in [any, specific]>
           ip6: "::/128"
-          start-ip: "::"
+          start_ip: "::"
           type: iprange # <value in [ipprefix, iprange, nsx, ...]>
           visibility: enable
 
@@ -355,6 +358,7 @@ def main():
     module_arg_spec = {
         'adom': {'required': True, 'type': 'str'},
         'address6': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
         'firewall_address6_dynamicmapping': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
