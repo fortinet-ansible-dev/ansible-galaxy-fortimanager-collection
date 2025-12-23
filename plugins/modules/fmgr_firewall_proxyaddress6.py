@@ -1,0 +1,457 @@
+#!/usr/bin/python
+from __future__ import absolute_import, division, print_function
+# Copyright 2019-2024 Fortinet, Inc.
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+__metaclass__ = type
+
+ANSIBLE_METADATA = {'status': ['preview'],
+                    'supported_by': 'community',
+                    'metadata_version': '1.1'}
+
+DOCUMENTATION = '''
+---
+module: fmgr_firewall_proxyaddress6
+short_description: Firewall proxy address6
+description:
+    - This module is able to configure a FortiManager device (FortiProxy).
+    - Examples include all parameters and values which need to be adjusted to data sources before usage.
+version_added: "2.12.0"
+author:
+    - Xinwei Du (@dux-fortinet)
+    - Xing Li (@lix-fortinet)
+    - Jie Xue (@JieX19)
+    - Link Zheng (@chillancezen)
+    - Frank Shen (@fshen01)
+    - Hongbin Lu (@fgtdev-hblu)
+notes:
+    - Starting in version 2.4.0, all input arguments are named using the underscore naming convention (snake_case).
+      Please change the arguments such as "var-name" to "var_name".
+      Old argument names are still available yet you will receive deprecation warnings.
+      You can ignore this warning by setting deprecation_warnings=False in ansible.cfg.
+    - Running in workspace locking mode is supported in this FortiManager module, the top
+      level parameters workspace_locking_adom and workspace_locking_timeout help do the work.
+    - To create or update an object, use state present directive.
+    - To delete an object, use state absent directive.
+    - Normally, running one module can fail when a non-zero rc is returned. you can also override
+      the conditions to fail or succeed with parameters rc_failed and rc_succeeded
+options:
+    access_token:
+        description: The token to access FortiManager without using username and password.
+        type: str
+    bypass_validation:
+        description: Only set to True when module schema diffs with FortiManager API structure, module continues to execute without validating parameters.
+        type: bool
+        default: false
+    enable_log:
+        description: Enable/Disable logging for task.
+        type: bool
+        default: false
+    forticloud_access_token:
+        description: Authenticate Ansible client with forticloud API access token.
+        type: str
+    proposed_method:
+        description: The overridden method for the underlying Json RPC request.
+        type: str
+        choices:
+          - update
+          - set
+          - add
+    rc_succeeded:
+        description: The rc codes list with which the conditions to succeed will be overriden.
+        type: list
+        elements: int
+    rc_failed:
+        description: The rc codes list with which the conditions to fail will be overriden.
+        type: list
+        elements: int
+    state:
+        description: The directive to create, update or delete an object.
+        type: str
+        required: true
+        choices:
+          - present
+          - absent
+    revision_note:
+        description: The change note that can be specified when an object is created or updated.
+        type: str
+    workspace_locking_adom:
+        description: The adom to lock for FortiManager running in workspace mode, the value can be global and others including root.
+        type: str
+    workspace_locking_timeout:
+        description: The maximum time in seconds to wait for other user to release the workspace lock.
+        type: int
+        default: 300
+    adom:
+        description: The parameter (adom) in requested url.
+        type: str
+        required: true
+    firewall_proxyaddress6:
+        description: The top level parameters set.
+        required: false
+        type: dict
+        suboptions:
+            application:
+                type: list
+                elements: str
+                description: Application.
+            case_sensitivity:
+                aliases: ['case-sensitivity']
+                type: str
+                description: Case sensitivity.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            category:
+                type: list
+                elements: int
+                description: Category.
+            color:
+                type: int
+                description: Color.
+            comment:
+                type: str
+                description: Comment.
+            header:
+                type: str
+                description: Header.
+            header_group:
+                aliases: ['header-group']
+                type: list
+                elements: dict
+                description: Header group.
+                suboptions:
+                    case_sensitivity:
+                        aliases: ['case-sensitivity']
+                        type: str
+                        description: Case sensitivity.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    header:
+                        type: str
+                        description: Header.
+                    header_name:
+                        aliases: ['header-name']
+                        type: str
+                        description: Header name.
+                    id:
+                        type: int
+                        description: Id.
+            header_name:
+                aliases: ['header-name']
+                type: str
+                description: Header name.
+            host:
+                type: list
+                elements: str
+                description: Host.
+            host_regex:
+                aliases: ['host-regex']
+                type: str
+                description: Host regex.
+            method:
+                type: list
+                elements: str
+                description: Method.
+                choices:
+                    - 'delete'
+                    - 'get'
+                    - 'head'
+                    - 'options'
+                    - 'post'
+                    - 'put'
+                    - 'trace'
+                    - 'connect'
+            name:
+                type: str
+                description: Name.
+                required: true
+            path:
+                type: str
+                description: Path.
+            post_arg:
+                aliases: ['post-arg']
+                type: str
+                description: Post arg.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            query:
+                type: str
+                description: Query.
+            referrer:
+                type: str
+                description: Referrer.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            tagging:
+                type: list
+                elements: dict
+                description: Tagging.
+                suboptions:
+                    category:
+                        type: list
+                        elements: str
+                        description: Category.
+                    name:
+                        type: str
+                        description: Name.
+                    tags:
+                        type: list
+                        elements: str
+                        description: Tags.
+            type:
+                type: str
+                description: Type.
+                choices:
+                    - 'host-regex'
+                    - 'url'
+                    - 'category'
+                    - 'method'
+                    - 'ua'
+                    - 'header'
+                    - 'src-advanced'
+                    - 'dst-advanced'
+                    - 'url-list'
+                    - 'saas'
+                    - 'response-header'
+            ua:
+                type: list
+                elements: str
+                description: Ua.
+                choices:
+                    - 'chrome'
+                    - 'ms'
+                    - 'firefox'
+                    - 'safari'
+                    - 'other'
+                    - 'ie'
+                    - 'edge'
+            ua_max_ver:
+                aliases: ['ua-max-ver']
+                type: str
+                description: Ua max ver.
+            ua_min_ver:
+                aliases: ['ua-min-ver']
+                type: str
+                description: Ua min ver.
+            url_list:
+                aliases: ['url-list']
+                type: list
+                elements: str
+                description: Url list.
+            uuid:
+                type: str
+                description: Uuid.
+'''
+
+EXAMPLES = '''
+- name: Example playbook (generated based on argument schema)
+  hosts: fortimanagers
+  connection: httpapi
+  gather_facts: false
+  vars:
+    ansible_httpapi_use_ssl: true
+    ansible_httpapi_validate_certs: false
+    ansible_httpapi_port: 443
+  tasks:
+    - name: Firewall proxy address6
+      fortinet.fortimanager.fmgr_firewall_proxyaddress6:
+        # bypass_validation: false
+        # workspace_locking_adom: <global or your adom name>
+        # workspace_locking_timeout: 300
+        # rc_succeeded: [0, -2, -3, ...]
+        # rc_failed: [-2, -3, ...]
+        adom: <your own value>
+        state: present # <value in [present, absent]>
+        firewall_proxyaddress6:
+          name: "your value" # Required variable, string
+          # application: <list or string>
+          # case_sensitivity: <value in [disable, enable]>
+          # category: <list or integer>
+          # color: <integer>
+          # comment: <string>
+          # header: <string>
+          # header_group:
+          #   - case_sensitivity: <value in [disable, enable]>
+          #     header: <string>
+          #     header_name: <string>
+          #     id: <integer>
+          # header_name: <string>
+          # host: <list or string>
+          # host_regex: <string>
+          # method:
+          #   - "delete"
+          #   - "get"
+          #   - "head"
+          #   - "options"
+          #   - "post"
+          #   - "put"
+          #   - "trace"
+          #   - "connect"
+          # path: <string>
+          # post_arg: <value in [disable, enable]>
+          # query: <string>
+          # referrer: <value in [disable, enable]>
+          # tagging:
+          #   - category: <list or string>
+          #     name: <string>
+          #     tags: <list or string>
+          # type: <value in [host-regex, url, category, ...]>
+          # ua:
+          #   - "chrome"
+          #   - "ms"
+          #   - "firefox"
+          #   - "safari"
+          #   - "other"
+          #   - "ie"
+          #   - "edge"
+          # ua_max_ver: <string>
+          # ua_min_ver: <string>
+          # url_list: <list or string>
+          # uuid: <string>
+'''
+
+RETURN = '''
+meta:
+    description: The result of the request.
+    type: dict
+    returned: always
+    contains:
+        request_url:
+            description: The full url requested.
+            returned: always
+            type: str
+            sample: /sys/login/user
+        response_code:
+            description: The status of api request.
+            returned: always
+            type: int
+            sample: 0
+        response_data:
+            description: The api response.
+            type: list
+            returned: always
+        response_message:
+            description: The descriptive message of the api response.
+            type: str
+            returned: always
+            sample: OK.
+        system_information:
+            description: The information of the target system.
+            type: dict
+            returned: always
+rc:
+    description: The status the request.
+    type: int
+    returned: always
+    sample: 0
+version_check_warning:
+    description: Warning if the parameters used in the playbook are not supported by the current FortiManager version.
+    type: list
+    returned: complex
+'''
+from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.connection import Connection
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.napi import NAPIManager, check_galaxy_version, check_parameter_bypass
+from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import get_module_arg_spec
+
+
+def main():
+    urls_list = [
+        '/pm/config/adom/{adom}/obj/firewall/proxy-address6',
+        '/pm/config/global/obj/firewall/proxy-address6'
+    ]
+    url_params = ['adom']
+    module_primary_key = 'name'
+    module_arg_spec = {
+        'adom': {'required': True, 'type': 'str'},
+        'revision_note': {'type': 'str'},
+        'firewall_proxyaddress6': {
+            'type': 'dict',
+            'v_range': [['7.6.4', '']],
+            'options': {
+                'application': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'case-sensitivity': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'category': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'int'},
+                'color': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'comment': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'header': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'header-group': {
+                    'v_range': [['7.6.4', '']],
+                    'type': 'list',
+                    'options': {
+                        'case-sensitivity': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'header': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                        'header-name': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                    },
+                    'elements': 'dict'
+                },
+                'header-name': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'host': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'host-regex': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'method': {
+                    'v_range': [['7.6.4', '']],
+                    'type': 'list',
+                    'choices': ['delete', 'get', 'head', 'options', 'post', 'put', 'trace', 'connect'],
+                    'elements': 'str'
+                },
+                'name': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'str'},
+                'path': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'post-arg': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'query': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'referrer': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tagging': {
+                    'v_range': [['7.6.4', '']],
+                    'type': 'list',
+                    'options': {
+                        'category': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                        'name': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                        'tags': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                    },
+                    'elements': 'dict'
+                },
+                'type': {
+                    'v_range': [['7.6.4', '']],
+                    'choices': [
+                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header'
+                    ],
+                    'type': 'str'
+                },
+                'ua': {
+                    'v_range': [['7.6.4', '']],
+                    'type': 'list',
+                    'choices': ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge'],
+                    'elements': 'str'
+                },
+                'ua-max-ver': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'ua-min-ver': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'url-list': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
+            }
+        }
+    }
+
+    module_option_spec = get_module_arg_spec('full crud')
+    module_arg_spec.update(module_option_spec)
+    params_validation_blob = []
+    check_galaxy_version(module_arg_spec)
+    module = AnsibleModule(argument_spec=check_parameter_bypass(module_arg_spec, 'firewall_proxyaddress6'),
+                           supports_check_mode=True)
+
+    if not module._socket_path:
+        module.fail_json(msg='MUST RUN IN HTTPAPI MODE')
+    connection = Connection(module._socket_path)
+    fmgr = NAPIManager('full crud', module_arg_spec, urls_list, module_primary_key, url_params,
+                       module, connection, top_level_schema_name='data')
+    fmgr.validate_parameters(params_validation_blob)
+    fmgr.process_crud()
+
+    module.exit_json(meta=module.params)
+
+
+if __name__ == '__main__':
+    main()

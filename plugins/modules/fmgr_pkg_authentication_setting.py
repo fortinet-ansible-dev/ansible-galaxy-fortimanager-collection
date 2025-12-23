@@ -16,7 +16,6 @@ short_description: Configure authentication setting.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -190,6 +189,13 @@ options:
                 aliases: ['update-time']
                 type: str
                 description: Time of the last update.
+            log_auth_request:
+                aliases: ['log-auth-request']
+                type: str
+                description: Log auth request.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -234,6 +240,7 @@ EXAMPLES = '''
           # ip_auth_cookie: <value in [disable, enable]>
           # persistent_cookie: <value in [disable, enable]>
           # update_time: <string>
+          # log_auth_request: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -304,7 +311,7 @@ def main():
                 'captive-portal-ssl-port': {'v_range': [['6.2.1', '']], 'type': 'int'},
                 'captive-portal-type': {'v_range': [['6.2.1', '']], 'choices': ['fqdn', 'ip'], 'type': 'str'},
                 'captive-portal6': {'v_range': [['6.2.1', '']], 'type': 'str'},
-                'rewrite-https-port': {'v_range': [['6.2.1', '7.6.2']], 'type': 'int'},
+                'rewrite-https-port': {'v_range': [['6.2.1', '7.6.2'], ['7.6.4', '']], 'type': 'int'},
                 'sso-auth-scheme': {'v_range': [['6.2.1', '']], 'type': 'str'},
                 'dev-range': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'user-cert-ca': {'v_range': [['7.0.0', '']], 'type': 'raw'},
@@ -316,7 +323,8 @@ def main():
                 'cookie-refresh-div': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'ip-auth-cookie': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'persistent-cookie': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'update-time': {'v_range': [['7.2.0', '']], 'type': 'str'}
+                'update-time': {'v_range': [['7.2.0', '']], 'type': 'str'},
+                'log-auth-request': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -16,7 +16,6 @@ short_description: Configure FortiClient Enterprise Management Server
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -112,6 +111,7 @@ options:
                     - 'client-avatars'
                     - 'fgt-sysinfo-api'
                     - 'ztna-server-info'
+                    - 'used-tags'
             certificate_fingerprint:
                 aliases: ['certificate-fingerprint']
                 type: str
@@ -316,6 +316,7 @@ EXAMPLES = '''
           #   - "client-avatars"
           #   - "fgt-sysinfo-api"
           #   - "ztna-server-info"
+          #   - "used-tags"
           # certificate_fingerprint: <string>
           # cloud_server_type: <value in [production, alpha, beta]>
           # fortinetone_cloud_authentication: <value in [disable, enable]>
@@ -414,7 +415,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'fabric-auth', 'silent-approval', 'websocket', 'websocket-malware', 'push-ca-certs', 'common-tags-api', 'tenant-id',
-                        'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info'
+                        'single-vdom-connector', 'client-avatars', 'fgt-sysinfo-api', 'ztna-server-info', 'used-tags'
                     ],
                     'elements': 'str'
                 },
@@ -438,13 +439,13 @@ def main():
                 'admin-username': {'v_range': [['7.0.2', '7.6.2']], 'type': 'str'},
                 'serial-number': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'admin-password': {'v_range': [['7.0.2', '7.6.2']], 'no_log': True, 'type': 'raw'},
-                'interface': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                'interface-select-method': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'dirty-reason': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['none', 'mismatched-ems-sn'], 'type': 'str'},
-                'ems-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
-                'status': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ca-cn-info': {'v_range': [['7.0.6', '7.0.14'], ['7.2.2', '']], 'type': 'str'},
-                'trust-ca-cn': {'v_range': [['7.0.6', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'interface': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                'interface-select-method': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'dirty-reason': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['none', 'mismatched-ems-sn'], 'type': 'str'},
+                'ems-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                'status': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ca-cn-info': {'v_range': [['7.0.6', '7.0.15'], ['7.2.2', '']], 'type': 'str'},
+                'trust-ca-cn': {'v_range': [['7.0.6', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tenant-id': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'send-tags-to-all-vdoms': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'verified-cn': {'v_range': [['7.4.2', '']], 'type': 'str'},

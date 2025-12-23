@@ -16,7 +16,6 @@ short_description: Configure SSL/SSH protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -170,6 +169,20 @@ options:
                         aliases: ['wildcard-fqdn']
                         type: str
                         description: Exempt servers by wildcard FQDN.
+                    finger_print_category:
+                        aliases: ['finger-print-category']
+                        type: str
+                        description: Finger print platform.
+                        choices:
+                            - 'unknown'
+                            - 'firefox'
+                            - 'chrome'
+                            - 'safari'
+                            - 'edge'
+                            - 'ie'
+                            - 'android'
+                            - 'ios'
+                            - 'windows'
             ssl_exemptions_log:
                 aliases: ['ssl-exemptions-log']
                 type: str
@@ -354,6 +367,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -493,6 +507,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -670,6 +685,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -816,6 +832,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -962,6 +979,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -1181,6 +1199,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -1346,6 +1365,7 @@ options:
                             - 'bypass'
                             - 'inspect'
                             - 'block'
+                            - 'bypass-on-cert-req'
                     expired_server_cert:
                         aliases: ['expired-server-cert']
                         type: str
@@ -1495,6 +1515,29 @@ options:
                     sni:
                         type: str
                         description: ClientHelloOuter SNI to be blocked.
+            ssl_client_certificate:
+                aliases: ['ssl-client-certificate']
+                type: dict
+                description: Ssl client certificate.
+                suboptions:
+                    caname:
+                        type: raw
+                        description: (list) Caname.
+                    cert:
+                        type: raw
+                        description: (list) Cert.
+                    keyring_list:
+                        aliases: ['keyring-list']
+                        type: raw
+                        description: (list) Keyring list.
+                    status:
+                        type: str
+                        description: Status.
+                        choices:
+                            - 'do-not-offer'
+                            - 'keyring-list'
+                            - 'ca-sign'
+                            - 'static'
 '''
 
 EXAMPLES = '''
@@ -1613,7 +1656,12 @@ def main():
                         'id': {'type': 'int'},
                         'regex': {'type': 'str'},
                         'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
-                        'wildcard-fqdn': {'type': 'str'}
+                        'wildcard-fqdn': {'type': 'str'},
+                        'finger-print-category': {
+                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
+                            'type': 'str'
+                        }
                     },
                     'elements': 'dict'
                 },
@@ -1651,7 +1699,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'revoked-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1676,11 +1724,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
                             'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'],
@@ -1695,7 +1747,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1725,11 +1777,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'cert-probe-failure': {'v_range': [['7.0.0', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1748,7 +1804,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1774,11 +1830,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1793,7 +1853,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1819,11 +1879,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1838,7 +1902,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'ports': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'raw'},
                         'proxy-after-tcp-handshake': {'v_range': [['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1864,11 +1928,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'unsupported-ssl-version': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow', 'inspect'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1909,7 +1977,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['6.4.5', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['6.4.5', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'inspect-all': {
                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
@@ -1937,11 +2005,15 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'untrusted-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                        'untrusted-cert': {
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'choices': ['allow', 'block', 'ignore'],
+                            'type': 'str'
+                        },
                         'cert-probe-failure': {'v_range': [['7.0.1', '']], 'choices': ['block', 'allow'], 'type': 'str'},
                         'min-allowed-ssl-version': {
                             'v_range': [['7.0.3', '']],
@@ -1960,7 +2032,7 @@ def main():
                     'options': {
                         'cert-validation-failure': {'v_range': [['7.0.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'cert-validation-timeout': {'v_range': [['7.0.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                        'client-certificate': {'v_range': [['7.0.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                        'client-certificate': {'v_range': [['7.0.0', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                         'expired-server-cert': {'v_range': [['7.0.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                         'proxy-after-tcp-handshake': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'revoked-server-cert': {'v_range': [['7.0.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
@@ -1990,6 +2062,20 @@ def main():
                     'type': 'list',
                     'options': {'name': {'v_range': [['7.4.3', '']], 'type': 'str'}, 'sni': {'v_range': [['7.4.3', '']], 'type': 'str'}},
                     'elements': 'dict'
+                },
+                'ssl-client-certificate': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'type': 'dict',
+                    'options': {
+                        'caname': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                        'cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                        'keyring-list': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                        'status': {
+                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'choices': ['do-not-offer', 'keyring-list', 'ca-sign', 'static'],
+                            'type': 'str'
+                        }
+                    }
                 }
             }
         }

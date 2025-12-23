@@ -16,7 +16,6 @@ short_description: Configure forward-server addresses.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -162,6 +161,27 @@ options:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+            ippool:
+                type: raw
+                description: (list) Ippool.
+            protocol:
+                type: list
+                elements: str
+                description: Protocol.
+                choices:
+                    - 'http'
+                    - 'ftp'
+                    - 'socks'
+            authentication:
+                type: str
+                description: Authentication type.
+                choices:
+                    - 'disabled'
+                    - 'immediately'
+                    - 'upon-challenge'
+            user:
+                type: str
+                description: User name of basic proxy authentication.
 '''
 
 EXAMPLES = '''
@@ -200,6 +220,13 @@ EXAMPLES = '''
           # interface: <list or string>
           # interface_select_method: <value in [auto, sdwan, specify]>
           # vrf_select: <integer>
+          # ippool: <list or string>
+          # protocol:
+          #   - "http"
+          #   - "ftp"
+          #   - "socks"
+          # authentication: <value in [disabled, immediately, upon-challenge]>
+          # user: <string>
 '''
 
 RETURN = '''
@@ -276,7 +303,11 @@ def main():
                 'masquerade': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'interface': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'interface-select-method': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'ippool': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'protocol': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
+                'authentication': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disabled', 'immediately', 'upon-challenge'], 'type': 'str'},
+                'user': {'v_range': [['7.4.8', '7.4.8']], 'type': 'str'}
             }
         }
     }

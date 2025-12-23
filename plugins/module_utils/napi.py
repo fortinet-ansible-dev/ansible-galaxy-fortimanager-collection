@@ -32,8 +32,6 @@ from ansible.module_utils.basic import _load_params
 import datetime
 import re
 
-from ansible.module_utils.six import raise_from
-
 try:
     import yaml
 except ImportError as imp_exc:
@@ -109,7 +107,7 @@ def modify_argument_spec(schema):
             elif aliase_name != param_name:
                 new_content["removed_in_version"] = "3.0.0"
                 new_content["removed_from_collection"] = "fortinet.fortimanager"
-                if aliase_name not in new_schema and "api_name" not in schema[param_name]:
+                if aliase_name not in schema and "api_name" not in schema[param_name]:
                     new_content["aliases"] = [aliase_name]
             new_schema[param_name] = new_content
     return new_schema
@@ -214,10 +212,7 @@ class NAPIManager(object):
         self.allow_diff = False
         self.extra_params = self._init_extra_params()
         if YAML_IMPORT_ERROR:
-            raise_from(
-                Exception("YAML must be installed to use this plugin"),
-                YAML_IMPORT_ERROR,
-            )
+            raise Exception("YAML must be installed to use this plugin")
 
     def _init_extra_params(self):
         extra_params = {}

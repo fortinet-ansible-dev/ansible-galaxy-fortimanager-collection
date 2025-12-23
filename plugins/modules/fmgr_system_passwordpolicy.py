@@ -16,7 +16,6 @@ short_description: Password policy.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -228,7 +227,7 @@ def main():
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
                 'login-lockout-upon-downgrade': {
-                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 }

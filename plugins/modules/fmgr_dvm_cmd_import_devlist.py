@@ -16,7 +16,6 @@ short_description: Import a list of ADOMs and devices.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1198,7 +1197,7 @@ def main():
                                 'role': {'choices': ['slave', 'master'], 'type': 'str'},
                                 'sn': {'type': 'str'},
                                 'status': {'type': 'int'},
-                                'conf_status': {'v_range': [['7.0.10', '7.0.14'], ['7.2.1', '']], 'type': 'int'}
+                                'conf_status': {'v_range': [['7.0.10', '7.0.15'], ['7.2.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
@@ -1266,8 +1265,8 @@ def main():
                         'nsxt_service_name': {'v_range': [['6.4.4', '']], 'type': 'str'},
                         'private_key': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
                         'private_key_status': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
-                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.14'], ['7.2.3', '']], 'type': 'int'},
-                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
+                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'int'},
+                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
                         'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'hw_generation': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
@@ -1275,8 +1274,8 @@ def main():
                         'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
                         'ha.vsn': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'type': 'str'},
                         'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
+                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

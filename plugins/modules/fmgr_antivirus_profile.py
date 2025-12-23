@@ -16,7 +16,6 @@ short_description: Configure AntiVirus profiles.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1870,7 +1869,7 @@ def main():
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'unknown-content-encoding': {
-                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
                             'choices': ['block', 'inspect', 'bypass'],
                             'type': 'str'
                         },

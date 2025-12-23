@@ -16,7 +16,6 @@ short_description: IPv6 local in policy configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -123,6 +122,9 @@ options:
             src:
                 type: str
                 description: Source IP and prefix.
+            description:
+                type: str
+                description: Description.
 '''
 
 EXAMPLES = '''
@@ -151,6 +153,7 @@ EXAMPLES = '''
           # intf: <string>
           # protocol: <value in [tcp, udp, tcp_udp]>
           # src: <string>
+          # description: <string>
 '''
 
 RETURN = '''
@@ -215,7 +218,8 @@ def main():
                 'id': {'v_range': [['7.2.0', '']], 'required': True, 'type': 'int'},
                 'intf': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'protocol': {'v_range': [['7.2.0', '']], 'choices': ['tcp', 'udp', 'tcp_udp'], 'type': 'str'},
-                'src': {'v_range': [['7.2.0', '']], 'type': 'str'}
+                'src': {'v_range': [['7.2.0', '']], 'type': 'str'},
+                'description': {'v_range': [['7.6.4', '']], 'type': 'str'}
             }
         }
     }

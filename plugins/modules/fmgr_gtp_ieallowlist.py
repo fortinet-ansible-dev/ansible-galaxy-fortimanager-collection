@@ -16,7 +16,6 @@ short_description: IE allow list.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.9.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -196,19 +195,19 @@ def main():
         'revision_note': {'type': 'str'},
         'gtp_ieallowlist': {
             'type': 'dict',
-            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']],
+            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']],
             'options': {
                 'entries': {
-                    'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']],
+                    'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'ie': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'fmgr_message': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
+                        'id': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'ie': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'fmgr_message': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'name': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'required': True, 'type': 'str'}
+                'name': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'required': True, 'type': 'str'}
             }
         }
     }

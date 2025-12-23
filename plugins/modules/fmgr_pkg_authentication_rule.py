@@ -16,7 +16,6 @@ short_description: Configure Authentication Rules.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -187,6 +186,17 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            form_auth_fallback:
+                aliases: ['form-auth-fallback']
+                type: str
+                description: Form auth fallback.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            web_proxy:
+                aliases: ['web-proxy']
+                type: raw
+                description: (list) Web proxy.
 '''
 
 EXAMPLES = '''
@@ -228,6 +238,8 @@ EXAMPLES = '''
           # cors_depth: <integer>
           # cors_stateful: <value in [disable, enable]>
           # cert_auth_cookie: <value in [disable, enable]>
+          # form_auth_fallback: <value in [disable, enable]>
+          # web_proxy: <list or string>
 '''
 
 RETURN = '''
@@ -306,7 +318,9 @@ def main():
                 'srcintf': {'v_range': [['7.0.0', '']], 'type': 'raw'},
                 'cors-depth': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'cors-stateful': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'form-auth-fallback': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'web-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

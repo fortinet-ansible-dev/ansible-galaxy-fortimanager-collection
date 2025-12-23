@@ -16,7 +16,6 @@ short_description: Certificate template
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -177,6 +176,10 @@ options:
                 aliases: ['scep-ca-identifier']
                 type: str
                 description: Scep ca identifier.
+            subject_alt_name:
+                aliases: ['subject-alt-name']
+                type: str
+                description: Support meta variable
 '''
 
 EXAMPLES = '''
@@ -295,7 +298,8 @@ def main():
                 'subject-name': {'type': 'str'},
                 'type': {'choices': ['external', 'local'], 'type': 'str'},
                 'curve-name': {'v_range': [['6.2.1', '']], 'choices': ['secp256r1', 'secp384r1', 'secp521r1'], 'type': 'str'},
-                'scep-ca-identifier': {'v_range': [['7.0.4', '']], 'type': 'str'}
+                'scep-ca-identifier': {'v_range': [['7.0.4', '']], 'type': 'str'},
+                'subject-alt-name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

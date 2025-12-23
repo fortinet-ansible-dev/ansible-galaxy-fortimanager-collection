@@ -16,7 +16,6 @@ short_description: Configure central SNAT policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -195,6 +194,27 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            action:
+                type: str
+                description: Central SNAT action.
+                choices:
+                    - 'bypass'
+                    - 'masquerade'
+                    - 'ippool'
+            ipv6:
+                type: str
+                description: Enable/disable IPv6.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            src_addr:
+                aliases: ['src-addr']
+                type: raw
+                description: (list) Original source address.
+            src_addr6:
+                aliases: ['src-addr6']
+                type: raw
+                description: (list) Original IPV6 source address.
 '''
 
 EXAMPLES = '''
@@ -319,7 +339,11 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dst-port': {'v_range': [['7.2.6', '']], 'type': 'str'},
                 'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'action': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['bypass', 'masquerade', 'ippool'], 'type': 'str'},
+                'ipv6': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'src-addr': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'src-addr6': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

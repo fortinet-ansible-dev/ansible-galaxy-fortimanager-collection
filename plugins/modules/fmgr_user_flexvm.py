@@ -16,7 +16,6 @@ short_description: User flexvm
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -117,6 +116,9 @@ options:
             user:
                 type: str
                 description: User.
+            default_config:
+                type: int
+                description: Default config.
 '''
 
 EXAMPLES = '''
@@ -146,6 +148,7 @@ EXAMPLES = '''
           # program: <string>
           # status: <value in [disable, enable]>
           # user: <string>
+          # default_config: <integer>
 '''
 
 RETURN = '''
@@ -213,7 +216,8 @@ def main():
                 'password': {'v_range': [['7.2.1', '']], 'no_log': True, 'type': 'str'},
                 'program': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'user': {'v_range': [['7.2.1', '']], 'type': 'str'}
+                'user': {'v_range': [['7.2.1', '']], 'type': 'str'},
+                'default_config': {'v_range': [['7.6.4', '']], 'type': 'int'}
             }
         }
     }

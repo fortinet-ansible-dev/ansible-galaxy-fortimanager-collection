@@ -16,7 +16,6 @@ short_description: Configure CASB user activity.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.3.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -108,6 +107,7 @@ options:
                     - 'domain-control'
                     - 'safe-search-control'
                     - 'other'
+                    - 'advanced-tenant-control'
             control_options:
                 aliases: ['control-options']
                 type: list
@@ -182,6 +182,10 @@ options:
                                 type: list
                                 elements: str
                                 description: CASB operation new values.
+                            value_name_from_input:
+                                aliases: ['value-name-from-input']
+                                type: str
+                                description: CASB operation value name from user input.
                     status:
                         type: str
                         description: CASB control option status.
@@ -385,6 +389,7 @@ EXAMPLES = '''
           #         target: <value in [header, path, body]>
           #         value_from_input: <value in [disable, enable]>
           #         values: <list or string>
+          #         value_name_from_input: <string>
           #     status: <value in [disable, enable]>
           # description: <string>
           # match:
@@ -481,7 +486,7 @@ def main():
                 'casb-name': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'category': {
                     'v_range': [['7.4.1', '']],
-                    'choices': ['activity-control', 'tenant-control', 'domain-control', 'safe-search-control', 'other'],
+                    'choices': ['activity-control', 'tenant-control', 'domain-control', 'safe-search-control', 'other', 'advanced-tenant-control'],
                     'type': 'str'
                 },
                 'control-options': {
@@ -506,7 +511,8 @@ def main():
                                 'search-pattern': {'v_range': [['7.4.1', '']], 'choices': ['simple', 'substr', 'regexp'], 'type': 'str'},
                                 'target': {'v_range': [['7.4.1', '']], 'choices': ['header', 'path', 'body'], 'type': 'str'},
                                 'value-from-input': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'values': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'}
+                                'values': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'},
+                                'value-name-from-input': {'v_range': [['7.6.4', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },

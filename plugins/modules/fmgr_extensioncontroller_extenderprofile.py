@@ -16,7 +16,6 @@ short_description: FortiExtender extender profile configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -563,6 +562,7 @@ options:
                                     - 'port5'
                                     - 'lan1'
                                     - 'lan2'
+                                    - 'lan'
                             pvid:
                                 type: int
                                 description: FortiExtender LAN extension downlink PVID.
@@ -575,6 +575,9 @@ options:
                             vap:
                                 type: raw
                                 description: (list) FortiExtender LAN extension downlink vap.
+                            vids:
+                                type: raw
+                                description: (list) FortiExtender LAN extension downlink VIDs.
                     traffic_split_services:
                         aliases: ['traffic-split-services']
                         type: list
@@ -641,6 +644,7 @@ options:
                     - 'FXW51G'
                     - 'FVG51G'
                     - 'FXE11G'
+                    - 'FX211G'
             name:
                 type: str
                 description: FortiExtender profile name.
@@ -1265,6 +1269,7 @@ EXAMPLES = '''
           #       pvid: <integer>
           #       type: <value in [port, vap]>
           #       vap: <list or string>
+          #       vids: <list or integer>
           #   traffic_split_services:
           #     - address: <list or string>
           #       name: <string>
@@ -1578,12 +1583,13 @@ def main():
                                 'name': {'v_range': [['7.6.0', '']], 'type': 'str'},
                                 'port': {
                                     'v_range': [['7.6.0', '']],
-                                    'choices': ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2'],
+                                    'choices': ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2', 'lan'],
                                     'type': 'str'
                                 },
                                 'pvid': {'v_range': [['7.6.0', '']], 'type': 'int'},
                                 'type': {'v_range': [['7.6.0', '']], 'choices': ['port', 'vap'], 'type': 'str'},
-                                'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                                'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                                'vids': {'v_range': [['7.6.4', '']], 'type': 'raw'}
                             },
                             'elements': 'dict'
                         },
@@ -1607,7 +1613,7 @@ def main():
                     'choices': [
                         'FX201E', 'FX211E', 'FX200F', 'FXA11F', 'FXE11F', 'FXA21F', 'FXE21F', 'FXA22F', 'FXE22F', 'FX212F', 'FX311F', 'FX312F', 'FX511F',
                         'FVG21F', 'FVA21F', 'FVG22F', 'FVA22F', 'FX04DA', 'FX04DN', 'FX04DI', 'FXR51G', 'FG', 'BS10FW', 'BS20GW', 'BS20GN', 'FXN51G',
-                        'FXW51G', 'FVG51G', 'FXE11G'
+                        'FXW51G', 'FVG51G', 'FXE11G', 'FX211G'
                     ],
                     'type': 'str'
                 },

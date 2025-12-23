@@ -16,7 +16,6 @@ short_description: Configure SCIM client entries.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -147,6 +146,12 @@ options:
                 type: list
                 elements: str
                 description: Certificate for token verification.
+            cascade:
+                type: str
+                description: Enable/disable to follow SCIM users/groups changes in IDP.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -180,6 +185,7 @@ EXAMPLES = '''
           # secret: <list or string>
           # status: <value in [disable, enable]>
           # token_certificate: <list or string>
+          # cascade: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -251,7 +257,8 @@ def main():
                 'name': {'v_range': [['7.6.3', '']], 'type': 'str'},
                 'secret': {'v_range': [['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'status': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'token-certificate': {'v_range': [['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'}
+                'token-certificate': {'v_range': [['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'cascade': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

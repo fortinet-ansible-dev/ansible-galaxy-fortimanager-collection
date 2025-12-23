@@ -956,3 +956,213 @@ releases:
     fragments:
       - 2.11.0.yml
     release_date: "2025-10-03"
+  2.12.0:
+    changes:
+      bugfixes:
+        - Improved the request sending logic in httpapi plugin.
+      minor_changes:
+        - Supported new modules to configure FortiProxy.
+        - Supported new schemas in FortiManager 7.0.15, 7.4.8, 7.6.4.
+      release_summary: Release fortinet.fortimanager 2.12.0
+    fragments:
+      - 2.12.0.yml
+    modules:
+      - description: System template log syslogd setting log templates
+        name: fmgr_devprof_log_syslogd_setting_logtemplates
+        namespace: ""
+      - description: Dynamic log npu server server group dynamic mapping
+        name: fmgr_dynamic_log_npuserver_servergroup_dynamicmapping
+        namespace: ""
+      - description: Configure PFCP.
+        name: fmgr_firewall_pfcp
+        namespace: ""
+      - description: Firewall profile protocol options proxy redirect
+        name: fmgr_firewall_profileprotocoloptions_proxyredirect
+        namespace: ""
+      - description: RTMP.
+        name: fmgr_firewall_profileprotocoloptions_rtmp
+        namespace: ""
+      - description: Firewall proxy address6
+        name: fmgr_firewall_proxyaddress6
+        namespace: ""
+      - description: Firewall proxy address6 header group
+        name: fmgr_firewall_proxyaddress6_headergroup
+        namespace: ""
+      - description: Firewall proxy address6 tagging
+        name: fmgr_firewall_proxyaddress6_tagging
+        namespace: ""
+      - description: Firewall proxy addrgrp6
+        name: fmgr_firewall_proxyaddrgrp6
+        namespace: ""
+      - description: Firewall proxy addrgrp6 tagging
+        name: fmgr_firewall_proxyaddrgrp6_tagging
+        namespace: ""
+      - description: Firewall shaping profile classes
+        name: fmgr_firewall_shapingprofile_classes
+        namespace: ""
+      - description: Firewall ssl ssh profile ssl client certificate
+        name: fmgr_firewall_sslsshprofile_sslclientcertificate
+        namespace: ""
+      - description: Icap remote server group
+        name: fmgr_icap_remoteservergroup
+        namespace: ""
+      - description: Icap remote server group server list
+        name: fmgr_icap_remoteservergroup_serverlist
+        namespace: ""
+      - description: Isolator profile
+        name: fmgr_isolator_profile
+        namespace: ""
+      - description: Isolator profile entries
+        name: fmgr_isolator_profile_entries
+        namespace: ""
+      - description: Policy package firewall response shaping policy
+        name: fmgr_pkg_firewall_responseshapingpolicy
+        namespace: ""
+      - description: Configure static routes.
+        name: fmgr_switchcontroller_managedswitch_routerstatic
+        namespace: ""
+      - description: Configure VRF.
+        name: fmgr_switchcontroller_managedswitch_routervrf
+        namespace: ""
+      - description: Configure DHCP servers.
+        name: fmgr_switchcontroller_managedswitch_systemdhcpserver
+        namespace: ""
+      - description: DHCP options.
+        name: fmgr_switchcontroller_managedswitch_systemdhcpserver_options
+        namespace: ""
+      - description: Configure system interface on FortiSwitch.
+        name: fmgr_switchcontroller_managedswitch_systeminterface
+        namespace: ""
+      - description:
+          Configure allowaccess list for mgmt and internal interfaces on
+          managed FortiSwitch units.
+        name: fmgr_switchcontroller_securitypolicy_localaccess
+        namespace: ""
+      - description: Configure FortiSwitch switch profile.
+        name: fmgr_switchcontroller_switchprofile
+        namespace: ""
+      - description: Configure DNS databases.
+        name: fmgr_system_dnsdatabase
+        namespace: ""
+      - description: DNS entry.
+        name: fmgr_system_dnsdatabase_dnsentry
+        namespace: ""
+      - description: Cli system local in policy6 dport
+        name: fmgr_system_localinpolicy6_dport
+        namespace: ""
+      - description: Cli system local in policy6 dst
+        name: fmgr_system_localinpolicy6_dst
+        namespace: ""
+      - description: Cli system local in policy6 intf
+        name: fmgr_system_localinpolicy6_intf
+        namespace: ""
+      - description: Cli system local in policy6 src
+        name: fmgr_system_localinpolicy6_src
+        namespace: ""
+      - description: Cli system local in policy dport
+        name: fmgr_system_localinpolicy_dport
+        namespace: ""
+      - description: Cli system local in policy dst
+        name: fmgr_system_localinpolicy_dst
+        namespace: ""
+      - description: Cli system local in policy intf
+        name: fmgr_system_localinpolicy_intf
+        namespace: ""
+      - description: Cli system local in policy src
+        name: fmgr_system_localinpolicy_src
+        namespace: ""
+      - description: Configure FortiTelemetry agents managed by a FortiGate unit.
+        name: fmgr_telemetrycontroller_agent
+        namespace: ""
+      - description: User oidc
+        name: fmgr_user_oidc
+        namespace: ""
+      - description: Local certificates whose keys are stored on HSM.
+        name: fmgr_vpn_certificate_hsmlocal
+        namespace: ""
+      - description: Configure IPsec manual keys.
+        name: fmgr_vpn_ipsec_manualkey
+        namespace: ""
+      - description: Configure VPN remote gateway.
+        name: fmgr_vpn_ipsec_phase1
+        namespace: ""
+      - description: Configuration Method IPv4 exclude ranges.
+        name: fmgr_vpn_ipsec_phase1_ipv4excluderange
+        namespace: ""
+      - description: Configuration method IPv6 exclude ranges.
+        name: fmgr_vpn_ipsec_phase1_ipv6excluderange
+        namespace: ""
+      - description: KMIP server entry configuration.
+        name: fmgr_vpn_kmipserver
+        namespace: ""
+      - description: KMIP server list.
+        name: fmgr_vpn_kmipserver_serverlist
+        namespace: ""
+      - description: Webfilter domain list
+        name: fmgr_webfilter_domainlist
+        namespace: ""
+      - description: Webfilter domain list entries
+        name: fmgr_webfilter_domainlist_entries
+        namespace: ""
+      - description: Configure FortiGuard Web Filter risk level.
+        name: fmgr_webfilter_ftgdrisklevel
+        namespace: ""
+      - description: Webfilter url list
+        name: fmgr_webfilter_urllist
+        namespace: ""
+      - description: Webfilter url list entries
+        name: fmgr_webfilter_urllist_entries
+        namespace: ""
+      - description: Web proxy explicit proxy
+        name: fmgr_webproxy_explicitproxy
+        namespace: ""
+      - description: Web proxy redirect profile
+        name: fmgr_webproxy_redirectprofile
+        namespace: ""
+      - description: Web proxy redirect profile entries
+        name: fmgr_webproxy_redirectprofile_entries
+        namespace: ""
+      - description: Ztna service connector
+        name: fmgr_ztna_serviceconnector
+        namespace: ""
+      - description: Configure ZTNA traffic forward proxy.
+        name: fmgr_ztna_trafficforwardproxy
+        namespace: ""
+      - description: Ztna traffic forward proxy ssl server cipher suites
+        name: fmgr_ztna_trafficforwardproxy_sslserverciphersuites
+        namespace: ""
+      - description: Ztna traffic forward proxy url route
+        name: fmgr_ztna_trafficforwardproxy_urlroute
+        namespace: ""
+      - description: Configure ztna web-portal.
+        name: fmgr_ztna_webportal
+        namespace: ""
+      - description: Configure ztna web-portal bookmark.
+        name: fmgr_ztna_webportalbookmark
+        namespace: ""
+      - description: Bookmark table.
+        name: fmgr_ztna_webportalbookmark_bookmarks
+        namespace: ""
+      - description: Configure ZTNA web-proxy.
+        name: fmgr_ztna_webproxy
+        namespace: ""
+      - description: Set IPv4 API Gateway.
+        name: fmgr_ztna_webproxy_apigateway
+        namespace: ""
+      - description: Set IPv6 API Gateway.
+        name: fmgr_ztna_webproxy_apigateway6
+        namespace: ""
+      - description:
+          Select the real servers that this Access Proxy will distribute
+          traffic to.
+        name: fmgr_ztna_webproxy_apigateway6_realservers
+        namespace: ""
+      - description: SSL/TLS cipher suites to offer to a server, ordered by priority.
+        name: fmgr_ztna_webproxy_apigateway6_sslciphersuites
+        namespace: ""
+      - description:
+          Select the real servers that this Access Proxy will distribute
+          traffic to.
+        name: fmgr_ztna_webproxy_apigateway_realservers
+        namespace: ""
+    release_date: "2025-12-23"

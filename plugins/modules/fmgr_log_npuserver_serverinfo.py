@@ -16,7 +16,6 @@ short_description: configure server info.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -227,18 +226,22 @@ def main():
         'revision_note': {'type': 'str'},
         'log_npuserver_serverinfo': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
             'options': {
-                'dest-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'required': True, 'type': 'int'},
-                'ip-family': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
-                'ipv4-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.10'], ['7.4.0', '']], 'type': 'str'},
-                'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
-                'vdom_': {'v_range': [['7.2.11', '7.2.11']], 'type': 'str'}
+                'dest-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'required': True, 'type': 'int'},
+                'ip-family': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['v4', 'v6'],
+                    'type': 'str'
+                },
+                'ipv4-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.2.10'], ['7.4.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                'log-transport': {'v_range': [['7.4.2', '7.4.7'], ['7.6.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
+                'vdom_': {'v_range': [['7.2.11', '7.2.11'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

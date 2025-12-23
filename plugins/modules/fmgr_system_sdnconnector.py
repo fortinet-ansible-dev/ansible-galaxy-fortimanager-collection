@@ -16,7 +16,6 @@ short_description: Configure connection to SDN Connector.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -692,12 +691,12 @@ def main():
                                 'name': {'type': 'str'},
                                 'public-ip': {'type': 'str'},
                                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                                'private-ip': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
+                                'private-ip': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'name': {'type': 'str'},
-                        'peer-nic': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
+                        'peer-nic': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -752,7 +751,7 @@ def main():
                 'oci-region-type': {'v_range': [['6.2.1', '']], 'choices': ['commercial', 'government'], 'type': 'str'},
                 'secret-token': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
                 'updating': {'v_range': [['6.2.1', '7.2.0']], 'type': 'int'},
-                'server-ip': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                'server-ip': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'group-name': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'api-key': {'v_range': [['6.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'compute-generation': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -782,7 +781,7 @@ def main():
                     'options': {
                         'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'external-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
+                        'external-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

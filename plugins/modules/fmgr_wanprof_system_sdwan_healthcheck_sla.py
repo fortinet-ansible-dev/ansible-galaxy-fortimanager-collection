@@ -16,7 +16,6 @@ short_description: Service level agreement
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -122,6 +121,7 @@ options:
                     - 'packet-loss'
                     - 'mos'
                     - 'remote'
+                    - 'custom-profile-1'
             packetloss_threshold:
                 aliases: ['packetloss-threshold']
                 type: int
@@ -138,6 +138,10 @@ options:
                 aliases: ['priority-out-sla']
                 type: int
                 description: Value to be distributed into routing table when out-sla
+            custom_profile_threshold:
+                aliases: ['custom-profile-threshold']
+                type: int
+                description: Custom profile threshold for SLA to be marked as pass
 '''
 
 EXAMPLES = '''
@@ -171,10 +175,12 @@ EXAMPLES = '''
           #   - "packet-loss"
           #   - "mos"
           #   - "remote"
+          #   - "custom-profile-1"
           # packetloss_threshold: <integer>
           # mos_threshold: <string>
           # priority_in_sla: <integer>
           # priority_out_sla: <integer>
+          # custom_profile_threshold: <integer>
 '''
 
 RETURN = '''
@@ -243,13 +249,14 @@ def main():
                 'link-cost-factor': {
                     'v_range': [['6.4.1', '']],
                     'type': 'list',
-                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
+                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote', 'custom-profile-1'],
                     'elements': 'str'
                 },
                 'packetloss-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
                 'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'}
+                'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
+                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
             }
         }
     }

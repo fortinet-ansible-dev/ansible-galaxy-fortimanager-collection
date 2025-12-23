@@ -118,11 +118,13 @@ options:
                     - 'firewall_profileprotocoloptions_cifs_filefilter_entries'
                     - 'firewall_service_category'
                     - 'firewall_service_custom'
+                    - 'firewall_shapingprofile_classes'
                     - 'firewall_shapingprofile_shapingentries'
                     - 'firewall_vip'
                     - 'firewall_vip6'
                     - 'ips_sensor_entries'
                     - 'ips_sensor_filter'
+                    - 'isolator_profile_entries'
                     - 'mpskprofile_mpskgroup'
                     - 'mpskprofile_mpskgroup_mpskkey'
                     - 'pkg_authentication_rule'
@@ -151,6 +153,7 @@ options:
                     - 'pkg_firewall_policy6'
                     - 'pkg_firewall_policy64'
                     - 'pkg_firewall_proxypolicy'
+                    - 'pkg_firewall_responseshapingpolicy'
                     - 'pkg_firewall_securitypolicy'
                     - 'pkg_firewall_shapingpolicy'
                     - 'pkg_user_nacpolicy'
@@ -183,6 +186,7 @@ options:
                     - 'videofilter_profile_fortiguardcategory_filters'
                     - 'videofilter_youtubechannelfilter_entries'
                     - 'vpn_ipsec_fec_mappings'
+                    - 'vpn_kmipserver_serverlist'
                     - 'vpn_ssl_settings_authenticationrule'
                     - 'vpnsslweb_portal_bookmarkgroup'
                     - 'vpnsslweb_portal_bookmarkgroup_bookmarks'
@@ -197,8 +201,10 @@ options:
                     - 'webfilter_contentheader_entries'
                     - 'webfilter_profile_filefilter_entries'
                     - 'webfilter_urlfilter_entries'
+                    - 'webproxy_redirectprofile_entries'
                     - 'wireless_accesscontrollist_layer3ipv4rules'
                     - 'wireless_accesscontrollist_layer3ipv6rules'
+                    - 'ztna_webportalbookmark_bookmarks'
             self:
                 required: true
                 description: The parameter for each selector.
@@ -367,7 +373,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}',
                 '/pm/config/global/obj/dlp/exact-data-match/{exact-data-match}/columns/{columns}'
             ],
-            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']]
+            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']]
         },
         'dlp_filepattern_entries': {
             'params': ['adom', 'entries', 'filepattern'],
@@ -579,6 +585,14 @@ def main():
                 '/pm/config/global/obj/firewall/service/custom/{custom}'
             ]
         },
+        'firewall_shapingprofile_classes': {
+            'params': ['adom', 'classes', 'shaping-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/firewall/shaping-profile/{shaping-profile}/classes/{classes}',
+                '/pm/config/global/obj/firewall/shaping-profile/{shaping-profile}/classes/{classes}'
+            ],
+            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']]
+        },
         'firewall_shapingprofile_shapingentries': {
             'params': ['adom', 'shaping-entries', 'shaping-profile'],
             'urls': [
@@ -614,6 +628,14 @@ def main():
                 '/pm/config/global/obj/ips/sensor/{sensor}/filter/{filter}'
             ],
             'v_range': [['6.0.0', '6.2.0']]
+        },
+        'isolator_profile_entries': {
+            'params': ['adom', 'entries', 'profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/isolator/profile/{profile}/entries/{entries}',
+                '/pm/config/global/obj/isolator/profile/{profile}/entries/{entries}'
+            ],
+            'v_range': [['7.6.4', '']]
         },
         'mpskprofile_mpskgroup': {
             'params': ['adom', 'mpsk-group', 'mpsk-profile'],
@@ -801,6 +823,13 @@ def main():
                 '/pm/config/adom/{adom}/pkg/{pkg}/firewall/proxy-policy/{proxy-policy}'
             ]
         },
+        'pkg_firewall_responseshapingpolicy': {
+            'params': ['adom', 'pkg', 'response-shaping-policy'],
+            'urls': [
+                '/pm/config/adom/{adom}/pkg/{pkg}/firewall/response-shaping-policy/{response-shaping-policy}'
+            ],
+            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']]
+        },
         'pkg_firewall_securitypolicy': {
             'params': ['adom', 'pkg', 'security-policy'],
             'urls': [
@@ -862,7 +891,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/bwl/{bwl}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bwl/{bwl}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']]
         },
         'spamfilter_bword_entries': {
             'params': ['adom', 'bword', 'entries'],
@@ -870,7 +899,7 @@ def main():
                 '/pm/config/adom/{adom}/obj/spamfilter/bword/{bword}/entries/{entries}',
                 '/pm/config/global/obj/spamfilter/bword/{bword}/entries/{entries}'
             ],
-            'v_range': [['6.0.0', '7.2.1']]
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']]
         },
         'sshfilter_profile_filefilter_entries': {
             'params': ['adom', 'entries', 'profile'],
@@ -1039,6 +1068,14 @@ def main():
             ],
             'v_range': [['7.2.0', '']]
         },
+        'vpn_kmipserver_serverlist': {
+            'params': ['adom', 'kmip-server', 'server-list'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/vpn/kmip-server/{kmip-server}/server-list/{server-list}',
+                '/pm/config/global/obj/vpn/kmip-server/{kmip-server}/server-list/{server-list}'
+            ],
+            'v_range': [['7.6.4', '']]
+        },
         'vpn_ssl_settings_authenticationrule': {
             'params': ['authentication-rule', 'device', 'vdom'],
             'urls': [
@@ -1138,6 +1175,14 @@ def main():
                 '/pm/config/global/obj/webfilter/urlfilter/{urlfilter}/entries/{entries}'
             ]
         },
+        'webproxy_redirectprofile_entries': {
+            'params': ['adom', 'entries', 'redirect-profile'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/web-proxy/redirect-profile/{redirect-profile}/entries/{entries}',
+                '/pm/config/global/obj/web-proxy/redirect-profile/{redirect-profile}/entries/{entries}'
+            ],
+            'v_range': [['7.6.4', '']]
+        },
         'wireless_accesscontrollist_layer3ipv4rules': {
             'params': ['access-control-list', 'adom', 'layer3-ipv4-rules'],
             'urls': [
@@ -1153,6 +1198,14 @@ def main():
                 '/pm/config/global/obj/wireless-controller/access-control-list/{access-control-list}/layer3-ipv6-rules/{layer3-ipv6-rules}'
             ],
             'v_range': [['7.2.1', '']]
+        },
+        'ztna_webportalbookmark_bookmarks': {
+            'params': ['adom', 'bookmarks', 'web-portal-bookmark'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/ztna/web-portal-bookmark/{web-portal-bookmark}/bookmarks/{bookmarks}',
+                '/pm/config/global/obj/ztna/web-portal-bookmark/{web-portal-bookmark}/bookmarks/{bookmarks}'
+            ],
+            'v_range': [['7.6.4', '']]
         }
     }
 

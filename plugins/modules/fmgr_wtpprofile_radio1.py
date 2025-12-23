@@ -16,7 +16,6 @@ short_description: Configuration options for radio 1.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -571,6 +570,7 @@ options:
                     - 'FANT-10ACAX-1213-D-N'
                     - 'FANT-08ABGN-1213-D-R'
                     - 'custom'
+                    - 'FANT-04BEAX-0606-P-R'
             mimo_mode:
                 aliases: ['mimo-mode']
                 type: str
@@ -919,7 +919,7 @@ def main():
                     'v_range': [['7.2.3', '']],
                     'choices': [
                         'none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N', 'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R', 'FANT-04ABGN-0606-P-R',
-                        'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom'
+                        'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R'
                     ],
                     'type': 'str'
                 },

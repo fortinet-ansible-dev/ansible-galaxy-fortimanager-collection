@@ -16,7 +16,6 @@ short_description: Configure NGFW IPv4/IPv6 application policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -503,6 +502,22 @@ options:
                 aliases: ['telemetry-profile']
                 type: raw
                 description: (list) Name of an existing telemetry profile.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) Internet service fortiguard.
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) Internet service src fortiguard.
+            internet_service6_fortiguard:
+                aliases: ['internet-service6-fortiguard']
+                type: raw
+                description: (list) Internet service6 fortiguard.
+            internet_service6_src_fortiguard:
+                aliases: ['internet-service6-src-fortiguard']
+                type: raw
+                description: (list) Internet service6 src fortiguard.
 '''
 
 EXAMPLES = '''
@@ -615,6 +630,10 @@ EXAMPLES = '''
           # srcaddr6_negate: <value in [disable, enable]>
           # virtual_patch_profile: <string>
           # telemetry_profile: <list or string>
+          # internet_service_fortiguard: <list or string>
+          # internet_service_src_fortiguard: <list or string>
+          # internet_service6_fortiguard: <list or string>
+          # internet_service6_src_fortiguard: <list or string>
 '''
 
 RETURN = '''
@@ -803,7 +822,11 @@ def main():
                 'ips-voip-filter': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'type': 'str'},
                 'srcaddr6-negate': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

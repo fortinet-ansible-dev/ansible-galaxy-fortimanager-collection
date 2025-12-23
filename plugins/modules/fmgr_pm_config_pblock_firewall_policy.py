@@ -16,7 +16,6 @@ short_description: Configure IPv4/IPv6 policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1257,6 +1256,178 @@ options:
                 aliases: ['telemetry-profile']
                 type: raw
                 description: (list) Name of an existing telemetry profile.
+            access_proxy:
+                aliases: ['access-proxy']
+                type: raw
+                description: (list) Access proxy.
+            detect_https_in_http_request:
+                aliases: ['detect-https-in-http-request']
+                type: str
+                description: Detect https in http request.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            device_ownership:
+                aliases: ['device-ownership']
+                type: str
+                description: Device ownership.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            dynamic_bypass:
+                aliases: ['dynamic-bypass']
+                type: str
+                description: Dynamic bypass.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            explicit_web_proxy:
+                aliases: ['explicit-web-proxy']
+                type: raw
+                description: (list) Explicit web proxy.
+            extended_log:
+                aliases: ['extended-log']
+                type: str
+                description: Extended log.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            force_proxy:
+                aliases: ['force-proxy']
+                type: str
+                description: Force proxy.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            http_tunnel_auth:
+                aliases: ['http-tunnel-auth']
+                type: str
+                description: Enable/disable HTTP tunnel authentication.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            https_sub_category:
+                aliases: ['https-sub-category']
+                type: str
+                description: Https sub category.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ia_profile:
+                aliases: ['ia-profile']
+                type: raw
+                description: (list) Image analyzer profile.
+            implicit_proxy_detection:
+                aliases: ['implicit-proxy-detection']
+                type: str
+                description: Implicit proxy detection.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            isolator_profile:
+                aliases: ['isolator-profile']
+                type: raw
+                description: (list) Isolator profile.
+            isolator_server:
+                aliases: ['isolator-server']
+                type: raw
+                description: (list) Isolator server name.
+            max_session_per_user:
+                aliases: ['max-session-per-user']
+                type: int
+                description: Max UTM sessions per user.
+            pass_through:
+                aliases: ['pass-through']
+                type: str
+                description: Pass through.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            redirect_profile:
+                aliases: ['redirect-profile']
+                type: raw
+                description: (list) Redirect profile.
+            reverse_cache:
+                aliases: ['reverse-cache']
+                type: str
+                description: Enable/disable reverse cache servers.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ssh_policy_check:
+                aliases: ['ssh-policy-check']
+                type: str
+                description: Ssh policy check.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            transparent:
+                type: str
+                description: Set webproxy to use original client address.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            type:
+                type: str
+                description: Type of policy.
+                choices:
+                    - 'explicit-web'
+                    - 'transparent'
+                    - 'explicit-ftp'
+                    - 'ssh-tunnel'
+                    - 'ssh'
+                    - 'wanopt'
+                    - 'access-proxy'
+                    - 'ztna-proxy'
+            url_risk:
+                aliases: ['url-risk']
+                type: raw
+                description: (list) Url risk.
+            tags:
+                type: raw
+                description: (list) Names of object-tags applied to this policy.
+            service_connector:
+                aliases: ['service-connector']
+                type: raw
+                description: (list) Service connector.
+            ztna_proxy:
+                aliases: ['ztna-proxy']
+                type: raw
+                description: (list) Ztna proxy.
+            internet_service6_fortiguard:
+                aliases: ['internet-service6-fortiguard']
+                type: raw
+                description: (list) FortiGuard IPv6 Internet Service name.
+            scim_groups:
+                aliases: ['scim-groups']
+                type: raw
+                description: (list) Names of SCIM groups.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service name.
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service source name.
+            scim_users:
+                aliases: ['scim-users']
+                type: raw
+                description: (list) Names of SCIM users.
+            scim:
+                type: str
+                description: Enable/disable SCIM
+                choices:
+                    - 'disable'
+                    - 'enable'
+            internet_service6_src_fortiguard:
+                aliases: ['internet-service6-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard IPv6 Internet Service source name.
+            saml_server:
+                aliases: ['saml-server']
+                type: raw
+                description: (list) SAML server name.
 '''
 
 EXAMPLES = '''
@@ -1502,6 +1673,38 @@ EXAMPLES = '''
           # port_random: <value in [disable, enable]>
           # ztna_ems_tag_negate: <value in [disable, enable]>
           # telemetry_profile: <list or string>
+          # access_proxy: <list or string>
+          # detect_https_in_http_request: <value in [disable, enable]>
+          # device_ownership: <value in [disable, enable]>
+          # dynamic_bypass: <value in [disable, enable]>
+          # explicit_web_proxy: <list or string>
+          # extended_log: <value in [disable, enable]>
+          # force_proxy: <value in [disable, enable]>
+          # http_tunnel_auth: <value in [disable, enable]>
+          # https_sub_category: <value in [disable, enable]>
+          # ia_profile: <list or string>
+          # implicit_proxy_detection: <value in [disable, enable]>
+          # isolator_profile: <list or string>
+          # isolator_server: <list or string>
+          # max_session_per_user: <integer>
+          # pass_through: <value in [disable, enable]>
+          # redirect_profile: <list or string>
+          # reverse_cache: <value in [disable, enable]>
+          # ssh_policy_check: <value in [disable, enable]>
+          # transparent: <value in [disable, enable]>
+          # type: <value in [explicit-web, transparent, explicit-ftp, ...]>
+          # url_risk: <list or string>
+          # tags: <list or string>
+          # service_connector: <list or string>
+          # ztna_proxy: <list or string>
+          # internet_service6_fortiguard: <list or string>
+          # scim_groups: <list or string>
+          # internet_service_fortiguard: <list or string>
+          # internet_service_src_fortiguard: <list or string>
+          # scim_users: <list or string>
+          # scim: <value in [disable, enable]>
+          # internet_service6_src_fortiguard: <list or string>
+          # saml_server: <list or string>
 '''
 
 RETURN = '''
@@ -1738,24 +1941,28 @@ def main():
                 'cgn-resource-quota': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'cgn-eim': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'mms-profile': {'v_range': [['7.0.3', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
-                'app-category': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'app-category': {'v_range': [['7.0.3', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
                 'internet-service-src-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'rsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-id': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'best-route': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-category': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
-                'app-group': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'url-category': {'v_range': [['7.0.3', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
+                'app-group': {'v_range': [['7.0.3', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
                 'ssl-mirror-intf': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
                 'wsso': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-mirror': {'v_range': [['7.0.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'application': {'v_range': [['7.0.3', '7.6.2']], 'type': 'raw'},
+                'application': {'v_range': [['7.0.3', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
                 'dscp-negate': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'learning-mode': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'devices': {'v_range': [['7.0.3', '7.2.1']], 'type': 'raw'},
                 'dscp-value': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
-                'spamfilter-profile': {'v_range': [['7.0.3', '7.2.1']], 'type': 'str'},
-                'scan-botnet-connections': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
+                'spamfilter-profile': {'v_range': [['7.0.3', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'scan-botnet-connections': {
+                    'v_range': [['7.0.3', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'choices': ['disable', 'block', 'monitor'],
+                    'type': 'str'
+                },
                 'dscp-match': {'v_range': [['7.0.3', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1794,12 +2001,48 @@ def main():
                 'cgn-sw-eif-ctrl': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log-http-transaction': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
+                'log-http-transaction': {'v_range': [['7.4.8', '']], 'choices': ['disable', 'enable', 'all', 'utm'], 'type': 'str'},
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'access-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'detect-https-in-http-request': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-ownership': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dynamic-bypass': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'explicit-web-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'extended-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'force-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-tunnel-auth': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ia-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'implicit-proxy-detection': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'isolator-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'isolator-server': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'max-session-per-user': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'pass-through': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'redirect-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'reverse-cache': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-policy-check': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'transparent': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'choices': ['explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh', 'wanopt', 'access-proxy', 'ztna-proxy'],
+                    'type': 'str'
+                },
+                'url-risk': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'tags': {'v_range': [['7.4.8', '7.4.8']], 'type': 'raw'},
+                'service-connector': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'ztna-proxy': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scim-groups': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scim-users': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scim': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'saml-server': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

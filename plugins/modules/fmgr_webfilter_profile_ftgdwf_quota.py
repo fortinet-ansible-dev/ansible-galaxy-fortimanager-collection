@@ -16,7 +16,6 @@ short_description: FortiGuard traffic quota settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -127,6 +126,14 @@ options:
             value:
                 type: int
                 description: Traffic quota value.
+            reset_frequency:
+                aliases: ['reset-frequency']
+                type: str
+                description: Quota reset frequency
+                choices:
+                    - 'daily'
+                    - 'weekly'
+                    - 'monthly'
 '''
 
 EXAMPLES = '''
@@ -157,6 +164,7 @@ EXAMPLES = '''
           # type: <value in [time, traffic]>
           # unit: <value in [B, KB, MB, ...]>
           # value: <integer>
+          # reset_frequency: <value in [daily, weekly, monthly]>
 '''
 
 RETURN = '''
@@ -225,7 +233,8 @@ def main():
                 'override-replacemsg': {'type': 'str'},
                 'type': {'choices': ['time', 'traffic'], 'type': 'str'},
                 'unit': {'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
-                'value': {'type': 'int'}
+                'value': {'type': 'int'},
+                'reset-frequency': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
             }
         }
     }

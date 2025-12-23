@@ -16,7 +16,6 @@ short_description: Report auto-cache settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -197,7 +196,7 @@ def main():
                 'aggressive-schedule': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'order': {'choices': ['oldest-first'], 'type': 'str'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'sche-rpt-only': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

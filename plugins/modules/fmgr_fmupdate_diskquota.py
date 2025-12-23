@@ -16,7 +16,6 @@ short_description: Configure disk space available for use by the Upgrade Manager
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)

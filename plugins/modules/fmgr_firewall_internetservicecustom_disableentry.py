@@ -16,7 +16,6 @@ short_description: Disable entries in the Internet Service database.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -225,21 +224,21 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetservicecustom_disableentry': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
                 'ip-range': {
-                    'v_range': [['6.0.0', '7.2.1']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
                     'type': 'list',
                     'options': {
-                        'end-ip': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                        'id': {'v_range': [['6.0.0', '7.2.1']], 'type': 'int'},
-                        'start-ip': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'}
+                        'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
+                        'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'port': {'v_range': [['6.0.0', '7.2.1']], 'type': 'raw'},
-                'protocol': {'v_range': [['6.0.0', '7.2.1']], 'type': 'int'}
+                'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
+                'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'}
             }
         }
     }

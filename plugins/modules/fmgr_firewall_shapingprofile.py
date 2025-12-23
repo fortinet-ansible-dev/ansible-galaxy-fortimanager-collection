@@ -16,7 +16,6 @@ short_description: Configure shaping profiles.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -168,6 +167,39 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            classes:
+                type: list
+                elements: dict
+                description: Classes.
+                suboptions:
+                    class_id:
+                        aliases: ['class-id']
+                        type: int
+                        description: Class ID.
+                    guaranteed_bandwidth:
+                        aliases: ['guaranteed-bandwidth']
+                        type: int
+                        description: Guaranteed bandwith in percentage.
+                    maximum_bandwidth:
+                        aliases: ['maximum-bandwidth']
+                        type: int
+                        description: Maximum bandwith in percentage.
+                    name:
+                        type: str
+                        description: Class Name.
+                    priority:
+                        type: str
+                        description: Priority.
+                        choices:
+                            - 'top'
+                            - 'critical'
+                            - 'high'
+                            - 'medium'
+                            - 'low'
+            default_class:
+                aliases: ['default-class']
+                type: int
+                description: Default class ID to handle unclassified packets.
 '''
 
 EXAMPLES = '''
@@ -287,7 +319,24 @@ def main():
                     'elements': 'dict'
                 },
                 'type': {'v_range': [['6.2.1', '']], 'choices': ['policing', 'queuing'], 'type': 'str'},
-                'npu-offloading': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'npu-offloading': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'classes': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'type': 'list',
+                    'options': {
+                        'class-id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                        'guaranteed-bandwidth': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                        'maximum-bandwidth': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                        'priority': {
+                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'choices': ['top', 'critical', 'high', 'medium', 'low'],
+                            'type': 'str'
+                        }
+                    },
+                    'elements': 'dict'
+                },
+                'default-class': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

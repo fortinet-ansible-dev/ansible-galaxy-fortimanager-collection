@@ -16,7 +16,6 @@ short_description: Configure profile groups.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -200,6 +199,18 @@ options:
                 aliases: ['telemetry-profile']
                 type: raw
                 description: (list) Name of an existing telemetry profile.
+            ia_profile:
+                aliases: ['ia-profile']
+                type: raw
+                description: (list) Image analyzer profile.
+            isolator_profile:
+                aliases: ['isolator-profile']
+                type: raw
+                description: (list) Isolator profile.
+            redirect_profile:
+                aliases: ['redirect-profile']
+                type: raw
+                description: (list) Redirect profile.
 '''
 
 EXAMPLES = '''
@@ -307,7 +318,7 @@ def main():
                 'mms-profile': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'profile-protocol-options': {'type': 'str'},
-                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
+                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'ssh-filter-profile': {'type': 'str'},
                 'ssl-ssh-profile': {'type': 'str'},
                 'voip-profile': {'type': 'str'},
@@ -324,7 +335,10 @@ def main():
                 'casb-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'ia-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'isolator-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'redirect-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

@@ -16,7 +16,6 @@ short_description: FortiExtender wifi vap configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -317,41 +316,41 @@ def main():
         'revision_note': {'type': 'str'},
         'extensioncontroller_extendervap': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
             'options': {
                 'allowaccess': {
-                    'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
                     'type': 'list',
                     'choices': ['http', 'ssh', 'telnet', 'snmp', 'https', 'ping'],
                     'elements': 'str'
                 },
-                'auth-server-address': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
-                'auth-server-port': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
-                'auth-server-secret': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
-                'broadcast-ssid': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'bss-color-partial': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dtim': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
-                'end-ip': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
-                'ip-address': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                'max-clients': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
-                'mu-mimo': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'name': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'required': True, 'type': 'str'},
-                'passphrase': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
-                'pmf': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disabled', 'optional', 'required'], 'type': 'str'},
-                'rts-threshold': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
-                'sae-password': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'auth-server-address': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
+                'auth-server-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'auth-server-secret': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
+                'broadcast-ssid': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'bss-color-partial': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dtim': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'end-ip': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
+                'ip-address': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'max-clients': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'mu-mimo': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'required': True, 'type': 'str'},
+                'passphrase': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'pmf': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disabled', 'optional', 'required'], 'type': 'str'},
+                'rts-threshold': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'sae-password': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'security': {
-                    'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
                     'choices': [
                         'OPEN', 'WPA2-Personal', 'WPA-WPA2-Personal', 'WPA3-SAE', 'WPA3-SAE-Transition', 'WPA2-Enterprise', 'WPA3-Enterprise-only',
                         'WPA3-Enterprise-transition', 'WPA3-Enterprise-192-bit'
                     ],
                     'type': 'str'
                 },
-                'ssid': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
-                'start-ip': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'str'},
-                'target-wake-time': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap'], 'type': 'str'}
+                'ssid': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
+                'start-ip': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
+                'target-wake-time': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['local-vap', 'lan-ext-vap'], 'type': 'str'}
             }
         }
     }

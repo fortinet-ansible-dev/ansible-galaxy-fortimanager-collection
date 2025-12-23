@@ -16,7 +16,6 @@ short_description: Configure labels used by DLP blocking.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -114,6 +113,10 @@ options:
                         aliases: ['mpip-label-name']
                         type: str
                         description: Name of MPIP label.
+                    fortidata_label_name:
+                        aliases: ['fortidata-label-name']
+                        type: str
+                        description: Name of FortiData label
             mpip_type:
                 aliases: ['mpip-type']
                 type: str
@@ -130,6 +133,7 @@ options:
                 description: Label type.
                 choices:
                     - 'mpip'
+                    - 'fortidata'
 '''
 
 EXAMPLES = '''
@@ -159,8 +163,9 @@ EXAMPLES = '''
           #   - guid: <string>
           #     id: <integer>
           #     mpip_label_name: <string>
+          #     fortidata_label_name: <string>
           # mpip_type: <value in [local, remote]>
-          # type: <value in [mpip]>
+          # type: <value in [mpip, fortidata]>
 '''
 
 RETURN = '''
@@ -230,13 +235,14 @@ def main():
                     'options': {
                         'guid': {'v_range': [['7.6.3', '']], 'type': 'str'},
                         'id': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'mpip-label-name': {'v_range': [['7.6.3', '']], 'type': 'str'}
+                        'mpip-label-name': {'v_range': [['7.6.3', '']], 'type': 'str'},
+                        'fortidata-label-name': {'v_range': [['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'mpip-type': {'v_range': [['7.6.3', '']], 'choices': ['local', 'remote'], 'type': 'str'},
                 'name': {'v_range': [['7.6.3', '']], 'required': True, 'type': 'str'},
-                'type': {'v_range': [['7.6.3', '']], 'choices': ['mpip'], 'type': 'str'}
+                'type': {'v_range': [['7.6.3', '']], 'choices': ['mpip', 'fortidata'], 'type': 'str'}
             }
         }
     }

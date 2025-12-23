@@ -16,7 +16,6 @@ short_description: Configure FortiGuard settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -356,6 +355,7 @@ options:
                     - '3.0'
                     - '3.1'
                     - '3.2'
+                    - '5.x'
             system_support_fsw:
                 aliases: ['system-support-fsw']
                 type: list
@@ -635,6 +635,7 @@ EXAMPLES = '''
           #   - "3.0"
           #   - "3.1"
           #   - "3.2"
+          #   - "5.x"
           # system_support_fsw:
           #   - "5.4"
           #   - "5.6"
@@ -777,7 +778,7 @@ def main():
                 },
                 'system-support-fgt': {'type': 'list', 'choices': ['5.4', '5.6', '6.0', '6.2', '6.4', '7.0', '7.2', '7.4', '7.6'], 'elements': 'str'},
                 'system-support-fml': {'type': 'list', 'choices': ['4.x', '5.x', '6.x', '6.0', '6.2', '6.4', '7.0', '7.2', '7.x'], 'elements': 'str'},
-                'system-support-fsa': {'type': 'list', 'choices': ['1.x', '2.x', '3.x', '4.x', '3.0', '3.1', '3.2'], 'elements': 'str'},
+                'system-support-fsa': {'type': 'list', 'choices': ['1.x', '2.x', '3.x', '4.x', '3.0', '3.1', '3.2', '5.x'], 'elements': 'str'},
                 'system-support-fsw': {
                     'v_range': [['6.0.0', '6.4.5'], ['7.0.0', '7.0.0']],
                     'type': 'list',
@@ -810,7 +811,7 @@ def main():
                     'choices': ['3.x', '4.x', '7.x'],
                     'elements': 'str'
                 },
-                'system-support-faz': {'v_range': [['7.0.7', '7.0.14'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
+                'system-support-faz': {'v_range': [['7.0.7', '7.0.15'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
                 'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'},
                 'system-support-fai': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['7.x'], 'elements': 'str'}
             }

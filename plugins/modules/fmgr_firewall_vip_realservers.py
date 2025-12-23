@@ -16,7 +16,6 @@ short_description: Select the real servers that this server load balancing VIP w
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -168,6 +167,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            health_check_proto:
+                aliases: ['health-check-proto']
+                type: str
+                description: Health check proto.
+                choices:
+                    - 'ping'
+                    - 'http'
 '''
 
 EXAMPLES = '''
@@ -280,14 +286,15 @@ def main():
                 'max-connections': {'type': 'int'},
                 'monitor': {'type': 'raw'},
                 'port': {'type': 'int'},
-                'seq': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'seq': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'required': True, 'type': 'int'},
                 'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                 'weight': {'type': 'int'},
                 'address': {'v_range': [['6.4.0', '']], 'type': 'str'},
                 'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'verify-cert': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'verify-cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'health-check-proto': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['ping', 'http'], 'type': 'str'}
             }
         }
     }

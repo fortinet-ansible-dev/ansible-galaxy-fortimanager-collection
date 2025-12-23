@@ -16,7 +16,6 @@ short_description: Configure FTP protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -310,7 +309,7 @@ def main():
                 'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

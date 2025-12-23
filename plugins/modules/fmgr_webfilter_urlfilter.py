@@ -16,7 +16,6 @@ short_description: Configure URL filter lists.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -166,6 +165,9 @@ options:
                         choices:
                             - 'block'
                             - 'log'
+                    comment:
+                        type: str
+                        description: Comment.
             id:
                 type: int
                 description: ID.
@@ -246,6 +248,7 @@ EXAMPLES = '''
           #     url: <string>
           #     web_proxy_profile: <string>
           #     antiphish_action: <value in [block, log]>
+          #     comment: <string>
           # ip_addr_block: <value in [disable, enable]>
           # name: <string>
           # one_arm_ips_urlfilter: <value in [disable, enable]>
@@ -332,7 +335,8 @@ def main():
                         'type': {'choices': ['simple', 'regex', 'wildcard'], 'type': 'str'},
                         'url': {'type': 'str'},
                         'web-proxy-profile': {'type': 'str'},
-                        'antiphish-action': {'v_range': [['6.4.0', '']], 'choices': ['block', 'log'], 'type': 'str'}
+                        'antiphish-action': {'v_range': [['6.4.0', '']], 'choices': ['block', 'log'], 'type': 'str'},
+                        'comment': {'v_range': [['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -341,7 +345,7 @@ def main():
                 'name': {'type': 'str'},
                 'one-arm-ips-urlfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip4-mapped-ip6': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'include-subdomains': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'include-subdomains': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

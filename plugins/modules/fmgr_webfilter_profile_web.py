@@ -16,7 +16,6 @@ short_description: Web content filtering settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -171,6 +170,14 @@ options:
                 aliases: ['vimeo-restrict']
                 type: str
                 description: Set Vimeo-restrict
+            qwant_restrict:
+                aliases: ['qwant-restrict']
+                type: str
+                description: Qwant restrict.
+                choices:
+                    - 'strict'
+                    - 'none'
+                    - 'moderate'
 '''
 
 EXAMPLES = '''
@@ -223,6 +230,7 @@ EXAMPLES = '''
           #   - "extended-log-others"
           # blocklist: <value in [disable, enable]>
           # vimeo_restrict: <string>
+          # qwant_restrict: <value in [strict, none, moderate]>
 '''
 
 RETURN = '''
@@ -306,7 +314,8 @@ def main():
                     'elements': 'str'
                 },
                 'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'}
+                'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'},
+                'qwant-restrict': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
             }
         }
     }

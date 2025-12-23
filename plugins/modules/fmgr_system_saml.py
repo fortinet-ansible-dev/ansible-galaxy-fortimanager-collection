@@ -16,7 +16,6 @@ short_description: Global settings for SAML authentication.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -268,6 +267,26 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            logout_request_signed:
+                aliases: ['logout-request-signed']
+                type: str
+                description:
+                    - Enable/Disable logout request signed.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            logout_response_signed:
+                aliases: ['logout-response-signed']
+                type: str
+                description:
+                    - Enable/Disable logout response signed.
+                    - disable - Disable setting.
+                    - enable - Enable setting.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -324,6 +343,8 @@ EXAMPLES = '''
           # user_auto_create: <value in [disable, enable]>
           # auth_request_signed: <value in [disable, enable]>
           # want_assertions_signed: <value in [disable, enable]>
+          # logout_request_signed: <value in [disable, enable]>
+          # logout_response_signed: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -428,7 +449,9 @@ def main():
                 'forticloud-sso': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'user-auto-create': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-request-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'want-assertions-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'want-assertions-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'logout-request-signed': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'logout-response-signed': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

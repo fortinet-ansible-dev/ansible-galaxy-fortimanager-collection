@@ -16,7 +16,6 @@ short_description: Entries of allow list for unknown or out-of-state IEs.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.9.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -195,11 +194,11 @@ def main():
         'revision_note': {'type': 'str'},
         'gtp_ieallowlist_entries': {
             'type': 'dict',
-            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']],
+            'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']],
             'options': {
-                'id': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'required': True, 'type': 'int'},
-                'ie': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                'fmgr_message': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.2', '']], 'type': 'int'}
+                'id': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'required': True, 'type': 'int'},
+                'ie': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                'fmgr_message': {'v_range': [['7.2.9', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

@@ -16,7 +16,6 @@ short_description: Configure user defined IPv4 local-in policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -204,6 +203,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service source name.
 '''
 
 EXAMPLES = '''
@@ -331,7 +334,8 @@ def main():
                 'internet-service-src-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service-src-name': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

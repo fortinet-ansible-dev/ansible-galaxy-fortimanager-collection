@@ -16,7 +16,6 @@ short_description: Configure dm.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -373,14 +372,14 @@ def main():
                 'fgfm-install-refresh-count': {'v_range': [['6.2.5', '']], 'type': 'int'},
                 'conf-merge-after-script': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'log-autoupdate': {
-                    'v_range': [['6.4.12', '6.4.15'], ['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
+                    'v_range': [['6.4.12', '6.4.15'], ['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.15'], ['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
+                'fgfm-auto-retrieve-timeout': {'v_range': [['6.4.13', '6.4.15'], ['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
                 'install-fds-timeout': {'v_range': [['7.2.6', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
                 'handle-nonhasync-config': {
-                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 }

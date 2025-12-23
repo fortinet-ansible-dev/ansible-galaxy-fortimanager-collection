@@ -16,7 +16,6 @@ short_description: Configure queues of switch port connected to NP6 XAUI on ingr
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)

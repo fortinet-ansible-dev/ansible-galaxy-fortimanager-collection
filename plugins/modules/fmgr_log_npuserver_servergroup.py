@@ -16,7 +16,6 @@ short_description: create server group.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -234,21 +233,29 @@ def main():
         'revision_note': {'type': 'str'},
         'log_npuserver_servergroup': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
             'options': {
-                'group-name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                'log-format': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
+                'group-name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                'log-format': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['syslog', 'netflow'],
+                    'type': 'str'
+                },
                 'log-mode': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
                     'choices': ['per-session', 'per-nat-mapping', 'per-session-ending'],
                     'type': 'str'
                 },
-                'log-tx-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
-                'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'raw'},
-                'log-gen-event': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log-user-info': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'log-tx-mode': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['multicast', 'roundrobin'],
+                    'type': 'str'
+                },
+                'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'raw'},
+                'log-gen-event': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.4.7'], ['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-user-info': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.4.7'], ['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

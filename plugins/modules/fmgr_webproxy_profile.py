@@ -16,7 +16,6 @@ short_description: Configure web proxy profiles.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -228,6 +227,10 @@ options:
                     - 'pass'
                     - 'add'
                     - 'remove'
+            max_cache_object_size:
+                aliases: ['max-cache-object-size']
+                type: int
+                description: Max cache object size.
 '''
 
 EXAMPLES = '''
@@ -273,6 +276,7 @@ EXAMPLES = '''
           # log_header_change: <value in [disable, enable]>
           # strip_encoding: <value in [disable, enable]>
           # header_x_forwarded_client_cert: <value in [pass, add, remove]>
+          # max_cache_object_size: <integer>
 '''
 
 RETURN = '''
@@ -369,7 +373,8 @@ def main():
                 'log-header-change': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'strip-encoding': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'header-x-forwarded-client-cert': {'v_range': [['7.0.1', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'}
+                'header-x-forwarded-client-cert': {'v_range': [['7.0.1', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
+                'max-cache-object-size': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

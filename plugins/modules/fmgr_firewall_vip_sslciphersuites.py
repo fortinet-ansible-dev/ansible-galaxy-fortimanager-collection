@@ -16,7 +16,6 @@ short_description: SSL/TLS cipher suites acceptable from a client, ordered by pr
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -311,7 +310,7 @@ def main():
                     ],
                     'type': 'str'
                 },
-                'id': {'v_range': [['6.0.0', '7.6.2']], 'required': True, 'type': 'int'},
+                'id': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'required': True, 'type': 'int'},
                 'versions': {'type': 'list', 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'elements': 'str'},
                 'priority': {'v_range': [['6.4.0', '']], 'type': 'int'}
             }

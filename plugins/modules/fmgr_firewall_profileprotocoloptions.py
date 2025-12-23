@@ -16,7 +16,6 @@ short_description: Configure protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -606,6 +605,9 @@ options:
                             - 'block'
                             - 'monitor'
                             - 'allow'
+                            - 'disable'
+                            - 'enable'
+                            - 'strict'
                     http_0_9:
                         aliases: ['http-0.9']
                         type: str
@@ -613,6 +615,28 @@ options:
                         choices:
                             - 'block'
                             - 'allow'
+                    dns_protection:
+                        aliases: ['dns-protection']
+                        type: str
+                        description: Enable/disable DNS protection for HTTP/HTTPS traffic.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    encrypted_file:
+                        aliases: ['encrypted-file']
+                        type: str
+                        description: Encrypted file.
+                        choices:
+                            - 'block'
+                            - 'pass'
+                            - 'inspect'
+                    encrypted_file_log:
+                        aliases: ['encrypted-file-log']
+                        type: str
+                        description: Encrypted file log.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             imap:
                 type: dict
                 description: Imap.
@@ -674,6 +698,13 @@ options:
                         aliases: ['uncompressed-oversize-limit']
                         type: int
                         description: Maximum in-memory uncompressed file size that can be scanned
+                    address_ip_rating:
+                        aliases: ['address-ip-rating']
+                        type: str
+                        description: Address ip rating.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             mail_signature:
                 aliases: ['mail-signature']
                 type: dict
@@ -983,6 +1014,53 @@ options:
                             - 'static'
                             - 'dynamic'
                             - 'auto-tuning'
+                    explicit_ftp_tls:
+                        aliases: ['explicit-ftp-tls']
+                        type: str
+                        description: Explicit ftp tls.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            proxy_redirect:
+                aliases: ['proxy-redirect']
+                type: dict
+                description: Proxy redirect.
+                suboptions:
+                    ports:
+                        type: raw
+                        description: (list) Ports.
+                    status:
+                        type: str
+                        description: Status.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+            rtmp:
+                type: dict
+                description: Rtmp.
+                suboptions:
+                    http_tunnel:
+                        aliases: ['http-tunnel']
+                        type: str
+                        description: Enable/disable RTMP http tunnel.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    ports:
+                        type: raw
+                        description: (list) Ports to scan for content
+                    rtmpt:
+                        type: str
+                        description: Enable/disable RTMPT.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    status:
+                        type: str
+                        description: Enable/disable the active status of scanning for this protocol.
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
@@ -1176,7 +1254,7 @@ def main():
                         'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                        'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'http': {
@@ -1234,8 +1312,15 @@ def main():
                         'h2c': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'verify-dns-for-policy-matching': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
-                        'domain-fronting': {'v_range': [['7.6.0', '']], 'choices': ['block', 'monitor', 'allow'], 'type': 'str'},
-                        'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                        'domain-fronting': {
+                            'v_range': [['7.4.8', '']],
+                            'choices': ['block', 'monitor', 'allow', 'disable', 'enable', 'strict'],
+                            'type': 'str'
+                        },
+                        'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                        'dns-protection': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'encrypted-file': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
+                        'encrypted-file-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'imap': {
@@ -1256,7 +1341,8 @@ def main():
                         'ssl-offloaded': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['no', 'yes'], 'type': 'str'},
                         'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'}
+                        'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
+                        'address-ip-rating': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'mail-signature': {
@@ -1369,7 +1455,26 @@ def main():
                         'tcp-window-maximum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                        'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'}
+                        'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
+                        'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                    }
+                },
+                'proxy-redirect': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'type': 'dict',
+                    'options': {
+                        'ports': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                        'status': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                    }
+                },
+                'rtmp': {
+                    'v_range': [['7.4.8', '7.4.8']],
+                    'type': 'dict',
+                    'options': {
+                        'http-tunnel': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ports': {'v_range': [['7.4.8', '7.4.8']], 'type': 'raw'},
+                        'rtmpt': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

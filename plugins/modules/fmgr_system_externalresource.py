@@ -16,7 +16,6 @@ short_description: Configure external resource.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -224,6 +223,25 @@ options:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+            proxy:
+                type: str
+                description: Proxy.
+            proxy_password:
+                aliases: ['proxy-password']
+                type: raw
+                description: (list) Proxy password.
+            proxy_port:
+                aliases: ['proxy-port']
+                type: int
+                description: Proxy port.
+            proxy_username:
+                aliases: ['proxy-username']
+                type: str
+                description: Proxy username.
+            source_ip_interface:
+                aliases: ['source-ip-interface']
+                type: raw
+                description: (list) IPv4 Source interface for communication with the server.
 '''
 
 EXAMPLES = '''
@@ -341,7 +359,7 @@ def main():
                 'interface-select-method': {'v_range': [['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'user-agent': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
-                'server-identity-check': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
+                'server-identity-check': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
                 'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'},
                 'address-comment-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'address-data-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
@@ -364,7 +382,12 @@ def main():
                 },
                 'namespace': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'object-array-path': {'v_range': [['7.6.2', '']], 'type': 'str'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'proxy-password': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                'proxy-port': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'proxy-username': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'source-ip-interface': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

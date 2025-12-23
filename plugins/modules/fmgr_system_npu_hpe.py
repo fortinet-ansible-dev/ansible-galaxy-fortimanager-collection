@@ -16,7 +16,6 @@ short_description: Host protection engine configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -293,14 +292,14 @@ def main():
                 'tcpsyn-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'udp-max': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
                 'enable-queue-shaper': {
-                    'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.2', '']],
+                    'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'exception-code': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
-                'fragment-with-sess': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
-                'fragment-without-session': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
-                'queue-shaper-max': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'}
+                'exception-code': {'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'fragment-with-sess': {'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'fragment-without-session': {'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
+                'queue-shaper-max': {'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.2', '']], 'type': 'int'}
             }
         }
     }

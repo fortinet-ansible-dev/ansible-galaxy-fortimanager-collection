@@ -16,7 +16,6 @@ short_description: Configure proxy policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.7.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -581,6 +580,16 @@ options:
                 type: list
                 elements: str
                 description: Name of an existing telemetry profile.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: list
+                elements: str
+                description: FortiGuard Internet Service name.
+            internet_service6_fortiguard:
+                aliases: ['internet-service6-fortiguard']
+                type: list
+                elements: str
+                description: FortiGuard Internet Service IPv6 name.
 '''
 
 EXAMPLES = '''
@@ -695,6 +704,8 @@ EXAMPLES = '''
           # ztna_ems_tag_negate: <value in [disable, enable]>
           # https_sub_category: <value in [disable, enable]>
           # telemetry_profile: <list or string>
+          # internet_service_fortiguard: <list or string>
+          # internet_service6_fortiguard: <list or string>
 '''
 
 RETURN = '''
@@ -849,7 +860,9 @@ def main():
                 'url-risk': {'v_range': [['7.6.2', '']], 'type': 'list', 'elements': 'str'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'https-sub-category': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'}
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

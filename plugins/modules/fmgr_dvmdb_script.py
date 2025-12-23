@@ -16,7 +16,6 @@ short_description: Script table.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -191,6 +190,8 @@ options:
                     - 'cli'
                     - 'tcl'
                     - 'cligrp'
+                    - 'tclgrp'
+                    - 'jinja'
 '''
 
 EXAMPLES = '''
@@ -405,7 +406,7 @@ def main():
                     'elements': 'dict'
                 },
                 'target': {'choices': ['device_database', 'remote_device', 'adom_database'], 'type': 'str'},
-                'type': {'choices': ['cli', 'tcl', 'cligrp'], 'type': 'str'}
+                'type': {'choices': ['cli', 'tcl', 'cligrp', 'tclgrp', 'jinja'], 'type': 'str'}
             }
         }
     }

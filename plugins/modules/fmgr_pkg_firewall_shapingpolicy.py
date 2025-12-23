@@ -16,7 +16,6 @@ short_description: Configure shaping policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -288,6 +287,32 @@ options:
                     - 'forwarding'
                     - 'local-in'
                     - 'local-out'
+            class_id_reverse:
+                aliases: ['class-id-reverse']
+                type: int
+                description: Reverse class id.
+            http_response_match:
+                aliases: ['http-response-match']
+                type: str
+                description: Http response match.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            service_type:
+                aliases: ['service-type']
+                type: str
+                description: Select service-type
+                choices:
+                    - 'service'
+                    - 'internet-service'
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service source name.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service name.
 '''
 
 EXAMPLES = '''
@@ -439,7 +464,12 @@ def main():
                 'internet-service-src-name': {'v_range': [['6.4.0', '']], 'type': 'raw'},
                 'cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'}
+                'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'},
+                'class-id-reverse': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'http-response-match': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'service-type': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['service', 'internet-service'], 'type': 'str'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

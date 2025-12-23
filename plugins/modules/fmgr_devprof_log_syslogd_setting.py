@@ -16,7 +16,6 @@ short_description: Global settings for remote syslog server.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -196,6 +195,7 @@ options:
                     - 'cef'
                     - 'rfc5424'
                     - 'json'
+                    - 'custom'
             syslog_type:
                 aliases: ['syslog-type']
                 type: int
@@ -227,6 +227,43 @@ options:
                 aliases: ['vrf-select']
                 type: int
                 description: VRF ID used for connection to server.
+            log_templates:
+                aliases: ['log-templates']
+                type: list
+                elements: dict
+                description: Log templates.
+                suboptions:
+                    category:
+                        type: str
+                        description: Category.
+                        choices:
+                            - 'app-ctrl'
+                            - 'attack'
+                            - 'dlp'
+                            - 'event'
+                            - 'traffic'
+                            - 'virus'
+                            - 'voip'
+                            - 'webfilter'
+                            - 'spam'
+                            - 'anomaly'
+                            - 'waf'
+                            - 'dns'
+                            - 'ssh'
+                            - 'ssl'
+                            - 'file-filter'
+                            - 'icap'
+                            - 'virtual-patch'
+                    empty_value_indicator:
+                        aliases: ['empty-value-indicator']
+                        type: str
+                        description: Empty value indicator.
+                    id:
+                        type: int
+                        description: Id.
+                    template:
+                        type: str
+                        description: Template.
 '''
 
 EXAMPLES = '''
@@ -272,6 +309,11 @@ EXAMPLES = '''
           # source_ip: <string>
           # source_ip_interface: <list or string>
           # vrf_select: <integer>
+          # log_templates:
+          #   - category: <value in [app-ctrl, attack, dlp, ...]>
+          #     empty_value_indicator: <string>
+          #     id: <integer>
+          #     template: <string>
 '''
 
 RETURN = '''
@@ -359,27 +401,53 @@ def main():
                     'type': 'str'
                 },
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'reliable': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'reliable': {
+                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15'], ['7.4.8', '7.4.8']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'csv': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.2.13']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'max-log-rate': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'type': 'int'},
                 'priority': {'v_range': [['6.2.2', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['low', 'default'], 'type': 'str'},
                 'interface': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'type': 'str'},
                 'interface-select-method': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'format': {'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']], 'choices': ['default', 'csv', 'cef', 'rfc5424', 'json'], 'type': 'str'},
+                'format': {
+                    'v_range': [['6.4.6', '6.4.15'], ['7.0.1', '']],
+                    'choices': ['default', 'csv', 'cef', 'rfc5424', 'json', 'custom'],
+                    'type': 'str'
+                },
                 'syslog-type': {'v_range': [['6.2.0', '6.2.0']], 'type': 'int'},
                 'custom-field-name': {
-                    'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'custom': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
+                        'custom': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'source-ip': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
+                'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
+                'log-templates': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'type': 'list',
+                    'options': {
+                        'category': {
+                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'choices': [
+                                'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh',
+                                'ssl', 'file-filter', 'icap', 'virtual-patch'
+                            ],
+                            'type': 'str'
+                        },
+                        'empty-value-indicator': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                        'template': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                    },
+                    'elements': 'dict'
+                }
             }
         }
     }

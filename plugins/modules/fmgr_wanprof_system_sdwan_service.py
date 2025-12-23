@@ -16,7 +16,6 @@ short_description: Create SD-WAN rules
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -357,6 +356,7 @@ options:
                     - 'cfg-order'
                     - 'fib-best-match'
                     - 'input-device'
+                    - 'priority'
             use_shortcut_sla:
                 aliases: ['use-shortcut-sla']
                 type: str
@@ -450,6 +450,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet service name list.
 '''
 
 EXAMPLES = '''
@@ -542,6 +546,7 @@ EXAMPLES = '''
           # shortcut_priority: <value in [disable, enable, auto]>
           # comment: <string>
           # fib_best_match_force: <value in [disable, enable]>
+          # internet_service_fortiguard: <list or string>
 '''
 
 RETURN = '''
@@ -665,7 +670,7 @@ def main():
                 'tos': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'tos-mask': {'v_range': [['6.4.1', '']], 'type': 'str'},
                 'users': {'v_range': [['6.4.1', '']], 'type': 'raw'},
-                'tie-break': {'v_range': [['6.4.3', '']], 'choices': ['zone', 'cfg-order', 'fib-best-match', 'input-device'], 'type': 'str'},
+                'tie-break': {'v_range': [['6.4.3', '']], 'choices': ['zone', 'cfg-order', 'fib-best-match', 'input-device', 'priority'], 'type': 'str'},
                 'use-shortcut-sla': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'input-zone': {'v_range': [['7.2.0', '']], 'type': 'raw'},
                 'internet-service-app-ctrl-category': {'v_range': [['7.2.0', '']], 'type': 'raw'},
@@ -681,7 +686,8 @@ def main():
                 'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
                 'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

@@ -16,7 +16,6 @@ short_description: Filter for syslog logging.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -625,8 +624,12 @@ def main():
                 'webport': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'incident': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'aid': {'v_range': [['6.4.1', '7.2.11']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'docker': {'v_range': [['6.4.3', '7.2.10'], ['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'controller': {'v_range': [['7.0.9', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'docker': {
+                    'v_range': [['6.4.3', '7.0.14'], ['7.2.0', '7.2.10'], ['7.4.0', '7.4.7'], ['7.6.0', '7.6.3']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'controller': {'v_range': [['7.0.9', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

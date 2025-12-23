@@ -16,7 +16,6 @@ short_description: Configure global attributes.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -2209,6 +2208,171 @@ options:
                 aliases: ['sslvpn-affinity']
                 type: str
                 description: Agentless VPN CPU affinity.
+            admin_timeout:
+                aliases: ['admin-timeout']
+                type: int
+                description: Number of minutes before an idle administrator session times out
+            username_case_sensitivity:
+                aliases: ['username-case-sensitivity']
+                type: str
+                description: Username case sensitivity.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            proxy_auth_machine_timeout:
+                aliases: ['proxy-auth-machine-timeout']
+                type: int
+                description: Proxy auth machine timeout.
+            fin_wait_timeout:
+                aliases: ['fin-wait-timeout']
+                type: int
+                description: Default fin-wait timeout
+            udp_stream_timeout:
+                aliases: ['udp-stream-timeout']
+                type: int
+                description: Default last-ack timeout
+            license_overlimit:
+                aliases: ['license-overlimit']
+                type: str
+                description: System behaviour when max licensed proxy user is reached.
+                choices:
+                    - 'block'
+                    - 'bypass'
+            tcp_random_source_port:
+                aliases: ['tcp-random-source-port']
+                type: str
+                description: Tcp random source port.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            close_wait_timeout:
+                aliases: ['close-wait-timeout']
+                type: int
+                description: Default close-wait timeout
+            img_cache_mode:
+                aliases: ['img-cache-mode']
+                type: str
+                description: Img cache mode.
+                choices:
+                    - 'stop'
+                    - 'rolling'
+            max_session_per_user:
+                aliases: ['max-session-per-user']
+                type: int
+                description: Max UTM sessions per user.
+            update_tls_finger_print:
+                aliases: ['update-tls-finger-print']
+                type: str
+                description: Update tls finger print.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            kernel_panic_debug:
+                aliases: ['kernel-panic-debug']
+                type: str
+                description: Kernel panic debug.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            syn_recv_timeout:
+                aliases: ['syn-recv-timeout']
+                type: int
+                description: Default syn-recv timeout
+            resigned_pkey_period:
+                aliases: ['resigned-pkey-period']
+                type: int
+                description: Resigned pkey period.
+            kernel_panic_timeout:
+                aliases: ['kernel-panic-timeout']
+                type: int
+                description: Kernel panic timeout.
+            v_tpm:
+                aliases: ['v-tpm']
+                type: str
+                description: V tpm.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            time_wait_timeout:
+                aliases: ['time-wait-timeout']
+                type: int
+                description: Default time-wait timeout
+            established_timeout:
+                aliases: ['established-timeout']
+                type: int
+                description: Default established session timeout
+            syn_sent_timeout:
+                aliases: ['syn-sent-timeout']
+                type: int
+                description: Default syn-sent timeout
+            last_ack_timeout:
+                aliases: ['last-ack-timeout']
+                type: int
+                description: Default last-ack timeout
+            max_img_cache_size:
+                aliases: ['max-img-cache-size']
+                type: int
+                description: Max img cache size.
+            http_view:
+                aliases: ['http-view']
+                type: str
+                description: Enable/disable logging and viewing of HTTP/S cache traffic.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            conntrack:
+                type: int
+                description: Max numbers of conntrack.
+            kernel_panic_on_warn:
+                aliases: ['kernel-panic-on-warn']
+                type: str
+                description: Kernel panic on warn.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            crwl_log:
+                aliases: ['crwl-log']
+                type: str
+                description: Enable/disable http transaction log of crawler.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            udp_timeout:
+                aliases: ['udp-timeout']
+                type: int
+                description: Default last-ack timeout
+            geoip_full_db:
+                aliases: ['geoip-full-db']
+                type: str
+                description: When enabled, the full geographic database will be loaded into the kernel which enables geographic information in traffic ...
+                choices:
+                    - 'disable'
+                    - 'enable'
+            fortiguard_audit_result_submission:
+                aliases: ['fortiguard-audit-result-submission']
+                type: str
+                description: Enable/disable the submission of security audit results to FortiGuard.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            ldap_server_algorithm:
+                aliases: ['ldap-server-algorithm']
+                type: str
+                description: LDAP server selection algorithm.
+                choices:
+                    - 'primary-secondary'
+                    - 'round-robin'
+            router_affinity:
+                aliases: ['router-affinity']
+                type: str
+                description: Affinity setting for BFD/VRRP/BGP/OSPF daemons
+            ipv6_snat_route_change:
+                aliases: ['ipv6-snat-route-change']
+                type: str
+                description: Enable/disable the ability to change the IPv6 source NAT route.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -2741,6 +2905,37 @@ EXAMPLES = '''
           # telemetry_data_port: <integer>
           # user_device_store_max_device_mem: <integer>
           # sslvpn_affinity: <string>
+          # admin_timeout: <integer>
+          # username_case_sensitivity: <value in [disable, enable]>
+          # proxy_auth_machine_timeout: <integer>
+          # fin_wait_timeout: <integer>
+          # udp_stream_timeout: <integer>
+          # license_overlimit: <value in [block, bypass]>
+          # tcp_random_source_port: <value in [disable, enable]>
+          # close_wait_timeout: <integer>
+          # img_cache_mode: <value in [stop, rolling]>
+          # max_session_per_user: <integer>
+          # update_tls_finger_print: <value in [disable, enable]>
+          # kernel_panic_debug: <value in [disable, enable]>
+          # syn_recv_timeout: <integer>
+          # resigned_pkey_period: <integer>
+          # kernel_panic_timeout: <integer>
+          # v_tpm: <value in [disable, enable]>
+          # time_wait_timeout: <integer>
+          # established_timeout: <integer>
+          # syn_sent_timeout: <integer>
+          # last_ack_timeout: <integer>
+          # max_img_cache_size: <integer>
+          # http_view: <value in [disable, enable]>
+          # conntrack: <integer>
+          # kernel_panic_on_warn: <value in [disable, enable]>
+          # crwl_log: <value in [disable, enable]>
+          # udp_timeout: <integer>
+          # geoip_full_db: <value in [disable, enable]>
+          # fortiguard_audit_result_submission: <value in [disable, enable]>
+          # ldap_server_algorithm: <value in [primary-secondary, round-robin]>
+          # router_affinity: <string>
+          # ipv6_snat_route_change: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -3280,20 +3475,51 @@ def main():
                 'auth-session-auto-backup': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-https-port': {'v_range': [['7.6.0', '']], 'type': 'int'},
                 'httpd-max-worker-count': {'v_range': [['7.6.0', '']], 'type': 'int'},
-                'rest-api-key-url-query': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'rest-api-key-url-query': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'single-vdom-npuvlink': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'slbc-fragment-mem-thresholds': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'upgrade-report': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'application-bandwidth-tracking': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortitoken-cloud-region': {'v_range': [['7.4.7', '7.4.7']], 'no_log': True, 'type': 'str'},
-                'black-box-interval': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']], 'type': 'int'},
-                'black-box': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortitoken-cloud-region': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'str'},
+                'black-box-interval': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'black-box': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tls-session-cache': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wad-p2s-max-body-size': {'v_range': [['7.6.3', '']], 'type': 'int'},
                 'telemetry-controller': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'telemetry-data-port': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                'user-device-store-max-device-mem': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                'sslvpn-affinity': {'v_range': [['7.6.3', '']], 'type': 'str'}
+                'user-device-store-max-device-mem': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'sslvpn-affinity': {'v_range': [['7.6.3', '']], 'type': 'str'},
+                'admin-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'username-case-sensitivity': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'proxy-auth-machine-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'fin-wait-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'udp-stream-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'license-overlimit': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['block', 'bypass'], 'type': 'str'},
+                'tcp-random-source-port': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'close-wait-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'img-cache-mode': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['stop', 'rolling'], 'type': 'str'},
+                'max-session-per-user': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'update-tls-finger-print': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'kernel-panic-debug': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'syn-recv-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'resigned-pkey-period': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'int'},
+                'kernel-panic-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'v-tpm': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'time-wait-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'established-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'syn-sent-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'last-ack-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'max-img-cache-size': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'http-view': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'conntrack': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'kernel-panic-on-warn': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'crwl-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'udp-timeout': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'geoip-full-db': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fortiguard-audit-result-submission': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ldap-server-algorithm': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['primary-secondary', 'round-robin'], 'type': 'str'},
+                'router-affinity': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'ipv6-snat-route-change': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

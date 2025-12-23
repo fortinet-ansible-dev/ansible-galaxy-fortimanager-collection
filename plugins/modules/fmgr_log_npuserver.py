@@ -16,7 +16,6 @@ short_description: Configure all the log servers and create the server groups.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -333,51 +332,86 @@ def main():
         'revision_note': {'type': 'str'},
         'log_npuserver': {
             'type': 'dict',
-            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
             'options': {
-                'log-processing': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'choices': ['may-drop', 'no-drop'], 'type': 'str'},
-                'log-processor': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['hardware', 'host'], 'type': 'str'},
-                'netflow-ver': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['v9', 'v10'], 'type': 'str'},
+                'log-processing': {
+                    'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['may-drop', 'no-drop'],
+                    'type': 'str'
+                },
+                'log-processor': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['hardware', 'host'],
+                    'type': 'str'
+                },
+                'netflow-ver': {
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                    'choices': ['v9', 'v10'],
+                    'type': 'str'
+                },
                 'server-group': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
                     'type': 'list',
                     'options': {
-                        'group-name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                        'log-format': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['syslog', 'netflow'], 'type': 'str'},
+                        'group-name': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                        'log-format': {
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                            'choices': ['syslog', 'netflow'],
+                            'type': 'str'
+                        },
                         'log-mode': {
-                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
                             'choices': ['per-session', 'per-nat-mapping', 'per-session-ending'],
                             'type': 'str'
                         },
-                        'log-tx-mode': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['multicast', 'roundrobin'], 'type': 'str'},
-                        'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '']], 'type': 'raw'},
-                        'log-gen-event': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'log-user-info': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'log-tx-mode': {
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                            'choices': ['multicast', 'roundrobin'],
+                            'type': 'str'
+                        },
+                        'server-number': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'server-start-id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'sw-log-flags': {'v_range': [['6.4.8', '6.4.15'], ['7.0.3', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'raw'},
+                        'log-gen-event': {
+                            'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.4.7'], ['7.6.0', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        },
+                        'log-user-info': {
+                            'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '7.4.7'], ['7.6.0', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        }
                     },
                     'elements': 'dict'
                 },
                 'server-info': {
-                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']],
+                    'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
                     'type': 'list',
                     'options': {
-                        'dest-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'ip-family': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['v4', 'v6'], 'type': 'str'},
-                        'ipv4-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                        'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'str'},
-                        'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                        'vdom': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.2.10'], ['7.4.0', '']], 'type': 'str'},
-                        'log-transport': {'v_range': [['7.4.2', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
-                        'vdom_': {'v_range': [['7.2.11', '7.2.11']], 'type': 'str'}
+                        'dest-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'id': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'ip-family': {
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']],
+                            'choices': ['v4', 'v6'],
+                            'type': 'str'
+                        },
+                        'ipv4-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                        'ipv6-server': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'str'},
+                        'source-port': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'template-tx-timeout': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                        'vdom': {
+                            'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.2.10'], ['7.4.0', '7.4.7'], ['7.6.0', '']],
+                            'type': 'str'
+                        },
+                        'log-transport': {'v_range': [['7.4.2', '7.4.7'], ['7.6.0', '']], 'choices': ['udp', 'tcp'], 'type': 'str'},
+                        'vdom_': {'v_range': [['7.2.11', '7.2.11'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'syslog-facility': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'syslog-severity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'type': 'int'},
-                'enforce-seq-order': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'syslog-facility': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'syslog-severity': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '7.0.14'], ['7.2.0', '7.4.7'], ['7.6.0', '']], 'type': 'int'},
+                'enforce-seq-order': {'v_range': [['7.4.2', '7.4.7'], ['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

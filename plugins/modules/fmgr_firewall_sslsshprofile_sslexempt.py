@@ -16,7 +16,6 @@ short_description: Servers to exempt from SSL inspection.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -129,6 +128,20 @@ options:
                 aliases: ['wildcard-fqdn']
                 type: str
                 description: Exempt servers by wildcard FQDN.
+            finger_print_category:
+                aliases: ['finger-print-category']
+                type: str
+                description: Finger print platform.
+                choices:
+                    - 'unknown'
+                    - 'firefox'
+                    - 'chrome'
+                    - 'safari'
+                    - 'edge'
+                    - 'ie'
+                    - 'android'
+                    - 'ios'
+                    - 'windows'
 '''
 
 EXAMPLES = '''
@@ -237,7 +250,12 @@ def main():
                 'id': {'required': True, 'type': 'int'},
                 'regex': {'type': 'str'},
                 'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
-                'wildcard-fqdn': {'type': 'str'}
+                'wildcard-fqdn': {'type': 'str'},
+                'finger-print-category': {
+                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
+                    'type': 'str'
+                }
             }
         }
     }

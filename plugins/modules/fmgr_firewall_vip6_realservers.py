@@ -16,7 +16,6 @@ short_description: Select the real servers that this server load balancing VIP w
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -149,6 +148,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            verify_cert:
+                aliases: ['verify-cert']
+                type: str
+                description: Enable/disable certificate verification of the real server.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -262,7 +268,8 @@ def main():
                 'port': {'type': 'int'},
                 'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                 'weight': {'type': 'int'},
-                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'verify-cert': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

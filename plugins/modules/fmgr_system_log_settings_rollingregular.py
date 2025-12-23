@@ -16,7 +16,6 @@ short_description: Log rolling policy for device logs.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -367,9 +366,9 @@ def main():
                 'file-size': {'type': 'int'},
                 'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'hour': {'type': 'int'},
-                'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                'ip': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                'ip2': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                'ip3': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
                 'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                 'min': {'type': 'int'},
                 'password': {'no_log': True, 'type': 'raw'},

@@ -16,7 +16,6 @@ short_description: Configure virtual IP for IPv4.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1090,6 +1089,13 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    health_check_proto:
+                        aliases: ['health-check-proto']
+                        type: str
+                        description: Health check proto.
+                        choices:
+                            - 'ping'
+                            - 'http'
             server_type:
                 aliases: ['server-type']
                 type: str
@@ -1936,7 +1942,7 @@ def main():
                                 'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                                 'health-check-proto': {'v_range': [['7.2.3', '']], 'choices': ['ping', 'http'], 'type': 'str'},
-                                'verify-cert': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'verify-cert': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
@@ -2090,14 +2096,15 @@ def main():
                         'max-connections': {'type': 'int'},
                         'monitor': {'type': 'raw'},
                         'port': {'type': 'int'},
-                        'seq': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                        'seq': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'int'},
                         'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                         'weight': {'type': 'int'},
                         'address': {'v_range': [['6.4.0', '']], 'type': 'str'},
                         'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                         'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                         'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'verify-cert': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'verify-cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'health-check-proto': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['ping', 'http'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -2141,7 +2148,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
+                        'id': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'int'},
                         'versions': {'type': 'list', 'choices': ['ssl-3.0', 'tls-1.0', 'tls-1.1', 'tls-1.2', 'tls-1.3'], 'elements': 'str'},
                         'priority': {'v_range': [['6.4.0', '']], 'type': 'int'}
                     },

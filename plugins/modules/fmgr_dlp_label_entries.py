@@ -16,7 +16,6 @@ short_description: DLP label entries.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -107,6 +106,10 @@ options:
                 aliases: ['mpip-label-name']
                 type: str
                 description: Name of MPIP label.
+            fortidata_label_name:
+                aliases: ['fortidata-label-name']
+                type: str
+                description: Name of FortiData label
 '''
 
 EXAMPLES = '''
@@ -133,6 +136,7 @@ EXAMPLES = '''
           id: 0 # Required variable, integer
           # guid: <string>
           # mpip_label_name: <string>
+          # fortidata_label_name: <string>
 '''
 
 RETURN = '''
@@ -197,7 +201,8 @@ def main():
             'options': {
                 'guid': {'v_range': [['7.6.3', '']], 'type': 'str'},
                 'id': {'v_range': [['7.6.3', '']], 'required': True, 'type': 'int'},
-                'mpip-label-name': {'v_range': [['7.6.3', '']], 'type': 'str'}
+                'mpip-label-name': {'v_range': [['7.6.3', '']], 'type': 'str'},
+                'fortidata-label-name': {'v_range': [['7.6.4', '']], 'type': 'str'}
             }
         }
     }

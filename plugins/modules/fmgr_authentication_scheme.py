@@ -16,7 +16,6 @@ short_description: Configure Authentication Schemes.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -129,6 +128,8 @@ options:
                     - 'x-auth-user'
                     - 'saml-sp'
                     - 'entra-sso'
+                    - 'ztna-relay'
+                    - 'oidc'
             name:
                 type: str
                 description: Authentication scheme name.
@@ -196,6 +197,32 @@ options:
                 choices:
                     - 'display-name'
                     - 'external-id'
+            search_all_ldap_databases:
+                aliases: ['search-all-ldap-databases']
+                type: str
+                description: Search all ldap databases.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            saml_idp_portal:
+                aliases: ['saml-idp-portal']
+                type: str
+                description: External SAML-IDP authentication Portal URL.
+            oidc_server:
+                aliases: ['oidc-server']
+                type: raw
+                description: (list) Oidc server.
+            oidc_timeout:
+                aliases: ['oidc-timeout']
+                type: int
+                description: Oidc timeout.
+            digest_rfc2069:
+                aliases: ['digest-rfc2069']
+                type: str
+                description: Enable/disable support for the deprecated RFC2069 Digest Client
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -237,6 +264,8 @@ EXAMPLES = '''
           #   - "x-auth-user"
           #   - "saml-sp"
           #   - "entra-sso"
+          #   - "ztna-relay"
+          #   - "oidc"
           # negotiate_ntlm: <value in [disable, enable]>
           # require_tfa: <value in [disable, enable]>
           # ssh_ca: <string>
@@ -250,6 +279,11 @@ EXAMPLES = '''
           #   - "md5"
           #   - "sha-256"
           # group_attr_type: <value in [display-name, external-id]>
+          # search_all_ldap_databases: <value in [disable, enable]>
+          # saml_idp_portal: <string>
+          # oidc_server: <list or string>
+          # oidc_timeout: <integer>
+          # digest_rfc2069: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -320,7 +354,7 @@ def main():
                     'type': 'list',
                     'choices': [
                         'ntlm', 'basic', 'digest', 'form', 'negotiate', 'fsso', 'rsso', 'ssh-publickey', 'saml', 'cert', 'x-auth-user', 'saml-sp',
-                        'entra-sso'
+                        'entra-sso', 'ztna-relay', 'oidc'
                     ],
                     'elements': 'str'
                 },
@@ -335,7 +369,12 @@ def main():
                 'user-cert': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'digest-algo': {'v_range': [['7.6.3', '']], 'type': 'list', 'choices': ['md5', 'sha-256'], 'elements': 'str'},
-                'group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'}
+                'group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
+                'search-all-ldap-databases': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'saml-idp-portal': {'v_range': [['7.4.8', '7.4.8']], 'type': 'str'},
+                'oidc-server': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'oidc-timeout': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'digest-rfc2069': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

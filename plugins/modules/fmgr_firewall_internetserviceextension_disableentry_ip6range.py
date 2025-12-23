@@ -16,7 +16,6 @@ short_description: IPv6 ranges in the disable entry.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -206,11 +205,11 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_disableentry_ip6range': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.7']],
+            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
             'options': {
-                'end-ip6': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'},
-                'id': {'v_range': [['7.4.7', '7.4.7']], 'required': True, 'type': 'int'},
-                'start-ip6': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
+                'end-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'start-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

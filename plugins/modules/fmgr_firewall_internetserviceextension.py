@@ -16,7 +16,6 @@ short_description: Configure Internet Services Extension.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -322,72 +321,72 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.7']],
+            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
             'options': {
-                'comment': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'},
+                'comment': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
                 'disable-entry': {
-                    'v_range': [['7.4.7', '7.4.7']],
+                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'addr-mode': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                        'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
+                        'addr-mode': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                        'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
                         'ip-range': {
-                            'v_range': [['7.4.7', '7.4.7']],
+                            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                             'type': 'list',
                             'options': {
-                                'end-ip': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'},
-                                'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'start-ip': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
+                                'end-ip': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'start-ip': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'ip6-range': {
-                            'v_range': [['7.4.7', '7.4.7']],
+                            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                             'type': 'list',
                             'options': {
-                                'end-ip6': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'},
-                                'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'start-ip6': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}
+                                'end-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'start-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'port-range': {
-                            'v_range': [['7.4.7', '7.4.7']],
+                            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                             'type': 'list',
                             'options': {
-                                'end-port': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'start-port': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'}
+                                'end-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'start-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
-                        'protocol': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'}
+                        'protocol': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'entry': {
-                    'v_range': [['7.4.7', '7.4.7']],
+                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'addr-mode': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                        'dst': {'v_range': [['7.4.7', '7.4.7']], 'type': 'list', 'elements': 'str'},
-                        'dst6': {'v_range': [['7.4.7', '7.4.7']], 'type': 'list', 'elements': 'str'},
-                        'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
+                        'addr-mode': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                        'dst': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                        'dst6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                        'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
                         'port-range': {
-                            'v_range': [['7.4.7', '7.4.7']],
+                            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                             'type': 'list',
                             'options': {
-                                'end-port': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'id': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'},
-                                'start-port': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'}
+                                'end-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                                'start-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
-                        'protocol': {'v_range': [['7.4.7', '7.4.7']], 'type': 'int'}
+                        'protocol': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['7.4.7', '7.4.7']], 'required': True, 'type': 'list', 'elements': 'str'}
+                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'list', 'elements': 'str'}
             }
         }
     }

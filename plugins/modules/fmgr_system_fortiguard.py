@@ -16,7 +16,6 @@ short_description: Configure FortiGuard services.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -461,6 +460,30 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            dlp_expiration:
+                aliases: ['dlp-expiration']
+                type: int
+                description: Dlp expiration.
+            dlp_license:
+                aliases: ['dlp-license']
+                type: int
+                description: Dlp license.
+            fnbi_expiration:
+                aliases: ['fnbi-expiration']
+                type: int
+                description: Fnbi expiration.
+            fnbi_license:
+                aliases: ['fnbi-license']
+                type: int
+                description: Fnbi license.
+            ia_expiration:
+                aliases: ['ia-expiration']
+                type: int
+                description: Ia expiration.
+            ia_license:
+                aliases: ['ia-license']
+                type: int
+                description: Ia license.
 '''
 
 EXAMPLES = '''
@@ -562,6 +585,12 @@ EXAMPLES = '''
           # update_dldb: <value in [disable, enable]>
           # vrf_select: <integer>
           # subscribe_update_notification: <value in [disable, enable]>
+          # dlp_expiration: <integer>
+          # dlp_license: <integer>
+          # fnbi_expiration: <integer>
+          # fnbi_license: <integer>
+          # ia_expiration: <integer>
+          # ia_license: <integer>
 '''
 
 RETURN = '''
@@ -699,7 +728,13 @@ def main():
                 'outbreak-prevention-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'update-dldb': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'subscribe-update-notification': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'subscribe-update-notification': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'dlp-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'dlp-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'fnbi-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'fnbi-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'ia-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'ia-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

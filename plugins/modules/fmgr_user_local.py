@@ -16,7 +16,6 @@ short_description: Configure local users.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -240,6 +239,60 @@ options:
                 aliases: ['saml-server']
                 type: raw
                 description: (list) Name of SAML server with which the user must authenticate.
+            history10:
+                type: raw
+                description: (list) History10.
+            history11:
+                type: raw
+                description: (list) History11.
+            history12:
+                type: raw
+                description: (list) History12.
+            history13:
+                type: raw
+                description: (list) History13.
+            history14:
+                type: raw
+                description: (list) History14.
+            history15:
+                type: raw
+                description: (list) History15.
+            history16:
+                type: raw
+                description: (list) History16.
+            history17:
+                type: raw
+                description: (list) History17.
+            history18:
+                type: raw
+                description: (list) History18.
+            history19:
+                type: raw
+                description: (list) History19.
+            history2:
+                type: raw
+                description: (list) History2.
+            history3:
+                type: raw
+                description: (list) History3.
+            history4:
+                type: raw
+                description: (list) History4.
+            history5:
+                type: raw
+                description: (list) History5.
+            history6:
+                type: raw
+                description: (list) History6.
+            history7:
+                type: raw
+                description: (list) History7.
+            history8:
+                type: raw
+                description: (list) History8.
+            history9:
+                type: raw
+                description: (list) History9.
 '''
 
 EXAMPLES = '''
@@ -373,7 +426,25 @@ def main():
                 'history0': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'history1': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'qkd-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'saml-server': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'saml-server': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'history10': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history11': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history12': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history13': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history14': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history15': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history16': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history17': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history18': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history19': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history2': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history3': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history4': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history5': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history6': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history7': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history8': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'history9': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

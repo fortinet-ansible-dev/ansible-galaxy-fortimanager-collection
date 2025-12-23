@@ -16,7 +16,6 @@ short_description: Configure proxy policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -544,6 +543,17 @@ options:
                 aliases: ['telemetry-profile']
                 type: raw
                 description: (list) Name of an existing telemetry profile.
+            poolname6:
+                type: raw
+                description: (list) Name of IPv6 pool object.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service name.
+            internet_service6_fortiguard:
+                aliases: ['internet-service6-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service IPv6 name.
 '''
 
 EXAMPLES = '''
@@ -760,7 +770,10 @@ def main():
                 'url-risk': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'https-sub-category': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'poolname6': {'v_range': [['7.4.8', '7.4.8']], 'type': 'raw'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

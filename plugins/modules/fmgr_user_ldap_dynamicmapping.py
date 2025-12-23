@@ -16,7 +16,6 @@ short_description: Configure LDAP server entries.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -520,14 +519,14 @@ def main():
                 'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'client-cert': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'client-cert-auth': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'max-connections': {'v_range': [['7.0.11', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
+                'max-connections': {'v_range': [['7.0.11', '7.0.15'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
                 'two-factor-filter': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'account-key-upn-san': {'v_range': [['7.2.2', '']], 'choices': ['othername', 'rfc822name', 'dnsname'], 'type': 'str'},
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'status-ttl': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'ssl-max-proto-version': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.4', '7.4.7'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.11'], ['7.4.4', '7.4.8'], ['7.6.2', '']],
                     'choices': ['TLSv1-1', 'TLSv1-2', 'SSLv3', 'TLSv1', 'TLSv1-3'],
                     'type': 'str'
                 },

@@ -16,7 +16,6 @@ short_description: Anti-spam black/white list entries.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -237,17 +236,17 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_bwl_entries': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'action': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
-                'addr-type': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'email-pattern': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
-                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                'pattern-type': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                'status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['ip', 'email'], 'type': 'str'}
+                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
+                'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'email-pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
+                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['ip', 'email'], 'type': 'str'}
             }
         }
     }

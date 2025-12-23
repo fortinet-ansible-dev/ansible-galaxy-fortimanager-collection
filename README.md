@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.11.0 - configuring FortiManager
+# fortinet.fortimanager:2.12.0 - configuring FortiManager
 
 ## Description
 
@@ -150,6 +150,7 @@ The collection provides the following modules:
 * `fmgr_devprof_log_syslogd_filter_freestyle`  Free style filters.
 * `fmgr_devprof_log_syslogd_setting`  Global settings for remote syslog server.
 * `fmgr_devprof_log_syslogd_setting_customfieldname`  Custom field name for CEF format logging.
+* `fmgr_devprof_log_syslogd_setting_logtemplates`  System template log syslogd setting log templates.
 * `fmgr_devprof_system_centralmanagement`  Configure central management.
 * `fmgr_devprof_system_centralmanagement_serverlist`  Additional severs that the FortiGate can use for updates.
 * `fmgr_devprof_system_dns`  Configure DNS.
@@ -265,6 +266,7 @@ The collection provides the following modules:
 * `fmgr_dynamic_interface_dynamicmapping`  Dynamic interface dynamic mapping.
 * `fmgr_dynamic_interface_platformmapping`  Dynamic interface platform mapping.
 * `fmgr_dynamic_ippool`  Dynamic ippool.
+* `fmgr_dynamic_log_npuserver_servergroup_dynamicmapping`  Dynamic log npu server server group dynamic mapping.
 * `fmgr_dynamic_multicast_interface`  Dynamic multicast interface.
 * `fmgr_dynamic_multicast_interface_dynamicmapping`  Dynamic multicast interface dynamic mapping.
 * `fmgr_dynamic_vip`  Dynamic vip.
@@ -448,6 +450,7 @@ The collection provides the following modules:
 * `fmgr_firewall_multicastaddress6_tagging`  Config object tagging.
 * `fmgr_firewall_multicastaddress_tagging`  Config object tagging.
 * `fmgr_firewall_networkservicedynamic`  Configure Dynamic Network Services.
+* `fmgr_firewall_pfcp`  Configure PFCP.
 * `fmgr_firewall_profilegroup`  Configure profile groups.
 * `fmgr_firewall_profileprotocoloptions`  Configure protocol options.
 * `fmgr_firewall_profileprotocoloptions_cifs`  Configure CIFS protocol options.
@@ -462,12 +465,19 @@ The collection provides the following modules:
 * `fmgr_firewall_profileprotocoloptions_mapi`  Configure MAPI protocol options.
 * `fmgr_firewall_profileprotocoloptions_nntp`  Configure NNTP protocol options.
 * `fmgr_firewall_profileprotocoloptions_pop3`  Configure POP3 protocol options.
+* `fmgr_firewall_profileprotocoloptions_proxyredirect`  Firewall profile protocol options proxy redirect.
+* `fmgr_firewall_profileprotocoloptions_rtmp`  RTMP.
 * `fmgr_firewall_profileprotocoloptions_smtp`  Configure SMTP protocol options.
 * `fmgr_firewall_profileprotocoloptions_ssh`  Configure SFTP and SCP protocol options.
 * `fmgr_firewall_proxyaddress`  Web proxy address configuration.
+* `fmgr_firewall_proxyaddress6`  Firewall proxy address6.
+* `fmgr_firewall_proxyaddress6_headergroup`  Firewall proxy address6 header group.
+* `fmgr_firewall_proxyaddress6_tagging`  Firewall proxy address6 tagging.
 * `fmgr_firewall_proxyaddress_headergroup`  HTTP header group.
 * `fmgr_firewall_proxyaddress_tagging`  Config object tagging.
 * `fmgr_firewall_proxyaddrgrp`  Web proxy address group configuration.
+* `fmgr_firewall_proxyaddrgrp6`  Firewall proxy addrgrp6.
+* `fmgr_firewall_proxyaddrgrp6_tagging`  Firewall proxy addrgrp6 tagging.
 * `fmgr_firewall_proxyaddrgrp_tagging`  Config object tagging.
 * `fmgr_firewall_schedule_group`  Schedule group configuration.
 * `fmgr_firewall_schedule_onetime`  Onetime schedule configuration.
@@ -478,6 +488,7 @@ The collection provides the following modules:
 * `fmgr_firewall_shaper_peripshaper`  Configure per-IP traffic shaper.
 * `fmgr_firewall_shaper_trafficshaper`  Configure shared traffic shaper.
 * `fmgr_firewall_shapingprofile`  Configure shaping profiles.
+* `fmgr_firewall_shapingprofile_classes`  Firewall shaping profile classes.
 * `fmgr_firewall_shapingprofile_shapingentries`  Define shaping entries of this shaping profile.
 * `fmgr_firewall_ssh_localca`  SSH proxy local CA.
 * `fmgr_firewall_sslsshprofile`  Configure SSL/SSH protocol options.
@@ -490,6 +501,7 @@ The collection provides the following modules:
 * `fmgr_firewall_sslsshprofile_smtps`  Configure SMTPS options.
 * `fmgr_firewall_sslsshprofile_ssh`  Configure SSH options.
 * `fmgr_firewall_sslsshprofile_ssl`  Configure SSL options.
+* `fmgr_firewall_sslsshprofile_sslclientcertificate`  Firewall ssl ssh profile ssl client certificate.
 * `fmgr_firewall_sslsshprofile_sslexempt`  Servers to exempt from SSL inspection.
 * `fmgr_firewall_sslsshprofile_sslserver`  SSL servers.
 * `fmgr_firewall_trafficclass`  Configure names for shaping classes.
@@ -635,6 +647,8 @@ The collection provides the following modules:
 * `fmgr_icap_profile_icapheaders`  Configure ICAP forwarded request headers.
 * `fmgr_icap_profile_respmodforwardrules`  ICAP response mode forward rules.
 * `fmgr_icap_profile_respmodforwardrules_headergroup`  HTTP header group.
+* `fmgr_icap_remoteservergroup`  Icap remote server group.
+* `fmgr_icap_remoteservergroup_serverlist`  Icap remote server group server list.
 * `fmgr_icap_server`  Configure ICAP servers.
 * `fmgr_icap_servergroup`  Configure an ICAP server group consisting of multiple forward servers.
 * `fmgr_icap_servergroup_serverlist`  Add ICAP servers to a list to form a server group.
@@ -648,6 +662,8 @@ The collection provides the following modules:
 * `fmgr_ips_sensor`  Configure IPS sensor.
 * `fmgr_ips_sensor_entries`  IPS sensor filter.
 * `fmgr_ips_sensor_entries_exemptip`  Traffic from selected source or destination IP addresses is exempt from this signature.
+* `fmgr_isolator_profile`  Isolator profile.
+* `fmgr_isolator_profile_entries`  Isolator profile entries.
 * `fmgr_log_customfield`  Configure custom log fields.
 * `fmgr_log_npuserver`  Configure all the log servers and create the server groups.
 * `fmgr_log_npuserver_servergroup`  create server group.
@@ -695,6 +711,7 @@ The collection provides the following modules:
 * `fmgr_pkg_firewall_policy_vpnsrcnode`  Policy package firewall policy vpn src node.
 * `fmgr_pkg_firewall_proxypolicy`  Configure proxy policies.
 * `fmgr_pkg_firewall_proxypolicy_sectionvalue`  Configure proxy policies.
+* `fmgr_pkg_firewall_responseshapingpolicy`  Policy package firewall response shaping policy.
 * `fmgr_pkg_firewall_securitypolicy`  Configure NGFW IPv4/IPv6 application policies.
 * `fmgr_pkg_firewall_securitypolicy_sectionvalue`  Configure NGFW IPv4/IPv6 application policies.
 * `fmgr_pkg_firewall_shapingpolicy`  Configure shaping policies.
@@ -821,11 +838,16 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override`  Configure DHCP snooping option 82 override.
 * `fmgr_switchcontroller_managedswitch_remotelog`  Configure logging by FortiSwitch device to a remote syslog server.
 * `fmgr_switchcontroller_managedswitch_routeoffloadrouter`  Configure route offload MCLAG IP address.
+* `fmgr_switchcontroller_managedswitch_routerstatic`  Configure static routes.
+* `fmgr_switchcontroller_managedswitch_routervrf`  Configure VRF.
 * `fmgr_switchcontroller_managedswitch_snmpcommunity`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmpcommunity_hosts`  Configure IPv4 SNMP managers.
 * `fmgr_switchcontroller_managedswitch_snmpsysinfo`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmptrapthreshold`  Configuration method to edit Simple Network Management Protocol.
 * `fmgr_switchcontroller_managedswitch_snmpuser`  Configuration method to edit Simple Network Management Protocol.
+* `fmgr_switchcontroller_managedswitch_systemdhcpserver`  Configure DHCP servers.
+* `fmgr_switchcontroller_managedswitch_systemdhcpserver_options`  DHCP options.
+* `fmgr_switchcontroller_managedswitch_systeminterface`  Configure system interface on FortiSwitch.
 * `fmgr_switchcontroller_managedswitch_vlan`  Configure VLAN assignment priority.
 * `fmgr_switchcontroller_ptp_profile`  Global PTP profile.
 * `fmgr_switchcontroller_qos_dot1pmap`  Configure FortiSwitch QoS 802.
@@ -836,7 +858,9 @@ The collection provides the following modules:
 * `fmgr_switchcontroller_qos_queuepolicy_cosqueue`  COS queue configuration.
 * `fmgr_switchcontroller_securitypolicy_8021x`  Configure 802.
 * `fmgr_switchcontroller_securitypolicy_captiveportal`  Names of VLANs that use captive portal authentication.
+* `fmgr_switchcontroller_securitypolicy_localaccess`  Configure allowaccess list for mgmt and internal interfaces on managed FortiSwitch units.
 * `fmgr_switchcontroller_switchinterfacetag`  Configure switch object tags.
+* `fmgr_switchcontroller_switchprofile`  Configure FortiSwitch switch profile.
 * `fmgr_switchcontroller_trafficpolicy`  Configure FortiSwitch traffic policy.
 * `fmgr_switchcontroller_vlanpolicy`  Configure VLAN policy to be applied on the managed FortiSwitch ports through dynamic-port-policy.
 * `fmgr_sys_api_sdnconnector`  Query SDN connector data.
@@ -900,6 +924,8 @@ The collection provides the following modules:
 * `fmgr_system_dhcp_server_reservedaddress`  Options for the DHCP server to assign IP settings to specific MAC addresses.
 * `fmgr_system_dm`  Configure dm.
 * `fmgr_system_dns`  DNS configuration.
+* `fmgr_system_dnsdatabase`  Configure DNS databases.
+* `fmgr_system_dnsdatabase_dnsentry`  DNS entry.
 * `fmgr_system_docker`  Docker host.
 * `fmgr_system_externalresource`  Configure external resource.
 * `fmgr_system_fips`  Settings for FIPS-CC mode.
@@ -924,6 +950,14 @@ The collection provides the following modules:
 * `fmgr_system_interface_member`  Physical interfaces that belong to the aggregate or redundant interface.
 * `fmgr_system_localinpolicy`  IPv4 local in policy configuration.
 * `fmgr_system_localinpolicy6`  IPv6 local in policy configuration.
+* `fmgr_system_localinpolicy6_dport`  Cli system local in policy6 dport.
+* `fmgr_system_localinpolicy6_dst`  Cli system local in policy6 dst.
+* `fmgr_system_localinpolicy6_intf`  Cli system local in policy6 intf.
+* `fmgr_system_localinpolicy6_src`  Cli system local in policy6 src.
+* `fmgr_system_localinpolicy_dport`  Cli system local in policy dport.
+* `fmgr_system_localinpolicy_dst`  Cli system local in policy dst.
+* `fmgr_system_localinpolicy_intf`  Cli system local in policy intf.
+* `fmgr_system_localinpolicy_src`  Cli system local in policy src.
 * `fmgr_system_locallog_disk_filter`  Filter for disk logging.
 * `fmgr_system_locallog_disk_setting`  Settings for local disk logging.
 * `fmgr_system_locallog_fortianalyzer2_filter`  Filter for FortiAnalyzer2 logging.
@@ -1071,6 +1105,7 @@ The collection provides the following modules:
 * `fmgr_system_webproxy`  Configure system web proxy.
 * `fmgr_system_workflow_approvalmatrix`  workflow approval matrix.
 * `fmgr_system_workflow_approvalmatrix_approver`  Approver.
+* `fmgr_telemetrycontroller_agent`  Configure FortiTelemetry agents managed by a FortiGate unit.
 * `fmgr_telemetrycontroller_agentprofile`  Configure FortiTelemetry agent profiles.
 * `fmgr_telemetrycontroller_application_predefine`  Configure FortiTelemetry predefined applications.
 * `fmgr_telemetrycontroller_profile`  Configure FortiTelemetry profiles.
@@ -1118,6 +1153,7 @@ The collection provides the following modules:
 * `fmgr_user_local`  Configure local users.
 * `fmgr_user_nsx`  User nsx.
 * `fmgr_user_nsx_service`  User nsx service.
+* `fmgr_user_oidc`  User oidc.
 * `fmgr_user_passwordpolicy`  Configure user password policy.
 * `fmgr_user_peer`  Configure peer users.
 * `fmgr_user_peergrp`  Configure peer groups.
@@ -1161,10 +1197,17 @@ The collection provides the following modules:
 * `fmgr_voip_profile_sccp`  SCCP.
 * `fmgr_voip_profile_sip`  SIP.
 * `fmgr_vpn_certificate_ca`  CA certificate.
+* `fmgr_vpn_certificate_hsmlocal`  Local certificates whose keys are stored on HSM.
 * `fmgr_vpn_certificate_ocspserver`  OCSP server configuration.
 * `fmgr_vpn_certificate_remote`  Remote certificate as a PEM file.
 * `fmgr_vpn_ipsec_fec`  Configure Forward Error Correction.
 * `fmgr_vpn_ipsec_fec_mappings`  FEC redundancy mapping table.
+* `fmgr_vpn_ipsec_manualkey`  Configure IPsec manual keys.
+* `fmgr_vpn_ipsec_phase1`  Configure VPN remote gateway.
+* `fmgr_vpn_ipsec_phase1_ipv4excluderange`  Configuration Method IPv4 exclude ranges.
+* `fmgr_vpn_ipsec_phase1_ipv6excluderange`  Configuration method IPv6 exclude ranges.
+* `fmgr_vpn_kmipserver`  KMIP server entry configuration.
+* `fmgr_vpn_kmipserver_serverlist`  KMIP server list.
 * `fmgr_vpn_ssl_settings`  Configure SSL VPN.
 * `fmgr_vpn_ssl_settings_authenticationrule`  Authentication rule for SSL VPN.
 * `fmgr_vpnmgr_node`  VPN node for VPN Manager.
@@ -1244,8 +1287,11 @@ The collection provides the following modules:
 * `fmgr_webfilter_content_entries`  Configure banned word entries.
 * `fmgr_webfilter_contentheader`  Configure content types used by Web filter.
 * `fmgr_webfilter_contentheader_entries`  Configure content types used by web filter.
+* `fmgr_webfilter_domainlist`  Webfilter domain list.
+* `fmgr_webfilter_domainlist_entries`  Webfilter domain list entries.
 * `fmgr_webfilter_ftgdlocalcat`  Configure FortiGuard Web Filter local categories.
 * `fmgr_webfilter_ftgdlocalrating`  Configure local FortiGuard Web Filter local ratings.
+* `fmgr_webfilter_ftgdrisklevel`  Configure FortiGuard Web Filter risk level.
 * `fmgr_webfilter_profile`  Configure Web filter profiles.
 * `fmgr_webfilter_profile_antiphish`  AntiPhishing profile.
 * `fmgr_webfilter_profile_antiphish_custompatterns`  Custom username and password regex patterns.
@@ -1261,11 +1307,16 @@ The collection provides the following modules:
 * `fmgr_webfilter_profile_youtubechannelfilter`  YouTube channel filter.
 * `fmgr_webfilter_urlfilter`  Configure URL filter lists.
 * `fmgr_webfilter_urlfilter_entries`  URL filter entries.
+* `fmgr_webfilter_urllist`  Webfilter url list.
+* `fmgr_webfilter_urllist_entries`  Webfilter url list entries.
+* `fmgr_webproxy_explicitproxy`  Web proxy explicit proxy.
 * `fmgr_webproxy_forwardserver`  Configure forward-server addresses.
 * `fmgr_webproxy_forwardservergroup`  Configure a forward server group consisting or multiple forward servers.
 * `fmgr_webproxy_forwardservergroup_serverlist`  Add web forward servers to a list to form a server group.
 * `fmgr_webproxy_profile`  Configure web proxy profiles.
 * `fmgr_webproxy_profile_headers`  Configure HTTP forwarded requests headers.
+* `fmgr_webproxy_redirectprofile`  Web proxy redirect profile.
+* `fmgr_webproxy_redirectprofile_entries`  Web proxy redirect profile entries.
 * `fmgr_webproxy_wisp`  Configure Wireless Internet service provider.
 * `fmgr_widsprofile`  Configure wireless intrusion detection system.
 * `fmgr_wireless_accesscontrollist`  Configure WiFi bridge access control list.
@@ -1275,7 +1326,7 @@ The collection provides the following modules:
 * `fmgr_wireless_addrgrp`  Configure the MAC address group.
 * `fmgr_wireless_ssidpolicy`  Configure WiFi SSID policies.
 * `fmgr_wireless_syslogprofile`  Configure Wireless Termination Points.
-* `fmgr_wireless_vap_ip6prefixlist`  Wireless controller vap ip6 prefix list.
+* `fmgr_wireless_vap_ip6prefixlist`  Advertised prefix list.
 * `fmgr_wtpprofile`  Configure WTP profiles or FortiAP profiles that define radio settings for manageable FortiAP platforms.
 * `fmgr_wtpprofile_denymaclist`  List of MAC addresses that are denied access to this WTP, FortiAP, or AP.
 * `fmgr_wtpprofile_eslsesdongle`  ESL SES-imagotag dongle configuration.
@@ -1287,6 +1338,19 @@ The collection provides the following modules:
 * `fmgr_wtpprofile_radio3`  Configuration options for radio 3.
 * `fmgr_wtpprofile_radio4`  Configuration options for radio 4.
 * `fmgr_wtpprofile_splittunnelingacl`  Split tunneling ACL filter list.
+* `fmgr_ztna_serviceconnector`  Ztna service connector.
+* `fmgr_ztna_trafficforwardproxy`  Configure ZTNA traffic forward proxy.
+* `fmgr_ztna_trafficforwardproxy_sslserverciphersuites`  Ztna traffic forward proxy ssl server cipher suites.
+* `fmgr_ztna_trafficforwardproxy_urlroute`  Ztna traffic forward proxy url route.
+* `fmgr_ztna_webportal`  Configure ztna web-portal.
+* `fmgr_ztna_webportalbookmark`  Configure ztna web-portal bookmark.
+* `fmgr_ztna_webportalbookmark_bookmarks`  Bookmark table.
+* `fmgr_ztna_webproxy`  Configure ZTNA web-proxy.
+* `fmgr_ztna_webproxy_apigateway`  Set IPv4 API Gateway.
+* `fmgr_ztna_webproxy_apigateway6`  Set IPv6 API Gateway.
+* `fmgr_ztna_webproxy_apigateway6_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
+* `fmgr_ztna_webproxy_apigateway6_sslciphersuites`  SSL/TLS cipher suites to offer to a server, ordered by priority.
+* `fmgr_ztna_webproxy_apigateway_realservers`  Select the real servers that this Access Proxy will distribute traffic to.
 
 
 

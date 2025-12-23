@@ -16,7 +16,6 @@ short_description: Web proxy address configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -205,6 +204,7 @@ options:
                     - 'dst-advanced'
                     - 'url-list'
                     - 'saas'
+                    - 'response-header'
             ua:
                 type: list
                 elements: str
@@ -244,6 +244,17 @@ options:
                 aliases: ['ua-min-ver']
                 type: str
                 description: Minimum version of the user agent specified in dotted notation.
+            post_arg:
+                aliases: ['post-arg']
+                type: str
+                description: Post arg.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            url_list:
+                aliases: ['url-list']
+                type: raw
+                description: (list) Url list.
 '''
 
 EXAMPLES = '''
@@ -377,17 +388,21 @@ def main():
                     'elements': 'dict'
                 },
                 'type': {
-                    'choices': ['host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas'],
+                    'choices': [
+                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header'
+                    ],
                     'type': 'str'
                 },
                 'ua': {'type': 'list', 'choices': ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge'], 'elements': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'application': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                 'ua-max-ver': {'v_range': [['7.2.2', '']], 'type': 'str'},
-                'ua-min-ver': {'v_range': [['7.2.2', '']], 'type': 'str'}
+                'ua-min-ver': {'v_range': [['7.2.2', '']], 'type': 'str'},
+                'post-arg': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'url-list': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

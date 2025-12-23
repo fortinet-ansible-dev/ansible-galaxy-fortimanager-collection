@@ -16,7 +16,6 @@ short_description: Configure certificate users.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -205,14 +204,14 @@ def main():
         'revision_note': {'type': 'str'},
         'user_certificate': {
             'type': 'dict',
-            'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']],
+            'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']],
             'options': {
-                'common-name': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'type': 'str'},
-                'id': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'required': True, 'type': 'int'},
-                'issuer': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'type': 'str'},
-                'name': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'type': 'str'},
-                'status': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.0.8', '7.0.14'], ['7.2.3', '']], 'choices': ['single-certificate', 'trusted-issuer'], 'type': 'str'}
+                'common-name': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'str'},
+                'id': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'required': True, 'type': 'int'},
+                'issuer': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'str'},
+                'name': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'str'},
+                'status': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['single-certificate', 'trusted-issuer'], 'type': 'str'}
             }
         }
     }

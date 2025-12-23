@@ -16,7 +16,6 @@ short_description: Configure IPv4 addresses.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -282,6 +281,7 @@ options:
                     - 'rsso'
                     - 'external-resource'
                     - 'obsolete'
+                    - 'telemetry'
             global_object:
                 aliases: ['global-object']
                 type: int
@@ -359,6 +359,14 @@ options:
                 aliases: ['sso-attribute-value']
                 type: raw
                 description: (list) Name
+            agent_id:
+                aliases: ['agent-id']
+                type: raw
+                description: (list) Telemetry agent id.
+            tag_uuid:
+                aliases: ['tag-uuid']
+                type: str
+                description: Foreign UUID of dynamic address object.
 '''
 
 EXAMPLES = '''
@@ -517,7 +525,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification', 'rsso', 'external-resource', 'obsolete'
+                        'device-identification', 'rsso', 'external-resource', 'obsolete', 'telemetry'
                     ],
                     'type': 'str'
                 },
@@ -537,7 +545,9 @@ def main():
                 'os': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
             }
         }
     }

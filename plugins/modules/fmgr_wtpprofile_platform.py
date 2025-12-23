@@ -16,7 +16,6 @@ short_description: WTP, FortiAP, or AP platform.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -186,6 +185,8 @@ options:
                     - '243K'
                     - '231K'
                     - '23JK'
+                    - '222KL'
+                    - '244K'
             mode:
                 type: str
                 description: Configure operation mode of 5G radios
@@ -298,7 +299,7 @@ def main():
                         'C24JE', 'C21D', 'U421E', 'U423E', '221E', '222E', '223E', 'S221E', 'S223E', 'U221EV', 'U223EV', 'U321EV', 'U323EV', '224E',
                         'U422EV', 'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F', '432F', '234F', '23JF', 'U231F', '831F', 'U234F',
                         'U432F', '431FL', '432FR', '433FL', '231FL', '231G', '233G', '431G', '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K',
-                        '241K', '243K', '231K', '23JK'
+                        '241K', '243K', '231K', '23JK', '222KL', '244K'
                     ],
                     'type': 'str'
                 },

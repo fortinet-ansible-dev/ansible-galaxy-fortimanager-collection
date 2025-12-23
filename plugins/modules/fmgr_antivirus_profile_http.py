@@ -16,7 +16,6 @@ short_description: Configure HTTP AntiVirus options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -362,7 +361,7 @@ def main():
                 'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
-                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
+                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
                 'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
             }
         }

@@ -16,7 +16,6 @@ short_description: Configure SMTPS options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -176,6 +175,7 @@ options:
                     - 'bypass'
                     - 'inspect'
                     - 'block'
+                    - 'bypass-on-cert-req'
             expired_server_cert:
                 aliases: ['expired-server-cert']
                 type: str
@@ -264,7 +264,7 @@ EXAMPLES = '''
           # untrusted_server_cert: <value in [allow, block, ignore]>
           # cert_validation_failure: <value in [allow, block, ignore]>
           # cert_validation_timeout: <value in [allow, block, ignore]>
-          # client_certificate: <value in [bypass, inspect, block]>
+          # client_certificate: <value in [bypass, inspect, block, ...]>
           # expired_server_cert: <value in [allow, block, ignore]>
           # proxy_after_tcp_handshake: <value in [disable, enable]>
           # revoked_server_cert: <value in [allow, block, ignore]>
@@ -335,18 +335,18 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'allow-invalid-server-cert': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'allow-invalid-server-cert': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'client-cert-request': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
                 'ports': {'type': 'raw'},
                 'status': {'choices': ['disable', 'deep-inspection'], 'type': 'str'},
                 'unsupported-ssl': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
-                'untrusted-cert': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
+                'untrusted-cert': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                 'invalid-server-cert': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                 'sni-server-cert-check': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable', 'strict'], 'type': 'str'},
                 'untrusted-server-cert': {'v_range': [['6.2.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                 'cert-validation-failure': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                 'cert-validation-timeout': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
-                'client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block'], 'type': 'str'},
+                'client-certificate': {'v_range': [['6.4.0', '']], 'choices': ['bypass', 'inspect', 'block', 'bypass-on-cert-req'], 'type': 'str'},
                 'expired-server-cert': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},
                 'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'revoked-server-cert': {'v_range': [['6.4.0', '']], 'choices': ['allow', 'block', 'ignore'], 'type': 'str'},

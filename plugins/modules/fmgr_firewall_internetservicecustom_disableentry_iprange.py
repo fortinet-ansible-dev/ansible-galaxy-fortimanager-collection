@@ -16,7 +16,6 @@ short_description: IP ranges in the disable entry.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -221,11 +220,11 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetservicecustom_disableentry_iprange': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'end-ip': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
-                'start-ip': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'}
+                'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
+                'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
             }
         }
     }

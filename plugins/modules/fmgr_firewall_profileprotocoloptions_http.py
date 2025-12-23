@@ -16,7 +16,6 @@ short_description: Configure HTTP protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -313,6 +312,9 @@ options:
                     - 'block'
                     - 'monitor'
                     - 'allow'
+                    - 'disable'
+                    - 'enable'
+                    - 'strict'
             http_0_9:
                 aliases: ['http-0.9']
                 type: str
@@ -320,6 +322,28 @@ options:
                 choices:
                     - 'block'
                     - 'allow'
+            dns_protection:
+                aliases: ['dns-protection']
+                type: str
+                description: Enable/disable DNS protection for HTTP/HTTPS traffic.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            encrypted_file:
+                aliases: ['encrypted-file']
+                type: str
+                description: Encrypted file.
+                choices:
+                    - 'block'
+                    - 'pass'
+                    - 'inspect'
+            encrypted_file_log:
+                aliases: ['encrypted-file-log']
+                type: str
+                description: Encrypted file log.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -401,8 +425,11 @@ EXAMPLES = '''
           # h2c: <value in [disable, enable]>
           # verify_dns_for_policy_matching: <value in [disable, enable]>
           # unknown_content_encoding: <value in [block, inspect, bypass]>
-          # domain_fronting: <value in [block, monitor, allow]>
+          # domain_fronting: <value in [block, monitor, allow, ...]>
           # http_0_9: <value in [block, allow]>
+          # dns_protection: <value in [disable, enable]>
+          # encrypted_file: <value in [block, pass, inspect]>
+          # encrypted_file_log: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -510,8 +537,11 @@ def main():
                 'h2c': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'verify-dns-for-policy-matching': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
-                'domain-fronting': {'v_range': [['7.6.0', '']], 'choices': ['block', 'monitor', 'allow'], 'type': 'str'},
-                'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'}
+                'domain-fronting': {'v_range': [['7.4.8', '']], 'choices': ['block', 'monitor', 'allow', 'disable', 'enable', 'strict'], 'type': 'str'},
+                'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
+                'dns-protection': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'encrypted-file': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
+                'encrypted-file-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

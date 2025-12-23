@@ -210,14 +210,14 @@ class HttpApi(HttpApiBase):
             "id": self.req_id,
             "verbose": 1,
         }
-        data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
+        data = json.dumps(json_request, ensure_ascii=False)
 
         # Don't log sensitive information
         if params[0]["url"] == "sys/login/user" and "data" in params[0] and "passwd" in params[0]["data"]:
             json_request["params"][0]["data"]["passwd"] = "******"
         if "session" in params[0]:
             json_request["params"][0]["session"] = "******"
-        log_data = json.dumps(json_request, ensure_ascii=False).replace("\\\\", "\\")
+        log_data = json.dumps(json_request, ensure_ascii=False)
         self.log("request: %s" % (log_data))
 
         # Sending URL and Data in Unicode, per Ansible Specifications for Connection Plugins
@@ -230,15 +230,20 @@ class HttpApi(HttpApiBase):
             path=to_text(self._url) + access_token_str, data=to_text(data), headers=header_data
         )
         # Get Unicode Response - Must convert from StringIO to unicode first so we can do a replace function below
-        result = json.loads(to_text(response_data.getvalue()))
-        self.log("response: %s" % (str(self._jsonize(result))))
+        response_text = to_text(response_data.getvalue())
+        result = ""
+        try:
+            result = json.loads(response_text)
+        except Exception as e:
+            raise FMGBaseException(msg="Got unexpected result: %s" % (response_text))
+        self.log("response: %s" % (self._jsonize(result)))
         self._update_self_from_response(result, self._url, data)
         return self._handle_response(result)
 
     def _jsonize(self, data):
         ret = None
         try:
-            ret = json.dumps(data, indent=3)
+            ret = json.dumps(data, indent=2)
         except Exception as e:
             pass
         return ret

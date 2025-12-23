@@ -16,7 +16,6 @@ short_description: Portal.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1398,7 +1397,11 @@ def main():
                 'redir-url': {'type': 'str'},
                 'save-password': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-restriction': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'skip-check-for-unsupported-browser': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'skip-check-for-unsupported-browser': {
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
                 'skip-check-for-unsupported-os': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'smb-ntlmv1-auth': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'smbv1': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1461,7 +1464,7 @@ def main():
                 'clipboard': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-window-height': {'v_range': [['7.0.4', '']], 'type': 'int'},
                 'default-window-width': {'v_range': [['7.0.4', '']], 'type': 'int'},
-                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
+                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
                 'client-src-range': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},

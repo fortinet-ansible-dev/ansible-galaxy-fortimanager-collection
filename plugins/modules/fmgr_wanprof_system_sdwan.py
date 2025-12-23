@@ -16,7 +16,6 @@ short_description: Configure redundant internet connections using SD-WAN
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -303,6 +302,7 @@ options:
                                     - 'packet-loss'
                                     - 'mos'
                                     - 'remote'
+                                    - 'custom-profile-1'
                             packetloss_threshold:
                                 aliases: ['packetloss-threshold']
                                 type: int
@@ -319,6 +319,10 @@ options:
                                 aliases: ['priority-out-sla']
                                 type: int
                                 description: Value to be distributed into routing table when out-sla
+                            custom_profile_threshold:
+                                aliases: ['custom-profile-threshold']
+                                type: int
+                                description: Custom profile threshold for SLA to be marked as pass
                     sla_fail_log_period:
                         aliases: ['sla-fail-log-period']
                         type: int
@@ -435,6 +439,22 @@ options:
                         aliases: ['remote-probe-timeout']
                         type: int
                         description: Time to wait before a probe packet is considered lost when detect-mode is remote
+                    bandwidth_weight:
+                        aliases: ['bandwidth-weight']
+                        type: int
+                        description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
+                    jitter_weight:
+                        aliases: ['jitter-weight']
+                        type: int
+                        description: Coefficient of jitter in the formula of custom-profile-1.
+                    latency_weight:
+                        aliases: ['latency-weight']
+                        type: int
+                        description: Coefficient of latency in the formula of custom-profile-1.
+                    packet_loss_weight:
+                        aliases: ['packet-loss-weight']
+                        type: int
+                        description: Coefficient of packet-loss in the formula of custom-profile-1.
             load_balance_mode:
                 aliases: ['load-balance-mode']
                 type: str
@@ -855,6 +875,7 @@ options:
                             - 'cfg-order'
                             - 'fib-best-match'
                             - 'input-device'
+                            - 'priority'
                     use_shortcut_sla:
                         aliases: ['use-shortcut-sla']
                         type: str
@@ -948,6 +969,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    internet_service_fortiguard:
+                        aliases: ['internet-service-fortiguard']
+                        type: raw
+                        description: (list) FortiGuard Internet service name list.
             status:
                 type: str
                 description: Enable/disable SD-WAN.
@@ -970,6 +995,7 @@ options:
                             - 'cfg-order'
                             - 'fib-best-match'
                             - 'input-device'
+                            - 'priority'
                     minimum_sla_meet_members:
                         aliases: ['minimum-sla-meet-members']
                         type: int
@@ -1348,10 +1374,12 @@ EXAMPLES = '''
           #           - "packet-loss"
           #           - "mos"
           #           - "remote"
+          #           - "custom-profile-1"
           #         packetloss_threshold: <integer>
           #         mos_threshold: <string>
           #         priority_in_sla: <integer>
           #         priority_out_sla: <integer>
+          #         custom_profile_threshold: <integer>
           #     sla_fail_log_period: <integer>
           #     sla_pass_log_period: <integer>
           #     system_dns: <value in [disable, enable]>
@@ -1376,6 +1404,10 @@ EXAMPLES = '''
           #     fortiguard_name: <list or string>
           #     agent_probe_timeout: <integer>
           #     remote_probe_timeout: <integer>
+          #     bandwidth_weight: <integer>
+          #     jitter_weight: <integer>
+          #     latency_weight: <integer>
+          #     packet_loss_weight: <integer>
           # load_balance_mode: <value in [source-ip-based, weight-based, usage-based, ...]>
           # members:
           #   - _dynamic_member: <string>
@@ -1482,10 +1514,11 @@ EXAMPLES = '''
           #     shortcut_priority: <value in [disable, enable, auto]>
           #     comment: <string>
           #     fib_best_match_force: <value in [disable, enable]>
+          #     internet_service_fortiguard: <list or string>
           # status: <value in [disable, enable]>
           # zone:
           #   - name: <string>
-          #     service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device]>
+          #     service_sla_tie_break: <value in [cfg-order, fib-best-match, input-device, ...]>
           #     minimum_sla_meet_members: <integer>
           #     advpn_health_check: <string>
           #     advpn_select: <value in [disable, enable]>
@@ -1681,13 +1714,14 @@ def main():
                                 'link-cost-factor': {
                                     'v_range': [['6.4.1', '']],
                                     'type': 'list',
-                                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
+                                    'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote', 'custom-profile-1'],
                                     'elements': 'str'
                                 },
                                 'packetloss-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
                                 'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                                 'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                                'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'}
+                                'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
+                                'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
@@ -1718,7 +1752,11 @@ def main():
                         'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                         'agent-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'}
+                        'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                        'bandwidth-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                        'jitter-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                        'latency-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                        'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1841,7 +1879,11 @@ def main():
                         'tos': {'v_range': [['6.4.1', '']], 'type': 'str'},
                         'tos-mask': {'v_range': [['6.4.1', '']], 'type': 'str'},
                         'users': {'v_range': [['6.4.1', '']], 'type': 'raw'},
-                        'tie-break': {'v_range': [['6.4.3', '']], 'choices': ['zone', 'cfg-order', 'fib-best-match', 'input-device'], 'type': 'str'},
+                        'tie-break': {
+                            'v_range': [['6.4.3', '']],
+                            'choices': ['zone', 'cfg-order', 'fib-best-match', 'input-device', 'priority'],
+                            'type': 'str'
+                        },
                         'use-shortcut-sla': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'input-zone': {'v_range': [['7.2.0', '']], 'type': 'raw'},
                         'internet-service-app-ctrl-category': {'v_range': [['7.2.0', '']], 'type': 'raw'},
@@ -1857,7 +1899,8 @@ def main():
                         'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
                         'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                        'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },
@@ -1867,7 +1910,11 @@ def main():
                     'type': 'list',
                     'options': {
                         'name': {'v_range': [['6.4.1', '']], 'type': 'str'},
-                        'service-sla-tie-break': {'v_range': [['6.4.3', '']], 'choices': ['cfg-order', 'fib-best-match', 'input-device'], 'type': 'str'},
+                        'service-sla-tie-break': {
+                            'v_range': [['6.4.3', '']],
+                            'choices': ['cfg-order', 'fib-best-match', 'input-device', 'priority'],
+                            'type': 'str'
+                        },
                         'minimum-sla-meet-members': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'advpn-health-check': {'v_range': [['7.4.2', '']], 'type': 'str'},
                         'advpn-select': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

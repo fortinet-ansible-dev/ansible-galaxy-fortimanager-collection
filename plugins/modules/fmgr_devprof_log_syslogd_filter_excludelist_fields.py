@@ -16,7 +16,6 @@ short_description: System template log syslogd filter exclude list fields
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -198,11 +197,11 @@ def main():
         'exclude_list': {'type': 'str'},
         'devprof_log_syslogd_filter_excludelist_fields': {
             'type': 'dict',
-            'v_range': [['7.0.4', '7.0.14']],
+            'v_range': [['7.0.4', '7.0.15']],
             'options': {
-                'args': {'v_range': [['7.0.4', '7.0.14']], 'type': 'raw'},
-                'field': {'v_range': [['7.0.4', '7.0.14']], 'type': 'str'},
-                'negate': {'v_range': [['7.0.4', '7.0.14']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'args': {'v_range': [['7.0.4', '7.0.15']], 'type': 'raw'},
+                'field': {'v_range': [['7.0.4', '7.0.15']], 'type': 'str'},
+                'negate': {'v_range': [['7.0.4', '7.0.15']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

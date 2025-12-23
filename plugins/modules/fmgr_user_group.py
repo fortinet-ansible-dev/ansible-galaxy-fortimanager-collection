@@ -16,7 +16,6 @@ short_description: Configure user groups.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -635,6 +634,13 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+            logic_type:
+                aliases: ['logic-type']
+                type: str
+                description: Set the logic between members or matching entries.
+                choices:
+                    - 'or'
+                    - 'and'
 '''
 
 EXAMPLES = '''
@@ -883,7 +889,8 @@ def main():
                         'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
-                }
+                },
+                'logic-type': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['or', 'and'], 'type': 'str'}
             }
         }
     }

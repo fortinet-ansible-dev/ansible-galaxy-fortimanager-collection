@@ -16,7 +16,6 @@ short_description: Configure IP configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -226,7 +225,7 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'public-ip': {'type': 'str'},
                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                'private-ip': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'}
+                'private-ip': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'}
             }
         }
     }

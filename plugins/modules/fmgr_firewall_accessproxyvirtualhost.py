@@ -16,7 +16,6 @@ short_description: Configure Access Proxy virtual hosts.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -231,7 +230,7 @@ def main():
                 'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard'], 'type': 'str'},
                 'name': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'},
                 'ssl-certificate': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'replacemsg-group': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                'replacemsg-group': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
                 'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['block', 'accept', 'accept-unmanageable'], 'type': 'str'},
                 'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

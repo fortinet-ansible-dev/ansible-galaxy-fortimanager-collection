@@ -16,7 +16,6 @@ short_description: Configure queue assignment on NP7.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1639,7 +1638,7 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

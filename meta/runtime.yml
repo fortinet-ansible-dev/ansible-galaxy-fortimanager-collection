@@ -80,6 +80,7 @@ action_groups:
     - fmgr_devprof_log_syslogd_filter_freestyle
     - fmgr_devprof_log_syslogd_setting
     - fmgr_devprof_log_syslogd_setting_customfieldname
+    - fmgr_devprof_log_syslogd_setting_logtemplates
     - fmgr_devprof_system_centralmanagement
     - fmgr_devprof_system_centralmanagement_serverlist
     - fmgr_devprof_system_dns
@@ -180,6 +181,8 @@ action_groups:
     - fmgr_dynamic_interface_dynamicmapping
     - fmgr_dynamic_interface_platformmapping
     - fmgr_dynamic_ippool
+    - fmgr_dynamic_log_npuserver_servergroup
+    - fmgr_dynamic_log_npuserver_servergroup_dynamicmapping
     - fmgr_dynamic_multicast_interface
     - fmgr_dynamic_multicast_interface_dynamicmapping
     - fmgr_dynamic_vip
@@ -343,6 +346,9 @@ action_groups:
     - fmgr_firewall_internetserviceextension_disableentry_portrange
     - fmgr_firewall_internetserviceextension_entry
     - fmgr_firewall_internetserviceextension_entry_portrange
+    - fmgr_firewall_internetservicefortiguard
+    - fmgr_firewall_internetservicefortiguard_entry
+    - fmgr_firewall_internetservicefortiguard_entry_portrange
     - fmgr_firewall_internetservicegroup
     - fmgr_firewall_internetservicename
     - fmgr_firewall_ippool
@@ -362,6 +368,7 @@ action_groups:
     - fmgr_firewall_multicastaddress6_tagging
     - fmgr_firewall_multicastaddress_tagging
     - fmgr_firewall_networkservicedynamic
+    - fmgr_firewall_pfcp
     - fmgr_firewall_profilegroup
     - fmgr_firewall_profileprotocoloptions
     - fmgr_firewall_profileprotocoloptions_cifs
@@ -376,12 +383,19 @@ action_groups:
     - fmgr_firewall_profileprotocoloptions_mapi
     - fmgr_firewall_profileprotocoloptions_nntp
     - fmgr_firewall_profileprotocoloptions_pop3
+    - fmgr_firewall_profileprotocoloptions_proxyredirect
+    - fmgr_firewall_profileprotocoloptions_rtmp
     - fmgr_firewall_profileprotocoloptions_smtp
     - fmgr_firewall_profileprotocoloptions_ssh
     - fmgr_firewall_proxyaddress
+    - fmgr_firewall_proxyaddress6
+    - fmgr_firewall_proxyaddress6_headergroup
+    - fmgr_firewall_proxyaddress6_tagging
     - fmgr_firewall_proxyaddress_headergroup
     - fmgr_firewall_proxyaddress_tagging
     - fmgr_firewall_proxyaddrgrp
+    - fmgr_firewall_proxyaddrgrp6
+    - fmgr_firewall_proxyaddrgrp6_tagging
     - fmgr_firewall_proxyaddrgrp_tagging
     - fmgr_firewall_schedule_group
     - fmgr_firewall_schedule_onetime
@@ -392,6 +406,7 @@ action_groups:
     - fmgr_firewall_shaper_peripshaper
     - fmgr_firewall_shaper_trafficshaper
     - fmgr_firewall_shapingprofile
+    - fmgr_firewall_shapingprofile_classes
     - fmgr_firewall_shapingprofile_shapingentries
     - fmgr_firewall_ssh_localca
     - fmgr_firewall_sslsshprofile
@@ -404,6 +419,7 @@ action_groups:
     - fmgr_firewall_sslsshprofile_smtps
     - fmgr_firewall_sslsshprofile_ssh
     - fmgr_firewall_sslsshprofile_ssl
+    - fmgr_firewall_sslsshprofile_sslclientcertificate
     - fmgr_firewall_sslsshprofile_sslexempt
     - fmgr_firewall_sslsshprofile_sslserver
     - fmgr_firewall_trafficclass
@@ -522,9 +538,13 @@ action_groups:
     - fmgr_icap_profile_icapheaders
     - fmgr_icap_profile_respmodforwardrules
     - fmgr_icap_profile_respmodforwardrules_headergroup
+    - fmgr_icap_remoteserver
+    - fmgr_icap_remoteservergroup
+    - fmgr_icap_remoteservergroup_serverlist
     - fmgr_icap_server
     - fmgr_icap_servergroup
     - fmgr_icap_servergroup_serverlist
+    - fmgr_imageanalyzer_profile
     - fmgr_ips_baseline_sensor
     - fmgr_ips_baseline_sensor_entries
     - fmgr_ips_baseline_sensor_entries_exemptip
@@ -535,6 +555,8 @@ action_groups:
     - fmgr_ips_sensor
     - fmgr_ips_sensor_entries
     - fmgr_ips_sensor_entries_exemptip
+    - fmgr_isolator_profile
+    - fmgr_isolator_profile_entries
     - fmgr_log_customfield
     - fmgr_log_npuserver
     - fmgr_log_npuserver_servergroup
@@ -581,11 +603,13 @@ action_groups:
     - fmgr_pkg_firewall_policy_vpnsrcnode
     - fmgr_pkg_firewall_proxypolicy
     - fmgr_pkg_firewall_proxypolicy_sectionvalue
+    - fmgr_pkg_firewall_responseshapingpolicy
     - fmgr_pkg_firewall_securitypolicy
     - fmgr_pkg_firewall_securitypolicy_sectionvalue
     - fmgr_pkg_firewall_shapingpolicy
     - fmgr_pkg_user_nacpolicy
     - fmgr_pkg_videofilter_youtubekey
+    - fmgr_pkg_webproxy_pacpolicy
     - fmgr_pm_config_meta_reference
     - fmgr_pm_config_pblock_firewall_consolidated_policy
     - fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue
@@ -676,11 +700,17 @@ action_groups:
     - fmgr_switchcontroller_managedswitch_ports_dhcpsnoopoption82override
     - fmgr_switchcontroller_managedswitch_remotelog
     - fmgr_switchcontroller_managedswitch_routeoffloadrouter
+    - fmgr_switchcontroller_managedswitch_routerstatic
+    - fmgr_switchcontroller_managedswitch_routervrf
     - fmgr_switchcontroller_managedswitch_snmpcommunity
     - fmgr_switchcontroller_managedswitch_snmpcommunity_hosts
     - fmgr_switchcontroller_managedswitch_snmpsysinfo
     - fmgr_switchcontroller_managedswitch_snmptrapthreshold
     - fmgr_switchcontroller_managedswitch_snmpuser
+    - fmgr_switchcontroller_managedswitch_systemdhcpserver
+    - fmgr_switchcontroller_managedswitch_systemdhcpserver_iprange
+    - fmgr_switchcontroller_managedswitch_systemdhcpserver_options
+    - fmgr_switchcontroller_managedswitch_systeminterface
     - fmgr_switchcontroller_managedswitch_vlan
     - fmgr_switchcontroller_ptp_profile
     - fmgr_switchcontroller_qos_dot1pmap
@@ -691,7 +721,10 @@ action_groups:
     - fmgr_switchcontroller_qos_queuepolicy_cosqueue
     - fmgr_switchcontroller_securitypolicy_8021x
     - fmgr_switchcontroller_securitypolicy_captiveportal
+    - fmgr_switchcontroller_securitypolicy_localaccess
+    - fmgr_switchcontroller_switchgroup
     - fmgr_switchcontroller_switchinterfacetag
+    - fmgr_switchcontroller_switchprofile
     - fmgr_switchcontroller_trafficpolicy
     - fmgr_switchcontroller_vlanpolicy
     - fmgr_system_customlanguage
@@ -700,6 +733,8 @@ action_groups:
     - fmgr_system_dhcp_server_iprange
     - fmgr_system_dhcp_server_options
     - fmgr_system_dhcp_server_reservedaddress
+    - fmgr_system_dnsdatabase
+    - fmgr_system_dnsdatabase_dnsentry
     - fmgr_system_externalresource
     - fmgr_system_fortiguard
     - fmgr_system_geoipcountry
@@ -783,6 +818,7 @@ action_groups:
     - fmgr_system_sdnproxy
     - fmgr_system_smsserver
     - fmgr_system_virtualwirepair
+    - fmgr_telemetrycontroller_agent
     - fmgr_telemetrycontroller_agentprofile
     - fmgr_telemetrycontroller_application_predefine
     - fmgr_telemetrycontroller_profile
@@ -828,6 +864,7 @@ action_groups:
     - fmgr_user_local
     - fmgr_user_nsx
     - fmgr_user_nsx_service
+    - fmgr_user_oidc
     - fmgr_user_passwordpolicy
     - fmgr_user_peer
     - fmgr_user_peergrp
@@ -871,10 +908,18 @@ action_groups:
     - fmgr_voip_profile_sccp
     - fmgr_voip_profile_sip
     - fmgr_vpn_certificate_ca
+    - fmgr_vpn_certificate_hsmlocal
     - fmgr_vpn_certificate_ocspserver
     - fmgr_vpn_certificate_remote
     - fmgr_vpn_ipsec_fec
     - fmgr_vpn_ipsec_fec_mappings
+    - fmgr_vpn_ipsec_manualkey
+    - fmgr_vpn_ipsec_phase1
+    - fmgr_vpn_ipsec_phase1_ipv4excluderange
+    - fmgr_vpn_ipsec_phase1_ipv6excluderange
+    - fmgr_vpn_kmipserver
+    - fmgr_vpn_kmipserver_serverlist
+    - fmgr_vpn_qkd
     - fmgr_vpnmgr_node
     - fmgr_vpnmgr_node_iprange
     - fmgr_vpnmgr_node_ipv4excluderange
@@ -952,8 +997,11 @@ action_groups:
     - fmgr_webfilter_content_entries
     - fmgr_webfilter_contentheader
     - fmgr_webfilter_contentheader_entries
+    - fmgr_webfilter_domainlist
+    - fmgr_webfilter_domainlist_entries
     - fmgr_webfilter_ftgdlocalcat
     - fmgr_webfilter_ftgdlocalrating
+    - fmgr_webfilter_ftgdrisklevel
     - fmgr_webfilter_profile
     - fmgr_webfilter_profile_antiphish
     - fmgr_webfilter_profile_antiphish_custompatterns
@@ -969,11 +1017,16 @@ action_groups:
     - fmgr_webfilter_profile_youtubechannelfilter
     - fmgr_webfilter_urlfilter
     - fmgr_webfilter_urlfilter_entries
+    - fmgr_webfilter_urllist
+    - fmgr_webfilter_urllist_entries
+    - fmgr_webproxy_explicitproxy
     - fmgr_webproxy_forwardserver
     - fmgr_webproxy_forwardservergroup
     - fmgr_webproxy_forwardservergroup_serverlist
     - fmgr_webproxy_profile
     - fmgr_webproxy_profile_headers
+    - fmgr_webproxy_redirectprofile
+    - fmgr_webproxy_redirectprofile_entries
     - fmgr_webproxy_wisp
     - fmgr_widsprofile
     - fmgr_wireless_accesscontrollist
@@ -995,6 +1048,24 @@ action_groups:
     - fmgr_wtpprofile_radio3
     - fmgr_wtpprofile_radio4
     - fmgr_wtpprofile_splittunnelingacl
+    - fmgr_ztna_serviceconnector
+    - fmgr_ztna_trafficforwardproxy
+    - fmgr_ztna_trafficforwardproxy_quic
+    - fmgr_ztna_trafficforwardproxy_sslciphersuites
+    - fmgr_ztna_trafficforwardproxy_sslserverciphersuites
+    - fmgr_ztna_trafficforwardproxy_urlroute
+    - fmgr_ztna_webportal
+    - fmgr_ztna_webportalbookmark
+    - fmgr_ztna_webportalbookmark_bookmarks
+    - fmgr_ztna_webproxy
+    - fmgr_ztna_webproxy_apigateway
+    - fmgr_ztna_webproxy_apigateway6
+    - fmgr_ztna_webproxy_apigateway6_quic
+    - fmgr_ztna_webproxy_apigateway6_realservers
+    - fmgr_ztna_webproxy_apigateway6_sslciphersuites
+    - fmgr_ztna_webproxy_apigateway_quic
+    - fmgr_ztna_webproxy_apigateway_realservers
+    - fmgr_ztna_webproxy_apigateway_sslciphersuites
   all:
     - fmgr_clone
     - fmgr_dvm_cmd_add_device
@@ -1149,6 +1220,14 @@ action_groups:
     - fmgr_system_interface_member
     - fmgr_system_localinpolicy
     - fmgr_system_localinpolicy6
+    - fmgr_system_localinpolicy6_dport
+    - fmgr_system_localinpolicy6_dst
+    - fmgr_system_localinpolicy6_intf
+    - fmgr_system_localinpolicy6_src
+    - fmgr_system_localinpolicy_dport
+    - fmgr_system_localinpolicy_dst
+    - fmgr_system_localinpolicy_intf
+    - fmgr_system_localinpolicy_src
     - fmgr_system_locallog_disk_filter
     - fmgr_system_locallog_disk_setting
     - fmgr_system_locallog_fortianalyzer2_filter

@@ -16,7 +16,6 @@ short_description: Configure the timeout value of image upgrade process.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -222,21 +221,21 @@ def main():
     module_arg_spec = {
         'fmupdate_fwmsetting_upgradetimeout': {
             'type': 'dict',
-            'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']],
+            'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']],
             'options': {
-                'check-status-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'license-check-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'put-image-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'retrieve-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'rpc-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
-                'total-timeout': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'type': 'int'},
+                'check-status-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'ctrl-check-status-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'ctrl-put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'ha-sync-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'license-check-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'prepare-image-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'put-image-by-fds-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'put-image-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'reboot-of-fsck-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'reboot-of-upgrade-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'retrieve-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'rpc-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
+                'total-timeout': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'int'},
                 'health-check-timeout': {'v_range': [['7.4.2', '']], 'type': 'int'}
             }
         }

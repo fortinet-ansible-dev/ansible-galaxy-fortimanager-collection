@@ -16,7 +16,6 @@ short_description: System template device profile fortiguard
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -127,6 +126,10 @@ options:
                 aliases: ['auto-firmware-upgrade-start-hour']
                 type: int
                 description: Auto firmware upgrade start hour.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: Vrf select.
 '''
 
 EXAMPLES = '''
@@ -163,6 +166,7 @@ EXAMPLES = '''
           # auto_firmware_upgrade_delay: <integer>
           # auto_firmware_upgrade_end_hour: <integer>
           # auto_firmware_upgrade_start_hour: <integer>
+          # vrf_select: <integer>
 '''
 
 RETURN = '''
@@ -234,7 +238,8 @@ def main():
                 },
                 'auto-firmware-upgrade-delay': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'auto-firmware-upgrade-end-hour': {'v_range': [['7.4.1', '']], 'type': 'int'},
-                'auto-firmware-upgrade-start-hour': {'v_range': [['7.4.1', '']], 'type': 'int'}
+                'auto-firmware-upgrade-start-hour': {'v_range': [['7.4.1', '']], 'type': 'int'},
+                'vrf-select': {'v_range': [['7.6.4', '']], 'type': 'int'}
             }
         }
     }

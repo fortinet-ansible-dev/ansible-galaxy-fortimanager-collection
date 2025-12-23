@@ -16,7 +16,6 @@ short_description: Configure shaping policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -303,6 +302,14 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service name.
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service source name.
 '''
 
 EXAMPLES = '''
@@ -374,6 +381,8 @@ EXAMPLES = '''
           # cos_mask: <string>
           # traffic_type: <value in [forwarding, local-in, local-out]>
           # http_response_match: <value in [disable, enable]>
+          # internet_service_fortiguard: <list or string>
+          # internet_service_src_fortiguard: <list or string>
 '''
 
 RETURN = '''
@@ -482,7 +491,9 @@ def main():
                 'cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'},
-                'http-response-match': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'http-response-match': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

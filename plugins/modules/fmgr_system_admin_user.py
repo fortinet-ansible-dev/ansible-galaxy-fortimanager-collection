@@ -16,7 +16,6 @@ short_description: Admin user.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -761,6 +760,13 @@ options:
                 aliases: ['old-password']
                 type: str
                 description: Old password.
+            autoreg_user:
+                aliases: ['autoreg-user']
+                type: str
+                description: Autoreg user.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -895,7 +901,7 @@ def main():
                 'first-name': {'type': 'str'},
                 'force-password-change': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'group': {'type': 'str'},
-                'hidden': {'type': 'int'},
+                'hidden': {'v_range': [['6.0.0', '7.6.3']], 'type': 'int'},
                 'ips-filter': {'type': 'list', 'options': {'ips-filter-name': {'type': 'str'}}, 'elements': 'dict'},
                 'ipv6_trusthost1': {'type': 'str'},
                 'ipv6_trusthost10': {'type': 'str'},
@@ -980,7 +986,8 @@ def main():
                     'options': {'policy-block-name': {'v_range': [['7.6.0', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'old-password': {'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']], 'no_log': True, 'type': 'str'}
+                'old-password': {'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
+                'autoreg-user': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

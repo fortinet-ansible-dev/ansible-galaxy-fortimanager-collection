@@ -16,7 +16,6 @@ short_description: Configure FortiTelemetry profiles.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.10.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -360,17 +359,17 @@ def main():
                     'type': 'list',
                     'options': {
                         'app-name': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                        'app-throughput': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'atdt-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'dns-time-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'experience-score-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'failure-rate-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                        'app-throughput': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'atdt-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'dns-time-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'experience-score-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'failure-rate-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
                         'id': {'v_range': [['7.6.3', '']], 'type': 'int'},
                         'interval': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'jitter-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'latency-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                        'jitter-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'latency-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
                         'monitor': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'packet-loss-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                        'packet-loss-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
                         'sla': {
                             'v_range': [['7.6.3', '']],
                             'type': 'dict',
@@ -397,9 +396,9 @@ def main():
                                 'ttfb-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'}
                             }
                         },
-                        'tcp-rtt-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'tls-time-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                        'ttfb-threshold': {'v_range': [['7.6.3', '']], 'type': 'int'}
+                        'tcp-rtt-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'tls-time-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'},
+                        'ttfb-threshold': {'v_range': [['7.6.3', '7.6.3']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

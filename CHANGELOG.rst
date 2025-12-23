@@ -4,6 +4,92 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+v2.12.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.12.0
+
+Minor Changes
+-------------
+
+- Supported new modules to configure FortiProxy.
+- Supported new schemas in FortiManager 7.0.15, 7.4.8, 7.6.4.
+
+Bugfixes
+--------
+
+- Improved the request sending logic in httpapi plugin.
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_devprof_log_syslogd_setting_logtemplates - System template log syslogd setting log templates
+- fortinet.fortimanager.fmgr_dynamic_log_npuserver_servergroup_dynamicmapping - Dynamic log npu server server group dynamic mapping
+- fortinet.fortimanager.fmgr_firewall_pfcp - Configure PFCP.
+- fortinet.fortimanager.fmgr_firewall_profileprotocoloptions_proxyredirect - Firewall profile protocol options proxy redirect
+- fortinet.fortimanager.fmgr_firewall_profileprotocoloptions_rtmp - RTMP.
+- fortinet.fortimanager.fmgr_firewall_proxyaddress6 - Firewall proxy address6
+- fortinet.fortimanager.fmgr_firewall_proxyaddress6_headergroup - Firewall proxy address6 header group
+- fortinet.fortimanager.fmgr_firewall_proxyaddress6_tagging - Firewall proxy address6 tagging
+- fortinet.fortimanager.fmgr_firewall_proxyaddrgrp6 - Firewall proxy addrgrp6
+- fortinet.fortimanager.fmgr_firewall_proxyaddrgrp6_tagging - Firewall proxy addrgrp6 tagging
+- fortinet.fortimanager.fmgr_firewall_shapingprofile_classes - Firewall shaping profile classes
+- fortinet.fortimanager.fmgr_firewall_sslsshprofile_sslclientcertificate - Firewall ssl ssh profile ssl client certificate
+- fortinet.fortimanager.fmgr_icap_remoteservergroup - Icap remote server group
+- fortinet.fortimanager.fmgr_icap_remoteservergroup_serverlist - Icap remote server group server list
+- fortinet.fortimanager.fmgr_isolator_profile - Isolator profile
+- fortinet.fortimanager.fmgr_isolator_profile_entries - Isolator profile entries
+- fortinet.fortimanager.fmgr_pkg_firewall_responseshapingpolicy - Policy package firewall response shaping policy
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_routerstatic - Configure static routes.
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_routervrf - Configure VRF.
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_systemdhcpserver - Configure DHCP servers.
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_systemdhcpserver_options - DHCP options.
+- fortinet.fortimanager.fmgr_switchcontroller_managedswitch_systeminterface - Configure system interface on FortiSwitch.
+- fortinet.fortimanager.fmgr_switchcontroller_securitypolicy_localaccess - Configure allowaccess list for mgmt and internal interfaces on managed FortiSwitch units.
+- fortinet.fortimanager.fmgr_switchcontroller_switchprofile - Configure FortiSwitch switch profile.
+- fortinet.fortimanager.fmgr_system_dnsdatabase - Configure DNS databases.
+- fortinet.fortimanager.fmgr_system_dnsdatabase_dnsentry - DNS entry.
+- fortinet.fortimanager.fmgr_system_localinpolicy6_dport - Cli system local in policy6 dport
+- fortinet.fortimanager.fmgr_system_localinpolicy6_dst - Cli system local in policy6 dst
+- fortinet.fortimanager.fmgr_system_localinpolicy6_intf - Cli system local in policy6 intf
+- fortinet.fortimanager.fmgr_system_localinpolicy6_src - Cli system local in policy6 src
+- fortinet.fortimanager.fmgr_system_localinpolicy_dport - Cli system local in policy dport
+- fortinet.fortimanager.fmgr_system_localinpolicy_dst - Cli system local in policy dst
+- fortinet.fortimanager.fmgr_system_localinpolicy_intf - Cli system local in policy intf
+- fortinet.fortimanager.fmgr_system_localinpolicy_src - Cli system local in policy src
+- fortinet.fortimanager.fmgr_telemetrycontroller_agent - Configure FortiTelemetry agents managed by a FortiGate unit.
+- fortinet.fortimanager.fmgr_user_oidc - User oidc
+- fortinet.fortimanager.fmgr_vpn_certificate_hsmlocal - Local certificates whose keys are stored on HSM.
+- fortinet.fortimanager.fmgr_vpn_ipsec_manualkey - Configure IPsec manual keys.
+- fortinet.fortimanager.fmgr_vpn_ipsec_phase1 - Configure VPN remote gateway.
+- fortinet.fortimanager.fmgr_vpn_ipsec_phase1_ipv4excluderange - Configuration Method IPv4 exclude ranges.
+- fortinet.fortimanager.fmgr_vpn_ipsec_phase1_ipv6excluderange - Configuration method IPv6 exclude ranges.
+- fortinet.fortimanager.fmgr_vpn_kmipserver - KMIP server entry configuration.
+- fortinet.fortimanager.fmgr_vpn_kmipserver_serverlist - KMIP server list.
+- fortinet.fortimanager.fmgr_webfilter_domainlist - Webfilter domain list
+- fortinet.fortimanager.fmgr_webfilter_domainlist_entries - Webfilter domain list entries
+- fortinet.fortimanager.fmgr_webfilter_ftgdrisklevel - Configure FortiGuard Web Filter risk level.
+- fortinet.fortimanager.fmgr_webfilter_urllist - Webfilter url list
+- fortinet.fortimanager.fmgr_webfilter_urllist_entries - Webfilter url list entries
+- fortinet.fortimanager.fmgr_webproxy_explicitproxy - Web proxy explicit proxy
+- fortinet.fortimanager.fmgr_webproxy_redirectprofile - Web proxy redirect profile
+- fortinet.fortimanager.fmgr_webproxy_redirectprofile_entries - Web proxy redirect profile entries
+- fortinet.fortimanager.fmgr_ztna_serviceconnector - Ztna service connector
+- fortinet.fortimanager.fmgr_ztna_trafficforwardproxy - Configure ZTNA traffic forward proxy.
+- fortinet.fortimanager.fmgr_ztna_trafficforwardproxy_sslserverciphersuites - Ztna traffic forward proxy ssl server cipher suites
+- fortinet.fortimanager.fmgr_ztna_trafficforwardproxy_urlroute - Ztna traffic forward proxy url route
+- fortinet.fortimanager.fmgr_ztna_webportal - Configure ztna web-portal.
+- fortinet.fortimanager.fmgr_ztna_webportalbookmark - Configure ztna web-portal bookmark.
+- fortinet.fortimanager.fmgr_ztna_webportalbookmark_bookmarks - Bookmark table.
+- fortinet.fortimanager.fmgr_ztna_webproxy - Configure ZTNA web-proxy.
+- fortinet.fortimanager.fmgr_ztna_webproxy_apigateway - Set IPv4 API Gateway.
+- fortinet.fortimanager.fmgr_ztna_webproxy_apigateway6 - Set IPv6 API Gateway.
+- fortinet.fortimanager.fmgr_ztna_webproxy_apigateway6_realservers - Select the real servers that this Access Proxy will distribute traffic to.
+- fortinet.fortimanager.fmgr_ztna_webproxy_apigateway6_sslciphersuites - SSL/TLS cipher suites to offer to a server, ordered by priority.
+- fortinet.fortimanager.fmgr_ztna_webproxy_apigateway_realservers - Select the real servers that this Access Proxy will distribute traffic to.
 
 v2.11.0
 =======

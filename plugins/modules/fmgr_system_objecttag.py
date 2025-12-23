@@ -16,7 +16,6 @@ short_description: Configure object tags.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -178,8 +177,8 @@ def main():
         'revision_note': {'type': 'str'},
         'system_objecttag': {
             'type': 'dict',
-            'v_range': [['6.2.0', '6.4.15']],
-            'options': {'name': {'v_range': [['6.2.0', '6.4.15']], 'required': True, 'type': 'str'}}
+            'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']],
+            'options': {'name': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'str'}}
         }
     }
 

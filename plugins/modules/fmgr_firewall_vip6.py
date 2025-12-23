@@ -16,7 +16,6 @@ short_description: Configure virtual IP for IPv6.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -611,6 +610,13 @@ options:
                                 choices:
                                     - 'disable'
                                     - 'enable'
+                            verify_cert:
+                                aliases: ['verify-cert']
+                                type: str
+                                description: Enable/disable certificate verification of the real server.
+                                choices:
+                                    - 'disable'
+                                    - 'enable'
                     ssl_accept_ffdhe_groups:
                         aliases: ['ssl-accept-ffdhe-groups']
                         type: str
@@ -943,6 +949,13 @@ options:
                         aliases: ['translate-host']
                         type: str
                         description: Enable/disable translation of hostname/IP from virtual server to real server.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    verify_cert:
+                        aliases: ['verify-cert']
+                        type: str
+                        description: Enable/disable certificate verification of the real server.
                         choices:
                             - 'disable'
                             - 'enable'
@@ -1752,7 +1765,8 @@ def main():
                                 'port': {'v_range': [['7.0.2', '']], 'type': 'int'},
                                 'status': {'v_range': [['7.0.2', '']], 'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                                 'weight': {'v_range': [['7.0.2', '']], 'type': 'int'},
-                                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                                'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'verify-cert': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
@@ -1806,7 +1820,7 @@ def main():
                             },
                             'elements': 'dict'
                         },
-                        'ndp-reply': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ndp-reply': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1854,7 +1868,8 @@ def main():
                         'port': {'type': 'int'},
                         'status': {'choices': ['active', 'standby', 'disable'], 'type': 'str'},
                         'weight': {'type': 'int'},
-                        'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'verify-cert': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1982,7 +1997,7 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat66': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-accept-ffdhe-groups': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ndp-reply': {'v_range': [['7.0.5', '7.0.14'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ndp-reply': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

@@ -16,7 +16,6 @@ short_description: Log based alert settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -80,6 +79,14 @@ options:
                 aliases: ['max-alert-count']
                 type: int
                 description: Maximum number of alerts supported.
+            min_severity_to_raise_incident_by_grouping:
+                aliases: ['min-severity-to-raise-incident-by-grouping']
+                type: str
+                description: Min severity to raise incident by grouping.
+                choices:
+                    - 'none'
+                    - 'critical'
+                    - 'high'
 '''
 
 EXAMPLES = '''
@@ -101,6 +108,7 @@ EXAMPLES = '''
         # rc_failed: [-2, -3, ...]
         system_log_alert:
           # max_alert_count: <integer>
+          # min_severity_to_raise_incident_by_grouping: <value in [none, critical, high]>
 '''
 
 RETURN = '''
@@ -158,7 +166,10 @@ def main():
         'system_log_alert': {
             'type': 'dict',
             'v_range': [['6.0.0', '']],
-            'options': {'max-alert-count': {'type': 'int'}}
+            'options': {
+                'max-alert-count': {'type': 'int'},
+                'min-severity-to-raise-incident-by-grouping': {'v_range': [['7.6.4', '']], 'choices': ['none', 'critical', 'high'], 'type': 'str'}
+            }
         }
     }
 

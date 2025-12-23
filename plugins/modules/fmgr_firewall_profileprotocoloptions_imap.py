@@ -16,7 +16,6 @@ short_description: Configure IMAP protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -146,6 +145,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            address_ip_rating:
+                aliases: ['address-ip-rating']
+                type: str
+                description: Address ip rating.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -181,6 +187,7 @@ EXAMPLES = '''
           # uncompressed_oversize_limit: <integer>
           # ssl_offloaded: <value in [no, yes]>
           # proxy_after_tcp_handshake: <value in [disable, enable]>
+          # address_ip_rating: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -253,7 +260,8 @@ def main():
                 'uncompressed-nest-limit': {'type': 'int'},
                 'uncompressed-oversize-limit': {'type': 'int'},
                 'ssl-offloaded': {'v_range': [['6.2.2', '']], 'choices': ['no', 'yes'], 'type': 'str'},
-                'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'address-ip-rating': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

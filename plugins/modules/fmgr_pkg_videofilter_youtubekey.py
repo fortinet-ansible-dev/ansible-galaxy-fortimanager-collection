@@ -16,7 +16,6 @@ short_description: Configure YouTube API keys.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.8.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -195,11 +194,11 @@ def main():
         'pkg_videofilter_youtubekey': {
             'type': 'dict',
             'no_log': False,
-            'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']],
+            'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']],
             'options': {
-                'id': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'required': True, 'type': 'int'},
-                'key': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'id': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'required': True, 'type': 'int'},
+                'key': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

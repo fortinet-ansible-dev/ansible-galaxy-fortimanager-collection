@@ -16,7 +16,6 @@ short_description: SD-WAN status checking or health checking.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -241,6 +240,7 @@ options:
                             - 'packet-loss'
                             - 'mos'
                             - 'remote'
+                            - 'custom-profile-1'
                     packetloss_threshold:
                         aliases: ['packetloss-threshold']
                         type: int
@@ -257,6 +257,10 @@ options:
                         aliases: ['priority-out-sla']
                         type: int
                         description: Value to be distributed into routing table when out-sla
+                    custom_profile_threshold:
+                        aliases: ['custom-profile-threshold']
+                        type: int
+                        description: Custom profile threshold for SLA to be marked as pass
             sla_fail_log_period:
                 aliases: ['sla-fail-log-period']
                 type: int
@@ -373,6 +377,22 @@ options:
                 aliases: ['remote-probe-timeout']
                 type: int
                 description: Time to wait before a probe packet is considered lost when detect-mode is remote
+            bandwidth_weight:
+                aliases: ['bandwidth-weight']
+                type: int
+                description: Coefficient of reciprocal of available bidirectional bandwidth in the formula of custom-profile-1.
+            jitter_weight:
+                aliases: ['jitter-weight']
+                type: int
+                description: Coefficient of jitter in the formula of custom-profile-1.
+            latency_weight:
+                aliases: ['latency-weight']
+                type: int
+                description: Coefficient of latency in the formula of custom-profile-1.
+            packet_loss_weight:
+                aliases: ['packet-loss-weight']
+                type: int
+                description: Coefficient of packet-loss in the formula of custom-profile-1.
 '''
 
 EXAMPLES = '''
@@ -432,10 +452,12 @@ EXAMPLES = '''
           #       - "packet-loss"
           #       - "mos"
           #       - "remote"
+          #       - "custom-profile-1"
           #     packetloss_threshold: <integer>
           #     mos_threshold: <string>
           #     priority_in_sla: <integer>
           #     priority_out_sla: <integer>
+          #     custom_profile_threshold: <integer>
           # sla_fail_log_period: <integer>
           # sla_pass_log_period: <integer>
           # system_dns: <value in [disable, enable]>
@@ -460,6 +482,10 @@ EXAMPLES = '''
           # fortiguard_name: <list or string>
           # agent_probe_timeout: <integer>
           # remote_probe_timeout: <integer>
+          # bandwidth_weight: <integer>
+          # jitter_weight: <integer>
+          # latency_weight: <integer>
+          # packet_loss_weight: <integer>
 '''
 
 RETURN = '''
@@ -560,13 +586,14 @@ def main():
                         'link-cost-factor': {
                             'v_range': [['6.4.1', '']],
                             'type': 'list',
-                            'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote'],
+                            'choices': ['latency', 'jitter', 'packet-loss', 'mos', 'remote', 'custom-profile-1'],
                             'elements': 'str'
                         },
                         'packetloss-threshold': {'v_range': [['6.4.1', '']], 'type': 'int'},
                         'mos-threshold': {'v_range': [['7.2.0', '']], 'type': 'str'},
                         'priority-in-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
-                        'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'}
+                        'priority-out-sla': {'v_range': [['7.2.1', '']], 'type': 'int'},
+                        'custom-profile-threshold': {'v_range': [['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -593,7 +620,11 @@ def main():
                 'fortiguard': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'fortiguard-name': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'agent-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'}
+                'remote-probe-timeout': {'v_range': [['7.6.3', '']], 'type': 'int'},
+                'bandwidth-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'jitter-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'latency-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'}
             }
         }
     }

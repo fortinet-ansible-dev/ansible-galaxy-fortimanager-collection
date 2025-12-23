@@ -16,7 +16,6 @@ short_description: Fsp vlan dynamic mapping
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -780,6 +779,7 @@ options:
                                     - 'fgfm'
                                     - 'capwap'
                                     - 'fabric'
+                                    - 'scim'
                             ip6_default_life:
                                 aliases: ['ip6-default-life']
                                 type: int
@@ -1441,6 +1441,7 @@ EXAMPLES = '''
           #       - "fgfm"
           #       - "capwap"
           #       - "fabric"
+          #       - "scim"
           #     ip6_default_life: <integer>
           #     ip6_delegated_prefix_list:
           #       - autonomous_flag: <value in [disable, enable]>
@@ -1812,7 +1813,7 @@ def main():
                                 'ip6-allowaccess': {
                                     'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'type': 'list',
-                                    'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric'],
+                                    'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric', 'scim'],
                                     'elements': 'str'
                                 },
                                 'ip6-default-life': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
@@ -1987,7 +1988,7 @@ def main():
                             'elements': 'dict'
                         },
                         'allowaccess': {
-                            'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']],
+                            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
                             'type': 'list',
                             'choices': [
                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm', 'fabric',
@@ -1995,7 +1996,7 @@ def main():
                             ],
                             'elements': 'str'
                         },
-                        'dhcp-relay-request-all-server': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dhcp-relay-request-all-server': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

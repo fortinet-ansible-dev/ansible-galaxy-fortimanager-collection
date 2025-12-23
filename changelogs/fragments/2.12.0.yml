@@ -1,0 +1,6 @@
+release_summary: Release fortinet.fortimanager 2.12.0
+minor_changes:
+  - Supported new schemas in FortiManager 7.0.15, 7.4.8, 7.6.4.
+  - Supported new modules to configure FortiProxy.
+bugfixes:
+  - Improved the request sending logic in httpapi plugin.

@@ -16,7 +16,6 @@ short_description: Admin profile.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -969,6 +968,22 @@ options:
                     - 'none'
                     - 'read'
                     - 'read-write'
+            device_assignment:
+                aliases: ['device-assignment']
+                type: str
+                description: Device assignment.
+                choices:
+                    - 'none'
+                    - 'read'
+                    - 'read-write'
+            script_run:
+                aliases: ['script-run']
+                type: str
+                description: Script run.
+                choices:
+                    - 'none'
+                    - 'read'
+                    - 'read-write'
 '''
 
 EXAMPLES = '''
@@ -1128,7 +1143,11 @@ def main():
                 'datamask-unmasked-time': {'v_range': [['6.2.2', '']], 'type': 'int'},
                 'super-user-profile': {'v_range': [['6.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'allow-to-install': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'extension-access': {'v_range': [['6.4.2', '7.2.10'], ['7.4.0', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'extension-access': {
+                    'v_range': [['6.4.2', '7.0.14'], ['7.2.0', '7.2.10'], ['7.4.0', '7.4.7'], ['7.6.0', '7.6.3']],
+                    'choices': ['none', 'read', 'read-write'],
+                    'type': 'str'
+                },
                 'fabric-viewer': {'v_range': [['6.4.6', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'run-report': {'v_range': [['7.0.0', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'script-access': {'v_range': [['7.0.0', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1158,7 +1177,7 @@ def main():
                 'trusthost9': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'ips-baseline-cfg': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-baseline-ovrd': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fortiextender': {'v_range': [['7.0.4', '7.0.14'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-fortiextender': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-lock': {'v_range': [['7.2.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-ips-attrs': {'v_range': [['7.4.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1178,7 +1197,9 @@ def main():
                     'elements': 'dict'
                 },
                 'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fwm-profile': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'}
+                'device-fwm-profile': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-assignment': {'v_range': [['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'script-run': {'v_range': [['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'}
             }
         }
     }

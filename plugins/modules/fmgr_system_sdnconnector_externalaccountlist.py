@@ -16,7 +16,6 @@ short_description: Configure AWS external account list.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -201,7 +200,7 @@ def main():
             'options': {
                 'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                'external-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
+                'external-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
             }
         }
     }

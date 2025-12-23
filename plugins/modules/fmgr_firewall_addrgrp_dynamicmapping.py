@@ -16,7 +16,6 @@ short_description: Configure IPv4 address groups.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -174,6 +173,7 @@ options:
                     - 'default'
                     - 'ztna-ems-tag'
                     - 'ztna-geo-tag'
+                    - 'telemetry'
 '''
 
 EXAMPLES = '''
@@ -294,7 +294,7 @@ def main():
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'array', 'folder'], 'type': 'str'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'category': {'v_range': [['7.0.0', '']], 'choices': ['default', 'ztna-ems-tag', 'ztna-geo-tag'], 'type': 'str'}
+                'category': {'v_range': [['7.0.0', '']], 'choices': ['default', 'ztna-ems-tag', 'ztna-geo-tag', 'telemetry'], 'type': 'str'}
             }
         }
     }

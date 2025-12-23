@@ -16,7 +16,6 @@ short_description: Configure FortiToken.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -219,8 +218,8 @@ def main():
             'options': {
                 'comments': {'type': 'str'},
                 'license': {'type': 'str'},
-                'os-ver': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1']], 'type': 'str'},
-                'reg-id': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1']], 'type': 'str'},
+                'os-ver': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'reg-id': {'v_range': [['6.0.0', '6.2.5'], ['6.4.0', '6.4.1'], ['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
                 'serial-number': {'required': True, 'type': 'str'},
                 'status': {'choices': ['lock', 'active'], 'type': 'str'}
             }

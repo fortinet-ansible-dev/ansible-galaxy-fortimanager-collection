@@ -16,7 +16,6 @@ short_description: SMTP.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -217,14 +216,19 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_profile_smtp': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'action': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
-                'hdrip': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'local-override': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'log': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tag-msg': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                'tag-type': {'v_range': [['6.0.0', '7.2.1']], 'type': 'list', 'choices': ['subject', 'header', 'spaminfo'], 'elements': 'str'}
+                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['pass', 'tag', 'discard'], 'type': 'str'},
+                'hdrip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'local-override': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tag-msg': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'tag-type': {
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'type': 'list',
+                    'choices': ['subject', 'header', 'spaminfo'],
+                    'elements': 'str'
+                }
             }
         }
     }

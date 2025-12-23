@@ -16,7 +16,6 @@ short_description: Vpnmgr vpntable
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -637,7 +636,7 @@ def main():
                 },
                 'ike1dpd': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ike1keylifesec': {'no_log': True, 'type': 'int'},
-                'ike1localid': {'v_range': [['6.0.0', '7.4.6'], ['7.6.0', '']], 'type': 'str'},
+                'ike1localid': {'v_range': [['6.0.0', '7.4.6'], ['7.6.0', '7.6.3']], 'type': 'str'},
                 'ike1mode': {'choices': ['main', 'aggressive'], 'type': 'str'},
                 'ike1natkeepalive': {'type': 'int'},
                 'ike1nattraversal': {'choices': ['disable', 'enable', 'forced'], 'type': 'str'},

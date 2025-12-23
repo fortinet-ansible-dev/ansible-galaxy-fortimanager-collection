@@ -16,7 +16,6 @@ short_description: Configure SFTP and SCP protocol options.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -156,6 +155,13 @@ options:
                     - 'static'
                     - 'dynamic'
                     - 'auto-tuning'
+            explicit_ftp_tls:
+                aliases: ['explicit-ftp-tls']
+                type: str
+                description: Explicit ftp tls.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -194,6 +200,7 @@ EXAMPLES = '''
           # tcp_window_minimum: <integer>
           # tcp_window_size: <integer>
           # tcp_window_type: <value in [system, static, dynamic, ...]>
+          # explicit_ftp_tls: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -269,7 +276,8 @@ def main():
                 'tcp-window-maximum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'}
+                'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
+                'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

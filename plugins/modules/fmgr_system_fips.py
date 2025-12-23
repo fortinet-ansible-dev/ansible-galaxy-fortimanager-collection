@@ -16,7 +16,6 @@ short_description: Settings for FIPS-CC mode.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -182,8 +181,8 @@ def main():
             'type': 'dict',
             'v_range': [['6.0.0', '']],
             'options': {
-                'entropy-token': {'choices': ['enable', 'disable', 'dynamic'], 'type': 'str'},
-                're-seed-interval': {'type': 'int'},
+                'entropy-token': {'v_range': [['6.0.0', '7.6.3']], 'choices': ['enable', 'disable', 'dynamic'], 'type': 'str'},
+                're-seed-interval': {'v_range': [['6.0.0', '7.6.3']], 'type': 'int'},
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }

@@ -16,7 +16,6 @@ short_description: SAML server entry configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -361,6 +360,21 @@ options:
                         choices:
                             - 'display-name'
                             - 'external-id'
+                    require_signed_resp_and_asrt:
+                        aliases: ['require-signed-resp-and-asrt']
+                        type: str
+                        description: Require signed resp and asrt.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    scim_user_attr_type:
+                        aliases: ['scim-user-attr-type']
+                        type: str
+                        description: User attribute type used to match SCIM users
+                        choices:
+                            - 'display-name'
+                            - 'external-id'
+                            - 'user-name'
             auth_url:
                 aliases: ['auth-url']
                 type: str
@@ -382,6 +396,21 @@ options:
                 choices:
                     - 'display-name'
                     - 'external-id'
+            require_signed_resp_and_asrt:
+                aliases: ['require-signed-resp-and-asrt']
+                type: str
+                description: Require signed resp and asrt.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            scim_user_attr_type:
+                aliases: ['scim-user-attr-type']
+                type: str
+                description: User attribute type used to match SCIM users
+                choices:
+                    - 'display-name'
+                    - 'external-id'
+                    - 'user-name'
 '''
 
 EXAMPLES = '''
@@ -445,10 +474,14 @@ EXAMPLES = '''
           #     reauth: <value in [disable, enable]>
           #     scim_client: <list or string>
           #     scim_group_attr_type: <value in [display-name, external-id]>
+          #     require_signed_resp_and_asrt: <value in [disable, enable]>
+          #     scim_user_attr_type: <value in [display-name, external-id, user-name]>
           # auth_url: <string>
           # reauth: <value in [disable, enable]>
           # scim_client: <list or string>
           # scim_group_attr_type: <value in [display-name, external-id]>
+          # require_signed_resp_and_asrt: <value in [disable, enable]>
+          # scim_user_attr_type: <value in [display-name, external-id, user-name]>
 '''
 
 RETURN = '''
@@ -544,25 +577,25 @@ def main():
                 },
                 'clock-tolerance': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'dynamic_mapping': {
-                    'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
+                    'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
                         '_scope': {
-                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
                             'type': 'list',
                             'options': {
-                                'name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                                'vdom': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'}
+                                'name': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                                'vdom': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
-                        'adfs-claim': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'cert': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'clock-tolerance': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
-                        'digest-method': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
-                        'entity-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'adfs-claim': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'cert': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'clock-tolerance': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                        'digest-method': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['sha1', 'sha256'], 'type': 'str'},
+                        'entity-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
                         'group-claim-type': {
-                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
                             'choices': [
                                 'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                                 'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
@@ -570,16 +603,16 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'group-name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-cert': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-entity-id': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'limit-relaystate': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'single-logout-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
-                        'single-sign-on-url': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'group-name': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-cert': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-entity-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-single-logout-url': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'idp-single-sign-on-url': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'limit-relaystate': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'single-logout-url': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                        'single-sign-on-url': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
                         'user-claim-type': {
-                            'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
                             'choices': [
                                 'email', 'given-name', 'name', 'upn', 'common-name', 'email-adfs-1x', 'group', 'upn-adfs-1x', 'role', 'sur-name', 'ppid',
                                 'name-identifier', 'authentication-method', 'deny-only-group-sid', 'deny-only-primary-sid',
@@ -587,18 +620,22 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'user-name': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'type': 'str'},
+                        'user-name': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
                         'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                        'scim-group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'}
+                        'scim-group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
+                        'require-signed-resp-and-asrt': {'v_range': [['7.0.15', '7.0.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'scim-user-attr-type': {'v_range': [['7.6.4', '']], 'choices': ['display-name', 'external-id', 'user-name'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
                 'auth-url': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'reauth': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-client': {'v_range': [['7.6.0', '']], 'type': 'raw'},
-                'scim-group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'}
+                'scim-group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
+                'require-signed-resp-and-asrt': {'v_range': [['7.0.15', '7.0.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scim-user-attr-type': {'v_range': [['7.6.4', '']], 'choices': ['display-name', 'external-id', 'user-name'], 'type': 'str'}
             }
         }
     }

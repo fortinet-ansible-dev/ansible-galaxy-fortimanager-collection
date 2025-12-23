@@ -16,7 +16,6 @@ short_description: Configure domain controller entries.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.1.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -216,6 +215,13 @@ options:
                 aliases: ['change-detection-period']
                 type: int
                 description: Minutes to detect a configuration change in the Active Directory server
+            domain_name_src:
+                aliases: ['domain-name-src']
+                type: str
+                description: Domain name src.
+                choices:
+                    - 'server'
+                    - 'client'
 '''
 
 EXAMPLES = '''
@@ -267,6 +273,7 @@ EXAMPLES = '''
           # username: <string>
           # change_detection: <value in [disable, enable]>
           # change_detection_period: <integer>
+          # domain_name_src: <value in [server, client]>
 '''
 
 RETURN = '''
@@ -362,7 +369,8 @@ def main():
                 'source-port': {'v_range': [['7.0.0', '']], 'type': 'int'},
                 'username': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'change-detection': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'change-detection-period': {'v_range': [['7.2.3', '']], 'type': 'int'}
+                'change-detection-period': {'v_range': [['7.2.3', '']], 'type': 'int'},
+                'domain-name-src': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['server', 'client'], 'type': 'str'}
             }
         }
     }

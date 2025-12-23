@@ -16,7 +16,6 @@ short_description: Configure WTP profiles or FortiAP profiles that define radio 
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1007,6 +1006,8 @@ options:
                             - '243K'
                             - '231K'
                             - '23JK'
+                            - '222KL'
+                            - '244K'
                     _local_platform_str:
                         type: str
                         description: Local platform str.
@@ -1497,6 +1498,7 @@ options:
                             - 'FANT-10ACAX-1213-D-N'
                             - 'FANT-08ABGN-1213-D-R'
                             - 'custom'
+                            - 'FANT-04BEAX-0606-P-R'
                     mimo_mode:
                         aliases: ['mimo-mode']
                         type: str
@@ -2048,6 +2050,7 @@ options:
                             - 'FANT-10ACAX-1213-D-N'
                             - 'FANT-08ABGN-1213-D-R'
                             - 'custom'
+                            - 'FANT-04BEAX-0606-P-R'
                     mimo_mode:
                         aliases: ['mimo-mode']
                         type: str
@@ -2597,6 +2600,7 @@ options:
                             - 'FANT-10ACAX-1213-D-N'
                             - 'FANT-08ABGN-1213-D-R'
                             - 'custom'
+                            - 'FANT-04BEAX-0606-P-R'
                     mimo_mode:
                         aliases: ['mimo-mode']
                         type: str
@@ -3146,6 +3150,7 @@ options:
                             - 'FANT-10ACAX-1213-D-N'
                             - 'FANT-08ABGN-1213-D-R'
                             - 'custom'
+                            - 'FANT-04BEAX-0606-P-R'
                     mimo_mode:
                         aliases: ['mimo-mode']
                         type: str
@@ -3381,6 +3386,43 @@ options:
                 aliases: ['admin-restrict-local']
                 type: str
                 description: Enable/disable local admin authentication restriction when remote authenticator is up and running
+                choices:
+                    - 'disable'
+                    - 'enable'
+            apcfg_mesh:
+                aliases: ['apcfg-mesh']
+                type: str
+                description: Enable/disable AP local mesh configuration
+                choices:
+                    - 'disable'
+                    - 'enable'
+            apcfg_mesh_ap_type:
+                aliases: ['apcfg-mesh-ap-type']
+                type: str
+                description: Mesh AP Type
+                choices:
+                    - 'auto'
+                    - 'ethernet'
+                    - 'mesh'
+            apcfg_mesh_eth_bridge:
+                aliases: ['apcfg-mesh-eth-bridge']
+                type: str
+                description: Enable/disable mesh ethernet bridge
+                choices:
+                    - 'disable'
+                    - 'enable'
+            apcfg_mesh_passwd:
+                aliases: ['apcfg-mesh-passwd']
+                type: raw
+                description: (list) Apcfg mesh passwd.
+            apcfg_mesh_ssid:
+                aliases: ['apcfg-mesh-ssid']
+                type: raw
+                description: (list) Mesh SSID
+            default_mesh_root:
+                aliases: ['default-mesh-root']
+                type: str
+                description: Configure default mesh root SSID when it is not included by radios SSID configuration.
                 choices:
                     - 'disable'
                     - 'enable'
@@ -3977,6 +4019,12 @@ EXAMPLES = '''
           # usb_port: <value in [disable, enable]>
           # admin_auth_tacacs_: <list or string>
           # admin_restrict_local: <value in [disable, enable]>
+          # apcfg_mesh: <value in [disable, enable]>
+          # apcfg_mesh_ap_type: <value in [auto, ethernet, mesh]>
+          # apcfg_mesh_eth_bridge: <value in [disable, enable]>
+          # apcfg_mesh_passwd: <list or string>
+          # apcfg_mesh_ssid: <list or string>
+          # default_mesh_root: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -4201,19 +4249,19 @@ def main():
                         'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                        'ble-rtls': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'raw'},
-                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
-                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
+                        'ble-rtls': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'raw'},
+                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
                     }
                 },
                 'platform': {
@@ -4231,7 +4279,7 @@ def main():
                                 'C221E', 'C226E', 'C23JD', 'C24JE', 'C21D', 'U421E', 'U423E', '221E', '222E', '223E', 'S221E', 'S223E', 'U221EV',
                                 'U223EV', 'U321EV', 'U323EV', '224E', 'U422EV', 'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F',
                                 '432F', '234F', '23JF', 'U231F', '831F', 'U234F', 'U432F', '431FL', '432FR', '433FL', '231FL', '231G', '233G', '431G',
-                                '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K', '241K', '243K', '231K', '23JK'
+                                '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL', '244K'
                             ],
                             'type': 'str'
                         },
@@ -4366,7 +4414,7 @@ def main():
                             'v_range': [['7.2.3', '']],
                             'choices': [
                                 'none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N', 'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom'
+                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R'
                             ],
                             'type': 'str'
                         },
@@ -4514,7 +4562,7 @@ def main():
                             'v_range': [['7.2.3', '']],
                             'choices': [
                                 'none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N', 'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom'
+                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R'
                             ],
                             'type': 'str'
                         },
@@ -4662,7 +4710,7 @@ def main():
                             'v_range': [['7.2.3', '']],
                             'choices': [
                                 'none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N', 'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom'
+                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R'
                             ],
                             'type': 'str'
                         },
@@ -4810,7 +4858,7 @@ def main():
                             'v_range': [['7.2.3', '']],
                             'choices': [
                                 'none', 'FANT-04ABGN-0606-O-N', 'FANT-04ABGN-1414-P-N', 'FANT-04ABGN-8065-P-N', 'FANT-04ABGN-0606-O-R',
-                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom'
+                                'FANT-04ABGN-0606-P-R', 'FANT-10ACAX-1213-D-N', 'FANT-08ABGN-1213-D-R', 'custom', 'FANT-04BEAX-0606-P-R'
                             ],
                             'type': 'str'
                         },
@@ -4864,7 +4912,13 @@ def main():
                 'wan-port-auth-macsec': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'usb-port': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'admin-auth-tacacs+': {'v_range': [['7.6.2', '']], 'type': 'raw'},
-                'admin-restrict-local': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'admin-restrict-local': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-mesh': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-mesh-ap-type': {'v_range': [['7.6.4', '']], 'choices': ['auto', 'ethernet', 'mesh'], 'type': 'str'},
+                'apcfg-mesh-eth-bridge': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-mesh-passwd': {'v_range': [['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                'apcfg-mesh-ssid': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'default-mesh-root': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

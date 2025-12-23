@@ -16,7 +16,6 @@ short_description: Configure IPv4 addresses.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "1.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -307,6 +306,7 @@ options:
                             - 'rsso'
                             - 'external-resource'
                             - 'obsolete'
+                            - 'telemetry'
                     global_object:
                         aliases: ['global-object']
                         type: int
@@ -384,6 +384,14 @@ options:
                         aliases: ['sso-attribute-value']
                         type: raw
                         description: (list) Name
+                    agent_id:
+                        aliases: ['agent-id']
+                        type: raw
+                        description: (list) Telemetry agent id.
+                    tag_uuid:
+                        aliases: ['tag-uuid']
+                        type: str
+                        description: Foreign UUID of dynamic address object.
             end_ip:
                 aliases: ['end-ip']
                 type: str
@@ -576,6 +584,7 @@ options:
                     - 'rsso'
                     - 'external-resource'
                     - 'obsolete'
+                    - 'telemetry'
             global_object:
                 aliases: ['global-object']
                 type: int
@@ -645,6 +654,22 @@ options:
                 aliases: ['sso-attribute-value']
                 type: raw
                 description: (list) Name
+            pattern_end:
+                aliases: ['pattern-end']
+                type: int
+                description: Ending number of pattern for fqdn-group.
+            pattern_start:
+                aliases: ['pattern-start']
+                type: int
+                description: Starting number of pattern for fqdn-group.
+            tag_uuid:
+                aliases: ['tag-uuid']
+                type: str
+                description: Foreign UUID of dynamic address object.
+            agent_id:
+                aliases: ['agent-id']
+                type: raw
+                description: (list) Telemetry agent id.
 '''
 
 EXAMPLES = '''
@@ -836,7 +861,7 @@ def main():
                             'v_range': [['6.2.2', '']],
                             'choices': [
                                 'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                                'device-identification', 'rsso', 'external-resource', 'obsolete'
+                                'device-identification', 'rsso', 'external-resource', 'obsolete', 'telemetry'
                             ],
                             'type': 'str'
                         },
@@ -856,7 +881,9 @@ def main():
                         'os': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
                         'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                        'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                        'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                        'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                        'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -903,7 +930,7 @@ def main():
                 'interface': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'sdn-addr-type': {'v_range': [['6.2.0', '']], 'choices': ['private', 'public', 'all'], 'type': 'str'},
                 'start-mac': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'profile-list': {
                     'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
@@ -921,7 +948,7 @@ def main():
                     'v_range': [['6.2.2', '']],
                     'choices': [
                         'sdn', 'clearpass-spt', 'fsso', 'ems-tag', 'swc-tag', 'fortivoice-tag', 'fortinac-tag', 'fortipolicy-tag',
-                        'device-identification', 'rsso', 'external-resource', 'obsolete'
+                        'device-identification', 'rsso', 'external-resource', 'obsolete', 'telemetry'
                     ],
                     'type': 'str'
                 },
@@ -939,7 +966,11 @@ def main():
                 'os': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
-                'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'}
+                'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
+                'pattern-end': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'pattern-start': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

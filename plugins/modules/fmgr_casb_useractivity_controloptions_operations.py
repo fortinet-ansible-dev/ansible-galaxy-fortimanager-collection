@@ -16,7 +16,6 @@ short_description: CASB control option operations.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.3.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -165,6 +164,10 @@ options:
                 type: list
                 elements: str
                 description: CASB operation new values.
+            value_name_from_input:
+                aliases: ['value-name-from-input']
+                type: str
+                description: CASB operation value name from user input.
 '''
 
 EXAMPLES = '''
@@ -199,6 +202,7 @@ EXAMPLES = '''
           # target: <value in [header, path, body]>
           # value_from_input: <value in [disable, enable]>
           # values: <list or string>
+          # value_name_from_input: <string>
 '''
 
 RETURN = '''
@@ -273,7 +277,8 @@ def main():
                 'search-pattern': {'v_range': [['7.4.1', '']], 'choices': ['simple', 'substr', 'regexp'], 'type': 'str'},
                 'target': {'v_range': [['7.4.1', '']], 'choices': ['header', 'path', 'body'], 'type': 'str'},
                 'value-from-input': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'values': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'}
+                'values': {'v_range': [['7.4.1', '']], 'type': 'list', 'elements': 'str'},
+                'value-name-from-input': {'v_range': [['7.6.4', '']], 'type': 'str'}
             }
         }
     }

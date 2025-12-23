@@ -16,7 +16,6 @@ short_description: Configure IPv6 firewall addresses.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -169,6 +168,7 @@ options:
                     - 'mac'
                     - 'geography'
                     - 'route-tag'
+                    - 'wildcard'
             uuid:
                 type: str
                 description: Uuid.
@@ -251,6 +251,9 @@ options:
                     - 'all'
                     - 'private'
                     - 'public'
+            wildcard:
+                type: str
+                description: IPv6 address and wildcard netmask.
 '''
 
 EXAMPLES = '''
@@ -377,7 +380,10 @@ def main():
                 'start-ip': {'type': 'str'},
                 'tags': {'type': 'raw'},
                 'template': {'type': 'str'},
-                'type': {'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag'], 'type': 'str'},
+                'type': {
+                    'choices': ['ipprefix', 'iprange', 'nsx', 'dynamic', 'fqdn', 'template', 'mac', 'geography', 'route-tag', 'wildcard'],
+                    'type': 'str'
+                },
                 'uuid': {'type': 'str'},
                 'visibility': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'subnet-segment': {
@@ -401,8 +407,9 @@ def main():
                 'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'filter': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'str'},
-                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'}
+                'filter': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'},
+                'wildcard': {'v_range': [['7.6.4', '']], 'type': 'str'}
             }
         }
     }

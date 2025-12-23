@@ -16,7 +16,6 @@ short_description: Configure AntiSpam IP trust.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -221,23 +220,23 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_iptrust': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'comment': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['6.0.0', '7.2.1']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
                     'type': 'list',
                     'options': {
-                        'addr-type': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                        'id': {'v_range': [['6.0.0', '7.2.1']], 'type': 'int'},
-                        'ip4-subnet': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                        'ip6-subnet': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                        'status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
+                        'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                        'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
-                'name': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
             }
         }
     }

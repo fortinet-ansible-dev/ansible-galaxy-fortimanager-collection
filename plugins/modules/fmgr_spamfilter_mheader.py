@@ -16,7 +16,6 @@ short_description: Configure AntiSpam MIME header.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -226,24 +225,24 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_mheader': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'comment': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['6.0.0', '7.2.1']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['spam', 'clear'], 'type': 'str'},
-                        'fieldbody': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                        'fieldname': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'},
-                        'id': {'v_range': [['6.0.0', '7.2.1']], 'type': 'int'},
-                        'pattern-type': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                        'status': {'v_range': [['6.0.0', '7.2.1']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['spam', 'clear'], 'type': 'str'},
+                        'fieldbody': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                        'fieldname': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
+                        'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['6.0.0', '7.2.1']], 'required': True, 'type': 'int'},
-                'name': {'v_range': [['6.0.0', '7.2.1']], 'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
             }
         }
     }

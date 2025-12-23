@@ -16,7 +16,6 @@ short_description: Require device/vdom scope member
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -230,9 +229,12 @@ def main():
                 'variables': {'v_range': [['7.2.3', '']], 'type': 'raw'},
                 'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
                 'scope member': {
-                    'v_range': [['7.4.7', '7.4.7']],
+                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
                     'type': 'list',
-                    'options': {'name': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}, 'vdom': {'v_range': [['7.4.7', '7.4.7']], 'type': 'str'}},
+                    'options': {
+                        'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                    },
                     'elements': 'dict'
                 }
             }

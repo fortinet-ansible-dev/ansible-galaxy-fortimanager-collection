@@ -16,7 +16,6 @@ short_description: FortiExtender lan extension configuration.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -157,6 +156,7 @@ options:
                             - 'port5'
                             - 'lan1'
                             - 'lan2'
+                            - 'lan'
                     pvid:
                         type: int
                         description: FortiExtender LAN extension downlink PVID.
@@ -169,6 +169,9 @@ options:
                     vap:
                         type: raw
                         description: (list) FortiExtender LAN extension downlink vap.
+                    vids:
+                        type: raw
+                        description: (list) FortiExtender LAN extension downlink VIDs.
             traffic_split_services:
                 aliases: ['traffic-split-services']
                 type: list
@@ -227,6 +230,7 @@ EXAMPLES = '''
           #     pvid: <integer>
           #     type: <value in [port, vap]>
           #     vap: <list or string>
+          #     vids: <list or integer>
           # traffic_split_services:
           #   - address: <list or string>
           #     name: <string>
@@ -319,10 +323,15 @@ def main():
                     'type': 'list',
                     'options': {
                         'name': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                        'port': {'v_range': [['7.6.0', '']], 'choices': ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2'], 'type': 'str'},
+                        'port': {
+                            'v_range': [['7.6.0', '']],
+                            'choices': ['port1', 'port2', 'port3', 'port4', 'port5', 'lan1', 'lan2', 'lan'],
+                            'type': 'str'
+                        },
                         'pvid': {'v_range': [['7.6.0', '']], 'type': 'int'},
                         'type': {'v_range': [['7.6.0', '']], 'choices': ['port', 'vap'], 'type': 'str'},
-                        'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'}
+                        'vap': {'v_range': [['7.6.0', '']], 'type': 'raw'},
+                        'vids': {'v_range': [['7.6.4', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 },

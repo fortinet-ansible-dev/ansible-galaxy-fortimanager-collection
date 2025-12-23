@@ -16,7 +16,6 @@ short_description: Configure file patterns used by DLP blocking.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -173,6 +172,11 @@ options:
                     - 'shellscript'
                     - 'dll'
                     - 'jnlp'
+                    - 'jar'
+                    - 'css'
+                    - 'com'
+                    - 'python'
+                    - 'genscript'
             filter_type:
                 aliases: ['filter-type']
                 type: str
@@ -277,7 +281,7 @@ def main():
                         'cab', 'bzip2', 'bzip', 'activemime', 'mime', 'hlp', 'arj', 'base64', 'binhex', 'uue', 'fsg', 'aspack', 'msc', 'petite', 'jpeg',
                         'gif', 'tiff', 'png', 'bmp', 'msi', 'mpeg', 'mov', 'mp3', 'wma', 'wav', 'pdf', 'avi', 'rm', 'torrent', 'hibun', '7z', 'xz',
                         'msofficex', 'mach-o', 'dmg', '.net', 'xar', 'chm', 'iso', 'crx', 'sis', 'prc', 'class', 'jad', 'cod', 'flac', 'registry', 'hwp',
-                        'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk', 'shellscript', 'dll', 'jnlp'
+                        'rpm', 'c/cpp', 'pfile', 'lzip', 'wasm', 'sylk', 'shellscript', 'dll', 'jnlp', 'jar', 'css', 'com', 'python', 'genscript'
                     ],
                     'type': 'str'
                 },

@@ -16,7 +16,6 @@ short_description: SSL/TLS cipher suites acceptable from a client, ordered by pr
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)

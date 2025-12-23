@@ -16,7 +16,6 @@ short_description: Set up DLP filters for this sensor.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -336,7 +335,7 @@ def main():
                     'choices': ['credit-card', 'ssn', 'regexp', 'file-type', 'file-size', 'fingerprint', 'watermark', 'encrypted', 'file-type-and-size'],
                     'type': 'str'
                 },
-                'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1']], 'type': 'raw'},
+                'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
                 'id': {'required': True, 'type': 'int'},
                 'match-percentage': {'type': 'int'},
                 'name': {'type': 'str'},

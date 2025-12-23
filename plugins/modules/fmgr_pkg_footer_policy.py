@@ -16,7 +16,6 @@ short_description: Configure IPv4/IPv6 policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -1908,6 +1907,44 @@ options:
                 aliases: ['ztna-proxy']
                 type: raw
                 description: (list) Ztna proxy.
+            explicit_web_proxy:
+                aliases: ['explicit-web-proxy']
+                type: raw
+                description: (list) Explicit web proxy.
+            internet_service_fortiguard:
+                aliases: ['internet-service-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service name.
+            internet_service_src_fortiguard:
+                aliases: ['internet-service-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard Internet Service source name.
+            internet_service6_fortiguard:
+                aliases: ['internet-service6-fortiguard']
+                type: raw
+                description: (list) FortiGuard IPv6 Internet Service name.
+            internet_service6_src_fortiguard:
+                aliases: ['internet-service6-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard IPv6 Internet Service source name.
+            saml_server:
+                aliases: ['saml-server']
+                type: raw
+                description: (list) SAML server name.
+            scim:
+                type: str
+                description: Enable/disable SCIM
+                choices:
+                    - 'disable'
+                    - 'enable'
+            scim_groups:
+                aliases: ['scim-groups']
+                type: raw
+                description: (list) Names of SCIM groups.
+            scim_users:
+                aliases: ['scim-users']
+                type: raw
+                description: (list) Names of SCIM users.
 '''
 
 EXAMPLES = '''
@@ -2016,9 +2053,9 @@ def main():
                 'action': {'choices': ['deny', 'accept', 'ipsec', 'ssl-vpn', 'redirect', 'isolate'], 'type': 'str'},
                 'active-auth-method': {'choices': ['ntlm', 'basic', 'digest', 'form'], 'type': 'str'},
                 'anti-replay': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'app-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
-                'app-group': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
-                'application': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
+                'app-category': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
+                'app-group': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
+                'application': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
                 'application-charts': {'type': 'list', 'choices': ['top10-app', 'top10-p2p-user', 'top10-media-user'], 'elements': 'str'},
                 'application-list': {'type': 'str'},
                 'auth-cert': {'type': 'str'},
@@ -2232,7 +2269,7 @@ def main():
                 'traffic-shaper': {'type': 'str'},
                 'traffic-shaper-reverse': {'type': 'str'},
                 'transaction-based': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-category': {'v_range': [['6.0.0', '7.6.2']], 'type': 'raw'},
+                'url-category': {'v_range': [['6.0.0', '7.6.2'], ['7.6.4', '']], 'type': 'raw'},
                 'users': {'type': 'raw'},
                 'utm-inspection-mode': {'choices': ['proxy', 'flow'], 'type': 'str'},
                 'utm-status': {'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2310,9 +2347,9 @@ def main():
                 'udp-timeout-pid': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ztna-tags-match-logic': {'v_range': [['7.0.3', '']], 'choices': ['or', 'and'], 'type': 'str'},
                 'uuid-idx': {'v_range': [['7.0.1', '']], 'type': 'int'},
-                'device-ownership': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.14'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'extended-log': {'v_range': [['7.0.11', '7.0.14'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-ownership': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'v_range': [['7.0.11', '7.0.15'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2355,14 +2392,23 @@ def main():
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-risk': {'v_range': [['7.4.4', '7.4.7'], ['7.6.2', '']], 'type': 'raw'},
+                'url-risk': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'raw'},
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'https-sub-category': {'v_range': [['7.4.7', '7.4.7'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-connector': {'v_range': [['7.6.3', '']], 'type': 'raw'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
-                'ztna-proxy': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'ztna-proxy': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'explicit-web-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'saml-server': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scim': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scim-groups': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'scim-users': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

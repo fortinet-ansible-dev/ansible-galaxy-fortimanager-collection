@@ -16,7 +16,6 @@ short_description: Configure driver HA scan for SSE.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.2.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -177,11 +176,11 @@ def main():
         'revision_note': {'type': 'str'},
         'system_npu_ssehascan': {
             'type': 'dict',
-            'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.14'], ['7.2.1', '']],
+            'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.15'], ['7.2.1', '']],
             'options': {
-                'gap': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
-                'max-session-cnt': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'},
-                'min-duration': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.14'], ['7.2.1', '']], 'type': 'int'}
+                'gap': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                'max-session-cnt': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                'min-duration': {'v_range': [['6.4.10', '6.4.15'], ['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'}
             }
         }
     }

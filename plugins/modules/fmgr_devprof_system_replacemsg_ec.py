@@ -16,7 +16,6 @@ short_description: Replacement messages.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -190,16 +189,20 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_system_replacemsg_ec': {
             'type': 'dict',
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']],
+            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.8']],
             'options': {
-                'buffer': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']], 'type': 'str'},
+                'buffer': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
                 'format': {
-                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']],
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.8']],
                     'choices': ['none', 'text', 'html', 'wml'],
                     'type': 'str'
                 },
-                'header': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                'msg-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1']], 'type': 'str'}
+                'header': {
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'choices': ['none', 'http', '8bit'],
+                    'type': 'str'
+                },
+                'msg-type': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
             }
         }
     }

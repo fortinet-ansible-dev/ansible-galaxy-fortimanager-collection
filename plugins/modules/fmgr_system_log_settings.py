@@ -16,7 +16,6 @@ short_description: Log settings.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -767,6 +766,13 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            syslog_over_tls_port:
+                aliases: ['syslog-over-tls-port']
+                type: str
+                description: Syslog over tls port.
+                choices:
+                    - '514'
+                    - '6514'
 '''
 
 EXAMPLES = '''
@@ -929,6 +935,7 @@ EXAMPLES = '''
           # FFW_custom_field1: <string>
           # unencrypted_logging_tcp: <value in [disable, enable]>
           # unencrypted_logging_udp: <value in [disable, enable]>
+          # syslog_over_tls_port: <value in [514, 6514]>
 '''
 
 RETURN = '''
@@ -1013,9 +1020,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1048,9 +1055,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1083,9 +1090,9 @@ def main():
                         'file-size': {'type': 'int'},
                         'gzip-format': {'choices': ['disable', 'enable'], 'type': 'str'},
                         'hour': {'type': 'int'},
-                        'ip': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip2': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
-                        'ip3': {'v_range': [['6.0.0', '7.0.14']], 'type': 'str'},
+                        'ip': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip2': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
+                        'ip3': {'v_range': [['6.0.0', '7.0.15']], 'type': 'str'},
                         'log-format': {'choices': ['native', 'text', 'csv'], 'type': 'str'},
                         'min': {'type': 'int'},
                         'password': {'no_log': True, 'type': 'raw'},
@@ -1112,26 +1119,27 @@ def main():
                 'sync-search-timeout': {'type': 'int'},
                 'keep-dev-logs': {'v_range': [['6.4.7', '6.4.15'], ['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'device-auto-detect': {
-                    'v_range': [['7.0.10', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
+                    'v_range': [['7.0.10', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.1', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'unencrypted-logging': {
-                    'v_range': [['7.0.10', '7.0.14'], ['7.2.4', '7.2.11'], ['7.4.1', '7.6.2']],
+                    'v_range': [['7.0.10', '7.0.15'], ['7.2.4', '7.2.11'], ['7.4.1', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'log-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
                 'log-upload-interval-dev-no-logging': {'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']], 'type': 'int'},
                 'legacy-auth-mode': {
-                    'v_range': [['7.0.14', '7.0.14'], ['7.2.10', '7.2.11'], ['7.4.7', '7.4.7'], ['7.6.3', '']],
+                    'v_range': [['7.0.14', '7.0.15'], ['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
-                'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.7']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'log-process-fast-mode': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'FFW-custom-field1': {'v_range': [['7.6.3', '']], 'type': 'str'},
                 'unencrypted-logging-tcp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'unencrypted-logging-udp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'unencrypted-logging-udp': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'syslog-over-tls-port': {'v_range': [['7.6.4', '']], 'choices': ['514', '6514'], 'type': 'str'}
             }
         }
     }

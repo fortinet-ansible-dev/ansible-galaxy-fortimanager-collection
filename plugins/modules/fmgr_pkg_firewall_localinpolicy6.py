@@ -16,7 +16,6 @@ short_description: Configure user defined IPv6 local-in policies.
 description:
     - This module is able to configure a FortiManager device.
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
-
 version_added: "2.0.0"
 author:
     - Xinwei Du (@dux-fortinet)
@@ -197,6 +196,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            internet_service6_src_fortiguard:
+                aliases: ['internet-service6-src-fortiguard']
+                type: raw
+                description: (list) FortiGuard IPv6 Internet Service source name.
 '''
 
 EXAMPLES = '''
@@ -323,7 +326,8 @@ def main():
                 'internet-service6-src-group': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service6-src-name': {'v_range': [['7.4.3', '']], 'type': 'raw'},
                 'internet-service6-src-negate': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'logtraffic': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'internet-service6-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }
     }
