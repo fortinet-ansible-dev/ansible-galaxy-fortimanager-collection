@@ -610,6 +610,7 @@ action_groups:
     - fmgr_pkg_user_nacpolicy
     - fmgr_pkg_videofilter_youtubekey
     - fmgr_pkg_webproxy_pacpolicy
+    - fmgr_pm_config_fmr_script
     - fmgr_pm_config_meta_reference
     - fmgr_pm_config_pblock_firewall_consolidated_policy
     - fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue

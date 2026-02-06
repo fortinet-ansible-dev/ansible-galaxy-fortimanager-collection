@@ -257,7 +257,7 @@ EXAMPLES = '''
         adom: ansible
         state: present
         dvmdb_script:
-          content: "ansiblt-test"
+          content: "ansible-test"
           name: "ansible-test"
           target: device_database
           type: cli
@@ -301,7 +301,7 @@ EXAMPLES = '''
         state: present
         workspace_locking_adom: "root"
         dvmdb_script:
-          content: "ansiblt-test"
+          content: "ansible-test"
           name: "fooscript000"
           target: device_database
           type: cli
@@ -380,7 +380,7 @@ def main():
         'adom': {'required': True, 'type': 'str'},
         'dvmdb_script': {
             'type': 'dict',
-            'v_range': [['6.0.0', '']],
+            'v_range': [['6.0.0', '7.6.4']],
             'options': {
                 'content': {'type': 'str'},
                 'desc': {'type': 'str'},

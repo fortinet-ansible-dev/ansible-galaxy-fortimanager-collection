@@ -1358,7 +1358,7 @@ EXAMPLES = '''
         state: present
         workspace_locking_adom: "root"
         dvmdb_script:
-          content: "ansiblt-test"
+          content: "ansible-test"
           name: "fooscript000"
           target: device_database
           type: cli

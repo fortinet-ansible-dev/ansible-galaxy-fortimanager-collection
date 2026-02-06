@@ -733,6 +733,7 @@ options:
                     - 'pm_config_data_tablesize_fos'
                     - 'pm_config_data_tablesize_log'
                     - 'pm_config_fct_endpointcontrol_profile'
+                    - 'pm_config_fmr_script'
                     - 'pm_config_metafields_firewall_address'
                     - 'pm_config_metafields_firewall_addrgrp'
                     - 'pm_config_metafields_firewall_centralsnatmap'
@@ -2799,7 +2800,7 @@ def main():
                 '/dvmdb/script',
                 '/dvmdb/script/{script}'
             ],
-            'v_range': [['6.0.0', '']]
+            'v_range': [['6.0.0', '7.6.4']]
         },
         'dvmdb_script_log_latest': {
             'params': ['adom'],
@@ -7588,6 +7589,16 @@ def main():
                 '/pm/config/adom/{adom}/_fct/endpoint-control/profile'
             ],
             'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '7.4.1']]
+        },
+        'pm_config_fmr_script': {
+            'params': ['adom', 'script'],
+            'urls': [
+                '/pm/config/adom/{adom}/obj/fmg/script',
+                '/pm/config/adom/{adom}/obj/fmg/script/{script}',
+                '/pm/config/global/obj/fmg/script',
+                '/pm/config/global/obj/fmg/script/{script}'
+            ],
+            'v_range': [['7.6.5', '']]
         },
         'pm_config_metafields_firewall_address': {
             'params': [],
@@ -13708,6 +13719,7 @@ def main():
                         'pm_config_data_tablesize_fos',
                         'pm_config_data_tablesize_log',
                         'pm_config_fct_endpointcontrol_profile',
+                        'pm_config_fmr_script',
                         'pm_config_metafields_firewall_address',
                         'pm_config_metafields_firewall_addrgrp',
                         'pm_config_metafields_firewall_centralsnatmap',

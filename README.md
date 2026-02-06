@@ -723,6 +723,7 @@ The collection provides the following modules:
 * `fmgr_pkg_header_shapingpolicy`  Configure shaping policies.
 * `fmgr_pkg_user_nacpolicy`  Configure NAC policy matching pattern to identify matching NAC devices.
 * `fmgr_pkg_videofilter_youtubekey`  Configure YouTube API keys.
+* `fmgr_pm_config_fmr_script`  Device Script Manager (New API, > FMG v7.6.5).
 * `fmgr_pm_config_meta_reference`  Meta reference.
 * `fmgr_pm_config_metafields_firewall_address`  Meta fields firewall address.
 * `fmgr_pm_config_metafields_firewall_addrgrp`  Meta fields firewall addrgrp.

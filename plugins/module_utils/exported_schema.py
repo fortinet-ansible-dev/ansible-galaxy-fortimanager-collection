@@ -22782,6 +22782,36 @@ SCHEMA_DATA = '''
             "status": {"v_range": [["7.4.4", "7.4.8"], ["7.6.2", ""]], "choices": ["disable", "enable"], "type": "str"}
         }
     },
+    "pm_config_fmr_script": {
+        "stated": true,
+        "options": {
+            "content": {"type": "str"},
+            "desc": {"type": "str"},
+            "filter_build": {"type": "int"},
+            "filter_device": {"type": "int"},
+            "filter_hostname": {"type": "str"},
+            "filter_ostype": {"choices": ["unknown", "fos"], "type": "str"},
+            "filter_osver": {"choices": ["unknown", "4.00", "5.00", "6.00"], "type": "str"},
+            "filter_platform": {"type": "str"},
+            "filter_serial": {"type": "str"},
+            "modification_time": {"type": "str"},
+            "name": {"required": true, "type": "str"},
+            "script_schedule": {
+                "type": "list",
+                "options": {
+                    "datetime": {"type": "str"},
+                    "day_of_week": {"choices": ["unknown", "sun", "mon", "tue", "wed", "thu", "fri", "sat"], "type": "str"},
+                    "device": {"type": "int"},
+                    "name": {"type": "str"},
+                    "run_on_db": {"choices": ["disable", "enable"], "type": "str"},
+                    "type": {"choices": ["auto", "onetime", "daily", "weekly", "monthly"], "type": "str"}
+                },
+                "elements": "dict"
+            },
+            "target": {"choices": ["device_database", "remote_device", "adom_database"], "type": "str"},
+            "type": {"choices": ["cli", "tcl", "cligrp", "tclgrp", "jinja"], "type": "str"}
+        }
+    },
     "pm_config_meta_reference": {
         "stated": true,
         "options": {
