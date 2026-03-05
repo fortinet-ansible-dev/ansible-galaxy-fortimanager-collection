@@ -308,21 +308,21 @@ def main():
                 'database': {'choices': ['isdb', 'irdb'], 'type': 'str'},
                 'direction': {'choices': ['src', 'dst', 'both'], 'type': 'str'},
                 'entry': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
                     'type': 'list',
                     'options': {
-                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                        'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                        'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
-                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'}
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
+                        'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 'icon-id': {'type': 'int'},
                 'id': {'type': 'int'},
                 'name': {'type': 'str'},
-                'offset': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
+                'offset': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
                 'reputation': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'sld-id': {'v_range': [['6.0.0', '7.6.2']], 'type': 'int'},
                 'extra-ip-range-number': {'v_range': [['6.2.0', '']], 'type': 'int'},

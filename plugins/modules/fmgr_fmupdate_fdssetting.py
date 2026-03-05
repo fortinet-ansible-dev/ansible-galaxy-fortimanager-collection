@@ -811,7 +811,7 @@ def main():
                     'choices': ['3.x', '4.x', '7.x'],
                     'elements': 'str'
                 },
-                'system-support-faz': {'v_range': [['7.0.7', '7.0.15'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
+                'system-support-faz': {'v_range': [['7.0.7', '7.0.16'], ['7.2.2', '']], 'type': 'list', 'choices': ['6.x', '7.x'], 'elements': 'str'},
                 'system-support-fis': {'v_range': [['7.4.0', '']], 'type': 'list', 'choices': ['1.x', '2.x'], 'elements': 'str'},
                 'system-support-fai': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['7.x'], 'elements': 'str'}
             }

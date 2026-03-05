@@ -238,7 +238,7 @@ def main():
                 'traffic-policy': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'vlan': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'drop': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fortilink': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'},
+                'fortilink': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'},
                 'bounce-port-duration': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'poe-reset': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }

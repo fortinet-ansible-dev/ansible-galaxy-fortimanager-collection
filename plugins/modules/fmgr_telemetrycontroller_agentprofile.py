@@ -100,6 +100,9 @@ options:
                 choices:
                     - 'FTL100G'
                     - 'WINDOWS'
+                    - 'ftl-100g'
+                    - 'windows'
+                    - 'macos'
             name:
                 type: str
                 description: Name of the agent profile.
@@ -128,7 +131,7 @@ EXAMPLES = '''
         telemetrycontroller_agentprofile:
           name: "your value" # Required variable, string
           # comment: <string>
-          # model: <value in [FTL100G, WINDOWS]>
+          # model: <value in [FTL100G, WINDOWS, ftl-100g, ...]>
 '''
 
 RETURN = '''
@@ -191,7 +194,7 @@ def main():
             'v_range': [['7.6.3', '']],
             'options': {
                 'comment': {'v_range': [['7.6.3', '']], 'type': 'str'},
-                'model': {'v_range': [['7.6.3', '']], 'choices': ['FTL100G', 'WINDOWS'], 'type': 'str'},
+                'model': {'v_range': [['7.6.3', '']], 'choices': ['FTL100G', 'WINDOWS', 'ftl-100g', 'windows', 'macos'], 'type': 'str'},
                 'name': {'v_range': [['7.6.3', '']], 'required': True, 'type': 'str'}
             }
         }

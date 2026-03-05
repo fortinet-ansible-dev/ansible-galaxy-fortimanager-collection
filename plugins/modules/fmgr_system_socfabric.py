@@ -217,7 +217,7 @@ def main():
             'options': {
                 'name': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'port': {'v_range': [['7.0.0', '']], 'type': 'int'},
-                'psk': {'v_range': [['7.0.0', '7.2.11']], 'type': 'raw'},
+                'psk': {'v_range': [['7.0.0', '7.2.12']], 'type': 'raw'},
                 'role': {'v_range': [['7.0.0', '']], 'choices': ['member', 'supervisor'], 'type': 'str'},
                 'secure-connection': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'status': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},

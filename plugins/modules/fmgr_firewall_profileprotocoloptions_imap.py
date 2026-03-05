@@ -261,7 +261,7 @@ def main():
                 'uncompressed-oversize-limit': {'type': 'int'},
                 'ssl-offloaded': {'v_range': [['6.2.2', '']], 'choices': ['no', 'yes'], 'type': 'str'},
                 'proxy-after-tcp-handshake': {'v_range': [['6.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'address-ip-rating': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'address-ip-rating': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

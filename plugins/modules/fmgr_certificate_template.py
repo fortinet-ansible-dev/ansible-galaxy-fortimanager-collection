@@ -299,7 +299,7 @@ def main():
                 'type': {'choices': ['external', 'local'], 'type': 'str'},
                 'curve-name': {'v_range': [['6.2.1', '']], 'choices': ['secp256r1', 'secp384r1', 'secp521r1'], 'type': 'str'},
                 'scep-ca-identifier': {'v_range': [['7.0.4', '']], 'type': 'str'},
-                'subject-alt-name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                'subject-alt-name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

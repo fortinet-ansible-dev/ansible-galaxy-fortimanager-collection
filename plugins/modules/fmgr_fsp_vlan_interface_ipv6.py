@@ -321,6 +321,13 @@ options:
                         aliases: ['delegated-prefix-iaid']
                         type: int
                         description: IAID of obtained delegated-prefix from the upstream interface.
+                    dnssl_service:
+                        aliases: ['dnssl-service']
+                        type: str
+                        description: Enable/disable use of domain from delegated prefix for DNSSL.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             ip6_extra_addr:
                 aliases: ['ip6-extra-addr']
                 type: list
@@ -574,6 +581,7 @@ EXAMPLES = '''
           #     subnet: <string>
           #     upstream_interface: <string>
           #     delegated_prefix_iaid: <integer>
+          #     dnssl_service: <value in [disable, enable]>
           # ip6_extra_addr:
           #   - prefix: <string>
           # ip6_prefix_list:
@@ -720,7 +728,8 @@ def main():
                         'rdnss-service': {'v_range': [['6.2.2', '']], 'choices': ['delegated', 'default', 'specify'], 'type': 'str'},
                         'subnet': {'v_range': [['6.2.2', '']], 'type': 'str'},
                         'upstream-interface': {'v_range': [['6.2.2', '']], 'type': 'str'},
-                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'}
+                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
+                        'dnssl-service': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

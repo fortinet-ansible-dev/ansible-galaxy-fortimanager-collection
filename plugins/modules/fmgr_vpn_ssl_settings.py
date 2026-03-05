@@ -623,6 +623,36 @@ options:
                 aliases: ['server-hostname']
                 type: str
                 description: Server hostname for HTTPS.
+            remote_https_cert_check:
+                aliases: ['remote-https-cert-check']
+                type: str
+                description: Configure how the FortiGate unit checks and responds to the remote HTTPS servers certificate
+                choices:
+                    - 'no-check'
+                    - 'warn-on-error'
+                    - 'reject-on-error'
+            tls_groups:
+                aliases: ['tls-groups']
+                type: list
+                elements: str
+                description: Configure the supported groups for TLS negotiation.
+                choices:
+                    - 'P-521'
+                    - 'P-384'
+                    - 'P-256'
+                    - 'ML-KEM512'
+                    - 'ML-KEM768'
+                    - 'ML-KEM1024'
+                    - 'P-384-MLKEM1024'
+                    - 'P-256-MLKEM768'
+                    - 'X25519-MLKEM768'
+                    - 'X448'
+                    - 'X25519'
+                    - 'FFDHE2048'
+                    - 'FFDHE3072'
+                    - 'FFDHE4096'
+                    - 'FFDHE6144'
+                    - 'FFDHE8192'
 '''
 
 EXAMPLES = '''
@@ -761,6 +791,24 @@ EXAMPLES = '''
           # dtls_heartbeat_idle_timeout: <integer>
           # dtls_heartbeat_interval: <integer>
           # server_hostname: <string>
+          # remote_https_cert_check: <value in [no-check, warn-on-error, reject-on-error]>
+          # tls_groups:
+          #   - "P-521"
+          #   - "P-384"
+          #   - "P-256"
+          #   - "ML-KEM512"
+          #   - "ML-KEM768"
+          #   - "ML-KEM1024"
+          #   - "P-384-MLKEM1024"
+          #   - "P-256-MLKEM768"
+          #   - "X25519-MLKEM768"
+          #   - "X448"
+          #   - "X25519"
+          #   - "FFDHE2048"
+          #   - "FFDHE3072"
+          #   - "FFDHE4096"
+          #   - "FFDHE6144"
+          #   - "FFDHE8192"
 '''
 
 RETURN = '''
@@ -822,7 +870,7 @@ def main():
             'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']],
             'options': {
                 'algorithm': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
                     'choices': ['default', 'high', 'low', 'medium'],
                     'type': 'str'
                 },
@@ -896,7 +944,7 @@ def main():
                 'port-precedence': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'reqclientcert': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'route-source-interface': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0'], ['7.4.8', '7.4.10']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -910,9 +958,9 @@ def main():
                 'ssl-insert-empty-fragment': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-max-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
                 'ssl-min-proto-ver': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['tls1-0', 'tls1-1', 'tls1-2', 'tls1-3'], 'type': 'str'},
-                'tlsv1-0': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tlsv1-1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tlsv1-2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-0': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-1': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'tlsv1-2': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tlsv1-3': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '7.2.0']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'transform-backward-slashes': {'v_range': [['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tunnel-connect-without-reauth': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -927,7 +975,7 @@ def main():
                 'x-content-type-options': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sslv3': {'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '6.4.15']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-big-buffer': {
-                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '6.4.15'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.2.6', '6.2.13'], ['6.4.2', '6.4.15'], ['7.4.8', '7.4.10']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -951,7 +999,17 @@ def main():
                 'dtls-heartbeat-fail-count': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'dtls-heartbeat-idle-timeout': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'dtls-heartbeat-interval': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'server-hostname': {'v_range': [['7.2.6', '']], 'type': 'str'}
+                'server-hostname': {'v_range': [['7.2.6', '']], 'type': 'str'},
+                'remote-https-cert-check': {'v_range': [['7.6.5', '']], 'choices': ['no-check', 'warn-on-error', 'reject-on-error'], 'type': 'str'},
+                'tls-groups': {
+                    'v_range': [['7.6.5', '']],
+                    'type': 'list',
+                    'choices': [
+                        'P-521', 'P-384', 'P-256', 'ML-KEM512', 'ML-KEM768', 'ML-KEM1024', 'P-384-MLKEM1024', 'P-256-MLKEM768', 'X25519-MLKEM768',
+                        'X448', 'X25519', 'FFDHE2048', 'FFDHE3072', 'FFDHE4096', 'FFDHE6144', 'FFDHE8192'
+                    ],
+                    'elements': 'str'
+                }
             }
         }
     }

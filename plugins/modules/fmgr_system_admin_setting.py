@@ -730,7 +730,7 @@ def main():
                 'idle_timeout_sso': {'v_range': [['7.0.3', '']], 'type': 'int'},
                 'preferred-fgfm-intf': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'traffic-shaping-history': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.15'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fsw-ignore-platform-check': {'v_range': [['7.0.7', '7.0.16'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'rtm-max-monitor-by-days': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'rtm-temp-file-limit': {'v_range': [['7.2.2', '']], 'type': 'int'},
                 'firmware-upgrade-check': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -738,9 +738,9 @@ def main():
                 'fgt-gui-proxy-port': {'v_range': [['7.4.2', '']], 'type': 'int'},
                 'object-threshold-limit': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'object-threshold-limit-value': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'rtm-max-monitor-by-size': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
+                'rtm-max-monitor-by-size': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
                 'show-sdwan-manager': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'admin-scp': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'admin-scp': {'v_range': [['7.4.8', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

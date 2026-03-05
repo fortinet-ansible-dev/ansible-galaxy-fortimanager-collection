@@ -1008,6 +1008,9 @@ options:
                             - '23JK'
                             - '222KL'
                             - '244K'
+                            - '432K'
+                            - 'MVP'
+                            - '231KD'
                     _local_platform_str:
                         type: str
                         description: Local platform str.
@@ -1563,6 +1566,13 @@ options:
                             - '80MHz'
                             - '40MHz'
                             - '20MHz'
+                    ai_darrp_support:
+                        aliases: ['ai-darrp-support']
+                        type: str
+                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+                        choices:
+                            - 'disable'
+                            - 'enable'
             radio_2:
                 aliases: ['radio-2']
                 type: dict
@@ -2115,6 +2125,13 @@ options:
                             - '80MHz'
                             - '40MHz'
                             - '20MHz'
+                    ai_darrp_support:
+                        aliases: ['ai-darrp-support']
+                        type: str
+                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+                        choices:
+                            - 'disable'
+                            - 'enable'
             radio_3:
                 aliases: ['radio-3']
                 type: dict
@@ -2665,6 +2682,13 @@ options:
                             - '80MHz'
                             - '40MHz'
                             - '20MHz'
+                    ai_darrp_support:
+                        aliases: ['ai-darrp-support']
+                        type: str
+                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+                        choices:
+                            - 'disable'
+                            - 'enable'
             radio_4:
                 aliases: ['radio-4']
                 type: dict
@@ -3215,6 +3239,13 @@ options:
                             - '80MHz'
                             - '40MHz'
                             - '20MHz'
+                    ai_darrp_support:
+                        aliases: ['ai-darrp-support']
+                        type: str
+                        description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+                        choices:
+                            - 'disable'
+                            - 'enable'
             console_login:
                 aliases: ['console-login']
                 type: str
@@ -3426,6 +3457,117 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            apcfg_auto_cert:
+                aliases: ['apcfg-auto-cert']
+                type: str
+                description: Enable/disable AP local auto cert configuration
+                choices:
+                    - 'disable'
+                    - 'enable'
+            apcfg_auto_cert_auto_regen_days:
+                aliases: ['apcfg-auto-cert-auto-regen-days']
+                type: int
+                description: Number of days to wait before expiry of an updated local certificate is requested
+            apcfg_auto_cert_crypto_algo:
+                aliases: ['apcfg-auto-cert-crypto-algo']
+                type: str
+                description: Cryptography algorithm
+                choices:
+                    - 'rsa-1024'
+                    - 'rsa-1536'
+                    - 'rsa-2048'
+                    - 'rsa-4096'
+                    - 'ec-secp256r1'
+                    - 'ec-secp384r1'
+                    - 'ec-secp521r1'
+            apcfg_auto_cert_enroll_protocol:
+                aliases: ['apcfg-auto-cert-enroll-protocol']
+                type: str
+                description: Certificate enrollment protocol
+                choices:
+                    - 'none'
+                    - 'scep'
+                    - 'est'
+            apcfg_auto_cert_est_ca_id:
+                aliases: ['apcfg-auto-cert-est-ca-id']
+                type: str
+                description: CA identifier of the CA server for signing via EST.
+            apcfg_auto_cert_est_http_password:
+                aliases: ['apcfg-auto-cert-est-http-password']
+                type: raw
+                description: (list) HTTP Authentication password for signing via EST.
+            apcfg_auto_cert_est_http_username:
+                aliases: ['apcfg-auto-cert-est-http-username']
+                type: str
+                description: HTTP Authentication username for signing via EST.
+            apcfg_auto_cert_est_https_ca:
+                aliases: ['apcfg-auto-cert-est-https-ca']
+                type: raw
+                description: (list) PEM format https CA Certificate.
+            apcfg_auto_cert_est_server:
+                aliases: ['apcfg-auto-cert-est-server']
+                type: str
+                description: Address and port for EST server
+            apcfg_auto_cert_est_subject:
+                aliases: ['apcfg-auto-cert-est-subject']
+                type: str
+                description: Subject e.
+            apcfg_auto_cert_est_subject_alt_name:
+                aliases: ['apcfg-auto-cert-est-subject-alt-name']
+                type: str
+                description: Subject alternative name
+            apcfg_auto_cert_scep_ca_id:
+                aliases: ['apcfg-auto-cert-scep-ca-id']
+                type: str
+                description: CA identifier of the CA server for signing via SCEP.
+            apcfg_auto_cert_scep_ec_name:
+                aliases: ['apcfg-auto-cert-scep-ec-name']
+                type: str
+                description: Elliptic curve name
+                choices:
+                    - 'secp256r1'
+                    - 'secp384r1'
+                    - 'secp521r1'
+            apcfg_auto_cert_scep_https_ca:
+                aliases: ['apcfg-auto-cert-scep-https-ca']
+                type: raw
+                description: (list) PEM format https CA Certificate.
+            apcfg_auto_cert_scep_keysize:
+                aliases: ['apcfg-auto-cert-scep-keysize']
+                type: str
+                description: Key size
+                choices:
+                    - '1024'
+                    - '1536'
+                    - '2048'
+                    - '4096'
+            apcfg_auto_cert_scep_keytype:
+                aliases: ['apcfg-auto-cert-scep-keytype']
+                type: str
+                description: Key type
+                choices:
+                    - 'rsa'
+                    - 'ec'
+            apcfg_auto_cert_scep_password:
+                aliases: ['apcfg-auto-cert-scep-password']
+                type: raw
+                description: (list) SCEP server challenge password for auto-regeneration.
+            apcfg_auto_cert_scep_sub_fully_dn:
+                aliases: ['apcfg-auto-cert-scep-sub-fully-dn']
+                type: str
+                description: Full DN of the subject
+            apcfg_auto_cert_scep_subject_alt_name:
+                aliases: ['apcfg-auto-cert-scep-subject-alt-name']
+                type: str
+                description: Subject alternative name
+            apcfg_auto_cert_scep_url:
+                aliases: ['apcfg-auto-cert-scep-url']
+                type: str
+                description: SCEP server URL.
+            lw_profile:
+                aliases: ['lw-profile']
+                type: raw
+                description: (list) LoRaWAN profile name.
 '''
 
 EXAMPLES = '''
@@ -3684,6 +3826,7 @@ EXAMPLES = '''
           #   channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          #   ai_darrp_support: <value in [disable, enable]>
           # radio_2:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -3787,6 +3930,7 @@ EXAMPLES = '''
           #   channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          #   ai_darrp_support: <value in [disable, enable]>
           # radio_3:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -3890,6 +4034,7 @@ EXAMPLES = '''
           #   channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          #   ai_darrp_support: <value in [disable, enable]>
           # radio_4:
           #   airtime_fairness: <value in [disable, enable]>
           #   amsdu: <value in [disable, enable]>
@@ -3993,6 +4138,7 @@ EXAMPLES = '''
           #   channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           #   d80211mc: <value in [disable, enable]>
           #   ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          #   ai_darrp_support: <value in [disable, enable]>
           # console_login: <value in [disable, enable]>
           # esl_ses_dongle:
           #   apc_addr_type: <value in [fqdn, ip]>
@@ -4025,6 +4171,27 @@ EXAMPLES = '''
           # apcfg_mesh_passwd: <list or string>
           # apcfg_mesh_ssid: <list or string>
           # default_mesh_root: <value in [disable, enable]>
+          # apcfg_auto_cert: <value in [disable, enable]>
+          # apcfg_auto_cert_auto_regen_days: <integer>
+          # apcfg_auto_cert_crypto_algo: <value in [rsa-1024, rsa-1536, rsa-2048, ...]>
+          # apcfg_auto_cert_enroll_protocol: <value in [none, scep, est]>
+          # apcfg_auto_cert_est_ca_id: <string>
+          # apcfg_auto_cert_est_http_password: <list or string>
+          # apcfg_auto_cert_est_http_username: <string>
+          # apcfg_auto_cert_est_https_ca: <list or string>
+          # apcfg_auto_cert_est_server: <string>
+          # apcfg_auto_cert_est_subject: <string>
+          # apcfg_auto_cert_est_subject_alt_name: <string>
+          # apcfg_auto_cert_scep_ca_id: <string>
+          # apcfg_auto_cert_scep_ec_name: <value in [secp256r1, secp384r1, secp521r1]>
+          # apcfg_auto_cert_scep_https_ca: <list or string>
+          # apcfg_auto_cert_scep_keysize: <value in [1024, 1536, 2048, ...]>
+          # apcfg_auto_cert_scep_keytype: <value in [rsa, ec]>
+          # apcfg_auto_cert_scep_password: <list or string>
+          # apcfg_auto_cert_scep_sub_fully_dn: <string>
+          # apcfg_auto_cert_scep_subject_alt_name: <string>
+          # apcfg_auto_cert_scep_url: <string>
+          # lw_profile: <list or string>
 '''
 
 RETURN = '''
@@ -4249,19 +4416,19 @@ def main():
                         'polestar-server-path': {'v_range': [['7.4.1', '']], 'type': 'str'},
                         'polestar-server-port': {'v_range': [['7.4.1', '']], 'type': 'int'},
                         'polestar-server-token': {'v_range': [['7.4.1', '']], 'no_log': True, 'type': 'str'},
-                        'ble-rtls': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
-                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'raw'},
-                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
-                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
+                        'ble-rtls': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['none', 'polestar', 'evresys'], 'type': 'str'},
+                        'ble-rtls-accumulation-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-asset-addrgrp-list': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'raw'},
+                        'ble-rtls-asset-uuid-list1': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list2': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list3': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-asset-uuid-list4': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-protocol': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['WSS'], 'type': 'str'},
+                        'ble-rtls-reporting-interval': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-fqdn': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-path': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                        'ble-rtls-server-port': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                        'ble-rtls-server-token': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'no_log': True, 'type': 'str'}
                     }
                 },
                 'platform': {
@@ -4279,7 +4446,8 @@ def main():
                                 'C221E', 'C226E', 'C23JD', 'C24JE', 'C21D', 'U421E', 'U423E', '221E', '222E', '223E', 'S221E', 'S223E', 'U221EV',
                                 'U223EV', 'U321EV', 'U323EV', '224E', 'U422EV', 'U24JEV', '321E', 'U431F', 'U433F', '231E', '431F', '433F', '231F',
                                 '432F', '234F', '23JF', 'U231F', '831F', 'U234F', 'U432F', '431FL', '432FR', '433FL', '231FL', '231G', '233G', '431G',
-                                '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL', '244K'
+                                '433G', 'U231G', 'U441G', '234G', '432G', '441K', '443K', '241K', '243K', '231K', '23JK', '222KL', '244K', '432K', 'MVP',
+                                '231KD'
                             ],
                             'type': 'str'
                         },
@@ -4431,7 +4599,8 @@ def main():
                             'v_range': [['7.4.4', '']],
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
-                        }
+                        },
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'radio-2': {
@@ -4579,7 +4748,8 @@ def main():
                             'v_range': [['7.4.4', '']],
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
-                        }
+                        },
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'radio-3': {
@@ -4727,7 +4897,8 @@ def main():
                             'v_range': [['7.4.4', '']],
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
-                        }
+                        },
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'radio-4': {
@@ -4875,7 +5046,8 @@ def main():
                             'v_range': [['7.4.4', '']],
                             'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'],
                             'type': 'str'
-                        }
+                        },
+                        'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'console-login': {'v_range': [['6.2.9', '6.2.13'], ['6.4.8', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -4918,7 +5090,32 @@ def main():
                 'apcfg-mesh-eth-bridge': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'apcfg-mesh-passwd': {'v_range': [['7.6.4', '']], 'no_log': True, 'type': 'raw'},
                 'apcfg-mesh-ssid': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                'default-mesh-root': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'default-mesh-root': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-auto-cert': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'apcfg-auto-cert-auto-regen-days': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'apcfg-auto-cert-crypto-algo': {
+                    'v_range': [['7.6.5', '']],
+                    'choices': ['rsa-1024', 'rsa-1536', 'rsa-2048', 'rsa-4096', 'ec-secp256r1', 'ec-secp384r1', 'ec-secp521r1'],
+                    'type': 'str'
+                },
+                'apcfg-auto-cert-enroll-protocol': {'v_range': [['7.6.5', '']], 'choices': ['none', 'scep', 'est'], 'type': 'str'},
+                'apcfg-auto-cert-est-ca-id': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-est-http-password': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'raw'},
+                'apcfg-auto-cert-est-http-username': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-est-https-ca': {'v_range': [['7.6.5', '']], 'type': 'raw'},
+                'apcfg-auto-cert-est-server': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-est-subject': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-est-subject-alt-name': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-scep-ca-id': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-scep-ec-name': {'v_range': [['7.6.5', '']], 'choices': ['secp256r1', 'secp384r1', 'secp521r1'], 'type': 'str'},
+                'apcfg-auto-cert-scep-https-ca': {'v_range': [['7.6.5', '']], 'type': 'raw'},
+                'apcfg-auto-cert-scep-keysize': {'v_range': [['7.6.5', '']], 'choices': ['1024', '1536', '2048', '4096'], 'type': 'str'},
+                'apcfg-auto-cert-scep-keytype': {'v_range': [['7.6.5', '']], 'choices': ['rsa', 'ec'], 'type': 'str'},
+                'apcfg-auto-cert-scep-password': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'raw'},
+                'apcfg-auto-cert-scep-sub-fully-dn': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-scep-subject-alt-name': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'apcfg-auto-cert-scep-url': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'lw-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'}
             }
         }
     }

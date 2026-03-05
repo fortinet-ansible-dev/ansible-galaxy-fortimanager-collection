@@ -14,7 +14,7 @@ DOCUMENTATION = '''
 module: fmgr_firewall_shapingprofile_classes
 short_description: Firewall shaping profile classes
 description:
-    - This module is able to configure a FortiManager device.
+    - This module is able to configure a FortiManager device (FortiProxy).
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.12.0"
 author:
@@ -211,13 +211,13 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_shapingprofile_classes': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'class-id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'guaranteed-bandwidth': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'maximum-bandwidth': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'priority': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['top', 'critical', 'high', 'medium', 'low'], 'type': 'str'}
+                'class-id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'guaranteed-bandwidth': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'maximum-bandwidth': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'priority': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['top', 'critical', 'high', 'medium', 'low'], 'type': 'str'}
             }
         }
     }

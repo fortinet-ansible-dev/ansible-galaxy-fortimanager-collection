@@ -1398,7 +1398,7 @@ def main():
                 'save-password': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-restriction': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'skip-check-for-unsupported-browser': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -1455,7 +1455,7 @@ def main():
                         'latest-patch-level': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'name': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                         'tolerance': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'minor-version': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '']], 'type': 'int'}
+                        'minor-version': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '']], 'type': 'int'}
                     }
                 },
                 'use-sdwan': {'v_range': [['6.2.7', '6.2.13'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -1464,7 +1464,7 @@ def main():
                 'clipboard': {'v_range': [['6.4.7', '6.4.15'], ['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'default-window-height': {'v_range': [['7.0.4', '']], 'type': 'int'},
                 'default-window-width': {'v_range': [['7.0.4', '']], 'type': 'int'},
-                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
+                'dhcp-ip-overlap': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['use-old', 'use-new'], 'type': 'str'},
                 'client-src-range': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dhcp-ra-giaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'dhcp6-ra-linkaddr': {'v_range': [['7.2.2', '']], 'type': 'str'},

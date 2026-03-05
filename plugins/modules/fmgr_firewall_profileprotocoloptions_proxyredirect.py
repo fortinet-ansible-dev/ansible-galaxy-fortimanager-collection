@@ -183,10 +183,10 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_profileprotocoloptions_proxyredirect': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'ports': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'int'},
-                'status': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ports': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'int'},
+                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

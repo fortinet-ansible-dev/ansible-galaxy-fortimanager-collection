@@ -138,6 +138,10 @@ options:
                 aliases: ['tertiary-server']
                 type: str
                 description: No description
+            src_ip:
+                aliases: ['src-ip']
+                type: str
+                description: Src ip.
 '''
 
 EXAMPLES = '''
@@ -244,7 +248,8 @@ def main():
                 'secondary-server': {'type': 'str'},
                 'server': {'type': 'str'},
                 'tertiary-key': {'no_log': True, 'type': 'raw'},
-                'tertiary-server': {'type': 'str'}
+                'tertiary-server': {'type': 'str'},
+                'src-ip': {'v_range': [['7.6.5', '']], 'type': 'str'}
             }
         }
     }

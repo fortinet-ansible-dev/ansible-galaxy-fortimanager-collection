@@ -370,7 +370,7 @@ def main():
                 'username': {'v_range': [['7.0.0', '']], 'type': 'str'},
                 'change-detection': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'change-detection-period': {'v_range': [['7.2.3', '']], 'type': 'int'},
-                'domain-name-src': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['server', 'client'], 'type': 'str'}
+                'domain-name-src': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['server', 'client'], 'type': 'str'}
             }
         }
     }

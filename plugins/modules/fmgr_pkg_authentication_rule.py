@@ -197,6 +197,13 @@ options:
                 aliases: ['web-proxy']
                 type: raw
                 description: (list) Web proxy.
+            session_logout:
+                aliases: ['session-logout']
+                type: str
+                description: Enable/disable logout of a user from the current session.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -240,6 +247,7 @@ EXAMPLES = '''
           # cert_auth_cookie: <value in [disable, enable]>
           # form_auth_fallback: <value in [disable, enable]>
           # web_proxy: <list or string>
+          # session_logout: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -319,8 +327,9 @@ def main():
                 'cors-depth': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'cors-stateful': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cert-auth-cookie': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'form-auth-fallback': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'web-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
+                'form-auth-fallback': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'web-proxy': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'session-logout': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

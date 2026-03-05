@@ -184,7 +184,7 @@ def main():
             'options': {
                 'assign_excluded': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'specify_assign_pkg_list': {'choices': ['disable', 'enable'], 'type': 'str'},
-                'assign_name': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'type': 'str'}
+                'assign_name': {'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']], 'type': 'str'}
             }
         }
     }

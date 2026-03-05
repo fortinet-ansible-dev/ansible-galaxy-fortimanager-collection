@@ -229,11 +229,11 @@ def main():
                 'variables': {'v_range': [['7.2.3', '']], 'type': 'raw'},
                 'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
                 'scope member': {
-                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

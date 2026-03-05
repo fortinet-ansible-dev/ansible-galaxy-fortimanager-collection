@@ -202,16 +202,16 @@ def main():
         'revision_note': {'type': 'str'},
         'icap_remoteservergroup': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'ldb-method': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['weighted', 'least-session', 'active-passive'], 'type': 'str'},
-                'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'ldb-method': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['weighted', 'least-session', 'active-passive'], 'type': 'str'},
+                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
                 'server-list': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                        'weight': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                        'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                        'weight': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 }

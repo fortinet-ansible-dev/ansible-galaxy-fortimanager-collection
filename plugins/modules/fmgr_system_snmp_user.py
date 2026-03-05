@@ -316,7 +316,7 @@ def main():
                 'queries': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'query-port': {'type': 'int'},
                 'security-level': {'choices': ['no-auth-no-priv', 'auth-no-priv', 'auth-priv'], 'type': 'str'},
-                'notify-port': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']], 'type': 'int'}
+                'notify-port': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'int'}
             }
         }
     }

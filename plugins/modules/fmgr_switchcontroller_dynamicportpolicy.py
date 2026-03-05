@@ -332,7 +332,7 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'fortilink': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'raw'}
+                'fortilink': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'raw'}
             }
         }
     }

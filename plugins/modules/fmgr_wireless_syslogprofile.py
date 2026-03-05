@@ -144,6 +144,9 @@ options:
                 choices:
                     - 'standard'
                     - 'fortianalyzer'
+            server:
+                type: str
+                description: Syslog server CN domain name or IP address.
 '''
 
 EXAMPLES = '''
@@ -175,6 +178,7 @@ EXAMPLES = '''
           # server_port: <integer>
           # server_status: <value in [disable, enable]>
           # server_type: <value in [standard, fortianalyzer]>
+          # server: <string>
 '''
 
 RETURN = '''
@@ -248,7 +252,8 @@ def main():
                 'server-ip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'server-port': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'server-status': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'server-type': {'v_range': [['7.6.2', '']], 'choices': ['standard', 'fortianalyzer'], 'type': 'str'}
+                'server-type': {'v_range': [['7.6.2', '']], 'choices': ['standard', 'fortianalyzer'], 'type': 'str'},
+                'server': {'v_range': [['7.6.5', '']], 'type': 'str'}
             }
         }
     }

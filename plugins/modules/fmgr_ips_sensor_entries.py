@@ -371,7 +371,7 @@ def main():
                 'rule': {'type': 'raw'},
                 'severity': {'type': 'raw'},
                 'status': {'choices': ['disable', 'enable', 'default'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 'cve': {'v_range': [['6.4.2', '']], 'type': 'raw'},
                 'default-action': {'v_range': [['7.2.0', '']], 'choices': ['block', 'pass', 'all', 'drop'], 'type': 'str'},
                 'default-status': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'enable', 'all'], 'type': 'str'},

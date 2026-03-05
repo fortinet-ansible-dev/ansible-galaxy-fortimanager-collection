@@ -197,10 +197,10 @@ def main():
         'revision_note': {'type': 'str'},
         'pkg_firewall_interfacepolicy6_sectionvalue': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+            'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
             'options': {
-                'attr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['label', 'global-label'], 'type': 'str'},
-                'name': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'}
+                'attr': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['label', 'global-label'], 'type': 'str'},
+                'name': {'v_range': [['6.0.0', '7.2.2'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
             }
         }
     }

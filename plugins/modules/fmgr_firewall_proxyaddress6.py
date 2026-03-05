@@ -217,6 +217,7 @@ options:
                     - 'url-list'
                     - 'saas'
                     - 'response-header'
+                    - 'llm-server'
             ua:
                 type: list
                 elements: str
@@ -245,6 +246,11 @@ options:
             uuid:
                 type: str
                 description: Uuid.
+            llm_servers:
+                aliases: ['llm-servers']
+                type: list
+                elements: str
+                description: Llm servers.
 '''
 
 EXAMPLES = '''
@@ -312,6 +318,7 @@ EXAMPLES = '''
           # ua_min_ver: <string>
           # url_list: <list or string>
           # uuid: <string>
+          # llm_servers: <list or string>
 '''
 
 RETURN = '''
@@ -417,7 +424,8 @@ def main():
                 'type': {
                     'v_range': [['7.6.4', '']],
                     'choices': [
-                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header'
+                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header',
+                        'llm-server'
                     ],
                     'type': 'str'
                 },
@@ -430,7 +438,8 @@ def main():
                 'ua-max-ver': {'v_range': [['7.6.4', '']], 'type': 'str'},
                 'ua-min-ver': {'v_range': [['7.6.4', '']], 'type': 'str'},
                 'url-list': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'llm-servers': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

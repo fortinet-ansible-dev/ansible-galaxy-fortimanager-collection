@@ -233,13 +233,13 @@ def main():
                 'content': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'id': {'v_range': [['6.2.0', '']], 'required': True, 'type': 'int'},
                 'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'http-header': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'http-header': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
                 'sesson-info-type': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'choices': ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp', 'proxy-name', 'auth-user-uri', 'auth-group-uri'],
                     'type': 'str'
                 },
-                'source': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
+                'source': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
             }
         }
     }

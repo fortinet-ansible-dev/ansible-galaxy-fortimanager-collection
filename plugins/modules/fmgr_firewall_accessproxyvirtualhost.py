@@ -230,7 +230,7 @@ def main():
                 'host-type': {'v_range': [['7.0.1', '']], 'choices': ['sub-string', 'wildcard'], 'type': 'str'},
                 'name': {'v_range': [['7.0.1', '']], 'required': True, 'type': 'str'},
                 'ssl-certificate': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'replacemsg-group': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                'replacemsg-group': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'type': 'str'},
                 'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['block', 'accept', 'accept-unmanageable'], 'type': 'str'},
                 'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}

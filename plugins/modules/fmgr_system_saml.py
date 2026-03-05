@@ -450,8 +450,8 @@ def main():
                 'user-auto-create': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-request-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'want-assertions-signed': {'v_range': [['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'logout-request-signed': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'logout-response-signed': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'logout-request-signed': {'v_range': [['7.4.8', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'logout-response-signed': {'v_range': [['7.4.8', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -1169,7 +1169,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.15'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1205,13 +1205,13 @@ def main():
                     'elements': 'dict'
                 },
                 'ec': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
                     'type': 'list',
                     'options': {
-                        'buffer': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                        'format': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
-                        'header': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
-                        'msg-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
+                        'buffer': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                        'format': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
+                        'header': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['none', 'http', '8bit'], 'type': 'str'},
+                        'msg-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -1408,7 +1408,7 @@ def main():
                         'format': {'choices': ['none', 'text', 'html', 'wml'], 'type': 'str'},
                         'header': {'choices': ['none', 'http', '8bit'], 'type': 'str'},
                         'msg-type': {'type': 'str'},
-                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.15'], ['7.2.3', '']], 'type': 'int'}
+                        'id': {'v_range': [['6.4.11', '6.4.15'], ['7.0.6', '7.0.16'], ['7.2.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

@@ -634,6 +634,12 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    negate:
+                        type: str
+                        description: Negate.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             logic_type:
                 aliases: ['logic-type']
                 type: str
@@ -641,6 +647,12 @@ options:
                 choices:
                     - 'or'
                     - 'and'
+            negate:
+                type: str
+                description: Negate.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -886,11 +898,13 @@ def main():
                         'sslvpn-webapp': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'sso-attribute-value': {'v_range': [['7.0.2', '']], 'type': 'str'},
                         'user-id': {'v_range': [['7.0.2', '']], 'choices': ['email', 'auto-generate', 'specify'], 'type': 'str'},
-                        'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'negate': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'logic-type': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['or', 'and'], 'type': 'str'}
+                'logic-type': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['or', 'and'], 'type': 'str'},
+                'negate': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

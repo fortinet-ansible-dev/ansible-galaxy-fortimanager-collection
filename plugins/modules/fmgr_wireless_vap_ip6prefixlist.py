@@ -217,15 +217,19 @@ def main():
         'revision_note': {'type': 'str'},
         'wireless_vap_ip6prefixlist': {
             'type': 'dict',
-            'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+            'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
             'options': {
-                'autonomous-flag': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dnssl': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                'onlink-flag': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'preferred-life-time': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
-                'prefix': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                'rdnss': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                'valid-life-time': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'}
+                'autonomous-flag': {
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'dnssl': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'onlink-flag': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'preferred-life-time': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
+                'prefix': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                'rdnss': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'valid-life-time': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'}
             }
         }
     }

@@ -1166,3 +1166,44 @@ releases:
         name: fmgr_ztna_webproxy_apigateway_realservers
         namespace: ""
     release_date: "2025-12-23"
+  2.13.0:
+    changes:
+      minor_changes:
+        - Supported new environment variable "ANSIBLE_FORTIMANAGER_ENABLE_LOG" to enable/disable
+          logging for FortiManager Ansible Collection.
+        - Supported new environment variable "ANSIBLE_FORTIMANAGER_VERSION_CHECK" to
+          enable/disable version checking performed by the FortiManager Ansible Collection.
+        - Supported new schemas in FortiManager 7.0.16, 7.2.12, 7.4.9, 7.4.10, 7.6.5,
+          7.6.6
+      release_summary: Release fortinet.fortimanager 2.13.0
+    fragments:
+      - 2.13.0.yml
+    modules:
+      - description: System template system template interface
+        name: fmgr_devprof_system_template_interface
+        namespace: ""
+      - description: System template system template interface ip range
+        name: fmgr_devprof_system_template_interface_iprange
+        namespace: ""
+      - description: Fmg script
+        name: fmgr_fmg_script
+        namespace: ""
+      - description: Fmg script schedule
+        name: fmgr_fmg_script_schedule
+        namespace: ""
+      - description: Securityconsole template validate
+        name: fmgr_securityconsole_template_validate
+        namespace: ""
+      - description: Cli system locallog tacacs+accounting filter
+        name: fmgr_system_locallog_tacacsaccounting_filter
+        namespace: ""
+      - description: Cli system locallog tacacs+accounting setting
+        name: fmgr_system_locallog_tacacsaccounting_setting
+        namespace: ""
+      - description: Cli system log api ratelimit
+        name: fmgr_system_log_apiratelimit
+        namespace: ""
+      - description: Cli system log settings client cert auth
+        name: fmgr_system_log_settings_clientcertauth
+        namespace: ""
+    release_date: "2026-03-04"

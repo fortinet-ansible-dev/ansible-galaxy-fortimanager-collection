@@ -1,5 +1,5 @@
 ---
-requires_ansible: ">=2.15.0"
+requires_ansible: ">=2.16.0"
 action_groups:
   adom:
     - fmgr_adom_options
@@ -110,6 +110,8 @@ action_groups:
     - fmgr_devprof_system_snmp_community_hosts6
     - fmgr_devprof_system_snmp_sysinfo
     - fmgr_devprof_system_snmp_user
+    - fmgr_devprof_system_template_interface
+    - fmgr_devprof_system_template_interface_iprange
     - fmgr_diameterfilter_profile
     - fmgr_dlp_datatype
     - fmgr_dlp_dictionary
@@ -181,7 +183,6 @@ action_groups:
     - fmgr_dynamic_interface_dynamicmapping
     - fmgr_dynamic_interface_platformmapping
     - fmgr_dynamic_ippool
-    - fmgr_dynamic_log_npuserver_servergroup
     - fmgr_dynamic_log_npuserver_servergroup_dynamicmapping
     - fmgr_dynamic_multicast_interface
     - fmgr_dynamic_multicast_interface_dynamicmapping
@@ -346,9 +347,6 @@ action_groups:
     - fmgr_firewall_internetserviceextension_disableentry_portrange
     - fmgr_firewall_internetserviceextension_entry
     - fmgr_firewall_internetserviceextension_entry_portrange
-    - fmgr_firewall_internetservicefortiguard
-    - fmgr_firewall_internetservicefortiguard_entry
-    - fmgr_firewall_internetservicefortiguard_entry_portrange
     - fmgr_firewall_internetservicegroup
     - fmgr_firewall_internetservicename
     - fmgr_firewall_ippool
@@ -459,6 +457,8 @@ action_groups:
     - fmgr_fmg_fabric_authorization_template_platforms
     - fmgr_fmg_sasemanager_settings
     - fmgr_fmg_sasemanager_status
+    - fmgr_fmg_script
+    - fmgr_fmg_script_schedule
     - fmgr_fmg_variable
     - fmgr_fmg_variable_dynamicmapping
     - fmgr_fsp_vlan
@@ -538,13 +538,11 @@ action_groups:
     - fmgr_icap_profile_icapheaders
     - fmgr_icap_profile_respmodforwardrules
     - fmgr_icap_profile_respmodforwardrules_headergroup
-    - fmgr_icap_remoteserver
     - fmgr_icap_remoteservergroup
     - fmgr_icap_remoteservergroup_serverlist
     - fmgr_icap_server
     - fmgr_icap_servergroup
     - fmgr_icap_servergroup_serverlist
-    - fmgr_imageanalyzer_profile
     - fmgr_ips_baseline_sensor
     - fmgr_ips_baseline_sensor_entries
     - fmgr_ips_baseline_sensor_entries_exemptip
@@ -609,7 +607,6 @@ action_groups:
     - fmgr_pkg_firewall_shapingpolicy
     - fmgr_pkg_user_nacpolicy
     - fmgr_pkg_videofilter_youtubekey
-    - fmgr_pkg_webproxy_pacpolicy
     - fmgr_pm_config_meta_reference
     - fmgr_pm_config_pblock_firewall_consolidated_policy
     - fmgr_pm_config_pblock_firewall_consolidated_policy_sectionvalue
@@ -708,7 +705,6 @@ action_groups:
     - fmgr_switchcontroller_managedswitch_snmptrapthreshold
     - fmgr_switchcontroller_managedswitch_snmpuser
     - fmgr_switchcontroller_managedswitch_systemdhcpserver
-    - fmgr_switchcontroller_managedswitch_systemdhcpserver_iprange
     - fmgr_switchcontroller_managedswitch_systemdhcpserver_options
     - fmgr_switchcontroller_managedswitch_systeminterface
     - fmgr_switchcontroller_managedswitch_vlan
@@ -722,7 +718,6 @@ action_groups:
     - fmgr_switchcontroller_securitypolicy_8021x
     - fmgr_switchcontroller_securitypolicy_captiveportal
     - fmgr_switchcontroller_securitypolicy_localaccess
-    - fmgr_switchcontroller_switchgroup
     - fmgr_switchcontroller_switchinterfacetag
     - fmgr_switchcontroller_switchprofile
     - fmgr_switchcontroller_trafficpolicy
@@ -919,7 +914,6 @@ action_groups:
     - fmgr_vpn_ipsec_phase1_ipv6excluderange
     - fmgr_vpn_kmipserver
     - fmgr_vpn_kmipserver_serverlist
-    - fmgr_vpn_qkd
     - fmgr_vpnmgr_node
     - fmgr_vpnmgr_node_iprange
     - fmgr_vpnmgr_node_ipv4excluderange
@@ -1050,8 +1044,6 @@ action_groups:
     - fmgr_wtpprofile_splittunnelingacl
     - fmgr_ztna_serviceconnector
     - fmgr_ztna_trafficforwardproxy
-    - fmgr_ztna_trafficforwardproxy_quic
-    - fmgr_ztna_trafficforwardproxy_sslciphersuites
     - fmgr_ztna_trafficforwardproxy_sslserverciphersuites
     - fmgr_ztna_trafficforwardproxy_urlroute
     - fmgr_ztna_webportal
@@ -1060,12 +1052,9 @@ action_groups:
     - fmgr_ztna_webproxy
     - fmgr_ztna_webproxy_apigateway
     - fmgr_ztna_webproxy_apigateway6
-    - fmgr_ztna_webproxy_apigateway6_quic
     - fmgr_ztna_webproxy_apigateway6_realservers
     - fmgr_ztna_webproxy_apigateway6_sslciphersuites
-    - fmgr_ztna_webproxy_apigateway_quic
     - fmgr_ztna_webproxy_apigateway_realservers
-    - fmgr_ztna_webproxy_apigateway_sslciphersuites
   all:
     - fmgr_clone
     - fmgr_dvm_cmd_add_device
@@ -1147,6 +1136,7 @@ action_groups:
     - fmgr_securityconsole_reinstall_package
     - fmgr_securityconsole_sign_certificate_template
     - fmgr_securityconsole_template_cli_preview
+    - fmgr_securityconsole_template_validate
     - fmgr_sys_api_sdnconnector
     - fmgr_sys_cloud_orchest
     - fmgr_sys_generate_wsdl
@@ -1245,7 +1235,10 @@ action_groups:
     - fmgr_system_locallog_syslogd3_setting
     - fmgr_system_locallog_syslogd_filter
     - fmgr_system_locallog_syslogd_setting
+    - fmgr_system_locallog_tacacsaccounting_filter
+    - fmgr_system_locallog_tacacsaccounting_setting
     - fmgr_system_log_alert
+    - fmgr_system_log_apiratelimit
     - fmgr_system_log_devicedisable
     - fmgr_system_log_deviceselector
     - fmgr_system_log_fospolicystats
@@ -1256,6 +1249,7 @@ action_groups:
     - fmgr_system_log_ratelimit_device
     - fmgr_system_log_ratelimit_ratelimits
     - fmgr_system_log_settings
+    - fmgr_system_log_settings_clientcertauth
     - fmgr_system_log_settings_rollinganalyzer
     - fmgr_system_log_settings_rollinglocal
     - fmgr_system_log_settings_rollingregular

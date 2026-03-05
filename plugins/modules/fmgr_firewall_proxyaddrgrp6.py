@@ -130,6 +130,13 @@ options:
             uuid:
                 type: str
                 description: Uuid.
+            logic_type:
+                aliases: ['logic-type']
+                type: str
+                description: Logic type.
+                choices:
+                    - 'or'
+                    - 'and'
 '''
 
 EXAMPLES = '''
@@ -162,6 +169,7 @@ EXAMPLES = '''
           #     tags: <list or string>
           # type: <value in [src, dst]>
           # uuid: <string>
+          # logic_type: <value in [or, and]>
 '''
 
 RETURN = '''
@@ -238,7 +246,8 @@ def main():
                     'elements': 'dict'
                 },
                 'type': {'v_range': [['7.6.4', '']], 'choices': ['src', 'dst'], 'type': 'str'},
-                'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                'uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'logic-type': {'v_range': [['7.6.5', '']], 'choices': ['or', 'and'], 'type': 'str'}
             }
         }
     }

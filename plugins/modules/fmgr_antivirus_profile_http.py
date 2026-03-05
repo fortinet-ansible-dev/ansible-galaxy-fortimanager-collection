@@ -361,7 +361,7 @@ def main():
                 'fortindr': {'v_range': [['7.0.5', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                 'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
-                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
+                'unknown-content-encoding': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
                 'malware-stream': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'}
             }
         }

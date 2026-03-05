@@ -1342,10 +1342,10 @@ def main():
                 'account-key-cert-field': {'v_range': [['7.4.1', '']], 'choices': ['othername', 'rfc822name', 'dnsname', 'cn'], 'type': 'str'},
                 'account-key-processing': {'v_range': [['7.4.1', '']], 'choices': ['same', 'strip'], 'type': 'str'},
                 'call-station-id-type': {'v_range': [['7.4.1', '']], 'choices': ['legacy', 'IP', 'MAC'], 'type': 'str'},
-                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'switch-controller-nas-ip-dynamic': {'v_range': [['7.2.6', '7.2.12'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'require-message-authenticator': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

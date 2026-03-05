@@ -543,13 +543,13 @@ def main():
                         'content': {'v_range': [['6.2.0', '']], 'type': 'str'},
                         'id': {'v_range': [['6.2.0', '']], 'type': 'int'},
                         'name': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                        'http-header': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                        'http-header': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
                         'sesson-info-type': {
-                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                             'choices': ['client-ip', 'user', 'upn', 'domain', 'local-grp', 'remote-grp', 'proxy-name', 'auth-user-uri', 'auth-group-uri'],
                             'type': 'str'
                         },
-                        'source': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
+                        'source': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['content', 'http-header', 'session'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -592,10 +592,10 @@ def main():
                 'timeout': {'v_range': [['7.2.0', '']], 'type': 'int'},
                 'comment': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'ocr-only': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ocr_only': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-oversize-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'scan-size-limit': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'allow-204-response': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ocr_only': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-oversize-log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'scan-size-limit': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'allow-204-response': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

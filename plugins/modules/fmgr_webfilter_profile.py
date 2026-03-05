@@ -1335,7 +1335,7 @@ def main():
                                 'type': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['time', 'traffic'], 'type': 'str'},
                                 'unit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                                 'value': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                                'reset-frequency': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                                'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
@@ -1345,13 +1345,13 @@ def main():
                         'rate-javascript-urls': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'category-override': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '6.4.15']], 'type': 'str'},
                         'risk': {
-                            'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']],
+                            'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
                             'type': 'list',
                             'options': {
-                                'action': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
-                                'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                                'log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                                'risk-level': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'type': 'raw'}
+                                'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                                'log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                                'risk-level': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'raw'}
                             },
                             'elements': 'dict'
                         }
@@ -1436,7 +1436,7 @@ def main():
                         },
                         'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                        'qwant-restrict': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
+                        'qwant-restrict': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
                     }
                 },
                 'file-filter': {
@@ -1473,7 +1473,7 @@ def main():
                     }
                 },
                 'web-flow-log-encoding': {'v_range': [['7.4.2', '']], 'choices': ['utf-8', 'punycode'], 'type': 'str'},
-                'ia-categorization': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'ia-categorization': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

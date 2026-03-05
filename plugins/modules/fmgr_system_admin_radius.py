@@ -247,14 +247,14 @@ def main():
                 'secondary-server': {'type': 'str'},
                 'secret': {'no_log': True, 'type': 'raw'},
                 'server': {'type': 'str'},
-                'ca-cert': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                'client-cert': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
+                'ca-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                'client-cert': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
                 'message-authenticator': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
                     'choices': ['optional', 'require'],
                     'type': 'str'
                 },
-                'protocol': {'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
+                'protocol': {'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']], 'choices': ['udp', 'tls'], 'type': 'str'}
             }
         }
     }

@@ -186,11 +186,11 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_log_syslogd_setting_customfieldname': {
             'type': 'dict',
-            'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']],
+            'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']],
             'options': {
-                'custom': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
-                'id': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'required': True, 'type': 'int'},
-                'name': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
+                'custom': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'str'},
+                'id': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'str'}
             }
         }
     }

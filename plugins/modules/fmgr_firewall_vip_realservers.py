@@ -293,8 +293,8 @@ def main():
                 'id': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['ip', 'address'], 'type': 'str'},
                 'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'verify-cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'health-check-proto': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['ping', 'http'], 'type': 'str'}
+                'verify-cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'health-check-proto': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['ping', 'http'], 'type': 'str'}
             }
         }
     }

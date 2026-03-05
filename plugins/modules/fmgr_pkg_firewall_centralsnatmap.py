@@ -340,10 +340,10 @@ def main():
                 'dst-port': {'v_range': [['7.2.6', '']], 'type': 'str'},
                 'port-preserve': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'action': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['bypass', 'masquerade', 'ippool'], 'type': 'str'},
-                'ipv6': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'src-addr': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                'src-addr6': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
+                'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['bypass', 'masquerade', 'ippool'], 'type': 'str'},
+                'ipv6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'src-addr': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'src-addr6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'}
             }
         }
     }

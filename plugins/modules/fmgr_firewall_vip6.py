@@ -775,6 +775,10 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    vip_id:
+                        aliases: ['vip-id']
+                        type: int
+                        description: Vip id.
             extip:
                 type: str
                 description: IP address or address range on the external interface that you want to map to an address or address range on the destinati...
@@ -1569,6 +1573,10 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            vip_id:
+                aliases: ['vip-id']
+                type: int
+                description: Vip id.
 '''
 
 EXAMPLES = '''
@@ -1820,14 +1828,15 @@ def main():
                             },
                             'elements': 'dict'
                         },
-                        'ndp-reply': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ndp-reply': {'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['accept', 'block', 'accept-unmanageable'], 'type': 'str'},
-                        'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'vip-id': {'v_range': [['7.6.5', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
@@ -1997,7 +2006,7 @@ def main():
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'nat66': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-accept-ffdhe-groups': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ndp-reply': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ndp-reply': {'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ssl-server-renegotiation': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h2-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'h3-support': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2018,7 +2027,8 @@ def main():
                 'src-vip-filter': {'v_range': [['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'client-cert': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'empty-cert-action': {'v_range': [['7.6.2', '']], 'choices': ['accept', 'block', 'accept-unmanageable'], 'type': 'str'},
-                'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'user-agent-detect': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'vip-id': {'v_range': [['7.6.5', '']], 'type': 'int'}
             }
         }
     }

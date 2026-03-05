@@ -194,11 +194,11 @@ def main():
         'pkg_videofilter_youtubekey': {
             'type': 'dict',
             'no_log': False,
-            'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']],
+            'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']],
             'options': {
-                'id': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'required': True, 'type': 'int'},
-                'key': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'id': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'required': True, 'type': 'int'},
+                'key': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'no_log': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

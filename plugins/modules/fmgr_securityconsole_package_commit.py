@@ -174,7 +174,7 @@ def main():
             'options': {
                 'adom': {'type': 'str'},
                 'scope': {'type': 'list', 'options': {'name': {'type': 'str'}, 'vdom': {'type': 'str'}}, 'elements': 'dict'},
-                'flags': {'v_range': [['7.4.6', '7.4.8'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
+                'flags': {'v_range': [['7.4.6', '7.4.10'], ['7.6.2', '']], 'type': 'list', 'choices': ['auto_lock_ws'], 'elements': 'str'}
             }
         }
     }

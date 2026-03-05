@@ -315,7 +315,7 @@ def main():
                 },
                 'blocklist': {'v_range': [['7.0.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vimeo-restrict': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'qwant-restrict': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
+                'qwant-restrict': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['strict', 'none', 'moderate'], 'type': 'str'}
             }
         }
     }

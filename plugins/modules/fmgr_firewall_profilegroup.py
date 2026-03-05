@@ -211,6 +211,10 @@ options:
                 aliases: ['redirect-profile']
                 type: raw
                 description: (list) Redirect profile.
+            llm_profile:
+                aliases: ['llm-profile']
+                type: raw
+                description: (list) Llm profile.
 '''
 
 EXAMPLES = '''
@@ -318,7 +322,7 @@ def main():
                 'mms-profile': {'v_range': [['6.0.0', '7.6.2']], 'type': 'str'},
                 'name': {'required': True, 'type': 'str'},
                 'profile-protocol-options': {'type': 'str'},
-                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'spamfilter-profile': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 'ssh-filter-profile': {'type': 'str'},
                 'ssl-ssh-profile': {'type': 'str'},
                 'voip-profile': {'type': 'str'},
@@ -336,9 +340,10 @@ def main():
                 'virtual-patch-profile': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'diameter-filter-profile': {'v_range': [['7.4.2', '']], 'type': 'str'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
-                'ia-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                'isolator-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                'redirect-profile': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
+                'ia-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'isolator-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'redirect-profile': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'}
             }
         }
     }

@@ -185,8 +185,8 @@ def main():
         'revision_note': {'type': 'str'},
         'webfilter_urllist_entries': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
-            'options': {'url': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}}
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
+            'options': {'url': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}}
         }
     }
 

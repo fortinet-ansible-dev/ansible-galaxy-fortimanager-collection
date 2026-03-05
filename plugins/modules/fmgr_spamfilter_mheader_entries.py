@@ -213,14 +213,14 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_mheader_entries': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
             'options': {
-                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['spam', 'clear'], 'type': 'str'},
-                'fieldbody': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'fieldname': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
-                'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['spam', 'clear'], 'type': 'str'},
+                'fieldbody': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'fieldname': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
+                'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

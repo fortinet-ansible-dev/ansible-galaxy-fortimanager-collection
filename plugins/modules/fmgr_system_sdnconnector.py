@@ -568,6 +568,10 @@ options:
             vdom:
                 type: raw
                 description: (list) Virtual domain name of the remote SDN connector.
+            par_id:
+                aliases: ['par-id']
+                type: str
+                description: Public address range ID.
 '''
 
 EXAMPLES = '''
@@ -691,12 +695,12 @@ def main():
                                 'name': {'type': 'str'},
                                 'public-ip': {'type': 'str'},
                                 'resource-group': {'v_range': [['6.2.3', '']], 'type': 'str'},
-                                'private-ip': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'}
+                                'private-ip': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'}
                             },
                             'elements': 'dict'
                         },
                         'name': {'type': 'str'},
-                        'peer-nic': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'}
+                        'peer-nic': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -751,7 +755,7 @@ def main():
                 'oci-region-type': {'v_range': [['6.2.1', '']], 'choices': ['commercial', 'government'], 'type': 'str'},
                 'secret-token': {'v_range': [['6.2.0', '']], 'no_log': True, 'type': 'str'},
                 'updating': {'v_range': [['6.2.1', '7.2.0']], 'type': 'int'},
-                'server-ip': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'server-ip': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 'group-name': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'api-key': {'v_range': [['6.4.1', '']], 'no_log': True, 'type': 'raw'},
                 'compute-generation': {'v_range': [['6.4.1', '']], 'type': 'int'},
@@ -781,7 +785,7 @@ def main():
                     'options': {
                         'region-list': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                         'role-arn': {'v_range': [['7.0.3', '']], 'type': 'str'},
-                        'external-id': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
+                        'external-id': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -819,7 +823,8 @@ def main():
                 'proxy': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'message-server-port': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'microsoft-365': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'vdom': {'v_range': [['7.6.3', '']], 'type': 'raw'}
+                'vdom': {'v_range': [['7.6.3', '']], 'type': 'raw'},
+                'par-id': {'v_range': [['7.6.5', '']], 'type': 'str'}
             }
         }
     }

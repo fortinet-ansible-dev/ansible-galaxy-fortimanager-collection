@@ -227,19 +227,19 @@ def main():
         'revision_note': {'type': 'str'},
         'gtp_rattimeoutprofile': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'eutran-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'gan-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'geran-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'hspa-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'ltem-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'nbiot-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'nr-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'utran-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'virtual-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'wlan-timeout': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'eutran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'gan-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'geran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'hspa-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'ltem-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'nbiot-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'nr-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'utran-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'virtual-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'wlan-timeout': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

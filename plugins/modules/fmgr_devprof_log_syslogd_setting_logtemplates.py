@@ -209,19 +209,19 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_log_syslogd_setting_logtemplates': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
                 'category': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'choices': [
                         'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh', 'ssl',
                         'file-filter', 'icap', 'virtual-patch'
                     ],
                     'type': 'str'
                 },
-                'empty-value-indicator': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'template': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                'empty-value-indicator': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'template': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

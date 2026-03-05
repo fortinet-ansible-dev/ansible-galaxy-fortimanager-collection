@@ -423,7 +423,7 @@ def main():
                         'type': {'choices': ['time', 'traffic'], 'type': 'str'},
                         'unit': {'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                         'value': {'type': 'int'},
-                        'reset-frequency': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                        'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -433,13 +433,13 @@ def main():
                 'rate-javascript-urls': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'category-override': {'v_range': [['6.2.0', '6.4.15']], 'type': 'str'},
                 'risk': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
-                        'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                        'log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'risk-level': {'v_range': [['7.4.8', '7.4.8'], ['7.6.2', '']], 'type': 'raw'}
+                        'action': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['block', 'monitor'], 'type': 'str'},
+                        'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                        'log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'risk-level': {'v_range': [['7.4.8', '7.4.10'], ['7.6.2', '']], 'type': 'raw'}
                     },
                     'elements': 'dict'
                 }

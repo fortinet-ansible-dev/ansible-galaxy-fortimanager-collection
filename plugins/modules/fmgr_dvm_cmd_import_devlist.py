@@ -758,6 +758,9 @@ options:
                     sov_sase_license:
                         type: str
                         description: Sov sase license.
+                    tunnel_sn:
+                        type: str
+                        description: Tunnel sn.
             import_group_members:
                 aliases: ['import-group-members']
                 type: list
@@ -1016,6 +1019,7 @@ EXAMPLES = '''
           #     ha_upgrade_mode: <integer>
           #     vm_payg_status: <integer>
           #     sov_sase_license: <string>
+          #     tunnel_sn: <string>
           # import_group_members:
           #   - adom: <string>
           #     dev: <string>
@@ -1197,7 +1201,7 @@ def main():
                                 'role': {'choices': ['slave', 'master'], 'type': 'str'},
                                 'sn': {'type': 'str'},
                                 'status': {'type': 'int'},
-                                'conf_status': {'v_range': [['7.0.10', '7.0.15'], ['7.2.1', '']], 'type': 'int'}
+                                'conf_status': {'v_range': [['7.0.10', '7.0.16'], ['7.2.1', '']], 'type': 'int'}
                             },
                             'elements': 'dict'
                         },
@@ -1265,17 +1269,18 @@ def main():
                         'nsxt_service_name': {'v_range': [['6.4.4', '']], 'type': 'str'},
                         'private_key': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'str'},
                         'private_key_status': {'v_range': [['6.2.7', '6.2.13'], ['6.4.4', '']], 'no_log': True, 'type': 'int'},
-                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'int'},
-                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
+                        'vm_lic_overdue_since': {'v_range': [['6.4.12', '6.4.15'], ['7.0.8', '7.0.16'], ['7.2.3', '']], 'type': 'int'},
+                        'first_tunnel_up': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'int'},
                         'eip': {'v_range': [['7.2.1', '']], 'type': 'str'},
                         'mgmt_uuid': {'v_range': [['7.2.1', '']], 'type': 'str'},
-                        'hw_generation': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'type': 'int'},
+                        'hw_generation': {'v_range': [['7.2.4', '7.2.12'], ['7.4.1', '']], 'type': 'int'},
                         'relver_info': {'v_range': [['7.4.3', '']], 'type': 'str'},
                         'cluster_worker': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                        'ha.vsn': {'v_range': [['7.2.6', '7.2.11'], ['7.4.4', '']], 'type': 'str'},
+                        'ha.vsn': {'v_range': [['7.2.6', '7.2.12'], ['7.4.4', '']], 'type': 'str'},
                         'ha_upgrade_mode': {'v_range': [['7.4.4', '']], 'type': 'int'},
-                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'int'},
-                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                        'vm_payg_status': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'int'},
+                        'sov_sase_license': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'tunnel_sn': {'v_range': [['7.6.5', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

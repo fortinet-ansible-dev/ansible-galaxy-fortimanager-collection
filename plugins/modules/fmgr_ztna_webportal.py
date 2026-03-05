@@ -239,6 +239,18 @@ options:
                 type: list
                 elements: str
                 description: Virtual IPv6 name.
+            llm_profile:
+                aliases: ['llm-profile']
+                type: list
+                elements: str
+                description: Llm profile.
+            llm_proxy:
+                aliases: ['llm-proxy']
+                type: str
+                description: Llm proxy.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -287,6 +299,8 @@ EXAMPLES = '''
           # vip: <list or string>
           # windows_forticlient_download_url: <string>
           # vip6: <list or string>
+          # llm_profile: <list or string>
+          # llm_proxy: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -377,7 +391,9 @@ def main():
                 },
                 'vip': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
                 'windows-forticlient-download-url': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'vip6': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'vip6': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'},
+                'llm-proxy': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

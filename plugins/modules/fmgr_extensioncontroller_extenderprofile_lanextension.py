@@ -118,6 +118,26 @@ options:
                     weight:
                         type: int
                         description: WRR weight parameter.
+                    health_check_fail_cnt:
+                        aliases: ['health-check-fail-cnt']
+                        type: int
+                        description: Number of failures before the link is considered dead
+                    health_check_interval:
+                        aliases: ['health-check-interval']
+                        type: int
+                        description: Health monitoring interval in seconds
+                    health_check_probe_cnt:
+                        aliases: ['health-check-probe-cnt']
+                        type: int
+                        description: Number of health monitoring probes to send within an interval
+                    health_check_probe_tm:
+                        aliases: ['health-check-probe-tm']
+                        type: int
+                        description: Health monitoring probe timeout in seconds
+                    health_check_recovery_cnt:
+                        aliases: ['health-check-recovery-cnt']
+                        type: int
+                        description: Number of successful checks before the link is considered alive
             backhaul_interface:
                 aliases: ['backhaul-interface']
                 type: str
@@ -220,6 +240,11 @@ EXAMPLES = '''
           #     port: <value in [wan, lte1, lte2, ...]>
           #     role: <value in [primary, secondary]>
           #     weight: <integer>
+          #     health_check_fail_cnt: <integer>
+          #     health_check_interval: <integer>
+          #     health_check_probe_cnt: <integer>
+          #     health_check_probe_tm: <integer>
+          #     health_check_recovery_cnt: <integer>
           # backhaul_interface: <string>
           # backhaul_ip: <string>
           # ipsec_tunnel: <string>
@@ -310,7 +335,12 @@ def main():
                             'type': 'str'
                         },
                         'role': {'v_range': [['7.2.1', '']], 'choices': ['primary', 'secondary'], 'type': 'str'},
-                        'weight': {'v_range': [['7.2.1', '']], 'type': 'int'}
+                        'weight': {'v_range': [['7.2.1', '']], 'type': 'int'},
+                        'health-check-fail-cnt': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                        'health-check-interval': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                        'health-check-probe-cnt': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                        'health-check-probe-tm': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                        'health-check-recovery-cnt': {'v_range': [['7.6.5', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },

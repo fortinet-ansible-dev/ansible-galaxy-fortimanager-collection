@@ -252,7 +252,7 @@ def main():
                 'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
                 'wildcard-fqdn': {'type': 'str'},
                 'finger-print-category': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
                     'type': 'str'
                 }

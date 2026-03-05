@@ -986,7 +986,7 @@ def main():
                     'options': {'policy-block-name': {'v_range': [['7.6.0', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'old-password': {'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
+                'old-password': {'v_range': [['7.2.11', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'no_log': True, 'type': 'str'},
                 'autoreg-user': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }

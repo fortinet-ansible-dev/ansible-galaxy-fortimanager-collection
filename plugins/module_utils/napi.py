@@ -31,6 +31,7 @@ __metaclass__ = type
 from ansible.module_utils.basic import _load_params
 import datetime
 import re
+import os
 
 try:
     import yaml
@@ -46,6 +47,7 @@ RENAME_ARG = {"message": "fmgr_message",
               "80211k": "d80211k",
               "80211v": "d80211v",
               "80211mc": "d80211mc"}
+VERSION_CHECK = os.getenv("ANSIBLE_FORTIMANAGER_VERSION_CHECK", "true").lower() in ["true", "1", "yes", "y", "t"]
 
 
 def check_galaxy_version(schema):
@@ -237,7 +239,7 @@ class NAPIManager(object):
         argument_specs = self.metadata
         params = self.module.params
         module_name = self.module_level2_name
-        version_check = params.get("version_check", True)
+        version_check = params.get("version_check", VERSION_CHECK)
         bypass_valid = params.get("bypass_validation", False)
         if version_check and not bypass_valid:
             track = [module_name]
@@ -336,7 +338,7 @@ class NAPIManager(object):
         argument_specs = self.metadata
         module_name = self.module_level2_name
         params = self.module.params
-        version_check = params.get("version_check", True)
+        version_check = params.get("version_check", VERSION_CHECK)
         bypass_valid = self.module.params.get("bypass_validation", False)
         if version_check and not bypass_valid:
             track = [module_name]
@@ -391,7 +393,7 @@ class NAPIManager(object):
         argument_specs = self.metadata
         params = self.module.params
         module_name = self.module_level2_name
-        version_check = params.get('version_check', True)
+        version_check = params.get('version_check', VERSION_CHECK)
         bypass_valid = params.get('bypass_validation', False)
         if version_check and not bypass_valid:
             track = [module_name]
@@ -433,7 +435,7 @@ class NAPIManager(object):
         argument_specs = self.metadata
         module_name = self.module_level2_name
         params = self.module.params
-        version_check = params.get('version_check', True)
+        version_check = params.get('version_check', VERSION_CHECK)
         bypass_valid = params.get("bypass_validation", False)
         if version_check and not bypass_valid:
             track = [module_name]
@@ -1204,7 +1206,7 @@ class NAPIManager(object):
             return_response["message"] = "Using check mode."
             if message:
                 return_response["message"] += " " + message
-        if len(self.version_check_warnings) and self.module.params.get("version_check", True):
+        if len(self.version_check_warnings) and self.module.params.get("version_check", VERSION_CHECK):
             version_check_warning = {}
             version_check_warning["mismatches"] = self.version_check_warnings
             if self.system_status:

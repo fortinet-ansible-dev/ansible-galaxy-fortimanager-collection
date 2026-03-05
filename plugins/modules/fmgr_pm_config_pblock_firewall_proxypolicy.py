@@ -590,6 +590,10 @@ options:
                 type: list
                 elements: str
                 description: FortiGuard Internet Service IPv6 name.
+            poolname6:
+                type: list
+                elements: str
+                description: Name of IPv6 pool object.
 '''
 
 EXAMPLES = '''
@@ -706,6 +710,7 @@ EXAMPLES = '''
           # telemetry_profile: <list or string>
           # internet_service_fortiguard: <list or string>
           # internet_service6_fortiguard: <list or string>
+          # poolname6: <list or string>
 '''
 
 RETURN = '''
@@ -862,7 +867,8 @@ def main():
                 'https-sub-category': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'list', 'elements': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'poolname6': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

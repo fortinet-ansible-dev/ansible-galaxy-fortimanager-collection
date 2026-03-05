@@ -800,6 +800,7 @@ options:
                                             - 'capwap'
                                             - 'fabric'
                                             - 'scim'
+                                            - 'probe-response'
                                     ip6_default_life:
                                         aliases: ['ip6-default-life']
                                         type: int
@@ -850,6 +851,13 @@ options:
                                                 aliases: ['delegated-prefix-iaid']
                                                 type: int
                                                 description: IAID of obtained delegated-prefix from the upstream interface.
+                                            dnssl_service:
+                                                aliases: ['dnssl-service']
+                                                type: str
+                                                description: Enable/disable use of domain from delegated prefix for DNSSL.
+                                                choices:
+                                                    - 'disable'
+                                                    - 'enable'
                                     ip6_dns_server_override:
                                         aliases: ['ip6-dns-server-override']
                                         type: str
@@ -2697,6 +2705,13 @@ options:
                                         aliases: ['delegated-prefix-iaid']
                                         type: int
                                         description: IAID of obtained delegated-prefix from the upstream interface.
+                                    dnssl_service:
+                                        aliases: ['dnssl-service']
+                                        type: str
+                                        description: Enable/disable use of domain from delegated prefix for DNSSL.
+                                        choices:
+                                            - 'disable'
+                                            - 'enable'
                             ip6_dns_server_override:
                                 aliases: ['ip6-dns-server-override']
                                 type: str
@@ -4510,6 +4525,15 @@ options:
                         choices:
                             - 'disable'
                             - 'enable'
+                    mrru:
+                        type: int
+                        description: PPP MRRU
+                    multilink:
+                        type: str
+                        description: Enable/disable PPP multilink support.
+                        choices:
+                            - 'disable'
+                            - 'enable'
 '''
 
 EXAMPLES = '''
@@ -4672,6 +4696,7 @@ EXAMPLES = '''
           #           - "capwap"
           #           - "fabric"
           #           - "scim"
+          #           - "probe-response"
           #         ip6_default_life: <integer>
           #         ip6_delegated_prefix_list:
           #           - autonomous_flag: <value in [disable, enable]>
@@ -4682,6 +4707,7 @@ EXAMPLES = '''
           #             subnet: <string>
           #             upstream_interface: <string>
           #             delegated_prefix_iaid: <integer>
+          #             dnssl_service: <value in [disable, enable]>
           #         ip6_dns_server_override: <value in [disable, enable]>
           #         ip6_extra_addr:
           #           - prefix: <string>
@@ -5107,6 +5133,7 @@ EXAMPLES = '''
           #         subnet: <string>
           #         upstream_interface: <string>
           #         delegated_prefix_iaid: <integer>
+          #         dnssl_service: <value in [disable, enable]>
           #     ip6_dns_server_override: <value in [disable, enable]>
           #     ip6_extra_addr:
           #       - prefix: <string>
@@ -5447,6 +5474,8 @@ EXAMPLES = '''
           #     - "30a"
           #     - "35b"
           #   telemetry_discover: <value in [disable, enable]>
+          #   mrru: <integer>
+          #   multilink: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -5724,7 +5753,9 @@ def main():
                                         'ip6-allowaccess': {
                                             'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                             'type': 'list',
-                                            'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric', 'scim'],
+                                            'choices': [
+                                                'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric', 'scim', 'probe-response'
+                                            ],
                                             'elements': 'str'
                                         },
                                         'ip6-default-life': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
@@ -5751,7 +5782,8 @@ def main():
                                                 },
                                                 'subnet': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                                 'upstream-interface': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                                                'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'}
+                                                'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
+                                                'dnssl-service': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                                             },
                                             'elements': 'dict'
                                         },
@@ -5942,7 +5974,7 @@ def main():
                                     'elements': 'dict'
                                 },
                                 'allowaccess': {
-                                    'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+                                    'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
                                     'type': 'list',
                                     'choices': [
                                         'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm',
@@ -5951,7 +5983,7 @@ def main():
                                     'elements': 'str'
                                 },
                                 'dhcp-relay-request-all-server': {
-                                    'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+                                    'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
                                     'choices': ['disable', 'enable'],
                                     'type': 'str'
                                 }
@@ -6357,7 +6389,8 @@ def main():
                                         },
                                         'subnet': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                         'upstream-interface': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'}
+                                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
+                                        'dnssl-service': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                                     },
                                     'elements': 'dict'
                                 },
@@ -6824,15 +6857,15 @@ def main():
                             'choices': ['tag', 'untag', 'passthrough'],
                             'type': 'str'
                         },
-                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'generic-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'interconnect-profile': {
-                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']],
                             'choices': ['default', 'profile1', 'profile2'],
                             'type': 'str'
                         },
-                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'large-receive-offload': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'annex': {
-                            'v_range': [['7.0.10', '7.0.15'], ['7.2.5', '7.2.11'], ['7.4.2', '']],
+                            'v_range': [['7.0.10', '7.0.16'], ['7.2.5', '7.2.12'], ['7.4.2', '']],
                             'choices': ['a', 'b', 'j', 'bjm', 'i', 'al', 'm', 'aijlm', 'bj'],
                             'type': 'str'
                         },
@@ -6874,12 +6907,14 @@ def main():
                         'dhcp-relay-vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
                         'exclude-signatures': {'v_range': [['7.6.2', '']], 'type': 'list', 'choices': ['iot', 'ot'], 'elements': 'str'},
                         'profiles': {
-                            'v_range': [['7.0.14', '7.0.15'], ['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                            'v_range': [['7.0.14', '7.0.16'], ['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                             'type': 'list',
                             'choices': ['8a', '8b', '8c', '8d', '12a', '12b', '17a', '30a', '35b'],
                             'elements': 'str'
                         },
-                        'telemetry-discover': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'telemetry-discover': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'mrru': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                        'multilink': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

@@ -244,20 +244,20 @@ def main():
         'revision_note': {'type': 'str'},
         'user_externalidentityprovider': {
             'type': 'dict',
-            'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']],
+            'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']],
             'options': {
-                'group-attr-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
-                'interface': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'list', 'elements': 'str'},
-                'interface-select-method': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
-                'name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'required': True, 'type': 'str'},
-                'port': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
-                'server-identity-check': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'source-ip': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
-                'timeout': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'int'},
-                'type': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
-                'url': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
-                'user-attr-name': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
-                'version': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'},
+                'group-attr-name': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'interface': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'list', 'elements': 'str'},
+                'interface-select-method': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
+                'name': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'required': True, 'type': 'str'},
+                'port': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'int'},
+                'server-identity-check': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'timeout': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'int'},
+                'type': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['ms-graph'], 'type': 'str'},
+                'url': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'user-attr-name': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
+                'version': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'choices': ['beta', 'v1.0'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'}
             }
         }

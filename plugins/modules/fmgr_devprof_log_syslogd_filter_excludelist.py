@@ -216,24 +216,24 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_log_syslogd_filter_excludelist': {
             'type': 'dict',
-            'v_range': [['7.0.4', '7.0.15']],
+            'v_range': [['7.0.4', '7.0.16']],
             'options': {
                 'category': {
-                    'v_range': [['7.0.4', '7.0.15']],
+                    'v_range': [['7.0.4', '7.0.16']],
                     'choices': ['app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'netscan', 'spam', 'anomaly', 'waf'],
                     'type': 'str'
                 },
                 'fields': {
-                    'v_range': [['7.0.4', '7.0.15']],
+                    'v_range': [['7.0.4', '7.0.16']],
                     'type': 'list',
                     'options': {
-                        'args': {'v_range': [['7.0.4', '7.0.15']], 'type': 'raw'},
-                        'field': {'v_range': [['7.0.4', '7.0.15']], 'type': 'str'},
-                        'negate': {'v_range': [['7.0.4', '7.0.15']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'args': {'v_range': [['7.0.4', '7.0.16']], 'type': 'raw'},
+                        'field': {'v_range': [['7.0.4', '7.0.16']], 'type': 'str'},
+                        'negate': {'v_range': [['7.0.4', '7.0.16']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['7.0.4', '7.0.15']], 'required': True, 'type': 'int'}
+                'id': {'v_range': [['7.0.4', '7.0.16']], 'required': True, 'type': 'int'}
             }
         }
     }

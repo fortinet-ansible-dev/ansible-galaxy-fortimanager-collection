@@ -254,6 +254,13 @@ options:
             wildcard:
                 type: str
                 description: IPv6 address and wildcard netmask.
+            passive_fqdn_learning:
+                aliases: ['passive-fqdn-learning']
+                type: str
+                description: Enable/disable passive learning of FQDNs.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -407,9 +414,10 @@ def main():
                 'sdn-tag': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'tenant': {'v_range': [['7.2.1', '']], 'type': 'str'},
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
-                'filter': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'str'},
-                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'},
-                'wildcard': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                'filter': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'str'},
+                'sdn-addr-type': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'choices': ['all', 'private', 'public'], 'type': 'str'},
+                'wildcard': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

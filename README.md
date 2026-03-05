@@ -1,6 +1,6 @@
 ![Fortinet logo|](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Fortinet_logo.svg/320px-Fortinet_logo.svg.png)
 
-# fortinet.fortimanager:2.12.0 - configuring FortiManager
+# fortinet.fortimanager:2.13.0 - configuring FortiManager
 
 ## Description
 
@@ -10,8 +10,8 @@ FortiManager Ansible Collection includes the modules that are able to configure 
 
 ## Requirements
 
-- Ansible Core 2.15.0 or above
-- Python 3.9 or above
+- Ansible-core 2.16 or above
+- Python 3.12 or above
 
 ## Installation
 
@@ -180,6 +180,8 @@ The collection provides the following modules:
 * `fmgr_devprof_system_snmp_community_hosts6`  Configure IPv6 SNMP managers.
 * `fmgr_devprof_system_snmp_sysinfo`  SNMP system info configuration.
 * `fmgr_devprof_system_snmp_user`  SNMP user configuration.
+* `fmgr_devprof_system_template_interface`  System template system template interface.
+* `fmgr_devprof_system_template_interface_iprange`  System template system template interface ip range.
 * `fmgr_diameterfilter_profile`  Configure Diameter filter profiles.
 * `fmgr_dlp_datatype`  Configure predefined data type used by DLP blocking.
 * `fmgr_dlp_dictionary`  Configure dictionaries used by DLP blocking.
@@ -541,6 +543,8 @@ The collection provides the following modules:
 * `fmgr_fmg_fabric_authorization_template_platforms`  Fmg fabric authorization template platforms.
 * `fmgr_fmg_sasemanager_settings`  Fmg sase manager settings.
 * `fmgr_fmg_sasemanager_status`  Fmg sase manager status.
+* `fmgr_fmg_script`  Fmg script.
+* `fmgr_fmg_script_schedule`  Fmg script schedule.
 * `fmgr_fmg_variable`  Fmg variable.
 * `fmgr_fmg_variable_dynamicmapping`  Fmg variable dynamic mapping.
 * `fmgr_fmupdate_analyzer_virusreport`  Send virus detection notification to FortiGuard.
@@ -792,6 +796,7 @@ The collection provides the following modules:
 * `fmgr_securityconsole_reinstall_package`  Re-install a policy package that had been previously installed.
 * `fmgr_securityconsole_sign_certificate_template`  Generate and sign certificate on the target device.
 * `fmgr_securityconsole_template_cli_preview`  Securityconsole template cli preview.
+* `fmgr_securityconsole_template_validate`  Securityconsole template validate.
 * `fmgr_spamfilter_bwl`  Configure anti-spam black/white list.
 * `fmgr_spamfilter_bwl_entries`  Anti-spam black/white list entries.
 * `fmgr_spamfilter_bword`  Configure AntiSpam banned word list.
@@ -975,7 +980,10 @@ The collection provides the following modules:
 * `fmgr_system_locallog_syslogd3_setting`  Settings for remote syslog server.
 * `fmgr_system_locallog_syslogd_filter`  Filter for syslog logging.
 * `fmgr_system_locallog_syslogd_setting`  Settings for remote syslog server.
+* `fmgr_system_locallog_tacacsaccounting_filter`  Cli system locallog tacacs+accounting filter.
+* `fmgr_system_locallog_tacacsaccounting_setting`  Cli system locallog tacacs+accounting setting.
 * `fmgr_system_log_alert`  Log based alert settings.
+* `fmgr_system_log_apiratelimit`  Cli system log api ratelimit.
 * `fmgr_system_log_devicedisable`  Disable client device logging.
 * `fmgr_system_log_deviceselector`  Accept/reject devices matching specified filter types.
 * `fmgr_system_log_fospolicystats`  FortiOS policy statistics settings.
@@ -986,6 +994,7 @@ The collection provides the following modules:
 * `fmgr_system_log_ratelimit_device`  Device log rate limit.
 * `fmgr_system_log_ratelimit_ratelimits`  Per device or ADOM log rate limits.
 * `fmgr_system_log_settings`  Log settings.
+* `fmgr_system_log_settings_clientcertauth`  Cli system log settings client cert auth.
 * `fmgr_system_log_settings_rollinganalyzer`  Log rolling policy for Network Analyzer logs.
 * `fmgr_system_log_settings_rollinglocal`  Log rolling policy for local logs.
 * `fmgr_system_log_settings_rollingregular`  Log rolling policy for device logs.

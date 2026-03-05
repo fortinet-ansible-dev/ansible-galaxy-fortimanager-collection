@@ -196,13 +196,13 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_sslsshprofile_sslclientcertificate': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'caname': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'keyring-list': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
+                'caname': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'keyring-list': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'no_log': True, 'type': 'list', 'elements': 'str'},
                 'status': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'choices': ['do-not-offer', 'keyring-list', 'ca-sign', 'static'],
                     'type': 'str'
                 }

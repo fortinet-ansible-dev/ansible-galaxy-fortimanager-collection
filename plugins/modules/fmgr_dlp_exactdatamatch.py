@@ -208,21 +208,21 @@ def main():
         'revision_note': {'type': 'str'},
         'dlp_exactdatamatch': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
             'options': {
                 'columns': {
-                    'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+                    'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
                     'type': 'list',
                     'options': {
-                        'index': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
-                        'optional': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'type': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
+                        'index': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
+                        'optional': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'type': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'data': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
-                'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'required': True, 'type': 'str'},
-                'optional': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'}
+                'data': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'},
+                'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'required': True, 'type': 'str'},
+                'optional': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'}
             }
         }
     }

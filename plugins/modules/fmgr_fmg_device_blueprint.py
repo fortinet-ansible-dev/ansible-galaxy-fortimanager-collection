@@ -317,7 +317,7 @@ def main():
                 'prov-type': {'v_range': [['7.2.0', '']], 'choices': ['none', 'templates', 'template-group'], 'type': 'str'},
                 'template-group': {'v_range': [['7.2.0', '']], 'type': 'str'},
                 'templates': {'v_range': [['7.2.0', '']], 'type': 'raw'},
-                'enforce-device-config': {'v_range': [['7.2.5', '7.2.11'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'enforce-device-config': {'v_range': [['7.2.5', '7.2.12'], ['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auth-template': {'v_range': [['7.4.1', '']], 'type': 'raw'},
                 'ha-config': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ha-hbdev': {'v_range': [['7.4.1', '']], 'type': 'raw'},

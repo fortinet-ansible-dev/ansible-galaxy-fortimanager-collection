@@ -162,6 +162,11 @@ options:
                     - '10'
                     - '11'
                     - '12'
+                    - '13'
+                    - '14'
+                    - '15'
+                    - '16'
+                    - '17'
             scan_interval:
                 aliases: ['scan-interval']
                 type: int
@@ -306,7 +311,7 @@ def main():
                 'major-id': {'type': 'int'},
                 'minor-id': {'type': 'int'},
                 'name': {'required': True, 'type': 'str'},
-                'txpower': {'choices': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'], 'type': 'str'},
+                'txpower': {'choices': ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17'], 'type': 'str'},
                 'scan-interval': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'scan-period': {'v_range': [['7.4.1', '']], 'type': 'int'},
                 'scan-threshold': {'v_range': [['7.4.1', '']], 'type': 'str'},

@@ -1658,7 +1658,7 @@ def main():
                         'type': {'choices': ['fortiguard-category', 'address', 'address6', 'wildcard-fqdn', 'regex', 'finger-print'], 'type': 'str'},
                         'wildcard-fqdn': {'type': 'str'},
                         'finger-print-category': {
-                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                             'choices': ['unknown', 'firefox', 'chrome', 'safari', 'edge', 'ie', 'android', 'ios', 'windows'],
                             'type': 'str'
                         }
@@ -1724,12 +1724,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1777,12 +1777,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1830,12 +1830,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1879,12 +1879,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -1928,12 +1928,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -2005,12 +2005,12 @@ def main():
                         },
                         'invalid-server-cert': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.6.2']], 'choices': ['allow', 'block'], 'type': 'str'},
                         'allow-invalid-server-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
                         'untrusted-cert': {
-                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['allow', 'block', 'ignore'],
                             'type': 'str'
                         },
@@ -2064,14 +2064,14 @@ def main():
                     'elements': 'dict'
                 },
                 'ssl-client-certificate': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'type': 'dict',
                     'options': {
-                        'caname': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                        'cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                        'keyring-list': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                        'caname': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                        'cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                        'keyring-list': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
                         'status': {
-                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                             'choices': ['do-not-offer', 'keyring-list', 'ca-sign', 'static'],
                             'type': 'str'
                         }

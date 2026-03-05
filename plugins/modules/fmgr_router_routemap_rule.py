@@ -336,6 +336,13 @@ options:
                 aliases: ['set-vpnv6-nexthop-local']
                 type: str
                 description: IPv6 link-local address of VPNv6 next-hop.
+            match_suppress:
+                aliases: ['match-suppress']
+                type: str
+                description: Enable/disable matching of suppressed original neighbor.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -409,6 +416,7 @@ EXAMPLES = '''
           # set_vpnv4_nexthop: <string>
           # set_vpnv6_nexthop: <string>
           # set_vpnv6_nexthop_local: <string>
+          # match_suppress: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -521,7 +529,8 @@ def main():
                 'set-ip-prefsrc': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'set-vpnv4-nexthop': {'v_range': [['7.4.1', '']], 'type': 'str'},
                 'set-vpnv6-nexthop': {'v_range': [['7.4.2', '']], 'type': 'str'},
-                'set-vpnv6-nexthop-local': {'v_range': [['7.4.2', '']], 'type': 'str'}
+                'set-vpnv6-nexthop-local': {'v_range': [['7.4.2', '']], 'type': 'str'},
+                'match-suppress': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -177,8 +177,8 @@ def main():
         'revision_note': {'type': 'str'},
         'system_objecttag': {
             'type': 'dict',
-            'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']],
-            'options': {'name': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'str'}}
+            'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']],
+            'options': {'name': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'str'}}
         }
     }
 

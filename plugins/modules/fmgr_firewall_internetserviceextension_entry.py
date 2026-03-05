@@ -229,23 +229,23 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_entry': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'addr-mode': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'dst': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'dst6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'addr-mode': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'dst': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'dst6': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
                 'port-range': {
-                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'end-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                        'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                        'start-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                        'end-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                        'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                        'start-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
-                'protocol': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'protocol': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

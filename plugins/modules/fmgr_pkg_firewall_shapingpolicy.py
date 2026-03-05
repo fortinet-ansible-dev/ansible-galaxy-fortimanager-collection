@@ -465,9 +465,9 @@ def main():
                 'cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'},
-                'class-id-reverse': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'http-response-match': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'service-type': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['service', 'internet-service'], 'type': 'str'},
+                'class-id-reverse': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'http-response-match': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'service-type': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['service', 'internet-service'], 'type': 'str'},
                 'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }

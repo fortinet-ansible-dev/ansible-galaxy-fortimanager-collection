@@ -1636,6 +1636,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            mlo:
+                type: str
+                description: Enable/disable WiFi7 Multi-Link-Operation
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -2133,6 +2139,7 @@ EXAMPLES = '''
           #     valid_life_time: <integer>
           # _intf_vrf: <integer>
           # captive_network_assistant_bypass: <value in [disable, enable]>
+          # mlo: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -2477,10 +2484,10 @@ def main():
                 'utm-log': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'utm-status': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webfilter-profile': {'v_range': [['7.0.1', '']], 'type': 'str'},
-                'sae-h2e-only': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sae-pk': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'sae-private-key': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
-                'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
+                'sae-h2e-only': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sae-pk': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'sae-private-key': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'no_log': True, 'type': 'str'},
+                'sticky-client-threshold-6g': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'type': 'str'},
                 'application-dscp-marking': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'l3-roaming-mode': {'v_range': [['7.2.1', '']], 'choices': ['direct', 'indirect'], 'type': 'str'},
                 'rates-11ac-mcs-map': {'v_range': [['7.2.1', '']], 'type': 'str'},
@@ -2508,7 +2515,7 @@ def main():
                 'domain-name-stripping': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'local-lan-partition': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 '_intf_role': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.6', '7.4.8'], ['7.6.2', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.6', '7.4.10'], ['7.6.2', '']],
                     'choices': ['lan', 'wan', 'dmz', 'undefined'],
                     'type': 'str'
                 },
@@ -2516,34 +2523,35 @@ def main():
                 'external-pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'pre-auth': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 '_intf_ip6-send-adv': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
                 'ip6-prefix-list': {
-                    'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                    'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                     'type': 'list',
                     'options': {
                         'autonomous-flag': {
-                            'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                            'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'dnssl': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'raw'},
+                        'dnssl': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'raw'},
                         'onlink-flag': {
-                            'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                            'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                             'choices': ['disable', 'enable'],
                             'type': 'str'
                         },
-                        'preferred-life-time': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
-                        'prefix': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                        'rdnss': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'raw'},
-                        'valid-life-time': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'}
+                        'preferred-life-time': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
+                        'prefix': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                        'rdnss': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'raw'},
+                        'valid-life-time': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'}
                     },
                     'elements': 'dict'
                 },
                 '_intf_vrf': {'v_range': [['7.6.3', '']], 'type': 'int'},
-                'captive-network-assistant-bypass': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'captive-network-assistant-bypass': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'mlo': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

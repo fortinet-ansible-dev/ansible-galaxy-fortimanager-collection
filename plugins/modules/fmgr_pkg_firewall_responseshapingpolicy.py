@@ -160,6 +160,33 @@ options:
             uuid:
                 type: str
                 description: Uuid.
+            diffserv_forward:
+                aliases: ['diffserv-forward']
+                type: str
+                description: Diffserv forward.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            diffserv_reverse:
+                aliases: ['diffserv-reverse']
+                type: str
+                description: Diffserv reverse.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            diffservcode_forward:
+                aliases: ['diffservcode-forward']
+                type: str
+                description: Diffservcode forward.
+            diffservcode_rev:
+                aliases: ['diffservcode-rev']
+                type: str
+                description: Diffservcode rev.
+            matched_shaping_policies:
+                aliases: ['matched-shaping-policies']
+                type: list
+                elements: str
+                description: Matched shaping policies.
 '''
 
 EXAMPLES = '''
@@ -198,6 +225,11 @@ EXAMPLES = '''
           # traffic_shaper: <list or string>
           # traffic_shaper_reverse: <list or string>
           # uuid: <string>
+          # diffserv_forward: <value in [disable, enable]>
+          # diffserv_reverse: <value in [disable, enable]>
+          # diffservcode_forward: <string>
+          # diffservcode_rev: <string>
+          # matched_shaping_policies: <list or string>
 '''
 
 RETURN = '''
@@ -257,23 +289,28 @@ def main():
         'revision_note': {'type': 'str'},
         'pkg_firewall_responseshapingpolicy': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'class-id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'class-id-reverse': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'comment': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                'dstaddr': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'dstaddr6': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'ip-version': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['6', '4'], 'type': 'str'},
-                'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                'per-ip-shaper': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'schedule': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'srcaddr': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'traffic-shaper': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'traffic-shaper-reverse': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
-                'uuid': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                'class-id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'class-id-reverse': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'comment': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'dstaddr': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'dstaddr6': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'ip-version': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['6', '4'], 'type': 'str'},
+                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'per-ip-shaper': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'schedule': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'srcaddr': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'traffic-shaper': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'traffic-shaper-reverse': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'uuid': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'diffserv-forward': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffserv-reverse': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'diffservcode-forward': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
+                'diffservcode-rev': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
+                'matched-shaping-policies': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

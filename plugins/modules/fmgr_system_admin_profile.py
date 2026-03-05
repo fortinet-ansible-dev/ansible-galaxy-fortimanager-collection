@@ -1130,7 +1130,7 @@ def main():
                 'log-viewer': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'policy-objects': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'profileid': {'required': True, 'type': 'str'},
-                'read-passwd': {'v_range': [['6.0.0', '7.4.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'read-passwd': {'v_range': [['6.0.0', '7.4.2'], ['7.4.9', '7.4.10']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'realtime-monitor': {'v_range': [['6.0.0', '7.4.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'report-viewer': {'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'scope': {'choices': ['global', 'adom'], 'type': 'str'},
@@ -1177,7 +1177,7 @@ def main():
                 'trusthost9': {'v_range': [['7.0.3', '']], 'type': 'str'},
                 'ips-baseline-cfg': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-baseline-ovrd': {'v_range': [['7.0.1', '7.0.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fortiextender': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-fortiextender': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'ips-lock': {'v_range': [['7.2.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'fgt-gui-proxy': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'policy-ips-attrs': {'v_range': [['7.4.2', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
@@ -1197,7 +1197,7 @@ def main():
                     'elements': 'dict'
                 },
                 'adom-admin': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'device-fwm-profile': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
+                'device-fwm-profile': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'device-assignment': {'v_range': [['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'},
                 'script-run': {'v_range': [['7.6.4', '']], 'choices': ['none', 'read', 'read-write'], 'type': 'str'}
             }

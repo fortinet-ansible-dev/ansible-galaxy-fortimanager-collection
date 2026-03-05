@@ -531,7 +531,7 @@ def main():
                             ],
                             'type': 'str'
                         },
-                        'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
+                        'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
                         'id': {'type': 'int'},
                         'match-percentage': {'type': 'int'},
                         'name': {'type': 'str'},

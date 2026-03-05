@@ -195,13 +195,13 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetservice_entry': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
             'options': {
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
-                'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
-                'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'}
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
+                'ip-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                'ip-range-number': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                'port': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
+                'protocol': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'}
             }
         }
     }

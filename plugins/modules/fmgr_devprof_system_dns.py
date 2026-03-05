@@ -148,6 +148,72 @@ options:
                     - 'auto'
                     - 'sdwan'
                     - 'specify'
+            alt_primary:
+                aliases: ['alt-primary']
+                type: str
+                description: Alternate primary DNS server.
+            alt_secondary:
+                aliases: ['alt-secondary']
+                type: str
+                description: Alternate secondary DNS server.
+            fqdn_cache_ttl:
+                aliases: ['fqdn-cache-ttl']
+                type: int
+                description: FQDN cache time to live in seconds
+            fqdn_max_refresh:
+                aliases: ['fqdn-max-refresh']
+                type: int
+                description: FQDN cache maximum refresh time in seconds
+            fqdn_min_refresh:
+                aliases: ['fqdn-min-refresh']
+                type: int
+                description: FQDN cache minimum refresh time in seconds
+            log:
+                type: str
+                description: Local DNS log setting.
+                choices:
+                    - 'disable'
+                    - 'error'
+                    - 'all'
+            protocol:
+                type: list
+                elements: str
+                description: DNS transport protocols.
+                choices:
+                    - 'cleartext'
+                    - 'dot'
+                    - 'doh'
+            server_select_method:
+                aliases: ['server-select-method']
+                type: str
+                description: Specify how configured servers are prioritized.
+                choices:
+                    - 'least-rtt'
+                    - 'failover'
+            source_ip:
+                aliases: ['source-ip']
+                type: str
+                description: IP address used by the DNS server as its source IP.
+            vrf_select:
+                aliases: ['vrf-select']
+                type: int
+                description: VRF ID used for connection to server.
+            source_ip_interface:
+                aliases: ['source-ip-interface']
+                type: raw
+                description: (list) IP address of the specified interface as the source IP address.
+            hostname_ttl:
+                aliases: ['hostname-ttl']
+                type: int
+                description: TTL of hostname table entries
+            hostname_limit:
+                aliases: ['hostname-limit']
+                type: int
+                description: Limit of the number of hostname table entries
+            root_servers:
+                aliases: ['root-servers']
+                type: str
+                description: Configure up to two preferred servers that serve the DNS root zone
 '''
 
 EXAMPLES = '''
@@ -185,6 +251,23 @@ EXAMPLES = '''
           # timeout: <integer>
           # interface: <string>
           # interface_select_method: <value in [auto, sdwan, specify]>
+          # alt_primary: <string>
+          # alt_secondary: <string>
+          # fqdn_cache_ttl: <integer>
+          # fqdn_max_refresh: <integer>
+          # fqdn_min_refresh: <integer>
+          # log: <value in [disable, error, all]>
+          # protocol:
+          #   - "cleartext"
+          #   - "dot"
+          #   - "doh"
+          # server_select_method: <value in [least-rtt, failover]>
+          # source_ip: <string>
+          # vrf_select: <integer>
+          # source_ip_interface: <list or string>
+          # hostname_ttl: <integer>
+          # hostname_limit: <integer>
+          # root_servers: <string>
 '''
 
 RETURN = '''
@@ -243,27 +326,49 @@ def main():
         'devprof': {'required': True, 'type': 'str'},
         'devprof_system_dns': {
             'type': 'dict',
-            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']],
+            'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']],
             'options': {
-                'cache-notfound-responses': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dns-cache-limit': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'int'},
-                'dns-cache-ttl': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'int'},
-                'domain': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'raw'},
-                'ip6-primary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
-                'ip6-secondary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
-                'primary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
-                'secondary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
-                'dns-over-tls': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'choices': ['disable', 'enable', 'enforce'], 'type': 'str'},
-                'retry': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'int'},
-                'server-hostname': {'v_range': [['6.2.1', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'raw'},
-                'ssl-certificate': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'str'},
-                'timeout': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1']], 'type': 'int'},
-                'interface': {'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1']], 'type': 'str'},
+                'cache-notfound-responses': {
+                    'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']],
+                    'choices': ['disable', 'enable'],
+                    'type': 'str'
+                },
+                'dns-cache-limit': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'int'},
+                'dns-cache-ttl': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'int'},
+                'domain': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'raw'},
+                'ip6-primary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
+                'ip6-secondary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
+                'primary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
+                'secondary': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
+                'dns-over-tls': {
+                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']],
+                    'choices': ['disable', 'enable', 'enforce'],
+                    'type': 'str'
+                },
+                'retry': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'int'},
+                'server-hostname': {'v_range': [['6.2.1', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'raw'},
+                'ssl-certificate': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
+                'timeout': {'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['7.6.5', '']], 'type': 'int'},
+                'interface': {'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1'], ['7.6.5', '']], 'type': 'str'},
                 'interface-select-method': {
-                    'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1']],
+                    'v_range': [['6.2.5', '6.2.5'], ['6.2.7', '6.2.13'], ['6.4.1', '6.4.1'], ['7.6.5', '']],
                     'choices': ['auto', 'sdwan', 'specify'],
                     'type': 'str'
-                }
+                },
+                'alt-primary': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'alt-secondary': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'fqdn-cache-ttl': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'fqdn-max-refresh': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'fqdn-min-refresh': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'log': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'error', 'all'], 'type': 'str'},
+                'protocol': {'v_range': [['7.6.5', '']], 'type': 'list', 'choices': ['cleartext', 'dot', 'doh'], 'elements': 'str'},
+                'server-select-method': {'v_range': [['7.6.5', '']], 'choices': ['least-rtt', 'failover'], 'type': 'str'},
+                'source-ip': {'v_range': [['7.6.5', '']], 'type': 'str'},
+                'vrf-select': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'source-ip-interface': {'v_range': [['7.6.5', '']], 'type': 'raw'},
+                'hostname-ttl': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'hostname-limit': {'v_range': [['7.6.5', '']], 'type': 'int'},
+                'root-servers': {'v_range': [['7.6.5', '']], 'type': 'str'}
             }
         }
     }

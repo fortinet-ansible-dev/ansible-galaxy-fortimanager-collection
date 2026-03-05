@@ -175,8 +175,8 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_profile_msnhotmail': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
-            'options': {'log': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}}
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+            'options': {'log': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}}
         }
     }
 

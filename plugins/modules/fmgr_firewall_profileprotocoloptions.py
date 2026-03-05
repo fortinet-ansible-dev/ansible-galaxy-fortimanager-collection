@@ -1254,7 +1254,7 @@ def main():
                         'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                        'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'explicit-ftp-tls': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'http': {
@@ -1318,9 +1318,9 @@ def main():
                             'type': 'str'
                         },
                         'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
-                        'dns-protection': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'encrypted-file': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
-                        'encrypted-file-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dns-protection': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'encrypted-file': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
+                        'encrypted-file-log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'imap': {
@@ -1342,7 +1342,7 @@ def main():
                         'status': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'uncompressed-nest-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
                         'uncompressed-oversize-limit': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
-                        'address-ip-rating': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'address-ip-rating': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'mail-signature': {
@@ -1456,25 +1456,25 @@ def main():
                         'tcp-window-minimum': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-size': {'v_range': [['7.0.0', '']], 'type': 'int'},
                         'tcp-window-type': {'v_range': [['7.0.0', '']], 'choices': ['system', 'static', 'dynamic', 'auto-tuning'], 'type': 'str'},
-                        'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'explicit-ftp-tls': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'proxy-redirect': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'type': 'dict',
                     'options': {
-                        'ports': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                        'status': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'ports': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                        'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 },
                 'rtmp': {
-                    'v_range': [['7.4.8', '7.4.8']],
+                    'v_range': [['7.4.8', '7.4.10']],
                     'type': 'dict',
                     'options': {
-                        'http-tunnel': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'ports': {'v_range': [['7.4.8', '7.4.8']], 'type': 'raw'},
-                        'rtmpt': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'status': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'http-tunnel': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'ports': {'v_range': [['7.4.8', '7.4.10']], 'type': 'raw'},
+                        'rtmpt': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'status': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     }
                 }
             }

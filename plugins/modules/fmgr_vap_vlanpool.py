@@ -197,7 +197,7 @@ def main():
             'options': {
                 '_wtp-group': {'type': 'str'},
                 'id': {'required': True, 'type': 'int'},
-                'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'}
+                'wtp-group': {'v_range': [['6.0.0', '6.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'}
             }
         }
     }

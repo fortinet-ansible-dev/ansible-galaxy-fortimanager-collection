@@ -399,7 +399,7 @@ def main():
                 'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude': {'v_range': [['6.2.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-member': {'v_range': [['6.2.0', '']], 'type': 'raw'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'type': {'v_range': [['6.4.0', '']], 'choices': ['default', 'array', 'folder'], 'type': 'str'},

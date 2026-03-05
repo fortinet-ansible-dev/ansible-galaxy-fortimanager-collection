@@ -252,11 +252,11 @@ def main():
                 'position': {'v_range': [['7.4.2', '']], 'choices': ['post-vdom-copy', 'prep-vdom-copy'], 'type': 'str'},
                 'option': {'v_range': [['7.6.0', '']], 'type': 'list', 'choices': ['sdwan-overlay', 'sdwan-manager'], 'elements': 'str'},
                 'scope member': {
-                    'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
-                        'name': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                        'vdom': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                        'name': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'vdom': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

@@ -131,6 +131,20 @@ options:
             uuid:
                 type: str
                 description: Universally Unique Identifier
+            label_day:
+                aliases: ['label-day']
+                type: str
+                description: Configure a window during the time of day in which the schedule job is executed.
+                choices:
+                    - 'none'
+                    - 'over-night'
+                    - 'early-morning'
+                    - 'morning'
+                    - 'midday'
+                    - 'afternoon'
+                    - 'evening'
+                    - 'night'
+                    - 'late-night'
 '''
 
 EXAMPLES = '''
@@ -251,7 +265,12 @@ def main():
                 'start': {'type': 'str'},
                 'global-object': {'v_range': [['6.4.0', '']], 'type': 'int'},
                 'fabric-object': {'v_range': [['6.4.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'}
+                'uuid': {'v_range': [['7.6.0', '']], 'type': 'str'},
+                'label-day': {
+                    'v_range': [['7.6.5', '']],
+                    'choices': ['none', 'over-night', 'early-morning', 'morning', 'midday', 'afternoon', 'evening', 'night', 'late-night'],
+                    'type': 'str'
+                }
             }
         }
     }

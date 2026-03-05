@@ -202,18 +202,18 @@ def main():
         'revision_note': {'type': 'str'},
         'webfilter_urllist': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'comment': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'comment': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
-                    'options': {'url': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}},
+                    'options': {'url': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}},
                     'elements': 'dict'
                 },
-                'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'uuid': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'uuid': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

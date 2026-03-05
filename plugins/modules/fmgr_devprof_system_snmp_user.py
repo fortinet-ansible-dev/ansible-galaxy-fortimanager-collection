@@ -174,6 +174,8 @@ options:
                     - 'security_level_change'
                     - 'cert-expiry'
                     - 'dio'
+                    - 'sensor'
+                    - 'bfd'
             ha_direct:
                 aliases: ['ha-direct']
                 type: str
@@ -439,7 +441,7 @@ def main():
                         'ips-fail-open', 'load-balance-real-server-down', 'device-new', 'enter-intf-bypass', 'exit-intf-bypass', 'per-cpu-high',
                         'power-blade-down', 'confsync_failure', 'dhcp', 'pool-usage', 'power-redundancy-degrade', 'power-redundancy-failure',
                         'ospf-nbr-state-change', 'ospf-virtnbr-state-change', 'disk-failure', 'disk-overload', 'faz-main-failover', 'faz-alt-failover',
-                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio'
+                        'slbc', 'faz', 'power-supply', 'ippool', 'interface', 'security_level_change', 'cert-expiry', 'dio', 'sensor', 'bfd'
                     ],
                     'elements': 'str'
                 },

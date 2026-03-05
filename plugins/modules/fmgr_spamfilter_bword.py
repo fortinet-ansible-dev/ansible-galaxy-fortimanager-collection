@@ -246,30 +246,30 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_bword': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
             'options': {
-                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'comment': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 'entries': {
-                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
                     'type': 'list',
                     'options': {
-                        'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['spam', 'clear'], 'type': 'str'},
-                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
+                        'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['spam', 'clear'], 'type': 'str'},
+                        'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
                         'language': {
-                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+                            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
                             'choices': ['western', 'simch', 'trach', 'japanese', 'korean', 'french', 'thai', 'spanish'],
                             'type': 'str'
                         },
-                        'pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                        'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                        'score': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'int'},
-                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'where': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['subject', 'body', 'all'], 'type': 'str'}
+                        'pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                        'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                        'score': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'int'},
+                        'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'where': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['subject', 'body', 'all'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
-                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
+                'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
             }
         }
     }

@@ -140,6 +140,13 @@ options:
                 aliases: ['_image-base64']
                 type: str
                 description: Image base64.
+            logic_type:
+                aliases: ['logic-type']
+                type: str
+                description: Logic type.
+                choices:
+                    - 'or'
+                    - 'and'
 '''
 
 EXAMPLES = '''
@@ -252,8 +259,9 @@ def main():
                 'type': {'choices': ['src', 'dst'], 'type': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'}
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
+                'logic-type': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['or', 'and'], 'type': 'str'}
             }
         }
     }

@@ -4,6 +4,34 @@ Fortinet.Fortimanager Release Notes
 
 .. contents:: Topics
 
+v2.13.0
+=======
+
+Release Summary
+---------------
+
+Release fortinet.fortimanager 2.13.0
+
+Minor Changes
+-------------
+
+- Supported new environment variable "ANSIBLE_FORTIMANAGER_ENABLE_LOG" to enable/disable logging for FortiManager Ansible Collection.
+- Supported new environment variable "ANSIBLE_FORTIMANAGER_VERSION_CHECK" to enable/disable version checking performed by the FortiManager Ansible Collection.
+- Supported new schemas in FortiManager 7.0.16, 7.2.12, 7.4.9, 7.4.10, 7.6.5, 7.6.6
+
+New Modules
+-----------
+
+- fortinet.fortimanager.fmgr_devprof_system_template_interface - System template system template interface
+- fortinet.fortimanager.fmgr_devprof_system_template_interface_iprange - System template system template interface ip range
+- fortinet.fortimanager.fmgr_fmg_script - Fmg script
+- fortinet.fortimanager.fmgr_fmg_script_schedule - Fmg script schedule
+- fortinet.fortimanager.fmgr_securityconsole_template_validate - Securityconsole template validate
+- fortinet.fortimanager.fmgr_system_locallog_tacacsaccounting_filter - Cli system locallog tacacs+accounting filter
+- fortinet.fortimanager.fmgr_system_locallog_tacacsaccounting_setting - Cli system locallog tacacs+accounting setting
+- fortinet.fortimanager.fmgr_system_log_apiratelimit - Cli system log api ratelimit
+- fortinet.fortimanager.fmgr_system_log_settings_clientcertauth - Cli system log settings client cert auth
+
 v2.12.0
 =======
 

@@ -1595,6 +1595,10 @@ options:
                     - 'block'
                     - 'log-only'
                     - 'ignore'
+            fortisandbox_scan_timeout:
+                aliases: ['fortisandbox-scan-timeout']
+                type: int
+                description: FortiSandbox inline scan timeout in seconds
 '''
 
 EXAMPLES = '''
@@ -1869,7 +1873,7 @@ def main():
                         'fortisandbox': {'v_range': [['7.2.0', '']], 'choices': ['disable', 'block', 'monitor'], 'type': 'str'},
                         'fortiai': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'monitor', 'block'], 'type': 'str'},
                         'unknown-content-encoding': {
-                            'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']],
+                            'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']],
                             'choices': ['block', 'inspect', 'bypass'],
                             'type': 'str'
                         },
@@ -2194,7 +2198,8 @@ def main():
                 'fortisandbox-mode': {'v_range': [['7.2.0', '']], 'choices': ['inline', 'analytics-suspicious', 'analytics-everything'], 'type': 'str'},
                 'fortisandbox-timeout-action': {'v_range': [['7.2.0', '']], 'choices': ['log-only', 'block', 'ignore'], 'type': 'str'},
                 'fortiai-error-action': {'v_range': [['7.0.1', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
-                'fortiai-timeout-action': {'v_range': [['7.0.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'}
+                'fortiai-timeout-action': {'v_range': [['7.0.2', '']], 'choices': ['block', 'log-only', 'ignore'], 'type': 'str'},
+                'fortisandbox-scan-timeout': {'v_range': [['7.6.5', '']], 'type': 'int'}
             }
         }
     }

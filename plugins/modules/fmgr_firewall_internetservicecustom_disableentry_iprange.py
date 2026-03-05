@@ -220,11 +220,11 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetservicecustom_disableentry_iprange': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
             'options': {
-                'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
-                'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'}
+                'end-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
+                'start-ip': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'}
             }
         }
     }

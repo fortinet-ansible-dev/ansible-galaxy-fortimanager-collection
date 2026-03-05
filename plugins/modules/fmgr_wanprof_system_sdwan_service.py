@@ -686,7 +686,7 @@ def main():
                 'zone-mode': {'v_range': [['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'shortcut-priority': {'v_range': [['7.4.2', '']], 'choices': ['disable', 'enable', 'auto'], 'type': 'str'},
                 'comment': {'v_range': [['7.6.0', '']], 'type': 'str'},
-                'fib-best-match-force': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'fib-best-match-force': {'v_range': [['7.4.9', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }

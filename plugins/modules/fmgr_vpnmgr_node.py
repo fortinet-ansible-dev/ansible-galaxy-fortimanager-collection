@@ -719,11 +719,11 @@ def main():
                 'encapsulation': {'v_range': [['7.0.2', '']], 'choices': ['tunnel-mode', 'transport-mode'], 'type': 'str'},
                 'ipv4-name': {'v_range': [['6.4.8', '6.4.15'], ['7.0.4', '']], 'type': 'str'},
                 'l2tp': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'network-id': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'type': 'int'},
-                'network-overlay': {'v_range': [['7.0.8', '7.0.15'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
-                'protocol': {'v_range': [['7.2.5', '7.2.11'], ['7.4.1', '']], 'type': 'int'}
+                'auto-discovery-receiver': {'v_range': [['7.0.8', '7.0.16'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auto-discovery-sender': {'v_range': [['7.0.8', '7.0.16'], ['7.2.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'network-id': {'v_range': [['7.0.8', '7.0.16'], ['7.2.3', '']], 'type': 'int'},
+                'network-overlay': {'v_range': [['7.0.8', '7.0.16'], ['7.2.3', '']], 'choices': ['enable', 'disable'], 'type': 'str'},
+                'protocol': {'v_range': [['7.2.5', '7.2.12'], ['7.4.1', '']], 'type': 'int'}
             }
         }
     }

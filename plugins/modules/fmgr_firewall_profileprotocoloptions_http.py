@@ -539,9 +539,9 @@ def main():
                 'unknown-content-encoding': {'v_range': [['7.2.2', '']], 'choices': ['block', 'inspect', 'bypass'], 'type': 'str'},
                 'domain-fronting': {'v_range': [['7.4.8', '']], 'choices': ['block', 'monitor', 'allow', 'disable', 'enable', 'strict'], 'type': 'str'},
                 'http-0.9': {'v_range': [['7.6.2', '']], 'choices': ['block', 'allow'], 'type': 'str'},
-                'dns-protection': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'encrypted-file': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
-                'encrypted-file-log': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'dns-protection': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'encrypted-file': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['block', 'pass', 'inspect'], 'type': 'str'},
+                'encrypted-file-log': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

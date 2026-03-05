@@ -191,10 +191,10 @@ def main():
         'revision_note': {'type': 'str'},
         'icap_remoteservergroup_serverlist': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'name': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'list', 'elements': 'str'},
-                'weight': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'name': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'list', 'elements': 'str'},
+                'weight': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

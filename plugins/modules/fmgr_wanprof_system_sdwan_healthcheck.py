@@ -393,6 +393,13 @@ options:
                 aliases: ['packet-loss-weight']
                 type: int
                 description: Coefficient of packet-loss in the formula of custom-profile-1.
+            update_bgp_route:
+                aliases: ['update-bgp-route']
+                type: str
+                description: Enable/disable updating the BGP route.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -486,6 +493,7 @@ EXAMPLES = '''
           # jitter_weight: <integer>
           # latency_weight: <integer>
           # packet_loss_weight: <integer>
+          # update_bgp_route: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -624,7 +632,8 @@ def main():
                 'bandwidth-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'jitter-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
                 'latency-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'}
+                'packet-loss-weight': {'v_range': [['7.6.4', '']], 'type': 'int'},
+                'update-bgp-route': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

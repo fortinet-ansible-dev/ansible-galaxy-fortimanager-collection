@@ -1638,7 +1638,7 @@ def main():
                     },
                     'elements': 'dict'
                 },
-                'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'custom-etype-lookup': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

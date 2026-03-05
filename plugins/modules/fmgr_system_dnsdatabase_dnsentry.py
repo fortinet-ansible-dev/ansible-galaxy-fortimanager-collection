@@ -230,17 +230,17 @@ def main():
         'revision_note': {'type': 'str'},
         'system_dnsdatabase_dnsentry': {
             'type': 'dict',
-            'v_range': [['7.6.4', '']],
+            'v_range': [['7.6.4', '7.6.4']],
             'options': {
-                'canonical-name': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'hostname': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'id': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'int'},
-                'ip': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'ipv6': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'preference': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'status': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ttl': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'type': {'v_range': [['7.6.4', '']], 'choices': ['NS', 'MX', 'CNAME', 'A', 'AAAA', 'PTR', 'PTR_V6'], 'type': 'str'}
+                'canonical-name': {'v_range': [['7.6.4', '7.6.4']], 'type': 'str'},
+                'hostname': {'v_range': [['7.6.4', '7.6.4']], 'type': 'str'},
+                'id': {'v_range': [['7.6.4', '7.6.4']], 'required': True, 'type': 'int'},
+                'ip': {'v_range': [['7.6.4', '7.6.4']], 'type': 'str'},
+                'ipv6': {'v_range': [['7.6.4', '7.6.4']], 'type': 'str'},
+                'preference': {'v_range': [['7.6.4', '7.6.4']], 'type': 'int'},
+                'status': {'v_range': [['7.6.4', '7.6.4']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ttl': {'v_range': [['7.6.4', '7.6.4']], 'type': 'int'},
+                'type': {'v_range': [['7.6.4', '7.6.4']], 'choices': ['NS', 'MX', 'CNAME', 'A', 'AAAA', 'PTR', 'PTR_V6'], 'type': 'str'}
             }
         }
     }

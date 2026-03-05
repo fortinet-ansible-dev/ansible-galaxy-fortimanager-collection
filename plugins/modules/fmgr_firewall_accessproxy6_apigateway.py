@@ -691,7 +691,7 @@ def main():
                         'translate-host': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'external-auth': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                         'tunnel-encryption': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                        'verify-cert': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'verify-cert': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },

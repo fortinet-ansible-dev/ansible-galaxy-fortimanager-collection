@@ -402,7 +402,7 @@ def main():
                 },
                 'status': {'v_range': [['6.0.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'reliable': {
-                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15'], ['7.4.8', '7.4.8']],
+                    'v_range': [['6.2.0', '6.2.5'], ['6.2.7', '6.4.1'], ['6.4.3', '6.4.15'], ['7.4.8', '7.4.10']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -418,33 +418,33 @@ def main():
                 },
                 'syslog-type': {'v_range': [['6.2.0', '6.2.0']], 'type': 'int'},
                 'custom-field-name': {
-                    'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']],
+                    'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']],
                     'type': 'list',
                     'options': {
-                        'custom': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'int'},
-                        'name': {'v_range': [['7.0.4', '7.0.15'], ['7.2.1', '']], 'type': 'str'}
+                        'custom': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'int'},
+                        'name': {'v_range': [['7.0.4', '7.0.16'], ['7.2.1', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
-                'source-ip': {'v_range': [['7.2.6', '7.2.11'], ['7.4.3', '']], 'type': 'str'},
+                'source-ip': {'v_range': [['7.2.6', '7.2.12'], ['7.4.3', '']], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.0', '']], 'type': 'raw'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'log-templates': {
-                    'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                    'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                     'type': 'list',
                     'options': {
                         'category': {
-                            'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']],
+                            'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']],
                             'choices': [
                                 'app-ctrl', 'attack', 'dlp', 'event', 'traffic', 'virus', 'voip', 'webfilter', 'spam', 'anomaly', 'waf', 'dns', 'ssh',
                                 'ssl', 'file-filter', 'icap', 'virtual-patch'
                             ],
                             'type': 'str'
                         },
-                        'empty-value-indicator': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                        'id': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                        'template': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                        'empty-value-indicator': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                        'id': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                        'template': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
                     },
                     'elements': 'dict'
                 }

@@ -303,6 +303,23 @@ options:
                 type: list
                 elements: str
                 description: User name.
+            llm_secure_proxy:
+                aliases: ['llm-secure-proxy']
+                type: dict
+                description: Llm secure proxy.
+                suboptions:
+                    all_llm_servers:
+                        aliases: ['all-llm-servers']
+                        type: str
+                        description: All llm servers.
+                        choices:
+                            - 'disable'
+                            - 'enable'
+                    llm_servers:
+                        aliases: ['llm-servers']
+                        type: list
+                        elements: str
+                        description: Llm servers.
 '''
 
 EXAMPLES = '''
@@ -352,6 +369,9 @@ EXAMPLES = '''
           # groups: <list or string>
           # type: <value in [user, ldap-dynamic, saml-dynamic]>
           # users: <list or string>
+          # llm_secure_proxy:
+          #   all_llm_servers: <value in [disable, enable]>
+          #   llm_servers: <list or string>
 '''
 
 RETURN = '''
@@ -462,7 +482,15 @@ def main():
                 'groups': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
                 'name': {'v_range': [['7.6.4', '']], 'required': True, 'type': 'str'},
                 'type': {'v_range': [['7.6.4', '']], 'choices': ['user', 'ldap-dynamic', 'saml-dynamic'], 'type': 'str'},
-                'users': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'}
+                'users': {'v_range': [['7.6.4', '']], 'type': 'list', 'elements': 'str'},
+                'llm-secure-proxy': {
+                    'v_range': [['7.6.5', '']],
+                    'type': 'dict',
+                    'options': {
+                        'all-llm-servers': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                        'llm-servers': {'v_range': [['7.6.5', '']], 'type': 'list', 'elements': 'str'}
+                    }
+                }
             }
         }
     }

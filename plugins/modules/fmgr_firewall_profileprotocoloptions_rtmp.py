@@ -14,7 +14,7 @@ DOCUMENTATION = '''
 module: fmgr_firewall_profileprotocoloptions_rtmp
 short_description: RTMP.
 description:
-    - This module is able to configure a FortiManager device.
+    - This module is able to configure a FortiManager device (FortiProxy).
     - Examples include all parameters and values which need to be adjusted to data sources before usage.
 version_added: "2.12.0"
 author:
@@ -198,12 +198,12 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_profileprotocoloptions_rtmp': {
             'type': 'dict',
-            'v_range': [['7.4.8', '7.4.8']],
+            'v_range': [['7.4.8', '7.4.10']],
             'options': {
-                'http-tunnel': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ports': {'v_range': [['7.4.8', '7.4.8']], 'type': 'list', 'elements': 'int'},
-                'rtmpt': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'status': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'http-tunnel': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ports': {'v_range': [['7.4.8', '7.4.10']], 'type': 'list', 'elements': 'int'},
+                'rtmpt': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'status': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

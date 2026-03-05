@@ -335,7 +335,7 @@ def main():
                     'choices': ['credit-card', 'ssn', 'regexp', 'file-type', 'file-size', 'fingerprint', 'watermark', 'encrypted', 'file-type-and-size'],
                     'type': 'str'
                 },
-                'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'raw'},
+                'fp-sensitivity': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'raw'},
                 'id': {'required': True, 'type': 'int'},
                 'match-percentage': {'type': 'int'},
                 'name': {'type': 'str'},

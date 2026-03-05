@@ -234,7 +234,7 @@ def main():
                 'type': {'choices': ['time', 'traffic'], 'type': 'str'},
                 'unit': {'choices': ['B', 'KB', 'MB', 'GB'], 'type': 'str'},
                 'value': {'type': 'int'},
-                'reset-frequency': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
+                'reset-frequency': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['daily', 'weekly', 'monthly'], 'type': 'str'}
             }
         }
     }

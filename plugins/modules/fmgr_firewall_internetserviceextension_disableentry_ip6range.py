@@ -205,11 +205,11 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_disableentry_ip6range': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'end-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'start-ip6': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'str'}
+                'end-ip6': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'start-ip6': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'str'}
             }
         }
     }

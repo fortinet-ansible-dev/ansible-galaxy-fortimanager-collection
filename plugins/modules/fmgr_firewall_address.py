@@ -392,6 +392,13 @@ options:
                         aliases: ['tag-uuid']
                         type: str
                         description: Foreign UUID of dynamic address object.
+                    passive_fqdn_learning:
+                        aliases: ['passive-fqdn-learning']
+                        type: str
+                        description: Enable/disable passive learning of FQDNs.
+                        choices:
+                            - 'disable'
+                            - 'enable'
             end_ip:
                 aliases: ['end-ip']
                 type: str
@@ -670,6 +677,13 @@ options:
                 aliases: ['agent-id']
                 type: raw
                 description: (list) Telemetry agent id.
+            passive_fqdn_learning:
+                aliases: ['passive-fqdn-learning']
+                type: str
+                description: Enable/disable passive learning of FQDNs.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -883,7 +897,8 @@ def main():
                         'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
                         'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                         'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                        'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                        'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                        'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                     },
                     'elements': 'dict'
                 },
@@ -930,7 +945,7 @@ def main():
                 'interface': {'v_range': [['6.2.0', '']], 'type': 'str'},
                 'sdn-addr-type': {'v_range': [['6.2.0', '']], 'choices': ['private', 'public', 'all'], 'type': 'str'},
                 'start-mac': {'v_range': [['6.2.0', '']], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 'profile-list': {
                     'v_range': [['6.2.0', '6.2.13']],
                     'type': 'list',
@@ -967,10 +982,11 @@ def main():
                 'route-tag': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
-                'pattern-end': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'pattern-start': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
+                'pattern-end': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'pattern-start': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
                 'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
-                'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'}
+                'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -236,17 +236,17 @@ def main():
         'revision_note': {'type': 'str'},
         'spamfilter_bwl_entries': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
             'options': {
-                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
-                'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
-                'email-pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'int'},
-                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'type': 'str'},
-                'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
-                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'choices': ['ip', 'email'], 'type': 'str'}
+                'action': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['spam', 'clear', 'reject'], 'type': 'str'},
+                'addr-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['ipv4', 'ipv6'], 'type': 'str'},
+                'email-pattern': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'id': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'int'},
+                'ip4-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'ip6-subnet': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'type': 'str'},
+                'pattern-type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['wildcard', 'regexp'], 'type': 'str'},
+                'status': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'choices': ['ip', 'email'], 'type': 'str'}
             }
         }
     }

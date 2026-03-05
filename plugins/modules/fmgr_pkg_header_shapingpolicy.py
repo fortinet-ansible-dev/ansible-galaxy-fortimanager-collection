@@ -491,7 +491,7 @@ def main():
                 'cos': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'cos-mask': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'traffic-type': {'v_range': [['7.4.0', '']], 'choices': ['forwarding', 'local-in', 'local-out'], 'type': 'str'},
-                'http-response-match': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'http-response-match': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }

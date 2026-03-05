@@ -39,12 +39,15 @@ version_added: "1.0.0"
 
 import time
 import json
+import os
 from ansible.plugins.httpapi import HttpApiBase
 from ansible.module_utils.basic import to_text
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import BASE_HEADERS
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGBaseException
 from ansible_collections.fortinet.fortimanager.plugins.module_utils.common import FMGRCommon
 from datetime import datetime
+
+ENABLE_LOG = os.getenv("ANSIBLE_FORTIMANAGER_ENABLE_LOG", "false").lower() in ["true", "1", "yes", "y", "t"]
 
 
 class HttpApi(HttpApiBase):
@@ -79,6 +82,8 @@ class HttpApi(HttpApiBase):
 
     def log(self, msg):
         log_enabled = self.customer_options.get("enable_log", False)
+        if ENABLE_LOG:
+            log_enabled = True
         if not log_enabled:
             return
         if not self._log:
@@ -150,7 +155,8 @@ class HttpApi(HttpApiBase):
             for param in self._prelocking_user_params:
                 self.process_workspace_locking_internal(param)
         else:
-            err_msg = "Can't login. Your login method is %s. Please check whether you provide the correct information." % (self._login_method)
+            err_msg = "Can't login. Your login method is %s. " % (self._login_method)
+            err_msg += "Please check whether you provide the correct information or have necessary permissions."
             raise FMGBaseException(msg=err_msg)
 
     def inspect_fmgr(self):

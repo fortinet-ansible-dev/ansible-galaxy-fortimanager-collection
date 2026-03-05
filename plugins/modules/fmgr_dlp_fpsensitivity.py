@@ -177,8 +177,8 @@ def main():
         'revision_note': {'type': 'str'},
         'dlp_fpsensitivity': {
             'type': 'dict',
-            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']],
-            'options': {'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.8']], 'required': True, 'type': 'str'}}
+            'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']],
+            'options': {'name': {'v_range': [['6.0.0', '7.2.1'], ['7.4.8', '7.4.10']], 'required': True, 'type': 'str'}}
         }
     }
 

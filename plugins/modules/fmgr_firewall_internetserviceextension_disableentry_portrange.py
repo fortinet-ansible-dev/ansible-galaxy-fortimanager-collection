@@ -205,11 +205,11 @@ def main():
         'revision_note': {'type': 'str'},
         'firewall_internetserviceextension_disableentry_portrange': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']],
             'options': {
-                'end-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'required': True, 'type': 'int'},
-                'start-port': {'v_range': [['7.4.7', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'end-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'required': True, 'type': 'int'},
+                'start-port': {'v_range': [['7.4.7', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

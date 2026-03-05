@@ -359,7 +359,7 @@ def main():
                 'interface-select-method': {'v_range': [['6.4.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'user-agent': {'v_range': [['6.4.2', '']], 'type': 'str'},
                 'uuid': {'v_range': [['7.0.0', '']], 'type': 'str'},
-                'server-identity-check': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
+                'server-identity-check': {'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']], 'choices': ['none', 'basic', 'full'], 'type': 'str'},
                 'update-method': {'v_range': [['7.2.1', '']], 'choices': ['feed', 'push'], 'type': 'str'},
                 'address-comment-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'address-data-field': {'v_range': [['7.6.2', '']], 'type': 'str'},
@@ -383,10 +383,10 @@ def main():
                 'namespace': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'object-array-path': {'v_range': [['7.6.2', '']], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
-                'proxy-password': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
-                'proxy-port': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'proxy-username': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'str'},
+                'proxy': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
+                'proxy-password': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'no_log': True, 'type': 'raw'},
+                'proxy-port': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'proxy-username': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'str'},
                 'source-ip-interface': {'v_range': [['7.6.4', '']], 'type': 'raw'}
             }
         }

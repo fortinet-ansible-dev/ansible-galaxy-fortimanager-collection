@@ -227,7 +227,7 @@ def main():
                 'status': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'password-history': {'v_range': [['7.6.0', '']], 'no_log': True, 'type': 'int'},
                 'login-lockout-upon-downgrade': {
-                    'v_range': [['7.2.11', '7.2.11'], ['7.4.7', '7.4.8'], ['7.6.3', '']],
+                    'v_range': [['7.2.11', '7.2.12'], ['7.4.7', '7.4.10'], ['7.6.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 }

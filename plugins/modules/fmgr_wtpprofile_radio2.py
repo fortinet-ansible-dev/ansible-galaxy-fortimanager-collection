@@ -635,6 +635,13 @@ options:
                     - '80MHz'
                     - '40MHz'
                     - '20MHz'
+            ai_darrp_support:
+                aliases: ['ai-darrp-support']
+                type: str
+                description: Enable/disable support for FortiAIOps to retrieve Distributed Automatic Radio Resource Provisioning
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -759,6 +766,7 @@ EXAMPLES = '''
           # channel_bonding_ext: <value in [320MHz-1, 320MHz-2]>
           # d80211mc: <value in [disable, enable]>
           # ap_sniffer_chan_width: <value in [320MHz, 240MHz, 160MHz, ...]>
+          # ai_darrp_support: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -932,7 +940,8 @@ def main():
                 'sam-private-key-password': {'v_range': [['7.4.2', '']], 'no_log': True, 'type': 'raw'},
                 'channel-bonding-ext': {'v_range': [['7.4.3', '']], 'choices': ['320MHz-1', '320MHz-2'], 'type': 'str'},
                 '80211mc': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ap-sniffer-chan-width': {'v_range': [['7.4.4', '']], 'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'], 'type': 'str'}
+                'ap-sniffer-chan-width': {'v_range': [['7.4.4', '']], 'choices': ['320MHz', '240MHz', '160MHz', '80MHz', '40MHz', '20MHz'], 'type': 'str'},
+                'ai-darrp-support': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -451,6 +451,12 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            negate:
+                type: str
+                description: Negate.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -548,6 +554,7 @@ EXAMPLES = '''
           # sso_attribute_value: <string>
           # user_id: <value in [email, auto-generate, specify]>
           # user_name: <value in [disable, enable]>
+          # negate: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -703,7 +710,8 @@ def main():
                 'sslvpn-webapp': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'sso-attribute-value': {'v_range': [['7.0.2', '']], 'type': 'str'},
                 'user-id': {'v_range': [['7.0.2', '']], 'choices': ['email', 'auto-generate', 'specify'], 'type': 'str'},
-                'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'user-name': {'v_range': [['7.0.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'negate': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

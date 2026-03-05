@@ -223,6 +223,40 @@ options:
                 choices:
                     - 'disable'
                     - 'enable'
+            auth_user_header:
+                aliases: ['auth-user-header']
+                type: str
+                description: Auth user header.
+            captcha:
+                type: str
+                description: Captcha.
+                choices:
+                    - 'disable'
+                    - 'enable'
+            captcha_secret_key:
+                aliases: ['captcha-secret-key']
+                type: str
+                description: Captcha secret key.
+            captcha_site_key:
+                aliases: ['captcha-site-key']
+                type: str
+                description: Captcha site key.
+            captcha_vendor:
+                aliases: ['captcha-vendor']
+                type: str
+                description: Captcha vendor.
+                choices:
+                    - 'google-recaptcha-v2-checkbox'
+                    - 'google-recaptcha-v2-invisible'
+                    - 'google-recaptcha-v3'
+                    - 'cloudflare-turnstile'
+            cert_http_header:
+                aliases: ['cert-http-header']
+                type: str
+                description: Enable/disable authentication with user certificate in Client-Cert HTTP header
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -284,6 +318,12 @@ EXAMPLES = '''
           # oidc_server: <list or string>
           # oidc_timeout: <integer>
           # digest_rfc2069: <value in [disable, enable]>
+          # auth_user_header: <string>
+          # captcha: <value in [disable, enable]>
+          # captcha_secret_key: <string>
+          # captcha_site_key: <string>
+          # captcha_vendor: <value in [google-recaptcha-v2-checkbox, google-recaptcha-v2-invisible, google-recaptcha-v3, ...]>
+          # cert_http_header: <value in [disable, enable]>
 '''
 
 RETURN = '''
@@ -370,11 +410,21 @@ def main():
                 'external-idp': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'digest-algo': {'v_range': [['7.6.3', '']], 'type': 'list', 'choices': ['md5', 'sha-256'], 'elements': 'str'},
                 'group-attr-type': {'v_range': [['7.6.3', '']], 'choices': ['display-name', 'external-id'], 'type': 'str'},
-                'search-all-ldap-databases': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'saml-idp-portal': {'v_range': [['7.4.8', '7.4.8']], 'type': 'str'},
+                'search-all-ldap-databases': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'saml-idp-portal': {'v_range': [['7.4.8', '7.4.10']], 'type': 'str'},
                 'oidc-server': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'oidc-timeout': {'v_range': [['7.6.4', '']], 'type': 'int'},
-                'digest-rfc2069': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'digest-rfc2069': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'auth-user-header': {'v_range': [['7.4.9', '7.4.10'], ['7.6.5', '']], 'type': 'str'},
+                'captcha': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'captcha-secret-key': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'str'},
+                'captcha-site-key': {'v_range': [['7.6.5', '']], 'no_log': True, 'type': 'str'},
+                'captcha-vendor': {
+                    'v_range': [['7.6.5', '']],
+                    'choices': ['google-recaptcha-v2-checkbox', 'google-recaptcha-v2-invisible', 'google-recaptcha-v3', 'cloudflare-turnstile'],
+                    'type': 'str'
+                },
+                'cert-http-header': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

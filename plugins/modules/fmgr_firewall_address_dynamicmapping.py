@@ -367,6 +367,13 @@ options:
                 aliases: ['tag-uuid']
                 type: str
                 description: Foreign UUID of dynamic address object.
+            passive_fqdn_learning:
+                aliases: ['passive-fqdn-learning']
+                type: str
+                description: Enable/disable passive learning of FQDNs.
+                choices:
+                    - 'disable'
+                    - 'enable'
 '''
 
 EXAMPLES = '''
@@ -547,7 +554,8 @@ def main():
                 'sw-version': {'v_range': [['7.4.0', '']], 'type': 'str'},
                 'sso-attribute-value': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'agent-id': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'}
+                'tag-uuid': {'v_range': [['7.6.4', '']], 'type': 'str'},
+                'passive-fqdn-learning': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

@@ -701,7 +701,7 @@ def main():
                 'application': {'v_range': [['6.2.0', '7.2.5'], ['7.4.0', '7.4.2']], 'type': 'raw'},
                 'application-list': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'auto-asic-offload': {
-                    'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
+                    'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
@@ -738,7 +738,7 @@ def main():
                 'ips-sensor': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'logtraffic': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'all', 'utm'], 'type': 'str'},
                 'logtraffic-start': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'mms-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'mms-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'name': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'nat': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'outbound': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -747,7 +747,7 @@ def main():
                 'poolname4': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'poolname6': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'profile-group': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
-                'profile-protocol-options': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'profile-protocol-options': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'profile-type': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['single', 'group'], 'type': 'str'},
                 'schedule': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'service': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
@@ -755,9 +755,9 @@ def main():
                 'srcaddr4': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'srcaddr6': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
                 'srcintf': {'v_range': [['6.2.0', '7.6.2']], 'type': 'raw'},
-                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'ssh-filter-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'ssh-policy-redirect': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssl-ssh-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'ssl-ssh-profile': {'v_range': [['6.2.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
                 'status': {'v_range': [['6.2.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'tcp-mss-receiver': {'v_range': [['6.2.0', '7.6.2']], 'type': 'int'},
                 'tcp-mss-sender': {'v_range': [['6.2.0', '7.6.2']], 'type': 'int'},
@@ -770,22 +770,22 @@ def main():
                 'voip-profile': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'vpntunnel': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
                 'waf-profile': {'v_range': [['6.2.0', '7.6.2']], 'type': 'str'},
-                'wanopt': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'wanopt-detection': {
-                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
+                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']],
                     'choices': ['active', 'passive', 'off'],
                     'type': 'str'
                 },
                 'wanopt-passive-opt': {
-                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
+                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']],
                     'choices': ['default', 'transparent', 'non-transparent'],
                     'type': 'str'
                 },
-                'wanopt-peer': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
-                'wanopt-profile': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'type': 'str'},
-                'webcache': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'wanopt-peer': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'wanopt-profile': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'type': 'str'},
+                'webcache': {'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'webcache-https': {
-                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '7.6.2']],
+                    'v_range': [['6.2.1', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '7.6.2']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },

@@ -780,6 +780,7 @@ options:
                                     - 'capwap'
                                     - 'fabric'
                                     - 'scim'
+                                    - 'probe-response'
                             ip6_default_life:
                                 aliases: ['ip6-default-life']
                                 type: int
@@ -830,6 +831,13 @@ options:
                                         aliases: ['delegated-prefix-iaid']
                                         type: int
                                         description: IAID of obtained delegated-prefix from the upstream interface.
+                                    dnssl_service:
+                                        aliases: ['dnssl-service']
+                                        type: str
+                                        description: Enable/disable use of domain from delegated prefix for DNSSL.
+                                        choices:
+                                            - 'disable'
+                                            - 'enable'
                             ip6_dns_server_override:
                                 aliases: ['ip6-dns-server-override']
                                 type: str
@@ -1442,6 +1450,7 @@ EXAMPLES = '''
           #       - "capwap"
           #       - "fabric"
           #       - "scim"
+          #       - "probe-response"
           #     ip6_default_life: <integer>
           #     ip6_delegated_prefix_list:
           #       - autonomous_flag: <value in [disable, enable]>
@@ -1452,6 +1461,7 @@ EXAMPLES = '''
           #         subnet: <string>
           #         upstream_interface: <string>
           #         delegated_prefix_iaid: <integer>
+          #         dnssl_service: <value in [disable, enable]>
           #     ip6_dns_server_override: <value in [disable, enable]>
           #     ip6_extra_addr:
           #       - prefix: <string>
@@ -1813,7 +1823,7 @@ def main():
                                 'ip6-allowaccess': {
                                     'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']],
                                     'type': 'list',
-                                    'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric', 'scim'],
+                                    'choices': ['https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'capwap', 'fabric', 'scim', 'probe-response'],
                                     'elements': 'str'
                                 },
                                 'ip6-default-life': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'int'},
@@ -1836,7 +1846,8 @@ def main():
                                         },
                                         'subnet': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
                                         'upstream-interface': {'v_range': [['6.2.8', '6.2.13'], ['6.4.5', '']], 'type': 'str'},
-                                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'}
+                                        'delegated-prefix-iaid': {'v_range': [['7.0.2', '']], 'type': 'int'},
+                                        'dnssl-service': {'v_range': [['7.6.5', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
                                     },
                                     'elements': 'dict'
                                 },
@@ -1988,7 +1999,7 @@ def main():
                             'elements': 'dict'
                         },
                         'allowaccess': {
-                            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+                            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
                             'type': 'list',
                             'choices': [
                                 'https', 'ping', 'ssh', 'snmp', 'http', 'telnet', 'fgfm', 'radius-acct', 'probe-response', 'dnp', 'ftm', 'fabric',
@@ -1996,7 +2007,11 @@ def main():
                             ],
                             'elements': 'str'
                         },
-                        'dhcp-relay-request-all-server': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                        'dhcp-relay-request-all-server': {
+                            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
+                            'choices': ['disable', 'enable'],
+                            'type': 'str'
+                        }
                     }
                 }
             }

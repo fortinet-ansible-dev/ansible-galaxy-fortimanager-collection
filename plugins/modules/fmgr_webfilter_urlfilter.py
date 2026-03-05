@@ -345,7 +345,7 @@ def main():
                 'name': {'type': 'str'},
                 'one-arm-ips-urlfilter': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'ip4-mapped-ip6': {'v_range': [['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'include-subdomains': {'v_range': [['7.4.8', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
+                'include-subdomains': {'v_range': [['7.4.8', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'}
             }
         }
     }

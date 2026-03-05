@@ -1603,6 +1603,9 @@ options:
                     - 'wanopt'
                     - 'access-proxy'
                     - 'ztna-proxy'
+                    - 'explicit-web-connect'
+                    - 'transparent-connect'
+                    - 'llm-proxy'
             udp_timeout_pid:
                 aliases: ['udp-timeout-pid']
                 type: raw
@@ -1945,6 +1948,10 @@ options:
                 aliases: ['scim-users']
                 type: raw
                 description: (list) Names of SCIM users.
+            llm_profile:
+                aliases: ['llm-profile']
+                type: raw
+                description: (list) Llm profile.
 '''
 
 EXAMPLES = '''
@@ -2342,15 +2349,18 @@ def main():
                 'transparent': {'v_range': [['7.0.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'type': {
                     'v_range': [['7.0.3', '']],
-                    'choices': ['explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh', 'wanopt', 'access-proxy', 'ztna-proxy'],
+                    'choices': [
+                        'explicit-web', 'transparent', 'explicit-ftp', 'ssh-tunnel', 'ssh', 'wanopt', 'access-proxy', 'ztna-proxy',
+                        'explicit-web-connect', 'transparent-connect', 'llm-proxy'
+                    ],
                     'type': 'str'
                 },
                 'udp-timeout-pid': {'v_range': [['7.0.3', '']], 'type': 'raw'},
                 'ztna-tags-match-logic': {'v_range': [['7.0.3', '']], 'choices': ['or', 'and'], 'type': 'str'},
                 'uuid-idx': {'v_range': [['7.0.1', '']], 'type': 'int'},
-                'device-ownership': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.15'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'extended-log': {'v_range': [['7.0.11', '7.0.15'], ['7.2.5', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'device-ownership': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'ssh-policy-check': {'v_range': [['7.0.5', '7.0.16'], ['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'extended-log': {'v_range': [['7.0.11', '7.0.16'], ['7.2.5', '7.2.12'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'diffserv-copy': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'dstaddr6-negate': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'internet-service6': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
@@ -2393,15 +2403,15 @@ def main():
                 'eif-check': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'eif-learn': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'radius-ip-auth-bypass': {'v_range': [['7.6.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-risk': {'v_range': [['7.4.4', '7.4.8'], ['7.6.2', '']], 'type': 'raw'},
+                'url-risk': {'v_range': [['7.4.4', '7.4.10'], ['7.6.2', '']], 'type': 'raw'},
                 'app-monitor': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'port-random': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'ztna-ems-tag-negate': {'v_range': [['7.6.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'https-sub-category': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'https-sub-category': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'service-connector': {'v_range': [['7.6.3', '']], 'type': 'raw'},
                 'telemetry-profile': {'v_range': [['7.6.3', '']], 'type': 'raw'},
                 'ztna-proxy': {'v_range': [['7.6.3', '']], 'type': 'raw'},
-                'explicit-web-proxy': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
+                'explicit-web-proxy': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
                 'internet-service-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'internet-service-src-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'internet-service6-fortiguard': {'v_range': [['7.6.4', '']], 'type': 'raw'},
@@ -2409,7 +2419,8 @@ def main():
                 'saml-server': {'v_range': [['7.6.4', '']], 'type': 'raw'},
                 'scim': {'v_range': [['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'scim-groups': {'v_range': [['7.6.4', '']], 'type': 'raw'},
-                'scim-users': {'v_range': [['7.6.4', '']], 'type': 'raw'}
+                'scim-users': {'v_range': [['7.6.4', '']], 'type': 'raw'},
+                'llm-profile': {'v_range': [['7.6.5', '']], 'type': 'raw'}
             }
         }
     }

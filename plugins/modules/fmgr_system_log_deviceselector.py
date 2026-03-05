@@ -217,16 +217,16 @@ def main():
     module_arg_spec = {
         'system_log_deviceselector': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
             'options': {
-                'action': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
-                'comment': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                'devid': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                'expire': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                'id': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'required': True, 'type': 'int'},
-                'srcip': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'str'},
-                'srcip-mode': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['UDP514', 'TCP514', 'any'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['unspecified', 'devid', 'srcip'], 'type': 'str'}
+                'action': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['include', 'exclude'], 'type': 'str'},
+                'comment': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                'devid': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                'expire': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                'id': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'required': True, 'type': 'int'},
+                'srcip': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'str'},
+                'srcip-mode': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['UDP514', 'TCP514', 'any'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['unspecified', 'devid', 'srcip'], 'type': 'str'}
             }
         }
     }

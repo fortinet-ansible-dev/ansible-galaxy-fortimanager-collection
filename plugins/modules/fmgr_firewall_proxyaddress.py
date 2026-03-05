@@ -205,6 +205,7 @@ options:
                     - 'url-list'
                     - 'saas'
                     - 'response-header'
+                    - 'llm-server'
             ua:
                 type: list
                 elements: str
@@ -255,6 +256,10 @@ options:
                 aliases: ['url-list']
                 type: raw
                 description: (list) Url list.
+            llm_servers:
+                aliases: ['llm-servers']
+                type: raw
+                description: (list) Llm servers.
 '''
 
 EXAMPLES = '''
@@ -389,20 +394,22 @@ def main():
                 },
                 'type': {
                     'choices': [
-                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header'
+                        'host-regex', 'url', 'category', 'method', 'ua', 'header', 'src-advanced', 'dst-advanced', 'url-list', 'saas', 'response-header',
+                        'llm-server'
                     ],
                     'type': 'str'
                 },
                 'ua': {'type': 'list', 'choices': ['chrome', 'ms', 'firefox', 'safari', 'other', 'ie', 'edge'], 'elements': 'str'},
                 'uuid': {'type': 'str'},
                 'visibility': {'v_range': [['6.0.0', '7.6.2']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.8']], 'type': 'str'},
+                'tags': {'v_range': [['6.2.0', '6.4.15'], ['7.4.8', '7.4.10']], 'type': 'str'},
                 '_image-base64': {'v_range': [['6.2.2', '']], 'type': 'str'},
                 'application': {'v_range': [['7.2.1', '']], 'type': 'raw'},
                 'ua-max-ver': {'v_range': [['7.2.2', '']], 'type': 'str'},
                 'ua-min-ver': {'v_range': [['7.2.2', '']], 'type': 'str'},
-                'post-arg': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'url-list': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'}
+                'post-arg': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'url-list': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'llm-servers': {'v_range': [['7.6.5', '']], 'type': 'raw'}
             }
         }
     }

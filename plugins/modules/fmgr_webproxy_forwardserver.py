@@ -304,10 +304,10 @@ def main():
                 'interface': {'v_range': [['7.6.2', '']], 'type': 'raw'},
                 'interface-select-method': {'v_range': [['7.6.2', '']], 'choices': ['auto', 'sdwan', 'specify'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
-                'ippool': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'raw'},
-                'protocol': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
-                'authentication': {'v_range': [['7.4.8', '7.4.8']], 'choices': ['disabled', 'immediately', 'upon-challenge'], 'type': 'str'},
-                'user': {'v_range': [['7.4.8', '7.4.8']], 'type': 'str'}
+                'ippool': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'raw'},
+                'protocol': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'list', 'choices': ['http', 'ftp', 'socks'], 'elements': 'str'},
+                'authentication': {'v_range': [['7.4.8', '7.4.10']], 'choices': ['disabled', 'immediately', 'upon-challenge'], 'type': 'str'},
+                'user': {'v_range': [['7.4.8', '7.4.10']], 'type': 'str'}
             }
         }
     }

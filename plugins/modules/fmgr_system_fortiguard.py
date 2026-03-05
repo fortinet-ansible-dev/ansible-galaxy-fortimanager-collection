@@ -722,19 +722,19 @@ def main():
                 'auto-firmware-upgrade-start-hour': {'v_range': [['7.2.1', '']], 'type': 'int'},
                 'sandbox-inline-scan': {'v_range': [['7.2.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'auto-firmware-upgrade-delay': {'v_range': [['7.2.4', '']], 'type': 'int'},
-                'gui-prompt-auto-upgrade': {'v_range': [['7.2.4', '7.2.11'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'gui-prompt-auto-upgrade': {'v_range': [['7.2.4', '7.2.12'], ['7.4.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'FDS-license-expiring-days': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'antispam-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'outbreak-prevention-cache-mpermille': {'v_range': [['7.4.0', '']], 'type': 'int'},
                 'update-dldb': {'v_range': [['7.4.0', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'vrf-select': {'v_range': [['7.6.2', '']], 'type': 'int'},
                 'subscribe-update-notification': {'v_range': [['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'dlp-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'dlp-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'fnbi-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'fnbi-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'ia-expiration': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'},
-                'ia-license': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'dlp-expiration': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'dlp-license': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'fnbi-expiration': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'fnbi-license': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'ia-expiration': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'ia-license': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'}
             }
         }
     }

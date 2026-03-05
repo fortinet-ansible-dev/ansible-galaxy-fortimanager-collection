@@ -420,7 +420,7 @@ def main():
                 'add-nat64-route': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'cgn-client-ipv6shift': {'v_range': [['6.2.9', '6.2.13'], ['6.4.7', '6.4.15'], ['7.0.2', '']], 'type': 'int'},
                 'nat64': {'v_range': [['7.0.1', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.15'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'subnet-broadcast-in-ippool': {'v_range': [['7.0.5', '7.0.16'], ['7.2.2', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
                 'exclude-ip': {'v_range': [['7.2.2', '']], 'type': 'raw'},
                 'pba-interim-log': {'v_range': [['7.4.3', '']], 'type': 'int'},
                 'client-prefix-length': {'v_range': [['7.6.0', '']], 'type': 'int'},

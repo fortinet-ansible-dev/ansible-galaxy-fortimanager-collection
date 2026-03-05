@@ -200,7 +200,7 @@ def main():
                 'latest-patch-level': {'type': 'str'},
                 'name': {'type': 'str'},
                 'tolerance': {'type': 'int'},
-                'minor-version': {'v_range': [['7.2.10', '7.2.11'], ['7.4.7', '']], 'type': 'int'}
+                'minor-version': {'v_range': [['7.2.10', '7.2.12'], ['7.4.7', '']], 'type': 'int'}
             }
         }
     }

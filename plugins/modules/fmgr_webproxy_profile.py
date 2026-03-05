@@ -231,6 +231,14 @@ options:
                 aliases: ['max-cache-object-size']
                 type: int
                 description: Max cache object size.
+            header_client_cert:
+                aliases: ['header-client-cert']
+                type: str
+                description: Action to take on the HTTP Client-Cert/Client-Cert-Chain headers in forwarded responses
+                choices:
+                    - 'pass'
+                    - 'add'
+                    - 'remove'
 '''
 
 EXAMPLES = '''
@@ -277,6 +285,7 @@ EXAMPLES = '''
           # strip_encoding: <value in [disable, enable]>
           # header_x_forwarded_client_cert: <value in [pass, add, remove]>
           # max_cache_object_size: <integer>
+          # header_client_cert: <value in [pass, add, remove]>
 '''
 
 RETURN = '''
@@ -374,7 +383,8 @@ def main():
                 'name': {'required': True, 'type': 'str'},
                 'strip-encoding': {'choices': ['disable', 'enable'], 'type': 'str'},
                 'header-x-forwarded-client-cert': {'v_range': [['7.0.1', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'},
-                'max-cache-object-size': {'v_range': [['7.4.8', '7.4.8'], ['7.6.4', '']], 'type': 'int'}
+                'max-cache-object-size': {'v_range': [['7.4.8', '7.4.10'], ['7.6.4', '']], 'type': 'int'},
+                'header-client-cert': {'v_range': [['7.6.5', '']], 'choices': ['pass', 'add', 'remove'], 'type': 'str'}
             }
         }
     }

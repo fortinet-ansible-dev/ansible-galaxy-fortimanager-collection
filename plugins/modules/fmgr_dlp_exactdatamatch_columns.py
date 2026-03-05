@@ -197,11 +197,11 @@ def main():
         'revision_note': {'type': 'str'},
         'dlp_exactdatamatch_columns': {
             'type': 'dict',
-            'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']],
+            'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']],
             'options': {
-                'index': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'int'},
-                'optional': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
-                'type': {'v_range': [['7.4.7', '7.4.8'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
+                'index': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'int'},
+                'optional': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'choices': ['disable', 'enable'], 'type': 'str'},
+                'type': {'v_range': [['7.4.7', '7.4.10'], ['7.6.3', '']], 'type': 'list', 'elements': 'str'}
             }
         }
     }

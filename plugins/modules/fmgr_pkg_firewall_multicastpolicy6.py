@@ -278,7 +278,7 @@ def main():
             'options': {
                 'action': {'choices': ['deny', 'accept'], 'type': 'str'},
                 'auto-asic-offload': {
-                    'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.11'], ['7.4.3', '']],
+                    'v_range': [['6.0.0', '7.2.0'], ['7.2.6', '7.2.12'], ['7.4.3', '']],
                     'choices': ['disable', 'enable'],
                     'type': 'str'
                 },
